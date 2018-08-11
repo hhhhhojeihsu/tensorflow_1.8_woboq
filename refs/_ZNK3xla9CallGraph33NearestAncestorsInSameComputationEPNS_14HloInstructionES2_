@@ -1,0 +1,26 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='229' type='std::pair&lt;HloInstruction *, HloInstruction *&gt; xla::CallGraph::NearestAncestorsInSameComputation(xla::HloInstruction * a, xla::HloInstruction * b) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='206'>// Returns the nearest call graph ancestors of instructions &apos;a&apos; and &apos;b&apos; for
+  // which the ancestors are in the same computation. An instruction is an call
+  // graph ancestor of &apos;a&apos; if the instruction calls the computation containing
+  // &apos;a&apos; either directly or transitively. Degeneratively an instruction is an
+  // ancestor of itself. nullptr is returned if there is no common ancestor or
+  // if the caller chain of &apos;a&apos; or &apos;b&apos; diverges (has multiple callers) before
+  // the nearest common ancestor.
+  //
+  // Example:
+  //
+  // Entry computation:
+  //   %x = Call(A, {Constant(42.0)})
+  //   %y = Call(B, {%x})
+  //
+  // Computation A:
+  //   %a = Negate(Param())
+  //
+  // Computation B:
+  //   %b = Exp(Param());
+  //
+  // If called with %a and %b, this function would return (%x, %y). %x is an
+  // ancestor of %a, and %y is an ancestor of %b, and %x and %y are in the same
+  // computation.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='325' ll='353' type='std::pair&lt;HloInstruction *, HloInstruction *&gt; xla::CallGraph::NearestAncestorsInSameComputation(xla::HloInstruction * a, xla::HloInstruction * b) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='44' u='c' c='_ZNK3xla11HloOrdering14ExecutesBeforeEPKNS_14HloInstructionES3_'/>

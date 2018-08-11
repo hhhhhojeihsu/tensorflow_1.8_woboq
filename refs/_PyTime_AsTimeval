@@ -1,0 +1,5 @@
+<dec f='include/python3.5m/pytime.h' l='111' type='int _PyTime_AsTimeval(_PyTime_t t, struct timeval * tv, _PyTime_round_t round)'/>
+<doc f='include/python3.5m/pytime.h' l='107'>/* Convert a timestamp to a timeval structure (microsecond resolution).
+   tv_usec is always positive.
+   Raise an exception and return -1 if the conversion overflowed,
+   return 0 on success. */</doc>

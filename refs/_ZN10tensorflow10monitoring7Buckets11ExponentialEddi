@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='84' type='static std::unique_ptr&lt;Buckets&gt; tensorflow::monitoring::Buckets::Exponential(double scale, double growth_factor, int bucket_count)'/>
+<def f='tensorflow/tensorflow/core/lib/monitoring/sampler.cc' l='102' ll='107' type='static std::unique_ptr&lt;Buckets&gt; tensorflow::monitoring::Buckets::Exponential(double scale, double growth_factor, int bucket_count)'/>
+<doc f='tensorflow/tensorflow/core/lib/monitoring/sampler.cc' l='101'>// static</doc>
+<doc f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='79'>// Sets up buckets of the form:
+  // [-DBL_MAX, ..., scale * growth^i,
+  //   scale * growth_factor^(i + 1), ..., DBL_MAX].
+  //
+  // So for powers of 2 with a bucket count of 10, you would say (1, 2, 10)</doc>

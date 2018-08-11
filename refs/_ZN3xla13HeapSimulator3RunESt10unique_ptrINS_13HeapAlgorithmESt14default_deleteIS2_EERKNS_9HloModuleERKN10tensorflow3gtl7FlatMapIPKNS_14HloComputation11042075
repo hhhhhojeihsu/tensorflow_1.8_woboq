@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='96' type='static StatusOr&lt;xla::HeapSimulator::Result&gt; xla::HeapSimulator::Run(std::unique_ptr&lt;HeapAlgorithm&gt; algorithm, const xla::HloModule &amp; module, const SequentialHloOrdering::HloModuleSequence &amp; module_sequence, const xla::TuplePointsToAnalysis &amp; points_to_analysis, const LogicalBuffer::SizeFunction &amp; size_fn, const xla::HeapSimulator::Options &amp; options = xla::HeapSimulator::Options())'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1190' u='c' c='_ZN3xla14BufferAssigner35AssignBuffersWithSequentialOrderingERKN10tensorflow3gtl7FlatMapIPKNS_14HloComputationENS2_7FlatSetIPKNS_13LogicalBufferENS1_41354386'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='87'>// Run the heap simulation with the given algorithm, assuming the given
+  // module_sequence, which must contain a topologically-consistent total
+  // ordering of all instructions within each computation. The result is invalid
+  // if instructions are not run in exactly this sequence.
+  //
+  // Running heap simulation on the whole module tends to save memory, compared
+  // to running on a per-computation basis, since we can re-use buffer space for
+  // called sub-computations.
+  //</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='31' ll='43' type='static StatusOr&lt;HeapSimulator::Result&gt; xla::HeapSimulator::Run(std::unique_ptr&lt;HeapAlgorithm&gt; algorithm, const xla::HloModule &amp; module, const SequentialHloOrdering::HloModuleSequence &amp; module_sequence, const xla::TuplePointsToAnalysis &amp; points_to_analysis, const LogicalBuffer::SizeFunction &amp; size_fn, const xla::HeapSimulator::Options &amp; options = xla::HeapSimulator::Options())'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='30'>/*static*/</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_scheduling.cc' l='57' u='c' c='_ZN3xla24MinimumMemoryForSequenceERKN10tensorflow3gtl7FlatMapIPKNS_14HloComputationESt6vectorIPKNS_14HloInstructionESaIS9_EENS0_4hashIS5_EESt8equal_to4123410'/>

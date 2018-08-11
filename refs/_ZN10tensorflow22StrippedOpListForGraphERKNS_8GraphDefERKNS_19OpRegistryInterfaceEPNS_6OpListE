@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/framework/graph_def_util.h' l='115' type='tensorflow::Status tensorflow::StrippedOpListForGraph(const tensorflow::GraphDef &amp; graph_def, const tensorflow::OpRegistryInterface &amp; op_registry, tensorflow::OpList * stripped_op_list)'/>
+<doc f='tensorflow/tensorflow/core/framework/graph_def_util.h' l='106'>// This function computes the stripped_op_list field of MetaGraphDef
+// and similar protos.  The op_registry should contain the ops used to
+// produce graph_def.  The resulting stripped_op_list can be
+// communicated from the producer to the consumer, which can use
+// RemoveNewDefaultAttrsFromGraphDef() to improve forwards compatibility
+// (using an OpListOpRegistry as indicated in the example above).
+//
+// Most users will pass *OpRegistry::Global() for op_registry to strip against
+// the list of ops registered in this process.</doc>
+<def f='tensorflow/tensorflow/core/framework/graph_def_util.cc' l='211' ll='227' type='tensorflow::Status tensorflow::StrippedOpListForGraph(const tensorflow::GraphDef &amp; graph_def, const tensorflow::OpRegistryInterface &amp; op_registry, tensorflow::OpList * stripped_op_list)'/>

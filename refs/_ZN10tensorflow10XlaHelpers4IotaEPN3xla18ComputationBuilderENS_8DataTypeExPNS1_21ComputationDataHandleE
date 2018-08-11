@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.h' l='96' type='static tensorflow::Status tensorflow::XlaHelpers::Iota(xla::ComputationBuilder * builder, tensorflow::DataType dtype, int64 size, xla::ComputationDataHandle * iota)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.h' l='95'>// Sets *iota to a rank 1 tensor with values [0, 1, 2, ...] of `dtype`.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/conv_ops.cc' l='101' u='c' c='_ZN10tensorflow12_GLOBAL__N_124CreateExpandedFilterMaskERKNS_11TensorShapeEPN3xla18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/conv_ops.cc' l='104' u='c' c='_ZN10tensorflow12_GLOBAL__N_124CreateExpandedFilterMaskERKNS_11TensorShapeEPN3xla18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/diag_op.cc' l='43' u='c' c='_ZN10tensorflow12_GLOBAL__N_114CreateDiagonalERKN3xla21ComputationDataHandleExNS_3gtl10ArraySliceIxEEPNS_18XlaOpKernelContextEPNS1_18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/extract_image_patches_op.cc' l='114' u='c' c='_ZN10tensorflow12_GLOBAL__N_121ExtractImagePatchesOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='126' u='c' c='_ZN10tensorflow12_GLOBAL__N_124MakeBilinearResizeKernelEPN3xla18ComputationBuilderENS_3gtl10ArraySliceIxEEx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_band_part_op.cc' l='62' u='c' c='_ZN10tensorflow12_GLOBAL__N_116MatrixBandPartOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_band_part_op.cc' l='65' u='c' c='_ZN10tensorflow12_GLOBAL__N_116MatrixBandPartOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_set_diag_op.cc' l='65' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_set_diag_op.cc' l='67' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reverse_sequence_op.cc' l='160' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReverseSequenceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stateless_random_ops.cc' l='139' u='c' c='_ZN10tensorflow12_GLOBAL__N_113RandomUniformEPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleERKNS_11TensorShapeEdd'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='78' u='c' c='_ZN10tensorflow12_GLOBAL__N_19ArgMinMaxEPN3xla18ComputationBuilderEPNS_18XlaOpKernelContextERKNS1_21ComputationDataHandleERKNS_11TensorShapeENS_8DataTypeESC_ibPS6_'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='206' ll='228' type='static tensorflow::Status tensorflow::XlaHelpers::Iota(xla::ComputationBuilder * builder, tensorflow::DataType dtype, int64 size, xla::ComputationDataHandle * iota)'/>

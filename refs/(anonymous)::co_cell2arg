@@ -1,0 +1,9 @@
+<dec f='include/python3.5m/code.h' l='30' type='unsigned char *'/>
+<offset>704</offset>
+<doc f='include/python3.5m/code.h' l='24'>/* The rest aren&apos;t used in either hash or comparisons, except for
+       co_name (used in both) and co_firstlineno (used only in
+       comparisons).  This is done to preserve the name and line number
+       for tracebacks and debuggers; otherwise, constant de-duplication
+       would collapse identical functions/lambdas defined on different lines.
+    */</doc>
+<doc f='include/python3.5m/code.h' l='30'>/* Maps cell vars which are arguments. */</doc>

@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='273' type='bool perftools::gputools::blas::BlasSupport::DoBlasRot(perftools::gputools::Stream * stream, uint64 elem_count, DeviceMemory&lt;float&gt; * x, int incx, DeviceMemory&lt;float&gt; * y, int incy, float c, float s)'/>
+<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='270'>// Performs rotation of points in the plane:
+  // x(i) = c*x(i) + s*y(i)
+  // y(i) = c*y(i) - s*x(i).</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='2289' u='a' c='_ZN9perftools8gputools6Stream11ThenBlasRotEyPNS0_12DeviceMemoryIfEEiS4_iff'/>

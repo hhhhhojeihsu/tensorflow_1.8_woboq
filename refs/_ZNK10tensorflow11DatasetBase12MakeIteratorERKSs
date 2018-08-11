@@ -1,0 +1,99 @@
+<dec f='tensorflow/tensorflow/core/framework/dataset.h' l='409' type='std::unique_ptr&lt;IteratorBase&gt; tensorflow::DatasetBase::MakeIterator(const string &amp; prefix) const'/>
+<ovr f='tensorflow/tensorflow/contrib/data/kernels/ignore_errors_dataset_op.cc' l='47' c='_ZNK10tensorflow12_GLOBAL__N_121IgnoreErrorsDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/contrib/data/kernels/ignore_errors_dataset_op.cc' l='76' u='c' c='_ZN10tensorflow12_GLOBAL__N_121IgnoreErrorsDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<doc f='tensorflow/tensorflow/core/framework/dataset.h' l='397'>// Returns a new iterator for iterating over the range of elements in
+  // this dataset.
+  //
+  // This method may be called multiple times on the same instance,
+  // and the resulting iterators will have distinct state. Each
+  // iterator will traverse all elements in this dataset from the
+  // start.
+  //
+  // Ownership of the created iterator will be transferred to the caller.
+  //
+  // The prefix identifies the sequence of iterators leading up to the newly
+  // created iterator.</doc>
+<ovr f='tensorflow/tensorflow/contrib/data/kernels/threadpool_dataset_op.cc' l='130' c='_ZNK10tensorflow12_GLOBAL__N_119ThreadPoolDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/contrib/data/kernels/threadpool_dataset_op.cc' l='158' u='c' c='_ZN10tensorflow12_GLOBAL__N_119ThreadPoolDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/contrib/data/kernels/unique_dataset_op.cc' l='59' c='_ZNK10tensorflow12_GLOBAL__N_115UniqueDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/contrib/data/kernels/unique_dataset_op.cc' l='91' u='c' c='_ZN10tensorflow12_GLOBAL__N_115UniqueDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/batch_dataset_op.cc' l='64' c='_ZNK10tensorflow12_GLOBAL__N_114BatchDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/batch_dataset_op.cc' l='99' u='c' c='_ZN10tensorflow12_GLOBAL__N_114BatchDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/cache_dataset_ops.cc' l='67' c='_ZNK10tensorflow12_GLOBAL__N_114CacheDatasetOp11FileDataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/cache_dataset_ops.cc' l='109' u='c' c='_ZN10tensorflow12_GLOBAL__N_114CacheDatasetOp11FileDataset18FileWriterIteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/cache_dataset_ops.cc' l='271' c='_ZNK10tensorflow12_GLOBAL__N_114CacheDatasetOp13MemoryDataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/cache_dataset_ops.cc' l='308' u='c' c='_ZN10tensorflow12_GLOBAL__N_114CacheDatasetOp13MemoryDataset20MemoryWriterIteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/concatenate_dataset_op.cc' l='64' c='_ZNK10tensorflow12_GLOBAL__N_120ConcatenateDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/concatenate_dataset_op.cc' l='99' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ConcatenateDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/concatenate_dataset_op.cc' l='117' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ConcatenateDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/concatenate_dataset_op.cc' l='150' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ConcatenateDatasetOp7Dataset8Iterator15RestoreInternalEPNS_15IteratorContextEPNS_19IteratorStateReaderE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/dataset_utils.cc' l='43' u='c' c='_ZN10tensorflow7dataset28MakeIteratorFromInputElementEPNS_15IteratorContextERKSt6vectorINS_6TensorESaIS4_EExPNS_16CapturedFunctionENS_11StringPieceEPS5829945'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/dense_to_sparse_batch_dataset_op.cc' l='97' c='_ZNK10tensorflow12_GLOBAL__N_127DenseToSparseBatchDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/filter_dataset_op.cc' l='96' c='_ZNK10tensorflow12_GLOBAL__N_115FilterDatasetOp17FilterDatasetBase12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/filter_dataset_op.cc' l='149' u='c' c='_ZN10tensorflow12_GLOBAL__N_115FilterDatasetOp17FilterDatasetBase8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/flat_map_dataset_op.cc' l='77' c='_ZNK10tensorflow12_GLOBAL__N_116FlatMapDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/flat_map_dataset_op.cc' l='129' u='c' c='_ZN10tensorflow12_GLOBAL__N_116FlatMapDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/flat_map_dataset_op.cc' l='205' u='c' c='_ZN10tensorflow12_GLOBAL__N_116FlatMapDatasetOp7Dataset8Iterator15RestoreInternalEPNS_15IteratorContextEPNS_19IteratorStateReaderE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/generator_dataset_op.cc' l='102' c='_ZNK10tensorflow12_GLOBAL__N_118GeneratorDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='121' c='_ZNK10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='202' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='487' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset8Iterator18StartFlushingGroupEPNS_15IteratorContextEx'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/interleave_dataset_op.cc' l='99' c='_ZNK10tensorflow12_GLOBAL__N_119InterleaveDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/interleave_dataset_op.cc' l='152' u='c' c='_ZN10tensorflow12_GLOBAL__N_119InterleaveDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/iterator_ops.cc' l='160' u='c' c='_ZN10tensorflow12_GLOBAL__N_116IteratorResource7RestoreEPNS_15OpKernelContextEPNS_19IteratorStateReaderE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/iterator_ops.cc' l='591' u='c' c='_ZN10tensorflow12_GLOBAL__N_114MakeIteratorOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/iterator_ops.cc' l='614' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ToSingleElementOp12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/iterator_ops.cc' l='811' u='c' c='_ZN10tensorflow12_GLOBAL__N_117OneShotIteratorOp7TryInitEPNS_15OpKernelContextEPPNS0_16IteratorResourceEPNS_13ContainerInfoE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/map_and_batch_dataset_op.cc' l='104' c='_ZNK10tensorflow12_GLOBAL__N_120MapAndBatchDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/map_and_batch_dataset_op.cc' l='125' u='c' c='_ZN10tensorflow12_GLOBAL__N_120MapAndBatchDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/map_dataset_op.cc' l='76' c='_ZNK10tensorflow12_GLOBAL__N_112MapDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/map_dataset_op.cc' l='127' u='c' c='_ZN10tensorflow12_GLOBAL__N_112MapDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/padded_batch_dataset_op.cc' l='122' c='_ZNK10tensorflow12_GLOBAL__N_120PaddedBatchDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/padded_batch_dataset_op.cc' l='190' u='c' c='_ZN10tensorflow12_GLOBAL__N_120PaddedBatchDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/padded_batch_dataset_op.cc' l='328' u='c' c='_ZN10tensorflow12_GLOBAL__N_120PaddedBatchDatasetOp7Dataset8Iterator15RestoreInternalEPNS_15IteratorContextEPNS_19IteratorStateReaderE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/parallel_interleave_dataset_op.cc' l='114' c='_ZNK10tensorflow12_GLOBAL__N_127ParallelInterleaveDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/parallel_interleave_dataset_op.cc' l='188' u='c' c='_ZN10tensorflow12_GLOBAL__N_127ParallelInterleaveDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/parallel_map_dataset_op.cc' l='88' c='_ZNK10tensorflow12_GLOBAL__N_120ParallelMapDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/parallel_map_dataset_op.cc' l='153' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ParallelMapDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/prefetch_dataset_op.cc' l='58' c='_ZNK10tensorflow12_GLOBAL__N_117PrefetchDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/prefetch_dataset_op.cc' l='90' u='c' c='_ZN10tensorflow12_GLOBAL__N_117PrefetchDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/random_dataset_op.cc' l='57' c='_ZNK10tensorflow12_GLOBAL__N_115RandomDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/range_dataset_op.cc' l='51' c='_ZNK10tensorflow12_GLOBAL__N_114RangeDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='92' c='_ZNK10tensorflow12_GLOBAL__N_117TextLineDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='326' c='_ZNK10tensorflow12_GLOBAL__N_126FixedLengthRecordDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='546' c='_ZNK10tensorflow12_GLOBAL__N_117TFRecordDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/repeat_dataset_op.cc' l='51' c='_ZNK10tensorflow12_GLOBAL__N_115RepeatDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/repeat_dataset_op.cc' l='113' u='c' c='_ZN10tensorflow12_GLOBAL__N_115RepeatDatasetOp7Dataset14FiniteIteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/repeat_dataset_op.cc' l='130' u='c' c='_ZN10tensorflow12_GLOBAL__N_115RepeatDatasetOp7Dataset14FiniteIterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/repeat_dataset_op.cc' l='181' u='c' c='_ZN10tensorflow12_GLOBAL__N_115RepeatDatasetOp7Dataset15ForeverIterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/repeat_dataset_op.cc' l='217' u='c' c='_ZN10tensorflow12_GLOBAL__N_115RepeatDatasetOp7Dataset15ForeverIterator15RestoreInternalEPNS_15IteratorContextEPNS_19IteratorStateReaderE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/scan_dataset_op.cc' l='93' c='_ZNK10tensorflow12_GLOBAL__N_113ScanDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/scan_dataset_op.cc' l='152' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ScanDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/shuffle_dataset_op.cc' l='88' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ShuffleDatasetOpBase18ShuffleDatasetBase8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/shuffle_dataset_op.cc' l='117' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ShuffleDatasetOpBase18ShuffleDatasetBase8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/shuffle_dataset_op.cc' l='214' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ShuffleDatasetOpBase18ShuffleDatasetBase8Iterator15RestoreInternalEPNS_15IteratorContextEPNS_19IteratorStateReaderE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/shuffle_dataset_op.cc' l='364' c='_ZNK10tensorflow12_GLOBAL__N_116ShuffleDatasetOp18ReshufflingDataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/shuffle_dataset_op.cc' l='402' c='_ZNK10tensorflow12_GLOBAL__N_116ShuffleDatasetOp16FixedSeedDataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/shuffle_dataset_op.cc' l='485' c='_ZNK10tensorflow12_GLOBAL__N_125ShuffleAndRepeatDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/skip_dataset_op.cc' l='50' c='_ZNK10tensorflow12_GLOBAL__N_113SkipDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/skip_dataset_op.cc' l='57' u='c' c='_ZNK10tensorflow12_GLOBAL__N_113SkipDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/skip_dataset_op.cc' l='113' u='c' c='_ZN10tensorflow12_GLOBAL__N_113SkipDatasetOp7Dataset14FiniteIteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/slide_dataset_op.cc' l='67' c='_ZNK10tensorflow12_GLOBAL__N_114SlideDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/slide_dataset_op.cc' l='105' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SlideDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/sparse_tensor_slice_dataset_op.cc' l='42' c='_ZNK10tensorflow12_GLOBAL__N_17Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/sql_dataset_ops.cc' l='89' c='_ZNK10tensorflow12_GLOBAL__N_112SqlDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/stats_dataset_ops.cc' l='59' c='_ZNK10tensorflow12_GLOBAL__N_121LatencyStatsDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/stats_dataset_ops.cc' l='90' u='c' c='_ZN10tensorflow12_GLOBAL__N_121LatencyStatsDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/stats_dataset_ops.cc' l='153' c='_ZNK10tensorflow12_GLOBAL__N_127BytesProducedStatsDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/stats_dataset_ops.cc' l='186' u='c' c='_ZN10tensorflow12_GLOBAL__N_127BytesProducedStatsDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/take_dataset_op.cc' l='50' c='_ZNK10tensorflow12_GLOBAL__N_113TakeDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/take_dataset_op.cc' l='54' u='c' c='_ZNK10tensorflow12_GLOBAL__N_113TakeDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/take_dataset_op.cc' l='114' u='c' c='_ZN10tensorflow12_GLOBAL__N_113TakeDatasetOp7Dataset14FiniteIteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/tensor_dataset_op.cc' l='56' c='_ZNK10tensorflow12_GLOBAL__N_115TensorDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='84' c='_ZNK10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='157' u='c' c='_ZN10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset8IteratorC1ERKNS_15DatasetIteratorIS1_E6ParamsE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='375' u='c' c='_ZN10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset8Iterator11TensorQueue7RestoreEPS2_PNS_15IteratorContextEPNS_19IteratorStateReaderE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/tensor_slice_dataset_op.cc' l='73' c='_ZNK10tensorflow12_GLOBAL__N_120TensorSliceDatasetOp7Dataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/window_dataset.cc' l='29' c='_ZNK10tensorflow12_GLOBAL__N_113WindowDataset12MakeIteratorERKSs'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/zip_dataset_op.cc' l='63' c='_ZNK10tensorflow12_GLOBAL__N_112ZipDatasetOp7Dataset12MakeIteratorERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/zip_dataset_op.cc' l='102' u='c' c='_ZN10tensorflow12_GLOBAL__N_112ZipDatasetOp7Dataset8IteratorC1ERKNS_15DatasetIteratorIS2_E6ParamsE'/>

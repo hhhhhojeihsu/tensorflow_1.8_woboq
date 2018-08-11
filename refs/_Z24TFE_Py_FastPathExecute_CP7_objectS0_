@@ -1,0 +1,21 @@
+<dec f='tensorflow/tensorflow/python/eager/pywrap_tfe.h' l='179' type='PyObject * TFE_Py_FastPathExecute_C(PyObject * , PyObject * args)'/>
+<doc f='tensorflow/tensorflow/python/eager/pywrap_tfe.h' l='160'>// Execute a tensorflow operation assuming that all provided inputs are
+// correctly formatted (i.e. EagerTensors). If it doesn&apos;t find EagerTensors,
+// it will simply fail with a NotImplementedError.
+//
+// The first PyObject* is unused.
+// The &quot;args&quot; PyObject* is meant to be a tuple with the following structure:
+//  Item 1: The TFE Context
+//  Item 2: device_name: Name of the device on which to execute the operation,
+//          or NULL for automatic selection.
+//  Item 3: op_name: Name of the TensorFlow op to execute.
+//  Item 4: name: An optional name for the operation.
+//  Item 5: List representing all callbacks to execute after successful
+//  op execute.
+//  Item 6 onwards: inputs - This is a list of inputs followed by a list of
+//        attrs. It is not necessary for type attrs to be present.
+//
+// This is named _C since there doesn&apos;t seem to be any way to make it visible
+// in the SWIG interface without renaming due to the use of the %native
+// directive.</doc>
+<def f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1832' ll='2144' type='PyObject * TFE_Py_FastPathExecute_C(PyObject * , PyObject * args)'/>

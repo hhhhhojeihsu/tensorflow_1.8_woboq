@@ -1,0 +1,9 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='323' ll='325' type='int64 xla::UserComputation::request_count(VersionedComputationHandle::Version version) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='320'>// Returns the number of OperationRequest objects in this UserComputation.
+  // The &apos;version&apos; of a computation is identical to the number of
+  // OperationRequests in the UserComputation.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='818' u='c' c='_ZN3xla7Service15ExecuteParallelEPKNS_22ExecuteParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1065' u='c' c='_ZN3xla7Service7ExecuteEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1207' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1454' u='c' c='_ZN3xla7Service10IsConstantEPKNS_17IsConstantRequestEPNS_18IsConstantResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1474' u='c' c='_ZN3xla7Service15ComputeConstantEPKNS_22ComputeConstantRequestEPNS_23ComputeConstantResponseE'/>

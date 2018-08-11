@@ -1,0 +1,22 @@
+<dec f='tensorflow/tensorflow/contrib/coder/kernels/range_coder.h' l='92' type='int32 tensorflow::RangeDecoder::Decode(gtl::ArraySlice&lt;int32&gt; cdf)'/>
+<def f='tensorflow/tensorflow/contrib/coder/kernels/range_coder.cc' l='308' ll='362' type='int32 tensorflow::RangeDecoder::Decode(tensorflow::gtl::ArraySlice&lt;int32&gt; cdf)'/>
+<doc f='tensorflow/tensorflow/contrib/coder/kernels/range_coder.h' l='73'>// Decodes a character from `source` using CDF. The size of `cdf` should be
+  // one more than the number of the character in the alphabet.
+  //
+  // If x0, x1, x2, ... are the possible characters (in increasing order) from
+  // the distribution, then
+  //   cdf[0] = 0
+  //   cdf[1] = Pr(X &lt;= x0),
+  //   cdf[2] = Pr(X &lt;= x1),
+  //   cdf[3] = Pr(X &lt;= x2),
+  //   ...
+  //
+  // The returned value is an index to `cdf` where the decoded character
+  // corresponds to.
+  //
+  // REQUIRES: cdf.size() &gt; 1.
+  // REQUIRES: cdf[i] &lt;= cdf[i + 1] for i = 0, 1, ..., cdf.size() - 2.
+  // REQUIRES: cdf[cdf.size() - 1] &lt;= 2^precision.
+  //
+  // In practice the last element of `cdf` should equal to 2^precision.</doc>
+<use f='tensorflow/tensorflow/contrib/coder/kernels/range_coder_ops.cc' l='298' u='c' c='_ZNK10tensorflow12_GLOBAL__N_113RangeDecodeOp15RangeDecodeImplEN5Eigen9TensorMapINS2_6TensorIsLi1ELi1ElEELi16ENS2_11MakePointerEEENS_3gtl10ArraySliceI3091756'/>

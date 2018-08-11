@@ -1,0 +1,31 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='348' type='5'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='318'>/** Rearranges data from depth into blocks of spatial data.
+   *
+   * More specifically, this op outputs a copy of the input tensor where values
+   * from the depth dimension are moved in spatial blocks to the height and
+   * width dimensions. The value block_size indicates the input block size and
+   * how the data is moved.
+   *
+   * Chunks of data of size block_size * block_size from depth are rearranged
+   * into non-overlapping blocks of size block_size x block_size.
+   *
+   * The width of the output tensor is input_depth * block_size, whereas the
+   * height is input_height * block_size. The depth of the input tensor must be
+   * divisible by block_size * block_size
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   * * {@link ANEURALNETWORKS_TENSOR_QUANT8_ASYMM}
+   *
+   * Supported tensor rank: 4, with &quot;NHWC&quot; data layout.
+   *
+   * Inputs:
+   * * 0: A 4-D tensor, of shape [batches, height, width, depth_in], specifying
+   * the input.
+   * * 1: An INT32 value, specifying the block_size. block_size must be &gt;=1 and
+   *      block_size * block_size must be a divisor of the input depth.
+   *
+   * Outputs:
+   * * 0: The output 4-D tensor, of shape [batch, height*block_size,
+   * width*block_size, depth/(block_size*block_size)].
+   */</doc>

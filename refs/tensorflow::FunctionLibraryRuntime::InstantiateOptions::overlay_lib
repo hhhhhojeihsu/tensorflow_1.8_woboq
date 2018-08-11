@@ -1,0 +1,22 @@
+<dec f='tensorflow/tensorflow/core/framework/function.h' l='441' type='const tensorflow::FunctionLibraryDefinition *'/>
+<offset>64</offset>
+<doc f='tensorflow/tensorflow/core/framework/function.h' l='429'>// This interface is EXPERIMENTAL and subject to change.
+    //
+    // If non-null, the runtime will use `overlay_lib` to resolve
+    // function(s) named in `function_name` and `attrs`. Otherwise,
+    // the runtime will use its internal library.
+    // NOTE(mrry): If provided, all functions defined in `overlay_lib`
+    // must be self-contained, and cannot refer to functions defined
+    // in other libraries.
+    // TODO(mrry): Provide a mechanism for sharing core functions
+    // between a set of libraries (e.g. by allowing a
+    // `FunctionLibraryDefinition` to store an `outer_scope` pointer
+    // and implementing name resolution across libraries).</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='393' u='w' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl12CreateKernelERKNS_7NodeDefEPKNS_25FunctionLibraryDefinitionEPPNS_8OpKernelE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='464' u='w' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl27InstantiateSymbolicGradientERKNS_12NameAttrListEPKNS_25FunctionLibraryDefinitionEPPNS_12FunctionBodyE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='523' u='r' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl11InstantiateERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='523' u='r' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl11InstantiateERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='557' u='r' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl11InstantiateERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='810' u='r' c='_ZN10tensorflow12CanonicalizeERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsE'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='812' u='r' c='_ZN10tensorflow12CanonicalizeERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='169' u='w' c='_ZN10tensorflow16CapturedFunction16MaybeInstantiateEPNS_15IteratorContextEPy'/>

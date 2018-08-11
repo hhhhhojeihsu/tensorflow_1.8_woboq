@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='103' type='size_t'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='132' u='r' c='_ZN10tensorflow12BFCAllocator5Chunk11DebugStringEPS0_b'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='314' u='w' c='_ZN10tensorflow12BFCAllocator12FindChunkPtrEimm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='530' u='r' c='_ZN10tensorflow12BFCAllocator13RequestedSizeEPKv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='604' u='r' c='_ZN10tensorflow12BFCAllocator15RenderOccupancyEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='607' u='r' c='_ZN10tensorflow12BFCAllocator15RenderOccupancyEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='612' u='r' c='_ZN10tensorflow12BFCAllocator15RenderOccupancyEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='708' u='r' c='_ZN10tensorflow12BFCAllocator18get_bin_debug_infoEv'/>
+<offset>64</offset>
+<doc f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='99'>// We sometimes give chunks that are larger than needed to reduce
+    // fragmentation.  requested_size keeps track of what the client
+    // actually wanted so we can understand whether our splitting
+    // strategy is efficient.</doc>

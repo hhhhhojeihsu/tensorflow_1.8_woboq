@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='129' type='StatusOr&lt;xla::HloInstruction *&gt; xla::ElideDegenerateDims(xla::HloInstruction * operand, tensorflow::gtl::ArraySlice&lt;int64&gt; dims_to_elide)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='122'>// Elides (via reshape) a set of degenerate dimensions (dimensions containing
+// exactly one element), `dims_to_elide` from `operand`.  Every dimension in
+// `dims_to_elide` must be a degenerate dimension.  `dims_to_elide` must be
+// sorted and not contain duplicates.
+//
+// For example if `operand` is of shape f32[19,1,20,1,7,1,9] and dims_to_elide
+// is {1,5} then the result is `operand` reshaped to [19,20,1,7,9].</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='187' u='c' c='_ZN3xlaL14GatherLoopBodyERKNS_14HloInstructionEPS0_RKSt6vectorIS3_SaIS3_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='240' u='c' c='_ZN3xlaL30ElideWindowDimsFromAccumulatorEPNS_14HloInstructionERKNS_22GatherDimensionNumbersE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='204' ll='227' type='StatusOr&lt;xla::HloInstruction *&gt; xla::ElideDegenerateDims(xla::HloInstruction * operand, ArraySlice&lt;int64&gt; dims_to_elide)'/>

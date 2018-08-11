@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/python/client/tf_session_helper.h' l='57' type='void tensorflow::TF_Run_wrapper(TF_DeprecatedSession * session, const TF_Buffer * run_options, PyObject * feed_dict, const NameVector &amp; output_names, const NameVector &amp; target_nodes, TF_Status * out_status, PyObjectVector * out_values, TF_Buffer * run_outputs)'/>
+<def f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='149' ll='156' type='void tensorflow::TF_Run_wrapper(TF_DeprecatedSession * session, const TF_Buffer * run_options, PyObject * feed_dict, const NameVector &amp; output_names, const NameVector &amp; target_nodes, TF_Status * out_status, PyObjectVector * out_values, TF_Buffer * run_outputs)'/>
+<doc f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='146'>// Wrapper for TF_Run that converts the arguments to appropriate types.
+// If *out_status is OK, the caller becomes the owner of the PyObjects
+// in *out_values.</doc>
+<doc f='tensorflow/tensorflow/python/client/tf_session_helper.h' l='43'>// Run the graph associated with the session starting with the
+// supplied inputs[].  Regardless of success or failure, inputs[] are
+// stolen by the implementation (i.e. the implementation will
+// eventually call Py_DECREF on each array input).
+//
+// The PyObject* feed_dict must be a dictionary mapping strings to
+// NumPy arrays. This function does not modify its reference count.
+//
+// On success, the tensors corresponding to output_names[0,noutputs-1]
+// are placed in out_values[], and these outputs[] become the property
+// of the caller (the caller must eventually call Py_DECREF on them).
+//
+// On failure, out_status contains a tensorflow::Status with an error
+// message.</doc>

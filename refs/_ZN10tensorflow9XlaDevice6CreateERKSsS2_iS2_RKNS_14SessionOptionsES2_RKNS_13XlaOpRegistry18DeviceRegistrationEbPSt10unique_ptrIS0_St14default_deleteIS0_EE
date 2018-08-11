@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/jit/xla_device.h' l='79' type='static tensorflow::Status tensorflow::XlaDevice::Create(const string &amp; platform_name, const string &amp; device_name, int device_ordinal, const string &amp; jit_device_name, const tensorflow::SessionOptions &amp; options, const string &amp; name_prefix, const XlaOpRegistry::DeviceRegistration &amp; registration, bool transfer_as_literal, std::unique_ptr&lt;XlaDevice&gt; * device)'/>
+<doc f='tensorflow/tensorflow/compiler/jit/xla_device.h' l='73'>// Factory function. &apos;platform_name&apos; is the name of the XLA platform.
+  // &apos;device_name&apos; is the name of the Tensorflow device to create.
+  // &apos;jit_device_name&apos; is the name of the corresponding JIT device.
+  // &apos;transfer_as_literal&apos; is true if device&lt;-&gt;host transfers must be done using
+  // XLA&apos;s TransferLiteral{To,From}Device interface. If false, we can use
+  // ThenMemcpy instead.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_cpu_device.cc' l='53' u='c' c='_ZN10tensorflow19XlaCpuDeviceFactory13CreateDevicesERKNS_14SessionOptionsERKSsPSt6vectorIPNS_6DeviceESaIS8_EE'/>
+<def f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='109' ll='137' type='static tensorflow::Status tensorflow::XlaDevice::Create(const string &amp; platform_name, const string &amp; device_name, int device_ordinal, const string &amp; jit_device_name, const tensorflow::SessionOptions &amp; options, const string &amp; name_prefix, const XlaOpRegistry::DeviceRegistration &amp; registration, bool transfer_as_literal, std::unique_ptr&lt;XlaDevice&gt; * device)'/>
+<doc f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='109'>/* static */</doc>

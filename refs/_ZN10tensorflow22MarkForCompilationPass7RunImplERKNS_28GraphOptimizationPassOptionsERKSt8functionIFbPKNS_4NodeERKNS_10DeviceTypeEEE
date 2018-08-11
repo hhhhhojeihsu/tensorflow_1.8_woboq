@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.h' l='47' type='tensorflow::Status tensorflow::MarkForCompilationPass::RunImpl(const tensorflow::GraphOptimizationPassOptions &amp; options, const std::function&lt;bool (const Node *, const DeviceType &amp;)&gt; &amp; is_compilable_fn = {})'/>
+<doc f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.h' l='43'>// Run() just calls RunImpl() if --tf_xla_auto_jit is enabled. To run the pass
+  // unconditionally, call RunImpl() directly.
+  // is_compilable_fn, if set, is a predicate that must be true for a node to
+  // be compiled.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='538' u='c' c='_ZN10tensorflow22MarkForCompilationPass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='551' ll='798' type='tensorflow::Status tensorflow::MarkForCompilationPass::RunImpl(const tensorflow::GraphOptimizationPassOptions &amp; options, const std::function&lt;bool (const Node *, const DeviceType &amp;)&gt; &amp; is_compilable_fn = {})'/>

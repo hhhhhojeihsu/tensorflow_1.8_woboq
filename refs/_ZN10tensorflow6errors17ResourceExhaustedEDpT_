@@ -1,0 +1,16 @@
+<def f='tensorflow/tensorflow/core/lib/core/errors.h' l='106' macro='1' type='::tensorflow::Status tensorflow::errors::ResourceExhausted(Args... args)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='630' u='c' c='_ZN10tensorflow15MessageToBufferERKN6google8protobuf7MessageEP9TF_Buffer'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='66' u='c' c='_ZN10tensorflow12XlaAllocator8AllocateEiyb'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='128' u='c' c='_ZN3xla17ResourceExhaustedEPKcz'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='225' u='c' c='_ZN10tensorflow20OpKernelConstruction13allocate_tempENS_8DataTypeERKNS_11TensorShapeEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='680' u='c' c='_ZN10tensorflow15OpKernelContext15allocate_tensorENS_8DataTypeERKNS_11TensorShapeEPNS_6TensorENS_19AllocatorAttributesERKNS_20AllocationAttributesE'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/virtual_cluster.cc' l='123' u='c' c='_ZN10tensorflow8grappler14VirtualCluster3RunERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/kernels/barrier_ops.cc' l='471' u='c' c='_ZN10tensorflow7barrier9BarrierOp14CreateResourceEPPNS0_7BarrierE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_op.h' l='71' u='c' c='_ZN10tensorflow12TypedQueueOp16CreateTypedQueueEPT_PPNS_14QueueInterfaceE'/>
+<use f='tensorflow/tensorflow/core/framework/reader_op_kernel.h' l='76' u='c' c='_ZN10tensorflow14ReaderOpKernel14CreateResourceEPPNS_15ReaderInterfaceE'/>
+<use f='tensorflow/tensorflow/core/kernels/stage_op.cc' l='94' u='c' c='_ZN10tensorflow12_GLOBAL__N_16Buffer3PutEPSt6vectorINS_6TensorESaIS3_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='101' u='c' c='_ZN10tensorflow19TemporaryVariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/lib/io/snappy/snappy_inputbuffer.cc' l='86' u='c' c='_ZN10tensorflow2io17SnappyInputBuffer7InflateEv'/>
+<use f='tensorflow/tensorflow/core/lib/strings/base64.cc' l='94' u='c' c='_ZN10tensorflow12Base64DecodeENS_11StringPieceEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/strings/base64.cc' l='153' u='c' c='_ZN10tensorflow12Base64EncodeENS_11StringPieceEbPSs'/>
+<use f='tensorflow/tensorflow/python/lib/core/py_func.cc' l='197' u='c' c='_ZN10tensorflow12_GLOBAL__N_112DoCallPyFuncEPNS0_6PyCallEPb'/>

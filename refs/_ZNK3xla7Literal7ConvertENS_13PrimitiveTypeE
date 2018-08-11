@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='339' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::Literal::Convert(xla::PrimitiveType primitive_dest_type) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='336'>// Converts this literal to another primitive type using
+  // static_cast&lt;&gt;. Returns an error if the conversion is not possible. This
+  // literal must be array-shaped.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1542' ll='1545' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::Literal::Convert(xla::PrimitiveType primitive_dest_type) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1573' u='c' c='_ZNK3xla7Literal14ConvertToShapeERKNS_5ShapeEb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='171' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='180' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='184' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='258' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='322' u='c' c='_ZN3xla24BatchNormExpanderVisitor24HandleBatchNormInferenceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='360' u='c' c='_ZN3xla24BatchNormExpanderVisitor24HandleBatchNormInferenceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='445' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='450' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='454' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='459' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='390' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor13HandleConvertEPNS_14HloInstructionE'/>

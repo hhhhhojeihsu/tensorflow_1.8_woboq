@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.h' l='170' type='bool tensorflow::tensorforest::DecideNode(const GetFeatureFnType &amp; get_dense, const GetFeatureFnType &amp; get_sparse, int32 i, int32 feature, float bias, const tensorforest::TensorForestDataSpec &amp; spec)'/>
+<doc f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.h' l='164'>// Returns true if the point falls to the right (i.e., the selected feature
+// of the input point is greater than the bias threshold), and false if it
+// falls to the left.
+// Even though our input data is forced into float Tensors, it could have
+// originally been something else (e.g. categorical string data) which
+// we treat differently.</doc>
+<def f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.cc' l='573' ll='584' type='bool tensorflow::tensorforest::DecideNode(const GetFeatureFnType &amp; get_dense, const GetFeatureFnType &amp; get_sparse, int32 i, int32 feature, float bias, const tensorforest::TensorForestDataSpec &amp; spec)'/>

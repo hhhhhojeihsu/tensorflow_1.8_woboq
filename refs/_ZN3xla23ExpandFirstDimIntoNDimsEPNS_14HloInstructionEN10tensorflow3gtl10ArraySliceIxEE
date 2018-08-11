@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='119' type='StatusOr&lt;xla::HloInstruction *&gt; xla::ExpandFirstDimIntoNDims(xla::HloInstruction * operand, tensorflow::gtl::ArraySlice&lt;int64&gt; expanded_dims)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='112'>// Expands (via reshape) the first (logical) dimension of `operand` into a
+// sequence of `expanded_dims` dimensions.  `operand` must at least be of rank 1
+// and the number of elements in its first dimension must be equal to the
+// product of `expanded_dims`.
+//
+// For instance if `operand` has shape f32[200,9,7] and expanded_dims is
+// {2,5,20} the result is `operand` reshaped to [2,5,20,9,7].</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='89' u='c' c='_ZN3xlaL25CanonicalizeGatherIndicesEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='122' u='c' c='_ZN3xlaL29AdjustGatherDimsInAccumulatorERKNS_5ShapeEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='200' u='c' c='_ZN3xlaL14GatherLoopBodyERKNS_14HloInstructionEPS0_RKSt6vectorIS3_SaIS3_EE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='187' ll='202' type='StatusOr&lt;xla::HloInstruction *&gt; xla::ExpandFirstDimIntoNDims(xla::HloInstruction * operand, ArraySlice&lt;int64&gt; expanded_dims)'/>

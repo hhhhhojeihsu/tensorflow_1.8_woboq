@@ -1,0 +1,17 @@
+<def f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='169' ll='182'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='153'>// The type of the scalars in an array.
+// Note that that does not by itself tell whether the values in the array are
+// real (are literally interpreted as real numbers) or quantized (only acquire
+// a meaning as real numbers in conjunction with QuantizationParams).
+//
+// In practice though:
+//   float values are always real
+//   uint8 values are always quantized
+//   int32 values are either real or quantized (depending on whether
+//   QuantizationParams are present).
+//   other types are unused at the moment.
+//
+// kNone means that we don&apos;t know the data type yet, or that we don&apos;t care
+// because we&apos;ll be dropping the array anyway (e.g. some exotic array types
+// may be involved only in debug-only subgraphs that we may not be interested
+// in actually supporting).</doc>

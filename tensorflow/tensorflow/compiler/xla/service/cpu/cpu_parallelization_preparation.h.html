@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>cpu_parallelization_preparation.h source code [tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="xla::cpu::ParallelizationPreparation "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.h'; var root_path = '../../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>tensorflow</a>/<a href='../../../..'>tensorflow</a>/<a href='../../..'>compiler</a>/<a href='../..'>xla</a>/<a href='..'>service</a>/<a href='./'>cpu</a>/<a href='cpu_parallelization_preparation.h.html'>cpu_parallelization_preparation.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CPU_PARALLELIZATION_PREPARATION_H_">TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CPU_PARALLELIZATION_PREPARATION_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CPU_PARALLELIZATION_PREPARATION_H_" data-ref="_M/TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CPU_PARALLELIZATION_PREPARATION_H_">TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CPU_PARALLELIZATION_PREPARATION_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../hlo_cost_analysis.h.html">"tensorflow/compiler/xla/service/hlo_cost_analysis.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../hlo_module.h.html">"tensorflow/compiler/xla/service/hlo_module.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../hlo_pass_interface.h.html">"tensorflow/compiler/xla/service/hlo_pass_interface.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">xla</span> {</td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">cpu</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>// This pass prepares an HLO module for parallel execution by transforming</i></td></tr>
+<tr><th id="27">27</th><td><i>// subgraphs of the top-level computation into embedded computations which can</i></td></tr>
+<tr><th id="28">28</th><td><i>// be executed in parallel.</i></td></tr>
+<tr><th id="29">29</th><td><i>// TODO(b/29630486): Currently, it is limited to turning all instructions (which</i></td></tr>
+<tr><th id="30">30</th><td><i>// are not constants or parameters) in the entry computation into embedded</i></td></tr>
+<tr><th id="31">31</th><td><i>// computations.  However, it could make sense to coarsen the parallelization to</i></td></tr>
+<tr><th id="32">32</th><td><i>// improve cache locality.  Also, we will need to do something to intelligently</i></td></tr>
+<tr><th id="33">33</th><td><i>// handle While constructs.</i></td></tr>
+<tr><th id="34">34</th><td><b>class</b> <dfn class="type def" id="xla::cpu::ParallelizationPreparation" title='xla::cpu::ParallelizationPreparation' data-ref="xla::cpu::ParallelizationPreparation">ParallelizationPreparation</dfn> : <b>public</b> <a class="type" href="../hlo_pass_interface.h.html#xla::HloPassInterface" title='xla::HloPassInterface' data-ref="xla::HloPassInterface">HloPassInterface</a> {</td></tr>
+<tr><th id="35">35</th><td> <b>public</b>:</td></tr>
+<tr><th id="36">36</th><td>  <i>// 'max_parallelism': the maximum parallel task count per instruction.</i></td></tr>
+<tr><th id="37">37</th><td><i>  // 'shape_size': shape size function used by HloCostAnalysis during parallel</i></td></tr>
+<tr><th id="38">38</th><td><i>  //               task assignment.</i></td></tr>
+<tr><th id="39">39</th><td>  <dfn class="decl def" id="_ZN3xla3cpu26ParallelizationPreparationC1ExRKSt8functionIFxRKNS_5ShapeEEE" title='xla::cpu::ParallelizationPreparation::ParallelizationPreparation' data-ref="_ZN3xla3cpu26ParallelizationPreparationC1ExRKSt8functionIFxRKNS_5ShapeEEE">ParallelizationPreparation</dfn>(</td></tr>
+<tr><th id="40">40</th><td>      <em>const</em> <a class="typedef" href="../../../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col7 decl" id="177max_parallelism" title='max_parallelism' data-type='const int64' data-ref="177max_parallelism">max_parallelism</dfn>,</td></tr>
+<tr><th id="41">41</th><td>      <em>const</em> <a class="type" href="../hlo_cost_analysis.h.html#xla::HloCostAnalysis" title='xla::HloCostAnalysis' data-ref="xla::HloCostAnalysis">HloCostAnalysis</a>::<a class="typedef" href="../hlo_cost_analysis.h.html#xla::HloCostAnalysis::ShapeSizeFunction" title='xla::HloCostAnalysis::ShapeSizeFunction' data-type='std::function&lt;int64 (const Shape &amp;)&gt;' data-ref="xla::HloCostAnalysis::ShapeSizeFunction">ShapeSizeFunction</a>&amp; <dfn class="local col8 decl" id="178shape_size" title='shape_size' data-type='const HloCostAnalysis::ShapeSizeFunction &amp;' data-ref="178shape_size">shape_size</dfn>)</td></tr>
+<tr><th id="42">42</th><td>      : <a class="member" href="#xla::cpu::ParallelizationPreparation::max_parallelism_" title='xla::cpu::ParallelizationPreparation::max_parallelism_' data-ref="xla::cpu::ParallelizationPreparation::max_parallelism_">max_parallelism_</a>(<a class="local col7 ref" href="#177max_parallelism" title='max_parallelism' data-ref="177max_parallelism">max_parallelism</a>), <a class="member" href="#xla::cpu::ParallelizationPreparation::shape_size_" title='xla::cpu::ParallelizationPreparation::shape_size_' data-ref="xla::cpu::ParallelizationPreparation::shape_size_">shape_size_</a><a class="ref" href="../../../../../../include/c++/5/functional.html#_ZNSt8functionIFT_DpT0_EEC1ERKS_IS3_E" title='std::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;' data-ref="_ZNSt8functionIFT_DpT0_EEC1ERKS_IS3_E">(</a><a class="local col8 ref" href="#178shape_size" title='shape_size' data-ref="178shape_size">shape_size</a>) {}</td></tr>
+<tr><th id="43">43</th><td>  <dfn class="virtual decl def" id="_ZN3xla3cpu26ParallelizationPreparationD1Ev" title='xla::cpu::ParallelizationPreparation::~ParallelizationPreparation' data-ref="_ZN3xla3cpu26ParallelizationPreparationD1Ev">~ParallelizationPreparation</dfn>() override {}</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>  <span class="namespace">tensorflow::</span><a class="type" href="../../../../core/lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="virtual decl def" id="_ZNK3xla3cpu26ParallelizationPreparation4nameEv" title='xla::cpu::ParallelizationPreparation::name' data-ref="_ZNK3xla3cpu26ParallelizationPreparation4nameEv">name</dfn>() <em>const</em> override {</td></tr>
+<tr><th id="46">46</th><td>    <b>return</b> <a class="ref fake" href="../../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"cpu-parallel-prepare"</q>;</td></tr>
+<tr><th id="47">47</th><td>  }</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <i>// Run parallel preparation on the given computation. Returns whether the</i></td></tr>
+<tr><th id="50">50</th><td><i>  // computation was changed.</i></td></tr>
+<tr><th id="51">51</th><td>  <a class="type" href="../../statusor.h.html#xla::StatusOr" title='xla::StatusOr' data-ref="xla::StatusOr">StatusOr</a>&lt;<em>bool</em>&gt; <dfn class="virtual decl" id="_ZN3xla3cpu26ParallelizationPreparation3RunEPNS_9HloModuleE" title='xla::cpu::ParallelizationPreparation::Run' data-ref="_ZN3xla3cpu26ParallelizationPreparation3RunEPNS_9HloModuleE">Run</dfn>(<a class="type" href="../hlo_module.h.html#xla::HloModule" title='xla::HloModule' data-ref="xla::HloModule">HloModule</a>* <dfn class="local col9 decl" id="179module" title='module' data-type='xla::HloModule *' data-ref="179module">module</dfn>) override;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td> <b>private</b>:</td></tr>
+<tr><th id="54">54</th><td>  <i>// Assigns parallel task partitions to conformant instructions in 'module'.</i></td></tr>
+<tr><th id="55">55</th><td><i>  // Returns true on success or error status otherwise.</i></td></tr>
+<tr><th id="56">56</th><td>  <a class="type" href="../../statusor.h.html#xla::StatusOr" title='xla::StatusOr' data-ref="xla::StatusOr">StatusOr</a>&lt;<em>bool</em>&gt; <dfn class="decl" id="_ZN3xla3cpu26ParallelizationPreparation25RunParallelTaskAssignmentEPNS_9HloModuleE" title='xla::cpu::ParallelizationPreparation::RunParallelTaskAssignment' data-ref="_ZN3xla3cpu26ParallelizationPreparation25RunParallelTaskAssignmentEPNS_9HloModuleE">RunParallelTaskAssignment</dfn>(<a class="type" href="../hlo_module.h.html#xla::HloModule" title='xla::HloModule' data-ref="xla::HloModule">HloModule</a>* <dfn class="local col0 decl" id="180module" title='module' data-type='xla::HloModule *' data-ref="180module">module</dfn>);</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <i>// Outlines 'instruction' from entry computation, if it had</i></td></tr>
+<tr><th id="59">59</th><td><i>  // been assigned parallel tasks in an earlier pass through the computation.</i></td></tr>
+<tr><th id="60">60</th><td><i>  // Returns true if 'instruction' was successfully outlined, false otherwise.</i></td></tr>
+<tr><th id="61">61</th><td>  <em>bool</em> <dfn class="decl" id="_ZN3xla3cpu26ParallelizationPreparation32OutlineParallelizableInstructionEPNS_14HloInstructionE" title='xla::cpu::ParallelizationPreparation::OutlineParallelizableInstruction' data-ref="_ZN3xla3cpu26ParallelizationPreparation32OutlineParallelizableInstructionEPNS_14HloInstructionE">OutlineParallelizableInstruction</dfn>(<a class="type" href="../hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="local col1 decl" id="181instruction" title='instruction' data-type='xla::HloInstruction *' data-ref="181instruction">instruction</dfn>);</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>  <i>// Returns true if 'instruction' can be outlined into the same sub-computation</i></td></tr>
+<tr><th id="64">64</th><td><i>  // with its single user (parallelizable instructions are not outlined with</i></td></tr>
+<tr><th id="65">65</th><td><i>  // each other). Returns false otherwise.</i></td></tr>
+<tr><th id="66">66</th><td>  <em>bool</em> <dfn class="decl" id="_ZN3xla3cpu26ParallelizationPreparation18CanOutlineWithUserEPNS_14HloInstructionE" title='xla::cpu::ParallelizationPreparation::CanOutlineWithUser' data-ref="_ZN3xla3cpu26ParallelizationPreparation18CanOutlineWithUserEPNS_14HloInstructionE">CanOutlineWithUser</dfn>(<a class="type" href="../hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="local col2 decl" id="182instruction" title='instruction' data-type='xla::HloInstruction *' data-ref="182instruction">instruction</dfn>);</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>  <i>// Returns true if 'instruction' (or the root of the sub-computation that</i></td></tr>
+<tr><th id="69">69</th><td><i>  // 'instruction' calls) has had parallel tasks assigned in earlier pass.</i></td></tr>
+<tr><th id="70">70</th><td><i>  // Returns false otherwise.</i></td></tr>
+<tr><th id="71">71</th><td>  <em>bool</em> <dfn class="decl" id="_ZN3xla3cpu26ParallelizationPreparation21AssignedParallelTasksEPNS_14HloInstructionE" title='xla::cpu::ParallelizationPreparation::AssignedParallelTasks' data-ref="_ZN3xla3cpu26ParallelizationPreparation21AssignedParallelTasksEPNS_14HloInstructionE">AssignedParallelTasks</dfn>(<a class="type" href="../hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="local col3 decl" id="183instruction" title='instruction' data-type='xla::HloInstruction *' data-ref="183instruction">instruction</dfn>);</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>  <em>const</em> <a class="typedef" href="../../../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl" id="xla::cpu::ParallelizationPreparation::max_parallelism_" title='xla::cpu::ParallelizationPreparation::max_parallelism_' data-ref="xla::cpu::ParallelizationPreparation::max_parallelism_">max_parallelism_</dfn>;</td></tr>
+<tr><th id="74">74</th><td>  <em>const</em> <a class="type" href="../hlo_cost_analysis.h.html#xla::HloCostAnalysis" title='xla::HloCostAnalysis' data-ref="xla::HloCostAnalysis">HloCostAnalysis</a>::<a class="typedef" href="../hlo_cost_analysis.h.html#xla::HloCostAnalysis::ShapeSizeFunction" title='xla::HloCostAnalysis::ShapeSizeFunction' data-type='std::function&lt;int64 (const Shape &amp;)&gt;' data-ref="xla::HloCostAnalysis::ShapeSizeFunction">ShapeSizeFunction</a> <dfn class="decl" id="xla::cpu::ParallelizationPreparation::shape_size_" title='xla::cpu::ParallelizationPreparation::shape_size_' data-ref="xla::cpu::ParallelizationPreparation::shape_size_">shape_size_</dfn>;</td></tr>
+<tr><th id="75">75</th><td>};</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>}  <i>// namespace cpu</i></td></tr>
+<tr><th id="78">78</th><td>}  <i>// namespace xla</i></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CPU_PARALLELIZATION_PREPARATION_H_</u></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='cpu_compiler.cc.html'>tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

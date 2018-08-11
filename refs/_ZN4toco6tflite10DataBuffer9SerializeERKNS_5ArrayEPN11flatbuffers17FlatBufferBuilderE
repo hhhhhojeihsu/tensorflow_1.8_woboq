@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/tflite/types.h' l='36' type='static FlatBufferOffset toco::tflite::DataBuffer::Serialize(const toco::Array &amp; array, flatbuffers::FlatBufferBuilder * builder)'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='273' u='c' c='_ZN4toco6tflite13ExportBuffersERKNS_5ModelERKSt6vectorIPKNS_5ArrayESaIS7_EEPN11flatbuffers17FlatBufferBuilderE'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/tflite/types.h' l='33'>// Build the flatbuffer representation of a toco&apos;s Array and return the
+  // corresponding offset into the flatbuffer. Note that data from the array
+  // will be copied into the flatbuffer.</doc>
+<def f='tensorflow/tensorflow/contrib/lite/toco/tflite/types.cc' l='84' ll='102' type='static flatbuffers::Offset&lt;flatbuffers::Vector&lt;uint8_t&gt; &gt; toco::tflite::DataBuffer::Serialize(const toco::Array &amp; array, flatbuffers::FlatBufferBuilder * builder)'/>

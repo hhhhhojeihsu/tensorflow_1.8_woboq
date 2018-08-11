@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='252' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateConvolve(const xla::Shape &amp; shape, xla::HloInstruction * lhs, xla::HloInstruction * rhs, const xla::Window &amp; window, const xla::ConvolutionDimensionNumbers &amp; dimension_numbers)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='250'>// Creates a convolution op, where rhs is the convolutional filter
+  // and window describes how the filter is applied to lhs.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/conv_canonicalization.cc' l='132' u='c' c='_ZN3xla3cpu20ConvCanonicalization3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='69' u='c' c='_ZN3xla15MakeConvolveHloEPNS_14HloInstructionES1_RKNS_6WindowERKNS_27ConvolutionDimensionNumbersE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='332' ll='350' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateConvolve(const xla::Shape &amp; shape, xla::HloInstruction * lhs, xla::HloInstruction * rhs, const xla::Window &amp; window, const xla::ConvolutionDimensionNumbers &amp; dimension_numbers)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1319' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='332'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/transpose_folding.cc' l='160' u='c' c='_ZN3xla12_GLOBAL__N_128FoldTransposeIntoConvolutionESt4pairIPNS_14HloInstructionESt6vectorIxSaIxEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2974' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.h' l='44' type='void tensorflow::io::ZlibInputStream::ZlibInputStream(tensorflow::io::InputStreamInterface * input_stream, size_t input_buffer_bytes, size_t output_buffer_bytes, const tensorflow::io::ZlibCompressionOptions &amp; zlib_options)'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='222' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TextLineDatasetOp7Dataset8Iterator18SetupStreamsLockedEPNS_3EnvE'/>
+<doc f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.h' l='40'>// Create a ZlibInputStream for `input_stream` with a buffer of size
+  // `input_buffer_bytes` bytes for reading contents from `input_stream` and
+  // another buffer with size `output_buffer_bytes` for caching decompressed
+  // contents. Does *not* take ownership of &quot;input_stream&quot;.</doc>
+<use f='tensorflow/tensorflow/core/kernels/decode_compressed_op.cc' l='106' u='c' c='_ZN10tensorflow18DecodeCompressedOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/fixed_length_record_reader_op.cc' l='62' u='c' c='_ZN10tensorflow23FixedLengthRecordReader19OnWorkStartedLockedEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='70' u='c' c='_ZN10tensorflow2io12RecordReaderC1EPNS_16RandomAccessFileERKNS0_19RecordReaderOptionsE'/>
+<def f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.cc' l='24' ll='38' type='void tensorflow::io::ZlibInputStream::ZlibInputStream(tensorflow::io::InputStreamInterface * input_stream, size_t input_buffer_bytes, size_t output_buffer_bytes, const tensorflow::io::ZlibCompressionOptions &amp; zlib_options)'/>

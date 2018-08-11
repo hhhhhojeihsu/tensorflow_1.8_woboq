@@ -1,0 +1,18 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='87' type='xla::TransferManager * xla::Backend::transfer_manager() const'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='57' u='c' c='_ZN10tensorflow18XlaTransferManagerC1EPN9perftools8gputools6StreamEPN3xla11LocalClientEb'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='139' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext14PopulateInputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultERKSt3mapIiNS_14OptionalTensor4150569'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='53' u='c' c='_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='62' u='c' c='_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='221' u='c' c='_ZN3xla15LocalExecutable23LiteralFromShapedBufferERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='293' u='c' c='_ZN3xla11LocalClient21LiteralToShapedBufferERKNS_7LiteralEiPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='297' u='c' c='_ZN3xla11LocalClient21LiteralToShapedBufferERKNS_7LiteralEiPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='307' u='c' c='_ZN3xla11LocalClient21ShapedBufferToLiteralERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='315' u='c' c='_ZN3xla11LocalClient21TransferToInfeedLocalERKNS_7LiteralEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='324' u='c' c='_ZN3xla11LocalClient24TransferFromOutfeedLocalERKNS_5ShapeEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1107' u='c' c='_ZN3xla7Service7ExecuteEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1122' u='c' c='_ZN3xla7Service7ExecuteEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1315' u='c' c='_ZN3xla7Service16TransferToClientEPKNS_23TransferToClientRequestEPNS_24TransferToClientResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1363' u='c' c='_ZN3xla7Service16TransferToServerEPKNS_23TransferToServerRequestEPNS_24TransferToServerResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1367' u='c' c='_ZN3xla7Service16TransferToServerEPKNS_23TransferToServerRequestEPNS_24TransferToServerResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1406' u='c' c='_ZN3xla7Service16TransferToInfeedEPKNS_23TransferToInfeedRequestEPNS_24TransferToInfeedResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1435' u='c' c='_ZN3xla7Service19TransferFromOutfeedEPKNS_26TransferFromOutfeedRequestEPNS_27TransferFromOutfeedResponseE'/>

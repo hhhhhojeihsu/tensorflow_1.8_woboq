@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/framework/queue_interface.h' l='77' type='void tensorflow::QueueInterface::Close(tensorflow::OpKernelContext * ctx, bool cancel_pending_enqueues, DoneCallback callback)'/>
+<doc f='tensorflow/tensorflow/core/framework/queue_interface.h' l='66'>// Signals that no more elements will be enqueued, and optionally
+  // cancels pending Enqueue(Many) operations.
+  //
+  // After calling this function, subsequent calls to Enqueue(Many)
+  // will fail. If `cancel_pending_enqueues` is true, all pending
+  // calls to Enqueue(Many) will fail as well.
+  //
+  // After calling this function, all current and subsequent calls to
+  // Dequeue(Many) will fail instead of blocking (though they may
+  // succeed if they can be satisfied by the elements in the queue at
+  // the time it was closed).</doc>
+<ovr f='tensorflow/tensorflow/core/kernels/queue_base.cc' l='240' c='_ZN10tensorflow9QueueBase5CloseEPNS_15OpKernelContextEbSt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_ops.cc' l='390' u='c' c='_ZN10tensorflow12QueueCloseOp12ComputeAsyncEPNS_15OpKernelContextEPNS_14QueueInterfaceESt8functionIFvvEE'/>

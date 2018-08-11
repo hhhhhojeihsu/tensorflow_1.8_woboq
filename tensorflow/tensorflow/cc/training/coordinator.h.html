@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>coordinator.h source code [tensorflow/tensorflow/cc/training/coordinator.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::Coordinator,tensorflow::RunnerInterface "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/cc/training/coordinator.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>cc</a>/<a href='./'>training</a>/<a href='coordinator.h.html'>coordinator.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CC_TRAINING_COORDINATOR_H_">TENSORFLOW_CC_TRAINING_COORDINATOR_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CC_TRAINING_COORDINATOR_H_" data-ref="_M/TENSORFLOW_CC_TRAINING_COORDINATOR_H_">TENSORFLOW_CC_TRAINING_COORDINATOR_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../include/c++/5/atomic.html">&lt;atomic&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../include/c++/5/unordered_set.html">&lt;unordered_set&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include "tensorflow/core/framework/cost_graph.pb.h"</u></td></tr>
+<tr><th id="25">25</th><td><u>#include "tensorflow/core/lib/core/error_codes.pb.h"</u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../core/lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../core/platform/macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../core/platform/mutex.h.html">"tensorflow/core/platform/mutex.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include "tensorflow/core/protobuf/config.pb.h"</u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i class="doc">/// The abstract interface for runners which must implement the Join and the</i></td></tr>
+<tr><th id="34">34</th><td><i class="doc">/// IsRunning function.</i></td></tr>
+<tr><th id="35">35</th><td><b>class</b> <dfn class="type def" id="tensorflow::RunnerInterface" title='tensorflow::RunnerInterface' data-ref="tensorflow::RunnerInterface">RunnerInterface</dfn> {</td></tr>
+<tr><th id="36">36</th><td> <b>public</b>:</td></tr>
+<tr><th id="37">37</th><td>  <b>virtual</b> <dfn class="virtual decl def" id="_ZN10tensorflow15RunnerInterfaceD1Ev" title='tensorflow::RunnerInterface::~RunnerInterface' data-ref="_ZN10tensorflow15RunnerInterfaceD1Ev">~RunnerInterface</dfn>() {}</td></tr>
+<tr><th id="38">38</th><td>  <b>virtual</b> <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow15RunnerInterface4JoinEv" title='tensorflow::RunnerInterface::Join' data-ref="_ZN10tensorflow15RunnerInterface4JoinEv">Join</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="39">39</th><td>  <b>virtual</b> <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl def" id="_ZNK10tensorflow15RunnerInterface15ExportCostGraphEPNS_12CostGraphDefE" title='tensorflow::RunnerInterface::ExportCostGraph' data-ref="_ZNK10tensorflow15RunnerInterface15ExportCostGraphEPNS_12CostGraphDefE">ExportCostGraph</dfn>(<span class='type' title='tensorflow::CostGraphDef' data-ref="tensorflow::CostGraphDef">CostGraphDef</span>* <dfn class="local col1 decl" id="1cost_graph" title='cost_graph' data-type='tensorflow::CostGraphDef *' data-ref="1cost_graph">cost_graph</dfn>) <em>const</em> {</td></tr>
+<tr><th id="40">40</th><td>    <b>return</b> <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a><a class="ref" href="../../core/lib/core/status.h.html#_ZN10tensorflow6StatusC1ENS_5error4CodeENS_11StringPieceE" title='tensorflow::Status::Status' data-ref="_ZN10tensorflow6StatusC1ENS_5error4CodeENS_11StringPieceE">(</a><span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::INVALID_ARGUMENT' data-ref="tensorflow::error::Code::INVALID_ARGUMENT">INVALID_ARGUMENT</span>, <a class="ref fake" href="../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"No cost model to export."</q>);</td></tr>
+<tr><th id="41">41</th><td>  }</td></tr>
+<tr><th id="42">42</th><td>  <i class="doc">/// Returns true iff the runner is running, i.e. if it is trying to populate</i></td></tr>
+<tr><th id="43">43</th><td><i class="doc">  /// its queue.</i></td></tr>
+<tr><th id="44">44</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZNK10tensorflow15RunnerInterface9IsRunningEv" title='tensorflow::RunnerInterface::IsRunning' data-ref="_ZNK10tensorflow15RunnerInterface9IsRunningEv">IsRunning</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="45">45</th><td>};</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><i class="doc">/// Coordinator class manages the termination of a collection of QueueRunners.</i></td></tr>
+<tr><th id="48">48</th><td><i class="doc">/// Without a coordinator, QueueRunners have to be joined in a specific order;</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">/// otherwise the QueueRunner::Join() could sometimes hang. The</i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">/// Coordinator::RequestStop() plays the key role which notifies all running</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">/// threads under a coordinator to stop. This function could be called by any</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">/// thread or any client.</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">/// Usage, in the client:</i></td></tr>
+<tr><th id="54">54</th><td><i class="doc">///   Coordinator coord;</i></td></tr>
+<tr><th id="55">55</th><td><i class="doc">///   std::unique_ptr&lt;QueueRunner&gt; qr(&amp;coord, ...);</i></td></tr>
+<tr><th id="56">56</th><td><i class="doc">///   qr.Start(session);</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">///   coord.RegisterRunner(std::move(qr));</i></td></tr>
+<tr><th id="58">58</th><td><i class="doc">///   /// do some work</i></td></tr>
+<tr><th id="59">59</th><td><i class="doc">///   TF_CHECK_OK(coord.Join());</i></td></tr>
+<tr><th id="60">60</th><td><i class="doc">/// In each thread of QueueRunner, the coordinator needs to be used as:</i></td></tr>
+<tr><th id="61">61</th><td><i class="doc">///   void Run() {</i></td></tr>
+<tr><th id="62">62</th><td><i class="doc">///     while (!coord-&gt;ShouldStop()) {</i></td></tr>
+<tr><th id="63">63</th><td><i class="doc">///       /// do some work</i></td></tr>
+<tr><th id="64">64</th><td><i class="doc">///       if (error) {</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">///         coord-&gt;RequestStop();</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">///         coord-&gt;ReportStatus(error_status);</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">///       }</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">///     }</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">///   }</i></td></tr>
+<tr><th id="70">70</th><td><b>class</b> <dfn class="type def" id="tensorflow::Coordinator" title='tensorflow::Coordinator' data-ref="tensorflow::Coordinator">Coordinator</dfn> {</td></tr>
+<tr><th id="71">71</th><td> <b>public</b>:</td></tr>
+<tr><th id="72">72</th><td>  <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11CoordinatorC1Ev" title='tensorflow::Coordinator::Coordinator' data-ref="_ZN10tensorflow11CoordinatorC1Ev" id="_ZN10tensorflow11CoordinatorC1Ev">Coordinator</a>();</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>  <i class="doc">/// Constructor with a list of error codes which would not be taken as errors</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">  /// in status reporting.</i></td></tr>
+<tr><th id="76">76</th><td>  <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11CoordinatorC1ERKSt6vectorINS_5error4CodeESaIS3_EE" title='tensorflow::Coordinator::Coordinator' data-ref="_ZN10tensorflow11CoordinatorC1ERKSt6vectorINS_5error4CodeESaIS3_EE" id="_ZN10tensorflow11CoordinatorC1ERKSt6vectorINS_5error4CodeESaIS3_EE">Coordinator</a>(<em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">error::</span><span class='type' title='tensorflow::error::Code' data-ref="tensorflow::error::Code">Code</span>&gt;&amp; <dfn class="local col2 decl" id="2clean_stop_errors" title='clean_stop_errors' data-type='const std::vector&lt;error::Code&gt; &amp;' data-ref="2clean_stop_errors">clean_stop_errors</dfn>);</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>  <i class="doc">/// In the destructor, RequestStop() and Join() would be called.</i></td></tr>
+<tr><th id="79">79</th><td>  <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11CoordinatorD1Ev" title='tensorflow::Coordinator::~Coordinator' data-ref="_ZN10tensorflow11CoordinatorD1Ev" id="_ZN10tensorflow11CoordinatorD1Ev">~Coordinator</a>();</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>  <i class="doc">/// Registers a runner, i.e. a unit of running threads which is usually a</i></td></tr>
+<tr><th id="82">82</th><td><i class="doc">  /// QueueRunner. It takes the ownership of runner to avoid lifecycle-related</i></td></tr>
+<tr><th id="83">83</th><td><i class="doc">  /// problems. Note, the coordinator would not start these threads; they are</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">  /// supposed to be in running state when they are registered here.</i></td></tr>
+<tr><th id="85">85</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11Coordinator14RegisterRunnerESt10unique_ptrINS_15RunnerInterfaceESt14default_deleteIS2_EE" title='tensorflow::Coordinator::RegisterRunner' data-ref="_ZN10tensorflow11Coordinator14RegisterRunnerESt10unique_ptrINS_15RunnerInterfaceESt14default_deleteIS2_EE" id="_ZN10tensorflow11Coordinator14RegisterRunnerESt10unique_ptrINS_15RunnerInterfaceESt14default_deleteIS2_EE">RegisterRunner</a>(<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#tensorflow::RunnerInterface" title='tensorflow::RunnerInterface' data-ref="tensorflow::RunnerInterface">RunnerInterface</a>&gt; <dfn class="local col3 decl" id="3runner" title='runner' data-type='std::unique_ptr&lt;RunnerInterface&gt;' data-ref="3runner">runner</dfn>);</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>  <i class="doc">/// Returns true iff all the registered runners have been stopped.</i></td></tr>
+<tr><th id="88">88</th><td>  <em>bool</em> <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11Coordinator17AllRunnersStoppedEv" title='tensorflow::Coordinator::AllRunnersStopped' data-ref="_ZN10tensorflow11Coordinator17AllRunnersStoppedEv" id="_ZN10tensorflow11Coordinator17AllRunnersStoppedEv">AllRunnersStopped</a>();</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>  <i class="doc">/// Requests all running threads to stop.</i></td></tr>
+<tr><th id="91">91</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11Coordinator11RequestStopEv" title='tensorflow::Coordinator::RequestStop' data-ref="_ZN10tensorflow11Coordinator11RequestStopEv" id="_ZN10tensorflow11Coordinator11RequestStopEv">RequestStop</a>();</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>  <i class="doc">/// Returns true if its RequestStop() has been called.</i></td></tr>
+<tr><th id="94">94</th><td>  <em>bool</em> <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11Coordinator10ShouldStopEv" title='tensorflow::Coordinator::ShouldStop' data-ref="_ZN10tensorflow11Coordinator10ShouldStopEv" id="_ZN10tensorflow11Coordinator10ShouldStopEv">ShouldStop</a>();</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>  <i class="doc">/// Joins all threads, returns OK or the first reported and unexpected status.</i></td></tr>
+<tr><th id="97">97</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11Coordinator4JoinEv" title='tensorflow::Coordinator::Join' data-ref="_ZN10tensorflow11Coordinator4JoinEv" id="_ZN10tensorflow11Coordinator4JoinEv">Join</a>();</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td>  <i class="doc">/// Reports status to the coordinator. This is usually called by threads.</i></td></tr>
+<tr><th id="100">100</th><td>  <em>void</em> <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11Coordinator12ReportStatusERKNS_6StatusE" title='tensorflow::Coordinator::ReportStatus' data-ref="_ZN10tensorflow11Coordinator12ReportStatusERKNS_6StatusE" id="_ZN10tensorflow11Coordinator12ReportStatusERKNS_6StatusE">ReportStatus</a>(<em>const</em> <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a>&amp; <dfn class="local col4 decl" id="4status" title='status' data-type='const tensorflow::Status &amp;' data-ref="4status">status</dfn>);</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>  <i class="doc">/// Returns the latest status.</i></td></tr>
+<tr><th id="103">103</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11Coordinator9GetStatusEv" title='tensorflow::Coordinator::GetStatus' data-ref="_ZN10tensorflow11Coordinator9GetStatusEv" id="_ZN10tensorflow11Coordinator9GetStatusEv">GetStatus</a>();</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>  <i class="doc">/// Returns immediately if the coordinator is stopped or blocks until</i></td></tr>
+<tr><th id="106">106</th><td><i class="doc">  /// RequestStop() is called.</i></td></tr>
+<tr><th id="107">107</th><td>  <em>void</em> <a class="decl" href="coordinator.cc.html#_ZN10tensorflow11Coordinator11WaitForStopEv" title='tensorflow::Coordinator::WaitForStop' data-ref="_ZN10tensorflow11Coordinator11WaitForStopEv" id="_ZN10tensorflow11Coordinator11WaitForStopEv">WaitForStop</a>();</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>  <i>// Returns the cost graph from stored run metadata in registered runners.</i></td></tr>
+<tr><th id="110">110</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="decl" href="coordinator.cc.html#_ZNK10tensorflow11Coordinator15ExportCostGraphEPNS_12CostGraphDefE" title='tensorflow::Coordinator::ExportCostGraph' data-ref="_ZNK10tensorflow11Coordinator15ExportCostGraphEPNS_12CostGraphDefE" id="_ZNK10tensorflow11Coordinator15ExportCostGraphEPNS_12CostGraphDefE">ExportCostGraph</a>(<span class='type' title='tensorflow::CostGraphDef' data-ref="tensorflow::CostGraphDef">CostGraphDef</span>* <dfn class="local col5 decl" id="5cost_graph" title='cost_graph' data-type='tensorflow::CostGraphDef *' data-ref="5cost_graph">cost_graph</dfn>) <em>const</em>;</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td> <b>private</b>:</td></tr>
+<tr><th id="113">113</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unordered_set.h.html#std::unordered_set" title='std::unordered_set' data-ref="std::unordered_set">unordered_set</a>&lt;<em>int</em>&gt; <dfn class="decl" id="tensorflow::Coordinator::clean_stop_errors_" title='tensorflow::Coordinator::clean_stop_errors_' data-ref="tensorflow::Coordinator::clean_stop_errors_">clean_stop_errors_</dfn>;</td></tr>
+<tr><th id="114">114</th><td>  <a class="type" href="../../core/platform/default/mutex.h.html#tensorflow::condition_variable" title='tensorflow::condition_variable' data-ref="tensorflow::condition_variable">condition_variable</a> <dfn class="decl" id="tensorflow::Coordinator::wait_for_stop_" title='tensorflow::Coordinator::wait_for_stop_' data-ref="tensorflow::Coordinator::wait_for_stop_">wait_for_stop_</dfn>;</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>  <a class="type" href="../../core/platform/default/mutex.h.html#tensorflow::mutex" title='tensorflow::mutex' data-ref="tensorflow::mutex">mutex</a> <dfn class="decl" id="tensorflow::Coordinator::mu_" title='tensorflow::Coordinator::mu_' data-ref="tensorflow::Coordinator::mu_">mu_</dfn>;</td></tr>
+<tr><th id="117">117</th><td>  <em>bool</em> <dfn class="decl" id="tensorflow::Coordinator::should_stop_" title='tensorflow::Coordinator::should_stop_' data-ref="tensorflow::Coordinator::should_stop_">should_stop_</dfn> <a class="macro" href="../../core/platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(mu_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::Coordinator::mu_" title='tensorflow::Coordinator::mu_' data-ref="tensorflow::Coordinator::mu_">mu_</a>);</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>  <a class="type" href="../../core/platform/default/mutex.h.html#tensorflow::mutex" title='tensorflow::mutex' data-ref="tensorflow::mutex">mutex</a> <dfn class="decl" id="tensorflow::Coordinator::status_lock_" title='tensorflow::Coordinator::status_lock_' data-ref="tensorflow::Coordinator::status_lock_">status_lock_</dfn>;</td></tr>
+<tr><th id="120">120</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="tensorflow::Coordinator::status_" title='tensorflow::Coordinator::status_' data-ref="tensorflow::Coordinator::status_">status_</dfn> <a class="macro" href="../../core/platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(status_lock_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::Coordinator::status_lock_" title='tensorflow::Coordinator::status_lock_' data-ref="tensorflow::Coordinator::status_lock_">status_lock_</a>);</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td>  <em>mutable</em> <a class="type" href="../../core/platform/default/mutex.h.html#tensorflow::mutex" title='tensorflow::mutex' data-ref="tensorflow::mutex">mutex</a> <dfn class="decl" id="tensorflow::Coordinator::runners_lock_" title='tensorflow::Coordinator::runners_lock_' data-ref="tensorflow::Coordinator::runners_lock_">runners_lock_</dfn>;</td></tr>
+<tr><th id="123">123</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#tensorflow::RunnerInterface" title='tensorflow::RunnerInterface' data-ref="tensorflow::RunnerInterface">RunnerInterface</a>&gt;&gt; <dfn class="decl" id="tensorflow::Coordinator::runners_" title='tensorflow::Coordinator::runners_' data-ref="tensorflow::Coordinator::runners_">runners_</dfn></td></tr>
+<tr><th id="124">124</th><td>      <a class="macro" href="../../core/platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(runners_lock_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::Coordinator::runners_lock_" title='tensorflow::Coordinator::runners_lock_' data-ref="tensorflow::Coordinator::runners_lock_">runners_lock_</a>);</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>  <a class="macro" href="../../core/platform/macros.h.html#91" title="Coordinator(const Coordinator&amp;) = delete; void operator=(const Coordinator&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN10tensorflow11CoordinatorC1ERKS0_" title='tensorflow::Coordinator::Coordinator' data-ref="_ZN10tensorflow11CoordinatorC1ERKS0_"><a class="type" href="#tensorflow::Coordinator" title='tensorflow::Coordinator' data-ref="tensorflow::Coordinator"><a class="type" href="#tensorflow::Coordinator" title='tensorflow::Coordinator' data-ref="tensorflow::Coordinator">Coordinator</a></a></dfn>);</td></tr>
+<tr><th id="127">127</th><td>};</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CC_TRAINING_COORDINATOR_H_</u></td></tr>
+<tr><th id="132">132</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='coordinator.cc.html'>tensorflow/tensorflow/cc/training/coordinator.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor.h' l='463' type='bool tensorflow::Tensor::RefCountIsOne() const'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor.h' l='461'>// Returns true if the refcount on buf_ and any possible underlying root
+  // buffer is one.</doc>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='513' u='c' c='_ZN10tensorflow15OpKernelContext13forward_inputEiiNS_8DataTypeERKNS_11TensorShapeENS_10MemoryTypeERKNS_19AllocatorAttributesE'/>
+<def f='tensorflow/tensorflow/core/framework/tensor.cc' l='662' ll='665' type='bool tensorflow::Tensor::RefCountIsOne() const'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor.cc' l='659'>// Notice that buf_ either points to a regular TensorBuffer or a SubBuffer.
+// For the latter case, we have to make sure that the refcount is
+// one both for the SubBuffer _and_ the underlying TensorBuffer.</doc>
+<use f='tensorflow/tensorflow/core/kernels/batch_util.cc' l='97' u='c' c='_ZN10tensorflow10batch_util18CopyElementToSliceENS_6TensorEPS1_x'/>
+<use f='tensorflow/tensorflow/core/kernels/training_op_helpers.h' l='39' u='c' c='_ZN10tensorflow23PrepareToUpdateVariableEPNS_15OpKernelContextEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/resource_variable_ops.cc' l='264' u='c' c='_ZN10tensorflow16AssignVariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/resource_variable_ops.cc' l='336' u='c' c='_ZN10tensorflow16AssignVariableOpIT_NS_7VariantEE7ComputeEPNS_15OpKernelContextE'/>

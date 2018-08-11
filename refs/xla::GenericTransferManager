@@ -1,0 +1,25 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='40' c='xla::TransferManager'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.h' l='37' ll='84'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.h' l='35' c='xla::CpuTransferManager'/>
+<size>24</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.h' l='30'>// A generic implementation of the XLA TransferManager interface
+// that is the base class for both CPU and GPU. For GPU, it transfers
+// data between host and device (GPU). For CPU, since the &quot;device&quot;
+// here is the host itself, there&apos;s not much for this transfer manager
+// to do except memcpy the result. There is a CpuTransferManager that
+// inherits from GenericTransferManager and handles CPU-specific
+// infeed.</doc>
+<fun r='_ZN3xla22GenericTransferManagerC1EPvm'/>
+<fun r='_ZN3xla22GenericTransferManagerD1Ev'/>
+<fun r='_ZNK3xla22GenericTransferManager10PlatformIdEv'/>
+<fun r='_ZN3xla22GenericTransferManager25TransferLiteralFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_12ShapedBufferE'/>
+<fun r='_ZN3xla22GenericTransferManager23TransferLiteralToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS_12ShapedBufferE'/>
+<fun r='_ZN3xla22GenericTransferManager23TransferLiteralToInfeedEPN9perftools8gputools14StreamExecutorERKNS_7LiteralE'/>
+<fun r='_ZN3xla22GenericTransferManager26TransferLiteralFromOutfeedEPN9perftools8gputools14StreamExecutorERKNS_5ShapeEPNS_7LiteralE'/>
+<fun r='_ZN3xla22GenericTransferManager12ResetDevicesEN10tensorflow3gtl10ArraySliceIPN9perftools8gputools14StreamExecutorEEE'/>
+<fun r='_ZNK3xla22GenericTransferManager22GetByteSizeRequirementERKNS_5ShapeE'/>
+<fun r='_ZN3xla22GenericTransferManager22TransferBufferToInfeedEPN9perftools8gputools14StreamExecutorExPKv'/>
+<fun r='_ZN3xla22GenericTransferManager26WriteSingleTupleIndexTableEPN9perftools8gputools14StreamExecutorEN10tensorflow3gtl10ArraySliceINS2_16DeviceMemoryBaseEEERKNS_5ShapeEPS8_'/>
+<mbr r='xla::GenericTransferManager::platform_id_' o='64' t='const perftools::gputools::Platform::Id'/>
+<mbr r='xla::GenericTransferManager::pointer_size_' o='128' t='const size_t'/>
+<fun r='_ZN3xla22GenericTransferManagerC1ERKS0_'/>

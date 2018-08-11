@@ -1,0 +1,11 @@
+<dec f='include/python3.5m/abstract.h' l='479' type='int PyObject_CheckReadBuffer(PyObject * obj)'/>
+<doc f='include/python3.5m/abstract.h' l='468'>/*
+      Takes an arbitrary object which must support the (character,
+      single segment) buffer interface and returns a pointer to a
+      read-only memory location useable as character based input
+      for subsequent processing.
+
+      0 is returned on success.  buffer and buffer_len are only
+      set in case no error occurs. Otherwise, -1 is returned and
+      an exception set.
+       */</doc>

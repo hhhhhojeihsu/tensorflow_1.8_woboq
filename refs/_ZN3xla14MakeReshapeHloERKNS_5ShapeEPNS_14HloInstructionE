@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='61' type='StatusOr&lt;xla::HloInstruction *&gt; xla::MakeReshapeHlo(const xla::Shape &amp; result_shape, xla::HloInstruction * operand)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='59'>// Creates a reshape HLO instruction and adds it to the computation containing
+// `operand`.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='83' ll='88' type='StatusOr&lt;xla::HloInstruction *&gt; xla::MakeReshapeHlo(const xla::Shape &amp; result_shape, xla::HloInstruction * operand)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='94' u='c' c='_ZN3xla14MakeReshapeHloEN10tensorflow3gtl10ArraySliceIxEEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='184' u='c' c='_ZN3xla18CollapseFirstNDimsEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='201' u='c' c='_ZN3xla23ExpandFirstDimIntoNDimsEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='226' u='c' c='_ZN3xla19ElideDegenerateDimsEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIxEE'/>

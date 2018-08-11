@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.h' l='62' type='int toco::SvdfCluster::InferFilterRank()'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.h' l='59'>// Infer the value of Svdf filter rank, by looking up a reshape operator which
+  // is used for &apos;output&apos; which reshapes output from [num_filters, batch, 1]
+  // shape to [num_units, rank, batch] shape. The 2nd shape element is rank.</doc>
+<def f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='80' ll='97' type='int toco::SvdfCluster::InferFilterRank()'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='135' u='c' c='_ZN4toco11SvdfCluster11CreateNodesEv'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='78'>// SvdfCluster methods</doc>

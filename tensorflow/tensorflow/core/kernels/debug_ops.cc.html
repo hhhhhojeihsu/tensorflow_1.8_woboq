@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>debug_ops.cc source code [tensorflow/tensorflow/core/kernels/debug_ops.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/kernels/debug_ops.cc'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>kernels</a>/<a href='debug_ops.cc.html'>debug_ops.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// See docs in ../ops/array_ops.cc.</i></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="debug_ops.h.html">"tensorflow/core/kernels/debug_ops.h"</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../framework/op_kernel.h.html">"tensorflow/core/framework/op_kernel.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../framework/register_types.h.html">"tensorflow/core/framework/register_types.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../framework/tensor.h.html">"tensorflow/core/framework/tensor.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../framework/types.h.html">"tensorflow/core/framework/types.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>// Register Copy ops.</i></td></tr>
+<tr><th id="27">27</th><td><a class="macro" href="../framework/op_kernel.h.html#1254" title="constexpr bool should_register_0__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__0__object( should_register_0__flag ? ::tensorflow::register_kernel::Name(&quot;Copy&quot;).Device(DEVICE_CPU).Build() : nullptr, &quot;CopyOp&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new CopyOp(context); });" data-ref="_M/REGISTER_KERNEL_BUILDER">REGISTER_KERNEL_BUILDER</a>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::register_kernel::Name" title='tensorflow::register_kernel::Name' data-ref="tensorflow::register_kernel::Name">Name</a><a class="ref" href="../framework/op_kernel.h.html#_ZN10tensorflow15register_kernel4NameC1EPKc" title='tensorflow::register_kernel::Name::Name' data-ref="_ZN10tensorflow15register_kernel4NameC1EPKc">(</a><q>"Copy"</q>).<a class="ref" href="../framework/kernel_def_builder.h.html#_ZN10tensorflow16KernelDefBuilder6DeviceEPKc" title='tensorflow::KernelDefBuilder::Device' data-ref="_ZN10tensorflow16KernelDefBuilder6DeviceEPKc">Device</a>(<a class="ref" href="../framework/types.h.html#tensorflow::DEVICE_CPU" title='tensorflow::DEVICE_CPU' data-ref="tensorflow::DEVICE_CPU">DEVICE_CPU</a>), <a class="type" href="debug_ops.h.html#tensorflow::CopyOp" title='tensorflow::CopyOp' data-ref="tensorflow::CopyOp">CopyOp</a>);</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><a class="macro" href="../framework/op_kernel.h.html#1254" title="constexpr bool should_register_2__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__2__object( should_register_2__flag ? ::tensorflow::register_kernel::Name(&quot;CopyHost&quot;).Device(DEVICE_CPU).Build() : nullptr, &quot;CopyOp&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new CopyOp(context); });" data-ref="_M/REGISTER_KERNEL_BUILDER">REGISTER_KERNEL_BUILDER</a>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::register_kernel::Name" title='tensorflow::register_kernel::Name' data-ref="tensorflow::register_kernel::Name">Name</a><a class="ref" href="../framework/op_kernel.h.html#_ZN10tensorflow15register_kernel4NameC1EPKc" title='tensorflow::register_kernel::Name::Name' data-ref="_ZN10tensorflow15register_kernel4NameC1EPKc">(</a><q>"CopyHost"</q>).<a class="ref" href="../framework/kernel_def_builder.h.html#_ZN10tensorflow16KernelDefBuilder6DeviceEPKc" title='tensorflow::KernelDefBuilder::Device' data-ref="_ZN10tensorflow16KernelDefBuilder6DeviceEPKc">Device</a>(<a class="ref" href="../framework/types.h.html#tensorflow::DEVICE_CPU" title='tensorflow::DEVICE_CPU' data-ref="tensorflow::DEVICE_CPU">DEVICE_CPU</a>), <a class="type" href="debug_ops.h.html#tensorflow::CopyOp" title='tensorflow::CopyOp' data-ref="tensorflow::CopyOp">CopyOp</a>);</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#<span data-ppcond="31">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="32">32</th><td>REGISTER_KERNEL_BUILDER(Name(<q>"Copy"</q>).Device(DEVICE_GPU), CopyOp);</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>REGISTER_KERNEL_BUILDER(Name(<q>"CopyHost"</q>)</td></tr>
+<tr><th id="35">35</th><td>                            .Device(DEVICE_GPU)</td></tr>
+<tr><th id="36">36</th><td>                            .HostMemory(<q>"input"</q>)</td></tr>
+<tr><th id="37">37</th><td>                            .HostMemory(<q>"output"</q>),</td></tr>
+<tr><th id="38">38</th><td>                        CopyOp);</td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="31">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#<span data-ppcond="41">ifdef</span> <span class="macro" data-ref="_M/TENSORFLOW_USE_SYCL">TENSORFLOW_USE_SYCL</span></u></td></tr>
+<tr><th id="42">42</th><td>REGISTER_KERNEL_BUILDER(Name(<q>"Copy"</q>).Device(DEVICE_SYCL), CopyOp);</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>REGISTER_KERNEL_BUILDER(Name(<q>"CopyHost"</q>)</td></tr>
+<tr><th id="45">45</th><td>                            .Device(DEVICE_SYCL)</td></tr>
+<tr><th id="46">46</th><td>                            .HostMemory(<q>"input"</q>)</td></tr>
+<tr><th id="47">47</th><td>                            .HostMemory(<q>"output"</q>),</td></tr>
+<tr><th id="48">48</th><td>                        CopyOp);</td></tr>
+<tr><th id="49">49</th><td><u>#<span data-ppcond="41">endif</span>  // TENSORFLOW_USE_SYCL</u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i>// Register debug identity (non-ref and ref) ops.</i></td></tr>
+<tr><th id="52">52</th><td><a class="macro" href="../framework/op_kernel.h.html#1254" title="constexpr bool should_register_4__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__4__object( should_register_4__flag ? ::tensorflow::register_kernel::Name(&quot;DebugIdentity&quot;).Device(DEVICE_CPU).Build() : nullptr, &quot;DebugIdentityOp&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugIdentityOp(context); });" data-ref="_M/REGISTER_KERNEL_BUILDER">REGISTER_KERNEL_BUILDER</a>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::register_kernel::Name" title='tensorflow::register_kernel::Name' data-ref="tensorflow::register_kernel::Name">Name</a><a class="ref" href="../framework/op_kernel.h.html#_ZN10tensorflow15register_kernel4NameC1EPKc" title='tensorflow::register_kernel::Name::Name' data-ref="_ZN10tensorflow15register_kernel4NameC1EPKc">(</a><q>"DebugIdentity"</q>).<a class="ref" href="../framework/kernel_def_builder.h.html#_ZN10tensorflow16KernelDefBuilder6DeviceEPKc" title='tensorflow::KernelDefBuilder::Device' data-ref="_ZN10tensorflow16KernelDefBuilder6DeviceEPKc">Device</a>(<a class="ref" href="../framework/types.h.html#tensorflow::DEVICE_CPU" title='tensorflow::DEVICE_CPU' data-ref="tensorflow::DEVICE_CPU">DEVICE_CPU</a>),</td></tr>
+<tr><th id="53">53</th><td>                        <a class="type" href="debug_ops.h.html#tensorflow::DebugIdentityOp" title='tensorflow::DebugIdentityOp' data-ref="tensorflow::DebugIdentityOp">DebugIdentityOp</a>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><u>#<span data-ppcond="55">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="56">56</th><td>REGISTER_KERNEL_BUILDER(Name(<q>"DebugIdentity"</q>)</td></tr>
+<tr><th id="57">57</th><td>                            .Device(DEVICE_GPU)</td></tr>
+<tr><th id="58">58</th><td>                            .HostMemory(<q>"input"</q>)</td></tr>
+<tr><th id="59">59</th><td>                            .HostMemory(<q>"output"</q>),</td></tr>
+<tr><th id="60">60</th><td>                        DebugIdentityOp);</td></tr>
+<tr><th id="61">61</th><td><u>#<span data-ppcond="55">endif</span></u></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><u>#<span data-ppcond="63">ifdef</span> <span class="macro" data-ref="_M/TENSORFLOW_USE_SYCL">TENSORFLOW_USE_SYCL</span></u></td></tr>
+<tr><th id="64">64</th><td>REGISTER_KERNEL_BUILDER(Name(<q>"DebugIdentity"</q>)</td></tr>
+<tr><th id="65">65</th><td>                            .Device(DEVICE_SYCL)</td></tr>
+<tr><th id="66">66</th><td>                            .HostMemory(<q>"input"</q>)</td></tr>
+<tr><th id="67">67</th><td>                            .HostMemory(<q>"output"</q>),</td></tr>
+<tr><th id="68">68</th><td>                        DebugIdentityOp);</td></tr>
+<tr><th id="69">69</th><td><u>#<span data-ppcond="63">endif</span>  // TENSORFLOW_USE_SYCL</u></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><i>// Register debug NaN-counter (non-ref and ref) ops.</i></td></tr>
+<tr><th id="72">72</th><td><u>#define <dfn class="macro" id="_M/REGISTER_DEBUG_NAN_COUNT" data-ref="_M/REGISTER_DEBUG_NAN_COUNT">REGISTER_DEBUG_NAN_COUNT</dfn>(type)                                    \</u></td></tr>
+<tr><th id="73">73</th><td><u>  REGISTER_KERNEL_BUILDER(                                                \</u></td></tr>
+<tr><th id="74">74</th><td><u>      <a class="type" href="../framework/op_kernel.h.html#tensorflow::register_kernel::Name" title='tensorflow::register_kernel::Name' data-ref="tensorflow::register_kernel::Name">Name</a><a class="ref" href="../framework/op_kernel.h.html#_ZN10tensorflow15register_kernel4NameC1EPKc" title='tensorflow::register_kernel::Name::Name' data-ref="_ZN10tensorflow15register_kernel4NameC1EPKc">(</a>"DebugNanCount").<a class="ref" href="../framework/kernel_def_builder.h.html#_ZN10tensorflow16KernelDefBuilder6DeviceEPKc" title='tensorflow::KernelDefBuilder::Device' data-ref="_ZN10tensorflow16KernelDefBuilder6DeviceEPKc">Device</a>(<a class="ref" href="../framework/types.h.html#tensorflow::DEVICE_CPU" title='tensorflow::DEVICE_CPU' data-ref="tensorflow::DEVICE_CPU">DEVICE_CPU</a>).<a class="ref" href="../framework/kernel_def_builder.h.html#_ZN10tensorflow16KernelDefBuilder14TypeConstraintEPKc" title='tensorflow::KernelDefBuilder::TypeConstraint' data-ref="_ZN10tensorflow16KernelDefBuilder14TypeConstraintEPKc">TypeConstraint</a>&lt;type&gt;("T"), \</u></td></tr>
+<tr><th id="75">75</th><td><u>      <a class="type" href="debug_ops.h.html#tensorflow::DebugNanCountOp" title='tensorflow::DebugNanCountOp' data-ref="tensorflow::DebugNanCountOp">DebugNanCountOp</a>&lt;type&gt;);</u></td></tr>
+<tr><th id="76">76</th><td><a class="macro" href="../framework/register_types.h.html#158" title="constexpr bool should_register_6__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__6__object( should_register_6__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNanCount&quot;).Device(DEVICE_CPU).TypeConstraint&lt;::tensorflow::int64&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNanCountOp&lt;::tensorflow::int64&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNanCountOp&lt;::tensorflow::int64&gt;(context); });; constexpr bool should_register_7__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__7__object( should_register_7__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNanCount&quot;).Device(DEVICE_CPU).TypeConstraint&lt;::tensorflow::int32&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNanCountOp&lt;::tensorflow::int32&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNanCountOp&lt;::tensorflow::int32&gt;(context); });; constexpr bool should_register_8__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__8__object( should_register_8__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNanCount&quot;).Device(DEVICE_CPU).TypeConstraint&lt;::tensorflow::uint16&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNanCountOp&lt;::tensorflow::uint16&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNanCountOp&lt;::tensorflow::uint16&gt;(context); });; constexpr bool should_register_9__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__9__object( should_register_9__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNanCount&quot;).Device(DEVICE_CPU).TypeConstraint&lt;::tensorflow::int16&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNanCountOp&lt;::tensorflow::int16&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNanCountOp&lt;::tensorflow::int16&gt;(context); });; constexpr bool should_register_10__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__10__object( should_register_10__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNanCount&quot;).Device(DEVICE_CPU).TypeConstraint&lt;::tensorflow::uint8&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNanCountOp&lt;::tensorflow::uint8&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNanCountOp&lt;::tensorflow::uint8&gt;(context); });; constexpr bool should_register_11__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__11__object( should_register_11__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNanCount&quot;).Device(DEVICE_CPU).TypeConstraint&lt;::tensorflow::int8&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNanCountOp&lt;::tensorflow::int8&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNanCountOp&lt;::tensorflow::int8&gt;(context); });; constexpr bool should_register_12__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__12__object( should_register_12__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNanCount&quot;).Device(DEVICE_CPU).TypeConstraint&lt;Eigen::half&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNanCountOp&lt;Eigen::half&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNanCountOp&lt;Eigen::half&gt;(context); });; constexpr bool should_register_13__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__13__object( should_register_13__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNanCount&quot;).Device(DEVICE_CPU).TypeConstraint&lt;::tensorflow::bfloat16&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNanCountOp&lt;::tensorflow::bfloat16&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNanCountOp&lt;::tensorflow::bfloat16&gt;(context); });; constexpr bool should_register_14__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__14__object( should_register_14__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNanCount&quot;).Device(DEVICE_CPU).TypeConstraint&lt;float&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNanCountOp&lt;float&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNanCountOp&lt;float&gt;(context); });; constexpr bool should_register_15__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__15__object( should_register_15__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNanCount&quot;).Device(DEVICE_CPU).TypeConstraint&lt;double&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNanCountOp&lt;double&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNanCountOp&lt;double&gt;(context); });;" data-ref="_M/TF_CALL_REAL_NUMBER_TYPES">TF_CALL_REAL_NUMBER_TYPES</a>(REGISTER_DEBUG_NAN_COUNT);</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><u>#<span data-ppcond="78">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="79">79</th><td><u>#define REGISTER_GPU_DEBUG_NAN_COUNT(type)                \</u></td></tr>
+<tr><th id="80">80</th><td><u>  REGISTER_KERNEL_BUILDER(Name("DebugNanCount")           \</u></td></tr>
+<tr><th id="81">81</th><td><u>                              .Device(DEVICE_GPU)         \</u></td></tr>
+<tr><th id="82">82</th><td><u>                              .HostMemory("input")        \</u></td></tr>
+<tr><th id="83">83</th><td><u>                              .HostMemory("output")       \</u></td></tr>
+<tr><th id="84">84</th><td><u>                              .TypeConstraint&lt;type&gt;("T"), \</u></td></tr>
+<tr><th id="85">85</th><td><u>                          DebugNanCountOp&lt;type&gt;);</u></td></tr>
+<tr><th id="86">86</th><td>REGISTER_GPU_DEBUG_NAN_COUNT(Eigen::half);</td></tr>
+<tr><th id="87">87</th><td>REGISTER_GPU_DEBUG_NAN_COUNT(<em>float</em>);</td></tr>
+<tr><th id="88">88</th><td>REGISTER_GPU_DEBUG_NAN_COUNT(<em>double</em>);</td></tr>
+<tr><th id="89">89</th><td><u>#<span data-ppcond="78">endif</span></u></td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td><u>#<span data-ppcond="91">ifdef</span> <span class="macro" data-ref="_M/TENSORFLOW_USE_SYCL">TENSORFLOW_USE_SYCL</span></u></td></tr>
+<tr><th id="92">92</th><td><u>#define REGISTER_GPU_DEBUG_NAN_COUNT(type)                \</u></td></tr>
+<tr><th id="93">93</th><td><u>  REGISTER_KERNEL_BUILDER(Name("DebugNanCount")           \</u></td></tr>
+<tr><th id="94">94</th><td><u>                              .Device(DEVICE_SYCL)        \</u></td></tr>
+<tr><th id="95">95</th><td><u>                              .HostMemory("input")        \</u></td></tr>
+<tr><th id="96">96</th><td><u>                              .HostMemory("output")       \</u></td></tr>
+<tr><th id="97">97</th><td><u>                              .TypeConstraint&lt;type&gt;("T"), \</u></td></tr>
+<tr><th id="98">98</th><td><u>                          DebugNanCountOp&lt;type&gt;);</u></td></tr>
+<tr><th id="99">99</th><td>REGISTER_GPU_DEBUG_NAN_COUNT(<em>float</em>);</td></tr>
+<tr><th id="100">100</th><td>REGISTER_GPU_DEBUG_NAN_COUNT(<em>double</em>);</td></tr>
+<tr><th id="101">101</th><td><u>#<span data-ppcond="91">endif</span>  // TENSORFLOW_USE_SYCL</u></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><i>// Register debug numeric summary ops.</i></td></tr>
+<tr><th id="104">104</th><td><u>#define <dfn class="macro" id="_M/REGISTER_DEBUG_NUMERIC_SUMMARY_COUNT" data-ref="_M/REGISTER_DEBUG_NUMERIC_SUMMARY_COUNT">REGISTER_DEBUG_NUMERIC_SUMMARY_COUNT</dfn>(type)        \</u></td></tr>
+<tr><th id="105">105</th><td><u>  REGISTER_KERNEL_BUILDER(<a class="type" href="../framework/op_kernel.h.html#tensorflow::register_kernel::Name" title='tensorflow::register_kernel::Name' data-ref="tensorflow::register_kernel::Name">Name</a><a class="ref" href="../framework/op_kernel.h.html#_ZN10tensorflow15register_kernel4NameC1EPKc" title='tensorflow::register_kernel::Name::Name' data-ref="_ZN10tensorflow15register_kernel4NameC1EPKc">(</a>"DebugNumericSummary")     \</u></td></tr>
+<tr><th id="106">106</th><td><u>                              .<a class="ref" href="../framework/kernel_def_builder.h.html#_ZN10tensorflow16KernelDefBuilder6DeviceEPKc" title='tensorflow::KernelDefBuilder::Device' data-ref="_ZN10tensorflow16KernelDefBuilder6DeviceEPKc">Device</a>(<a class="ref" href="../framework/types.h.html#tensorflow::DEVICE_CPU" title='tensorflow::DEVICE_CPU' data-ref="tensorflow::DEVICE_CPU">DEVICE_CPU</a>)         \</u></td></tr>
+<tr><th id="107">107</th><td><u>                              .<a class="ref" href="../framework/kernel_def_builder.h.html#_ZN10tensorflow16KernelDefBuilder14TypeConstraintEPKc" title='tensorflow::KernelDefBuilder::TypeConstraint' data-ref="_ZN10tensorflow16KernelDefBuilder14TypeConstraintEPKc">TypeConstraint</a>&lt;type&gt;("T"), \</u></td></tr>
+<tr><th id="108">108</th><td><u>                          <a class="type" href="debug_ops.h.html#tensorflow::DebugNumericSummaryOp" title='tensorflow::DebugNumericSummaryOp' data-ref="tensorflow::DebugNumericSummaryOp">DebugNumericSummaryOp</a>&lt;type&gt;);</u></td></tr>
+<tr><th id="109">109</th><td><a class="macro" href="../framework/register_types.h.html#76" title="constexpr bool should_register_26__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__26__object( should_register_26__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNumericSummary&quot;) .Device(DEVICE_CPU) .TypeConstraint&lt;bool&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNumericSummaryOp&lt;bool&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNumericSummaryOp&lt;bool&gt;(context); });;" data-ref="_M/TF_CALL_bool">TF_CALL_bool</a>(REGISTER_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="110">110</th><td><a class="macro" href="../framework/register_types.h.html#154" title="constexpr bool should_register_28__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__28__object( should_register_28__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNumericSummary&quot;) .Device(DEVICE_CPU) .TypeConstraint&lt;::tensorflow::int64&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNumericSummaryOp&lt;::tensorflow::int64&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNumericSummaryOp&lt;::tensorflow::int64&gt;(context); });; constexpr bool should_register_29__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__29__object( should_register_29__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNumericSummary&quot;) .Device(DEVICE_CPU) .TypeConstraint&lt;::tensorflow::int32&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNumericSummaryOp&lt;::tensorflow::int32&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNumericSummaryOp&lt;::tensorflow::int32&gt;(context); });; constexpr bool should_register_30__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__30__object( should_register_30__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNumericSummary&quot;) .Device(DEVICE_CPU) .TypeConstraint&lt;::tensorflow::uint16&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNumericSummaryOp&lt;::tensorflow::uint16&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNumericSummaryOp&lt;::tensorflow::uint16&gt;(context); });; constexpr bool should_register_31__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__31__object( should_register_31__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNumericSummary&quot;) .Device(DEVICE_CPU) .TypeConstraint&lt;::tensorflow::int16&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNumericSummaryOp&lt;::tensorflow::int16&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNumericSummaryOp&lt;::tensorflow::int16&gt;(context); });; constexpr bool should_register_32__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__32__object( should_register_32__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNumericSummary&quot;) .Device(DEVICE_CPU) .TypeConstraint&lt;::tensorflow::uint8&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNumericSummaryOp&lt;::tensorflow::uint8&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNumericSummaryOp&lt;::tensorflow::uint8&gt;(context); });; constexpr bool should_register_33__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__33__object( should_register_33__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNumericSummary&quot;) .Device(DEVICE_CPU) .TypeConstraint&lt;::tensorflow::int8&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNumericSummaryOp&lt;::tensorflow::int8&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNumericSummaryOp&lt;::tensorflow::int8&gt;(context); });;" data-ref="_M/TF_CALL_INTEGRAL_TYPES">TF_CALL_INTEGRAL_TYPES</a>(REGISTER_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="111">111</th><td><a class="macro" href="../framework/register_types.h.html#62" title="constexpr bool should_register_40__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__40__object( should_register_40__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNumericSummary&quot;) .Device(DEVICE_CPU) .TypeConstraint&lt;float&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNumericSummaryOp&lt;float&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNumericSummaryOp&lt;float&gt;(context); });;" data-ref="_M/TF_CALL_float">TF_CALL_float</a>(REGISTER_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="112">112</th><td><a class="macro" href="../framework/register_types.h.html#63" title="constexpr bool should_register_42__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__42__object( should_register_42__flag ? ::tensorflow::register_kernel::Name(&quot;DebugNumericSummary&quot;) .Device(DEVICE_CPU) .TypeConstraint&lt;double&gt;(&quot;T&quot;).Build() : nullptr, &quot;DebugNumericSummaryOp&lt;double&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new DebugNumericSummaryOp&lt;double&gt;(context); });;" data-ref="_M/TF_CALL_double">TF_CALL_double</a>(REGISTER_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><u>#<span data-ppcond="114">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="115">115</th><td><u>#define REGISTER_GPU_DEBUG_NUMERIC_SUMMARY_COUNT(type)    \</u></td></tr>
+<tr><th id="116">116</th><td><u>  REGISTER_KERNEL_BUILDER(Name("DebugNumericSummary")     \</u></td></tr>
+<tr><th id="117">117</th><td><u>                              .Device(DEVICE_GPU)         \</u></td></tr>
+<tr><th id="118">118</th><td><u>                              .HostMemory("input")        \</u></td></tr>
+<tr><th id="119">119</th><td><u>                              .HostMemory("output")       \</u></td></tr>
+<tr><th id="120">120</th><td><u>                              .TypeConstraint&lt;type&gt;("T"), \</u></td></tr>
+<tr><th id="121">121</th><td><u>                          DebugNumericSummaryOp&lt;type&gt;);</u></td></tr>
+<tr><th id="122">122</th><td>TF_CALL_bool(REGISTER_GPU_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="123">123</th><td>TF_CALL_INTEGRAL_TYPES(REGISTER_GPU_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="124">124</th><td>TF_CALL_float(REGISTER_GPU_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="125">125</th><td>TF_CALL_double(REGISTER_GPU_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="126">126</th><td><u>#<span data-ppcond="114">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><u>#<span data-ppcond="128">if</span> TENSORFLOW_USE_SYCL</u></td></tr>
+<tr><th id="129">129</th><td><u>#define REGISTER_SYCL_DEBUG_NUMERIC_SUMMARY_COUNT(type)   \</u></td></tr>
+<tr><th id="130">130</th><td><u>  REGISTER_KERNEL_BUILDER(Name("DebugNumericSummary")     \</u></td></tr>
+<tr><th id="131">131</th><td><u>                              .Device(DEVICE_SYCL)        \</u></td></tr>
+<tr><th id="132">132</th><td><u>                              .HostMemory("input")        \</u></td></tr>
+<tr><th id="133">133</th><td><u>                              .HostMemory("output")       \</u></td></tr>
+<tr><th id="134">134</th><td><u>                              .TypeConstraint&lt;type&gt;("T"), \</u></td></tr>
+<tr><th id="135">135</th><td><u>                          DebugNumericSummaryOp&lt;type&gt;);</u></td></tr>
+<tr><th id="136">136</th><td>TF_CALL_bool(REGISTER_SYCL_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="137">137</th><td>TF_CALL_INTEGRAL_TYPES(REGISTER_SYCL_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="138">138</th><td>TF_CALL_float(REGISTER_SYCL_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="139">139</th><td>TF_CALL_double(REGISTER_SYCL_DEBUG_NUMERIC_SUMMARY_COUNT);</td></tr>
+<tr><th id="140">140</th><td><u>#<span data-ppcond="128">endif</span>  // TENSORFLOW_USE_SYCL</u></td></tr>
+<tr><th id="141">141</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="142">142</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

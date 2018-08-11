@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.h' l='51' type='StatusOr&lt;cpu::runtime::XfeedBuffer *&gt; xla::CpuTransferManager::TransferBufferToInfeedInternal(perftools::gputools::StreamExecutor * executor, int64 size, const void * source)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='126' u='c' c='_ZN3xla18CpuTransferManager23TransferLiteralToInfeedEPN9perftools8gputools14StreamExecutorERKNS_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='142' u='c' c='_ZN3xla18CpuTransferManager22TransferBufferToInfeedEPN9perftools8gputools14StreamExecutorExPKv'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='150' ll='174' type='StatusOr&lt;cpu::runtime::XfeedBuffer *&gt; xla::CpuTransferManager::TransferBufferToInfeedInternal(se::StreamExecutor * executor, int64 size, const void * source)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.h' l='49'>// Transfers infeed data to device. InfeedBuffer-&gt;Done() must be
+  // called to clean up the memory allocated for InfeedBuffer.</doc>

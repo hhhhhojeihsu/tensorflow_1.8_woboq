@@ -1,0 +1,31 @@
+<def f='tensorflow/tensorflow/core/framework/tensor.h' l='182' ll='187' type='bool tensorflow::Tensor::CopyFrom(const tensorflow::Tensor &amp; other, const tensorflow::TensorShape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor.h' l='177'>/// \brief Copy the other tensor into this tensor and reshape it.
+  ///
+  /// This tensor shares other&apos;s underlying storage. Returns `true`
+  /// iff `other.shape()` has the same number of elements of the given
+  /// `shape`.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='95' u='c' c='_ZN10tensorflow18XlaOpKernelContext21ConstantInputReshapedEiNS_3gtl10ArraySliceIxEEPN3xla7LiteralE'/>
+<use f='tensorflow/tensorflow/contrib/rnn/kernels/lstm_ops.cc' l='772' u='c' c='_ZNK10tensorflow12_GLOBAL__N_111SliceHelper14UnalignedSliceERKNS_6TensorEi'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='529' u='c' c='_ZN10tensorflow15OpKernelContext13forward_inputEiiNS_8DataTypeERKNS_11TensorShapeENS_10MemoryTypeERKNS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/core/kernels/batch_matmul_op_impl.h' l='474' u='c' c='_ZN10tensorflow11BatchMatMul7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/batch_matmul_op_impl.h' l='478' u='c' c='_ZN10tensorflow11BatchMatMul7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/batch_matmul_op_impl.h' l='499' u='c' c='_ZN10tensorflow11BatchMatMul7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/assign_op.h' l='98' u='c' c='_ZN10tensorflow8AssignOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/list_kernels.h' l='161' u='c' c='_ZN10tensorflow20TensorListFromTensor7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/mirror_pad_op.cc' l='114' u='c' c='_ZN10tensorflow11MirrorPadOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/pack_op.cc' l='81' u='c' c='_ZN10tensorflow6PackOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/pad_op.cc' l='102' u='c' c='_ZN10tensorflow5PadOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/pad_op.cc' l='115' u='c' c='_ZN10tensorflow5PadOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/pad_op.cc' l='132' u='c' c='_ZN10tensorflow5PadOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/reshape_op.h' l='86' u='c' c='_ZN10tensorflow9ReshapeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops_common.h' l='164' u='c' c='_ZN10tensorflow11ReductionOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops_common.h' l='220' u='c' c='_ZN10tensorflow11ReductionOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops_common.h' l='239' u='c' c='_ZN10tensorflow11ReductionOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/shape_ops.h' l='185' u='c' c='_ZN10tensorflow12ExpandDimsOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/shape_ops.h' l='257' u='c' c='_ZN10tensorflow9SqueezeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_to_dense_op.cc' l='99' u='c' c='_ZN10tensorflow13SparseToDense7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/strided_slice_op.cc' l='112' u='c' c='_ZN10tensorflow14StridedSliceOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/strided_slice_op.cc' l='131' u='c' c='_ZN10tensorflow14StridedSliceOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/strided_slice_op.cc' l='251' u='c' c='_ZN10tensorflow18StridedSliceGradOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/transpose_op.cc' l='192' u='c' c='_ZN10tensorflow11TransposeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/unpack_op.cc' l='86' u='c' c='_ZN10tensorflow8UnpackOp7ComputeEPNS_15OpKernelContextE'/>

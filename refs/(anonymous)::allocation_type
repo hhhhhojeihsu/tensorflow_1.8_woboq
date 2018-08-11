@@ -1,0 +1,22 @@
+<dec f='tensorflow/tensorflow/contrib/lite/context.h' l='196' type='TfLiteAllocationType'/>
+<offset>256</offset>
+<doc f='tensorflow/tensorflow/contrib/lite/context.h' l='191'>// How memory is mapped
+  //  kTfLiteMmapRo: Memory mapped read only.
+  //  i.e. weights
+  //  kTfLiteArenaRw: Arena allocated read write memory
+  //  (i.e. temporaries, outputs).</doc>
+<use f='tensorflow/tensorflow/contrib/lite/arena_planner.cc' l='192' u='r' c='_ZN6tflite12ArenaPlanner23ResolveTensorAllocationEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/arena_planner.cc' l='200' u='r' c='_ZN6tflite12ArenaPlanner23ResolveTensorAllocationEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/arena_planner.cc' l='209' u='r' c='_ZN6tflite12ArenaPlanner25CalculateTensorAllocationEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/arena_planner.cc' l='214' u='r' c='_ZN6tflite12ArenaPlanner25CalculateTensorAllocationEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/arena_planner.cc' l='224' u='r' c='_ZN6tflite12ArenaPlanner27CalculateTensorDeallocationEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/context.c' l='64' u='r' c='TfLiteTensorDataFree'/>
+<use f='tensorflow/tensorflow/contrib/lite/context.c' l='87' u='w' c='TfLiteTensorReset'/>
+<use f='tensorflow/tensorflow/contrib/lite/context.c' l='92' u='r' c='TfLiteTensorRealloc'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='453' u='r' c='_ZN6tflite16HasDynamicTensorERK13TfLiteContextPK14TfLiteIntArray'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='667' u='w' c='_ZN6tflite11Interpreter27SetTensorParametersReadOnlyEi10TfLiteTypePKciPKi24TfLiteQuantizationParamsS3_mPKNS_10AllocationE'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='721' u='r' c='_ZN6tflite11Interpreter16ResizeTensorImplEP12TfLiteTensorP14TfLiteIntArray'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='722' u='r' c='_ZN6tflite11Interpreter16ResizeTensorImplEP12TfLiteTensorP14TfLiteIntArray'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='739' u='r' c='_ZN6tflite11Interpreter16ResizeTensorImplEP12TfLiteTensorP14TfLiteIntArray'/>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='115' u='r' c='_ZN6tflite17addTensorOperandsEPNS_11InterpreterEP20ANeuralNetworksModel'/>
+<use f='tensorflow/tensorflow/contrib/lite/optional_debug_tools.cc' l='84' u='r' c='_ZN6tflite21PrintInterpreterStateEPNS_11InterpreterE'/>

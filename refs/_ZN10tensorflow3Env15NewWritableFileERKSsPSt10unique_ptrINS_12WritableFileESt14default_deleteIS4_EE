@@ -1,0 +1,28 @@
+<dec f='tensorflow/tensorflow/core/platform/env.h' l='107' type='tensorflow::Status tensorflow::Env::NewWritableFile(const string &amp; fname, std::unique_ptr&lt;WritableFile&gt; * result)'/>
+<doc f='tensorflow/tensorflow/core/platform/env.h' l='94'>/// \brief Creates an object that writes to a new file with the specified
+  /// name.
+  ///
+  /// Deletes any existing file with the same name and creates a
+  /// new file.  On success, stores a pointer to the new file in
+  /// *result and returns OK.  On failure stores NULL in *result and
+  /// returns non-OK.
+  ///
+  /// The returned file will only be accessed by one thread at a time.
+  ///
+  /// The ownership of the returned WritableFile is passed to the caller
+  /// and the object should be deleted when is not used. The file object
+  /// shouldn&apos;t live longer than the Env object.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='699' u='c' c='_ZN3xla7llvm_irL26CreateAndWriteStringToFileERKSsS2_S2_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='309' u='c' c='_ZN10tensorflow6ffmpeg9WriteFileERKSsNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='621' u='c' c='_ZN10tensorflow11DebugFileIO20DumpEventProtoToFileERKNS_5EventERKSsS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/cache_dataset_ops.cc' l='186' u='c' c='_ZN10tensorflow12_GLOBAL__N_114CacheDatasetOp11FileDataset18FileWriterIterator20EnsureLockFileExistsEv'/>
+<def f='tensorflow/tensorflow/core/platform/env.cc' l='143' ll='148' type='tensorflow::Status tensorflow::Env::NewWritableFile(const string &amp; fname, std::unique_ptr&lt;WritableFile&gt; * result)'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='411' u='c' c='_ZN10tensorflow17WriteStringToFileEPNS_3EnvERKSsRKNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_code.cc' l='291' u='c' c='_ZN10tensorflow6tfprof12_GLOBAL__N_116PprofProfileImpl17WritePprofProfileERKSs'/>
+<use f='tensorflow/tensorflow/core/util/events_writer.cc' l='73' u='c' c='_ZN10tensorflow12EventsWriter12InitIfNeededEv'/>
+<use f='tensorflow/tensorflow/core/util/memmapped_file_system_writer.cc' l='23' u='c' c='_ZN10tensorflow25MemmappedFileSystemWriter16InitializeToFileEPNS_3EnvERKSs'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='386' u='c' c='_ZN10tensorflow12BundleWriterC1EPNS_3EnvENS_11StringPieceERKNS0_7OptionsE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='488' u='c' c='_ZN10tensorflow12BundleWriter6FinishEv'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='670' u='c' c='_ZN10tensorflow12MergeBundlesEPNS_3EnvENS_3gtl10ArraySliceISsEENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_writer.cc' l='75' u='c' c='_ZN10tensorflow10checkpoint29CreateTableTensorSliceBuilderERKSsPPNS0_17TensorSliceWriter7BuilderE'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_writer.cc' l='34' u='c' c='_ZN10tensorflow2io14PyRecordWriter3NewERKSsS3_P9TF_Status'/>

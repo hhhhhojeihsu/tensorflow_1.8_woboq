@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/disassembler.h' l='58' type='StatusOr&lt;xla::cpu::DisassemblerResult&gt; xla::cpu::Disassembler::DisassembleObjectFile(const llvm::object::ObjectFile &amp; object_file) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/disassembler.h' l='53'>// Returns a DisassemblerResult for the given object file, containing the
+  // disassembled code.
+  //
+  // If we couldn&apos;t retrieve a disassembler for this platform, an error status
+  // is returned.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/disassembler.cc' l='55' ll='184' type='StatusOr&lt;xla::cpu::DisassemblerResult&gt; xla::cpu::Disassembler::DisassembleObjectFile(const llvm::object::ObjectFile &amp; object_file) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/disassembler.cc' l='54'>// This code is based on llvm-objdump in llvm/tools.</doc>

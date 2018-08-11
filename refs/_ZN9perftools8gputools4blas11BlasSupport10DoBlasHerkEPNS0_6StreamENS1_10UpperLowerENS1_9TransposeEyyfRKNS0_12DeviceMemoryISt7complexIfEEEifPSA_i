@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='1142' type='bool perftools::gputools::blas::BlasSupport::DoBlasHerk(perftools::gputools::Stream * stream, blas::UpperLower uplo, blas::Transpose trans, uint64 n, uint64 k, float alpha, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; a, int lda, float beta, DeviceMemory&lt;std::complex&lt;float&gt; &gt; * c, int ldc)'/>
+<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='1134'>// Performs a Hermitian rank-k update.
+  //
+  //     c &lt;- alpha * a * conj(a&apos;) + beta * c,
+  // or
+  //     c &lt;- alpha * conj(a&apos;) * a + beta * c,
+  //
+  // alpha and beta are scalars; c is a n-by-n Hermitian matrix; a is an n-by-k
+  // matrix in the first case and a k-by-n matrix in the second case.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4073' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasHerkENS0_4blas10UpperLowerENS2_9TransposeEyyfRKNS0_12DeviceMemoryISt7complexIfEEEifPS8_i'/>

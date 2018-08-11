@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='151' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferReduceWindowShape(const xla::Shape &amp; operand_shape, const xla::Shape &amp; init_value, const xla::Window &amp; window, const xla::ProgramShape &amp; to_apply_shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='149'>// Infers the shape produced by applying the given computation to the operand
+  // shape with the given window and stride dimensions.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1754' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='283' u='c' c='_ZN3xla13ShapeVerifier18HandleReduceWindowEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1891' ll='1901' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferReduceWindowShape(const xla::Shape &amp; operand_shape, const xla::Shape &amp; init_value_shape, const xla::Window &amp; window, const xla::ProgramShape &amp; to_apply_shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1891'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='660' u='c' c='_ZN3xla15UserComputation26AddReduceWindowInstructionERKNS_19ReduceWindowRequestERKS0_'/>

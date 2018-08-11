@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/lib/histogram/histogram.h' l='85' type='std::string tensorflow::histogram::Histogram::ToString() const'/>
+<doc f='tensorflow/tensorflow/core/lib/histogram/histogram.h' l='76'>// Returns a multi-line human-readable string representing the histogram
+  // contents.  Example output:
+  //   Count: 4  Average: 251.7475  StdDev: 432.02
+  //   Min: -3.0000  Median: 5.0000  Max: 1000.0000
+  //   ------------------------------------------------------
+  //   [      -5,       0 )       1  25.000%  25.000% #####
+  //   [       0,       5 )       1  25.000%  50.000% #####
+  //   [       5,      10 )       1  25.000%  75.000% #####
+  //   [    1000,   10000 )       1  25.000% 100.000% #####</doc>
+<def f='tensorflow/tensorflow/core/lib/histogram/histogram.cc' l='170' ll='199' type='std::string tensorflow::histogram::Histogram::ToString() const'/>
+<use f='tensorflow/tensorflow/core/lib/histogram/histogram.cc' l='275' u='c' c='_ZNK10tensorflow9histogram19ThreadSafeHistogram8ToStringEv'/>

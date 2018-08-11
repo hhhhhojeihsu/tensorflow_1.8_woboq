@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/kernels/data/stats_aggregator.h' l='55' type='void tensorflow::StatsAggregator::EncodeToProto(tensorflow::Summary * out_summary)'/>
+<doc f='tensorflow/tensorflow/core/kernels/data/stats_aggregator.h' l='50'>// Stores a protocol buffer representation of the aggregator state in the
+  // given `out_summary`.
+  // TODO(mrry): Consider separating this method from the `StatsAggregator`
+  // interface. It is possible that not all implementations will support
+  // encoding their state as a protocol buffer.</doc>
+<ovr f='tensorflow/tensorflow/core/kernels/data/stats_aggregator_ops.cc' l='41' c='_ZN10tensorflow12_GLOBAL__N_119StatsAggregatorImpl13EncodeToProtoEPNS_7SummaryE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/stats_aggregator_ops.cc' l='97' u='c' c='_ZN10tensorflow12_GLOBAL__N_124StatsAggregatorSummaryOp7ComputeEPNS_15OpKernelContextE'/>

@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='166' type='bool'/>
+<offset>16</offset>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='162'>// If &apos;resolve_compile_time_constants&apos; is true, then outputs of a
+    // computation that are known to be compile-time constants will be returned
+    // as Tensors at compile-time, rather than as run-time outputs of the
+    // computation.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='91' u='w' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='120' u='w' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='192' u='w' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='669' u='r' c='_ZN10tensorflow11XlaCompiler12CompileGraphERKNS0_14CompileOptionsERKSsSt10unique_ptrINS_5GraphESt14default_deleteIS7_EERKSt6vectorINS0_8ArgumentESaISC11181090'/>

@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/util/env_var.h' l='29' type='tensorflow::Status tensorflow::ReadBoolFromEnvVar(tensorflow::StringPiece env_var_name, bool default_val, bool * value)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='268' u='c' c='_ZN10tensorflow13DirectSessionC1ERKNS_14SessionOptionsEPKNS_9DeviceMgrEPNS_20DirectSessionFactoryE'/>
+<doc f='tensorflow/tensorflow/core/util/env_var.h' l='24'>// Returns a boolean into &quot;value&quot; from the environmental variable
+// &quot;env_var_name&quot;. If it is unset, the default value is used. A string &quot;0&quot; or a
+// case insensitive &quot;false&quot; is interpreted as false. A string &quot;1&quot; or a case
+// insensitive &quot;true&quot; is interpreted as true. Otherwise, an error status is
+// returned.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/process_state.cc' l='189' u='c' c='_ZN10tensorflow12ProcessState15GetCPUAllocatorEi'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='57' u='c' c='_ZN10tensorflow8GraphMgrC1EPKNS_9WorkerEnvEPNS_9DeviceMgrE'/>
+<def f='tensorflow/tensorflow/core/util/env_var.cc' l='28' ll='46' type='tensorflow::Status tensorflow::ReadBoolFromEnvVar(tensorflow::StringPiece env_var_name, bool default_val, bool * value)'/>
+<use f='tensorflow/tensorflow/core/util/matmul_autotune.cc' l='26' u='c' c='_ZN10tensorflow20MatmulAutotuneEnableEv'/>
+<use f='tensorflow/tensorflow/core/util/matmul_autotune.cc' l='44' u='c' c='_ZN10tensorflow32MatmulDoFP32ComputationFP16InputEv'/>
+<use f='tensorflow/tensorflow/core/util/use_cudnn.cc' l='28' u='c' c='_ZN10tensorflow11CanUseCudnnEv'/>
+<use f='tensorflow/tensorflow/core/util/use_cudnn.cc' l='28' u='c' c='_ZN10tensorflow16CudnnUseAutotuneEv'/>
+<use f='tensorflow/tensorflow/core/util/use_cudnn.cc' l='28' u='c' c='_ZN10tensorflow31CudnnDisableConv1x1OptimizationEv'/>

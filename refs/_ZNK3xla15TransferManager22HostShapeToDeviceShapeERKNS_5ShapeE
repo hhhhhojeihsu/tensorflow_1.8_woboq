@@ -1,0 +1,11 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='51' ll='53' type='xla::Shape xla::TransferManager::HostShapeToDeviceShape(const xla::Shape &amp; host_shape) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='47'>// Returns the shape of the on-device representation for the given shape on
+  // the host. This is intended for use with ShapedBuffer where buffers are
+  // pre-allocated by the host, e.g. TransferLiteralToDevice, without the user
+  // needing to consider device-specific behaviors.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='139' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext14PopulateInputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultERKSt3mapIiNS_14OptionalTensor4150569'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='53' u='c' c='_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='46' u='c' c='_ZN3xla15TransferManager21TransferArrayToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='66' u='c' c='_ZN3xla15TransferManager23TransferArrayFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_5ShapeERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='69' u='c' c='_ZN3xla15TransferManager23TransferArrayFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_5ShapeERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='192' u='c' c='_ZN3xla15TransferManager20AllocateShapedBufferERKNS_5ShapeEPNS_21DeviceMemoryAllocatorEi'/>

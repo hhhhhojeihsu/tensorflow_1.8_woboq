@@ -1,0 +1,29 @@
+<def f='tensorflow/tensorflow/core/lib/io/inputbuffer.h' l='32' ll='106'/>
+<size>48</size>
+<doc f='tensorflow/tensorflow/core/lib/io/inputbuffer.h' l='29'>// An InputBuffer provides a buffer on top of a RandomAccessFile.
+// A given instance of an InputBuffer is NOT safe for concurrent use
+// by multiple threads</doc>
+<fun r='_ZN10tensorflow2io11InputBufferC1EPNS_16RandomAccessFileEm'/>
+<fun r='_ZN10tensorflow2io11InputBufferD1Ev'/>
+<fun r='_ZN10tensorflow2io11InputBuffer8ReadLineEPSs'/>
+<fun r='_ZN10tensorflow2io11InputBuffer10ReadNBytesExPSs'/>
+<fun r='_ZN10tensorflow2io11InputBuffer10ReadNBytesExPcPm'/>
+<fun r='_ZN10tensorflow2io11InputBuffer12ReadVarint32EPj'/>
+<fun r='_ZN10tensorflow2io11InputBuffer12ReadVarint64EPy'/>
+<fun r='_ZN10tensorflow2io11InputBuffer10SkipNBytesEx'/>
+<fun r='_ZN10tensorflow2io11InputBuffer4SeekEx'/>
+<fun r='_ZNK10tensorflow2io11InputBuffer4TellEv'/>
+<fun r='_ZNK10tensorflow2io11InputBuffer4fileEv'/>
+<fun r='_ZN10tensorflow2io11InputBuffer10FillBufferEv'/>
+<fun r='_ZN10tensorflow2io11InputBuffer20ReadVarint32FallbackEPj'/>
+<fun r='_ZN10tensorflow2io11InputBuffer20ReadVarint64FallbackEPy'/>
+<fun r='_ZN10tensorflow2io11InputBuffer18ReadVarintFallbackEPT_i'/>
+<mbr r='tensorflow::io::InputBuffer::file_' o='0' t='tensorflow::RandomAccessFile *'/>
+<mbr r='tensorflow::io::InputBuffer::file_pos_' o='64' t='int64'/>
+<mbr r='tensorflow::io::InputBuffer::size_' o='128' t='size_t'/>
+<mbr r='tensorflow::io::InputBuffer::buf_' o='192' t='char *'/>
+<mbr r='tensorflow::io::InputBuffer::pos_' o='256' t='char *'/>
+<mbr r='tensorflow::io::InputBuffer::limit_' o='320' t='char *'/>
+<fun r='_ZN10tensorflow2io11InputBufferC1ERKS1_'/>
+<fun r='_ZN10tensorflow2io11InputBuffer12ReadVarint32EPj'/>
+<fun r='_ZN10tensorflow2io11InputBuffer12ReadVarint64EPy'/>

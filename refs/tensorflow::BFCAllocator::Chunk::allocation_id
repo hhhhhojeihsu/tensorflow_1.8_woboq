@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='109' type='int64'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='125' u='r' c='_ZNK10tensorflow12BFCAllocator5Chunk6in_useEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='152' u='w' c='_ZN10tensorflow12BFCAllocator6ExtendEm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='317' u='w' c='_ZN10tensorflow12BFCAllocator12FindChunkPtrEimm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='356' u='w' c='_ZN10tensorflow12BFCAllocator10SplitChunkEmm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='469' u='w' c='_ZN10tensorflow12BFCAllocator20FreeAndMaybeCoalesceEm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='548' u='r' c='_ZN10tensorflow12BFCAllocator12AllocationIdEPKv'/>
+<offset>128</offset>
+<doc f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='105'>// allocation_id is set to -1 when the chunk is not in use. It is assigned a
+    // value greater than zero before the chunk is returned from
+    // AllocateRaw, and this value is unique among values assigned by
+    // the parent allocator.</doc>

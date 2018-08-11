@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>simple_philox.cc source code [tensorflow/tensorflow/core/lib/random/simple_philox.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/lib/random/simple_philox.cc'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>lib</a>/<a href='./'>random</a>/<a href='simple_philox.cc.html'>simple_philox.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="simple_philox.h.html">"tensorflow/core/lib/random/simple_philox.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="exact_uniform_int.h.html">"tensorflow/core/lib/random/exact_uniform_int.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../platform/logging.h.html">"tensorflow/core/platform/logging.h"</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">random</span> {</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <a class="type" href="simple_philox.h.html#tensorflow::random::SimplePhilox" title='tensorflow::random::SimplePhilox' data-ref="tensorflow::random::SimplePhilox">SimplePhilox</a>::<dfn class="decl def" id="_ZN10tensorflow6random12SimplePhilox7UniformEj" title='tensorflow::random::SimplePhilox::Uniform' data-ref="_ZN10tensorflow6random12SimplePhilox7UniformEj">Uniform</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="local col6 decl" id="6n" title='n' data-type='uint32' data-ref="6n">n</dfn>) {</td></tr>
+<tr><th id="24">24</th><td>  <b>return</b> <a class="ref" href="exact_uniform_int.h.html#_ZN10tensorflow6random15ExactUniformIntET_RKT0_" title='tensorflow::random::ExactUniformInt' data-ref="_ZN10tensorflow6random15ExactUniformIntET_RKT0_">ExactUniformInt</a>&lt;<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a>&gt;(<a class="local col6 ref" href="#6n" title='n' data-ref="6n">n</a>, [<b>this</b>]() { <b>return</b> <a class="member" href="simple_philox.h.html#_ZN10tensorflow6random12SimplePhilox6Rand32Ev" title='tensorflow::random::SimplePhilox::Rand32' data-ref="_ZN10tensorflow6random12SimplePhilox6Rand32Ev">Rand32</a>(); });</td></tr>
+<tr><th id="25">25</th><td>}</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <a class="type" href="simple_philox.h.html#tensorflow::random::SimplePhilox" title='tensorflow::random::SimplePhilox' data-ref="tensorflow::random::SimplePhilox">SimplePhilox</a>::<dfn class="decl def" id="_ZN10tensorflow6random12SimplePhilox9Uniform64Ey" title='tensorflow::random::SimplePhilox::Uniform64' data-ref="_ZN10tensorflow6random12SimplePhilox9Uniform64Ey">Uniform64</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="local col7 decl" id="7n" title='n' data-type='uint64' data-ref="7n">n</dfn>) {</td></tr>
+<tr><th id="28">28</th><td>  <b>return</b> <a class="ref" href="exact_uniform_int.h.html#_ZN10tensorflow6random15ExactUniformIntET_RKT0_" title='tensorflow::random::ExactUniformInt' data-ref="_ZN10tensorflow6random15ExactUniformIntET_RKT0_">ExactUniformInt</a>&lt;<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a>&gt;(<a class="local col7 ref" href="#7n" title='n' data-ref="7n">n</a>, [<b>this</b>]() { <b>return</b> <a class="member" href="simple_philox.h.html#_ZN10tensorflow6random12SimplePhilox6Rand64Ev" title='tensorflow::random::SimplePhilox::Rand64' data-ref="_ZN10tensorflow6random12SimplePhilox6Rand64Ev">Rand64</a>(); });</td></tr>
+<tr><th id="29">29</th><td>}</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <a class="type" href="simple_philox.h.html#tensorflow::random::SimplePhilox" title='tensorflow::random::SimplePhilox' data-ref="tensorflow::random::SimplePhilox">SimplePhilox</a>::<dfn class="decl def" id="_ZN10tensorflow6random12SimplePhilox6SkewedEi" title='tensorflow::random::SimplePhilox::Skewed' data-ref="_ZN10tensorflow6random12SimplePhilox6SkewedEi">Skewed</dfn>(<em>int</em> <dfn class="local col8 decl" id="8max_log" title='max_log' data-type='int' data-ref="8max_log">max_log</dfn>) {</td></tr>
+<tr><th id="32">32</th><td>  <a class="macro" href="../../platform/default/logging.h.html#97" title="if ((__builtin_expect(!(0 &lt;= max_log &amp;&amp; max_log &lt;= 32), 0))) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/lib/random/simple_philox.cc&quot;, 32) &lt;&lt; &quot;Check failed: &quot; &quot;0 &lt;= max_log &amp;&amp; max_log &lt;= 32&quot; &quot; &quot;" data-ref="_M/CHECK">CHECK</a>(<var>0</var> &lt;= <a class="local col8 ref" href="#8max_log" title='max_log' data-ref="8max_log">max_log</a> &amp;&amp; <a class="local col8 ref" href="#8max_log" title='max_log' data-ref="8max_log">max_log</a> &lt;= <var>32</var>);</td></tr>
+<tr><th id="33">33</th><td>  <em>const</em> <em>int</em> <dfn class="local col9 decl" id="9shift" title='shift' data-type='const int' data-ref="9shift">shift</dfn> = <a class="member" href="simple_philox.h.html#_ZN10tensorflow6random12SimplePhilox6Rand32Ev" title='tensorflow::random::SimplePhilox::Rand32' data-ref="_ZN10tensorflow6random12SimplePhilox6Rand32Ev">Rand32</a>() % (<a class="local col8 ref" href="#8max_log" title='max_log' data-ref="8max_log">max_log</a> + <var>1</var>);</td></tr>
+<tr><th id="34">34</th><td>  <em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="local col0 decl" id="10mask" title='mask' data-type='const uint32' data-ref="10mask">mask</dfn> = <a class="local col9 ref" href="#9shift" title='shift' data-ref="9shift">shift</a> == <var>32</var> ? ~<b>static_cast</b>&lt;<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a>&gt;(<var>0</var>) : (<var>1</var> &lt;&lt; <a class="local col9 ref" href="#9shift" title='shift' data-ref="9shift">shift</a>) - <var>1</var>;</td></tr>
+<tr><th id="35">35</th><td>  <b>return</b> <a class="member" href="simple_philox.h.html#_ZN10tensorflow6random12SimplePhilox6Rand32Ev" title='tensorflow::random::SimplePhilox::Rand32' data-ref="_ZN10tensorflow6random12SimplePhilox6Rand32Ev">Rand32</a>() &amp; <a class="local col0 ref" href="#10mask" title='mask' data-ref="10mask">mask</a>;</td></tr>
+<tr><th id="36">36</th><td>}</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td>}  <i>// namespace random</i></td></tr>
+<tr><th id="39">39</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

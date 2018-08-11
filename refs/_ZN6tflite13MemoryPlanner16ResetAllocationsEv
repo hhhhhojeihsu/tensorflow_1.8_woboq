@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/contrib/lite/memory_planner.h' l='40' type='TfLiteStatus tflite::MemoryPlanner::ResetAllocations()'/>
+<doc f='tensorflow/tensorflow/contrib/lite/memory_planner.h' l='37'>// Invalidates allocations made earlier. This is called when tensors sizes
+  // have changed. All planned allocations remain, but can&apos;t be used until
+  // ExecuteAllocations() is called.</doc>
+<ovr f='tensorflow/tensorflow/contrib/lite/arena_planner.cc' l='55' c='_ZN6tflite12ArenaPlanner16ResetAllocationsEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='351' u='c' c='_ZN6tflite11Interpreter15AllocateTensorsEv'/>

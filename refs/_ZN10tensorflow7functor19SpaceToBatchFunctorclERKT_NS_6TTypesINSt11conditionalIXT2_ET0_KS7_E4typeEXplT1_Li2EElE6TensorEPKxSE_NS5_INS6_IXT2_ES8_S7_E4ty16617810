@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/kernels/spacetobatch_functor.h' l='103' type='tensorflow::Status tensorflow::functor::SpaceToBatchFunctor::operator()(const Device &amp; d, typename TTypes&lt;InputT, NUM_BLOCK_DIMS + 2&gt;::Tensor space_tensor, const int64 * block_shape, const int64 * paddings, typename TTypes&lt;OutputT, NUM_BLOCK_DIMS + 2&gt;::Tensor batch_tensor)'/>
+<doc f='tensorflow/tensorflow/core/kernels/spacetobatch_functor.h' l='89'>// Implements the space to batch conversion.
+  //
+  // space_tensor: input tensor of space-to-batch operation.  If B2S = false,
+  //     then this is the input to the conversion.  If B2S = true, then this
+  //     is the output of the conversion.
+  // block_size: array of shape [NUM_BLOCK_DIMS] specifying the block sizes for
+  //     dimensions 1 through NUM_BLOCK_DIMS.
+  // paddings: row-major array of shape [NUM_BLOCK_DIMS, 2] specifying the
+  //     start and end padding for dimensions 1 through NUM_BLOCK_DIMS.
+  // batch_tensor: output tensor of the space-to-batch operation.  If
+  //     B2S = false, then this is the output of the conversion.  If B2S = true,
+  //     then this is the input to the conversion.
+  //
+  // The caller must ensure that the dimensions of the tensors are correct.</doc>

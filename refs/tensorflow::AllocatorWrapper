@@ -1,0 +1,21 @@
+<inh f='tensorflow/tensorflow/core/framework/allocator.h' l='68' c='tensorflow::Allocator'/>
+<def f='tensorflow/tensorflow/core/framework/allocator.h' l='285' ll='333'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/core/framework/allocator.h' l='281'>// An implementation of Allocator that delegates all calls to another Allocator.
+//
+// Useful to clients who want to override part of the functionality of another
+// allocator.</doc>
+<fun r='_ZN10tensorflow16AllocatorWrapperC1EPNS_9AllocatorE'/>
+<fun r='_ZN10tensorflow16AllocatorWrapperD1Ev'/>
+<fun r='_ZNK10tensorflow16AllocatorWrapper7wrappedEv'/>
+<fun r='_ZN10tensorflow16AllocatorWrapper4NameEv'/>
+<fun r='_ZN10tensorflow16AllocatorWrapper11AllocateRawEmm'/>
+<fun r='_ZN10tensorflow16AllocatorWrapper11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<fun r='_ZN10tensorflow16AllocatorWrapper13DeallocateRawEPv'/>
+<fun r='_ZN10tensorflow16AllocatorWrapper21TracksAllocationSizesEv'/>
+<fun r='_ZN10tensorflow16AllocatorWrapper26ShouldAllocateEmptyTensorsEv'/>
+<fun r='_ZN10tensorflow16AllocatorWrapper13RequestedSizeEPKv'/>
+<fun r='_ZN10tensorflow16AllocatorWrapper13AllocatedSizeEPKv'/>
+<fun r='_ZN10tensorflow16AllocatorWrapper12AllocationIdEPKv'/>
+<fun r='_ZN10tensorflow16AllocatorWrapper17AllocatedSizeSlowEPKv'/>
+<mbr r='tensorflow::AllocatorWrapper::wrapped_' o='64' t='tensorflow::Allocator *const'/>

@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/platform/default/thread_annotations.h' l='62'/>
+<doc f='tensorflow/tensorflow/core/platform/default/thread_annotations.h' l='55'>// Document if the memory location pointed to by a pointer should be guarded
+// by a mutex when dereferencing the pointer.  PT_GUARDED_VAR is analogous to
+// GUARDED_VAR.   Note that a pointer variable to a shared memory location
+// could itself be a shared variable. For example, if a shared global pointer
+// q, which is guarded by mu1, points to a shared memory location that is
+// guarded by mu2, q should be annotated as follows:
+//     int *q GUARDED_BY(mu1) PT_GUARDED_BY(mu2);</doc>
+<use f='tensorflow/tensorflow/core/kernels/sparse_tensors_map_ops.cc' l='159' u='c'/>

@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='453' type='10'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='439'>/**
+   * Looks up values of a hash table with given keys.
+   *
+   * Inputs:
+   * * 0: Lookups. A 1-D int32 tensor with shape [ k ].
+   * * 1: Keys. A 1-D int32 tensor with shape [ n ], *MUST* be sorted in
+   *      ascending order.
+   * * 2: Values. A tensor with shape [ n … ].
+   *
+   * Outputs:
+   * * 0: Output. A tensor with shape [ k …].
+   * * 1: Hits. A uint8 tensor with shape [ k ] indicates whether the lookup
+   *      hits or not.
+   */</doc>

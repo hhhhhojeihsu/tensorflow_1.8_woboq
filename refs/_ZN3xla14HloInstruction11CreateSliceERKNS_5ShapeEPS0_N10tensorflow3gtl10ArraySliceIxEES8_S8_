@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='330' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateSlice(const xla::Shape &amp; shape, xla::HloInstruction * operand, tensorflow::gtl::ArraySlice&lt;int64&gt; start_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; limit_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; strides)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='328'>// Creates a slice instruction, where the operand is sliced by the given
+  // start/limit indices.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='891' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor25OptimizeDotOfConcatHelperERKNS_5ShapeEPNS_14HloInstructionExS5_xb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/dot_decomposer.cc' l='105' u='c' c='_ZN3xla12_GLOBAL__N_117DecomposeBatchDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/dot_decomposer.cc' l='112' u='c' c='_ZN3xla12_GLOBAL__N_117DecomposeBatchDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='57' u='c' c='_ZN3xla12MakeSliceHloEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIxEES5_S5_'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='510' ll='527' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateSlice(const xla::Shape &amp; shape, xla::HloInstruction * operand, tensorflow::gtl::ArraySlice&lt;int64&gt; start_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; limit_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; strides)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1374' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='510'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2918' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

@@ -1,0 +1,38 @@
+<inh f='tensorflow/tensorflow/core/common_runtime/visitable_allocator.h' l='28' c='tensorflow::VisitableAllocator'/>
+<def f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.h' l='34' ll='61'/>
+<size>24</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.h' l='31'>// An allocator that wraps a GPU allocator and adds debugging
+// functionality that verifies that users do not write outside their
+// allocated memory.</doc>
+<fun r='_ZN10tensorflow17GPUDebugAllocatorC1EPNS_18VisitableAllocatorENS_3gtl7IntTypeINS_14CudaGpuId_tag_EiEE'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocatorD1Ev'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator4NameEv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator11AllocateRawEmm'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator13DeallocateRawEPv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator15AddAllocVisitorESt8functionIFvPvmEE'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator14AddFreeVisitorESt8functionIFvPvmEE'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator21TracksAllocationSizesEv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator13RequestedSizeEPKv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator13AllocatedSizeEPKv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator12AllocationIdEPKv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator10ClearStatsEv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator11CheckHeaderEPv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator11CheckFooterEPv'/>
+<mbr r='tensorflow::GPUDebugAllocator::base_allocator_' o='64' t='tensorflow::VisitableAllocator *'/>
+<mbr r='tensorflow::GPUDebugAllocator::stream_exec_' o='128' t='perftools::gputools::StreamExecutor *'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocatorC1ERKS0_'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocatorC1EPNS_18VisitableAllocatorENS_3gtl7IntTypeINS_14CudaGpuId_tag_EiEE'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocatorD1Ev'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator11AllocateRawEmm'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator13DeallocateRawEPv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator15AddAllocVisitorESt8functionIFvPvmEE'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator14AddFreeVisitorESt8functionIFvPvmEE'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator21TracksAllocationSizesEv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator13RequestedSizeEPKv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator13AllocatedSizeEPKv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator12AllocationIdEPKv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator10ClearStatsEv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator11CheckHeaderEPv'/>
+<fun r='_ZN10tensorflow17GPUDebugAllocator11CheckFooterEPv'/>

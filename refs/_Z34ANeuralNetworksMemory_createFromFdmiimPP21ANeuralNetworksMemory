@@ -1,0 +1,24 @@
+<def f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='1364' ll='1369' type='int ANeuralNetworksMemory_createFromFd(size_t size, int protect, int fd, size_t offset, ANeuralNetworksMemory ** memory)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='1342'>/**
+ * Creates a shared memory object from a file descriptor.
+ *
+ * The shared memory is backed by a file descriptor via mmap.
+ * See {@link ANeuralNetworksMemory} for a description on how to use
+ * this shared memory.
+ *
+ * @param size The requested size in bytes.
+ *             Must not be larger than the file size.
+ * @param prot The desired memory protection for the mapping.
+ *             It is either PROT_NONE or the bitwise OR of one or
+ *             more of the following flags: PROT_READ, PROT_WRITE.
+ * @param fd The requested file descriptor.
+ *           The file descriptor has to be mmap-able. The file
+ *           descriptor will be duplicated.
+ * @param offset The offset to the beginning of the file of the area to map.
+ *               The offset has to be aligned to a page size.
+ * @param memory The memory object to be created.
+ *               Set to NULL if unsuccessful.
+ *
+ * @return ANEURALNETWORKS_NO_ERROR if the request completed normally.
+ */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='53' u='c' c='_ZN6tflite15NNAPIAllocationC1EPKcPNS_13ErrorReporterE'/>

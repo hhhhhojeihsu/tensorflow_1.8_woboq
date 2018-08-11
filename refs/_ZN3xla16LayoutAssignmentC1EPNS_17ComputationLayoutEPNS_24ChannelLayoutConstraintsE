@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='290' type='void xla::LayoutAssignment::LayoutAssignment(xla::ComputationLayout * entry_computation_layout, xla::ChannelLayoutConstraints * channel_constraints = nullptr)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_layout_assignment.h' l='31' u='c' c='_ZN3xla3cpu19CpuLayoutAssignmentC1EPNS_17ComputationLayoutE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='280'>// entry_computation_layout is modified to populate a layout for the result in
+  // the case that no particular layout is requested.
+  //
+  // channel_constraints is both an input and output. Any sends or recvs that
+  // are present in channel_constraints will be layed out as constrained. Any
+  // unconstrained sends or recvs will be layed out as locally optimal and their
+  // layout will be added as a constraint to channel_constraints.
+  //
+  // If channel_constraints is nullptr, no kSend or kRecvs must be contained
+  // within any module passed to `Run`.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='888' ll='905' type='void xla::LayoutAssignment::LayoutAssignment(xla::ComputationLayout * entry_computation_layout, xla::ChannelLayoutConstraints * channel_constraints = nullptr)'/>

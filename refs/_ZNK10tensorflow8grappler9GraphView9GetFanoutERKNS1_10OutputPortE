@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/grappler/graph_view.h' l='62' type='const std::unordered_set&lt;InputPort, HashPort&gt; &amp; tensorflow::grappler::GraphView::GetFanout(const tensorflow::grappler::GraphView::OutputPort &amp; port) const'/>
+<def f='tensorflow/tensorflow/core/grappler/graph_view.cc' l='76' ll='83' type='const std::unordered_set&lt;GraphView::InputPort, GraphView::HashPort&gt; &amp; tensorflow::grappler::GraphView::GetFanout(const GraphView::OutputPort &amp; port) const'/>
+<doc f='tensorflow/tensorflow/core/grappler/graph_view.h' l='60'>// Get the input (resp. output) port(s) in the immediate fanout (resp. fanin)
+  // of an output (resp. input) port.</doc>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='900' u='c' c='_ZN10tensorflow8grapplerL18FindSwapOutTriggerEPKNS_7NodeDefEiRKNS0_9GraphViewERKSt13unordered_mapIS3_NS0_5Costs11NanoSecondsESt4hashIS3_ESt8equal_toIS11540146'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='1035' u='c' c='_ZN10tensorflow8grapplerL26IdentifySwappingCandidatesEPNS0_7ClusterEPNS0_12GrapplerItemEPSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPSt13uno3951828'/>

@@ -1,0 +1,40 @@
+<def f='tensorflow/tensorflow/core/util/device_name_utils.h' l='46' ll='168'/>
+<size>1</size>
+<doc f='tensorflow/tensorflow/core/util/device_name_utils.h' l='26'>// In TensorFlow a device name is a string of the following form:
+//   /job:&lt;name&gt;/replica:&lt;replica&gt;/task:&lt;task&gt;/device:&lt;type&gt;:&lt;device_num&gt;
+//
+// &lt;name&gt; is a short identifier conforming to the regexp
+//     [a-zA-Z][_a-zA-Z]*
+// &lt;type&gt; is a supported device type (e.g. &apos;cpu&apos; or &apos;gpu&apos;)
+// &lt;replica&gt;, &lt;task&gt;, &lt;device_num&gt; are small non-negative integers and are
+// densely allocated (except in tests).
+//
+// For some purposes, we also allow device patterns, which can specify
+// some or none of the specific fields above, with missing components,
+// or &quot;&lt;component&gt;:*&quot; indicating &quot;any value allowed for that component.
+//
+// For example:
+//   &quot;/job:param_server&quot;   - Consider any devices in the &quot;param_server&quot; job
+//   &quot;/device:cpu:*&quot;       - Consider any cpu devices in any job/task/replica
+//   &quot;/job:*/replica:*/task:*/device:cpu:*&quot;  - Consider any cpu devices in any
+//                                             job/task/replica
+//   &quot;/job:w/replica:0/task:0/device:gpu:*&quot;  - Consider any gpu devices in
+//                                             replica 0, task 0, of job &quot;w&quot;</doc>
+<fun r='_ZN10tensorflow15DeviceNameUtils8FullNameERKSsiiS2_i'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils13ParseFullNameENS_11StringPieceEPNS0_10ParsedNameE'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils22CanonicalizeDeviceNameENS_11StringPieceE'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils14HasSomeDetailsERKNS0_10ParsedNameE'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils15IsSpecificationERKNS0_10ParsedNameES3_'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils23IsCompleteSpecificationERKNS0_10ParsedNameES3_'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils21AreCompatibleDevNamesERKNS0_10ParsedNameES3_'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils13MergeDevNamesEPNS0_10ParsedNameERKS1_'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils13MergeDevNamesEPNS0_10ParsedNameERKS1_b'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils18IsSameAddressSpaceENS_11StringPieceES1_'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils18IsSameAddressSpaceERKNS0_10ParsedNameES3_'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils9LocalNameENS_11StringPieceEi'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils9LocalNameENS_11StringPieceE'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils14ParseLocalNameENS_11StringPieceEPNS0_10ParsedNameE'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils15SplitDeviceNameENS_11StringPieceEPSsS2_'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils18ParsedNameToStringERKNS0_10ParsedNameE'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils25GetNamesForDeviceMappingsERKNS0_10ParsedNameE'/>
+<fun r='_ZN10tensorflow15DeviceNameUtils30GetLocalNamesForDeviceMappingsERKNS0_10ParsedNameE'/>

@@ -1,0 +1,128 @@
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1546' u='m' c='_ZNK4toco5Array9GetBufferEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1547' u='m' c='_ZNK4toco5Array9GetBufferEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1548' u='m' c='_ZNK4toco5Array9GetBufferEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1552' u='m' c='_ZN4toco5Array16GetMutableBufferEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1554' u='w' c='_ZN4toco5Array16GetMutableBufferEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1556' u='m' c='_ZN4toco5Array16GetMutableBufferEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1557' u='m' c='_ZN4toco5Array16GetMutableBufferEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1558' u='m' c='_ZN4toco5Array16GetMutableBufferEv'/>
+<dec f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1646' type='std::unique_ptr&lt;GenericBuffer&gt;'/>
+<offset>64</offset>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1634'>// The constant buffer backing this array. This is non-null if and only if
+  // this is a constant parameter array. Conversely, this is null for
+  // activations arrays.
+  //
+  // Note that this buffer is pure storage. In the case of quantized values,
+  // it only stores the quantized values, it does not know by itself about the
+  // quantization parameters necessary to interprete these values, that is
+  // in the separate &apos;quantization_params&apos; field. In fact, this &apos;buffer&apos; field
+  // does no even know whether values are quantized. It only has a data_type,
+  // which must equal the &apos;data_type&apos; member here, and which only describes
+  // the storage type of element, does not tell whether they are quantized i.e.
+  // whether they are to be interpreted with quantization_params.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='85' u='m' c='_ZN4toco12_GLOBAL__N_116GetColorForArrayERKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='110' u='m' c='_ZN4toco12_GLOBAL__N_114AppendArrayValEPSsRKNS_5ArrayEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='116' u='m' c='_ZN4toco12_GLOBAL__N_114AppendArrayValEPSsRKNS_5ArrayEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='122' u='m' c='_ZN4toco12_GLOBAL__N_114AppendArrayValEPSsRKNS_5ArrayEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='128' u='m' c='_ZN4toco12_GLOBAL__N_114AppendArrayValEPSsRKNS_5ArrayEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='161' u='m' c='_ZN4toco12_GLOBAL__N_121GetPropertiesForArrayERKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='189' u='m' c='_ZN4toco12_GLOBAL__N_123ConvertFloatTensorConstERKNS_5ModelERKSsNS_9AxesOrderES6_PN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='190' u='m' c='_ZN4toco12_GLOBAL__N_123ConvertFloatTensorConstERKNS_5ModelERKSsNS_9AxesOrderES6_PN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='210' u='m' c='_ZN4toco12_GLOBAL__N_123ConvertFloatTensorConstERKNS_5ModelERKSsPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='211' u='m' c='_ZN4toco12_GLOBAL__N_123ConvertFloatTensorConstERKNS_5ModelERKSsPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='324' u='m' c='_ZN4toco12_GLOBAL__N_121WalkUpToConstantArrayERKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='332' u='m' c='_ZN4toco12_GLOBAL__N_121WalkUpToConstantArrayERKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='353' u='m' c='_ZN4toco12_GLOBAL__N_119ConvertConvOperatorERKNS_5ModelERKNS_12ConvOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='393' u='m' c='_ZN4toco12_GLOBAL__N_119ConvertConvOperatorERKNS_5ModelERKNS_12ConvOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='438' u='m' c='_ZN4toco12_GLOBAL__N_128ConvertDepthwiseConvOperatorERKNS_5ModelERKNS_21DepthwiseConvOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='472' u='m' c='_ZN4toco12_GLOBAL__N_128ConvertDepthwiseConvOperatorERKNS_5ModelERKNS_21DepthwiseConvOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='495' u='m' c='_ZN4toco12_GLOBAL__N_128ConvertTransposeConvOperatorERKNS_5ModelERKNS_21TransposeConvOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='605' u='m' c='_ZN4toco12_GLOBAL__N_129ConvertFullyConnectedOperatorERKNS_5ModelERKNS_22FullyConnectedOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='606' u='m' c='_ZN4toco12_GLOBAL__N_129ConvertFullyConnectedOperatorERKNS_5ModelERKNS_22FullyConnectedOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='976' u='r' c='_ZN4toco12_GLOBAL__N_132ConvertTensorFlowReshapeOperatorERKNS_5ModelERKNS_25TensorFlowReshapeOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1059' u='m' c='_ZN4toco12_GLOBAL__N_120ConvertSplitOperatorERKNS_5ModelERKNS_23TensorFlowSplitOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1302' u='m' c='_ZN4toco12_GLOBAL__N_123ConvertLstmCellOperatorERKNS_5ModelERKNS_16LstmCellOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1303' u='m' c='_ZN4toco12_GLOBAL__N_123ConvertLstmCellOperatorERKNS_5ModelERKNS_16LstmCellOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1329' u='m' c='_ZN4toco12_GLOBAL__N_123ConvertLstmCellOperatorERKNS_5ModelERKNS_16LstmCellOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1330' u='m' c='_ZN4toco12_GLOBAL__N_123ConvertLstmCellOperatorERKNS_5ModelERKNS_16LstmCellOperatorEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1935' u='m' c='_ZN4toco12_GLOBAL__N_138ExportTensorFlowGraphDefImplementationERKNS_5ModelEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1955' u='m' c='_ZN4toco56EncodeConstantArraysMinMaxByWrappingThemInFakeQuantNodesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1963' u='w' c='_ZN4toco56EncodeConstantArraysMinMaxByWrappingThemInFakeQuantNodesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1963' u='a' c='_ZN4toco56EncodeConstantArraysMinMaxByWrappingThemInFakeQuantNodesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/convert_expanddims_to_reshape.cc' l='55' u='m' c='_ZN4toco26ConvertExpandDimsToReshape3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/convert_pure_conv_to_depthwise.cc' l='42' u='m' c='_ZN4toco26ConvertPureConvToDepthwise3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/convert_reorder_axes.cc' l='105' u='m' c='_ZN4toco18ConvertReorderAxes3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/dequantize.cc' l='33' u='w' c='_ZN4toco12_GLOBAL__N_116DequantizeBufferEPNS_5ArrayE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/dequantize.cc' l='87' u='m' c='_ZN4toco12_GLOBAL__N_115DequantizeArrayERKSsPNS_19GraphTransformationEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/dequantize.cc' l='96' u='m' c='_ZN4toco12_GLOBAL__N_115DequantizeArrayERKSsPNS_19GraphTransformationEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/dequantize.cc' l='108' u='m' c='_ZN4toco12_GLOBAL__N_115DequantizeArrayERKSsPNS_19GraphTransformationEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/fuse_binary_into_following_affine.cc' l='246' u='m' c='_ZN4toco29FuseBinaryIntoFollowingAffine3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/fuse_binary_into_following_affine.cc' l='246' u='m' c='_ZN4toco29FuseBinaryIntoFollowingAffine3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/fuse_binary_into_preceding_affine.cc' l='281' u='m' c='_ZN4toco29FuseBinaryIntoPrecedingAffine3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/fuse_binary_into_preceding_affine.cc' l='289' u='m' c='_ZN4toco29FuseBinaryIntoPrecedingAffine3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/fuse_binary_into_preceding_affine.cc' l='289' u='m' c='_ZN4toco29FuseBinaryIntoPrecedingAffine3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/identify_dilated_conv.cc' l='73' u='m' c='_ZN4toco19IdentifyDilatedConv3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/identify_l2_normalization.cc' l='86' u='m' c='_ZN4toco23IdentifyL2Normalization3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/identify_l2_normalization.cc' l='89' u='m' c='_ZN4toco23IdentifyL2Normalization3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/identify_relu1.cc' l='42' u='m' c='_ZN4toco12_GLOBAL__N_123CheckArrayIsScalarFloatEPNS_5ModelERKSsf'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/identify_relu1.cc' l='42' u='m' c='_ZN4toco12_GLOBAL__N_123CheckArrayIsScalarFloatEPNS_5ModelERKSsf'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/merge_reshape_into_preceding_transpose.cc' l='45' u='m' c='_ZN4toco12_GLOBAL__N_113OperatorReadyERKNS_5ModelEPKNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='223' u='m' c='_ZN4toco12_GLOBAL__N_128ProcessTransposeConvOperatorEPNS_5ModelEPNS_21TransposeConvOperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='418' u='m' c='_ZN4toco12_GLOBAL__N_123ProcessOpWithShapeInputEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='482' u='m' c='_ZN4toco12_GLOBAL__N_132ProcessTensorFlowReshapeOperatorEPNS_5ModelEPNS_25TensorFlowReshapeOperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='608' u='m' c='_ZN4toco12_GLOBAL__N_134ProcessTensorFlowReductionOperatorEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='611' u='m' c='_ZN4toco12_GLOBAL__N_134ProcessTensorFlowReductionOperatorEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='885' u='m' c='_ZN4toco12_GLOBAL__N_129ProcessResizeBilinearOperatorEPNS_5ModelEPNS_22ResizeBilinearOperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='998' u='m' c='_ZN4toco12_GLOBAL__N_129ProcessSpaceToBatchNDOperatorEPNS_5ModelEPNS_22SpaceToBatchNDOperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='1009' u='m' c='_ZN4toco12_GLOBAL__N_129ProcessSpaceToBatchNDOperatorEPNS_5ModelEPNS_22SpaceToBatchNDOperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='1047' u='m' c='_ZN4toco12_GLOBAL__N_129ProcessBatchToSpaceNDOperatorEPNS_5ModelEPNS_22BatchToSpaceNDOperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='1058' u='m' c='_ZN4toco12_GLOBAL__N_129ProcessBatchToSpaceNDOperatorEPNS_5ModelEPNS_22BatchToSpaceNDOperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='1138' u='m' c='_ZN4toco12_GLOBAL__N_121ProcessTopkV2OperatorEPNS_5ModelEPNS_14TopKV2OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='1412' u='m' c='_ZN4toco12_GLOBAL__N_124ProcessTransposeOperatorEPNS_5ModelEPNS_17TransposeOperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/quantize.cc' l='93' u='m' c='_ZN4toco12_GLOBAL__N_113QuantizeArrayEPNS_19GraphTransformationEPNS_5ModelERKSsRKN6tflite18QuantizationParamsE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/quantize.cc' l='94' u='w' c='_ZN4toco12_GLOBAL__N_113QuantizeArrayEPNS_19GraphTransformationEPNS_5ModelERKSsRKN6tflite18QuantizationParamsE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/quantize.cc' l='94' u='m' c='_ZN4toco12_GLOBAL__N_113QuantizeArrayEPNS_19GraphTransformationEPNS_5ModelERKSsRKN6tflite18QuantizationParamsE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/quantize.cc' l='144' u='r' c='_ZN4toco12_GLOBAL__N_118GetOrComputeMinMaxEPNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/quantize.cc' l='154' u='m' c='_ZN4toco12_GLOBAL__N_118GetOrComputeMinMaxEPNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/quantize.cc' l='571' u='m' c='_ZN4toco8Quantize3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/remove_trivial_passthrough.cc' l='61' u='m' c='_ZN4toco26RemoveTrivialPassthroughOpEPNS_19GraphTransformationEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/reorder_reshape_transpose.cc' l='42' u='m' c='_ZN4toco12_GLOBAL__N_113OperatorReadyERKNS_5ModelEPKNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_binary.cc' l='80' u='m' c='_ZN4toco12_GLOBAL__N_138EvaluateBinaryOperatorOnConstantInputsEPNS_5ModelEPKNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_binary.cc' l='81' u='m' c='_ZN4toco12_GLOBAL__N_138EvaluateBinaryOperatorOnConstantInputsEPNS_5ModelEPKNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_binary.cc' l='83' u='m' c='_ZN4toco12_GLOBAL__N_138EvaluateBinaryOperatorOnConstantInputsEPNS_5ModelEPKNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_binary.cc' l='214' u='m' c='_ZN4toco29ResolveConstantBinaryOperator3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_binary.cc' l='214' u='m' c='_ZN4toco29ResolveConstantBinaryOperator3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_concatenation.cc' l='40' u='m' c='_ZN4toco12_GLOBAL__N_118CopyTensorSegmentsERKSt6vectorIPNS_5ArrayESaIS3_EERKS1_IiSaIiEEiS3_'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_fake_quant.cc' l='51' u='m' c='_ZN4toco24ResolveConstantFakeQuant3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_gather.cc' l='101' u='m' c='_ZN4toco21ResolveConstantGather3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_shape_or_rank.cc' l='49' u='m' c='_ZN4toco26ResolveConstantShapeOrRank3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_stack.cc' l='80' u='m' c='_ZN4toco20ResolveConstantStack3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_strided_slice.cc' l='165' u='m' c='_ZN4toco27ResolveConstantStridedSlice3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_transpose.cc' l='143' u='m' c='_ZN4toco24ResolveConstantTranspose3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='113' u='m' c='_ZN4toco28ResolveConstantUnaryOperator3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='124' u='m' c='_ZN4toco28ResolveConstantUnaryOperator3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='131' u='m' c='_ZN4toco28ResolveConstantUnaryOperator3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='150' u='m' c='_ZN4toco28ResolveConstantUnaryOperator3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='153' u='m' c='_ZN4toco28ResolveConstantUnaryOperator3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='156' u='m' c='_ZN4toco28ResolveConstantUnaryOperator3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='159' u='m' c='_ZN4toco28ResolveConstantUnaryOperator3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_reorder_axes.cc' l='35' u='m' c='_ZN4toco11ReorderAxesENS_9AxesOrderES0_PNS_5ArrayES2_'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_reorder_axes.cc' l='36' u='m' c='_ZN4toco11ReorderAxesENS_9AxesOrderES0_PNS_5ArrayES2_'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_reorder_axes.cc' l='63' u='m' c='_ZN4toco18ResolveReorderAxes3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_reorder_axes.cc' l='71' u='m' c='_ZN4toco18ResolveReorderAxes3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_reorder_axes.cc' l='75' u='m' c='_ZN4toco18ResolveReorderAxes3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_tensorflow_concat.cc' l='54' u='m' c='_ZN4toco23ResolveTensorFlowConcat3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/import_tensorflow.cc' l='2220' u='w' c='_ZN4toco24ImportTensorFlowGraphDefERKNS_10ModelFlagsERKNS_21TensorFlowImportFlagsERKN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/types.cc' l='86' u='m' c='_ZN4toco6tflite10DataBuffer9SerializeERKNS_5ArrayEPN11flatbuffers17FlatBufferBuilderE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='414' u='m' c='_ZN4toco8LogArrayEiRKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='639' u='m' c='_ZN4toco24IsConstantParameterArrayERKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='827' u='m' c='_ZN4toco14CheckEachArrayERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='828' u='m' c='_ZN4toco14CheckEachArrayERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='830' u='m' c='_ZN4toco14CheckEachArrayERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='835' u='m' c='_ZN4toco14CheckEachArrayERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1072' u='m' c='_ZN4toco18InsertCopyOperatorEPNS_5ModelERKSsS3_'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1090' u='m' c='_ZN4toco12_GLOBAL__N_115CopyArrayBufferERKNS_5ArrayEPS1_'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1439' u='m' c='_ZN4toco27CheckIsReadyForQuantizationERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1463' u='m' c='_ZN4toco27UseDefaultMinMaxRangeValuesEPNS_5ModelEdd'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1471' u='m' c='_ZN4toco27UseDefaultMinMaxRangeValuesEPNS_5ModelEdd'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1538' u='m' c='_ZN4toco27IsAllocatableTransientArrayERKNS_5ModelERKSs'/>

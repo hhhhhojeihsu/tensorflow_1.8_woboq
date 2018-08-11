@@ -1,0 +1,20 @@
+<def f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='57' ll='130'/>
+<size>80</size>
+<doc f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='53'>// Manages temporary memories associated with a stream -- keeps records of
+// outstanding temporaries and their state, and can deallocate them
+// appropriately at points in the Stream lifecycle (e.g. BlockHostUntilDone,
+// destruction).</doc>
+<fun r='_ZN9perftools8gputools8internal22TemporaryMemoryManagerC1EPNS0_6StreamE'/>
+<fun r='_ZN9perftools8gputools8internal22TemporaryMemoryManager13AllocateArrayEy'/>
+<fun r='_ZN9perftools8gputools8internal22TemporaryMemoryManager18ForceDeallocateAllEv'/>
+<fun r='_ZN9perftools8gputools8internal22TemporaryMemoryManager13MarkFinalizedERKNS0_16DeviceMemoryBaseEyb'/>
+<fun r='_ZN9perftools8gputools8internal22TemporaryMemoryManager30DeallocateFinalizedTemporariesEv'/>
+<fun r='_ZNK9perftools8gputools8internal22TemporaryMemoryManager11IsFinalizedERKNS0_16DeviceMemoryBaseEy'/>
+<fun r='_ZNK9perftools8gputools8internal22TemporaryMemoryManager12HasAllocatedERKNS0_16DeviceMemoryBaseEy'/>
+<fun r='_ZN9perftools8gputools8internal22TemporaryMemoryManager17AllocateArrayBaseEyy'/>
+<mbr r='perftools::gputools::internal::TemporaryMemoryManager::mutex_' o='0' t='tensorflow::mutex'/>
+<mbr r='perftools::gputools::internal::TemporaryMemoryManager::records_' o='128' t='std::map&lt;DeviceMemoryBase, TemporaryMemoryRecord&gt;'/>
+<mbr r='perftools::gputools::internal::TemporaryMemoryManager::generation_' o='512' t='uint64'/>
+<mbr r='perftools::gputools::internal::TemporaryMemoryManager::stream_' o='576' t='perftools::gputools::Stream *'/>
+<fun r='_ZN9perftools8gputools8internal22TemporaryMemoryManagerC1ERKS2_'/>
+<fun r='_ZN9perftools8gputools8internal22TemporaryMemoryManager13AllocateArrayEy'/>

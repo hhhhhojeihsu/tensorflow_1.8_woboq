@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/framework/lookup_interface.h' l='80' type='tensorflow::Status tensorflow::lookup::LookupInterface::ImportValues(tensorflow::OpKernelContext * ctx, const tensorflow::Tensor &amp; keys, const tensorflow::Tensor &amp; values)'/>
+<doc f='tensorflow/tensorflow/core/framework/lookup_interface.h' l='76'>// Imports previously exported keys and values.
+  // As mentioned above, the shape of the keys and values tensors are determined
+  // by the ExportValues function above and can be different than for the
+  // Insert function.</doc>
+<ovr f='tensorflow/tensorflow/core/kernels/initializable_lookup_table.h' l='60' c='_ZN10tensorflow6lookup24InitializableLookupTable12ImportValuesEPNS_15OpKernelContextERKNS_6TensorES6_'/>
+<ovr f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='92' c='_ZN10tensorflow6lookup25MutableHashTableOfScalars12ImportValuesEPNS_15OpKernelContextERKNS_6TensorES6_'/>
+<ovr f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='216' c='_ZN10tensorflow6lookup25MutableHashTableOfTensors12ImportValuesEPNS_15OpKernelContextERKNS_6TensorES6_'/>
+<ovr f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='429' c='_ZN10tensorflow6lookup21MutableDenseHashTable12ImportValuesEPNS_15OpKernelContextERKNS_6TensorES6_'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='785' u='c' c='_ZN10tensorflow19LookupTableImportOp7ComputeEPNS_15OpKernelContextE'/>

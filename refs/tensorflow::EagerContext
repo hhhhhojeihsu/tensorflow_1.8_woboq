@@ -1,0 +1,57 @@
+<def f='tensorflow/tensorflow/core/common_runtime/eager/context.h' l='59' ll='189'/>
+<size>816</size>
+<fun r='_ZN10tensorflow12EagerContextC1ERKNS_14SessionOptionsENS_28ContextDevicePlacementPolicyEbSt10unique_ptrINS_9DeviceMgrESt14default_deleteIS6_EEPNS_10RendezvousE'/>
+<fun r='_ZN10tensorflow12EagerContextD1Ev'/>
+<fun r='_ZNK10tensorflow12EagerContext8func_libEPNS_6DeviceE'/>
+<fun r='_ZNK10tensorflow12EagerContext5AsyncEv'/>
+<fun r='_ZN10tensorflow12EagerContext8ExecutorEv'/>
+<fun r='_ZN10tensorflow12EagerContext17SetAsyncForThreadEb'/>
+<fun r='_ZN10tensorflow12EagerContext10device_mapEv'/>
+<fun r='_ZN10tensorflow12EagerContext7devicesEv'/>
+<fun r='_ZN10tensorflow12EagerContext11ClearCachesEv'/>
+<fun r='_ZN10tensorflow12EagerContext35SetThreadLocalDevicePlacementPolicyENS_28ContextDevicePlacementPolicyE'/>
+<fun r='_ZN10tensorflow12EagerContext24GetDevicePlacementPolicyEv'/>
+<fun r='_ZN10tensorflow12EagerContext9AsyncWaitEv'/>
+<fun r='_ZN10tensorflow12EagerContext9GetStatusEv'/>
+<fun r='_ZN10tensorflow12EagerContext15ClearAsyncErrorEv'/>
+<fun r='_ZN10tensorflow12EagerContext18FindFunctionByNameERKSs'/>
+<fun r='_ZN10tensorflow12EagerContext18FindFunctionOpDataERKSsPPKNS_18OpRegistrationDataE'/>
+<fun r='_ZN10tensorflow12EagerContext15FindFunctionDefERKSs'/>
+<fun r='_ZN10tensorflow12EagerContext16FindDeviceByNameERKSsPPNS_6DeviceE'/>
+<fun r='_ZN10tensorflow12EagerContext7HostCPUEv'/>
+<fun r='_ZN10tensorflow12EagerContext6NextIdEv'/>
+<fun r='_ZN10tensorflow12EagerContext11ExecutorAddEPNS_9EagerNodeE'/>
+<fun r='_ZN10tensorflow12EagerContext14AddFunctionDefERKNS_11FunctionDefE'/>
+<fun r='_ZN10tensorflow12EagerContext15GetCachedKernelENS_9Fprint128E'/>
+<fun r='_ZN10tensorflow12EagerContext16AddKernelToCacheENS_9Fprint128EPNS_15KernelAndDeviceE'/>
+<fun r='_ZN10tensorflow12EagerContext18LogDevicePlacementEv'/>
+<fun r='_ZN10tensorflow12EagerContext13GetRendezvousEv'/>
+<fun r='_ZN10tensorflow12EagerContext11FunctionsMuEv'/>
+<fun r='_ZN10tensorflow12EagerContext10device_mgrEv'/>
+<fun r='_ZN10tensorflow12EagerContext16ReleaseDeviceMgrEv'/>
+<fun r='_ZN10tensorflow12EagerContext10MetadataMuEv'/>
+<fun r='_ZN10tensorflow12EagerContext19ShouldStoreMetadataEv'/>
+<fun r='_ZN10tensorflow12EagerContext22SetShouldStoreMetadataEb'/>
+<fun r='_ZN10tensorflow12EagerContext16RunMetadataProtoEv'/>
+<fun r='_ZN10tensorflow12EagerContext10FuncLibDefEv'/>
+<mbr r='tensorflow::EagerContext::policy_' o='0' t='const tensorflow::ContextDevicePlacementPolicy'/>
+<mbr r='tensorflow::EagerContext::policy_map_mu_' o='64' t='tensorflow::mutex'/>
+<mbr r='tensorflow::EagerContext::thread_local_policies_' o='192' t='std::unordered_map&lt;std::thread::id, ContextDevicePlacementPolicy&gt;'/>
+<mbr r='tensorflow::EagerContext::device_manager_' o='640' t='std::unique_ptr&lt;DeviceMgr&gt;'/>
+<mbr r='tensorflow::EagerContext::devices_' o='704' t='std::vector&lt;Device *&gt;'/>
+<mbr r='tensorflow::EagerContext::devices_map_' o='896' t='gtl::FlatMap&lt;string, Device *, StringPieceHasher&gt;'/>
+<mbr r='tensorflow::EagerContext::rendezvous_' o='1408' t='tensorflow::Rendezvous *const'/>
+<mbr r='tensorflow::EagerContext::functions_mu_' o='1472' t='tensorflow::mutex'/>
+<mbr r='tensorflow::EagerContext::func_lib_def_' o='1600' t='tensorflow::FunctionLibraryDefinition'/>
+<mbr r='tensorflow::EagerContext::thread_pool_' o='2752' t='std::unique_ptr&lt;thread::ThreadPool&gt;'/>
+<mbr r='tensorflow::EagerContext::pflr_' o='2816' t='const std::unique_ptr&lt;ProcessFunctionLibraryRuntime&gt;'/>
+<mbr r='tensorflow::EagerContext::cache_mu_' o='2880' t='tensorflow::mutex'/>
+<mbr r='tensorflow::EagerContext::kernel_cache_' o='3008' t='std::unordered_map&lt;Fprint128, KernelAndDevice *, Fprint128Hasher&gt;'/>
+<mbr r='tensorflow::EagerContext::should_store_metadata_' o='3456' t='std::atomic&lt;bool&gt;'/>
+<mbr r='tensorflow::EagerContext::metadata_mu_' o='3520' t='tensorflow::mutex'/>
+<mbr r='tensorflow::EagerContext::run_metadata_' o='3648' t='tensorflow::RunMetadata'/>
+<mbr r='tensorflow::EagerContext::log_device_placement_' o='4160' t='const bool'/>
+<mbr r='tensorflow::EagerContext::executor_' o='4224' t='tensorflow::EagerExecutor'/>
+<mbr r='tensorflow::EagerContext::async_default_' o='5888' t='const bool'/>
+<mbr r='tensorflow::EagerContext::async_map_mu_' o='5952' t='tensorflow::mutex'/>
+<mbr r='tensorflow::EagerContext::thread_local_async_' o='6080' t='std::unordered_map&lt;std::thread::id, bool&gt;'/>

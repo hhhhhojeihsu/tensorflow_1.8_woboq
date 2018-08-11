@@ -1,0 +1,10 @@
+<dec f='include/c++/5/chrono' l='257' type='void std::chrono::duration::duration&lt;_Rep, _Period&gt;(const duration&lt;_Rep, _Period&gt; &amp; )'/>
+<def f='include/c++/5/chrono' l='270' ll='271' type='void std::chrono::duration::duration&lt;_Rep, _Period&gt;(const duration&lt;_Rep2, _Period2&gt; &amp; __d)'/>
+<doc f='include/c++/5/chrono' l='254'>// NB: Make constexpr implicit. This cannot be explicitly
+	// constexpr, as any UDT that is not a literal type with a
+	// constexpr copy constructor will be ill-formed.</doc>
+<use f='tensorflow/tensorflow/core/lib/core/blocking_counter.h' l='63' u='c' c='_ZN10tensorflow15BlockingCounter7WaitForENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='47' u='c' c='_ZN10tensorflow8grappler5Costs12MilliSecondsC1ERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='57' u='c' c='_ZN10tensorflow8grappler5Costs12MicroSecondsC1ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='70' u='c' c='_ZN10tensorflow8grappler5Costs11NanoSecondsC1ERKNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_memory.cc' l='184' u='c' c='_ZN10tensorflow8grappler11GraphMemory14InferFromTraceERKNS_9StepStatsE'/>

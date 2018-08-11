@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='247' type='bool tensorflow::DecodeUnaryVariant(tensorflow::Variant * variant)'/>
+<doc f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='240'>// Decodes the Variant whose data_type has a registered decode
+// function.  Returns an Internal error if the Variant does not have a
+// registered decode function, or if the decoding function fails.
+//
+// REQUIRES:
+//   variant is not null.
+//</doc>
+<use f='tensorflow/tensorflow/core/framework/tensor.cc' l='508' u='c' c='_ZN10tensorflow12_GLOBAL__N_114FromProtoFieldEPNS_9AllocatorERKNS_11TensorProtoEx'/>
+<def f='tensorflow/tensorflow/core/framework/variant_op_registry.cc' l='111' ll='128' type='bool tensorflow::DecodeUnaryVariant(tensorflow::Variant * variant)'/>
+<use f='tensorflow/tensorflow/core/platform/variant_coding.cc' l='58' u='c' c='_ZN10tensorflow4port17DecodeVariantListERKSsPNS_7VariantEx'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='153' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReadVariantTensorEPNS_2io11InputBufferEPNS_6TensorEmmPj'/>

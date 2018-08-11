@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>layout_util.h source code [tensorflow/tensorflow/compiler/xla/layout_util.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="xla::LayoutUtil "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/compiler/xla/layout_util.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>compiler</a>/<a href='./'>xla</a>/<a href='layout_util.h.html'>layout_util.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// Utility functions related to layouts of Shapes.</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_COMPILER_XLA_LAYOUT_UTIL_H_">TENSORFLOW_COMPILER_XLA_LAYOUT_UTIL_H_</span></u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMPILER_XLA_LAYOUT_UTIL_H_" data-ref="_M/TENSORFLOW_COMPILER_XLA_LAYOUT_UTIL_H_">TENSORFLOW_COMPILER_XLA_LAYOUT_UTIL_H_</dfn></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="types.h.html">"tensorflow/compiler/xla/types.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include "tensorflow/compiler/xla/xla_data.pb.h"</u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../../core/lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../core/lib/gtl/array_slice.h.html">"tensorflow/core/lib/gtl/array_slice.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../core/platform/macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../core/platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><b>namespace</b> <span class="namespace">xla</span> {</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>// Namespaced collection of (static) Layout utilities.</i></td></tr>
+<tr><th id="33">33</th><td><b>class</b> <dfn class="type def" id="xla::LayoutUtil" title='xla::LayoutUtil' data-ref="xla::LayoutUtil">LayoutUtil</dfn> {</td></tr>
+<tr><th id="34">34</th><td> <b>public</b>:</td></tr>
+<tr><th id="35">35</th><td>  <i>// Creates a layout with the given minor-to-major dimension order. (This is a</i></td></tr>
+<tr><th id="36">36</th><td><i>  // convenience function for protobuf construction.)</i></td></tr>
+<tr><th id="37">37</th><td>  <em>static</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span> <dfn class="decl" id="_ZN3xla10LayoutUtil10MakeLayoutEN10tensorflow3gtl10ArraySliceIxEE" title='xla::LayoutUtil::MakeLayout' data-ref="_ZN3xla10LayoutUtil10MakeLayoutEN10tensorflow3gtl10ArraySliceIxEE">MakeLayout</dfn>(<span class="namespace">tensorflow::gtl::</span><a class="type" href="../../core/lib/gtl/array_slice.h.html#tensorflow::gtl::ArraySlice" title='tensorflow::gtl::ArraySlice' data-ref="tensorflow::gtl::ArraySlice">ArraySlice</a>&lt;<a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>&gt; <dfn class="local col4 decl" id="274minor_to_major" title='minor_to_major' data-type='tensorflow::gtl::ArraySlice&lt;int64&gt;' data-ref="274minor_to_major">minor_to_major</dfn>);</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>  <i>// Creates a sparse layout with the given maximum number of elements. (This is</i></td></tr>
+<tr><th id="40">40</th><td><i>  // a convenience function for protobuf construction.)</i></td></tr>
+<tr><th id="41">41</th><td>  <em>static</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span> <dfn class="decl" id="_ZN3xla10LayoutUtil16MakeSparseLayoutEx" title='xla::LayoutUtil::MakeSparseLayout' data-ref="_ZN3xla10LayoutUtil16MakeSparseLayoutEx">MakeSparseLayout</dfn>(<a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col5 decl" id="275max_sparse_elements" title='max_sparse_elements' data-type='int64' data-ref="275max_sparse_elements">max_sparse_elements</dfn>);</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>  <i>// Returns default layout for the given shape.</i></td></tr>
+<tr><th id="44">44</th><td>  <em>static</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span> <dfn class="decl" id="_ZN3xla10LayoutUtil24GetDefaultLayoutForShapeERKNS_5ShapeE" title='xla::LayoutUtil::GetDefaultLayoutForShape' data-ref="_ZN3xla10LayoutUtil24GetDefaultLayoutForShapeERKNS_5ShapeE">GetDefaultLayoutForShape</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col6 decl" id="276shape" title='shape' data-type='const xla::Shape &amp;' data-ref="276shape">shape</dfn>);</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>  <i>// Helper functions that create default layouts for various ranks.</i></td></tr>
+<tr><th id="47">47</th><td>  <em>static</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span> <dfn class="decl" id="_ZN3xla10LayoutUtil23GetDefaultLayoutForRankEx" title='xla::LayoutUtil::GetDefaultLayoutForRank' data-ref="_ZN3xla10LayoutUtil23GetDefaultLayoutForRankEx">GetDefaultLayoutForRank</dfn>(<a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col7 decl" id="277rank" title='rank' data-type='int64' data-ref="277rank">rank</dfn>);</td></tr>
+<tr><th id="48">48</th><td>  <em>static</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span> <dfn class="decl" id="_ZN3xla10LayoutUtil21GetDefaultLayoutForR2Ev" title='xla::LayoutUtil::GetDefaultLayoutForR2' data-ref="_ZN3xla10LayoutUtil21GetDefaultLayoutForR2Ev">GetDefaultLayoutForR2</dfn>();</td></tr>
+<tr><th id="49">49</th><td>  <em>static</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span> <dfn class="decl" id="_ZN3xla10LayoutUtil21GetDefaultLayoutForR3Ev" title='xla::LayoutUtil::GetDefaultLayoutForR3' data-ref="_ZN3xla10LayoutUtil21GetDefaultLayoutForR3Ev">GetDefaultLayoutForR3</dfn>();</td></tr>
+<tr><th id="50">50</th><td>  <em>static</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span> <dfn class="decl" id="_ZN3xla10LayoutUtil21GetDefaultLayoutForR4Ev" title='xla::LayoutUtil::GetDefaultLayoutForR4' data-ref="_ZN3xla10LayoutUtil21GetDefaultLayoutForR4Ev">GetDefaultLayoutForR4</dfn>();</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>  <i>// Sets the default layout on the Shape.</i></td></tr>
+<tr><th id="53">53</th><td>  <em>static</em> <em>void</em> <dfn class="decl" id="_ZN3xla10LayoutUtil18SetToDefaultLayoutEPNS_5ShapeE" title='xla::LayoutUtil::SetToDefaultLayout' data-ref="_ZN3xla10LayoutUtil18SetToDefaultLayoutEPNS_5ShapeE">SetToDefaultLayout</dfn>(<span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>* <dfn class="local col8 decl" id="278shape" title='shape' data-type='xla::Shape *' data-ref="278shape">shape</dfn>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>  <i>// Returns a shape with the same dimensions as `shape` but with the default</i></td></tr>
+<tr><th id="56">56</th><td><i>  // layout.</i></td></tr>
+<tr><th id="57">57</th><td>  <em>static</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span> <dfn class="decl" id="_ZN3xla10LayoutUtil20GetWithDefaultLayoutERKNS_5ShapeE" title='xla::LayoutUtil::GetWithDefaultLayout' data-ref="_ZN3xla10LayoutUtil20GetWithDefaultLayoutERKNS_5ShapeE">GetWithDefaultLayout</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col9 decl" id="279shape" title='shape' data-type='const xla::Shape &amp;' data-ref="279shape">shape</dfn>);</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>  <i>// Sets the layouts of all Shapes within the given ProgramShape to the</i></td></tr>
+<tr><th id="60">60</th><td><i>  // default.</i></td></tr>
+<tr><th id="61">61</th><td>  <em>static</em> <em>void</em> <dfn class="decl" id="_ZN3xla10LayoutUtil18SetToDefaultLayoutEPNS_12ProgramShapeE" title='xla::LayoutUtil::SetToDefaultLayout' data-ref="_ZN3xla10LayoutUtil18SetToDefaultLayoutEPNS_12ProgramShapeE">SetToDefaultLayout</dfn>(<span class='type' title='xla::ProgramShape' data-ref="xla::ProgramShape">ProgramShape</span>* <dfn class="local col0 decl" id="280program_shape" title='program_shape' data-type='xla::ProgramShape *' data-ref="280program_shape">program_shape</dfn>);</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>  <i>// Validates that the layout within the given shape is correct.</i></td></tr>
+<tr><th id="64">64</th><td>  <em>static</em> <span class="namespace">tensorflow::</span><a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZN3xla10LayoutUtil21ValidateLayoutInShapeERKNS_5ShapeE" title='xla::LayoutUtil::ValidateLayoutInShape' data-ref="_ZN3xla10LayoutUtil21ValidateLayoutInShapeERKNS_5ShapeE">ValidateLayoutInShape</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col1 decl" id="281shape" title='shape' data-type='const xla::Shape &amp;' data-ref="281shape">shape</dfn>);</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>  <i>// Validates that the provided layout satisfies invariants for the given</i></td></tr>
+<tr><th id="67">67</th><td><i>  // shape.</i></td></tr>
+<tr><th id="68">68</th><td>  <em>static</em> <span class="namespace">tensorflow::</span><a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZN3xla10LayoutUtil22ValidateLayoutForShapeERKNS_6LayoutERKNS_5ShapeE" title='xla::LayoutUtil::ValidateLayoutForShape' data-ref="_ZN3xla10LayoutUtil22ValidateLayoutForShapeERKNS_6LayoutERKNS_5ShapeE">ValidateLayoutForShape</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col2 decl" id="282layout" title='layout' data-type='const xla::Layout &amp;' data-ref="282layout">layout</dfn>,</td></tr>
+<tr><th id="69">69</th><td>                                                   <em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col3 decl" id="283shape" title='shape' data-type='const xla::Shape &amp;' data-ref="283shape">shape</dfn>);</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>  <i>// Clears the layout in the given Shape. After this function is called,</i></td></tr>
+<tr><th id="72">72</th><td><i>  // HasLayout will return false for the shape.</i></td></tr>
+<tr><th id="73">73</th><td>  <em>static</em> <em>void</em> <dfn class="decl" id="_ZN3xla10LayoutUtil11ClearLayoutEPNS_5ShapeE" title='xla::LayoutUtil::ClearLayout' data-ref="_ZN3xla10LayoutUtil11ClearLayoutEPNS_5ShapeE">ClearLayout</dfn>(<span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>* <dfn class="local col4 decl" id="284shape" title='shape' data-type='xla::Shape *' data-ref="284shape">shape</dfn>);</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>  <i>// Clears the layout on all Shapes within the given ProgramShape.</i></td></tr>
+<tr><th id="76">76</th><td>  <em>static</em> <em>void</em> <dfn class="decl" id="_ZN3xla10LayoutUtil11ClearLayoutEPNS_12ProgramShapeE" title='xla::LayoutUtil::ClearLayout' data-ref="_ZN3xla10LayoutUtil11ClearLayoutEPNS_12ProgramShapeE">ClearLayout</dfn>(<span class='type' title='xla::ProgramShape' data-ref="xla::ProgramShape">ProgramShape</span>* <dfn class="local col5 decl" id="285program_shape" title='program_shape' data-type='xla::ProgramShape *' data-ref="285program_shape">program_shape</dfn>);</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>  <i>// Returns whether the given Shape is an array and has a dense format layout.</i></td></tr>
+<tr><th id="79">79</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil12IsDenseArrayERKNS_5ShapeE" title='xla::LayoutUtil::IsDenseArray' data-ref="_ZN3xla10LayoutUtil12IsDenseArrayERKNS_5ShapeE">IsDenseArray</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col6 decl" id="286shape" title='shape' data-type='const xla::Shape &amp;' data-ref="286shape">shape</dfn>);</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>  <i>// Returns whether the given Layout has a dense format.</i></td></tr>
+<tr><th id="82">82</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil7IsDenseERKNS_6LayoutE" title='xla::LayoutUtil::IsDense' data-ref="_ZN3xla10LayoutUtil7IsDenseERKNS_6LayoutE">IsDense</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col7 decl" id="287layout" title='layout' data-type='const xla::Layout &amp;' data-ref="287layout">layout</dfn>);</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>  <i>// Returns whether the layout is monotonic and dim 0 is minor in the layout.</i></td></tr>
+<tr><th id="85">85</th><td><i>  // * R0 and R1: this is always trivially true.</i></td></tr>
+<tr><th id="86">86</th><td><i>  // * R2+: equivalent to column-major. Dimension 0 is the minor, dimension 1 is</i></td></tr>
+<tr><th id="87">87</th><td><i>  //        more major, and so on until dimension N-1 which is the major.</i></td></tr>
+<tr><th id="88">88</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil24IsMonotonicWithDim0MinorERKNS_6LayoutE" title='xla::LayoutUtil::IsMonotonicWithDim0Minor' data-ref="_ZN3xla10LayoutUtil24IsMonotonicWithDim0MinorERKNS_6LayoutE">IsMonotonicWithDim0Minor</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col8 decl" id="288layout" title='layout' data-type='const xla::Layout &amp;' data-ref="288layout">layout</dfn>);</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>  <i>// Returns whether the layout is monotonic and dim 0 is major in the layout.</i></td></tr>
+<tr><th id="91">91</th><td><i>  // * R0 and R1: this is always trivially true.</i></td></tr>
+<tr><th id="92">92</th><td><i>  // * R2+: equivalent to row-major. Dimension 0 is the major, dimension 1 is</i></td></tr>
+<tr><th id="93">93</th><td><i>  //        more minor, and so on until dimension N-1 which is the minor.</i></td></tr>
+<tr><th id="94">94</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil24IsMonotonicWithDim0MajorERKNS_6LayoutE" title='xla::LayoutUtil::IsMonotonicWithDim0Major' data-ref="_ZN3xla10LayoutUtil24IsMonotonicWithDim0MajorERKNS_6LayoutE">IsMonotonicWithDim0Major</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col9 decl" id="289layout" title='layout' data-type='const xla::Layout &amp;' data-ref="289layout">layout</dfn>);</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>  <i>// Returns whether the layout of the given shape has padding (a</i></td></tr>
+<tr><th id="97">97</th><td><i>  // padded_dimension value in Layout is greater than the corresponding</i></td></tr>
+<tr><th id="98">98</th><td><i>  // dimension size).</i></td></tr>
+<tr><th id="99">99</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil8IsPaddedERKNS_5ShapeE" title='xla::LayoutUtil::IsPadded' data-ref="_ZN3xla10LayoutUtil8IsPaddedERKNS_5ShapeE">IsPadded</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col0 decl" id="290shape" title='shape' data-type='const xla::Shape &amp;' data-ref="290shape">shape</dfn>);</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>  <i>// Returns the padded_dimensions array for the given Shape.  Requires that the</i></td></tr>
+<tr><th id="102">102</th><td><i>  // shape is an array and has a dense layout.</i></td></tr>
+<tr><th id="103">103</th><td>  <em>static</em> <span class="namespace">tensorflow::gtl::</span><a class="type" href="../../core/lib/gtl/array_slice.h.html#tensorflow::gtl::ArraySlice" title='tensorflow::gtl::ArraySlice' data-ref="tensorflow::gtl::ArraySlice">ArraySlice</a>&lt;<a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>&gt; <dfn class="decl" id="_ZN3xla10LayoutUtil16PaddedDimensionsERKNS_5ShapeE" title='xla::LayoutUtil::PaddedDimensions' data-ref="_ZN3xla10LayoutUtil16PaddedDimensionsERKNS_5ShapeE">PaddedDimensions</dfn>(</td></tr>
+<tr><th id="104">104</th><td>      <em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col1 decl" id="291shape" title='shape' data-type='const xla::Shape &amp;' data-ref="291shape">shape</dfn>);</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>  <i>// Returns the given index of the padded_dimensions array for the given Shape.</i></td></tr>
+<tr><th id="107">107</th><td><i>  // Requires that the shape is an array and has a dense layout.</i></td></tr>
+<tr><th id="108">108</th><td>  <em>static</em> <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl" id="_ZN3xla10LayoutUtil15PaddedDimensionERKNS_5ShapeEx" title='xla::LayoutUtil::PaddedDimension' data-ref="_ZN3xla10LayoutUtil15PaddedDimensionERKNS_5ShapeEx">PaddedDimension</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col2 decl" id="292shape" title='shape' data-type='const xla::Shape &amp;' data-ref="292shape">shape</dfn>, <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col3 decl" id="293index" title='index' data-type='int64' data-ref="293index">index</dfn>);</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>  <i>// Returns the padding_value for the given Shape.  Requires that the shape is</i></td></tr>
+<tr><th id="111">111</th><td><i>  // an array and has a dense layout.</i></td></tr>
+<tr><th id="112">112</th><td>  <em>static</em> <span class='type' title='xla::PaddingValue' data-ref="xla::PaddingValue">PaddingValue</span> <dfn class="decl" id="_ZN3xla10LayoutUtil15GetPaddingValueERKNS_5ShapeE" title='xla::LayoutUtil::GetPaddingValue' data-ref="_ZN3xla10LayoutUtil15GetPaddingValueERKNS_5ShapeE">GetPaddingValue</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col4 decl" id="294shape" title='shape' data-type='const xla::Shape &amp;' data-ref="294shape">shape</dfn>);</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>  <i>// Returns whether the given Shape is an array (i.e. not a tuple) and has a</i></td></tr>
+<tr><th id="115">115</th><td><i>  // sparse format layout.</i></td></tr>
+<tr><th id="116">116</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil13IsSparseArrayERKNS_5ShapeE" title='xla::LayoutUtil::IsSparseArray' data-ref="_ZN3xla10LayoutUtil13IsSparseArrayERKNS_5ShapeE">IsSparseArray</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col5 decl" id="295shape" title='shape' data-type='const xla::Shape &amp;' data-ref="295shape">shape</dfn>);</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td>  <i>// Returns whether the given Layout has a sparse format.</i></td></tr>
+<tr><th id="119">119</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil8IsSparseERKNS_6LayoutE" title='xla::LayoutUtil::IsSparse' data-ref="_ZN3xla10LayoutUtil8IsSparseERKNS_6LayoutE">IsSparse</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col6 decl" id="296layout" title='layout' data-type='const xla::Layout &amp;' data-ref="296layout">layout</dfn>);</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>  <i>// Returns the maximum number of elements that can be stored in a sparse</i></td></tr>
+<tr><th id="122">122</th><td><i>  // layout.</i></td></tr>
+<tr><th id="123">123</th><td>  <em>static</em> <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl" id="_ZN3xla10LayoutUtil17MaxSparseElementsERKNS_6LayoutE" title='xla::LayoutUtil::MaxSparseElements' data-ref="_ZN3xla10LayoutUtil17MaxSparseElementsERKNS_6LayoutE">MaxSparseElements</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col7 decl" id="297layout" title='layout' data-type='const xla::Layout &amp;' data-ref="297layout">layout</dfn>);</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>  <i>// Returns whether the given shape has a layout. For tuple shapes, true is</i></td></tr>
+<tr><th id="126">126</th><td><i>  // returned only if all elements have layouts.</i></td></tr>
+<tr><th id="127">127</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil9HasLayoutERKNS_5ShapeE" title='xla::LayoutUtil::HasLayout' data-ref="_ZN3xla10LayoutUtil9HasLayoutERKNS_5ShapeE">HasLayout</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col8 decl" id="298shape" title='shape' data-type='const xla::Shape &amp;' data-ref="298shape">shape</dfn>);</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>  <i>// Returns whether all Shapes within the given ProgramShape have layouts.</i></td></tr>
+<tr><th id="130">130</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil9HasLayoutERKNS_12ProgramShapeE" title='xla::LayoutUtil::HasLayout' data-ref="_ZN3xla10LayoutUtil9HasLayoutERKNS_12ProgramShapeE">HasLayout</dfn>(<em>const</em> <span class='type' title='xla::ProgramShape' data-ref="xla::ProgramShape">ProgramShape</span>&amp; <dfn class="local col9 decl" id="299program_shape" title='program_shape' data-type='const xla::ProgramShape &amp;' data-ref="299program_shape">program_shape</dfn>);</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>  <i>// Returns whether lhs and rhs are identical.</i></td></tr>
+<tr><th id="133">133</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil5EqualERKNS_6LayoutES3_" title='xla::LayoutUtil::Equal' data-ref="_ZN3xla10LayoutUtil5EqualERKNS_6LayoutES3_">Equal</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col0 decl" id="300lhs" title='lhs' data-type='const xla::Layout &amp;' data-ref="300lhs">lhs</dfn>, <em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col1 decl" id="301rhs" title='rhs' data-type='const xla::Layout &amp;' data-ref="301rhs">rhs</dfn>);</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td>  <i>// Returns the minor_to_major array for the given Shape.  Requires that the</i></td></tr>
+<tr><th id="136">136</th><td><i>  // shape is an array and has a dense layout.</i></td></tr>
+<tr><th id="137">137</th><td>  <em>static</em> <span class="namespace">tensorflow::gtl::</span><a class="type" href="../../core/lib/gtl/array_slice.h.html#tensorflow::gtl::ArraySlice" title='tensorflow::gtl::ArraySlice' data-ref="tensorflow::gtl::ArraySlice">ArraySlice</a>&lt;<a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>&gt; <dfn class="decl" id="_ZN3xla10LayoutUtil12MinorToMajorERKNS_5ShapeE" title='xla::LayoutUtil::MinorToMajor' data-ref="_ZN3xla10LayoutUtil12MinorToMajorERKNS_5ShapeE">MinorToMajor</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col2 decl" id="302shape" title='shape' data-type='const xla::Shape &amp;' data-ref="302shape">shape</dfn>);</td></tr>
+<tr><th id="138">138</th><td>  <em>static</em> <span class="namespace">tensorflow::gtl::</span><a class="type" href="../../core/lib/gtl/array_slice.h.html#tensorflow::gtl::ArraySlice" title='tensorflow::gtl::ArraySlice' data-ref="tensorflow::gtl::ArraySlice">ArraySlice</a>&lt;<a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>&gt; <dfn class="decl" id="_ZN3xla10LayoutUtil12MinorToMajorERKNS_6LayoutE" title='xla::LayoutUtil::MinorToMajor' data-ref="_ZN3xla10LayoutUtil12MinorToMajorERKNS_6LayoutE">MinorToMajor</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col3 decl" id="303layout" title='layout' data-type='const xla::Layout &amp;' data-ref="303layout">layout</dfn>);</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>  <i>// Major(0) is the most major logical dimension number, Major(1) is the</i></td></tr>
+<tr><th id="141">141</th><td><i>  // second-most-major logical dimension number and so on.</i></td></tr>
+<tr><th id="142">142</th><td><i>  //</i></td></tr>
+<tr><th id="143">143</th><td><i>  // This can be used to translate physical dimension numbers to logical</i></td></tr>
+<tr><th id="144">144</th><td><i>  // dimension numbers. Assume that we are numbering the physical dimensions so</i></td></tr>
+<tr><th id="145">145</th><td><i>  // that the most major physical dimension has physical dimension number 0 and</i></td></tr>
+<tr><th id="146">146</th><td><i>  // so on. Then a physical dimension number p corresponds to the logical</i></td></tr>
+<tr><th id="147">147</th><td><i>  // dimension number Major(p). So this function could also be called</i></td></tr>
+<tr><th id="148">148</th><td><i>  // PhysicalToLogical().</i></td></tr>
+<tr><th id="149">149</th><td><i>  //</i></td></tr>
+<tr><th id="150">150</th><td><i>  // As an example, consider physical dimension number 0, which by definition is</i></td></tr>
+<tr><th id="151">151</th><td><i>  // the most major. Then Major(0) is the most major logical dimension, so Major</i></td></tr>
+<tr><th id="152">152</th><td><i>  // maps the physical dimension number 0 to the most major logical dimension</i></td></tr>
+<tr><th id="153">153</th><td><i>  // number Major(0).</i></td></tr>
+<tr><th id="154">154</th><td>  <em>static</em> <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl" id="_ZN3xla10LayoutUtil5MajorERKNS_6LayoutEx" title='xla::LayoutUtil::Major' data-ref="_ZN3xla10LayoutUtil5MajorERKNS_6LayoutEx">Major</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col4 decl" id="304layout" title='layout' data-type='const xla::Layout &amp;' data-ref="304layout">layout</dfn>, <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col5 decl" id="305physical_dimension_number" title='physical_dimension_number' data-type='int64' data-ref="305physical_dimension_number">physical_dimension_number</dfn>);</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>  <i>// Minor(0) is the most minor logical dimension number, minor(1) is the</i></td></tr>
+<tr><th id="157">157</th><td><i>  // second-most-minor logical dimension number and so on.</i></td></tr>
+<tr><th id="158">158</th><td>  <em>static</em> <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl" id="_ZN3xla10LayoutUtil5MinorERKNS_6LayoutEx" title='xla::LayoutUtil::Minor' data-ref="_ZN3xla10LayoutUtil5MinorERKNS_6LayoutEx">Minor</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col6 decl" id="306layout" title='layout' data-type='const xla::Layout &amp;' data-ref="306layout">layout</dfn>, <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col7 decl" id="307physical_dimension_number" title='physical_dimension_number' data-type='int64' data-ref="307physical_dimension_number">physical_dimension_number</dfn>);</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>  <i>// Returns the inverse mapping of the Major() function. More precisely, return</i></td></tr>
+<tr><th id="161">161</th><td><i>  // a vector v such that if l == Major(p), then v[l] == p.</i></td></tr>
+<tr><th id="162">162</th><td><i>  //</i></td></tr>
+<tr><th id="163">163</th><td><i>  // This can be used to translate logical dimension numbers into physical</i></td></tr>
+<tr><th id="164">164</th><td><i>  // dimension numbers. Assume that we are numbering the physical dimensions so</i></td></tr>
+<tr><th id="165">165</th><td><i>  // that the most major physical dimension has physical dimension number 0 and</i></td></tr>
+<tr><th id="166">166</th><td><i>  // so on. Then a logical dimension number l corresponds to the physical</i></td></tr>
+<tr><th id="167">167</th><td><i>  // dimension number MakeLogicalToPhysical(layout)[l].</i></td></tr>
+<tr><th id="168">168</th><td><i>  //</i></td></tr>
+<tr><th id="169">169</th><td><i>  // As an example, consider physical dimension number 0, which by definition is</i></td></tr>
+<tr><th id="170">170</th><td><i>  // the most major. Then l := Major(0) is the most major logical dimension. If</i></td></tr>
+<tr><th id="171">171</th><td><i>  // v is the vector returned from this function, then v[l] == 0. So v maps the</i></td></tr>
+<tr><th id="172">172</th><td><i>  // most major logical dimension l to the physical dimension number 0.</i></td></tr>
+<tr><th id="173">173</th><td>  <em>static</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>&gt; <dfn class="decl" id="_ZN3xla10LayoutUtil21MakeLogicalToPhysicalERKNS_6LayoutE" title='xla::LayoutUtil::MakeLogicalToPhysical' data-ref="_ZN3xla10LayoutUtil21MakeLogicalToPhysicalERKNS_6LayoutE">MakeLogicalToPhysical</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col8 decl" id="308layout" title='layout' data-type='const xla::Layout &amp;' data-ref="308layout">layout</dfn>);</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>  <i>// Returns a human-readable string that represents the given layout.</i></td></tr>
+<tr><th id="176">176</th><td>  <em>static</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="_ZN3xla10LayoutUtil11HumanStringERKNS_6LayoutE" title='xla::LayoutUtil::HumanString' data-ref="_ZN3xla10LayoutUtil11HumanStringERKNS_6LayoutE">HumanString</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col9 decl" id="309layout" title='layout' data-type='const xla::Layout &amp;' data-ref="309layout">layout</dfn>);</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>  <i>// Copies the layout from 'src' to 'dst'. Recursively copies layouts of</i></td></tr>
+<tr><th id="179">179</th><td><i>  // tuples.  'src' and 'dst' need not be compatible but the two shapes must</i></td></tr>
+<tr><th id="180">180</th><td><i>  // have the same tuple structure (if any) and arrays must have the same</i></td></tr>
+<tr><th id="181">181</th><td><i>  // rank. within the shapes must have the same number of dimensions.</i></td></tr>
+<tr><th id="182">182</th><td>  <em>static</em> <span class="namespace">tensorflow::</span><a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZN3xla10LayoutUtil23CopyLayoutBetweenShapesERKNS_5ShapeEPS1_" title='xla::LayoutUtil::CopyLayoutBetweenShapes' data-ref="_ZN3xla10LayoutUtil23CopyLayoutBetweenShapesERKNS_5ShapeEPS1_">CopyLayoutBetweenShapes</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col0 decl" id="310src" title='src' data-type='const xla::Shape &amp;' data-ref="310src">src</dfn>,</td></tr>
+<tr><th id="183">183</th><td>                                                    <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>* <dfn class="local col1 decl" id="311dst" title='dst' data-type='xla::Shape *' data-ref="311dst">dst</dfn>);</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td>  <i>// Returns true if the layouts of lhs and rhs are equal, false</i></td></tr>
+<tr><th id="186">186</th><td><i>  // otherwise. Recursively compares layouts of tuples.</i></td></tr>
+<tr><th id="187">187</th><td><i>  //</i></td></tr>
+<tr><th id="188">188</th><td><i>  // lhs and rhs need not be compatible to have the same layout but the two</i></td></tr>
+<tr><th id="189">189</th><td><i>  // shapes must have the same tuple structure (if any) and arrays must have the</i></td></tr>
+<tr><th id="190">190</th><td><i>  // same rank. Element type is ignored.</i></td></tr>
+<tr><th id="191">191</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil20LayoutsInShapesEqualERKNS_5ShapeES3_" title='xla::LayoutUtil::LayoutsInShapesEqual' data-ref="_ZN3xla10LayoutUtil20LayoutsInShapesEqualERKNS_5ShapeES3_">LayoutsInShapesEqual</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col2 decl" id="312lhs" title='lhs' data-type='const xla::Shape &amp;' data-ref="312lhs">lhs</dfn>, <em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="local col3 decl" id="313rhs" title='rhs' data-type='const xla::Shape &amp;' data-ref="313rhs">rhs</dfn>);</td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td>  <i>// Returns whether the given dimensions are consecutive in the given layout,</i></td></tr>
+<tr><th id="194">194</th><td><i>  // not necessarily in the order given.</i></td></tr>
+<tr><th id="195">195</th><td>  <em>static</em> <em>bool</em> <dfn class="decl" id="_ZN3xla10LayoutUtil24AreDimensionsConsecutiveERKNS_6LayoutEN10tensorflow3gtl10ArraySliceIxEE" title='xla::LayoutUtil::AreDimensionsConsecutive' data-ref="_ZN3xla10LayoutUtil24AreDimensionsConsecutiveERKNS_6LayoutEN10tensorflow3gtl10ArraySliceIxEE">AreDimensionsConsecutive</dfn>(<em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col4 decl" id="314layout" title='layout' data-type='const xla::Layout &amp;' data-ref="314layout">layout</dfn>,</td></tr>
+<tr><th id="196">196</th><td>                                       <span class="namespace">tensorflow::gtl::</span><a class="type" href="../../core/lib/gtl/array_slice.h.html#tensorflow::gtl::ArraySlice" title='tensorflow::gtl::ArraySlice' data-ref="tensorflow::gtl::ArraySlice">ArraySlice</a>&lt;<a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>&gt; <dfn class="local col5 decl" id="315dims" title='dims' data-type='tensorflow::gtl::ArraySlice&lt;int64&gt;' data-ref="315dims">dims</dfn>);</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td> <b>private</b>:</td></tr>
+<tr><th id="199">199</th><td>  <a class="macro" href="../../core/platform/macros.h.html#91" title="LayoutUtil(const LayoutUtil&amp;) = delete; void operator=(const LayoutUtil&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN3xla10LayoutUtilC1ERKS0_" title='xla::LayoutUtil::LayoutUtil' data-ref="_ZN3xla10LayoutUtilC1ERKS0_"><a class="type" href="#xla::LayoutUtil" title='xla::LayoutUtil' data-ref="xla::LayoutUtil"><a class="type" href="#xla::LayoutUtil" title='xla::LayoutUtil' data-ref="xla::LayoutUtil">LayoutUtil</a></a></dfn>);</td></tr>
+<tr><th id="200">200</th><td>};</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td><span class="namespace">std::</span><a class="typedef" href="../../../../include/c++/5/iosfwd.html#std::ostream" title='std::ostream' data-type='basic_ostream&lt;char&gt;' data-ref="std::ostream">ostream</a>&amp; <dfn class="decl" id="_ZN3xlalsERSoRKNS_6LayoutE" title='xla::operator&lt;&lt;' data-ref="_ZN3xlalsERSoRKNS_6LayoutE"><b>operator</b>&lt;&lt;</dfn>(<span class="namespace">std::</span><a class="typedef" href="../../../../include/c++/5/iosfwd.html#std::ostream" title='std::ostream' data-type='basic_ostream&lt;char&gt;' data-ref="std::ostream">ostream</a>&amp; <dfn class="local col6 decl" id="316out" title='out' data-type='std::ostream &amp;' data-ref="316out">out</dfn>, <em>const</em> <span class='type' title='xla::Layout' data-ref="xla::Layout">Layout</span>&amp; <dfn class="local col7 decl" id="317layout" title='layout' data-type='const xla::Layout &amp;' data-ref="317layout">layout</dfn>);</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td>}  <i>// namespace xla</i></td></tr>
+<tr><th id="205">205</th><td></td></tr>
+<tr><th id="206">206</th><td><u>#<span data-ppcond="18">endif</span>  // TENSORFLOW_COMPILER_XLA_LAYOUT_UTIL_H_</u></td></tr>
+<tr><th id="207">207</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/rendezvous_mgr_interface.h' l='74' type='tensorflow::RemoteRendezvous * tensorflow::RendezvousMgrInterface::Find(int64 step_id)'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='53' c='_ZN10tensorflow17BaseRendezvousMgr4FindEx'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/rendezvous_mgr_interface.h' l='68'>// Returns Rendezvous supporting send and recv among workers in the
+  // &quot;step_id&quot;.  The caller takes ownership of one reference on the
+  // returned Rendezvous instance.
+  //
+  // Note: the caller must guarantee to eventually call Initialize on the
+  // returned RemoteRendezvous</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='337' u='c' c='_ZN10tensorflow8GraphMgr10SendInputsExRKSt3mapISsNS_6TensorESt4lessISsESaISt4pairIKSsS2_EEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='353' u='c' c='_ZN10tensorflow8GraphMgr11RecvOutputsExPSt3mapISsNS_6TensorESt4lessISsESaISt4pairIKSsS2_EEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='361' u='c' c='_ZN10tensorflow8GraphMgr16RecvOutputsAsyncExPSt3mapISsNS_6TensorESt4lessISsESaISt4pairIKSsS2_EEESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='416' u='c' c='_ZN10tensorflow8GraphMgr12ExecuteAsyncERKSsxPNS_13WorkerSessionERKNS_12ExecutorOptsEPNS_18StepStatsCollectorEPNS_30MutableRunGraphResponseWrapperEPNS_14949072'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='82' u='c' c='_ZN10tensorflow6Worker9AbortStepEx'/>

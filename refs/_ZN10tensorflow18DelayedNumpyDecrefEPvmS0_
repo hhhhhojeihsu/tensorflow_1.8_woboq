@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.h' l='32' type='void tensorflow::DelayedNumpyDecref(void * data, size_t len, void * obj)'/>
+<doc f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.h' l='29'>// Destructor passed to TF_NewTensor when it reuses a numpy buffer. Stores a
+// pointer to the pyobj in a buffer to be dereferenced later when we&apos;re actually
+// holding the GIL. Data and len are ignored.</doc>
+<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='403' u='a' c='_ZN10tensorflow18PyArrayToTF_TensorEP7_objectPSt10unique_ptrI9TF_TensorNS_6detail15TFTensorDeleterEE'/>
+<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='410' u='a' c='_ZN10tensorflow18PyArrayToTF_TensorEP7_objectPSt10unique_ptrI9TF_TensorNS_6detail15TFTensorDeleterEE'/>
+<def f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.cc' l='45' ll='48' type='void tensorflow::DelayedNumpyDecref(void * data, size_t len, void * obj)'/>
+<doc f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.cc' l='42'>// Destructor passed to TF_NewTensor when it reuses a numpy buffer. Stores a
+// pointer to the pyobj in a buffer to be dereferenced later when we&apos;re actually
+// holding the GIL.</doc>
+<use f='tensorflow/tensorflow/python/lib/core/py_func.cc' l='278' u='c' c='_ZN10tensorflow17NumpyTensorBufferD1Ev'/>

@@ -1,0 +1,7 @@
+<use f='tensorflow/tensorflow/core/common_runtime/copy_tensor.h' l='59' u='c' c='_ZN10tensorflow10CopyTensor12RegistrationC1ENS_10DeviceTypeES2_PFvPNS_13DeviceContextES4_PNS_6DeviceES6_NS_19AllocatorAttributesES7_PKNS_6TensorEPS8_S6414479'/>
+<dec f='tensorflow/tensorflow/core/common_runtime/copy_tensor.h' l='67' type='static tensorflow::Status tensorflow::CopyTensor::Register(tensorflow::DeviceType sender_device_type, tensorflow::DeviceType receiver_device_type, CopyFunction copy_function)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/copy_tensor.h' l='64'>// Register a function for copying between two specific DeviceTypes.
+  // Note: This should only be called via the constructor of
+  // CopyTensor::Registration.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/copy_tensor.cc' l='333' ll='340' type='static tensorflow::Status tensorflow::CopyTensor::Register(tensorflow::DeviceType sender_device_type, tensorflow::DeviceType receiver_device_type, CopyFunction copy_function)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/copy_tensor.cc' l='332'>// static</doc>

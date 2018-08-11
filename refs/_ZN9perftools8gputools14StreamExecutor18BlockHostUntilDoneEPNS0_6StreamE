@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='489' type='port::Status perftools::gputools::StreamExecutor::BlockHostUntilDone(perftools::gputools::Stream * stream)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='486'>// Causes the host code to synchronously wait for operations entrained onto
+  // stream to complete. Effectively a join on the asynchronous device
+  // operations enqueued on the stream before this program point.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5190' u='c' c='_ZN9perftools8gputools6Stream18BlockHostUntilDoneEv'/>
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='445' ll='451' type='port::Status perftools::gputools::StreamExecutor::BlockHostUntilDone(perftools::gputools::Stream * stream)'/>

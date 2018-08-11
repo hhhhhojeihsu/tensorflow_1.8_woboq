@@ -1,0 +1,31 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='775' type='xla::HloComputation * xla::HloInstruction::true_computation() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='771'>// Gets/sets the true and false HloComputation for Conditional. The setters
+  // should only be called by HloModule or HloComputation methods.
+  //
+  // Precondition: The instruction is a Conditional instruction.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1482' u='c' c='_ZN3xla14BufferAssigner24BuildColocatedBufferSetsEPKNS_9HloModuleERKNS_14BufferLivenessERKSt8functionIFxRKNS_13LogicalBufferEEEPSt6vectorIN10tensorflo5486195'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1504' u='c' c='_ZN3xla14BufferAssigner24BuildColocatedBufferSetsEPKNS_9HloModuleERKNS_14BufferLivenessERKSt8functionIFxRKNS_13LogicalBufferEEEPSt6vectorIN10tensorflo5486195'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/conditional_simplifier.cc' l='66' u='c' c='_ZN3xlaL20TryRemoveConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='335' u='c' c='_ZN3xla12_GLOBAL__N_123AddCopiesForConditionalERKNS_16HloAliasAnalysisEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='335' u='c' c='_ZN3xla12_GLOBAL__N_123AddCopiesForConditionalERKNS_16HloAliasAnalysisEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2486' u='c' c='_ZN3xla3cpu9IrEmitter17HandleConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/flatten_call_graph.cc' l='52' u='c' c='_ZN3xla12_GLOBAL__N_124ReplaceCalledComputationEPNS_14HloInstructionEPNS_14HloComputationES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='608' u='c' c='_ZN3xla15HloCostAnalysis17HandleConditionalEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='368' u='c' c='_ZN3xla19HloDataflowAnalysis25UpdateConditionalValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='368' u='c' c='_ZN3xla19HloDataflowAnalysis25UpdateConditionalValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='473' u='c' c='_ZN3xla19HloDataflowAnalysis23UpdateParameterValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='636' u='c' c='_ZN3xla19HloDataflowAnalysis9PropagateEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2975' u='c' c='_ZN3xla12HloEvaluator17HandleConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1437' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1870' u='c' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1870' u='c' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2085' ll='2088' type='xla::HloComputation * xla::HloInstruction::true_computation() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2264' u='c' c='_ZNK3xla14HloInstruction23ExtraAttributesToStringERKNS_15HloPrintOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='156' u='c' c='_ZN3xla9HloModule19ReplaceComputationsERKSt13unordered_mapIPNS_14HloComputationES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='76' u='c' c='_ZNK3xla11HloOrdering14ExecutesBeforeEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='149' u='c' c='_ZNK3xla11HloOrdering15IsDefinedBeforeERKNS_8HloValueES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='225' u='c' c='_ZNK3xla11HloOrdering26UseIsBeforeValueDefinitionERKNS_6HloUseERKNS_8HloValueERKNS_19HloDataflowAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='309' u='c' c='_ZN3xla13ShapeVerifier17HandleConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='614' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='729' u='c' c='_ZN3xla12_GLOBAL__N_122CheckConditionalLayoutEPNS_14HloInstructionERKNS_17ComputationLayoutES5_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='867' u='c' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>

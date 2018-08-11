@@ -1,0 +1,18 @@
+<def f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='157' type='const Status &amp; perftools::gputools::port::StatusOr::status() const'/>
+<use f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='141' u='c' c='_ZN9perftools8gputools8internal22TemporaryMemoryManager13AllocateArrayEy'/>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='74' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp21BuildCompilationCacheEPNS_15OpKernelContextEPPNS_19XlaCompilationCacheE'/>
+<doc f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='155'>// Returns a reference to our status. If this contains a T, then
+  // returns Status::OK.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='124' u='c' c='_ZN10tensorflow9XlaDevice6CreateERKSsS2_iS2_RKNS_14SessionOptionsES2_RKNS_13XlaOpRegistry18DeviceRegistrationEbPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='239' u='c' c='_ZN3xla12PlatformUtil18GetStreamExecutorsEPN9perftools8gputools8PlatformE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_init.cc' l='36' u='c' c='_ZN10tensorflow25ValidateGPUMachineManagerEv'/>
+<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='57' u='c' c='_ZN9perftools8gputools13ExecutorCache11GetOrCreateERKNS0_20StreamExecutorConfigERKSt8functionIFNS0_4port8StatusOrISt10unique_ptrINS0_14StreamExecutorE10549996'/>
+<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='60' u='c' c='_ZN9perftools8gputools13ExecutorCache11GetOrCreateERKNS0_20StreamExecutorConfigERKSt8functionIFNS0_4port8StatusOrISt10unique_ptrINS0_14StreamExecutorE10549996'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='219' u='c' c='_ZN9perftools8gputools4host12HostExecutor10CreateBlasEv'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='240' u='c' c='_ZN9perftools8gputools4host12HostExecutor9CreateFftEv'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='261' u='c' c='_ZN9perftools8gputools4host12HostExecutor9CreateRngEv'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='76' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='88' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='101' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='117' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/scratch_allocator.cc' l='36' macro='1' u='c'/>

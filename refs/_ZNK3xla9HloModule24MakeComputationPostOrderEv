@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_module.h' l='143' type='std::list&lt;HloComputation *&gt; xla::HloModule::MakeComputationPostOrder() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_module.h' l='140'>// Compute and return a post order of all computations in the module. The sort
+  // is defined like so: if computation A has an instruction which calls
+  // computation B, then A will appear after B in the sort.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='156' u='c' c='_ZN3xla12_GLOBAL__N_134GatherComputationsByAllocationTypeEPKNS_9HloModuleEPSt6vectorIPKNS_14HloComputationESaIS7_EESA_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1417' u='c' c='_ZN3xla14BufferAssigner24BuildColocatedBufferSetsEPKNS_9HloModuleERKNS_14BufferLivenessERKSt8functionIFxRKNS_13LogicalBufferEEEPSt6vectorIN10tensorflo5486195'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dce.cc' l='43' u='c' c='_ZN3xla6HloDCE3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dce.cc' l='79' u='c' c='_ZN3xla6HloDCE3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dce.cc' l='88' u='c' c='_ZN3xla6HloDCE3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_execution_profile.cc' l='31' u='c' c='_ZN3xla18HloProfileIndexMapC1ERKNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='201' u='c' c='_ZNK3xla9HloModule8ToStringERKNS_15HloPrintOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='216' u='c' c='_ZNK3xla9HloModule7ToProtoEv'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='431' ll='467' type='std::list&lt;HloComputation *&gt; xla::HloModule::MakeComputationPostOrder() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1552' u='c' c='_ZN3xla16LayoutAssignment3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1553' u='c' c='_ZN3xla16LayoutAssignment3RunEPNS_9HloModuleE'/>

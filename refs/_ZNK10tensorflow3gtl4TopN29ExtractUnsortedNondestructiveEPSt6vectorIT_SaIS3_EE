@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/lib/gtl/top_n.h' l='172' type='void tensorflow::gtl::TopN::ExtractUnsortedNondestructive(std::vector&lt;T&gt; * output) const'/>
+<def f='tensorflow/tensorflow/core/lib/gtl/top_n.h' l='320' ll='328' type='void tensorflow::gtl::TopN::ExtractUnsortedNondestructive(std::vector&lt;T&gt; * output) const'/>
+<doc f='tensorflow/tensorflow/core/lib/gtl/top_n.h' l='163'>// A non-destructive version of ExtractUnsorted(). Copy the elements into
+  // a given vector, with no guarantees the elements are in sorted order.
+  // After calling ExtractUnsortedNondestructive(), the caller can continue
+  // to push() new elements.
+  // Note:
+  //  1. The given argument must to be allocated.
+  //  2. Any data contained in the vector prior to the call will be deleted
+  //     from it. After the call the vector will contain only the elements
+  //     from the data structure.</doc>

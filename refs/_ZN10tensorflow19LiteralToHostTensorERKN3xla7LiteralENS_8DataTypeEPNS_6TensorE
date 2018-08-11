@@ -1,0 +1,21 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/literal_util.h' l='39' type='tensorflow::Status tensorflow::LiteralToHostTensor(const xla::Literal &amp; literal, tensorflow::DataType target_type, tensorflow::Tensor * host_tensor)'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='81' u='c' c='_ZNK10tensorflow18XlaTransferManager25TransferLiteralFromDeviceEPNS_6TensorERKS1_'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/literal_util.h' l='32'>// Copies &apos;literal&apos; to freshly allocated &apos;host_tensor&apos;, which is allocated of
+// type &lt;target_type&gt;.
+// Fails if the literal&apos;s primitive type !=
+// DataTypeToPrimitiveType(target_type). Note that &lt;target_type&gt; is not
+// derivable from the type of &lt;literal&gt;, because multiple tensorflow types map
+// to the same XLA type (e.g. INT32 and QINT32 both map to INT32 in
+// XLA).</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/graph_compiler.cc' l='78' u='c' c='_ZN10tensorflow12_GLOBAL__N_116PrepareArgumentsEPNS_18XlaOpKernelContextEPNS_5GraphERKSt6vectorIPKNS_13XlaExpressionESaIS8_EEPS5_INS_11XlaCompiler8ArgumentESaISE_EE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='59' u='c' c='_ZN10tensorflow12_GLOBAL__N_114StridedSliceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='61' u='c' c='_ZN10tensorflow12_GLOBAL__N_114StridedSliceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='62' u='c' c='_ZN10tensorflow12_GLOBAL__N_114StridedSliceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='143' u='c' c='_ZN10tensorflow12_GLOBAL__N_118StridedSliceGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='145' u='c' c='_ZN10tensorflow12_GLOBAL__N_118StridedSliceGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='146' u='c' c='_ZN10tensorflow12_GLOBAL__N_118StridedSliceGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='251' u='c' c='_ZN10tensorflow12_GLOBAL__N_120StridedSliceAssignOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='253' u='c' c='_ZN10tensorflow12_GLOBAL__N_120StridedSliceAssignOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='254' u='c' c='_ZN10tensorflow12_GLOBAL__N_120StridedSliceAssignOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/literal_util.cc' l='66' ll='72' type='tensorflow::Status tensorflow::LiteralToHostTensor(const xla::Literal &amp; literal, tensorflow::DataType target_type, tensorflow::Tensor * host_tensor)'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_context.cc' l='99' u='c' c='_ZN10tensorflow10XlaContext14AddConstRetvalEiNS_8DataTypeERKN3xla7LiteralE'/>

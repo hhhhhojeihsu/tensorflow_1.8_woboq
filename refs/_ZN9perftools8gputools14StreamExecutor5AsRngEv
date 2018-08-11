@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='484' type='rng::RngSupport * perftools::gputools::StreamExecutor::AsRng()'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='477'>// Gets-or-creates (creates with memoization) an RngSupport datatype that can
+  // be used for random-number-generation routines on the current platform.
+  //
+  // Ownership and user-facing is the same as AsBlas() above.
+  //
+  // Returns null if there was an error initializing the RNG support for the
+  // underlying platform.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4608' u='c' c='_ZN9perftools8gputools6Stream14ThenSetRngSeedEPKhy'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4626' u='c' c='_ZN9perftools8gputools6Stream23ThenPopulateRandUniformEPNS0_12DeviceMemoryIfEE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4642' u='c' c='_ZN9perftools8gputools6Stream24ThenPopulateRandGaussianEffPNS0_12DeviceMemoryIfEE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4658' u='c' c='_ZN9perftools8gputools6Stream24ThenPopulateRandGaussianEddPNS0_12DeviceMemoryIdEE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4673' u='c' c='_ZN9perftools8gputools6Stream23ThenPopulateRandUniformEPNS0_12DeviceMemoryIdEE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4689' u='c' c='_ZN9perftools8gputools6Stream23ThenPopulateRandUniformEPNS0_12DeviceMemoryISt7complexIfEEE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4705' u='c' c='_ZN9perftools8gputools6Stream23ThenPopulateRandUniformEPNS0_12DeviceMemoryISt7complexIdEEE'/>
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='425' ll='433' type='rng::RngSupport * perftools::gputools::StreamExecutor::AsRng()'/>

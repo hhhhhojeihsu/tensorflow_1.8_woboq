@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='316' type='const perftools::gputools::DeviceDescription &amp; perftools::gputools::StreamExecutor::GetDeviceDescription() const'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='314'>// Obtains metadata about the underlying device.
+  // The value is cached on first use.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='120' u='c' c='_ZN3xla15LocalExecutable24ValidateExecutionOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEERKNS_20ExecutableRunOptionsERKNS_7BackendE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='122' u='c' c='_ZN3xla15LocalExecutable24ValidateExecutionOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEERKNS_20ExecutableRunOptionsERKNS_7BackendE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='208' u='c' c='_ZN3xla7Backend18devices_equivalentEii'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='209' u='c' c='_ZN3xla7Backend18devices_equivalentEii'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='122' u='c' c='_ZN3xla10Executable22ExecuteOnStreamWrapperEPKNS_27ServiceExecutableRunOptionsEPNS_16ExecutionProfileEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='186' u='c' c='_ZN3xlaL17IsDeviceSupportedEPN9perftools8gputools14StreamExecutorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='166' u='c' c='_ZN3xla7ServiceC1ERKNS_14ServiceOptionsESt10unique_ptrINS_7BackendESt14default_deleteIS5_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='632' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='265' ll='273' type='const perftools::gputools::DeviceDescription &amp; perftools::gputools::StreamExecutor::GetDeviceDescription() const'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='303' u='c' c='_ZN9perftools8gputools14StreamExecutor21GetConvolveAlgorithmsEbPSt6vectorINS0_3dnn13AlgorithmDescESaIS4_EE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='325' u='c' c='_ZN9perftools8gputools14StreamExecutor33GetConvolveBackwardDataAlgorithmsEbPSt6vectorINS0_3dnn13AlgorithmDescESaIS4_EE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='338' u='c' c='_ZN9perftools8gputools14StreamExecutor35GetConvolveBackwardFilterAlgorithmsEbPSt6vectorINS0_3dnn13AlgorithmDescESaIS4_EE'/>

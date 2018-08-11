@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/core/framework/op_kernel.h' l='979' type='tensorflow::CallFrameInterface * tensorflow::OpKernelContext::call_frame() const'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='975'>// Function call support.
+  //
+  // If this kernel invocation is within a function execution,
+  // call_frame() returns the call frame for the function call.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='188' u='c' c='_ZNK10tensorflow18XlaOpKernelContext10call_frameEv'/>
+<use f='tensorflow/tensorflow/core/kernels/function_ops.cc' l='48' u='c' c='_ZN10tensorflow5ArgOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/function_ops.cc' l='81' u='c' c='_ZN10tensorflow8RetvalOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/sendrecv_ops.cc' l='44' u='c' c='_ZN10tensorflowL15GetFrameAndIterEPNS_15OpKernelContextEb'/>
+<use f='tensorflow/tensorflow/core/kernels/sendrecv_ops.cc' l='49' u='c' c='_ZN10tensorflowL15GetFrameAndIterEPNS_15OpKernelContextEb'/>

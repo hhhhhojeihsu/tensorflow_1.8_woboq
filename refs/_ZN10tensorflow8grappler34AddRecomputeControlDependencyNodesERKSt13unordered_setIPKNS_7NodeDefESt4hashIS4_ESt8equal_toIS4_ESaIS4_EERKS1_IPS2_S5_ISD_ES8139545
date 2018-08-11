@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='272' ll='351' type='std::unordered_map&lt;const NodeDef *, const NodeDef *&gt; tensorflow::grappler::AddRecomputeControlDependencyNodes(const std::unordered_set&lt;const NodeDef *&gt; &amp; recomputed_source_nodes, const std::unordered_set&lt;NodeDef *&gt; &amp; target_nodes, const tensorflow::grappler::NodeMap &amp; node_map, const std::unordered_map&lt;const NodeDef *, int&gt; &amp; components, const std::unordered_map&lt;const NodeDef *, int&gt; &amp; recomputed_node_max_feed_components, tensorflow::GraphDef * graph)'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='383' u='c' c='_ZN10tensorflow8grappler17RecomputeSubgraphERKSt13unordered_setIPKNS_7NodeDefESt4hashIS4_ESt8equal_toIS4_ESaIS4_EERKS1_IPS2_S5_ISD_ES7_ISD_ESaISD_EERK6407162'/>
+<doc f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='266'>// Modifies `graph`, adding trigger nodes and returning a mapping from
+// `recomputed_source_nodes` to trigger nodes which will not create loops in the
+// graph (using the component numberings in `components` and
+// `recomputed_node_max_feed_components`). The copied nodes (not the nodes in
+// recomputed_source_nodes, which are the originals) eventually get these
+// control dependencies.</doc>

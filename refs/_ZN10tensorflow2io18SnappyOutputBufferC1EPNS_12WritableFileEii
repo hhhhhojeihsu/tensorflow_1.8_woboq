@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/lib/io/snappy/snappy_outputbuffer.h' l='53' type='void tensorflow::io::SnappyOutputBuffer::SnappyOutputBuffer(tensorflow::WritableFile * file, int32 input_buffer_bytes, int32 output_buffer_bytes)'/>
+<def f='tensorflow/tensorflow/core/lib/io/snappy/snappy_outputbuffer.cc' l='21' ll='31' type='void tensorflow::io::SnappyOutputBuffer::SnappyOutputBuffer(tensorflow::WritableFile * file, int32 input_buffer_bytes, int32 output_buffer_bytes)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/snappy/snappy_outputbuffer.h' l='48'>// Create an SnappyOutputBuffer for `file` with two buffers that cache the
+  // 1. input data to be deflated
+  // 2. the deflated output
+  // with sizes `input_buffer_bytes` and `output_buffer_bytes` respectively.
+  // Does not take ownership of `file`.</doc>

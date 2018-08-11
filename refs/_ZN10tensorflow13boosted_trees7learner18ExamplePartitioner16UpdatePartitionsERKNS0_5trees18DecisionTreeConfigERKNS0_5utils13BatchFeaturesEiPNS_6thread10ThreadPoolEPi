@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/contrib/boosted_trees/lib/learner/common/partitioners/example_partitioner.h' l='33' type='static void tensorflow::boosted_trees::learner::ExamplePartitioner::UpdatePartitions(const trees::DecisionTreeConfig &amp; tree_config, const utils::BatchFeatures &amp; features, int desired_parallelism, thread::ThreadPool *const thread_pool, int32 * example_partition_ids)'/>
+<doc f='tensorflow/tensorflow/contrib/boosted_trees/lib/learner/common/partitioners/example_partitioner.h' l='30'>// Updates partitions from previous set using the current tree structure by
+  // traversing sub-roots for each example. This method can be optionally
+  // parallelized using the passed thread pool.</doc>
+<def f='tensorflow/tensorflow/contrib/boosted_trees/lib/learner/common/partitioners/example_partitioner.cc' l='22' ll='53' type='static void tensorflow::boosted_trees::learner::ExamplePartitioner::UpdatePartitions(const boosted_trees::trees::DecisionTreeConfig &amp; tree_config, const boosted_trees::utils::BatchFeatures &amp; features, const int desired_parallelism, thread::ThreadPool *const thread_pool, int32 * example_partition_ids)'/>

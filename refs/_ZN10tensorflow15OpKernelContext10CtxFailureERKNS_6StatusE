@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1063' type='void tensorflow::OpKernelContext::CtxFailure(const tensorflow::Status &amp; s)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1062'>// Helper routines for the OP_REQUIRES macros</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='446' u='c' c='_ZN10tensorflow18XlaOpKernelContext10CtxFailureERKNS_6StatusE'/>
+<use f='tensorflow/tensorflow/contrib/coder/kernels/range_coder_ops.cc' l='173' u='c' c='_ZN10tensorflow12_GLOBAL__N_113RangeEncodeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/coder/kernels/range_coder_ops.cc' l='265' u='c' c='_ZN10tensorflow12_GLOBAL__N_113RangeDecodeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.h' l='288' u='c' c='_ZN10tensorflow12tensorforest17CheckTensorBoundsEPNS_15OpKernelContextERKNS_6TensorE'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='1300' ll='1303' type='void tensorflow::OpKernelContext::CtxFailure(const tensorflow::Status &amp; s)'/>
+<use f='tensorflow/tensorflow/core/kernels/cwise_ops_common.cc' l='42' u='c' c='_ZN10tensorflow14BinaryOpShared15SetComputeErrorEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/cwise_ops_common.cc' l='46' u='c' c='_ZN10tensorflow14BinaryOpShared15SetComputeErrorEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/cwise_ops_common.cc' l='49' u='c' c='_ZN10tensorflow14BinaryOpShared15SetComputeErrorEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/reshape_op.h' l='58' u='c' c='_ZN10tensorflow9ReshapeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/reverse_op.cc' l='116' u='c' c='_ZN10tensorflow12_GLOBAL__N_119DoHandleReverseCaseEPNS_15OpKernelContextERKNS_6TensorEPS3_'/>
+<use f='tensorflow/tensorflow/core/kernels/stack_ops.cc' l='261' u='c' c='_ZN10tensorflow11StackPushOp12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/python/lib/core/py_func.cc' l='485' u='c' c='_ZN10tensorflow8PyFuncOp7ComputeEPNS_15OpKernelContextE'/>

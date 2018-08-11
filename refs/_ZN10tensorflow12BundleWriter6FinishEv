@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='144' type='tensorflow::Status tensorflow::BundleWriter::Finish()'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='143'>// Finishes the writer and flushes.</doc>
+<use f='tensorflow/tensorflow/core/kernels/data/cache_dataset_ops.cc' l='196' u='c' c='_ZN10tensorflow12_GLOBAL__N_114CacheDatasetOp11FileDataset18FileWriterIterator6FinishEv'/>
+<use f='tensorflow/tensorflow/core/kernels/save_restore_v2_ops.cc' l='137' u='c' c='_ZN10tensorflow6SaveV27ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='474' ll='524' type='tensorflow::Status tensorflow::BundleWriter::Finish()'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='472'>// TODO(zongheng): on metadata write failure or !status_.ok(), consider removing
+// the orphaned data file.</doc>

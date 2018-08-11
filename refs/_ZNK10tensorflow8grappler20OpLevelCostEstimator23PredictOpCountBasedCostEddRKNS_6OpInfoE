@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.h' l='61' type='tensorflow::grappler::Costs tensorflow::grappler::OpLevelCostEstimator::PredictOpCountBasedCost(double operations, double total_io_bytes, const tensorflow::OpInfo &amp; op_info) const'/>
+<doc f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.h' l='58'>// Naive cost estimate based on the given operations count and the given total
+  // io size in bytes. Sizes of op_info inputs and outputs are not taken into
+  // consideration.</doc>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='438' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator23PredictOpCountBasedCostEdRKNS_6OpInfoE'/>
+<def f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='444' ll='467' type='tensorflow::grappler::Costs tensorflow::grappler::OpLevelCostEstimator::PredictOpCountBasedCost(double operations, double total_io_bytes, const tensorflow::OpInfo &amp; op_info) const'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1169' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator20PredictGatherOrSliceERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1309' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator14PredictMaxPoolERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1351' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator18PredictMaxPoolGradERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1383' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator14PredictAvgPoolERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1435' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator18PredictAvgPoolGradERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1480' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator21PredictFusedBatchNormERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1513' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator25PredictFusedBatchNormGradERKNS0_9OpContextE'/>

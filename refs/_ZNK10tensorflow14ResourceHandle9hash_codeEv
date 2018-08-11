@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/core/framework/resource_handle.h' l='51' type='uint64 tensorflow::ResourceHandle::hash_code() const'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='450' u='c' c='_ZN10tensorflow8internal21ValidateDeviceAndTypeEPNS_15OpKernelContextERKNS_14ResourceHandleE'/>
+<doc f='tensorflow/tensorflow/core/framework/resource_handle.h' l='49'>// Hash code for the type of the resource. Is only valid in the same device
+  // and in the same execution.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='911' u='c' c='_ZN10tensorflow13DirectSession27ResourceHandleToInputTensorERKNS_6TensorEPS1_'/>
+<use f='tensorflow/tensorflow/core/framework/resource_handle.cc' l='34' u='c' c='_ZNK10tensorflow14ResourceHandle7AsProtoEPNS_19ResourceHandleProtoE'/>
+<use f='tensorflow/tensorflow/core/framework/resource_handle.cc' l='61' u='c' c='_ZNK10tensorflow14ResourceHandle11DebugStringEv'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.cc' l='206' u='c' c='_ZN10tensorflow11ResourceMgr6DeleteERKNS_14ResourceHandleE'/>

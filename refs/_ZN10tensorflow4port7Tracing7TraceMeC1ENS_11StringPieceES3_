@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/platform/tracing.h' l='237' type='void tensorflow::port::Tracing::TraceMe::TraceMe(tensorflow::StringPiece name_part1, tensorflow::StringPiece name_part2)'/>
+<def f='tensorflow/tensorflow/core/platform/tracing.h' l='269' ll='270' type='void tensorflow::port::Tracing::TraceMe::TraceMe(tensorflow::StringPiece name_part1, tensorflow::StringPiece name_part2)'/>
+<doc f='tensorflow/tensorflow/core/platform/tracing.h' l='233'>// If tracing is enabled, set up a traceMe with a label of
+  // &quot;&lt;name_part1&gt;:&lt;name_part2&gt;&quot;.  This can be cheaper than the
+  // single-argument constructor because the concatenation of the
+  // label string is only done if tracing is enabled.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='296' u='c' c='_ZN10tensorflow17GrpcMasterService8TraceRpcENS_11StringPieceERKSt8multimapIN4grpc10string_refES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_remote_master.cc' l='126' u='c' c='_ZN10tensorflow16GrpcRemoteMaster8TraceRpcENS_11StringPieceEPN4grpc13ClientContextE'/>

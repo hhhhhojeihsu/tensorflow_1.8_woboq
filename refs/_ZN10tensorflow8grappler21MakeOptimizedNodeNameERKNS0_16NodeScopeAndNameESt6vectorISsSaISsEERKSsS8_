@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.h' l='91' type='const string tensorflow::grappler::MakeOptimizedNodeName(const tensorflow::grappler::NodeScopeAndName &amp; root, const std::vector&lt;string&gt; node_names, const string &amp; sub_scope, const string &amp; prefix)'/>
+<doc f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.h' l='86'>// Make a name for a new node obtained by optimizing multiple nodes of the
+// original graph, starting from &quot;root&quot;. The optimized node is placed under
+// the original scope of a &quot;root&quot; node.
+//
+// Example: [a/b/c/Add, x/y/z/Mul] -&gt; a/b/c/${sub_scope}/${prefix}_Add_Mul</doc>
+<def f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.cc' l='111' ll='121' type='const string tensorflow::grappler::MakeOptimizedNodeName(const tensorflow::grappler::NodeScopeAndName &amp; root, const std::vector&lt;string&gt; node_names, const string &amp; sub_scope, const string &amp; prefix)'/>

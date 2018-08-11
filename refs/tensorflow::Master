@@ -1,0 +1,27 @@
+<def f='tensorflow/tensorflow/core/distributed_runtime/master.h' l='35' ll='109'/>
+<size>168</size>
+<fun r='_ZN10tensorflow6MasterC1EPNS_9MasterEnvEd'/>
+<fun r='_ZN10tensorflow6MasterD1Ev'/>
+<fun r='_ZN10tensorflow6Master13CreateSessionEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Master13ExtendSessionEPKNS_20ExtendSessionRequestEPNS_21ExtendSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Master15PartialRunSetupEPKNS_22PartialRunSetupRequestEPNS_23PartialRunSetupResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Master7RunStepEPNS_11CallOptionsEPKNS_21RunStepRequestWrapperEPNS_29MutableRunStepResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Master12CloseSessionEPKNS_19CloseSessionRequestEPNS_20CloseSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Master11ListDevicesEPKNS_18ListDevicesRequestEPNS_19ListDevicesResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Master5ResetEPKNS_12ResetRequestEPNS_13ResetResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Master12MakeCallableEPKNS_19MakeCallableRequestEPNS_20MakeCallableResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Master11RunCallableEPNS_11CallOptionsEPKNS_18RunCallableRequestEPNS_19RunCallableResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Master15ReleaseCallableEPKNS_22ReleaseCallableRequestEPNS_23ReleaseCallableResponseESt8functionIFvRKNS_6StatusEEE'/>
+<mbr r='tensorflow::Master::env_' o='64' t='tensorflow::MasterEnv *'/>
+<mbr r='tensorflow::Master::mu_' o='128' t='tensorflow::mutex'/>
+<mbr r='tensorflow::Master::shutdown_cv_' o='256' t='tensorflow::condition_variable'/>
+<mbr r='tensorflow::Master::shutdown_' o='384' t='bool'/>
+<mbr r='tensorflow::Master::gc_thread_' o='448' t='tensorflow::Thread *'/>
+<mbr r='tensorflow::Master::sessions_' o='512' t='std::unordered_map&lt;string, MasterSession *&gt;'/>
+<mbr r='tensorflow::Master::last_1000_steps_' o='960' t='tensorflow::MovingAverage'/>
+<mbr r='tensorflow::Master::step_count_' o='1216' t='int64'/>
+<mbr r='tensorflow::Master::session_gc_seconds_' o='1280' t='const double'/>
+<fun r='_ZN10tensorflow6Master14CleanupWorkersERKNS_12ResetRequestE'/>
+<fun r='_ZN10tensorflow6Master2GCEv'/>
+<fun r='_ZN10tensorflow6Master17FindMasterSessionERKSs'/>
+<fun r='_ZN10tensorflow6MasterC1ERKS0_'/>

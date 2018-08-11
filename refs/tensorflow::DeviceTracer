@@ -1,0 +1,33 @@
+<def f='tensorflow/tensorflow/core/platform/device_tracer.h' l='54' ll='71'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/platform/device_tracer.h' l='27'>// &apos;DeviceTracer&apos; is an interface for collecting low-level execution timings
+// of hardware accelerator (e.g. GPU) computation and DMA transfers.
+//
+// Typical usage pattern is as follows:
+//
+// DeviceTracer* tracer = CreateDeviceTracer();
+// if (tracer) {
+//   tracer-&gt;Start();
+//
+//   ... perform some computations on a hardware accelerator.
+//
+//   tracer-&gt;Stop();
+//
+//   StepStats stats;
+//   StepStatsCollector collector(&amp;stats);
+//   tracer-&gt;Collect(&amp;collector);
+// }
+//
+// Notes:
+// Tracing is not supported on all plaforms.  On platforms
+// with no tracing support, &apos;CreateDeviceTracer&apos; will return &apos;nullptr&apos;.
+// On most plaforms, hardware tracing will be a system-wide activity and
+// a single &apos;DeviceTracer&apos; will collect activity from all devices.
+// It is also common that only a single tracer may be active at any
+// given time.  The &apos;Start&apos; method will return an error if tracing is
+// already in progress elsewhere.
+//</doc>
+<fun r='_ZN10tensorflow12DeviceTracerD1Ev'/>
+<fun r='_ZN10tensorflow12DeviceTracer5StartEv'/>
+<fun r='_ZN10tensorflow12DeviceTracer4StopEv'/>
+<fun r='_ZN10tensorflow12DeviceTracer7CollectEPNS_18StepStatsCollectorE'/>

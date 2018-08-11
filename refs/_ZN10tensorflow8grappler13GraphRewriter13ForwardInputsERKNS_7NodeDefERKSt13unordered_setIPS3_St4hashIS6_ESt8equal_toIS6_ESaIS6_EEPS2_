@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/grappler/optimizers/graph_rewriter.h' l='38' type='void tensorflow::grappler::GraphRewriter::ForwardInputs(const tensorflow::NodeDef &amp; original_node, const std::unordered_set&lt;const NodeDef *&gt; &amp; nodes_to_delete, tensorflow::NodeDef * new_node)'/>
+<def f='tensorflow/tensorflow/core/grappler/optimizers/graph_rewriter.cc' l='61' ll='78' type='void tensorflow::grappler::GraphRewriter::ForwardInputs(const tensorflow::NodeDef &amp; original_node, const std::unordered_set&lt;const NodeDef *&gt; &amp; nodes_to_delete, tensorflow::NodeDef * new_node)'/>
+<doc f='tensorflow/tensorflow/core/grappler/optimizers/graph_rewriter.h' l='31'>// Forward the inputs of original_node as needed to skip over the nodes that
+  // are to be deleted. In other words, if I is an input of &apos;original_node&apos;, and
+  // I doesn&apos;t belong to one of the nodes in &apos;nodes_to_delete&apos;, I will be an
+  // input to &apos;new_node&apos;. On the other hand, if I belong to a node that will be
+  // deleted, I will be replaced with the inputs J of the deleted node (unless J
+  // belong to nodes that will be deleted, in which case we&apos;ll look for
+  // preserved inputs further down the graph).</doc>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/model_pruner.cc' l='131' u='c' c='_ZN10tensorflow8grappler11ModelPruner8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>

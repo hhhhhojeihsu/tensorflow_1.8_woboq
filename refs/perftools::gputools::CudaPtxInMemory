@@ -1,0 +1,18 @@
+<inh f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='72' c='perftools::gputools::KernelLoaderSpec'/>
+<def f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='143' ll='217'/>
+<size>128</size>
+<doc f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='142'>// Kernel loader specification for PTX text that resides in memory.</doc>
+<fun r='_ZN9perftools8gputools15CudaPtxInMemoryC1EN10tensorflow11StringPieceES3_b'/>
+<fun r='_ZN9perftools8gputools15CudaPtxInMemoryC1ERKSt16initializer_listISt5tupleIJiiN10tensorflow11StringPieceEEEES5_b'/>
+<fun r='_ZN9perftools8gputools15CudaPtxInMemoryD1Ev'/>
+<fun r='_ZN9perftools8gputools15CudaPtxInMemory7AddSpecESt5tupleIJiiN10tensorflow11StringPieceEEE'/>
+<fun r='_ZNK9perftools8gputools15CudaPtxInMemory12default_textEv'/>
+<fun r='_ZNK9perftools8gputools15CudaPtxInMemory21original_default_textEv'/>
+<fun r='_ZNK9perftools8gputools15CudaPtxInMemory4textEii'/>
+<fun r='_ZNK9perftools8gputools15CudaPtxInMemory13original_textEii'/>
+<fun r='_ZN9perftools8gputools15CudaPtxInMemory13DecompressPtxEPKc'/>
+<mbr r='perftools::gputools::CudaPtxInMemory::ptx_by_compute_capability_' o='128' t='std::map&lt;std::tuple&lt;int, int&gt;, const char *, bool (*)(const std::tuple&lt;int, int&gt; &amp;, const std::tuple&lt;int, int&gt; &amp;)&gt;'/>
+<mbr r='perftools::gputools::CudaPtxInMemory::decompressed_ptx_' o='512' t='std::map&lt;const char *, string&gt;'/>
+<mbr r='perftools::gputools::CudaPtxInMemory::mu_' o='896' t='tensorflow::mutex'/>
+<smbr r='perftools::gputools::CudaPtxInMemory::kMinimumCapability' t='const std::tuple&lt;int, int&gt;'/>
+<fun r='_ZN9perftools8gputools15CudaPtxInMemoryC1ERKS1_'/>

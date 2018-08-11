@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='142' type='StatusOr&lt;llvm::Value *&gt; xla::llvm_ir::EncodeSelfDescribingShapeConstant(const xla::Shape &amp; shape, int32 * shape_size, llvm::IRBuilder&lt;&gt; * ir_builder)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='140'>// Returns a value that represents a pointer to a global string constant that
+// encodes the shape as a serialized protobuf.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='391' u='c' c='_ZN3xla3cpu9IrEmitter17EmitXfeedTransferENS1_9XfeedKindERKNS_5ShapeEPN4llvm5ValueE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='238' ll='246' type='StatusOr&lt;llvm::Value *&gt; xla::llvm_ir::EncodeSelfDescribingShapeConstant(const xla::Shape &amp; shape, int32 * shape_size, llvm::IRBuilder&lt;&gt; * ir_builder)'/>

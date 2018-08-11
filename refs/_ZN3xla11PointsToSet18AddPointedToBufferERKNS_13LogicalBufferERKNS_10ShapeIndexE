@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.h' l='85' type='void xla::PointsToSet::AddPointedToBuffer(const xla::LogicalBuffer &amp; buffer, const xla::ShapeIndex &amp; index)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.h' l='83'>// Adds the given buffer to the points-to set at the given index. This is a
+  // nop if the buffer already is in the set at that index.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='105' ll='111' type='void xla::PointsToSet::AddPointedToBuffer(const xla::LogicalBuffer &amp; buffer, const xla::ShapeIndex &amp; index)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='261' u='c' c='_ZN3xla21TuplePointsToAnalysis10HandleCopyEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='347' u='c' c='_ZN3xla21TuplePointsToAnalysis11HandleTupleEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='399' u='c' c='_ZN3xla21TuplePointsToAnalysis12HandleSelectEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='410' u='c' c='_ZN3xla21TuplePointsToAnalysis12HandleSelectEPNS_14HloInstructionE'/>

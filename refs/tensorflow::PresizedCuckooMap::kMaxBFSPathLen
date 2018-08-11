@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='157' type='const uint8'/>
+<use f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='220'/>
+<use f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='309' c='_ZN10tensorflow17PresizedCuckooMap12CuckooInsertEyRKT_yy'/>
+<doc f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='149'>// Cuckoo insert:  The maximum number of entries to scan should be ~400
+  // (Source:  Personal communication with Michael Mitzenmacher;  empirical
+  // experiments validate.).  After trying 400 candidate locations, declare
+  // the table full - it&apos;s probably full of unresolvable cycles.  Less than
+  // 400 reduces max occupancy;  much more results in very poor performance
+  // around the full point.  For (2,4) a max BFS path len of 5 results in ~682
+  // nodes to visit, calculated below, and is a good value.</doc>

@@ -1,0 +1,20 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/custom_call_target_registry.h' l='39' ll='49'/>
+<size>96</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/custom_call_target_registry.h' l='29'>// The CPU JIT compiler uses this registry to resolve symbolic CustomCall
+// targets; so when using the CPU JIT, CustomCall targets need to be registered
+// here with the symbol name used in the CustomCall.
+//
+// The XLA AOT compiler links using a standard offline linker; so when compiling
+// in AOT mode, you *also* need to make sure the name of the callee (presumably
+// implemented in C++) matches up with the symbolic name used in the CustomCall.
+//
+// We maintain the registry in both the JIT and the AOT cases for simplicity,
+// but we only use it when running in JIT mode.</doc>
+<fun r='_ZN3xla3cpu24CustomCallTargetRegistry6GlobalEv'/>
+<fun r='_ZN3xla3cpu24CustomCallTargetRegistry8RegisterERKSsPv'/>
+<fun r='_ZNK3xla3cpu24CustomCallTargetRegistry6LookupERKSs'/>
+<mbr r='xla::cpu::CustomCallTargetRegistry::registered_symbols_' o='0' t='std::unordered_map&lt;std::string, void *&gt;'/>
+<mbr r='xla::cpu::CustomCallTargetRegistry::mu_' o='448' t='std::mutex'/>
+<fun r='_ZN3xla3cpu24CustomCallTargetRegistry6GlobalEv'/>
+<fun r='_ZN3xla3cpu24CustomCallTargetRegistry8RegisterERKSsPv'/>
+<fun r='_ZNK3xla3cpu24CustomCallTargetRegistry6LookupERKSs'/>

@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/executor.h' l='231' type='tensorflow::Status tensorflow::CreateNonCachedKernel(tensorflow::Device * device, tensorflow::FunctionLibraryRuntime * flib, const tensorflow::NodeDef &amp; ndef, int graph_def_version, tensorflow::OpKernel ** kernel)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/executor.h' l='226'>// A few helpers to facilitate create/delete kernels.
+
+// Creates a kernel based on &quot;ndef&quot; on device &quot;device&quot;. The kernel can
+// access the functions in the &quot;flib&quot;. The caller takes ownership of
+// returned &quot;*kernel&quot;.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='2641' ll='2648' type='tensorflow::Status tensorflow::CreateNonCachedKernel(tensorflow::Device * device, tensorflow::FunctionLibraryRuntime * flib, const tensorflow::NodeDef &amp; ndef, int graph_def_version, tensorflow::OpKernel ** kernel)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='385' u='c' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl12CreateKernelERKNS_7NodeDefEPKNS_25FunctionLibraryDefinitionEPPNS_8OpKernelE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='163' u='c' c='_ZN10tensorflow11GraphRunner3RunEPNS_5GraphEPNS_22FunctionLibraryRuntimeERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPS5_IS7_SaIS7_EE'/>

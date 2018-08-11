@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='360' type='TfLiteStatus tflite::Interpreter::PrepareOpsAndTensors()'/>
+<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='356'>// Call OpPrepare() for as many ops as possible, allocating memory for their
+  // tensors. If an op containing dynamic tensors is found, preparation will be
+  // postponed until this function is called again. This allows the interpreter
+  // to wait until Invoke() to resolve the sizes of dynamic tensors.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='359' u='c' c='_ZN6tflite11Interpreter15AllocateTensorsEv'/>
+<def f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='485' ll='501' type='TfLiteStatus tflite::Interpreter::PrepareOpsAndTensors()'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='538' u='c' c='_ZN6tflite11Interpreter6InvokeEv'/>

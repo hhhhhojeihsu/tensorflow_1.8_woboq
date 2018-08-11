@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='163' type='void perftools::gputools::CudaPtxInMemory::CudaPtxInMemory(const std::initializer_list&lt;PtxSpec&gt; &amp; spec_list, port::StringPiece kernel_name, bool ptx_compressed = false)'/>
+<doc f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='160'>// Multiple-PTX-version constructor. Adds each item in spec_list to this
+  // object. Note that the PTX can be compressed, which is indicated by the
+  // argument ptx_compressed.</doc>
+<def f='tensorflow/tensorflow/stream_executor/kernel_spec.cc' l='63' ll='79' type='void perftools::gputools::CudaPtxInMemory::CudaPtxInMemory(const std::initializer_list&lt;CudaPtxInMemory::PtxSpec&gt; &amp; spec_list, port::StringPiece kernel_name, bool ptx_compressed = false)'/>
+<use f='tensorflow/tensorflow/stream_executor/kernel_spec.cc' l='235' u='c' c='_ZN9perftools8gputools21MultiKernelLoaderSpec18AddCudaPtxInMemoryESt16initializer_listISt5tupleIJiiN10tensorflow11StringPieceEEEES5_'/>
+<use f='tensorflow/tensorflow/stream_executor/kernel_spec.cc' l='244' u='c' c='_ZN9perftools8gputools21MultiKernelLoaderSpec28AddCudaCompressedPtxInMemoryESt16initializer_listISt5tupleIJiiN10tensorflow11StringPieceEEEES5_'/>

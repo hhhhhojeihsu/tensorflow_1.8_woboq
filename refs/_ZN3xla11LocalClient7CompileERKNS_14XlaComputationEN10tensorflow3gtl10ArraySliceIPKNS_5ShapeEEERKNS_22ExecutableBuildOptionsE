@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='130' type='StatusOr&lt;std::unique_ptr&lt;LocalExecutable&gt; &gt; xla::LocalClient::Compile(const xla::XlaComputation &amp; computation, const tensorflow::gtl::ArraySlice&lt;const Shape *&gt; argument_layouts, const xla::ExecutableBuildOptions &amp; options)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='126'>// Build and return a LocalExecutable object. The executable is compiled using
+  // the given XlaComputation, argument layouts and options.
+  //
+  // TODO(b/74197823): This is a part of a NOT YET ready refactor.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='268' ll='284' type='StatusOr&lt;std::unique_ptr&lt;LocalExecutable&gt; &gt; xla::LocalClient::Compile(const xla::XlaComputation &amp; computation, const tensorflow::gtl::ArraySlice&lt;const Shape *&gt; argument_layouts, const xla::ExecutableBuildOptions &amp; options)'/>

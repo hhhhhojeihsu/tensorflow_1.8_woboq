@@ -1,0 +1,9 @@
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.h' l='58' u='w' c='_ZN10tensorflow21ImportGraphDefOptionsC1Ev'/>
+<dec f='tensorflow/tensorflow/core/graph/graph_constructor.h' l='73' type='bool'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1979' u='w' c='TF_ImportGraphDefOptionsSetUniquifyNames'/>
+<offset>64</offset>
+<doc f='tensorflow/tensorflow/core/graph/graph_constructor.h' l='69'>// If true, imported node names will be modified if their name already exists
+  // in the graph. If false, conflicting names will be treated as an error. Note
+  // that this option has no effect if `prefix` is specified, since `prefix`
+  // will guarantee all node names are unique.</doc>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='80' u='r' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor7OptionsC1ERKNS_21ImportGraphDefOptionsE'/>

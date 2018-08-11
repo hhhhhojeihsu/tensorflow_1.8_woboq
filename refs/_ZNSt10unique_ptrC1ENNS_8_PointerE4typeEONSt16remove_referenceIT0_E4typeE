@@ -1,0 +1,12 @@
+<def f='include/c++/5/bits/unique_ptr.h' l='193' ll='197' type='void std::unique_ptr::unique_ptr&lt;_Tp, _Dp&gt;(pointer __p, typename remove_reference&lt;deleter_type&gt;::type &amp;&amp; __d)'/>
+<doc f='include/c++/5/bits/unique_ptr.h' l='186'>/** Takes ownership of a pointer.
+       *
+       * @param __p  A pointer to an object of @c element_type
+       * @param __d  An rvalue reference to a deleter.
+       *
+       * The deleter will be initialized with @p std::move(__d)
+       */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/allocation.cc' l='70' u='c' c='_ZN6tflite18FileCopyAllocationC1EPKcPNS_13ErrorReporterE'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='379' u='c' c='_ZN6tflite11Interpreter21AddNodeWithParametersERKSt6vectorIiSaIiEES5_PKcmPvPK19_TfLiteRegistrationPi'/>
+<use f='tensorflow/tensorflow/core/platform/abi.cc' l='49' u='c' c='_ZN10tensorflow4port16MaybeAbiDemangleEPKc'/>
+<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='233' u='c' c='_ZN10tensorflow12_GLOBAL__N_129CopyTF_TensorStringsToPyArrayEPK9TF_TensoryP16tagPyArrayObject'/>

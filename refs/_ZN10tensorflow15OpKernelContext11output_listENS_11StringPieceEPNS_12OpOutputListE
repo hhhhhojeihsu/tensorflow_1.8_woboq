@@ -1,0 +1,47 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='777' type='tensorflow::Status tensorflow::OpKernelContext::output_list(tensorflow::StringPiece name, tensorflow::OpOutputList * list)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='773'>// Output
+
+  // Returns the named list-valued output in &quot;list&quot;, as defined in the OpDef.
+  // If the named output is not list-valued, returns a one-element list.</doc>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='108' u='c' c='_ZN10tensorflow12_GLOBAL__N_116QuantizeFeaturesERKSsRKNS_11OpInputListES5_PS4_PNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='374' u='c' c='_ZN10tensorflow23MakeQuantileSummariesOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='377' u='c' c='_ZN10tensorflow23MakeQuantileSummariesOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='688' u='c' c='_ZN10tensorflow31QuantileAccumulatorGetBucketsOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='691' u='c' c='_ZN10tensorflow31QuantileAccumulatorGetBucketsOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='786' u='c' c='_ZN10tensorflow17QuantileBucketsOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='789' u='c' c='_ZN10tensorflow17QuantileBucketsOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='619' ll='624' type='tensorflow::Status tensorflow::OpKernelContext::output_list(tensorflow::StringPiece name, tensorflow::OpOutputList * list)'/>
+<use f='tensorflow/tensorflow/core/kernels/barrier_ops.cc' l='615' u='c' c='_ZN10tensorflow7barrier10TakeManyOp12ComputeAsyncEPNS_15OpKernelContextEPNS0_7BarrierESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/boosted_trees/stats_ops.cc' l='71' u='c' c='_ZN10tensorflow42BoostedTreesCalculateBestGainsPerFeatureOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/boosted_trees/stats_ops.cc' l='74' u='c' c='_ZN10tensorflow42BoostedTreesCalculateBestGainsPerFeatureOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/boosted_trees/stats_ops.cc' l='76' u='c' c='_ZN10tensorflow42BoostedTreesCalculateBestGainsPerFeatureOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/boosted_trees/stats_ops.cc' l='80' u='c' c='_ZN10tensorflow42BoostedTreesCalculateBestGainsPerFeatureOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/boosted_trees/stats_ops.cc' l='84' u='c' c='_ZN10tensorflow42BoostedTreesCalculateBestGainsPerFeatureOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/ctc_decoder_ops.cc' l='101' u='c' c='_ZNK10tensorflow15CTCDecodeHelper29ValidateInputsGenerateOutputsEPNS_15OpKernelContextEPPKNS_6TensorES6_PPS3_PNS_12OpOutputListESA_SA_'/>
+<use f='tensorflow/tensorflow/core/kernels/ctc_decoder_ops.cc' l='103' u='c' c='_ZNK10tensorflow15CTCDecodeHelper29ValidateInputsGenerateOutputsEPNS_15OpKernelContextEPPKNS_6TensorES6_PPS3_PNS_12OpOutputListESA_SA_'/>
+<use f='tensorflow/tensorflow/core/kernels/ctc_decoder_ops.cc' l='105' u='c' c='_ZNK10tensorflow15CTCDecodeHelper29ValidateInputsGenerateOutputsEPNS_15OpKernelContextEPPKNS_6TensorES6_PPS3_PNS_12OpOutputListESA_SA_'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_csv_op.cc' l='61' u='c' c='_ZN10tensorflow11DecodeCSVOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/dynamic_partition_op.cc' l='69' u='c' c='_ZN10tensorflow25DynamicPartitionOp_Shared26ValidateAndAllocateOutputsEPNS_15OpKernelContextEPPKNS_6TensorES6_PNS_12OpOutputListE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='150' u='c' c='_ZN10tensorflow14ParseExampleOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='151' u='c' c='_ZN10tensorflow14ParseExampleOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='152' u='c' c='_ZN10tensorflow14ParseExampleOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='153' u='c' c='_ZN10tensorflow14ParseExampleOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='246' u='c' c='_ZN10tensorflow20ParseSingleExampleOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='247' u='c' c='_ZN10tensorflow20ParseSingleExampleOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='248' u='c' c='_ZN10tensorflow20ParseSingleExampleOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='249' u='c' c='_ZN10tensorflow20ParseSingleExampleOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='416' u='c' c='_ZN10tensorflow29SingleSequenceExampleParserOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='419' u='c' c='_ZN10tensorflow29SingleSequenceExampleParserOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='421' u='c' c='_ZN10tensorflow29SingleSequenceExampleParserOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='423' u='c' c='_ZN10tensorflow29SingleSequenceExampleParserOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='424' u='c' c='_ZN10tensorflow29SingleSequenceExampleParserOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='426' u='c' c='_ZN10tensorflow29SingleSequenceExampleParserOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='428' u='c' c='_ZN10tensorflow29SingleSequenceExampleParserOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='430' u='c' c='_ZN10tensorflow29SingleSequenceExampleParserOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='432' u='c' c='_ZN10tensorflow29SingleSequenceExampleParserOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/identity_n_op.h' l='31' u='c' c='_ZN10tensorflow11IdentityNOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_ops.cc' l='204' u='c' c='_ZN10tensorflow9DequeueOp12ComputeAsyncEPNS_15OpKernelContextEPNS_14QueueInterfaceESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_ops.cc' l='269' u='c' c='_ZN10tensorflow13DequeueManyOp12ComputeAsyncEPNS_15OpKernelContextEPNS_14QueueInterfaceESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_ops.cc' l='355' u='c' c='_ZN10tensorflow13DequeueUpToOp12ComputeAsyncEPNS_15OpKernelContextEPNS_14QueueInterfaceESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_internal.cc' l='101' u='c' c='_ZN10tensorflow4sdca12ModelWeights10InitializeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_internal.cc' l='106' u='c' c='_ZN10tensorflow4sdca12ModelWeights10InitializeEPNS_15OpKernelContextE'/>

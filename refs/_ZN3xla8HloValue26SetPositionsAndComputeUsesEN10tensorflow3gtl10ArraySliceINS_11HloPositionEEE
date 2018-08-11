@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='127' type='void xla::HloValue::SetPositionsAndComputeUses(tensorflow::gtl::ArraySlice&lt;HloPosition&gt; positions)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='124'>// Sets the positions in the module at which the HloValue appears. Updates
+  // uses. Should be called once and only once. The defining position should not
+  // be included in &apos;positions&apos; as this is set at construction time.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='827' u='c' c='_ZN3xla19HloDataflowAnalysis3RunERKNS_9HloModuleEbb'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_value.cc' l='150' ll='203' type='void xla::HloValue::SetPositionsAndComputeUses(tensorflow::gtl::ArraySlice&lt;HloPosition&gt; positions)'/>

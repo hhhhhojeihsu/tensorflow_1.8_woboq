@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/graph/algorithm.h' l='93' type='void tensorflow::GetReversePostOrder(const tensorflow::Graph &amp; g, std::vector&lt;Node *&gt; * order, const NodeComparator &amp; stable_comparator = {})'/>
+<doc f='tensorflow/tensorflow/core/graph/algorithm.h' l='90'>// Stores in *order the reverse post-order numbering of all nodes
+// If stable_comparator is set, a stable ordering of visit is achieved by
+// sorting a node&apos;s neighbors first before visiting them.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1986' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator35MakeGraphForOutsideCompilationSendsERKNS_5GraphEPSt10unique_ptrIS2_St14default_deleteIS2_EEPNS_12ShapeRef3453052'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/graph_compiler.cc' l='101' u='c' c='_ZN10tensorflow13GraphCompiler7CompileEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_stream_util.cc' l='52' u='c' c='_ZN10tensorflow15gpu_stream_util13AssignStreamsEPKNS_5GraphERKNS0_17AssignStreamsOptsEPSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE'/>
+<def f='tensorflow/tensorflow/core/graph/algorithm.cc' l='169' ll='173' type='void tensorflow::GetReversePostOrder(const tensorflow::Graph &amp; g, std::vector&lt;Node *&gt; * order, const NodeComparator &amp; stable_comparator = {})'/>
+<use f='tensorflow/tensorflow/core/graph/optimizer_cse.cc' l='175' u='c' c='_ZN10tensorflow12OptimizerCSE8OptimizeERKSt8functionIFbPKNS_4NodeEEE'/>

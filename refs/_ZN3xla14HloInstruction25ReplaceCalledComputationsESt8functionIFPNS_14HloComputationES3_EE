@@ -1,0 +1,6 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1171' ll='1176' type='void xla::HloInstruction::ReplaceCalledComputations(std::function&lt;HloComputation *(HloComputation *)&gt; map_function)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1168'>// Replaces all called computations based on a map function. This is needed
+  // when we clone hlo_computations and want to let the instructions to point
+  // to the newly cloned nodes.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='511' u='c' c='_ZNK3xla9HloModule5CloneERKSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='529' u='c' c='_ZN3xla9HloModule20DeepCloneComputationEPNS_14HloComputationE'/>

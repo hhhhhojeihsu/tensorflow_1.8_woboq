@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_id_manager.h' l='32' type='static tensorflow::Status tensorflow::GpuIdManager::TfToCudaGpuId(TfGpuId tf_gpu_id, CudaGpuId * cuda_gpu_id)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_id_manager.h' l='31'>// Gets the cuda_gpu_id associated with tf_gpu_id. Returns OK if found.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_id_manager.cc' l='96' ll='102' type='static tensorflow::Status tensorflow::GpuIdManager::TfToCudaGpuId(TfGpuId tf_gpu_id, CudaGpuId * cuda_gpu_id)'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/single_machine.cc' l='97' u='c' c='_ZN10tensorflow8grappler13SingleMachine9ProvisionEv'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/utils.cc' l='125' u='c' c='_ZN10tensorflow8grappler13GetDeviceInfoERKNS_15DeviceNameUtils10ParsedNameE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/utils.cc' l='213' u='c' c='_ZN10tensorflow8grappler13GetDeviceInfoERKSs'/>

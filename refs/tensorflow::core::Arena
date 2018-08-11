@@ -1,0 +1,25 @@
+<def f='tensorflow/tensorflow/core/lib/core/arena.h' l='35' ll='105'/>
+<size>304</size>
+<doc f='tensorflow/tensorflow/core/lib/core/arena.h' l='32'>// This class is &quot;thread-compatible&quot;: different threads can access the
+// arena at the same time without locking, as long as they use only
+// const methods.</doc>
+<fun r='_ZN10tensorflow4core5ArenaC1Em'/>
+<fun r='_ZN10tensorflow4core5ArenaD1Ev'/>
+<fun r='_ZN10tensorflow4core5Arena5AllocEm'/>
+<fun r='_ZN10tensorflow4core5Arena12AllocAlignedEmm'/>
+<fun r='_ZN10tensorflow4core5Arena5ResetEv'/>
+<smbr r='tensorflow::core::Arena::kDefaultAlignment' t='const int'/>
+<fun r='_ZN10tensorflow4core5Arena16SatisfyAlignmentEm'/>
+<fun r='_ZN10tensorflow4core5Arena12MakeNewBlockEj'/>
+<fun r='_ZN10tensorflow4core5Arena17GetMemoryFallbackEmi'/>
+<fun r='_ZN10tensorflow4core5Arena9GetMemoryEmi'/>
+<mbr r='tensorflow::core::Arena::remaining_' o='0' t='size_t'/>
+<fun r='_ZN10tensorflow4core5Arena13AllocNewBlockEmj'/>
+<mbr r='tensorflow::core::Arena::block_size_' o='64' t='const size_t'/>
+<mbr r='tensorflow::core::Arena::freestart_' o='128' t='char *'/>
+<mbr r='tensorflow::core::Arena::freestart_when_empty_' o='192' t='char *'/>
+<mbr r='tensorflow::core::Arena::blocks_alloced_' o='256' t='size_t'/>
+<mbr r='tensorflow::core::Arena::first_blocks_' o='320' t='tensorflow::core::Arena::AllocatedBlock [16]'/>
+<mbr r='tensorflow::core::Arena::overflow_blocks_' o='2368' t='std::vector&lt;AllocatedBlock&gt; *'/>
+<fun r='_ZN10tensorflow4core5Arena10FreeBlocksEv'/>
+<fun r='_ZN10tensorflow4core5ArenaC1ERKS1_'/>

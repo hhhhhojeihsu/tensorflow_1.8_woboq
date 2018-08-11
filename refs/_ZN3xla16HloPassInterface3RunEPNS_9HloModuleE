@@ -1,0 +1,35 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_interface.h' l='36' type='StatusOr&lt;bool&gt; xla::HloPassInterface::Run(xla::HloModule * module)'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='2123' c='_ZN3xla19AlgebraicSimplifier3RunEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_interface.h' l='34'>// Run the pass on the given HLO module.  Return whether it modified the
+  // module.</doc>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='602' c='_ZN3xla17BatchNormExpander3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/call_inliner.cc' l='137' c='_ZN3xla11CallInliner3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/conditional_simplifier.cc' l='79' c='_ZN3xla21ConditionalSimplifier3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='1101' c='_ZN3xla13CopyInsertion3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/conv_canonicalization.cc' l='31' c='_ZN3xla3cpu20ConvCanonicalization3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_copy_insertion.cc' l='30' c='_ZN3xla16CpuCopyInsertion3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_hlo_support_checker.cc' l='25' c='_ZN3xla20CpuHloSupportChecker3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.cc' l='32' c='_ZN3xla3cpu26ParallelizationPreparation3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.cc' l='154' c='_ZN3xla3cpu20ParallelTaskAssigner3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/dot_decomposer.cc' l='160' c='_ZN3xla13DotDecomposer3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/flatten_call_graph.cc' l='114' c='_ZN3xla16FlattenCallGraph3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='371' c='_ZN3xla14GatherExpander3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_constant_folding.cc' l='37' c='_ZN3xla18HloConstantFolding3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_cse.cc' l='93' c='_ZN3xla6HloCSE3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_dce.cc' l='37' c='_ZN3xla6HloDCE3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='114' c='_ZN3xla23HloElementTypeConverter3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_pipeline.cc' l='60' c='_ZN3xla15HloPassPipeline3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_pipeline.cc' l='78' u='c' c='_ZN3xla15HloPassPipeline3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_pipeline.cc' l='119' u='c' c='_ZN3xla15HloPassPipeline3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_subcomputation_unification.cc' l='22' c='_ZN3xla28HloSubcomputationUnification3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='751' c='_ZN3xla11HloVerifier3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/inliner.cc' l='109' c='_ZN3xla7Inliner3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='222' c='_ZN3xla17InstructionFusion3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1536' c='_ZN3xla16LayoutAssignment3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/reduce_precision_insertion.cc' l='196' c='_ZN3xla24ReducePrecisionInsertion3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='403' c='_ZN3xla12ReshapeMover3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/transpose_folding.cc' l='176' c='_ZN3xla16TransposeFolding3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/tuple_simplifier.cc' l='33' c='_ZN3xla15TupleSimplifier3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/while_loop_invariant_code_motion.cc' l='258' c='_ZN3xla28WhileLoopInvariantCodeMotion3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='681' c='_ZN3xla19WhileLoopSimplifier3RunEPNS_9HloModuleE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/zero_sized_hlo_elimination.cc' l='30' c='_ZN3xla23ZeroSizedHloElimination3RunEPNS_9HloModuleE'/>

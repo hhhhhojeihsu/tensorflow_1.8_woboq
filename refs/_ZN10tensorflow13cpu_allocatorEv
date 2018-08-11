@@ -1,0 +1,32 @@
+<dec f='tensorflow/tensorflow/core/framework/allocator.h' l='386' type='tensorflow::Allocator * tensorflow::cpu_allocator()'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='150' u='c' c='_ZNK12_GLOBAL__N_116TF_ManagedBuffer25FillAllocationDescriptionEPN10tensorflow21AllocationDescriptionE'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='159' u='c' c='(anonymousnamespace)::allocate_tensor'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='163' u='c' c='(anonymousnamespace)::allocate_tensor'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='173' u='c' c='(anonymousnamespace)::deallocate_buffer'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='175' u='c' c='(anonymousnamespace)::deallocate_buffer'/>
+<doc f='tensorflow/tensorflow/core/framework/allocator.h' l='384'>// Returns a trivial implementation of Allocator which uses the system
+// default malloc. The returned allocator is a process singleton.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='202' u='c' c='_ZN10tensorflow9XlaDevice12GetAllocatorENS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='265' u='c' c='_ZN10tensorflow9XlaDevice19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/const_op.cc' l='101' u='c' c='_ZN10tensorflow12_GLOBAL__N_17ConstOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/process_state.cc' l='228' u='c' c='_ZN10tensorflow12ProcessState20GetCUDAHostAllocatorEi'/>
+<use f='tensorflow/tensorflow/core/common_runtime/single_threaded_cpu_device.h' l='63' u='c' c='_ZN10tensorflow23SingleThreadedCpuDevice19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/single_threaded_cpu_device.h' l='71' u='c' c='_ZN10tensorflow23SingleThreadedCpuDevice12GetAllocatorENS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/threadpool_device.cc' l='87' u='c' c='_ZN10tensorflow16ThreadPoolDevice19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/threadpool_device_factory.cc' l='41' u='c' c='_ZN10tensorflow23ThreadPoolDeviceFactory13CreateDevicesERKNS_14SessionOptionsERKSsPSt6vectorIPNS_6DeviceESaIS8_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='30' u='c' c='_ZN10tensorflow12_GLOBAL__N_124ParseTensorProtoToTensorERKNS_11TensorProtoEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='430' u='c' c='_ZN10tensorflow11GrpcSession11RunCallableExRKSt6vectorINS_6TensorESaIS2_EEPS4_PNS_11RunMetadataE'/>
+<def f='tensorflow/tensorflow/core/framework/allocator.cc' l='162' ll='168' type='tensorflow::Allocator * tensorflow::cpu_allocator()'/>
+<use f='tensorflow/tensorflow/core/framework/tensor.cc' l='742' u='c' c='_ZN10tensorflow6TensorC1ENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/core/framework/tensor.cc' l='805' u='c' c='_ZN10tensorflow6Tensor9FromProtoERKNS_11TensorProtoE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='95' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_112DeviceSimple19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='102' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_112DeviceSimple12GetAllocatorENS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/core/kernels/aggregate_ops.cc' l='199' u='c' c='_ZN10tensorflow6AddNOpIT_NS_7VariantEE7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/constant_op.cc' l='300' u='c' c='_ZN10tensorflow11ZerosLikeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/cwise_ops_common.h' l='267' u='c' c='_ZN10tensorflow14UnaryVariantOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/slide_dataset_op.cc' l='160' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SlideDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='198' u='c' c='_ZN10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS6_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='213' u='c' c='_ZN10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS6_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1101' u='c' c='_ZN10tensorflow15GraphTransferer19MakeTensorFromProtoERKNS_11TensorProtoEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='356' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils19MakeTensorFromProtoERKNS_11TensorProtoEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/python/lib/core/py_func.cc' l='287' u='c' c='_ZNK10tensorflow17NumpyTensorBuffer25FillAllocationDescriptionEPNS_21AllocationDescriptionE'/>

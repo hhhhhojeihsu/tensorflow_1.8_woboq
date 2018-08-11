@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.h' l='54' type='static tensorflow::Status tensorflow::ProcessFunctionLibraryRuntime::SendTensors(const string &amp; source_device, const string &amp; target_device, const string &amp; key_prefix, int64 src_incarnation, gtl::ArraySlice&lt;Tensor&gt; tensors_to_send, tensorflow::DeviceContext * device_context, const std::vector&lt;AllocatorAttributes&gt; &amp; alloc_attrs, tensorflow::Rendezvous * rendezvous)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.h' l='48'>// Sends `tensors_to_send` from `source_device` to `target_device` using
+  // `rendezvous`. `key_prefix` is used as a prefix for the keys sent to the
+  // Rendezvous. `device_context` should be the DeviceContext of the device
+  // doing the sending. `alloc_attrs` should either be empty or be the size of
+  // `tensors_to_send` and indicates how the input tensors are allocated. Method
+  // takes references on each of the `tensors_to_send`. Method doesn&apos;t block.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='771' u='c' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl9RunRemoteERKNS_22FunctionLibraryRuntime7OptionsEyNS_3gtl10ArraySliceINS_6TensorEEEPSt6vectorIS7_SaIS7_EEPN10516260'/>
+<def f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.cc' l='91' ll='107' type='static tensorflow::Status tensorflow::ProcessFunctionLibraryRuntime::SendTensors(const string &amp; source_device, const string &amp; target_device, const string &amp; key_prefix, int64 src_incarnation, gtl::ArraySlice&lt;Tensor&gt; tensors_to_send, tensorflow::DeviceContext * device_context, const std::vector&lt;AllocatorAttributes&gt; &amp; alloc_attrs, tensorflow::Rendezvous * rendezvous)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.cc' l='337' u='c' c='_ZN10tensorflow29ProcessFunctionLibraryRuntime3RunERKNS_22FunctionLibraryRuntime7OptionsEyNS_3gtl10ArraySliceINS_6TensorEEEPSt6vectorIS7_SaIS7_EESt8fu9248434'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.cc' l='90'>/* static */</doc>

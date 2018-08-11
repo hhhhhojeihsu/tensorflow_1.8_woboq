@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='384' ll='386' type='const xla::TuplePointsToAnalysis &amp; xla::BufferAssignment::points_to_analysis() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='453' u='c' c='_ZNK3xla16BufferAssignment14GetPointsToSetEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='457' u='c' c='_ZNK3xla16BufferAssignment13HasAllocationERKNS_13LogicalBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='625' u='c' c='_ZN3xla16BufferAssignment13AddAssignmentEPNS_16BufferAllocationERKNS_13LogicalBufferExx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='884' u='c' c='_ZN3xla14BufferAssigner17MaybeAssignBufferEPNS_16BufferAllocationERKNS_13LogicalBufferEPNS_16BufferAssignmentE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='925' u='c' c='_ZN3xla14BufferAssigner27AssignBuffersForComputationEPKNS_14HloComputationERKNS_12DebugOptionsEbRKN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS7_44467117'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1193' u='c' c='_ZN3xla14BufferAssigner35AssignBuffersWithSequentialOrderingERKN10tensorflow3gtl7FlatMapIPKNS_14HloComputationENS2_7FlatSetIPKNS_13LogicalBufferENS1_41354386'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1221' u='c' c='_ZN3xla14BufferAssigner35AssignBuffersWithSequentialOrderingERKN10tensorflow3gtl7FlatMapIPKNS_14HloComputationENS2_7FlatSetIPKNS_13LogicalBufferENS1_41354386'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1632' u='c' c='_ZN3xla14BufferAssigner16CreateAssignmentEPKNS_9HloModuleESt10unique_ptrINS_11HloOrderingESt14default_deleteIS5_EESt8functionIFxRKNS_13LogicalBufferEE7316938'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='383'>// Returns the underlying points-to analysis used for this assignment.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='364' u='c' c='_ZNK3xla3cpu13CpuExecutable18GetRootPointsToSetEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='526' u='c' c='_ZNK3xla3cpu21ParallelCpuExecutable18GetRootPointsToSetEv'/>

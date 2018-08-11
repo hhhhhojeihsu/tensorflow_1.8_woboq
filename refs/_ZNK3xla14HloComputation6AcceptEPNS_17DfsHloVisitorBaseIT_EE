@@ -1,0 +1,21 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='273' type='tensorflow::Status xla::HloComputation::Accept(DfsHloVisitorBase&lt;HloInstructionPtr&gt; * visitor) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='316' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor3RunEPNS_14HloComputationEbSt8functionIFbRKNS_5ShapeES6_EEbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='142' u='c' c='_ZN3xla24BatchNormExpanderVisitor3RunEPNS_14HloComputationEbbbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/call_inliner.cc' l='133' u='c' c='_ZN3xla11CallInliner6InlineEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='185' u='c' c='_ZN3xla3cpu12_GLOBAL__N_124CollectProfileCandidates27GetCandidatesForComputationEPNS_14HloComputationERKSt13unordered_mapIPKNS_14HloInstructionExSt4ha6859805'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='206' u='c' c='_ZN3xla3cpu12_GLOBAL__N_124CollectProfileCandidates10HandleCallEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='222' u='c' c='_ZN3xla3cpu12_GLOBAL__N_124CollectProfileCandidates11HandleWhileEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='226' u='c' c='_ZN3xla3cpu12_GLOBAL__N_124CollectProfileCandidates11HandleWhileEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='513' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='127' u='c' c='_ZN3xla3cpu9IrEmitter15EmitComputationEPNS_14HloComputationERKSsbPSt6vectorIPKNS_14HloInstructionESaIS9_EE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='643' ll='655' type='tensorflow::Status xla::HloComputation::Accept(DfsHloVisitorBase&lt;HloInstructionPtr&gt; * visitor) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='717' u='c' c='_ZN3xla14HloComputation6AcceptERKSt8functionIFN10tensorflow6StatusEPNS_14HloInstructionEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='723' u='c' c='_ZNK3xla14HloComputation6AcceptERKSt8functionIFN10tensorflow6StatusEPKNS_14HloInstructionEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='670' u='c' c='_ZN3xla15HloCostAnalysis21ProcessSubcomputationEPNS_14HloComputationEPKSt8functionIFxRKNS_5ShapeEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2222' u='c' c='_ZN3xla12HloEvaluator8EvaluateERKNS_9HloModuleEN10tensorflow3gtl10ArraySliceIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2241' u='c' c='_ZN3xla12HloEvaluator8EvaluateERKNS_14HloComputationEN10tensorflow3gtl10ArraySliceIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='838' u='c' c='_ZN3xla11HloVerifier3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.cc' l='63' u='c' c='_ZN3xla21LogicalBufferAnalysis7AnalyzeEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1609' u='c' c='_ZN3xla7Service19GetComputationStatsEPKNS_23ComputationStatsRequestEPNS_24ComputationStatsResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1632' u='c' c='_ZN3xla7Service24GetComputationGraphStatsEPKNS_28ComputationGraphStatsRequestEPNS_24ComputationStatsResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='159' u='c' c='_ZN3xla21TuplePointsToAnalysis7AnalyzeEv'/>

@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='243' type='xla::XlaOp xla::XlaBuilder::Slice(const xla::XlaOp &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; start_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; limit_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; strides)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='232'>// Enqueues a slice operation onto the computation that slices the operand
+  // from the start indices to the limit indices; e.g.
+  //
+  //        x
+  //   [ 0 1 2 3 ]
+  // y [ 4 5 6 7 ] =&gt; slice(start={1, 1}, limit={2, 3}) =&gt; [ 5 6 ]
+  //   [ 8 9 a b ]
+  //
+  // Note that &quot;limit&quot; means up-to-but-not-including; i.e. [start, limit) in 1D
+  // range notation.
+  // The strides parameter determines the stride over the slice</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='464' ll='484' type='xla::XlaOp xla::XlaBuilder::Slice(const xla::XlaOp &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; start_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; limit_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; strides)'/>

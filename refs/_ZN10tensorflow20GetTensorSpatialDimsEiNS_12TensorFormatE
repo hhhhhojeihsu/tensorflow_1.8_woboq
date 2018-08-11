@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/core/util/tensor_format.h' l='91' ll='97' type='int tensorflow::GetTensorSpatialDims(int num_dims, tensorflow::TensorFormat format)'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='167' u='c' c='_ZN10tensorflow24GetTensorSpatialDimIndexEiNS_12TensorFormatEi'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='482' u='c' c='_ZN10tensorflow15ShapeFromFormatENS_12TensorFormatERKNS_11TensorShapeES0_'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_format.h' l='89'>// Returns the number of spatial dims of a tensor of rank &apos;num_dims&apos; and tensor
+// format &apos;format&apos;.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/depthtospace_op.cc' l='57' u='c' c='_ZN10tensorflow12_GLOBAL__N_114DepthToSpaceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/spacetodepth_op.cc' l='57' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SpaceToDepthOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_common.cc' l='40' u='c' c='_ZN10tensorflow14PoolParametersC1EPNS_15OpKernelContextERKSt6vectorIiSaIiEES7_NS_7PaddingENS_12TensorFormatERKNS_11TensorShapeE'/>

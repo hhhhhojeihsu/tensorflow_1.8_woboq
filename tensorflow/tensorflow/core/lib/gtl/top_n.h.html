@@ -1,0 +1,358 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>top_n.h source code [tensorflow/tensorflow/core/lib/gtl/top_n.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::gtl::TopN "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/lib/gtl/top_n.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>lib</a>/<a href='./'>gtl</a>/<a href='top_n.h.html'>top_n.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// This simple class finds the top n elements of an incrementally provided set</i></td></tr>
+<tr><th id="17">17</th><td><i>// of elements which you push one at a time.  If the number of elements exceeds</i></td></tr>
+<tr><th id="18">18</th><td><i>// n, the lowest elements are incrementally dropped.  At the end you get</i></td></tr>
+<tr><th id="19">19</th><td><i>// a vector of the top elements sorted in descending order (through Extract() or</i></td></tr>
+<tr><th id="20">20</th><td><i>// ExtractNondestructive()), or a vector of the top elements but not sorted</i></td></tr>
+<tr><th id="21">21</th><td><i>// (through ExtractUnsorted() or ExtractUnsortedNondestructive()).</i></td></tr>
+<tr><th id="22">22</th><td><i>//</i></td></tr>
+<tr><th id="23">23</th><td><i>// The value n is specified in the constructor.  If there are p elements pushed</i></td></tr>
+<tr><th id="24">24</th><td><i>// altogether:</i></td></tr>
+<tr><th id="25">25</th><td><i>//   The total storage requirements are O(min(n, p)) elements</i></td></tr>
+<tr><th id="26">26</th><td><i>//   The running time is O(p * log(min(n, p))) comparisons</i></td></tr>
+<tr><th id="27">27</th><td><i>// If n is a constant, the total storage required is a constant and the running</i></td></tr>
+<tr><th id="28">28</th><td><i>// time is linear in p.</i></td></tr>
+<tr><th id="29">29</th><td><i>//</i></td></tr>
+<tr><th id="30">30</th><td><i>// NOTE(zhifengc): There is a way to do this in O(min(n, p)) storage and O(p)</i></td></tr>
+<tr><th id="31">31</th><td><i>// runtime. The basic idea is to repeatedly fill up a buffer of 2 * n elements,</i></td></tr>
+<tr><th id="32">32</th><td><i>// discarding the lowest n elements whenever the buffer is full using a linear-</i></td></tr>
+<tr><th id="33">33</th><td><i>// time median algorithm. This may have better performance when the input</i></td></tr>
+<tr><th id="34">34</th><td><i>// sequence is partially sorted.</i></td></tr>
+<tr><th id="35">35</th><td><i>//</i></td></tr>
+<tr><th id="36">36</th><td><i>// NOTE(zhifengc): This class should be redesigned to avoid reallocating a</i></td></tr>
+<tr><th id="37">37</th><td><i>// vector for each Extract.</i></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="39">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_LIB_GTL_TOP_N_H_">TENSORFLOW_LIB_GTL_TOP_N_H_</span></u></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_LIB_GTL_TOP_N_H_" data-ref="_M/TENSORFLOW_LIB_GTL_TOP_N_H_">TENSORFLOW_LIB_GTL_TOP_N_H_</dfn></u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#include &lt;stddef.h&gt;</u></td></tr>
+<tr><th id="43">43</th><td><u>#include <a href="../../../../../include/c++/5/algorithm.html">&lt;algorithm&gt;</a></u></td></tr>
+<tr><th id="44">44</th><td><u>#include <a href="../../../../../include/c++/5/functional.html">&lt;functional&gt;</a></u></td></tr>
+<tr><th id="45">45</th><td><u>#include <a href="../../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="46">46</th><td><u>#include <a href="../../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><u>#include <a href="../../platform/logging.h.html">"tensorflow/core/platform/logging.h"</a></u></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="51">51</th><td><b>namespace</b> <span class="namespace">gtl</span> {</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><i>// Cmp is an stl binary predicate.  Note that Cmp is the "greater" predicate,</i></td></tr>
+<tr><th id="54">54</th><td><i>// not the more commonly used "less" predicate.</i></td></tr>
+<tr><th id="55">55</th><td><i>//</i></td></tr>
+<tr><th id="56">56</th><td><i>// If you use a "less" predicate here, the TopN will pick out the bottom N</i></td></tr>
+<tr><th id="57">57</th><td><i>// elements out of the ones passed to it, and it will return them sorted in</i></td></tr>
+<tr><th id="58">58</th><td><i>// ascending order.</i></td></tr>
+<tr><th id="59">59</th><td><i>//</i></td></tr>
+<tr><th id="60">60</th><td><i>// TopN is rule-of-zero copyable and movable if its members are.</i></td></tr>
+<tr><th id="61">61</th><td><b>template</b> &lt;<b>class</b> T, <b>class</b> Cmp = <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_function.h.html#std::greater" title='std::greater' data-ref="std::greater">greater</a>&lt;T&gt; &gt;</td></tr>
+<tr><th id="62">62</th><td><b>class</b> <dfn class="type def" id="tensorflow::gtl::TopN" title='tensorflow::gtl::TopN' data-ref="tensorflow::gtl::TopN">TopN</dfn> {</td></tr>
+<tr><th id="63">63</th><td> <b>public</b>:</td></tr>
+<tr><th id="64">64</th><td>  <i>// The TopN is in one of the three states:</i></td></tr>
+<tr><th id="65">65</th><td><i>  //</i></td></tr>
+<tr><th id="66">66</th><td><i>  //  o UNORDERED: this is the state an instance is originally in,</i></td></tr>
+<tr><th id="67">67</th><td><i>  //    where the elements are completely orderless.</i></td></tr>
+<tr><th id="68">68</th><td><i>  //</i></td></tr>
+<tr><th id="69">69</th><td><i>  //  o BOTTOM_KNOWN: in this state, we keep the invariant that there</i></td></tr>
+<tr><th id="70">70</th><td><i>  //    is at least one element in it, and the lowest element is at</i></td></tr>
+<tr><th id="71">71</th><td><i>  //    position 0. The elements in other positions remain</i></td></tr>
+<tr><th id="72">72</th><td><i>  //    unsorted. This state is reached if the state was originally</i></td></tr>
+<tr><th id="73">73</th><td><i>  //    UNORDERED and a peek_bottom() function call is invoked.</i></td></tr>
+<tr><th id="74">74</th><td><i>  //</i></td></tr>
+<tr><th id="75">75</th><td><i>  //  o HEAP_SORTED: in this state, the array is kept as a heap and</i></td></tr>
+<tr><th id="76">76</th><td><i>  //    there are exactly (limit_+1) elements in the array. This</i></td></tr>
+<tr><th id="77">77</th><td><i>  //    state is reached when at least (limit_+1) elements are</i></td></tr>
+<tr><th id="78">78</th><td><i>  //    pushed in.</i></td></tr>
+<tr><th id="79">79</th><td><i>  //</i></td></tr>
+<tr><th id="80">80</th><td><i>  //  The state transition graph is at follows:</i></td></tr>
+<tr><th id="81">81</th><td><i>  //</i></td></tr>
+<tr><th id="82">82</th><td><i>  //             peek_bottom()                (limit_+1) elements</i></td></tr>
+<tr><th id="83">83</th><td><i>  //  UNORDERED --------------&gt; BOTTOM_KNOWN --------------------&gt; HEAP_SORTED</i></td></tr>
+<tr><th id="84">84</th><td><i>  //      |                                                           ^</i></td></tr>
+<tr><th id="85">85</th><td><i>  //      |                      (limit_+1) elements                  |</i></td></tr>
+<tr><th id="86">86</th><td><i>  //      +-----------------------------------------------------------+</i></td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>  <b>enum</b> <dfn class="type def" id="tensorflow::gtl::TopN::State" title='tensorflow::gtl::TopN::State' data-ref="tensorflow::gtl::TopN::State">State</dfn> { <dfn class="enum" id="tensorflow::gtl::TopN::State::UNORDERED" title='tensorflow::gtl::TopN::State::UNORDERED' data-ref="tensorflow::gtl::TopN::State::UNORDERED">UNORDERED</dfn>, <dfn class="enum" id="tensorflow::gtl::TopN::State::BOTTOM_KNOWN" title='tensorflow::gtl::TopN::State::BOTTOM_KNOWN' data-ref="tensorflow::gtl::TopN::State::BOTTOM_KNOWN">BOTTOM_KNOWN</dfn>, <dfn class="enum" id="tensorflow::gtl::TopN::State::HEAP_SORTED" title='tensorflow::gtl::TopN::State::HEAP_SORTED' data-ref="tensorflow::gtl::TopN::State::HEAP_SORTED">HEAP_SORTED</dfn> };</td></tr>
+<tr><th id="89">89</th><td>  <b>using</b> <dfn class="typedef" id="tensorflow::gtl::TopN::UnsortedIterator" title='tensorflow::gtl::TopN::UnsortedIterator' data-type='typename std::vector&lt;T&gt;::const_iterator' data-ref="tensorflow::gtl::TopN::UnsortedIterator">UnsortedIterator</dfn> = <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt;::const_iterator;</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>  <i>// 'limit' is the maximum number of top results to return.</i></td></tr>
+<tr><th id="92">92</th><td>  <b>explicit</b> <dfn class="decl def" id="_ZN10tensorflow3gtl4TopNC1Em" title='tensorflow::gtl::TopN::TopN&lt;T, Cmp&gt;' data-ref="_ZN10tensorflow3gtl4TopNC1Em">TopN</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col1 decl" id="1limit" title='limit' data-type='size_t' data-ref="1limit">limit</dfn>) : TopN(<a class="local col1 ref" href="#1limit" title='limit' data-ref="1limit">limit</a>, Cmp()) {}</td></tr>
+<tr><th id="93">93</th><td>  <dfn class="decl def" id="_ZN10tensorflow3gtl4TopNC1EmRKT0_" title='tensorflow::gtl::TopN::TopN&lt;T, Cmp&gt;' data-ref="_ZN10tensorflow3gtl4TopNC1EmRKT0_">TopN</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="2limit" title='limit' data-type='size_t' data-ref="2limit">limit</dfn>, <em>const</em> Cmp &amp;<dfn class="local col3 decl" id="3cmp" title='cmp' data-type='const Cmp &amp;' data-ref="3cmp">cmp</dfn>) : <a class="member" href="#tensorflow::gtl::TopN::limit_" title='tensorflow::gtl::TopN::limit_' data-ref="tensorflow::gtl::TopN::limit_">limit_</a>(<a class="local col2 ref" href="#2limit" title='limit' data-ref="2limit">limit</a>), <a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>(<a class="local col3 ref" href="#3cmp" title='cmp' data-ref="3cmp">cmp</a>) {}</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl def" id="_ZNK10tensorflow3gtl4TopN5limitEv" title='tensorflow::gtl::TopN::limit' data-ref="_ZNK10tensorflow3gtl4TopN5limitEv">limit</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#tensorflow::gtl::TopN::limit_" title='tensorflow::gtl::TopN::limit_' data-ref="tensorflow::gtl::TopN::limit_">limit_</a>; }</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>  <i>// Number of elements currently held by this TopN object.  This</i></td></tr>
+<tr><th id="98">98</th><td><i>  // will be no greater than 'limit' passed to the constructor.</i></td></tr>
+<tr><th id="99">99</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl def" id="_ZNK10tensorflow3gtl4TopN4sizeEv" title='tensorflow::gtl::TopN::size' data-ref="_ZNK10tensorflow3gtl4TopN4sizeEv">size</dfn>() <em>const</em> { <b>return</b> <span class="namespace">std::</span>min(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.size(), <a class="member" href="#tensorflow::gtl::TopN::limit_" title='tensorflow::gtl::TopN::limit_' data-ref="tensorflow::gtl::TopN::limit_">limit_</a>); }</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK10tensorflow3gtl4TopN5emptyEv" title='tensorflow::gtl::TopN::empty' data-ref="_ZNK10tensorflow3gtl4TopN5emptyEv">empty</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#_ZNK10tensorflow3gtl4TopN4sizeEv" title='tensorflow::gtl::TopN::size' data-ref="_ZNK10tensorflow3gtl4TopN4sizeEv">size</a>() == <var>0</var>; }</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>  <i>// If you know how many elements you will push at the time you create the</i></td></tr>
+<tr><th id="104">104</th><td><i>  // TopN object, you can call reserve to preallocate the memory that TopN</i></td></tr>
+<tr><th id="105">105</th><td><i>  // will need to process all 'n' pushes.  Calling this method is optional.</i></td></tr>
+<tr><th id="106">106</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow3gtl4TopN7reserveEm" title='tensorflow::gtl::TopN::reserve' data-ref="_ZN10tensorflow3gtl4TopN7reserveEm">reserve</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="4n" title='n' data-type='size_t' data-ref="4n">n</dfn>) { <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.reserve(<span class="namespace">std::</span>min(<a class="local col4 ref" href="#4n" title='n' data-ref="4n">n</a>, <a class="member" href="#tensorflow::gtl::TopN::limit_" title='tensorflow::gtl::TopN::limit_' data-ref="tensorflow::gtl::TopN::limit_">limit_</a> + <var>1</var>)); }</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>  <i>// Push 'v'.  If the maximum number of elements was exceeded, drop the</i></td></tr>
+<tr><th id="109">109</th><td><i>  // lowest element and return it in 'dropped' (if given). If the maximum is not</i></td></tr>
+<tr><th id="110">110</th><td><i>  // exceeded, 'dropped' will remain unchanged. 'dropped' may be omitted or</i></td></tr>
+<tr><th id="111">111</th><td><i>  // nullptr, in which case it is not filled in.</i></td></tr>
+<tr><th id="112">112</th><td><i>  // Requires: T is CopyAssignable, Swappable</i></td></tr>
+<tr><th id="113">113</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow3gtl4TopN4pushERKT_" title='tensorflow::gtl::TopN::push' data-ref="_ZN10tensorflow3gtl4TopN4pushERKT_">push</dfn>(<em>const</em> T &amp;<dfn class="local col5 decl" id="5v" title='v' data-type='const T &amp;' data-ref="5v">v</dfn>) { push(<a class="local col5 ref" href="#5v" title='v' data-ref="5v">v</a>, <b>nullptr</b>); }</td></tr>
+<tr><th id="114">114</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow3gtl4TopN4pushERKT_PS2_" title='tensorflow::gtl::TopN::push' data-ref="_ZN10tensorflow3gtl4TopN4pushERKT_PS2_">push</dfn>(<em>const</em> T &amp;<dfn class="local col6 decl" id="6v" title='v' data-type='const T &amp;' data-ref="6v">v</dfn>, T *<dfn class="local col7 decl" id="7dropped" title='dropped' data-type='T *' data-ref="7dropped">dropped</dfn>) { PushInternal(<a class="local col6 ref" href="#6v" title='v' data-ref="6v">v</a>, <a class="local col7 ref" href="#7dropped" title='dropped' data-ref="7dropped">dropped</a>); }</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>  <i>// Move overloads of push.</i></td></tr>
+<tr><th id="117">117</th><td><i>  // Requires: T is MoveAssignable, Swappable</i></td></tr>
+<tr><th id="118">118</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow3gtl4TopN4pushEOT_" title='tensorflow::gtl::TopN::push' data-ref="_ZN10tensorflow3gtl4TopN4pushEOT_">push</dfn>(T &amp;&amp;<dfn class="local col8 decl" id="8v" title='v' data-type='T &amp;&amp;' data-ref="8v">v</dfn>) {  <i>// NOLINT(build/c++11)</i></td></tr>
+<tr><th id="119">119</th><td>    push(<span class="namespace">std::</span>move(<a class="local col8 ref" href="#8v" title='v' data-ref="8v">v</a>), <b>nullptr</b>);</td></tr>
+<tr><th id="120">120</th><td>  }</td></tr>
+<tr><th id="121">121</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow3gtl4TopN4pushEOT_PS2_" title='tensorflow::gtl::TopN::push' data-ref="_ZN10tensorflow3gtl4TopN4pushEOT_PS2_">push</dfn>(T &amp;&amp;<dfn class="local col9 decl" id="9v" title='v' data-type='T &amp;&amp;' data-ref="9v">v</dfn>, T *<dfn class="local col0 decl" id="10dropped" title='dropped' data-type='T *' data-ref="10dropped">dropped</dfn>) {  <i>// NOLINT(build/c++11)</i></td></tr>
+<tr><th id="122">122</th><td>    PushInternal(<span class="namespace">std::</span>move(<a class="local col9 ref" href="#9v" title='v' data-ref="9v">v</a>), <a class="local col0 ref" href="#10dropped" title='dropped' data-ref="10dropped">dropped</a>);</td></tr>
+<tr><th id="123">123</th><td>  }</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>  <i>// Peeks the bottom result without calling Extract()</i></td></tr>
+<tr><th id="126">126</th><td>  <em>const</em> T &amp;<a class="decl" href="#_ZN10tensorflow3gtl4TopN11peek_bottomEv" title='tensorflow::gtl::TopN::peek_bottom' data-ref="_ZN10tensorflow3gtl4TopN11peek_bottomEv">peek_bottom</a>();</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>  <i>// Extract the elements as a vector sorted in descending order.  The caller</i></td></tr>
+<tr><th id="129">129</th><td><i>  // assumes ownership of the vector and must delete it when done.  This is a</i></td></tr>
+<tr><th id="130">130</th><td><i>  // destructive operation.  The only method that can be called immediately</i></td></tr>
+<tr><th id="131">131</th><td><i>  // after Extract() is Reset().</i></td></tr>
+<tr><th id="132">132</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<a class="decl" href="#_ZN10tensorflow3gtl4TopN7ExtractEv" title='tensorflow::gtl::TopN::Extract' data-ref="_ZN10tensorflow3gtl4TopN7ExtractEv">Extract</a>();</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>  <i>// Similar to Extract(), but makes no guarantees the elements are in sorted</i></td></tr>
+<tr><th id="135">135</th><td><i>  // order.  As with Extract(), the caller assumes ownership of the vector and</i></td></tr>
+<tr><th id="136">136</th><td><i>  // must delete it when done.  This is a destructive operation.  The only</i></td></tr>
+<tr><th id="137">137</th><td><i>  // method that can be called immediately after ExtractUnsorted() is Reset().</i></td></tr>
+<tr><th id="138">138</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<a class="decl" href="#_ZN10tensorflow3gtl4TopN15ExtractUnsortedEv" title='tensorflow::gtl::TopN::ExtractUnsorted' data-ref="_ZN10tensorflow3gtl4TopN15ExtractUnsortedEv">ExtractUnsorted</a>();</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>  <i>// A non-destructive version of Extract(). Copy the elements in a new vector</i></td></tr>
+<tr><th id="141">141</th><td><i>  // sorted in descending order and return it.  The caller assumes ownership of</i></td></tr>
+<tr><th id="142">142</th><td><i>  // the new vector and must delete it when done.  After calling</i></td></tr>
+<tr><th id="143">143</th><td><i>  // ExtractNondestructive(), the caller can continue to push() new elements.</i></td></tr>
+<tr><th id="144">144</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<a class="decl" href="#_ZNK10tensorflow3gtl4TopN21ExtractNondestructiveEv" title='tensorflow::gtl::TopN::ExtractNondestructive' data-ref="_ZNK10tensorflow3gtl4TopN21ExtractNondestructiveEv">ExtractNondestructive</a>() <em>const</em>;</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td>  <i>// A non-destructive version of Extract(). Copy the elements to a given</i></td></tr>
+<tr><th id="147">147</th><td><i>  // vector sorted in descending order. After calling</i></td></tr>
+<tr><th id="148">148</th><td><i>  // ExtractNondestructive(), the caller can continue to push() new elements.</i></td></tr>
+<tr><th id="149">149</th><td><i>  // Note:</i></td></tr>
+<tr><th id="150">150</th><td><i>  //  1. The given argument must to be allocated.</i></td></tr>
+<tr><th id="151">151</th><td><i>  //  2. Any data contained in the vector prior to the call will be deleted</i></td></tr>
+<tr><th id="152">152</th><td><i>  //     from it. After the call the vector will contain only the elements</i></td></tr>
+<tr><th id="153">153</th><td><i>  //     from the data structure.</i></td></tr>
+<tr><th id="154">154</th><td>  <em>void</em> <a class="decl" href="#_ZNK10tensorflow3gtl4TopN21ExtractNondestructiveEPSt6vectorIT_SaIS3_EE" title='tensorflow::gtl::TopN::ExtractNondestructive' data-ref="_ZNK10tensorflow3gtl4TopN21ExtractNondestructiveEPSt6vectorIT_SaIS3_EE">ExtractNondestructive</a>(<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<dfn class="local col1 decl" id="11output" title='output' data-type='std::vector&lt;T&gt; *' data-ref="11output">output</dfn>) <em>const</em>;</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>  <i>// A non-destructive version of ExtractUnsorted(). Copy the elements in a new</i></td></tr>
+<tr><th id="157">157</th><td><i>  // vector and return it, with no guarantees the elements are in sorted order.</i></td></tr>
+<tr><th id="158">158</th><td><i>  // The caller assumes ownership of the new vector and must delete it when</i></td></tr>
+<tr><th id="159">159</th><td><i>  // done.  After calling ExtractUnsortedNondestructive(), the caller can</i></td></tr>
+<tr><th id="160">160</th><td><i>  // continue to push() new elements.</i></td></tr>
+<tr><th id="161">161</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<a class="decl" href="#_ZNK10tensorflow3gtl4TopN29ExtractUnsortedNondestructiveEv" title='tensorflow::gtl::TopN::ExtractUnsortedNondestructive' data-ref="_ZNK10tensorflow3gtl4TopN29ExtractUnsortedNondestructiveEv">ExtractUnsortedNondestructive</a>() <em>const</em>;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>  <i>// A non-destructive version of ExtractUnsorted(). Copy the elements into</i></td></tr>
+<tr><th id="164">164</th><td><i>  // a given vector, with no guarantees the elements are in sorted order.</i></td></tr>
+<tr><th id="165">165</th><td><i>  // After calling ExtractUnsortedNondestructive(), the caller can continue</i></td></tr>
+<tr><th id="166">166</th><td><i>  // to push() new elements.</i></td></tr>
+<tr><th id="167">167</th><td><i>  // Note:</i></td></tr>
+<tr><th id="168">168</th><td><i>  //  1. The given argument must to be allocated.</i></td></tr>
+<tr><th id="169">169</th><td><i>  //  2. Any data contained in the vector prior to the call will be deleted</i></td></tr>
+<tr><th id="170">170</th><td><i>  //     from it. After the call the vector will contain only the elements</i></td></tr>
+<tr><th id="171">171</th><td><i>  //     from the data structure.</i></td></tr>
+<tr><th id="172">172</th><td>  <em>void</em> <a class="decl" href="#_ZNK10tensorflow3gtl4TopN29ExtractUnsortedNondestructiveEPSt6vectorIT_SaIS3_EE" title='tensorflow::gtl::TopN::ExtractUnsortedNondestructive' data-ref="_ZNK10tensorflow3gtl4TopN29ExtractUnsortedNondestructiveEPSt6vectorIT_SaIS3_EE">ExtractUnsortedNondestructive</a>(<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<dfn class="local col2 decl" id="12output" title='output' data-type='std::vector&lt;T&gt; *' data-ref="12output">output</dfn>) <em>const</em>;</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td>  <i>// Return an iterator to the beginning (end) of the container,</i></td></tr>
+<tr><th id="175">175</th><td><i>  // with no guarantees about the order of iteration. These iterators are</i></td></tr>
+<tr><th id="176">176</th><td><i>  // invalidated by mutation of the data structure.</i></td></tr>
+<tr><th id="177">177</th><td>  <a class="typedef" href="#tensorflow::gtl::TopN::UnsortedIterator" title='tensorflow::gtl::TopN::UnsortedIterator' data-type='typename std::vector&lt;T&gt;::const_iterator' data-ref="tensorflow::gtl::TopN::UnsortedIterator">UnsortedIterator</a> <dfn class="decl def" id="_ZNK10tensorflow3gtl4TopN14unsorted_beginEv" title='tensorflow::gtl::TopN::unsorted_begin' data-ref="_ZNK10tensorflow3gtl4TopN14unsorted_beginEv">unsorted_begin</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.begin(); }</td></tr>
+<tr><th id="178">178</th><td>  <a class="typedef" href="#tensorflow::gtl::TopN::UnsortedIterator" title='tensorflow::gtl::TopN::UnsortedIterator' data-type='typename std::vector&lt;T&gt;::const_iterator' data-ref="tensorflow::gtl::TopN::UnsortedIterator">UnsortedIterator</a> <dfn class="decl def" id="_ZNK10tensorflow3gtl4TopN12unsorted_endEv" title='tensorflow::gtl::TopN::unsorted_end' data-ref="_ZNK10tensorflow3gtl4TopN12unsorted_endEv">unsorted_end</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.begin() + <a class="member" href="#_ZNK10tensorflow3gtl4TopN4sizeEv" title='tensorflow::gtl::TopN::size' data-ref="_ZNK10tensorflow3gtl4TopN4sizeEv">size</a>(); }</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>  <i>// Accessor for comparator template argument.</i></td></tr>
+<tr><th id="181">181</th><td>  Cmp *<dfn class="decl def" id="_ZN10tensorflow3gtl4TopN10comparatorEv" title='tensorflow::gtl::TopN::comparator' data-ref="_ZN10tensorflow3gtl4TopN10comparatorEv">comparator</dfn>() { <b>return</b> &amp;<a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>; }</td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td>  <i>// This removes all elements.  If Extract() or ExtractUnsorted() have been</i></td></tr>
+<tr><th id="184">184</th><td><i>  // called, this will put it back in an empty but useable state.</i></td></tr>
+<tr><th id="185">185</th><td>  <em>void</em> <a class="decl" href="#_ZN10tensorflow3gtl4TopN5ResetEv" title='tensorflow::gtl::TopN::Reset' data-ref="_ZN10tensorflow3gtl4TopN5ResetEv">Reset</a>();</td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td> <b>private</b>:</td></tr>
+<tr><th id="188">188</th><td>  <b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="189">189</th><td>  <em>void</em> <a class="decl" href="#_ZN10tensorflow3gtl4TopN12PushInternalEOT_PT_" title='tensorflow::gtl::TopN::PushInternal' data-ref="_ZN10tensorflow3gtl4TopN12PushInternalEOT_PT_">PushInternal</a>(U &amp;&amp;<dfn class="local col3 decl" id="13v" title='v' data-type='U &amp;&amp;' data-ref="13v">v</dfn>, T *<dfn class="local col4 decl" id="14dropped" title='dropped' data-type='T *' data-ref="14dropped">dropped</dfn>);  <i>// NOLINT(build/c++11)</i></td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>  <i>// elements_ can be in one of two states:</i></td></tr>
+<tr><th id="192">192</th><td><i>  //   elements_.size() &lt;= limit_:  elements_ is an unsorted vector of elements</i></td></tr>
+<tr><th id="193">193</th><td><i>  //      pushed so far.</i></td></tr>
+<tr><th id="194">194</th><td><i>  //   elements_.size() &gt; limit_:  The last element of elements_ is unused;</i></td></tr>
+<tr><th id="195">195</th><td><i>  //      the other elements of elements_ are an stl heap whose size is exactly</i></td></tr>
+<tr><th id="196">196</th><td><i>  //      limit_.  In this case elements_.size() is exactly one greater than</i></td></tr>
+<tr><th id="197">197</th><td><i>  //      limit_, but don't use "elements_.size() == limit_ + 1" to check for</i></td></tr>
+<tr><th id="198">198</th><td><i>  //      that because you'll get a false positive if limit_ == size_t(-1).</i></td></tr>
+<tr><th id="199">199</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; <dfn class="decl" id="tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</dfn>;</td></tr>
+<tr><th id="200">200</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="tensorflow::gtl::TopN::limit_" title='tensorflow::gtl::TopN::limit_' data-ref="tensorflow::gtl::TopN::limit_">limit_</dfn>;  <i>// Maximum number of elements to find</i></td></tr>
+<tr><th id="201">201</th><td>  Cmp <dfn class="decl" id="tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</dfn>;       <i>// Greater-than comparison function</i></td></tr>
+<tr><th id="202">202</th><td>  <a class="type" href="#tensorflow::gtl::TopN::State" title='tensorflow::gtl::TopN::State' data-ref="tensorflow::gtl::TopN::State">State</a> <dfn class="decl" id="tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</dfn> = <a class="enum" href="#tensorflow::gtl::TopN::State::UNORDERED" title='tensorflow::gtl::TopN::State::UNORDERED' data-ref="tensorflow::gtl::TopN::State::UNORDERED">UNORDERED</a>;</td></tr>
+<tr><th id="203">203</th><td>};</td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td><i>// ----------------------------------------------------------------------</i></td></tr>
+<tr><th id="206">206</th><td><i>// Implementations of non-inline functions</i></td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td><b>template</b> &lt;<b>class</b> T, <b>class</b> Cmp&gt;</td></tr>
+<tr><th id="209">209</th><td><b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="210">210</th><td><em>void</em> <a class="type" href="#tensorflow::gtl::TopN" title='tensorflow::gtl::TopN' data-ref="tensorflow::gtl::TopN">TopN</a>&lt;T, Cmp&gt;::<dfn class="decl def" id="_ZN10tensorflow3gtl4TopN12PushInternalEOT_PT_" title='tensorflow::gtl::TopN::PushInternal' data-ref="_ZN10tensorflow3gtl4TopN12PushInternalEOT_PT_">PushInternal</dfn>(U &amp;&amp;<dfn class="local col5 decl" id="15v" title='v' data-type='U &amp;&amp;' data-ref="15v">v</dfn>, T *<dfn class="local col6 decl" id="16dropped" title='dropped' data-type='T *' data-ref="16dropped">dropped</dfn>) {  <i>// NOLINT(build/c++11)</i></td></tr>
+<tr><th id="211">211</th><td>  <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::limit_" title='tensorflow::gtl::TopN::limit_' data-ref="tensorflow::gtl::TopN::limit_">limit_</a> == <var>0</var>) {</td></tr>
+<tr><th id="212">212</th><td>    <b>if</b> (<a class="local col6 ref" href="#16dropped" title='dropped' data-ref="16dropped">dropped</a>) *<a class="local col6 ref" href="#16dropped" title='dropped' data-ref="16dropped">dropped</a> = <span class="namespace">std::</span>forward&lt;U&gt;(<a class="local col5 ref" href="#15v" title='v' data-ref="15v">v</a>);  <i>// NOLINT(build/c++11)</i></td></tr>
+<tr><th id="213">213</th><td>    <b>return</b>;</td></tr>
+<tr><th id="214">214</th><td>  }</td></tr>
+<tr><th id="215">215</th><td>  <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</a> != <a class="enum" href="#tensorflow::gtl::TopN::State::HEAP_SORTED" title='tensorflow::gtl::TopN::State::HEAP_SORTED' data-ref="tensorflow::gtl::TopN::State::HEAP_SORTED">HEAP_SORTED</a>) {</td></tr>
+<tr><th id="216">216</th><td>    <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.push_back(<span class="namespace">std::</span>forward&lt;U&gt;(<a class="local col5 ref" href="#15v" title='v' data-ref="15v">v</a>));  <i>// NOLINT(build/c++11)</i></td></tr>
+<tr><th id="217">217</th><td>    <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</a> == <a class="enum" href="#tensorflow::gtl::TopN::State::UNORDERED" title='tensorflow::gtl::TopN::State::UNORDERED' data-ref="tensorflow::gtl::TopN::State::UNORDERED">UNORDERED</a> || <a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.back(), <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.front())) {</td></tr>
+<tr><th id="218">218</th><td>      <i>// Easy case: we just pushed the new element back</i></td></tr>
+<tr><th id="219">219</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="220">220</th><td>      <i>// To maintain the BOTTOM_KNOWN state, we need to make sure that</i></td></tr>
+<tr><th id="221">221</th><td><i>      // the element at position 0 is always the smallest. So we put</i></td></tr>
+<tr><th id="222">222</th><td><i>      // the new element at position 0 and push the original bottom</i></td></tr>
+<tr><th id="223">223</th><td><i>      // element in the back.</i></td></tr>
+<tr><th id="224">224</th><td><i>      // Warning: this code is subtle.</i></td></tr>
+<tr><th id="225">225</th><td>      <b>using</b> <span class="namespace">std::</span>swap;</td></tr>
+<tr><th id="226">226</th><td>      swap(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.front(), <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.back());</td></tr>
+<tr><th id="227">227</th><td>    }</td></tr>
+<tr><th id="228">228</th><td>    <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.size() == <a class="member" href="#tensorflow::gtl::TopN::limit_" title='tensorflow::gtl::TopN::limit_' data-ref="tensorflow::gtl::TopN::limit_">limit_</a> + <var>1</var>) {</td></tr>
+<tr><th id="229">229</th><td>      <i>// Transition from unsorted vector to a heap.</i></td></tr>
+<tr><th id="230">230</th><td>      <span class="namespace">std::</span>make_heap(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.begin(), <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.end(), <a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>);</td></tr>
+<tr><th id="231">231</th><td>      <b>if</b> (<a class="local col6 ref" href="#16dropped" title='dropped' data-ref="16dropped">dropped</a>) *<a class="local col6 ref" href="#16dropped" title='dropped' data-ref="16dropped">dropped</a> = <span class="namespace">std::</span>move(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.front());</td></tr>
+<tr><th id="232">232</th><td>      <span class="namespace">std::</span>pop_heap(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.begin(), <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.end(), <a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>);</td></tr>
+<tr><th id="233">233</th><td>      <a class="member" href="#tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</a> = <a class="enum" href="#tensorflow::gtl::TopN::State::HEAP_SORTED" title='tensorflow::gtl::TopN::State::HEAP_SORTED' data-ref="tensorflow::gtl::TopN::State::HEAP_SORTED">HEAP_SORTED</a>;</td></tr>
+<tr><th id="234">234</th><td>    }</td></tr>
+<tr><th id="235">235</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="236">236</th><td>    <i>// Only insert the new element if it is greater than the least element.</i></td></tr>
+<tr><th id="237">237</th><td>    <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>(<a class="local col5 ref" href="#15v" title='v' data-ref="15v">v</a>, <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.front())) {</td></tr>
+<tr><th id="238">238</th><td>      <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.back() = <span class="namespace">std::</span>forward&lt;U&gt;(<a class="local col5 ref" href="#15v" title='v' data-ref="15v">v</a>);  <i>// NOLINT(build/c++11)</i></td></tr>
+<tr><th id="239">239</th><td>      <span class="namespace">std::</span>push_heap(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.begin(), <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.end(), <a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>);</td></tr>
+<tr><th id="240">240</th><td>      <b>if</b> (<a class="local col6 ref" href="#16dropped" title='dropped' data-ref="16dropped">dropped</a>) *<a class="local col6 ref" href="#16dropped" title='dropped' data-ref="16dropped">dropped</a> = <span class="namespace">std::</span>move(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.front());</td></tr>
+<tr><th id="241">241</th><td>      <span class="namespace">std::</span>pop_heap(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.begin(), <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.end(), <a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>);</td></tr>
+<tr><th id="242">242</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="243">243</th><td>      <b>if</b> (<a class="local col6 ref" href="#16dropped" title='dropped' data-ref="16dropped">dropped</a>) *<a class="local col6 ref" href="#16dropped" title='dropped' data-ref="16dropped">dropped</a> = <span class="namespace">std::</span>forward&lt;U&gt;(<a class="local col5 ref" href="#15v" title='v' data-ref="15v">v</a>);  <i>// NOLINT(build/c++11)</i></td></tr>
+<tr><th id="244">244</th><td>    }</td></tr>
+<tr><th id="245">245</th><td>  }</td></tr>
+<tr><th id="246">246</th><td>}</td></tr>
+<tr><th id="247">247</th><td></td></tr>
+<tr><th id="248">248</th><td><b>template</b> &lt;<b>class</b> T, <b>class</b> Cmp&gt;</td></tr>
+<tr><th id="249">249</th><td><em>const</em> T &amp;<a class="type" href="#tensorflow::gtl::TopN" title='tensorflow::gtl::TopN' data-ref="tensorflow::gtl::TopN">TopN</a>&lt;T, Cmp&gt;::<dfn class="decl def" id="_ZN10tensorflow3gtl4TopN11peek_bottomEv" title='tensorflow::gtl::TopN::peek_bottom' data-ref="_ZN10tensorflow3gtl4TopN11peek_bottomEv">peek_bottom</dfn>() {</td></tr>
+<tr><th id="250">250</th><td>  <a class="macro" href="../../platform/default/logging.h.html#97" title="if ((__builtin_expect(!(!empty()), 0))) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/core/lib/gtl/top_n.h&quot;, 250) &lt;&lt; &quot;Check failed: &quot; &quot;!empty()&quot; &quot; &quot;" data-ref="_M/CHECK">CHECK</a>(!<a class="member" href="#_ZNK10tensorflow3gtl4TopN5emptyEv" title='tensorflow::gtl::TopN::empty' data-ref="_ZNK10tensorflow3gtl4TopN5emptyEv">empty</a>());</td></tr>
+<tr><th id="251">251</th><td>  <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</a> == <a class="enum" href="#tensorflow::gtl::TopN::State::UNORDERED" title='tensorflow::gtl::TopN::State::UNORDERED' data-ref="tensorflow::gtl::TopN::State::UNORDERED">UNORDERED</a>) {</td></tr>
+<tr><th id="252">252</th><td>    <i>// We need to do a linear scan to find out the bottom element</i></td></tr>
+<tr><th id="253">253</th><td>    <em>int</em> <dfn class="local col7 decl" id="17min_candidate" title='min_candidate' data-type='int' data-ref="17min_candidate">min_candidate</dfn> = <var>0</var>;</td></tr>
+<tr><th id="254">254</th><td>    <b>for</b> (<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col8 decl" id="18i" title='i' data-type='size_t' data-ref="18i">i</dfn> = <var>1</var>; <a class="local col8 ref" href="#18i" title='i' data-ref="18i">i</a> &lt; <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.size(); ++<a class="local col8 ref" href="#18i" title='i' data-ref="18i">i</a>) {</td></tr>
+<tr><th id="255">255</th><td>      <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>[<a class="local col7 ref" href="#17min_candidate" title='min_candidate' data-ref="17min_candidate">min_candidate</a>], <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>[<a class="local col8 ref" href="#18i" title='i' data-ref="18i">i</a>])) {</td></tr>
+<tr><th id="256">256</th><td>        <a class="local col7 ref" href="#17min_candidate" title='min_candidate' data-ref="17min_candidate">min_candidate</a> = <a class="local col8 ref" href="#18i" title='i' data-ref="18i">i</a>;</td></tr>
+<tr><th id="257">257</th><td>      }</td></tr>
+<tr><th id="258">258</th><td>    }</td></tr>
+<tr><th id="259">259</th><td>    <i>// By swapping the element at position 0 and the minimal</i></td></tr>
+<tr><th id="260">260</th><td><i>    // element, we transition to the BOTTOM_KNOWN state</i></td></tr>
+<tr><th id="261">261</th><td>    <b>if</b> (<a class="local col7 ref" href="#17min_candidate" title='min_candidate' data-ref="17min_candidate">min_candidate</a> != <var>0</var>) {</td></tr>
+<tr><th id="262">262</th><td>      <b>using</b> <span class="namespace">std::</span>swap;</td></tr>
+<tr><th id="263">263</th><td>      swap(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>[<var>0</var>], <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>[<a class="local col7 ref" href="#17min_candidate" title='min_candidate' data-ref="17min_candidate">min_candidate</a>]);</td></tr>
+<tr><th id="264">264</th><td>    }</td></tr>
+<tr><th id="265">265</th><td>    <a class="member" href="#tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</a> = <a class="enum" href="#tensorflow::gtl::TopN::State::BOTTOM_KNOWN" title='tensorflow::gtl::TopN::State::BOTTOM_KNOWN' data-ref="tensorflow::gtl::TopN::State::BOTTOM_KNOWN">BOTTOM_KNOWN</a>;</td></tr>
+<tr><th id="266">266</th><td>  }</td></tr>
+<tr><th id="267">267</th><td>  <b>return</b> <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.front();</td></tr>
+<tr><th id="268">268</th><td>}</td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td><b>template</b> &lt;<b>class</b> T, <b>class</b> Cmp&gt;</td></tr>
+<tr><th id="271">271</th><td><span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<a class="type" href="#tensorflow::gtl::TopN" title='tensorflow::gtl::TopN' data-ref="tensorflow::gtl::TopN">TopN</a>&lt;T, Cmp&gt;::<dfn class="decl def" id="_ZN10tensorflow3gtl4TopN7ExtractEv" title='tensorflow::gtl::TopN::Extract' data-ref="_ZN10tensorflow3gtl4TopN7ExtractEv">Extract</dfn>() {</td></tr>
+<tr><th id="272">272</th><td>  <em>auto</em> <dfn class="local col9 decl" id="19out" title='out' data-type='auto' data-ref="19out">out</dfn> = <b>new</b> <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt;;</td></tr>
+<tr><th id="273">273</th><td>  <a class="local col9 ref" href="#19out" title='out' data-ref="19out">out</a>-&gt;swap(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>);</td></tr>
+<tr><th id="274">274</th><td>  <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</a> != <a class="enum" href="#tensorflow::gtl::TopN::State::HEAP_SORTED" title='tensorflow::gtl::TopN::State::HEAP_SORTED' data-ref="tensorflow::gtl::TopN::State::HEAP_SORTED">HEAP_SORTED</a>) {</td></tr>
+<tr><th id="275">275</th><td>    <span class="namespace">std::</span>sort(<a class="local col9 ref" href="#19out" title='out' data-ref="19out">out</a>-&gt;begin(), <a class="local col9 ref" href="#19out" title='out' data-ref="19out">out</a>-&gt;end(), <a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>);</td></tr>
+<tr><th id="276">276</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="277">277</th><td>    <a class="local col9 ref" href="#19out" title='out' data-ref="19out">out</a>-&gt;pop_back();</td></tr>
+<tr><th id="278">278</th><td>    <span class="namespace">std::</span>sort_heap(<a class="local col9 ref" href="#19out" title='out' data-ref="19out">out</a>-&gt;begin(), <a class="local col9 ref" href="#19out" title='out' data-ref="19out">out</a>-&gt;end(), <a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>);</td></tr>
+<tr><th id="279">279</th><td>  }</td></tr>
+<tr><th id="280">280</th><td>  <b>return</b> <a class="local col9 ref" href="#19out" title='out' data-ref="19out">out</a>;</td></tr>
+<tr><th id="281">281</th><td>}</td></tr>
+<tr><th id="282">282</th><td></td></tr>
+<tr><th id="283">283</th><td><b>template</b> &lt;<b>class</b> T, <b>class</b> Cmp&gt;</td></tr>
+<tr><th id="284">284</th><td><span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<a class="type" href="#tensorflow::gtl::TopN" title='tensorflow::gtl::TopN' data-ref="tensorflow::gtl::TopN">TopN</a>&lt;T, Cmp&gt;::<dfn class="decl def" id="_ZN10tensorflow3gtl4TopN15ExtractUnsortedEv" title='tensorflow::gtl::TopN::ExtractUnsorted' data-ref="_ZN10tensorflow3gtl4TopN15ExtractUnsortedEv">ExtractUnsorted</dfn>() {</td></tr>
+<tr><th id="285">285</th><td>  <em>auto</em> <dfn class="local col0 decl" id="20out" title='out' data-type='auto' data-ref="20out">out</dfn> = <b>new</b> <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt;;</td></tr>
+<tr><th id="286">286</th><td>  <a class="local col0 ref" href="#20out" title='out' data-ref="20out">out</a>-&gt;swap(<a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>);</td></tr>
+<tr><th id="287">287</th><td>  <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</a> == <a class="enum" href="#tensorflow::gtl::TopN::State::HEAP_SORTED" title='tensorflow::gtl::TopN::State::HEAP_SORTED' data-ref="tensorflow::gtl::TopN::State::HEAP_SORTED">HEAP_SORTED</a>) {</td></tr>
+<tr><th id="288">288</th><td>    <i>// Remove the limit_+1'th element.</i></td></tr>
+<tr><th id="289">289</th><td>    <a class="local col0 ref" href="#20out" title='out' data-ref="20out">out</a>-&gt;pop_back();</td></tr>
+<tr><th id="290">290</th><td>  }</td></tr>
+<tr><th id="291">291</th><td>  <b>return</b> <a class="local col0 ref" href="#20out" title='out' data-ref="20out">out</a>;</td></tr>
+<tr><th id="292">292</th><td>}</td></tr>
+<tr><th id="293">293</th><td></td></tr>
+<tr><th id="294">294</th><td><b>template</b> &lt;<b>class</b> T, <b>class</b> Cmp&gt;</td></tr>
+<tr><th id="295">295</th><td><span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<a class="type" href="#tensorflow::gtl::TopN" title='tensorflow::gtl::TopN' data-ref="tensorflow::gtl::TopN">TopN</a>&lt;T, Cmp&gt;::<dfn class="decl def" id="_ZNK10tensorflow3gtl4TopN21ExtractNondestructiveEv" title='tensorflow::gtl::TopN::ExtractNondestructive' data-ref="_ZNK10tensorflow3gtl4TopN21ExtractNondestructiveEv">ExtractNondestructive</dfn>() <em>const</em> {</td></tr>
+<tr><th id="296">296</th><td>  <em>auto</em> <dfn class="local col1 decl" id="21out" title='out' data-type='auto' data-ref="21out">out</dfn> = <b>new</b> <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt;;</td></tr>
+<tr><th id="297">297</th><td>  ExtractNondestructive(<a class="local col1 ref" href="#21out" title='out' data-ref="21out">out</a>);</td></tr>
+<tr><th id="298">298</th><td>  <b>return</b> <a class="local col1 ref" href="#21out" title='out' data-ref="21out">out</a>;</td></tr>
+<tr><th id="299">299</th><td>}</td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td><b>template</b> &lt;<b>class</b> T, <b>class</b> Cmp&gt;</td></tr>
+<tr><th id="302">302</th><td><em>void</em> <a class="type" href="#tensorflow::gtl::TopN" title='tensorflow::gtl::TopN' data-ref="tensorflow::gtl::TopN">TopN</a>&lt;T, Cmp&gt;::<dfn class="decl def" id="_ZNK10tensorflow3gtl4TopN21ExtractNondestructiveEPSt6vectorIT_SaIS3_EE" title='tensorflow::gtl::TopN::ExtractNondestructive' data-ref="_ZNK10tensorflow3gtl4TopN21ExtractNondestructiveEPSt6vectorIT_SaIS3_EE">ExtractNondestructive</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<dfn class="local col2 decl" id="22output" title='output' data-type='std::vector&lt;T&gt; *' data-ref="22output">output</dfn>) <em>const</em> {</td></tr>
+<tr><th id="303">303</th><td>  <a class="macro" href="../../platform/default/logging.h.html#97" title="if ((__builtin_expect(!(output), 0))) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/core/lib/gtl/top_n.h&quot;, 303) &lt;&lt; &quot;Check failed: &quot; &quot;output&quot; &quot; &quot;" data-ref="_M/CHECK">CHECK</a>(<a class="local col2 ref" href="#22output" title='output' data-ref="22output">output</a>);</td></tr>
+<tr><th id="304">304</th><td>  *<a class="local col2 ref" href="#22output" title='output' data-ref="22output">output</a> = <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>;</td></tr>
+<tr><th id="305">305</th><td>  <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</a> != <a class="enum" href="#tensorflow::gtl::TopN::State::HEAP_SORTED" title='tensorflow::gtl::TopN::State::HEAP_SORTED' data-ref="tensorflow::gtl::TopN::State::HEAP_SORTED">HEAP_SORTED</a>) {</td></tr>
+<tr><th id="306">306</th><td>    <span class="namespace">std::</span>sort(<a class="local col2 ref" href="#22output" title='output' data-ref="22output">output</a>-&gt;begin(), <a class="local col2 ref" href="#22output" title='output' data-ref="22output">output</a>-&gt;end(), <a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>);</td></tr>
+<tr><th id="307">307</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="308">308</th><td>    <a class="local col2 ref" href="#22output" title='output' data-ref="22output">output</a>-&gt;pop_back();</td></tr>
+<tr><th id="309">309</th><td>    <span class="namespace">std::</span>sort_heap(<a class="local col2 ref" href="#22output" title='output' data-ref="22output">output</a>-&gt;begin(), <a class="local col2 ref" href="#22output" title='output' data-ref="22output">output</a>-&gt;end(), <a class="member" href="#tensorflow::gtl::TopN::cmp_" title='tensorflow::gtl::TopN::cmp_' data-ref="tensorflow::gtl::TopN::cmp_">cmp_</a>);</td></tr>
+<tr><th id="310">310</th><td>  }</td></tr>
+<tr><th id="311">311</th><td>}</td></tr>
+<tr><th id="312">312</th><td></td></tr>
+<tr><th id="313">313</th><td><b>template</b> &lt;<b>class</b> T, <b>class</b> Cmp&gt;</td></tr>
+<tr><th id="314">314</th><td><span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<a class="type" href="#tensorflow::gtl::TopN" title='tensorflow::gtl::TopN' data-ref="tensorflow::gtl::TopN">TopN</a>&lt;T, Cmp&gt;::<dfn class="decl def" id="_ZNK10tensorflow3gtl4TopN29ExtractUnsortedNondestructiveEv" title='tensorflow::gtl::TopN::ExtractUnsortedNondestructive' data-ref="_ZNK10tensorflow3gtl4TopN29ExtractUnsortedNondestructiveEv">ExtractUnsortedNondestructive</dfn>() <em>const</em> {</td></tr>
+<tr><th id="315">315</th><td>  <em>auto</em> <dfn class="local col3 decl" id="23elements" title='elements' data-type='auto' data-ref="23elements">elements</dfn> = <b>new</b> <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt;;</td></tr>
+<tr><th id="316">316</th><td>  ExtractUnsortedNondestructive(<a class="local col3 ref" href="#23elements" title='elements' data-ref="23elements">elements</a>);</td></tr>
+<tr><th id="317">317</th><td>  <b>return</b> <a class="local col3 ref" href="#23elements" title='elements' data-ref="23elements">elements</a>;</td></tr>
+<tr><th id="318">318</th><td>}</td></tr>
+<tr><th id="319">319</th><td></td></tr>
+<tr><th id="320">320</th><td><b>template</b> &lt;<b>class</b> T, <b>class</b> Cmp&gt;</td></tr>
+<tr><th id="321">321</th><td><em>void</em> <a class="type" href="#tensorflow::gtl::TopN" title='tensorflow::gtl::TopN' data-ref="tensorflow::gtl::TopN">TopN</a>&lt;T, Cmp&gt;::<dfn class="decl def" id="_ZNK10tensorflow3gtl4TopN29ExtractUnsortedNondestructiveEPSt6vectorIT_SaIS3_EE" title='tensorflow::gtl::TopN::ExtractUnsortedNondestructive' data-ref="_ZNK10tensorflow3gtl4TopN29ExtractUnsortedNondestructiveEPSt6vectorIT_SaIS3_EE">ExtractUnsortedNondestructive</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;T&gt; *<dfn class="local col4 decl" id="24output" title='output' data-type='std::vector&lt;T&gt; *' data-ref="24output">output</dfn>) <em>const</em> {</td></tr>
+<tr><th id="322">322</th><td>  <a class="macro" href="../../platform/default/logging.h.html#97" title="if ((__builtin_expect(!(output), 0))) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/core/lib/gtl/top_n.h&quot;, 322) &lt;&lt; &quot;Check failed: &quot; &quot;output&quot; &quot; &quot;" data-ref="_M/CHECK">CHECK</a>(<a class="local col4 ref" href="#24output" title='output' data-ref="24output">output</a>);</td></tr>
+<tr><th id="323">323</th><td>  *<a class="local col4 ref" href="#24output" title='output' data-ref="24output">output</a> = <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>;</td></tr>
+<tr><th id="324">324</th><td>  <b>if</b> (<a class="member" href="#tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</a> == <a class="enum" href="#tensorflow::gtl::TopN::State::HEAP_SORTED" title='tensorflow::gtl::TopN::State::HEAP_SORTED' data-ref="tensorflow::gtl::TopN::State::HEAP_SORTED">HEAP_SORTED</a>) {</td></tr>
+<tr><th id="325">325</th><td>    <i>// Remove the limit_+1'th element.</i></td></tr>
+<tr><th id="326">326</th><td>    <a class="local col4 ref" href="#24output" title='output' data-ref="24output">output</a>-&gt;pop_back();</td></tr>
+<tr><th id="327">327</th><td>  }</td></tr>
+<tr><th id="328">328</th><td>}</td></tr>
+<tr><th id="329">329</th><td></td></tr>
+<tr><th id="330">330</th><td><b>template</b> &lt;<b>class</b> T, <b>class</b> Cmp&gt;</td></tr>
+<tr><th id="331">331</th><td><em>void</em> <a class="type" href="#tensorflow::gtl::TopN" title='tensorflow::gtl::TopN' data-ref="tensorflow::gtl::TopN">TopN</a>&lt;T, Cmp&gt;::<dfn class="decl def" id="_ZN10tensorflow3gtl4TopN5ResetEv" title='tensorflow::gtl::TopN::Reset' data-ref="_ZN10tensorflow3gtl4TopN5ResetEv">Reset</dfn>() {</td></tr>
+<tr><th id="332">332</th><td>  <a class="member" href="#tensorflow::gtl::TopN::elements_" title='tensorflow::gtl::TopN::elements_' data-ref="tensorflow::gtl::TopN::elements_">elements_</a>.clear();</td></tr>
+<tr><th id="333">333</th><td>  <a class="member" href="#tensorflow::gtl::TopN::state_" title='tensorflow::gtl::TopN::state_' data-ref="tensorflow::gtl::TopN::state_">state_</a> = <a class="enum" href="#tensorflow::gtl::TopN::State::UNORDERED" title='tensorflow::gtl::TopN::State::UNORDERED' data-ref="tensorflow::gtl::TopN::State::UNORDERED">UNORDERED</a>;</td></tr>
+<tr><th id="334">334</th><td>}</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td>}  <i>// namespace gtl</i></td></tr>
+<tr><th id="337">337</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td><u>#<span data-ppcond="39">endif</span>  // TENSORFLOW_LIB_GTL_TOP_N_H_</u></td></tr>
+<tr><th id="340">340</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../contrib/factorization/kernels/clustering_ops.cc.html'>tensorflow/tensorflow/contrib/factorization/kernels/clustering_ops.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

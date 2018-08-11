@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='255' type='static bool xla::ShapeUtil::CompatibleIgnoringElementType(const xla::Shape &amp; lhs, const xla::Shape &amp; rhs)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='252'>// Returns true if the rank and dimension sizes are identical. Element type
+  // and layout are ignored. Tuple elements are compared recursively for
+  // compatibility.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1138' u='c' c='_ZNK3xla18ElementalIrEmitter22ElementwiseSourceIndexERKNS_7llvm_ir7IrArray5IndexERKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2422' u='c' c='_ZN3xla14ShapeInference16InferSelectShapeERKNS_5ShapeES3_S3_'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='628' ll='639' type='static bool xla::ShapeUtil::CompatibleIgnoringElementType(const xla::Shape &amp; lhs, const xla::Shape &amp; rhs)'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='633' u='r' c='_ZN3xla9ShapeUtil29CompatibleIgnoringElementTypeERKNS_5ShapeES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='652' u='c' c='_ZN3xla9ShapeUtil29CompatibleIgnoringFpPrecisionERKNS_5ShapeES3_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='628'>/* static */</doc>

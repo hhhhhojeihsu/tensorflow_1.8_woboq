@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/platform_util.h' l='45' type='static StatusOr&lt;perftools::gputools::Platform *&gt; xla::PlatformUtil::GetDefaultPlatform()'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/client_library.cc' l='86' u='c' c='_ZN3xla13ClientLibrary22GetOrCreateLocalClientERKNS_18LocalClientOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/client_library.cc' l='133' u='c' c='_ZN3xla13ClientLibrary28GetOrCreateCompileOnlyClientEPN9perftools8gputools8PlatformE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/platform_util.h' l='40'>// Convenience function which returns the default supported platform for
+  // tests. If exactly one supported platform is present, then this platform is
+  // the default platform. If exactly two platforms are present and one of them
+  // is the interpreter platform, then the other platform is the default
+  // platform. Otherwise returns an error.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='97' u='c' c='_ZN3xla7Backend20CreateDefaultBackendEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/compile_only_service.cc' l='50' u='c' c='_ZN3xla18CompileOnlyService10NewServiceERKNS_14ServiceOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/local_service.cc' l='54' u='c' c='_ZN3xla12LocalService10NewServiceERKNS_14ServiceOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='120' ll='143' type='static StatusOr&lt;se::Platform *&gt; xla::PlatformUtil::GetDefaultPlatform()'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='120'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='137' u='c' c='_ZN3xla7Service10NewServiceERKNS_14ServiceOptionsE'/>

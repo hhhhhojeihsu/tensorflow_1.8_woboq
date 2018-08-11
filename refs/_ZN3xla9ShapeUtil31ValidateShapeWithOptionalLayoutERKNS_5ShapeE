@@ -1,0 +1,45 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='372' type='static tensorflow::Status xla::ShapeUtil::ValidateShapeWithOptionalLayout(const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='367'>// Validates the provided shape satisfies invariants, except those that
+  // pertain to layout.
+  //
+  // Layout is optional for client-provided shapes, so that the compiler may
+  // determine and assign an optimized layout.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1062' u='c' c='_ZN3xla10XlaBuilder5RngOpENS_18RandomDistributionEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_hlo_support_checker.cc' l='29' u='c' c='_ZN3xla20CpuHloSupportChecker3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2543' u='c' c='_ZN3xla14HloInstructionC1ENS_9HloOpcodeERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2951' u='c' c='_ZNK3xla14HloInstruction13outfeed_shapeEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2956' u='c' c='_ZNK3xla14HloInstruction5shapeEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='324' u='c' c='_ZN3xla14ShapeInference17InferUnaryOpShapeENS_14UnaryOperationERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='755' u='c' c='_ZN3xla14ShapeInference15InferDotOpShapeERKNS_5ShapeES3_RKNS_19DotDimensionNumbersE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='967' u='c' c='_ZN3xla14ShapeInference18InferBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='968' u='c' c='_ZN3xla14ShapeInference18InferBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1052' u='c' c='_ZN3xla14ShapeInference19InferTernaryOpShapeENS_16TernaryOperationERKNS_5ShapeES4_S4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1053' u='c' c='_ZN3xla14ShapeInference19InferTernaryOpShapeENS_16TernaryOperationERKNS_5ShapeES4_S4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1054' u='c' c='_ZN3xla14ShapeInference19InferTernaryOpShapeENS_16TernaryOperationERKNS_5ShapeES4_S4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1087' u='c' c='_ZN3xla14ShapeInference20InferVariadicOpShapeENS_17VariadicOperationEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1211' u='c' c='_ZN3xla14ShapeInference27InferBatchNormTrainingShapeERKNS_5ShapeES3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1213' u='c' c='_ZN3xla14ShapeInference27InferBatchNormTrainingShapeERKNS_5ShapeES3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1215' u='c' c='_ZN3xla14ShapeInference27InferBatchNormTrainingShapeERKNS_5ShapeES3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1317' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1319' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1321' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1323' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1325' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1469' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1470' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1471' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1472' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1474' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1652' u='c' c='_ZN3xla14ShapeInference18InferConvolveShapeERKNS_5ShapeES3_RKNS_6WindowERKNS_27ConvolutionDimensionNumbersE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1653' u='c' c='_ZN3xla14ShapeInference18InferConvolveShapeERKNS_5ShapeES3_RKNS_6WindowERKNS_27ConvolutionDimensionNumbersE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='213' u='c' c='_ZN3xla15UserComputation23AddParameterInstructionERKNS_16ParameterRequestE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='256' u='c' c='_ZN3xla15UserComputation18AddRecvInstructionERKNS_11RecvRequestE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='302' u='c' c='_ZN3xla15UserComputation22AddConstantInstructionERKNS_15ConstantRequestE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='422' u='c' c='_ZN3xla15UserComputation17AddRngInstructionERKNS_10RngRequestE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='245' u='c' c='_ZN3xla9ShapeUtil14MakeTupleShapeEN10tensorflow3gtl10ArraySliceINS_5ShapeEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='252' u='c' c='_ZN3xla9ShapeUtil15MakeOpaqueShapeEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='258' u='c' c='_ZN3xla9ShapeUtil18AppendShapeToTupleERKNS_5ShapeEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='342' u='c' c='_ZN3xla9ShapeUtil20GetTupleElementShapeERKNS_5ShapeEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='348' u='c' c='_ZN3xla9ShapeUtil10SliceTupleERKNS_5ShapeExx'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='805' ll='812' type='static tensorflow::Status xla::ShapeUtil::ValidateShapeWithOptionalLayout(const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='805'>/* static */</doc>

@@ -1,0 +1,55 @@
+<dec f='tensorflow/tensorflow/core/grappler/utils.h' l='98' type='bool tensorflow::grappler::IsControlInput(const string &amp; name)'/>
+<doc f='tensorflow/tensorflow/core/grappler/utils.h' l='96'>// True iff &apos;name&apos; refers to a control inputs, i.e. a node name prefixed with
+// the ^ character.</doc>
+<use f='tensorflow/tensorflow/core/grappler/costs/utils.cc' l='98' u='c' c='_ZN10tensorflow8grapplerL22ExtractExtraPropertiesERKNS_7NodeDefERKSt13unordered_mapISsPS2_St4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEEPNS_6OpInfoE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='498' u='c' c='_ZN10tensorflow8grappler16VirtualScheduler22MaybeUpdateInputOutputEPKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/graph_view.cc' l='168' u='c' c='_ZNK10tensorflow8grappler9GraphView9NumFaninsERKNS_7NodeDefEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='149' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_117CopyControlInputsERKNS_7NodeDefEPS2_PNS_8GraphDefEPNS0_7NodeMapE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='296' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_124ArithmeticOptimizerStage26ForwardControlDependenciesEPNS_7NodeDefERKSt6vectorIPKS3_SaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='379' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_134ArithmeticNodesGroupOptimizerStage32AbsorbInputByOptimizedNodesGroupERKSsPNS2_19OptimizedNodesGroupE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='405' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_134ArithmeticNodesGroupOptimizerStage25CreateOptimizedNodesGroupEPNS_7NodeDefEPNS2_19OptimizedNodesGroupE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='430' u='r' c='_ZNK10tensorflow8grappler12_GLOBAL__N_134ArithmeticNodesGroupOptimizerStage27IsDrivenByControlDependencyERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='795' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_133HoistCommonFactorOutOfAggregation16GetCommonFactorsEPKNS_7NodeDefEPSt3setISsSt4lessISsESaISsEEPSt6vectorISsS9_E'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='837' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_133HoistCommonFactorOutOfAggregation16GetUniqueFactorsEPKNS_7NodeDefERKSsPbPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1334' u='c' c='_ZNK10tensorflow8grappler11UniqueNodes8SameNodeERKNS_7NodeDefES4_'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1511' u='c' c='_ZN10tensorflow8grappler19ArithmeticOptimizer26ForwardControlDependenciesEPNS_7NodeDefERKSt6vectorIPKS2_SaIS6_EE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1770' u='c' c='_ZN10tensorflow8grappler19ArithmeticOptimizer25TrySimplifyAndReplaceUsesEPKNS_7NodeDefEPNS0_9SetVectorIPS2_EE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='156' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_123MaybeRemoveControlInputERKSsPNS_7NodeDefEPNS_8GraphDefEPNS0_7NodeMapE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='188' u='c' c='_ZN10tensorflow8grappler15ConstantFolding20AddControlDependencyERKSsPNS_8GraphDefEPNS0_7NodeMapE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='806' u='c' c='_ZNK10tensorflow8grappler15ConstantFolding10IsFoldableERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1064' u='c' c='_ZN10tensorflow8grappler15ConstantFolding8FoldNodeEPNS_7NodeDefEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1074' u='c' c='_ZN10tensorflow8grappler15ConstantFolding8FoldNodeEPNS_7NodeDefEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1154' u='c' c='_ZN10tensorflow8grappler15ConstantFolding8FoldNodeEPNS_7NodeDefEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1161' u='c' c='_ZN10tensorflow8grappler15ConstantFolding8FoldNodeEPNS_7NodeDefEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1480' u='c' c='_ZN10tensorflow8grappler15ConstantFolding28ReplaceOperationWithIdentityEiPNS_7NodeDefEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1503' u='c' c='_ZN10tensorflow8grappler15ConstantFolding28ReplaceOperationWithSnapshotEiPNS_7NodeDefEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1548' u='c' c='_ZN10tensorflow8grappler15ConstantFolding28ReplaceOperationWithConstantEdRKNS_9AttrValueERKNS_16TensorShapeProtoEPNS_7NodeDefEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2136' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2155' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2203' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/debug_stripper.cc' l='40' u='c' c='_ZN10tensorflow8grappler13DebugStripper8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/debug_stripper.cc' l='56' u='c' c='_ZN10tensorflow8grappler13DebugStripper8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/dependency_optimizer.cc' l='203' u='c' c='_ZN10tensorflow8grappler19DependencyOptimizer12OptimizeNodeEiPNS0_9SetVectorIiEEPSt3setIiSt4lessIiESaIiEE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/dependency_optimizer.cc' l='357' u='c' c='_ZN10tensorflow8grappler19DependencyOptimizer12OptimizeNodeEiPNS0_9SetVectorIiEEPSt3setIiSt4lessIiESaIiEE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/dependency_optimizer.cc' l='474' u='c' c='_ZN10tensorflow8grappler19DependencyOptimizer19TransitiveReductionEv'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/graph_rewriter.cc' l='72' u='c' c='_ZN10tensorflow8grappler13GraphRewriter13ForwardInputsERKNS_7NodeDefERKSt13unordered_setIPS3_St4hashIS6_ESt8equal_toIS6_ESaIS6_EEPS2_'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/graph_rewriter.cc' l='205' u='c' c='_ZN10tensorflow8grappler13GraphRewriter21ForwardInputsInternalERKNS_7NodeDefERKSt13unordered_setIPS3_St4hashIS6_ESt8equal_toIS6_ESaIS6_EEbPS2_'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='327' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_116NonControlInputsERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='364' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_112DataInputPosERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='82' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_132LoopInvariantNodeMotionOptimizer20HandleInvariantEnterEPNS_7NodeDefEi'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='137' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_132LoopInvariantNodeMotionOptimizer11HandleConstEPNS_7NodeDefEii'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='184' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_132LoopInvariantNodeMotionOptimizer19HandleInvariantNodeEPNS_7NodeDefEii'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='276' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_132LoopInvariantNodeMotionOptimizer20RevertInvariantNodesEv'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='297' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_132LoopInvariantNodeMotionOptimizer20RevertInvariantNodesEv'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='332' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_132LoopInvariantNodeMotionOptimizer18FindInvariantNodesEPNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='594' u='c' c='_ZN10tensorflow8grappler14SchedulingPassEPNS0_7ClusterEPNS0_12GrapplerItemE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='608' u='c' c='_ZN10tensorflow8grappler14SchedulingPassEPNS0_7ClusterEPNS0_12GrapplerItemE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='661' u='c' c='_ZN10tensorflow8grappler14SchedulingPassEPNS0_7ClusterEPNS0_12GrapplerItemE'/>
+<def f='tensorflow/tensorflow/core/grappler/utils.cc' l='177' ll='179' type='bool tensorflow::grappler::IsControlInput(const string &amp; name)'/>
+<use f='tensorflow/tensorflow/core/grappler/utils.cc' l='260' u='c' c='_ZN10tensorflow8grappler16HasControlInputsERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/utils.cc' l='269' u='c' c='_ZN10tensorflow8grappler19NumNonControlInputsERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/utils.cc' l='280' u='c' c='_ZN10tensorflow8grappler20NumNonControlOutputsERKNS_7NodeDefERKNS0_7NodeMapE'/>
+<use f='tensorflow/tensorflow/core/grappler/utils.cc' l='298' u='c' c='_ZN10tensorflow8grappler24NumNonControlDataOutputsERKNS_7NodeDefERKNS0_7NodeMapE'/>
+<use f='tensorflow/tensorflow/core/grappler/utils.cc' l='328' u='c' c='_ZN10tensorflow8grappler14GetTailOfChainERKNS_7NodeDefERKNS0_7NodeMapEbRKSt8functionIFbS3_EE'/>
+<use f='tensorflow/tensorflow/core/grappler/utils.cc' l='366' u='c' c='_ZN10tensorflow8grappler18DedupControlInputsEPNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/utils/functions.cc' l='113' u='c' c='_ZN10tensorflow8grappler27GrapplerItemFromFunctionDefERKNS_11FunctionDefERKSt13unordered_mapISsNS_9AttrValueESt4hashISsESt8equal_toISsESaISt4pairIKSsS9048812'/>

@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/platform/env.h' l='256' type='void tensorflow::Env::SchedClosure(std::function&lt;void ()&gt; closure)'/>
+<ovr f='tensorflow/tensorflow/core/platform/env.h' l='342' c='_ZN10tensorflow10EnvWrapper12SchedClosureESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/platform/env.h' l='343' u='c' c='_ZN10tensorflow10EnvWrapper12SchedClosureESt8functionIFvvEE'/>
+<doc f='tensorflow/tensorflow/core/platform/env.h' l='253'>// \brief Schedules the given closure on a thread-pool.
+  //
+  // NOTE(mrry): This closure may block.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/process_util.cc' l='92' u='c' c='_ZN10tensorflow12SchedClosureESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/process_util.cc' l='94' u='c' c='_ZN10tensorflow12SchedClosureESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/single_machine.cc' l='331' u='c' c='_ZN10tensorflow8grappler13SingleMachine15ShutdownSessionEv'/>
+<use f='tensorflow/tensorflow/core/kernels/collective_ops.cc' l='45' u='c' c='_ZN10tensorflow12_GLOBAL__N_118CollectiveOpKernel21CanProceedWithComputeEPNS_15OpKernelContextEPNS_18CollectiveExecutorERKSt8functionIFvvEE'/>
+<ovr f='tensorflow/tensorflow/core/platform/posix/env.cc' l='89' c='_ZN10tensorflow12_GLOBAL__N_18PosixEnv12SchedClosureESt8functionIFvvEE'/>

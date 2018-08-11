@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='208' type='const xla::Computation * tensorflow::XlaOpKernelContext::GetOrCreateMax(const tensorflow::DataType type)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='203'>// TODO(phawkins): find a better home for these helpers.
+
+  // Gets an XLA lambda to compute Max. This is cached in the
+  // XlaContext since it may be used by multiple Ops. There is a
+  // separate specialization of the computation for each DataType.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='143' u='c' c='_ZN10tensorflow12_GLOBAL__N_19MaxPoolOp9ReductionEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/quantize_and_dequantize_op.cc' l='58' u='c' c='_ZN10tensorflow12_GLOBAL__N_123QuantizeAndDequantizeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='47' u='c' c='_ZN10tensorflow12_GLOBAL__N_19SoftmaxOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='83' u='c' c='_ZN10tensorflow12_GLOBAL__N_122CrossEntropyWithLogitsEPNS_18XlaOpKernelContextENS_8DataTypeERKN3xla21ComputationDataHandleES7_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='47' u='c' c='_ZN10tensorflow12_GLOBAL__N_19ArgMinMaxEPN3xla18ComputationBuilderEPNS_18XlaOpKernelContextERKNS1_21ComputationDataHandleERKNS_11TensorShapeENS_8DataTypeESC_ibPS6_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='86' u='c' c='_ZN10tensorflow12_GLOBAL__N_19ArgMinMaxEPN3xla18ComputationBuilderEPNS_18XlaOpKernelContextERKNS1_21ComputationDataHandleERKNS_11TensorShapeENS_8DataTypeESC_ibPS6_'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='460' ll='463' type='const xla::Computation * tensorflow::XlaOpKernelContext::GetOrCreateMax(const tensorflow::DataType type)'/>

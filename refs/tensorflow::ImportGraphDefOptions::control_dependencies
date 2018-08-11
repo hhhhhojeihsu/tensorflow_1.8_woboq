@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/graph/graph_constructor.h' l='103' type='std::vector&lt;string&gt;'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2005' u='m' c='TF_ImportGraphDefOptionsAddControlDependency'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2208' u='m' c='(anonymousnamespace)::CopyGraph'/>
+<offset>576</offset>
+<doc f='tensorflow/tensorflow/core/graph/graph_constructor.h' l='97'>// The names of existing nodes in `g` that the imported graph should have
+  // control dependencies on.
+  //
+  // Note that to avoid creating many redundant control edges, ImportGraphDef()
+  // won&apos;t add control edges to nodes that will inherit the dependencies from
+  // other nodes in `gdef`.</doc>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='84' u='r' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor7OptionsC1ERKNS_21ImportGraphDefOptionsE'/>

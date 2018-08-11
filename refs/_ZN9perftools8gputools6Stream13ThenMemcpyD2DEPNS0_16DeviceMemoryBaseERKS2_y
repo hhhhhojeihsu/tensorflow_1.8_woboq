@@ -1,0 +1,4 @@
+<def f='tensorflow/tensorflow/stream_executor/stream.h' l='1773' ll='1776' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenMemcpyD2D(perftools::gputools::DeviceMemoryBase * gpu_dst, const perftools::gputools::DeviceMemoryBase &amp; gpu_src, uint64 size)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream.h' l='1770'>// Calls to the device-to-device copy overload of ThenMemcpy -- useful for
+  // ensuring that the host pointer isn&apos;t getting confused accidentally with a
+  // device pointer if you&apos;re not doing metaprogramming against the API.</doc>

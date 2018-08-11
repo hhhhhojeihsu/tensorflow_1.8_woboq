@@ -1,0 +1,5 @@
+<def f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='392' ll='456' type='tensorflow::Status tensorflow::graph_transforms::ConvertFakeQuantsToRequantize(const tensorflow::GraphDef &amp; input_graph_def, const tensorflow::graph_transforms::TransformFuncContext &amp; context, tensorflow::GraphDef * output_graph_def)'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='678' u='c' c='_ZN10tensorflow16graph_transforms13QuantizeNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<doc f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='389'>// During training, FakeQuantWithMinMaxVars ops capture a good min/max range for
+// an activation layer. To use these during inference, this pass converts those
+// ops into Requantizes with the trained min/maxes as constant inputs.</doc>

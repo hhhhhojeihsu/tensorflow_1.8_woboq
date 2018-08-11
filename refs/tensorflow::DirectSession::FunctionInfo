@@ -1,0 +1,15 @@
+<def f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='165' ll='168'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='154'>// A FunctionInfo object is created for every unique set of feeds/fetches.
+  // This info could be folded into the ExecutorsAndKeys object but we would
+  // like to maintain a deletion order in which the OpKernels (owned by the
+  // executor) should be destroyed first, followed by the resources in the
+  // device and then followed by the function stuff.
+  // TODO(rohanj): Consolidate function library definitions so that we can
+  // instantiate only one ProcFLR and lib_def and make this just a member
+  // variable and not a vector.
+  // &apos;flib_def&apos; is the function library used.
+  // &apos;proc_flr&apos; is the collection of FunctionLibraryRuntime objects, one per
+  // device.</doc>
+<mbr r='tensorflow::DirectSession::FunctionInfo::flib_def' o='0' t='std::unique_ptr&lt;FunctionLibraryDefinition&gt;'/>
+<mbr r='tensorflow::DirectSession::FunctionInfo::proc_flr' o='64' t='std::unique_ptr&lt;ProcessFunctionLibraryRuntime&gt;'/>

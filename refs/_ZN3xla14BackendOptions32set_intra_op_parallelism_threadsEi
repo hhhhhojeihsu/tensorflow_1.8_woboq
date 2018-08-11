@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='53' type='xla::BackendOptions &amp; xla::BackendOptions::set_intra_op_parallelism_threads(int num_threads)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='50'>// Sets the thread pool size for parallel execution of an individual operator.
+  // The default value of -1 will result in initializing the thread pool with
+  // the number of threads equal to the number of cores in the system.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='53' ll='57' type='xla::BackendOptions &amp; xla::BackendOptions::set_intra_op_parallelism_threads(int num_threads)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/local_service.cc' l='58' u='c' c='_ZN3xla12LocalService10NewServiceERKNS_14ServiceOptionsE'/>

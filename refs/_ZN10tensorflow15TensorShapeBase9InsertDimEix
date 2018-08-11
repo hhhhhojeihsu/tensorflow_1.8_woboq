@@ -1,0 +1,24 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='197' type='void tensorflow::TensorShapeBase::InsertDim(int d, int64 size)'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='194'>/// \brief Insert a dimension somewhere in the `TensorShape`.
+  /// REQUIRES: `0 &lt;= d &lt;= dims()`
+  /// REQUIRES: `size &gt;= 0`</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pack_op.cc' l='75' u='c' c='_ZN10tensorflow12_GLOBAL__N_16PackOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/segment_reduction_ops.cc' l='68' u='c' c='_ZN10tensorflow12_GLOBAL__N_118UnsortedSegmentSum7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stack_ops.cc' l='160' u='c' c='_ZN10tensorflow12_GLOBAL__N_111StackPushOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='120' u='c' c='_ZN10tensorflow12_GLOBAL__N_119GetTensorArrayShapeEPKNS_11XlaResourceEPN3xla18ComputationBuilderEPNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='227' u='c' c='_ZN10tensorflow12_GLOBAL__N_118TensorArrayWriteOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='241' u='c' c='_ZN10tensorflow10XlaHelpers6OneHotEPN3xla18ComputationBuilderExiNS_8DataTypeERKNS_11TensorShapeERKNS1_21ComputationDataHandleESA_SA_PS8_'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/stats_accumulator_ops.cc' l='191' u='c' c='_ZN10tensorflow13boosted_trees12_GLOBAL__N_134SerializeTensorAccumulatorToOutputERKNS1_24StatsAccumulatorResourceISt6vectorIfSaIfEES5_EEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/stats_accumulator_ops.cc' l='200' u='c' c='_ZN10tensorflow13boosted_trees12_GLOBAL__N_134SerializeTensorAccumulatorToOutputERKNS1_24StatsAccumulatorResourceISt6vectorIfSaIfEES5_EEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='304' ll='317' type='void tensorflow::TensorShapeBase::InsertDim(int d, int64 size)'/>
+<use f='tensorflow/tensorflow/core/kernels/barrier_ops.cc' l='163' u='c' c='_ZN10tensorflow7barrier7Barrier13TryInsertManyERKNS_6TensorEiS4_PNS_15OpKernelContextERKSt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='56' u='c' c='_ZN10tensorflow12_GLOBAL__N_126PrependQueueShapeWithBatchERKSt6vectorINS_18PartialTensorShapeESaIS2_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/one_hot_op.cc' l='90' u='c' c='_ZN10tensorflow8OneHotOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/pack_op.cc' l='76' u='c' c='_ZN10tensorflow6PackOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/pad_op.cc' l='172' u='c' c='_ZN10tensorflow5PadOp35CollapseAdjacentNonPaddedDimensionsERKNS_11TensorShapeERKNS_6TensorES3_PS1_PS4_S7_'/>
+<use f='tensorflow/tensorflow/core/kernels/pad_op.cc' l='174' u='c' c='_ZN10tensorflow5PadOp35CollapseAdjacentNonPaddedDimensionsERKNS_11TensorShapeERKNS_6TensorES3_PS1_PS4_S7_'/>
+<use f='tensorflow/tensorflow/core/kernels/pad_op.cc' l='191' u='c' c='_ZN10tensorflow5PadOp35CollapseAdjacentNonPaddedDimensionsERKNS_11TensorShapeERKNS_6TensorES3_PS1_PS4_S7_'/>
+<use f='tensorflow/tensorflow/core/kernels/pad_op.cc' l='193' u='c' c='_ZN10tensorflow5PadOp35CollapseAdjacentNonPaddedDimensionsERKNS_11TensorShapeERKNS_6TensorES3_PS1_PS4_S7_'/>
+<use f='tensorflow/tensorflow/core/kernels/tensor_array_ops.cc' l='619' u='c' c='_ZN10tensorflow25TensorArrayPackOrGatherOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/tensor_array_ops.cc' l='640' u='c' c='_ZN10tensorflow25TensorArrayPackOrGatherOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/tensor_array_ops.cc' l='823' u='c' c='_ZN10tensorflow19TensorArrayConcatOp7ComputeEPNS_15OpKernelContextE'/>

@@ -1,0 +1,34 @@
+<def f='tensorflow/tensorflow/stream_executor/plugin_registry.h' l='51' ll='161'/>
+<size>384</size>
+<doc f='tensorflow/tensorflow/stream_executor/plugin_registry.h' l='38'>// The PluginRegistry is a singleton that maintains the set of registered
+// &quot;support library&quot; plugins. Currently, there are four kinds of plugins:
+// BLAS, DNN, FFT, and RNG. Each interface is defined in the corresponding
+// gpu_{kind}.h header.
+//
+// At runtime, a StreamExecutor object will query the singleton registry to
+// retrieve the plugin kind that StreamExecutor was configured with (refer to
+// the StreamExecutor and PluginConfig declarations).
+//
+// Plugin libraries are best registered using REGISTER_MODULE_INITIALIZER,
+// but can be registered at any time. When registering a DSO-backed plugin, it
+// is usually a good idea to load the DSO at registration time, to prevent
+// late-loading from distorting performance/benchmarks as much as possible.</doc>
+<fun r='_ZN9perftools8gputools14PluginRegistry8InstanceEv'/>
+<fun r='_ZN9perftools8gputools14PluginRegistry15RegisterFactoryEPvS2_RKSsT_'/>
+<fun r='_ZN9perftools8gputools14PluginRegistry30RegisterFactoryForAllPlatformsEPvRKSsT_'/>
+<fun r='_ZN9perftools8gputools14PluginRegistry19MapPlatformKindToIdENS0_12PlatformKindEPv'/>
+<fun r='_ZN9perftools8gputools14PluginRegistry17SetDefaultFactoryEPvNS0_10PluginKindES2_'/>
+<fun r='_ZNK9perftools8gputools14PluginRegistry10HasFactoryEPvNS0_10PluginKindES2_'/>
+<fun r='_ZN9perftools8gputools14PluginRegistry10GetFactoryEPvS2_'/>
+<fun r='_ZN9perftools8gputools14PluginRegistry10GetFactoryENS0_12PlatformKindEPv'/>
+<fun r='_ZN9perftools8gputools14PluginRegistryC1Ev'/>
+<fun r='_ZN9perftools8gputools14PluginRegistry23RegisterFactoryInternalEPvRKSsT_PSt3mapIS2_S5_St4lessIS2_ESaISt4pairIKS2_S5_EEE'/>
+<fun r='_ZNK9perftools8gputools14PluginRegistry18GetFactoryInternalEPvRKSt3mapIS2_T_St4lessIS2_ESaISt4pairIKS2_S4_EEESD_'/>
+<fun r='_ZNK9perftools8gputools14PluginRegistry10HasFactoryERKNS1_15PluginFactoriesENS0_10PluginKindEPv'/>
+<smbr r='perftools::gputools::PluginRegistry::instance_' t='perftools::gputools::PluginRegistry *'/>
+<mbr r='perftools::gputools::PluginRegistry::platform_id_by_kind_' o='0' t='std::map&lt;PlatformKind, Platform::Id&gt;'/>
+<mbr r='perftools::gputools::PluginRegistry::factories_' o='384' t='std::map&lt;Platform::Id, PluginFactories&gt;'/>
+<mbr r='perftools::gputools::PluginRegistry::generic_factories_' o='768' t='perftools::gputools::PluginRegistry::PluginFactories'/>
+<mbr r='perftools::gputools::PluginRegistry::default_factories_' o='2304' t='std::map&lt;Platform::Id, DefaultFactories&gt;'/>
+<mbr r='perftools::gputools::PluginRegistry::plugin_names_' o='2688' t='std::map&lt;PluginId, string&gt;'/>
+<fun r='_ZN9perftools8gputools14PluginRegistryC1ERKS1_'/>

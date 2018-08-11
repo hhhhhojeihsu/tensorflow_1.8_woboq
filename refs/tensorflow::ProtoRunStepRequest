@@ -1,0 +1,25 @@
+<inh f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='49' c='tensorflow::RunStepRequestWrapper'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='200' ll='222'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='194'>// Wrapper for immutable RunStep requests that use a non-owned
+// protobuf message.
+//
+// This interface is typically used by server-side components in the
+// TensorFlow master, where the incoming message is a (possibly const)
+// `RunStepRequest*`.</doc>
+<fun r='_ZN10tensorflow19ProtoRunStepRequestC1EPKNS_14RunStepRequestE'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest14session_handleEv'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest18partial_run_handleEv'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest9num_feedsEv'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest9feed_nameEm'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest9FeedValueEmPNS_6TensorE'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest9FeedValueEmPNS_11TensorProtoE'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest11num_fetchesEv'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest10fetch_nameEm'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest11num_targetsEv'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest11target_nameEm'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest7optionsEv'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest11DebugStringEv'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest7ToProtoEv'/>
+<fun r='_ZNK10tensorflow19ProtoRunStepRequest29store_errors_in_response_bodyEv'/>
+<mbr r='tensorflow::ProtoRunStepRequest::request_' o='64' t='const tensorflow::RunStepRequest *const'/>

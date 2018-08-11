@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='281' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferElementwiseBinaryOpShape(xla::BinaryOperation operation, const xla::Shape &amp; lhs, const xla::Shape &amp; rhs, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_dimensions)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='276'>// Helper that infers the shape produced by performing an element-wise binary
+  // operation with the given LHS and RHS shapes.
+  // Note: By &quot;element-wise&quot; we mean operations that look at a single element in
+  // the LHS and a single element in the RHS to produce a single output element,
+  // even in the presence of broadcasting of one of the operands over the other.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='891' ll='944' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferElementwiseBinaryOpShape(xla::BinaryOperation operation, const xla::Shape &amp; lhs, const xla::Shape &amp; rhs, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_dimensions)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='989' u='c' c='_ZN3xla14ShapeInference18InferBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1000' u='c' c='_ZN3xla14ShapeInference18InferBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1017' u='c' c='_ZN3xla14ShapeInference18InferBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1026' u='c' c='_ZN3xla14ShapeInference18InferBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='891'>/* static */</doc>

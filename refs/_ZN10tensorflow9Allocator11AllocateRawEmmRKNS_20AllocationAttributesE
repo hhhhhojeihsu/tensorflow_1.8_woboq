@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/core/framework/allocator.h' l='93' ll='98' type='void * tensorflow::Allocator::AllocateRaw(size_t alignment, size_t num_bytes, const tensorflow::AllocationAttributes &amp; allocation_attr)'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.h' l='124' u='c' c='_ZN10tensorflow9Allocator8AllocateEmRKNS_20AllocationAttributesE'/>
+<ovr f='tensorflow/tensorflow/core/framework/allocator.h' l='300' c='_ZN10tensorflow16AllocatorWrapper11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.h' l='302' u='c' c='_ZN10tensorflow16AllocatorWrapper11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<doc f='tensorflow/tensorflow/core/framework/allocator.h' l='89'>// Return an uninitialized block of memory that is &quot;num_bytes&quot; bytes
+  // in size with specified allocation attributes.  The returned pointer is
+  // guaranteed to be aligned to a multiple of &quot;alignment&quot; bytes.
+  // REQUIRES: &quot;alignment&quot; is a power of 2.</doc>
+<ovr f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='206' c='_ZN10tensorflow12BFCAllocator11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/scoped_allocator.h' l='101' c='_ZN10tensorflow23ScopedAllocatorInstance11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<ovr f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='32' c='_ZN10tensorflow17TrackingAllocator11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='35' u='c' c='_ZN10tensorflow17TrackingAllocator11AllocateRawEmmRKNS_20AllocationAttributesE'/>

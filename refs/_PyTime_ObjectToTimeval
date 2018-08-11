@@ -1,0 +1,4 @@
+<dec f='include/python3.5m/pytime.h' l='53' type='int _PyTime_ObjectToTimeval(PyObject * obj, time_t * sec, long * usec, _PyTime_round_t )'/>
+<doc f='include/python3.5m/pytime.h' l='50'>/* Convert a number of seconds, int or float, to a timeval structure.
+   usec is in the range [0; 999999] and rounded towards zero.
+   For example, -1.2 is converted to (-2, 800000). */</doc>

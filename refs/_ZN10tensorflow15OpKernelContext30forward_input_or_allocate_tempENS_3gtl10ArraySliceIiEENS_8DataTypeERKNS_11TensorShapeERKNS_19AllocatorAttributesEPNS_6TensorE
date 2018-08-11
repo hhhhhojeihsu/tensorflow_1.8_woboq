@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='761' type='tensorflow::Status tensorflow::OpKernelContext::forward_input_or_allocate_temp(gtl::ArraySlice&lt;int&gt; candidate_input_indices, tensorflow::DataType type, const tensorflow::TensorShape &amp; shape, const tensorflow::AllocatorAttributes &amp; allocator_attr, tensorflow::Tensor * out_temp)'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='769' u='c' c='_ZN10tensorflow15OpKernelContext30forward_input_or_allocate_tempENS_3gtl10ArraySliceIiEENS_8DataTypeERKNS_11TensorShapeEPNS_6TensorE'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='758'>// Tries to reuse one of the inputs given in input_indices as a temporary.
+  // If none of the given inputs can be forwarded, calls
+  // allocate_temp() to allocate a new temporary buffer.</doc>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='533' ll='547' type='tensorflow::Status tensorflow::OpKernelContext::forward_input_or_allocate_temp(gtl::ArraySlice&lt;int&gt; candidate_input_indices, tensorflow::DataType type, const tensorflow::TensorShape &amp; shape, const tensorflow::AllocatorAttributes &amp; allocator_attr, tensorflow::Tensor * out_temp)'/>

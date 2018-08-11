@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='298' type='tensorflow::Status xla::cpu::IrEmitter::EmitMemcpy(const xla::HloInstruction &amp; source, const xla::HloInstruction &amp; destination)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='295'>// Emits a memcpy from the source instruction&apos;s result value to the
+  // destination&apos;s.  Both source and destination must have an entry in the
+  // emitted_value_ table.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='212' u='c' c='_ZN3xla3cpu9IrEmitter10HandleCopyEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1201' u='c' c='_ZN3xla3cpu9IrEmitter21HandleCrossReplicaSumEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1875' u='c' c='_ZN3xla3cpu9IrEmitter11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1965' u='c' c='_ZN3xla3cpu9IrEmitter18HandleDynamicSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1975' u='c' c='_ZN3xla3cpu9IrEmitter24HandleDynamicUpdateSliceEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2905' ll='2914' type='tensorflow::Status xla::cpu::IrEmitter::EmitMemcpy(const xla::HloInstruction &amp; source, const xla::HloInstruction &amp; destination)'/>

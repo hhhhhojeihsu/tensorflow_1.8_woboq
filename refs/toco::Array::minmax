@@ -1,0 +1,91 @@
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1567' u='m' c='_ZN4toco5Array17GetOrCreateMinMaxEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1568' u='w' c='_ZN4toco5Array17GetOrCreateMinMaxEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1570' u='m' c='_ZN4toco5Array17GetOrCreateMinMaxEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1573' u='m' c='_ZNK4toco5Array9GetMinMaxEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1574' u='m' c='_ZNK4toco5Array9GetMinMaxEv'/>
+<dec f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1665' type='std::unique_ptr&lt;MinMax&gt;'/>
+<offset>192</offset>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1654'>// Describes the [min, max] range of values
+  // to be assumed when determining quantization_params.
+  //
+  // Only used for quantization. In fact, only used for determining
+  // quantization_params.
+  //
+  // Used for both constant arrays (those having a &apos;buffer&apos;) and non-constant
+  // arrays (activations). Indeed, it is important to use the same min-max range
+  // as was used during training, even if that min-max range is slightly wrong
+  // w.r.t. actual buffer elements. Doing otherwise would defeat the point of
+  // re-training for quantization.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='195' u='m' c='_ZN4toco12_GLOBAL__N_121GetPropertiesForArrayERKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='197' u='m' c='_ZN4toco12_GLOBAL__N_121GetPropertiesForArrayERKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='197' u='m' c='_ZN4toco12_GLOBAL__N_121GetPropertiesForArrayERKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1955' u='m' c='_ZN4toco56EncodeConstantArraysMinMaxByWrappingThemInFakeQuantNodesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1968' u='m' c='_ZN4toco56EncodeConstantArraysMinMaxByWrappingThemInFakeQuantNodesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/dequantize.cc' l='125' u='m' c='_ZN4toco12_GLOBAL__N_115DequantizeArrayERKSsPNS_19GraphTransformationEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/drop_fake_quant.cc' l='41' u='m' c='_ZN4toco13DropFakeQuant3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/fuse_binary_into_following_affine.cc' l='47' u='w' c='_ZN4toco12_GLOBAL__N_137FuseAddOrSubParamsIntoFollowingAffineEPNS_5ModelEPNS_8OperatorEPKS3_i'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/fuse_binary_into_preceding_affine.cc' l='40' u='w' c='_ZN4toco12_GLOBAL__N_137FuseAddOrSubParamsIntoPrecedingAffineEPNS_5ModelEPNS_8OperatorEPKS3_i'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='34' u='m' c='_ZN4toco12_GLOBAL__N_128HardcodeMinMaxForIm2colArrayEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='38' u='m' c='_ZN4toco12_GLOBAL__N_128HardcodeMinMaxForIm2colArrayEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='42' u='m' c='_ZN4toco12_GLOBAL__N_128HardcodeMinMaxForIm2colArrayEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='51' u='m' c='_ZN4toco12_GLOBAL__N_132HardcodeMinMaxForL2NormalizationEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='55' u='m' c='_ZN4toco12_GLOBAL__N_132HardcodeMinMaxForL2NormalizationEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='59' u='m' c='_ZN4toco12_GLOBAL__N_132HardcodeMinMaxForL2NormalizationEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='73' u='m' c='_ZN4toco12_GLOBAL__N_130HardcodeMinMaxForConcatenationEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='75' u='m' c='_ZN4toco12_GLOBAL__N_130HardcodeMinMaxForConcatenationEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='83' u='m' c='_ZN4toco12_GLOBAL__N_130HardcodeMinMaxForConcatenationEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='85' u='m' c='_ZN4toco12_GLOBAL__N_130HardcodeMinMaxForConcatenationEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='101' u='m' c='_ZN4toco12_GLOBAL__N_130HardcodeMinMaxForConcatenationEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='115' u='m' c='_ZN4toco12_GLOBAL__N_130HardcodeMinMaxForConcatenationEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='137' u='m' c='_ZN4toco12_GLOBAL__N_122HardcodeMinMaxForSplitEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='145' u='m' c='_ZN4toco12_GLOBAL__N_122HardcodeMinMaxForSplitEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='150' u='m' c='_ZN4toco12_GLOBAL__N_122HardcodeMinMaxForSplitEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='159' u='m' c='_ZN4toco12_GLOBAL__N_133HardcodeMinMaxForAverageOrMaxPoolEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='163' u='m' c='_ZN4toco12_GLOBAL__N_133HardcodeMinMaxForAverageOrMaxPoolEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='167' u='m' c='_ZN4toco12_GLOBAL__N_133HardcodeMinMaxForAverageOrMaxPoolEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='176' u='m' c='_ZN4toco12_GLOBAL__N_128HardcodeMinMaxFromFirstInputEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='180' u='m' c='_ZN4toco12_GLOBAL__N_128HardcodeMinMaxFromFirstInputEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='184' u='m' c='_ZN4toco12_GLOBAL__N_128HardcodeMinMaxFromFirstInputEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='195' u='m' c='_ZN4toco12_GLOBAL__N_123HardcodeMinMaxForOutputEPNS_5ModelEPNS_8OperatorEdd'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='199' u='m' c='_ZN4toco12_GLOBAL__N_123HardcodeMinMaxForOutputEPNS_5ModelEPNS_8OperatorEdd'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='202' u='m' c='_ZN4toco12_GLOBAL__N_123HardcodeMinMaxForOutputEPNS_5ModelEPNS_8OperatorEdd'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='217' u='m' c='_ZN4toco12_GLOBAL__N_126PropagateMinMaxAmongArraysEPNS_5ModelESt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='219' u='m' c='_ZN4toco12_GLOBAL__N_126PropagateMinMaxAmongArraysEPNS_5ModelESt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='230' u='m' c='_ZN4toco12_GLOBAL__N_126PropagateMinMaxAmongArraysEPNS_5ModelESt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='231' u='m' c='_ZN4toco12_GLOBAL__N_126PropagateMinMaxAmongArraysEPNS_5ModelESt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='235' u='m' c='_ZN4toco12_GLOBAL__N_126PropagateMinMaxAmongArraysEPNS_5ModelESt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='235' u='m' c='_ZN4toco12_GLOBAL__N_126PropagateMinMaxAmongArraysEPNS_5ModelESt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='258' u='m' c='_ZN4toco12_GLOBAL__N_125HardcodeMinMaxForLstmCellEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='267' u='m' c='_ZN4toco12_GLOBAL__N_125HardcodeMinMaxForLstmCellEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='276' u='m' c='_ZN4toco12_GLOBAL__N_125HardcodeMinMaxForLstmCellEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='285' u='m' c='_ZN4toco12_GLOBAL__N_125HardcodeMinMaxForLstmCellEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/hardcode_min_max.cc' l='302' u='m' c='_ZN4toco12_GLOBAL__N_125HardcodeMinMaxForLstmCellEPNS_5ModelEPNS_8OperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/quantize.cc' l='128' u='r' c='_ZN4toco12_GLOBAL__N_118GetOrComputeMinMaxEPNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/quantize.cc' l='129' u='m' c='_ZN4toco12_GLOBAL__N_118GetOrComputeMinMaxEPNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/quantize.cc' l='571' u='m' c='_ZN4toco8Quantize3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/read_fake_quant_min_max.cc' l='33' u='m' c='_ZN4toco12_GLOBAL__N_118ApplyMinMaxToArrayEPNS_19GraphTransformationEPNS_5ModelERKNS_6MinMaxERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_concatenation.cc' l='112' u='m' c='_ZN4toco12_GLOBAL__N_127SetMinMaxForConcatenedArrayERKSt6vectorIPNS_5ArrayESaIS3_EES3_'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_concatenation.cc' l='120' u='m' c='_ZN4toco12_GLOBAL__N_127SetMinMaxForConcatenedArrayERKSt6vectorIPNS_5ArrayESaIS3_EES3_'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_transpose.cc' l='131' u='m' c='_ZN4toco24ResolveConstantTranspose3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='33' u='m' c='_ZN4toco24CopyMinMaxFromFirstInputERKNS_8OperatorEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='37' u='m' c='_ZN4toco24CopyMinMaxFromFirstInputERKNS_8OperatorEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='41' u='m' c='_ZN4toco24CopyMinMaxFromFirstInputERKNS_8OperatorEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='118' u='m' c='_ZN4toco6tflite13ExportTensorsERKNS_5ModelERKSt13unordered_mapISsiSt4hashISsESt8equal_toISsESaISt4pairIKSsiEEEPN11flatbuffers17FlatBufferBuilderEPSt6v6399792'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='120' u='m' c='_ZN4toco6tflite13ExportTensorsERKNS_5ModelERKSt13unordered_mapISsiSt4hashISsESt8equal_toISsESaISt4pairIKSsiEEEPN11flatbuffers17FlatBufferBuilderEPSt6v6399792'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='120' u='m' c='_ZN4toco6tflite13ExportTensorsERKNS_5ModelERKSt13unordered_mapISsiSt4hashISsESt8equal_toISsESaISt4pairIKSsiEEEPN11flatbuffers17FlatBufferBuilderEPSt6v6399792'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='122' u='m' c='_ZN4toco6tflite13ExportTensorsERKNS_5ModelERKSt13unordered_mapISsiSt4hashISsESt8equal_toISsESaISt4pairIKSsiEEEPN11flatbuffers17FlatBufferBuilderEPSt6v6399792'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='122' u='m' c='_ZN4toco6tflite13ExportTensorsERKNS_5ModelERKSt13unordered_mapISsiSt4hashISsESt8equal_toISsESaISt4pairIKSsiEEEPN11flatbuffers17FlatBufferBuilderEPSt6v6399792'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='437' u='m' c='_ZN4toco8LogArrayEiRKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='438' u='m' c='_ZN4toco8LogArrayEiRKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='439' u='m' c='_ZN4toco8LogArrayEiRKNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1144' u='m' c='_ZN4toco10CloneArrayEPNS_5ModelERKSsS3_'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1389' u='m' c='_ZN4toco17ResolveModelFlagsERKNS_10ModelFlagsEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1394' u='m' c='_ZN4toco17ResolveModelFlagsERKNS_10ModelFlagsEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1396' u='m' c='_ZN4toco17ResolveModelFlagsERKNS_10ModelFlagsEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1399' u='m' c='_ZN4toco17ResolveModelFlagsERKNS_10ModelFlagsEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1400' u='m' c='_ZN4toco17ResolveModelFlagsERKNS_10ModelFlagsEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1435' u='m' c='_ZN4toco27CheckIsReadyForQuantizationERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1463' u='m' c='_ZN4toco27UseDefaultMinMaxRangeValuesEPNS_5ModelEdd'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1471' u='m' c='_ZN4toco27UseDefaultMinMaxRangeValuesEPNS_5ModelEdd'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1516' u='m' c='_ZN4toco10DropMinMaxEPNS_5ModelERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1519' u='w' c='_ZN4toco10DropMinMaxEPNS_5ModelERKSs'/>

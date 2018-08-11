@@ -1,0 +1,24 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='143' type='void tensorflow::XlaOpKernelContext::SetConstantOutput(int index, const tensorflow::Tensor &amp; host_tensor)'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/graph_compiler.cc' l='231' u='c' c='_ZN10tensorflow13GraphCompiler21CompileFunctionalNodeEPNS_4NodeEPNS_15OpKernelContextE'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='140'>// Sets output &apos;index&apos; to compile-time constant &apos;host_tensor&apos;, where
+  // &apos;host_tensor&apos; is a tensor in host memory. It is preferable to use
+  // SetConstantOutput where possible.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/arg_op.cc' l='55' u='c' c='_ZN10tensorflow8XlaArgOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/batch_norm_op.cc' l='194' u='c' c='_ZN10tensorflow12_GLOBAL__N_120FusedBatchNormGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/batch_norm_op.cc' l='195' u='c' c='_ZN10tensorflow12_GLOBAL__N_120FusedBatchNormGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/bcast_ops.cc' l='62' u='c' c='_ZN10tensorflow12_GLOBAL__N_111BCastArgsOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/bcast_ops.cc' l='121' u='c' c='_ZN10tensorflow12_GLOBAL__N_115BCastGradArgsOp6OutputEPNS_18XlaOpKernelContextEiRKNS_3gtl13InlinedVectorIxLi4EEE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/concat_op.cc' l='203' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ConcatOffsetOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/const_op.cc' l='104' u='c' c='_ZN10tensorflow12_GLOBAL__N_17ConstOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/sequence_ops.cc' l='137' u='c' c='_ZN10tensorflow12_GLOBAL__N_17RangeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/sequence_ops.cc' l='210' u='c' c='_ZN10tensorflow12_GLOBAL__N_110LinSpaceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/shape_op.cc' l='39' u='c' c='_ZN10tensorflow12_GLOBAL__N_17ShapeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/shape_op.cc' l='59' u='c' c='_ZN10tensorflow12_GLOBAL__N_18ShapeNOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/shape_op.cc' l='80' u='c' c='_ZN10tensorflow12_GLOBAL__N_16RankOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/shape_op.cc' l='99' u='c' c='_ZN10tensorflow12_GLOBAL__N_16SizeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='184' u='c' c='_ZN10tensorflow12_GLOBAL__N_113TensorArrayOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='468' u='c' c='_ZN10tensorflow12_GLOBAL__N_119TensorArrayConcatOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='556' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TensorArraySizeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='589' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TensorArrayGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/variable_ops.cc' l='144' u='c' c='_ZN10tensorflow12_GLOBAL__N_115VariableShapeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='362' ll='382' type='void tensorflow::XlaOpKernelContext::SetConstantOutput(int index, const tensorflow::Tensor &amp; constant)'/>

@@ -1,0 +1,65 @@
+<dec f='tensorflow/tensorflow/core/graph/node_builder.h' l='116' type='tensorflow::Status tensorflow::NodeBuilder::Finalize(tensorflow::Graph * graph, tensorflow::Node ** created_node) const'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1420' u='c' c='_Z24TF_FinishOperationLockedP23TF_OperationDescriptionP9TF_Status'/>
+<doc f='tensorflow/tensorflow/core/graph/node_builder.h' l='113'>// Validates the described node and adds it to *graph, adding edges
+  // for all (non-back) inputs.  If created_node is not nullptr,
+  // *created_node will be set to the new node (or nullptr on error).</doc>
+<use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='84' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_111CreateMergeERKNS_5ScopeEiRKNS_6OutputEPS5_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='625' u='c' c='_ZN10tensorflow11XlaCompiler15CompileSingleOpERKNS0_14CompileOptionsERKSsPNS_15OpKernelContextERKSt6vectorINS0_8ArgumentESaIS9_EEPNS0_17CompilationResultE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='638' u='c' c='_ZN10tensorflow11XlaCompiler15CompileSingleOpERKNS0_14CompileOptionsERKSsPNS_15OpKernelContextERKSt6vectorINS0_8ArgumentESaIS9_EEPNS0_17CompilationResultE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='123' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='129' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='137' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='143' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='147' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='154' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='163' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='173' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='401' u='c' c='_ZN10tensorflow12_GLOBAL__N_127AddShapeNodeToConstantGraphEPNS_4NodeERKSt13unordered_mapIPKS1_St6vectorINS_6TensorESaIS7_EESt4hashIS5_ESt8equal_toIS5_14506772'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='531' u='c' c='_ZN10tensorflow12_GLOBAL__N_125ReplaceTensorWithConstantEPNS_5GraphEPNS_6DeviceESt4pairIPNS_4NodeEiERKNS_6TensorERKNS_3gtl7FlatSetIS7_NS_4hashIS7_EESt657287'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='273' u='c' c='_ZN10tensorflow12_GLOBAL__N_128TensorConnectionPruneRewrite7AddNodeEPNS_5GraphENS_11NodeBuilder7NodeOutEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/memory_types.cc' l='130' u='c' c='_ZN10tensorflowL4SendEPNS_5GraphERKSsS3_bPKNS_4EdgeE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/memory_types.cc' l='145' u='c' c='_ZN10tensorflowL4RecvEPNS_5GraphERKSsS3_bPKNS_4EdgeE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/parallel_concat_optimizer.cc' l='77' u='c' c='_ZN10tensorflow12_GLOBAL__N_124ParallelConcatRemovePass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/parallel_concat_optimizer.cc' l='94' u='c' c='_ZN10tensorflow12_GLOBAL__N_124ParallelConcatRemovePass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/parallel_concat_optimizer.cc' l='107' u='c' c='_ZN10tensorflow12_GLOBAL__N_124ParallelConcatRemovePass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<use f='tensorflow/tensorflow/core/debug/debug_graph_utils.cc' l='318' u='c' c='_ZN10tensorflow17DebugNodeInserter14CreateCopyNodeEPNS_5GraphENS_10DeviceTypeEbRKSsiNS_8DataTypeES5_RKSt6vectorISsSaISsEESB_PPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/debug/debug_graph_utils.cc' l='471' u='c' c='_ZN10tensorflow17DebugNodeInserter15CreateDebugNodeEPNS_5GraphERKNS_6DeviceERKSsNS_8DataTypeES7_RKSt6vectorISsSaISsEEiS7_PPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_def_builder.cc' l='87' u='c' c='_ZNK10tensorflow15GraphDefBuilder7Options15FinalizeBuilderEPNS_11NodeBuilderE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='388' u='c' c='_ZN10tensorflow12_GLOBAL__N_115AddControlEnterEPNS_5GraphERKSsS4_S4_iPNS_6StatusE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='401' u='c' c='_ZN10tensorflow12_GLOBAL__N_115AddControlMergeERKSsS2_PNS_5GraphES2_S2_PNS_6StatusE'/>
+<def f='tensorflow/tensorflow/core/graph/node_builder.cc' l='102' ll='128' type='tensorflow::Status tensorflow::NodeBuilder::Finalize(tensorflow::Graph * graph, tensorflow::Node ** created_node) const'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='235' u='c' c='_ZN10tensorflow12_GLOBAL__N_124ConnectVariablesToSaveOpEPNS_5GraphEPNS_4NodeERKSt6vectorIPKNS_4EdgeESaIS8_EERKS5_IS4_SaIS4_EE'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='282' u='c' c='_ZN10tensorflow12_GLOBAL__N_127AddRestoreVariableSubgraphsEPNS_5GraphEPNS_4NodeERKSt6vectorIPKNS_4EdgeESaIS8_EERKS5_IS4_SaIS4_EE'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='291' u='c' c='_ZN10tensorflow12_GLOBAL__N_127AddRestoreVariableSubgraphsEPNS_5GraphEPNS_4NodeERKSt6vectorIPKNS_4EdgeESaIS8_EERKS5_IS4_SaIS4_EE'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='300' u='c' c='_ZN10tensorflow12_GLOBAL__N_127AddRestoreVariableSubgraphsEPNS_5GraphEPNS_4NodeERKSt6vectorIPKNS_4EdgeESaIS8_EERKS5_IS4_SaIS4_EE'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='307' u='c' c='_ZN10tensorflow12_GLOBAL__N_127AddRestoreVariableSubgraphsEPNS_5GraphEPNS_4NodeERKSt6vectorIPKNS_4EdgeESaIS8_EERKS5_IS4_SaIS4_EE'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='343' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MakeReductionAxesEPNS_5GraphESsPNS_4NodeEPS4_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='351' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MakeReductionAxesEPNS_5GraphESsPNS_4NodeEPS4_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='356' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MakeReductionAxesEPNS_5GraphESsPNS_4NodeEPS4_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='362' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MakeReductionAxesEPNS_5GraphESsPNS_4NodeEPS4_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='380' u='c' c='_ZN10tensorflow12_GLOBAL__N_128MakeExponentialMovingAverageEPNS_5GraphESsRKNS_11NodeBuilder7NodeOutEPNS_4NodeES8_PS8_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='386' u='c' c='_ZN10tensorflow12_GLOBAL__N_128MakeExponentialMovingAverageEPNS_5GraphESsRKNS_11NodeBuilder7NodeOutEPNS_4NodeES8_PS8_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='393' u='c' c='_ZN10tensorflow12_GLOBAL__N_128MakeExponentialMovingAverageEPNS_5GraphESsRKNS_11NodeBuilder7NodeOutEPNS_4NodeES8_PS8_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='399' u='c' c='_ZN10tensorflow12_GLOBAL__N_128MakeExponentialMovingAverageEPNS_5GraphESsRKNS_11NodeBuilder7NodeOutEPNS_4NodeES8_PS8_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='405' u='c' c='_ZN10tensorflow12_GLOBAL__N_128MakeExponentialMovingAverageEPNS_5GraphESsRKNS_11NodeBuilder7NodeOutEPNS_4NodeES8_PS8_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='429' u='c' c='_ZN10tensorflow12_GLOBAL__N_126MakeInitializedEMAVariableEPNS_5GraphERKSsPNS_4NodeES6_PSt6vectorIS6_SaIS6_EEPS6_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='436' u='c' c='_ZN10tensorflow12_GLOBAL__N_126MakeInitializedEMAVariableEPNS_5GraphERKSsPNS_4NodeES6_PSt6vectorIS6_SaIS6_EEPS6_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='441' u='c' c='_ZN10tensorflow12_GLOBAL__N_126MakeInitializedEMAVariableEPNS_5GraphERKSsPNS_4NodeES6_PSt6vectorIS6_SaIS6_EEPS6_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='452' u='c' c='_ZN10tensorflow12_GLOBAL__N_126MakeInitializedEMAVariableEPNS_5GraphERKSsPNS_4NodeES6_PSt6vectorIS6_SaIS6_EEPS6_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='458' u='c' c='_ZN10tensorflow12_GLOBAL__N_126MakeInitializedEMAVariableEPNS_5GraphERKSsPNS_4NodeES6_PSt6vectorIS6_SaIS6_EEPS6_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='476' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MakeEMAMinMaxVarsEPNS_5GraphERKSsPNS_4NodeEPSt6vectorIS6_SaIS6_EEPS6_SB_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='486' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MakeEMAMinMaxVarsEPNS_5GraphERKSsPNS_4NodeEPSt6vectorIS6_SaIS6_EEPS6_SB_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='492' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MakeEMAMinMaxVarsEPNS_5GraphERKSsPNS_4NodeEPSt6vectorIS6_SaIS6_EEPS6_SB_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='515' u='c' c='_ZN10tensorflow12_GLOBAL__N_115MakeInputMinMaxEPNS_5GraphERKSsRKNS0_13EdgeToConvertEPSt6vectorIPNS_4NodeESaISA_EEPSA_SE_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='522' u='c' c='_ZN10tensorflow12_GLOBAL__N_115MakeInputMinMaxEPNS_5GraphERKSsRKNS0_13EdgeToConvertEPSt6vectorIPNS_4NodeESaISA_EEPSA_SE_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='553' u='c' c='_ZN10tensorflow12_GLOBAL__N_114MakeQuantizeOpEPNS_5GraphERKSsS4_RKNS0_13EdgeToConvertEPSt6vectorIPNS_4NodeESaISA_EEPSA_'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='560' u='c' c='_ZN10tensorflow12_GLOBAL__N_114MakeQuantizeOpEPNS_5GraphERKSsS4_RKNS0_13EdgeToConvertEPSt6vectorIPNS_4NodeESaISA_EEPSA_'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='226' u='c' c='_ZN10tensorflow8subgraph14ArgFeedRewrite7AddNodeEPNS_5GraphENS_11NodeBuilder7NodeOutEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='245' u='c' c='_ZN10tensorflow8subgraph15RecvFeedRewrite7AddNodeEPNS_5GraphENS_11NodeBuilder7NodeOutEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='265' u='c' c='_ZN10tensorflow8subgraph18RetvalFetchRewrite7AddNodeEPNS_5GraphENS_11NodeBuilder7NodeOutEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='283' u='c' c='_ZN10tensorflow8subgraph16SendFetchRewrite7AddNodeEPNS_5GraphENS_11NodeBuilder7NodeOutEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transfer_utils.cc' l='123' u='c' c='_ZN10tensorflow18GraphTransferUtils18BuildFusedGraphDefERKNS_31IRemoteFusedGraphOpsDefinitionsERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS9_EERKS6_ISsSaISsEEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transfer_utils.cc' l='157' u='c' c='_ZN10tensorflow18GraphTransferUtils18BuildFusedGraphDefERKNS_31IRemoteFusedGraphOpsDefinitionsERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS9_EERKS6_ISsSaISsEEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='345' u='c' c='_ZN10tensorflow15GraphTransferer38TransformGraphToAddAggregatedInputNodeERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EEPNS_5GraphEPNS_12ShapeRefinerE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='707' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils34BuildRemoteFusedGraphExecuteOpNodeERKSsS2_RKNS_8GraphDefERKSt6vectorISsSaISsEESA_bPNS_5GraphEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='722' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils19BuildIdentityOpNodeERKSsS2_iNS_8DataTypeEPNS_5GraphEPPNS_4NodeE'/>

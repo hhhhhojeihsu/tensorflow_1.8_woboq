@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.h' l='86' type='bool tensorflow::GraphCycles::ContractEdge(int32 a, int32 b)'/>
+<def f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.cc' l='357' ll='385' type='bool tensorflow::GraphCycles::ContractEdge(int32 a, int32 b)'/>
+<doc f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.h' l='82'>// Contracts the edge from &apos;a&apos; to node &apos;b&apos;, merging nodes &apos;a&apos; and &apos;b&apos;. &apos;b&apos; is
+  // removed from the graph, and edges to/from &apos;b&apos; are replaced with edges
+  // to/from &apos;a&apos;. If contracting the edge would create a cycle, does nothing
+  // and returns false.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='724' u='c' c='_ZN10tensorflow22MarkForCompilationPass7RunImplERKNS_28GraphOptimizationPassOptionsERKSt8functionIFbPKNS_4NodeERKNS_10DeviceTypeEEE'/>

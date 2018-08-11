@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/public/session.h' l='150' type='tensorflow::Status tensorflow::Session::Run(const tensorflow::RunOptions &amp; run_options, const std::vector&lt;std::pair&lt;string, Tensor&gt; &gt; &amp; inputs, const std::vector&lt;string&gt; &amp; output_tensor_names, const std::vector&lt;string&gt; &amp; target_node_names, std::vector&lt;Tensor&gt; * outputs, tensorflow::RunMetadata * run_metadata)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='817' u='c' c='_ZL13TF_Run_HelperPN10tensorflow7SessionEPKcPK9TF_BufferRKSt6vectorISt4pairISsNS_6TensorEESaISA_EERKS7_ISsSaISsEEPP9TF_TensorSI_PS4_P9TF_Status'/>
+<doc f='tensorflow/tensorflow/core/public/session.h' l='145'>/// \brief Like `Run`, but allows users to pass in a `RunOptions` proto and
+  /// to retrieve non-Tensor metadata output via a `RunMetadata` proto for this
+  /// step.  `run_metadata` may be nullptr, in which case any metadata output is
+  /// discarded.
+  /// NOTE: This API is still experimental and may change.</doc>
+<use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='150' u='c' c='_ZN10tensorflow12_GLOBAL__N_19RunMainOpERKNS_10RunOptionsERKSsRKNS_12MetaGraphDefERKSt6vectorINS_12AssetFileDefESaISA_EEPNS_7SessionE'/>
+<use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='188' u='c' c='_ZN10tensorflow12_GLOBAL__N_110RunRestoreERKNS_10RunOptionsERKSsNS_11StringPieceES6_RKSt6vectorINS_12AssetFileDefESaIS8_EEPNS_7SessionE'/>
+<use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='209' u='c' c='_ZN10tensorflow12_GLOBAL__N_115RunLegacyInitOpERKNS_10RunOptionsERKSsRKNS_12MetaGraphDefERKSt6vectorINS_12AssetFileDefESaISA_EEPNS_7SessionE'/>
+<use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='231' u='c' c='_ZN10tensorflow11QueueRunner7RealRunEPNS_7SessionERKSsb'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='622' c='_ZN10tensorflow13DirectSession3RunERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataE'/>
+<def f='tensorflow/tensorflow/core/common_runtime/session.cc' l='29' ll='36' type='tensorflow::Status tensorflow::Session::Run(const tensorflow::RunOptions &amp; run_options, const std::vector&lt;std::pair&lt;string, Tensor&gt; &gt; &amp; inputs, const std::vector&lt;string&gt; &amp; output_tensor_names, const std::vector&lt;string&gt; &amp; target_node_names, std::vector&lt;Tensor&gt; * outputs, tensorflow::RunMetadata * run_metadata)'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='263' c='_ZN10tensorflow11GrpcSession3RunERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/single_machine.cc' l='263' u='c' c='_ZN10tensorflow8grappler13SingleMachine14RunWithTimeoutERKSt6vectorISt4pairISsNS_6TensorEESaIS5_EERKS2_ISsSaISsEEPNS_11RunMetadataEx'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='256' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils15DryRunInferenceERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEEbPS4_IS6_SaIS6_EE'/>

@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='129' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferFftShape(const xla::Shape &amp; in, xla::FftType fft_type, tensorflow::gtl::ArraySlice&lt;int64&gt; fft_length)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='128'>// Infers the shape produced by the given FFT type on the given operand.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='87' u='c' c='_ZN3xla13ShapeVerifier9HandleFftEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1766' ll='1846' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferFftShape(const xla::Shape &amp; in, const xla::FftType fft_type, const tensorflow::gtl::ArraySlice&lt;int64&gt; fft_length)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1766'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='1154' u='c' c='_ZN3xla15UserComputation17AddFftInstructionERKNS_10FftRequestE'/>

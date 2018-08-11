@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='187' type='xla::XlaOp xla::XlaBuilder::Broadcast(const xla::XlaOp &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_sizes)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='177'>// Adds dimensions to an array by duplicating the data in the array.
+  //
+  // The new dimensions are inserted on the left, i.e. if
+  // broadcast_sizes has values {a0, ..., aN} and the operand shape
+  // has dimensions {b0, ..., bM} then the shape of the output has
+  // dimensions {a0, ..., aN, b0, ..., bM}.
+  //
+  // The new dimensions index into copies of the operand, i.e.
+  //
+  //   output[i0, ..., iN, j0, ..., jM] = operand[j0, ..., jM]</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='432' ll='454' type='xla::XlaOp xla::XlaBuilder::Broadcast(const xla::XlaOp &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_sizes)'/>

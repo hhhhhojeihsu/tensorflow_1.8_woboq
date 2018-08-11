@@ -1,0 +1,12 @@
+<use f='tensorflow/tensorflow/core/framework/shape_inference.h' l='620' u='a' c='_ZNK10tensorflow15shape_inference16InferenceContext12MergedShapesEv'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.h' l='713' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext12ForgetMergesEv'/>
+<dec f='tensorflow/tensorflow/core/framework/shape_inference.h' l='761' type='std::vector&lt;std::pair&lt;ShapeHandle, ShapeHandle&gt; &gt;'/>
+<offset>3392</offset>
+<doc f='tensorflow/tensorflow/core/framework/shape_inference.h' l='757'>// Pair of shape or dim handles that are equivalent, ie that represent the
+  // same underlying shape of dimension. Note that for each pair at least one of
+  // the handles must contain an unknown shape, since we don&apos;t keep track of
+  // known shapes or dims here.</doc>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='535' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext5MergeENS0_11ShapeHandleES2_PS2_'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='539' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext5MergeENS0_11ShapeHandleES2_PS2_'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='574' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext5MergeENS0_11ShapeHandleES2_PS2_'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='592' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext5MergeENS0_11ShapeHandleES2_PS2_'/>

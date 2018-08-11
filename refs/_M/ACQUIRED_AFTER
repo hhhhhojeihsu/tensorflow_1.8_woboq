@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/platform/default/thread_annotations.h' l='70'/>
+<use f='tensorflow/tensorflow/c/c_api_internal.h' l='130' u='c'/>
+<doc f='tensorflow/tensorflow/core/platform/default/thread_annotations.h' l='65'>// Document the acquisition order between locks that can be held
+// simultaneously by a thread. For any two locks that need to be annotated
+// to establish an acquisition order, only one of them needs the annotation.
+// (i.e. You don&apos;t have to annotate both locks with both ACQUIRED_AFTER
+// and ACQUIRED_BEFORE.)</doc>
+<use f='tensorflow/tensorflow/core/platform/posix/subprocess.h' l='119' u='c'/>

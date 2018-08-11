@@ -1,0 +1,21 @@
+<def f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='33' ll='96'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='28'>// The implementation of a Tensor for an XlaDevice. All device tensors are
+// actually one of these.
+//
+// To distinguish between &quot;normal&quot; device tensors and XlaTensors, the raw
+// pointer data stored in the TensorBuffer is a tagged pointer.</doc>
+<fun r='_ZN10tensorflow9XlaTensor10FromTensorEPNS_6TensorE'/>
+<fun r='_ZN10tensorflow9XlaTensor10FromTensorEPKNS_6TensorE'/>
+<fun r='_ZN10tensorflow9XlaTensor22DeviceMemoryFromTensorERKNS_6TensorE'/>
+<fun r='_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi'/>
+<fun r='_ZNK10tensorflow9XlaTensor17has_shaped_bufferEv'/>
+<fun r='_ZNK10tensorflow9XlaTensor13shaped_bufferEv'/>
+<fun r='_ZN10tensorflow9XlaTensor17set_shaped_bufferESt10unique_ptrIN3xla18ScopedShapedBufferESt14default_deleteIS3_EE'/>
+<fun r='_ZNK10tensorflow9XlaTensor15has_host_tensorEv'/>
+<fun r='_ZNK10tensorflow9XlaTensor11host_tensorEv'/>
+<fun r='_ZN10tensorflow9XlaTensor15set_host_tensorERKNS_6TensorE'/>
+<fun r='_ZN10tensorflow9XlaTensor17FromOpaquePointerEPv'/>
+<fun r='_ZN10tensorflow9XlaTensor15ToOpaquePointerEPS0_'/>
+<mbr r='tensorflow::XlaTensor::shaped_buffer_' o='0' t='std::unique_ptr&lt;xla::ScopedShapedBuffer&gt;'/>
+<mbr r='tensorflow::XlaTensor::host_tensor_' o='64' t='std::unique_ptr&lt;Tensor&gt;'/>

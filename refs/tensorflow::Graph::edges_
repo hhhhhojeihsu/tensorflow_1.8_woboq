@@ -1,0 +1,12 @@
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='526' u='m' c='_ZNK10tensorflow5Graph12num_edge_idsEv'/>
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='532' u='m' c='_ZNK10tensorflow5Graph10FindEdgeIdEi'/>
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='536' u='r' c='_ZNK10tensorflow5Graph5edgesEv'/>
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='617' type='std::vector&lt;Edge *&gt;'/>
+<offset>3904</offset>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='615'>// Map from edge ids to allocated edges.  edges_[id] may be nullptr if
+  // the edge with that id was removed from the graph.</doc>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='395' u='m' c='_ZN10tensorflow5Graph7AddEdgeEPNS_4NodeEiS2_i'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='402' u='m' c='_ZN10tensorflow5Graph7AddEdgeEPNS_4NodeEiS2_i'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='412' u='m' c='_ZN10tensorflow5Graph10RemoveEdgeEPKNS_4EdgeE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='415' u='m' c='_ZN10tensorflow5Graph10RemoveEdgeEPKNS_4EdgeE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='489' c='_ZN10tensorflow5Graph8FindEdgeEPKNS_4NodeEi'/>

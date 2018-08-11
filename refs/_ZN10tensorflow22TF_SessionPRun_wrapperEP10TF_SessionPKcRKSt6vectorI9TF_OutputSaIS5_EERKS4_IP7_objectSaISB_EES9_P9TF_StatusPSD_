@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/python/client/tf_session_helper.h' l='179' type='void tensorflow::TF_SessionPRun_wrapper(TF_Session * session, const char * handle, const std::vector&lt;TF_Output&gt; &amp; inputs, const std::vector&lt;PyObject *&gt; &amp; input_ndarrays, const std::vector&lt;TF_Output&gt; &amp; outputs, TF_Status * status, std::vector&lt;PyObject *&gt; * py_outputs)'/>
+<def f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='519' ll='534' type='void tensorflow::TF_SessionPRun_wrapper(TF_Session * session, const char * handle, const std::vector&lt;TF_Output&gt; &amp; inputs, const std::vector&lt;PyObject *&gt; &amp; input_ndarrays, const std::vector&lt;TF_Output&gt; &amp; outputs, TF_Status * out_status, std::vector&lt;PyObject *&gt; * py_outputs)'/>
+<doc f='tensorflow/tensorflow/python/client/tf_session_helper.h' l='169'>// Continue to run the graph with additional feeds and fetches. The
+// execution state is uniquely identified by the handle.
+//
+// On success, `py_outputs` is populated with a numpy ndarray for each output
+// (the caller must decref these ndarrays, although this will likely be handled
+// by the Python gc). `session`, `handle`, `out_status`, and `py_outputs` must
+// be non-null. `py_outputs` should be empty.
+//
+// On failure, out_status contains a tensorflow::Status with an error
+// message.</doc>

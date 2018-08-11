@@ -1,0 +1,16 @@
+<inh f='tensorflow/tensorflow/stream_executor/scratch_allocator.h' l='41' c='perftools::gputools::ScratchAllocator'/>
+<def f='tensorflow/tensorflow/stream_executor/scratch_allocator.h' l='66' ll='78'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/stream_executor/scratch_allocator.h' l='59'>// Allocates a single temporary memory allocation -- this memory is deallocated
+// at the next stream synchronization point after this object has gone out of
+// scope. This satisfies the lifetime and deallocation properties given in the
+// class comment above.
+//
+// Thread-compatible, but not thread-safe (use in scenarios where only one
+// thread will request the scratch allocation).</doc>
+<fun r='_ZN9perftools8gputools23OneTimeScratchAllocatorC1Ev'/>
+<fun r='_ZN9perftools8gputools23OneTimeScratchAllocatorD1Ev'/>
+<fun r='_ZN9perftools8gputools23OneTimeScratchAllocator21GetMemoryLimitInBytesEPNS0_6StreamE'/>
+<fun r='_ZN9perftools8gputools23OneTimeScratchAllocator13AllocateBytesEPNS0_6StreamEx'/>
+<mbr r='perftools::gputools::OneTimeScratchAllocator::temporary_' o='64' t='std::unique_ptr&lt;TemporaryDeviceMemory&lt;uint8&gt; &gt;'/>
+<fun r='_ZN9perftools8gputools23OneTimeScratchAllocatorC1ERKS1_'/>

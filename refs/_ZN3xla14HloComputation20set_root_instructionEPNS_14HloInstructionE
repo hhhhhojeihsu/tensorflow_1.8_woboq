@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='121' type='void xla::HloComputation::set_root_instruction(xla::HloInstruction * new_root_instruction)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='118'>// Set the root of the computation to the given instruction. The instruction
+  // must have already been added to the computation and have the same shape as
+  // the result of the computation for non fusion computations.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='320' u='c' c='_ZN3xla12_GLOBAL__N_117AddCopiesForWhileERKNS_16HloAliasAnalysisEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='343' u='c' c='_ZN3xla12_GLOBAL__N_123AddCopiesForConditionalERKNS_16HloAliasAnalysisEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='1077' u='c' c='_ZN3xla12_GLOBAL__N_120AddSpecialCaseCopiesERKNS_9CallGraphEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='1257' u='c' c='_ZN3xla13CopyInsertion28AddCopiesForBufferAssignmentEPNS_9HloModuleE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='242' ll='263' type='void xla::HloComputation::set_root_instruction(xla::HloInstruction * new_root_instruction)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='438' u='c' c='_ZN3xla14HloComputation20FuseInstructionsIntoEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEES5_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1059' u='c' c='_ZN3xla14HloInstruction20CloneAndFuseInternalEPS0_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1969' u='c' c='_ZN3xla14HloInstruction18ReplaceAllUsesWithEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1458' u='c' c='_ZN3xla16LayoutAssignment13AssignLayoutsERKNS_17LayoutConstraintsEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='52' u='c' c='_ZN3xlaL19WidenWhileConditionEPNS_14HloComputationERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='84' u='c' c='_ZN3xlaL14WidenWhileBodyEPNS_14HloComputationERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='162' u='c' c='_ZN3xlaL35MakeCountedLoopConditionComputationERKNS_5ShapeEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='192' u='c' c='_ZN3xlaL30MakeCountedLoopBodyComputationERKNS_5ShapeERKSt8functionIFNS_8StatusOrISt6vectorIPNS_14HloInstructionESaIS7_EEEES7_RKS9_EE'/>

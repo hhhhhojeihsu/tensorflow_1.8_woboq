@@ -1,0 +1,90 @@
+<def f='include/c++/5/bits/unordered_set.h' l='602' ll='604' type='size_type std::unordered_set::count(const key_type &amp; __x) const'/>
+<doc f='include/c++/5/bits/unordered_set.h' l='593'>/**
+       *  @brief  Finds the number of elements.
+       *  @param  __x  Element to located.
+       *  @return  Number of elements with specified key.
+       *
+       *  This function only makes sense for unordered_multisets; for
+       *  unordered_set the result will either be 0 (not present) or 1
+       *  (present).
+       */</doc>
+<use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='141' u='c' c='_ZN10tensorflow10checkpoint16CheckpointReader14BuildV2VarMapsEv'/>
+<use f='tensorflow/tensorflow/cc/training/coordinator.cc' l='100' u='c' c='_ZN10tensorflow11Coordinator12ReportStatusERKNS_6StatusE'/>
+<use f='tensorflow/tensorflow/cc/training/queue_runner.h' l='102' u='c' c='_ZNK10tensorflow11QueueRunner13IsQueueClosedENS_6StatusE'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='333' u='c' c='_ZN10tensorflow12_GLOBAL__N_112IsXlaFusableERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/shape_op.cc' l='190' u='c' c='_ZN10tensorflow12_GLOBAL__N_19SqueezeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_registry.cc' l='80' u='c' c='_ZN10tensorflow13XlaOpRegistry12IsCompatibleERKNS0_14OpRegistrationES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1693' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.cc' l='46' u='c' c='_ZN3xla3cpu26ParallelizationPreparation3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='202' u='c' c='_ZN3xla14HloComputation34RemoveInstructionAndUnusedOperandsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='693' u='c' c='_ZNK3xla14HloComputation13AcceptOrderedEPNS_17DfsHloVisitorBaseIT_EERKSt6vectorIPKNS_14HloInstructionESaIS8_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dce.cc' l='57' u='c' c='_ZN3xla6HloDCE3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dce.cc' l='90' u='c' c='_ZN3xla6HloDCE3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='329' u='c' c='_ZN3xla12_GLOBAL__N_127IsUsedOutsideSubcomputationERKNS_14HloInstructionERKSt13unordered_setIPS1_St4hashIS5_ESt8equal_toIS5_ESaIS5_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='165' u='c' c='_ZN3xla17InstructionFusion17CanFuseOnAllPathsERKNS_18HloReachabilityMapEPNS_14HloInstructionES5_PSt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='190' u='c' c='_ZN3xla17InstructionFusion17CanFuseOnAllPathsERKNS_18HloReachabilityMapEPNS_14HloInstructionES5_PSt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='273' u='c' c='_ZN3xla17InstructionFusion3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='275' u='c' c='_ZN3xla17InstructionFusion3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='368' u='c' c='_ZN3xla17InstructionFusion3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='748' u='c' c='_ZN3xla14ShapeInference15InferDotOpShapeERKNS_5ShapeES3_RKNS_19DotDimensionNumbersE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='283' u='c' c='_ZN4toco12_GLOBAL__N_115OperatorsToDumpERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='291' u='c' c='_ZN4toco12_GLOBAL__N_115OperatorsToDumpERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='77' u='c' c='_ZN4toco23GraphTransformationsSet3AddEPNS_19GraphTransformationE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.cc' l='70' u='c' c='_ZN4toco12_GLOBAL__N_148DiscardUselessConnectedComponentsAndRNNBackEdgesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.cc' l='74' u='c' c='_ZN4toco12_GLOBAL__N_148DiscardUselessConnectedComponentsAndRNNBackEdgesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.cc' l='78' u='c' c='_ZN4toco12_GLOBAL__N_148DiscardUselessConnectedComponentsAndRNNBackEdgesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.cc' l='85' u='c' c='_ZN4toco12_GLOBAL__N_148DiscardUselessConnectedComponentsAndRNNBackEdgesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.cc' l='88' u='c' c='_ZN4toco12_GLOBAL__N_148DiscardUselessConnectedComponentsAndRNNBackEdgesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.cc' l='95' u='c' c='_ZN4toco12_GLOBAL__N_148DiscardUselessConnectedComponentsAndRNNBackEdgesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.cc' l='101' u='c' c='_ZN4toco12_GLOBAL__N_148DiscardUselessConnectedComponentsAndRNNBackEdgesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.cc' l='105' u='c' c='_ZN4toco12_GLOBAL__N_148DiscardUselessConnectedComponentsAndRNNBackEdgesEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='472' u='c' c='_ZN4toco22DumpGraphvizVideoFrameERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='512' u='c' c='_ZN4toco7LogDumpEiRKSsRKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='524' u='c' c='_ZN4toco7LogDumpEiRKSsRKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='865' u='c' c='_ZN4toco21CheckOperatorOrderingERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='869' u='c' c='_ZN4toco21CheckOperatorOrderingERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='874' u='c' c='_ZN4toco21CheckOperatorOrderingERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='902' u='c' c='_ZN4toco19FixOperatorOrderingEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='954' u='c' c='_ZN4toco19FixOperatorOrderingEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1052' u='c' c='_ZN10tensorflow13DirectSession10CheckFetchERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EERKS1_ISsSaISsEEPKNS0_16ExecutorsAndKeysEPKNS0_8RunStateE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1098' u='c' c='_ZN10tensorflow13DirectSession15CreateExecutorsERKNS_15CallableOptionsEPSt10unique_ptrINS0_16ExecutorsAndKeysESt14default_deleteIS5_EEPS4_INS0_12Funct10670497'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eval_const_tensor.cc' l='268' u='c' c='_ZN10tensorflow12_GLOBAL__N_123ExtractConstantSubgraphERKNS_4NodeERKNS_12ShapeRefinerEPKSt13unordered_mapISsNS_6TensorESt4hashISsESt8equal_toISsESaISt10602876'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='141' u='c' c='_ZNK10tensorflow19GraphExecutionState6ExtendERKNS_8GraphDefEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='979' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph12CheckFetchesERKNS_21RunStepRequestWrapperEPKNS0_8RunStateEPNS_19GraphExecutionStateE'/>
+<use f='tensorflow/tensorflow/core/graph/algorithm.cc' l='205' u='c' c='_ZN10tensorflow27PruneForReverseReachabilityEPNS_5GraphESt13unordered_setIPKNS_4NodeESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='354' u='c' c='_ZN10tensorflow8subgraph24RewriteGraphForExecutionEPNS_5GraphERKSt6vectorISt10unique_ptrINS0_12PruneRewriteESt14default_deleteIS5_EESaIS8_EESC_RKNS_3g16243535'/>
+<use f='tensorflow/tensorflow/core/grappler/grappler_item_builder.cc' l='486' u='c' c='_ZN10tensorflow8grappler28GrapplerItemFromMetaGraphDefERKSsRKNS_12MetaGraphDefERKNS0_10ItemConfigE'/>
+<use f='tensorflow/tensorflow/core/grappler/op_types.cc' l='456' u='c' c='_ZN10tensorflow8grappler12IsInvolutionERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/op_types.cc' l='467' u='c' c='_ZN10tensorflow8grappler17IsValuePreservingERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='258' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_129GetTailOfValuePreservingChainERKNS_7NodeDefERKNS0_7NodeMapERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1256' u='c' c='_ZN10tensorflow8grappler15ConstantFolding9FoldGraphEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='122' u='c' c='_ZN10tensorflow8grappler18connected_subgraphERKNS0_7NodeMapEbbRKSt8functionIFbRKNS_7NodeDefEEEPSt13unordered_setIPS6_St4hashISD_ESt8equal_toISD_ESaISD_EE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='130' u='c' c='_ZN10tensorflow8grappler18connected_subgraphERKNS0_7NodeMapEbbRKSt8functionIFbRKNS_7NodeDefEEEPSt13unordered_setIPS6_St4hashISD_ESt8equal_toISD_ESaISD_EE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='153' u='c' c='_ZN10tensorflow8grappler22GetOpGroupsToRecomputeEPKNS_8GraphDefERKNS0_7NodeMapERKSt8functionIFbRKNS_7NodeDefEEESE_'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='189' u='c' c='_ZN10tensorflow8grappler22GetOpGroupsToRecomputeEPKNS_8GraphDefERKNS0_7NodeMapERKSt8functionIFbRKNS_7NodeDefEEESE_'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='215' u='c' c='_ZN10tensorflow8grappler26GetMaxDownstreamComponentsERKSt13unordered_setIPKNS_7NodeDefESt4hashIS4_ESt8equal_toIS4_ESaIS4_EERKS1_IPS2_S5_ISD_ES7_ISD_ES585375'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='250' u='c' c='_ZN10tensorflow8grappler26GetMaxDownstreamComponentsERKSt13unordered_setIPKNS_7NodeDefESt4hashIS4_ESt8equal_toIS4_ESaIS4_EERKS1_IPS2_S5_ISD_ES7_ISD_ES585375'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='309' u='c' c='_ZN10tensorflow8grappler34AddRecomputeControlDependencyNodesERKSt13unordered_setIPKNS_7NodeDefESt4hashIS4_ESt8equal_toIS4_ESaIS4_EERKS1_IPS2_S5_ISD_ES8139545'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='462' u='c' c='_ZN10tensorflow8grappler26RecomputationRewritingPassENS_25RewriterConfig_MemOptTypeERKSsPNS_8GraphDefERKNS0_12GrapplerItemE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='463' u='c' c='_ZN10tensorflow8grappler26RecomputationRewritingPassENS_25RewriterConfig_MemOptTypeERKSsPNS_8GraphDefERKNS0_12GrapplerItemE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='471' u='c' c='_ZN10tensorflow8grappler26RecomputationRewritingPassENS_25RewriterConfig_MemOptTypeERKSsPNS_8GraphDefERKNS0_12GrapplerItemE'/>
+<use f='tensorflow/tensorflow/core/kernels/example_parsing_ops.cc' l='554' u='c' c='_ZN10tensorflow29SingleSequenceExampleParserOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1039' u='c' c='_ZN10tensorflow15GraphTransferer24TransferParamsComparatorclERKNS_26GraphTransferInfo_NodeInfoES4_'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1043' u='c' c='_ZN10tensorflow15GraphTransferer24TransferParamsComparatorclERKNS_26GraphTransferInfo_NodeInfoES4_'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1061' u='c' c='_ZN10tensorflow15GraphTransferer17FillDependencyRecEiRSt13unordered_mapIiSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEES4_S6_SaISt4pairIKiS8_EEERS8_'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1069' u='c' c='_ZN10tensorflow15GraphTransferer17FillDependencyRecEiRSt13unordered_mapIiSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEES4_S6_SaISt4pairIKiS8_EEERS8_'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1088' u='c' c='_ZN10tensorflow15GraphTransferer17FillDependencyRecEiRSt13unordered_mapIiSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEES4_S6_SaISt4pairIKiS8_EEERS8_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='746' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils15ClusterizeNodesERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEERKNS_8GraphDefEPSt6vectorISt5tup10877082'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='775' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils15ClusterizeNodesERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEERKNS_8GraphDefEPSt6vectorISt5tup10877082'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='797' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils15ClusterizeNodesERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEERKNS_8GraphDefEPSt6vectorISt5tup10877082'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='839' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23BuildClusterSubgraphDefERKSt5tupleIJSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEESt6vectorISsS716399687'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='840' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23BuildClusterSubgraphDefERKSt5tupleIJSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEESt6vectorISsS716399687'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='933' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils20BuildClusterByBorderERKSt6vectorISsSaISsEES5_RKNS_8GraphDefEPSt5tupleIJSt13unordered_setISsSt4hashISsES5911363'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1405' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23BuildNodeMapFromOpTypesERKNS_8GraphDefERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEE'/>
+<use f='tensorflow/tensorflow/core/kernels/shape_ops.h' l='236' u='c' c='_ZN10tensorflow9SqueezeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='151' u='c' c='_ZN10tensorflow16graph_transforms17RemoveUnusedNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='166' u='c' c='_ZN10tensorflow16graph_transforms17RemoveUnusedNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/insert_logging.cc' l='102' u='c' c='_ZN10tensorflow16graph_transforms13InsertLoggingERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/obfuscate_names.cc' l='52' u='c' c='_ZN10tensorflow16graph_transforms14ObfuscateNamesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/obfuscate_names.cc' l='68' u='c' c='_ZN10tensorflow16graph_transforms14ObfuscateNamesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='496' u='c' c='_ZN10tensorflow16graph_transforms16RenameNodeInputsERKNS_8GraphDefERKSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPS1_'/>

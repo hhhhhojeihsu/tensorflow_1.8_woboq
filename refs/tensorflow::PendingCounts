@@ -1,0 +1,44 @@
+<def f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='48' ll='306'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='27'>// PendingCounts is an internal helper class to keep track of pending and
+// dead counts for nodes, for use in the ExecutorState module.  It
+// holds a map from Handles to various counts for that handle.  This
+// information is needed per frame iteration. The amount of memory
+// needed for an iteration is the same across all executions of the
+// iteration. The memory amount and handles are precomputed at startup
+// using a Layout object.
+//
+//    PendingCounts::Layout layout;
+//    std::vector&lt;PendingCounts::Handle&gt; h(C);
+//    for (int id = 0; id &lt; C; id++) {
+//      h[id] = r.AddHandle(max_pending[id], max_dead[id]);
+//    }
+//
+// When we actually want to start an iteration we first create a
+// PendingCounts object and then index into it using the precomputed
+// handles:
+
+//    PendingCounts counts(layout);
+//    ...
+//    counts.decrement_pending(h[id], 1);</doc>
+<fun r='_ZN10tensorflow13PendingCountsC1ENS0_6LayoutE'/>
+<fun r='_ZN10tensorflow13PendingCountsC1ERKS0_'/>
+<fun r='_ZN10tensorflow13PendingCountsD1Ev'/>
+<fun r='_ZN10tensorflow13PendingCounts17set_initial_countENS0_6HandleEm'/>
+<fun r='_ZN10tensorflow13PendingCounts10node_stateENS0_6HandleE'/>
+<fun r='_ZN10tensorflow13PendingCounts12mark_startedENS0_6HandleE'/>
+<fun r='_ZN10tensorflow13PendingCounts14mark_completedENS0_6HandleE'/>
+<fun r='_ZN10tensorflow13PendingCounts7pendingENS0_6HandleE'/>
+<fun r='_ZN10tensorflow13PendingCounts17decrement_pendingENS0_6HandleEi'/>
+<fun r='_ZN10tensorflow13PendingCounts9mark_liveENS0_6HandleE'/>
+<fun r='_ZN10tensorflow13PendingCounts10dead_countENS0_6HandleE'/>
+<fun r='_ZN10tensorflow13PendingCounts20increment_dead_countENS0_6HandleE'/>
+<fun r='_ZN10tensorflow13PendingCounts21adjust_for_activationENS0_6HandleEbPiS2_'/>
+<fun r='_ZN10tensorflow13PendingCounts28adjust_for_activation_sharedEPT_bPiS3_'/>
+<smbr r='tensorflow::PendingCounts::kMaxCountForPackedCounts' t='const int'/>
+<fun r='_ZNK10tensorflow13PendingCounts18NodeStateForStructEPT_'/>
+<fun r='_ZN10tensorflow13PendingCounts5LargeENS0_6HandleE'/>
+<fun r='_ZN10tensorflow13PendingCounts6PackedENS0_6HandleE'/>
+<mbr r='tensorflow::PendingCounts::num_bytes_' o='0' t='const int'/>
+<mbr r='tensorflow::PendingCounts::bytes_' o='64' t='char *'/>
+<fun r='_ZN10tensorflow13PendingCountsaSERKS0_'/>

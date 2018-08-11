@@ -1,0 +1,332 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>feature_util.h source code [tensorflow/tensorflow/core/example/feature_util.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::internal::FeatureTrait,tensorflow::internal::RepeatedFieldTrait,tensorflow::internal::is_string "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/example/feature_util.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>example</a>/<a href='feature_util.h.html'>feature_util.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// A set of lightweight wrappers which simplify access to Feature protos.</i></td></tr>
+<tr><th id="17">17</th><td><i>//</i></td></tr>
+<tr><th id="18">18</th><td><i>// TensorFlow Example proto uses associative maps on top of oneof fields.</i></td></tr>
+<tr><th id="19">19</th><td><i>// SequenceExample proto uses associative map of FeatureList.</i></td></tr>
+<tr><th id="20">20</th><td><i>// So accessing feature values is not very convenient.</i></td></tr>
+<tr><th id="21">21</th><td><i>//</i></td></tr>
+<tr><th id="22">22</th><td><i>// For example, to read a first value of integer feature "tag":</i></td></tr>
+<tr><th id="23">23</th><td><i>//   int id = example.features().feature().at("tag").int64_list().value(0)</i></td></tr>
+<tr><th id="24">24</th><td><i>//</i></td></tr>
+<tr><th id="25">25</th><td><i>// to add a value:</i></td></tr>
+<tr><th id="26">26</th><td><i>//   auto features = example-&gt;mutable_features();</i></td></tr>
+<tr><th id="27">27</th><td><i>//   (*features-&gt;mutable_feature())["tag"].mutable_int64_list()-&gt;add_value(id)</i></td></tr>
+<tr><th id="28">28</th><td><i>//</i></td></tr>
+<tr><th id="29">29</th><td><i>// For float features you have to use float_list, for string - bytes_list.</i></td></tr>
+<tr><th id="30">30</th><td><i>//</i></td></tr>
+<tr><th id="31">31</th><td><i>// To do the same with this library:</i></td></tr>
+<tr><th id="32">32</th><td><i>//   int id = GetFeatureValues&lt;int64&gt;("tag", example).Get(0);</i></td></tr>
+<tr><th id="33">33</th><td><i>//   GetFeatureValues&lt;int64&gt;("tag", &amp;example)-&gt;Add(id);</i></td></tr>
+<tr><th id="34">34</th><td><i>//</i></td></tr>
+<tr><th id="35">35</th><td><i>// Modification of bytes features is slightly different:</i></td></tr>
+<tr><th id="36">36</th><td><i>//   auto tag = GetFeatureValues&lt;string&gt;("tag", &amp;example);</i></td></tr>
+<tr><th id="37">37</th><td><i>//   *tag-&gt;Add() = "lorem ipsum";</i></td></tr>
+<tr><th id="38">38</th><td><i>//</i></td></tr>
+<tr><th id="39">39</th><td><i>// To copy multiple values into a feature:</i></td></tr>
+<tr><th id="40">40</th><td><i>//   AppendFeatureValues({1,2,3}, "tag", &amp;example);</i></td></tr>
+<tr><th id="41">41</th><td><i>//</i></td></tr>
+<tr><th id="42">42</th><td><i>// GetFeatureValues gives you access to underlying data - RepeatedField object</i></td></tr>
+<tr><th id="43">43</th><td><i>// (RepeatedPtrField for byte list). So refer to its documentation of</i></td></tr>
+<tr><th id="44">44</th><td><i>// RepeatedField for full list of supported methods.</i></td></tr>
+<tr><th id="45">45</th><td><i>//</i></td></tr>
+<tr><th id="46">46</th><td><i>// NOTE: Due to the nature of oneof proto fields setting a feature of one type</i></td></tr>
+<tr><th id="47">47</th><td><i>// automatically clears all values stored as another type with the same feature</i></td></tr>
+<tr><th id="48">48</th><td><i>// key.</i></td></tr>
+<tr><th id="49">49</th><td><i>//</i></td></tr>
+<tr><th id="50">50</th><td><i>// This library also has tools to work with SequenceExample protos.</i></td></tr>
+<tr><th id="51">51</th><td><i>//</i></td></tr>
+<tr><th id="52">52</th><td><i>// To get a value from SequenceExample.context:</i></td></tr>
+<tr><th id="53">53</th><td><i>//   int id = GetFeatureValues&lt;protobuf_int64&gt;("tag", se.context()).Get(0);</i></td></tr>
+<tr><th id="54">54</th><td><i>// To add a value to the context:</i></td></tr>
+<tr><th id="55">55</th><td><i>//   GetFeatureValues&lt;protobuf_int64&gt;("tag", se.mutable_context())-&gt;Add(42);</i></td></tr>
+<tr><th id="56">56</th><td><i>//</i></td></tr>
+<tr><th id="57">57</th><td><i>// To add values to feature_lists:</i></td></tr>
+<tr><th id="58">58</th><td><i>//   AppendFeatureValues({4.0},</i></td></tr>
+<tr><th id="59">59</th><td><i>//                       GetFeatureList("images", &amp;se)-&gt;Add());</i></td></tr>
+<tr><th id="60">60</th><td><i>//   AppendFeatureValues({5.0, 3.0},</i></td></tr>
+<tr><th id="61">61</th><td><i>//                       GetFeatureList("images", &amp;se)-&gt;Add());</i></td></tr>
+<tr><th id="62">62</th><td><i>// This will create a feature list keyed as "images" with two features:</i></td></tr>
+<tr><th id="63">63</th><td><i>//   feature_lists {</i></td></tr>
+<tr><th id="64">64</th><td><i>//     feature_list {</i></td></tr>
+<tr><th id="65">65</th><td><i>//       key: "images"</i></td></tr>
+<tr><th id="66">66</th><td><i>//       value {</i></td></tr>
+<tr><th id="67">67</th><td><i>//         feature { float_list { value: [4.0] } }</i></td></tr>
+<tr><th id="68">68</th><td><i>//         feature { float_list { value: [5.0, 3.0] } }</i></td></tr>
+<tr><th id="69">69</th><td><i>//       }</i></td></tr>
+<tr><th id="70">70</th><td><i>//     } }</i></td></tr>
+<tr><th id="71">71</th><td><i>//</i></td></tr>
+<tr><th id="72">72</th><td><i>// Functions exposed by this library:</i></td></tr>
+<tr><th id="73">73</th><td><i>//   HasFeature&lt;[FeatureType]&gt;(key, proto) -&gt; bool</i></td></tr>
+<tr><th id="74">74</th><td><i>//     Returns true if a feature with the specified key, and optionally</i></td></tr>
+<tr><th id="75">75</th><td><i>//     FeatureType, belongs to the Features or Example proto.</i></td></tr>
+<tr><th id="76">76</th><td><i>//   HasFeatureList(key, sequence_example) -&gt; bool</i></td></tr>
+<tr><th id="77">77</th><td><i>//     Returns true if SequenceExample has a feature_list with the key.</i></td></tr>
+<tr><th id="78">78</th><td><i>//   GetFeatureValues&lt;FeatureType&gt;(key, proto) -&gt; RepeatedField&lt;FeatureType&gt;</i></td></tr>
+<tr><th id="79">79</th><td><i>//     Returns values for the specified key and the FeatureType.</i></td></tr>
+<tr><th id="80">80</th><td><i>//     Supported types for the proto: Example, Features.</i></td></tr>
+<tr><th id="81">81</th><td><i>//   GetFeatureList(key, sequence_example) -&gt; RepeatedPtrField&lt;Feature&gt;</i></td></tr>
+<tr><th id="82">82</th><td><i>//     Returns Feature protos associated with a key.</i></td></tr>
+<tr><th id="83">83</th><td><i>//   AppendFeatureValues(begin, end, feature)</i></td></tr>
+<tr><th id="84">84</th><td><i>//   AppendFeatureValues(container or initializer_list, feature)</i></td></tr>
+<tr><th id="85">85</th><td><i>//     Copies values into a Feature.</i></td></tr>
+<tr><th id="86">86</th><td><i>//   AppendFeatureValues(begin, end, key, proto)</i></td></tr>
+<tr><th id="87">87</th><td><i>//   AppendFeatureValues(container or initializer_list, key, proto)</i></td></tr>
+<tr><th id="88">88</th><td><i>//     Copies values into Features and Example protos with the specified key.</i></td></tr>
+<tr><th id="89">89</th><td><i>//</i></td></tr>
+<tr><th id="90">90</th><td><i>// Auxiliary functions, it is unlikely you'll need to use them directly:</i></td></tr>
+<tr><th id="91">91</th><td><i>//   GetFeatures(proto) -&gt; Features</i></td></tr>
+<tr><th id="92">92</th><td><i>//     A convenience function to get Features proto.</i></td></tr>
+<tr><th id="93">93</th><td><i>//     Supported types for the proto: Example, Features.</i></td></tr>
+<tr><th id="94">94</th><td><i>//   GetFeature(key, proto) -&gt; Feature*</i></td></tr>
+<tr><th id="95">95</th><td><i>//     Returns a Feature proto for the specified key, creates a new if</i></td></tr>
+<tr><th id="96">96</th><td><i>//     necessary. Supported types for the proto: Example, Features.</i></td></tr>
+<tr><th id="97">97</th><td><i>//   GetFeatureValues&lt;FeatureType&gt;(feature) -&gt; RepeatedField&lt;FeatureType&gt;</i></td></tr>
+<tr><th id="98">98</th><td><i>//     Returns values of the feature for the FeatureType.</i></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><u>#<span data-ppcond="100">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_EXAMPLE_FEATURE_H_">TENSORFLOW_EXAMPLE_FEATURE_H_</span></u></td></tr>
+<tr><th id="101">101</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_EXAMPLE_FEATURE_H_" data-ref="_M/TENSORFLOW_EXAMPLE_FEATURE_H_">TENSORFLOW_EXAMPLE_FEATURE_H_</dfn></u></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><u>#include <a href="../../../../include/c++/5/iterator.html">&lt;iterator&gt;</a></u></td></tr>
+<tr><th id="104">104</th><td><u>#include <a href="../../../../include/c++/5/type_traits.html">&lt;type_traits&gt;</a></u></td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><u>#include "tensorflow/core/example/example.pb.h"</u></td></tr>
+<tr><th id="107">107</th><td><u>#include "tensorflow/core/example/feature.pb.h"</u></td></tr>
+<tr><th id="108">108</th><td><u>#include <a href="../lib/core/stringpiece.h.html">"tensorflow/core/lib/core/stringpiece.h"</a></u></td></tr>
+<tr><th id="109">109</th><td><u>#include <a href="../platform/protobuf.h.html">"tensorflow/core/platform/protobuf.h"</a></u></td></tr>
+<tr><th id="110">110</th><td><u>#include <a href="../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><b>namespace</b> <span class="namespace">internal</span> {</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><i>// DEPRECATED: Use GetFeature instead.</i></td></tr>
+<tr><th id="117">117</th><td><i>// TODO(gorban): Update all clients in a followup CL.</i></td></tr>
+<tr><th id="118">118</th><td><i>// Returns a reference to a feature corresponding to the name.</i></td></tr>
+<tr><th id="119">119</th><td><i>// Note: it will create a new Feature if it is missing in the example.</i></td></tr>
+<tr><th id="120">120</th><td><span class='type' title='tensorflow::Feature' data-ref="tensorflow::Feature">Feature</span>&amp; <a class="decl" href="feature_util.cc.html#_ZN10tensorflow8internal14ExampleFeatureERKSsPNS_7ExampleE" title='tensorflow::internal::ExampleFeature' data-ref="_ZN10tensorflow8internal14ExampleFeatureERKSsPNS_7ExampleE" id="_ZN10tensorflow8internal14ExampleFeatureERKSsPNS_7ExampleE">ExampleFeature</a>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="1name" title='name' data-type='const string &amp;' data-ref="1name">name</dfn>, <span class='type' title='tensorflow::Example' data-ref="tensorflow::Example">Example</span>* <dfn class="local col2 decl" id="2example" title='example' data-type='tensorflow::Example *' data-ref="2example">example</dfn>);</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td><i>// Specializations of RepeatedFieldTrait define a type of RepeatedField</i></td></tr>
+<tr><th id="123">123</th><td><i>// corresponding to a selected feature type.</i></td></tr>
+<tr><th id="124">124</th><td><b>template</b> &lt;<b>typename</b> FeatureType&gt;</td></tr>
+<tr><th id="125">125</th><td><b>struct</b> <dfn class="type" id="tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait">RepeatedFieldTrait</dfn>;</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="128">128</th><td><b>struct</b> <dfn class="type def" id="tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait"><a class="type" href="#tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait">RepeatedFieldTrait</a></dfn>&lt;<a class="typedef" href="../platform/default/protobuf.h.html#tensorflow::protobuf_int64" title='tensorflow::protobuf_int64' data-type='::google::protobuf::int64' data-ref="tensorflow::protobuf_int64">protobuf_int64</a>&gt; {</td></tr>
+<tr><th id="129">129</th><td>  <b>using</b> <dfn class="typedef" id="tensorflow::internal::RepeatedFieldTrait{long}::Type" title='tensorflow::internal::RepeatedFieldTrait&lt;long&gt;::Type' data-type='protobuf::RepeatedField&lt;protobuf_int64&gt;' data-ref="tensorflow::internal::RepeatedFieldTrait{long}::Type">Type</dfn> = <span class="namespace">protobuf::</span><span class='type' title='google::protobuf::RepeatedField' data-ref="google::protobuf::RepeatedField">RepeatedField</span>&lt;<a class="typedef" href="../platform/default/protobuf.h.html#tensorflow::protobuf_int64" title='tensorflow::protobuf_int64' data-type='::google::protobuf::int64' data-ref="tensorflow::protobuf_int64">protobuf_int64</a>&gt;;</td></tr>
+<tr><th id="130">130</th><td>};</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="133">133</th><td><b>struct</b> <dfn class="type def" id="tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait"><a class="type" href="#tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait">RepeatedFieldTrait</a></dfn>&lt;<em>float</em>&gt; {</td></tr>
+<tr><th id="134">134</th><td>  <b>using</b> <dfn class="typedef" id="tensorflow::internal::RepeatedFieldTrait{float}::Type" title='tensorflow::internal::RepeatedFieldTrait&lt;float&gt;::Type' data-type='protobuf::RepeatedField&lt;float&gt;' data-ref="tensorflow::internal::RepeatedFieldTrait{float}::Type">Type</dfn> = <span class="namespace">protobuf::</span><span class='type' title='google::protobuf::RepeatedField' data-ref="google::protobuf::RepeatedField">RepeatedField</span>&lt;<em>float</em>&gt;;</td></tr>
+<tr><th id="135">135</th><td>};</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="138">138</th><td><b>struct</b> <dfn class="type def" id="tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait"><a class="type" href="#tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait">RepeatedFieldTrait</a></dfn>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt; {</td></tr>
+<tr><th id="139">139</th><td>  <b>using</b> <dfn class="typedef" id="tensorflow::internal::RepeatedFieldTrait{std::basic_string{char}}::Type" title='tensorflow::internal::RepeatedFieldTrait&lt;std::basic_string&lt;char&gt; &gt;::Type' data-type='protobuf::RepeatedPtrField&lt;string&gt;' data-ref="tensorflow::internal::RepeatedFieldTrait{std::basic_string{char}}::Type">Type</dfn> = <span class="namespace">protobuf::</span><span class='type' title='google::protobuf::RepeatedPtrField' data-ref="google::protobuf::RepeatedPtrField">RepeatedPtrField</span>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt;;</td></tr>
+<tr><th id="140">140</th><td>};</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td><i>// Specializations of FeatureTrait define a type of feature corresponding to a</i></td></tr>
+<tr><th id="143">143</th><td><i>// selected value type.</i></td></tr>
+<tr><th id="144">144</th><td><b>template</b> &lt;<b>typename</b> ValueType, <b>class</b> Enable = <em>void</em>&gt;</td></tr>
+<tr><th id="145">145</th><td><b>struct</b> <dfn class="type" id="tensorflow::internal::FeatureTrait" title='tensorflow::internal::FeatureTrait' data-ref="tensorflow::internal::FeatureTrait">FeatureTrait</dfn>;</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td><b>template</b> &lt;<b>typename</b> ValueType&gt;</td></tr>
+<tr><th id="148">148</th><td><b>struct</b> <dfn class="type def" id="tensorflow::internal::FeatureTrait" title='tensorflow::internal::FeatureTrait' data-ref="tensorflow::internal::FeatureTrait">FeatureTrait</dfn>&lt;ValueType, <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/type_traits.html#std::enable_if" title='std::enable_if' data-ref="std::enable_if">enable_if</a>&lt;</td></tr>
+<tr><th id="149">149</th><td>                                   <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/type_traits.html#std::is_integral" title='std::is_integral' data-ref="std::is_integral">is_integral</a>&lt;ValueType&gt;::value&gt;::type&gt; {</td></tr>
+<tr><th id="150">150</th><td>  <b>using</b> <dfn class="typedef" id="tensorflow::internal::FeatureTrait{type-parameter-0-0,typenameenable_if{std::is_integral{ValueType}::value,void}::type}::Type" title='tensorflow::internal::FeatureTrait&lt;type-parameter-0-0, typename enable_if&lt;std::is_integral&lt;ValueType&gt;::value, void&gt;::type&gt;::Type' data-type='protobuf_int64' data-ref="tensorflow::internal::FeatureTrait{type-parameter-0-0,typenameenable_if{std::is_integral{ValueType}::value,void}::type}::Type">Type</dfn> = <a class="typedef" href="../platform/default/protobuf.h.html#tensorflow::protobuf_int64" title='tensorflow::protobuf_int64' data-type='::google::protobuf::int64' data-ref="tensorflow::protobuf_int64">protobuf_int64</a>;</td></tr>
+<tr><th id="151">151</th><td>};</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td><b>template</b> &lt;<b>typename</b> ValueType&gt;</td></tr>
+<tr><th id="154">154</th><td><b>struct</b> <dfn class="type def" id="tensorflow::internal::FeatureTrait" title='tensorflow::internal::FeatureTrait' data-ref="tensorflow::internal::FeatureTrait">FeatureTrait</dfn>&lt;</td></tr>
+<tr><th id="155">155</th><td>    ValueType,</td></tr>
+<tr><th id="156">156</th><td>    <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/type_traits.html#std::enable_if" title='std::enable_if' data-ref="std::enable_if">enable_if</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/type_traits.html#std::is_floating_point" title='std::is_floating_point' data-ref="std::is_floating_point">is_floating_point</a>&lt;ValueType&gt;::value&gt;::type&gt; {</td></tr>
+<tr><th id="157">157</th><td>  <b>using</b> <dfn class="typedef" id="tensorflow::internal::FeatureTrait{type-parameter-0-0,typenameenable_if{std::is_floating_point{ValueType}::value,void}::type}::Type" title='tensorflow::internal::FeatureTrait&lt;type-parameter-0-0, typename enable_if&lt;std::is_floating_point&lt;ValueType&gt;::value, void&gt;::type&gt;::Type' data-type='float' data-ref="tensorflow::internal::FeatureTrait{type-parameter-0-0,typenameenable_if{std::is_floating_point{ValueType}::value,void}::type}::Type">Type</dfn> = <em>float</em>;</td></tr>
+<tr><th id="158">158</th><td>};</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="161">161</th><td><b>struct</b> <dfn class="type def" id="tensorflow::internal::is_string" title='tensorflow::internal::is_string' data-ref="tensorflow::internal::is_string">is_string</dfn></td></tr>
+<tr><th id="162">162</th><td>    : <b>public</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/type_traits.html#std::integral_constant" title='std::integral_constant' data-ref="std::integral_constant">integral_constant</a>&lt;</td></tr>
+<tr><th id="163">163</th><td>          <em>bool</em>,</td></tr>
+<tr><th id="164">164</th><td>          <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/type_traits.html#std::is_same" title='std::is_same' data-ref="std::is_same">is_same</a>&lt;<em>char</em>*, <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/type_traits.html#std::decay" title='std::decay' data-ref="std::decay">decay</a>&lt;T&gt;::type&gt;::value ||</td></tr>
+<tr><th id="165">165</th><td>              <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/type_traits.html#std::is_same" title='std::is_same' data-ref="std::is_same">is_same</a>&lt;<em>const</em> <em>char</em>*, <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/type_traits.html#std::decay" title='std::decay' data-ref="std::decay">decay</a>&lt;T&gt;::type&gt;::value&gt; {</td></tr>
+<tr><th id="166">166</th><td>};</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="169">169</th><td><b>struct</b> <dfn class="type def" id="tensorflow::internal::is_string" title='tensorflow::internal::is_string' data-ref="tensorflow::internal::is_string"><a class="type" href="#tensorflow::internal::is_string" title='tensorflow::internal::is_string' data-ref="tensorflow::internal::is_string">is_string</a></dfn>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt; : std::true_type {};</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="172">172</th><td><b>struct</b> <dfn class="type def" id="tensorflow::internal::is_string" title='tensorflow::internal::is_string' data-ref="tensorflow::internal::is_string"><a class="type" href="#tensorflow::internal::is_string" title='tensorflow::internal::is_string' data-ref="tensorflow::internal::is_string">is_string</a></dfn>&lt;<span class="namespace">::tensorflow::</span><a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a>&gt; : std::true_type {};</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td><b>template</b> &lt;<b>typename</b> ValueType&gt;</td></tr>
+<tr><th id="175">175</th><td><b>struct</b> <dfn class="type def" id="tensorflow::internal::FeatureTrait" title='tensorflow::internal::FeatureTrait' data-ref="tensorflow::internal::FeatureTrait">FeatureTrait</dfn>&lt;</td></tr>
+<tr><th id="176">176</th><td>    ValueType, <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/type_traits.html#std::enable_if" title='std::enable_if' data-ref="std::enable_if">enable_if</a>&lt;<a class="type" href="#tensorflow::internal::is_string" title='tensorflow::internal::is_string' data-ref="tensorflow::internal::is_string">is_string</a>&lt;ValueType&gt;::value&gt;::type&gt; {</td></tr>
+<tr><th id="177">177</th><td>  <b>using</b> <dfn class="typedef" id="tensorflow::internal::FeatureTrait{type-parameter-0-0,typenameenable_if{is_string{ValueType}::value,void}::type}::Type" title='tensorflow::internal::FeatureTrait&lt;type-parameter-0-0, typename enable_if&lt;is_string&lt;ValueType&gt;::value, void&gt;::type&gt;::Type' data-type='string' data-ref="tensorflow::internal::FeatureTrait{type-parameter-0-0,typenameenable_if{is_string{ValueType}::value,void}::type}::Type">Type</dfn> = <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>;</td></tr>
+<tr><th id="178">178</th><td>};</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>}  <i>//  namespace internal</i></td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><i>// Returns true if sequence_example has a feature_list with the specified key.</i></td></tr>
+<tr><th id="183">183</th><td><em>bool</em> <a class="decl" href="feature_util.cc.html#_ZN10tensorflow14HasFeatureListERKSsRKNS_15SequenceExampleE" title='tensorflow::HasFeatureList' data-ref="_ZN10tensorflow14HasFeatureListERKSsRKNS_15SequenceExampleE" id="_ZN10tensorflow14HasFeatureListERKSsRKNS_15SequenceExampleE">HasFeatureList</a>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col3 decl" id="3key" title='key' data-type='const string &amp;' data-ref="3key">key</dfn>, <em>const</em> <span class='type' title='tensorflow::SequenceExample' data-ref="tensorflow::SequenceExample">SequenceExample</span>&amp; <dfn class="local col4 decl" id="4sequence_example" title='sequence_example' data-type='const tensorflow::SequenceExample &amp;' data-ref="4sequence_example">sequence_example</dfn>);</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td><i>// A family of template functions to return mutable Features proto from a</i></td></tr>
+<tr><th id="186">186</th><td><i>// container proto. Supported ProtoTypes: Example, Features.</i></td></tr>
+<tr><th id="187">187</th><td><b>template</b> &lt;<b>typename</b> ProtoType&gt;</td></tr>
+<tr><th id="188">188</th><td><span class='type' title='tensorflow::Features' data-ref="tensorflow::Features">Features</span>* <dfn class="decl" id="_ZN10tensorflow11GetFeaturesEPT_" title='tensorflow::GetFeatures' data-ref="_ZN10tensorflow11GetFeaturesEPT_">GetFeatures</dfn>(ProtoType* <dfn class="local col5 decl" id="5proto" title='proto' data-type='ProtoType *' data-ref="5proto">proto</dfn>);</td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td><b>template</b> &lt;<b>typename</b> ProtoType&gt;</td></tr>
+<tr><th id="191">191</th><td><em>const</em> <span class='type' title='tensorflow::Features' data-ref="tensorflow::Features">Features</span>&amp; <dfn class="decl" id="_ZN10tensorflow11GetFeaturesERKT_" title='tensorflow::GetFeatures' data-ref="_ZN10tensorflow11GetFeaturesERKT_">GetFeatures</dfn>(<em>const</em> ProtoType&amp; <dfn class="local col6 decl" id="6proto" title='proto' data-type='const ProtoType &amp;' data-ref="6proto">proto</dfn>);</td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td><i>// Base declaration of a family of template functions to return a read only</i></td></tr>
+<tr><th id="194">194</th><td><i>// repeated field of feature values.</i></td></tr>
+<tr><th id="195">195</th><td><b>template</b> &lt;<b>typename</b> FeatureType&gt;</td></tr>
+<tr><th id="196">196</th><td><em>const</em> <b>typename</b> <span class="namespace">internal::</span><a class="type" href="#tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait">RepeatedFieldTrait</a>&lt;FeatureType&gt;::Type&amp;</td></tr>
+<tr><th id="197">197</th><td><dfn class="decl" id="_ZN10tensorflow16GetFeatureValuesERKNS_7FeatureE" title='tensorflow::GetFeatureValues' data-ref="_ZN10tensorflow16GetFeatureValuesERKNS_7FeatureE">GetFeatureValues</dfn>(<em>const</em> <span class='type' title='tensorflow::Feature' data-ref="tensorflow::Feature">Feature</span>&amp; <dfn class="local col7 decl" id="7feature" title='feature' data-type='const tensorflow::Feature &amp;' data-ref="7feature">feature</dfn>);</td></tr>
+<tr><th id="198">198</th><td></td></tr>
+<tr><th id="199">199</th><td><i>// Returns a read only repeated field corresponding to a feature with the</i></td></tr>
+<tr><th id="200">200</th><td><i>// specified name and FeatureType. Supported ProtoTypes: Example, Features.</i></td></tr>
+<tr><th id="201">201</th><td><b>template</b> &lt;<b>typename</b> FeatureType, <b>typename</b> ProtoType&gt;</td></tr>
+<tr><th id="202">202</th><td><em>const</em> <b>typename</b> <span class="namespace">internal::</span><a class="type" href="#tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait">RepeatedFieldTrait</a>&lt;FeatureType&gt;::Type&amp;</td></tr>
+<tr><th id="203">203</th><td><dfn class="decl def" id="_ZN10tensorflow16GetFeatureValuesERKSsRKT0_" title='tensorflow::GetFeatureValues' data-ref="_ZN10tensorflow16GetFeatureValuesERKSsRKT0_">GetFeatureValues</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col8 decl" id="8key" title='key' data-type='const string &amp;' data-ref="8key">key</dfn>, <em>const</em> ProtoType&amp; <dfn class="local col9 decl" id="9proto" title='proto' data-type='const ProtoType &amp;' data-ref="9proto">proto</dfn>) {</td></tr>
+<tr><th id="204">204</th><td>  <b>return</b> GetFeatureValues&lt;FeatureType&gt;(GetFeatures(<a class="local col9 ref" href="#9proto" title='proto' data-ref="9proto">proto</a>).feature().at(<a class="local col8 ref" href="#8key" title='key' data-ref="8key">key</a>));</td></tr>
+<tr><th id="205">205</th><td>}</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td><i>// Returns a mutable repeated field of a feature values.</i></td></tr>
+<tr><th id="208">208</th><td><b>template</b> &lt;<b>typename</b> FeatureType&gt;</td></tr>
+<tr><th id="209">209</th><td><b>typename</b> <span class="namespace">internal::</span><a class="type" href="#tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait">RepeatedFieldTrait</a>&lt;FeatureType&gt;::Type* <dfn class="decl" id="_ZN10tensorflow16GetFeatureValuesEPNS_7FeatureE" title='tensorflow::GetFeatureValues' data-ref="_ZN10tensorflow16GetFeatureValuesEPNS_7FeatureE">GetFeatureValues</dfn>(</td></tr>
+<tr><th id="210">210</th><td>    <span class='type' title='tensorflow::Feature' data-ref="tensorflow::Feature">Feature</span>* <dfn class="local col0 decl" id="10feature" title='feature' data-type='tensorflow::Feature *' data-ref="10feature">feature</dfn>);</td></tr>
+<tr><th id="211">211</th><td></td></tr>
+<tr><th id="212">212</th><td><i>// Returns a mutable repeated field corresponding to a feature with the</i></td></tr>
+<tr><th id="213">213</th><td><i>// specified name and FeatureType. Supported ProtoTypes: Example, Features.</i></td></tr>
+<tr><th id="214">214</th><td><b>template</b> &lt;<b>typename</b> FeatureType, <b>typename</b> ProtoType&gt;</td></tr>
+<tr><th id="215">215</th><td><b>typename</b> <span class="namespace">internal::</span><a class="type" href="#tensorflow::internal::RepeatedFieldTrait" title='tensorflow::internal::RepeatedFieldTrait' data-ref="tensorflow::internal::RepeatedFieldTrait">RepeatedFieldTrait</a>&lt;FeatureType&gt;::Type* <dfn class="decl def" id="_ZN10tensorflow16GetFeatureValuesERKSsPT0_" title='tensorflow::GetFeatureValues' data-ref="_ZN10tensorflow16GetFeatureValuesERKSsPT0_">GetFeatureValues</dfn>(</td></tr>
+<tr><th id="216">216</th><td>    <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="11key" title='key' data-type='const string &amp;' data-ref="11key">key</dfn>, ProtoType* <dfn class="local col2 decl" id="12proto" title='proto' data-type='ProtoType *' data-ref="12proto">proto</dfn>) {</td></tr>
+<tr><th id="217">217</th><td>  <span class="namespace">::tensorflow::</span><span class='type' title='tensorflow::Feature' data-ref="tensorflow::Feature">Feature</span>&amp; <dfn class="local col3 decl" id="13feature" title='feature' data-type='::tensorflow::Feature &amp;' data-ref="13feature">feature</dfn> =</td></tr>
+<tr><th id="218">218</th><td>      (*GetFeatures(<a class="local col2 ref" href="#12proto" title='proto' data-ref="12proto">proto</a>)-&gt;mutable_feature())[<a class="local col1 ref" href="#11key" title='key' data-ref="11key">key</a>];</td></tr>
+<tr><th id="219">219</th><td>  <b>return</b> GetFeatureValues&lt;FeatureType&gt;(&amp;<a class="local col3 ref" href="#13feature" title='feature' data-ref="13feature">feature</a>);</td></tr>
+<tr><th id="220">220</th><td>}</td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td><i>// Returns a Feature proto for the specified key, creates a new if necessary.</i></td></tr>
+<tr><th id="223">223</th><td><i>// Supported types for the proto: Example, Features.</i></td></tr>
+<tr><th id="224">224</th><td><b>template</b> &lt;<b>typename</b> ProtoType&gt;</td></tr>
+<tr><th id="225">225</th><td><span class='type' title='tensorflow::Feature' data-ref="tensorflow::Feature">Feature</span>* <dfn class="decl def" id="_ZN10tensorflow10GetFeatureERKSsPT_" title='tensorflow::GetFeature' data-ref="_ZN10tensorflow10GetFeatureERKSsPT_">GetFeature</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col4 decl" id="14key" title='key' data-type='const string &amp;' data-ref="14key">key</dfn>, ProtoType* <dfn class="local col5 decl" id="15proto" title='proto' data-type='ProtoType *' data-ref="15proto">proto</dfn>) {</td></tr>
+<tr><th id="226">226</th><td>  <b>return</b> &amp;(*GetFeatures(<a class="local col5 ref" href="#15proto" title='proto' data-ref="15proto">proto</a>)-&gt;mutable_feature())[<a class="local col4 ref" href="#14key" title='key' data-ref="14key">key</a>];</td></tr>
+<tr><th id="227">227</th><td>}</td></tr>
+<tr><th id="228">228</th><td></td></tr>
+<tr><th id="229">229</th><td><i>// Returns a repeated field with features corresponding to a feature_list key.</i></td></tr>
+<tr><th id="230">230</th><td><em>const</em> <span class="namespace">protobuf::</span><span class='type' title='google::protobuf::RepeatedPtrField' data-ref="google::protobuf::RepeatedPtrField">RepeatedPtrField</span>&lt;<span class='type' title='tensorflow::Feature' data-ref="tensorflow::Feature">Feature</span>&gt;&amp; <a class="decl" href="feature_util.cc.html#_ZN10tensorflow14GetFeatureListERKSsRKNS_15SequenceExampleE" title='tensorflow::GetFeatureList' data-ref="_ZN10tensorflow14GetFeatureListERKSsRKNS_15SequenceExampleE" id="_ZN10tensorflow14GetFeatureListERKSsRKNS_15SequenceExampleE">GetFeatureList</a>(</td></tr>
+<tr><th id="231">231</th><td>    <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col6 decl" id="16key" title='key' data-type='const string &amp;' data-ref="16key">key</dfn>, <em>const</em> <span class='type' title='tensorflow::SequenceExample' data-ref="tensorflow::SequenceExample">SequenceExample</span>&amp; <dfn class="local col7 decl" id="17sequence_example" title='sequence_example' data-type='const tensorflow::SequenceExample &amp;' data-ref="17sequence_example">sequence_example</dfn>);</td></tr>
+<tr><th id="232">232</th><td></td></tr>
+<tr><th id="233">233</th><td><i>// Returns a mutable repeated field with features corresponding to a</i></td></tr>
+<tr><th id="234">234</th><td><i>// feature_list key. It will create a new FeatureList if necessary.</i></td></tr>
+<tr><th id="235">235</th><td><span class="namespace">protobuf::</span><span class='type' title='google::protobuf::RepeatedPtrField' data-ref="google::protobuf::RepeatedPtrField">RepeatedPtrField</span>&lt;<span class='type' title='tensorflow::Feature' data-ref="tensorflow::Feature">Feature</span>&gt;* <a class="decl" href="feature_util.cc.html#_ZN10tensorflow14GetFeatureListERKSsPNS_15SequenceExampleE" title='tensorflow::GetFeatureList' data-ref="_ZN10tensorflow14GetFeatureListERKSsPNS_15SequenceExampleE" id="_ZN10tensorflow14GetFeatureListERKSsPNS_15SequenceExampleE">GetFeatureList</a>(</td></tr>
+<tr><th id="236">236</th><td>    <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col8 decl" id="18feature_list_key" title='feature_list_key' data-type='const string &amp;' data-ref="18feature_list_key">feature_list_key</dfn>, <span class='type' title='tensorflow::SequenceExample' data-ref="tensorflow::SequenceExample">SequenceExample</span>* <dfn class="local col9 decl" id="19sequence_example" title='sequence_example' data-type='tensorflow::SequenceExample *' data-ref="19sequence_example">sequence_example</dfn>);</td></tr>
+<tr><th id="237">237</th><td></td></tr>
+<tr><th id="238">238</th><td><b>template</b> &lt;<b>typename</b> IteratorType&gt;</td></tr>
+<tr><th id="239">239</th><td><em>void</em> <dfn class="decl def" id="_ZN10tensorflow19AppendFeatureValuesET_S0_PNS_7FeatureE" title='tensorflow::AppendFeatureValues' data-ref="_ZN10tensorflow19AppendFeatureValuesET_S0_PNS_7FeatureE">AppendFeatureValues</dfn>(IteratorType <dfn class="local col0 decl" id="20first" title='first' data-type='IteratorType' data-ref="20first">first</dfn>, IteratorType <dfn class="local col1 decl" id="21last" title='last' data-type='IteratorType' data-ref="21last">last</dfn>,</td></tr>
+<tr><th id="240">240</th><td>                         <span class='type' title='tensorflow::Feature' data-ref="tensorflow::Feature">Feature</span>* <dfn class="local col2 decl" id="22feature" title='feature' data-type='tensorflow::Feature *' data-ref="22feature">feature</dfn>) {</td></tr>
+<tr><th id="241">241</th><td>  <b>using</b> <dfn class="local col3 typedef" id="23FeatureType" title='FeatureType' data-type='typename internal::FeatureTrait&lt;typename std::iterator_traits&lt;IteratorType&gt;::value_type&gt;::Type' data-ref="23FeatureType">FeatureType</dfn> = <b>typename</b> <span class="namespace">internal::</span><a class="type" href="#tensorflow::internal::FeatureTrait" title='tensorflow::internal::FeatureTrait' data-ref="tensorflow::internal::FeatureTrait">FeatureTrait</a>&lt;</td></tr>
+<tr><th id="242">242</th><td>      <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_iterator_base_types.h.html#std::iterator_traits" title='std::iterator_traits' data-ref="std::iterator_traits">iterator_traits</a>&lt;IteratorType&gt;::value_type&gt;::Type;</td></tr>
+<tr><th id="243">243</th><td>  <span class="namespace">std::</span>copy(<a class="local col0 ref" href="#20first" title='first' data-ref="20first">first</a>, <a class="local col1 ref" href="#21last" title='last' data-ref="21last">last</a>,</td></tr>
+<tr><th id="244">244</th><td>            <span class="namespace">protobuf::</span>RepeatedFieldBackInserter(</td></tr>
+<tr><th id="245">245</th><td>                GetFeatureValues&lt;<a class="local col3 typedef" href="#23FeatureType" title='FeatureType' data-type='typename internal::FeatureTrait&lt;typename std::iterator_traits&lt;IteratorType&gt;::value_type&gt;::Type' data-ref="23FeatureType">FeatureType</a>&gt;(<a class="local col2 ref" href="#22feature" title='feature' data-ref="22feature">feature</a>)));</td></tr>
+<tr><th id="246">246</th><td>}</td></tr>
+<tr><th id="247">247</th><td></td></tr>
+<tr><th id="248">248</th><td><b>template</b> &lt;<b>typename</b> ValueType&gt;</td></tr>
+<tr><th id="249">249</th><td><em>void</em> <dfn class="decl def" id="_ZN10tensorflow19AppendFeatureValuesESt16initializer_listIT_EPNS_7FeatureE" title='tensorflow::AppendFeatureValues' data-ref="_ZN10tensorflow19AppendFeatureValuesESt16initializer_listIT_EPNS_7FeatureE">AppendFeatureValues</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/initializer_list.html#std::initializer_list" title='std::initializer_list' data-ref="std::initializer_list">initializer_list</a>&lt;ValueType&gt; <dfn class="local col4 decl" id="24container" title='container' data-type='std::initializer_list&lt;ValueType&gt;' data-ref="24container">container</dfn>,</td></tr>
+<tr><th id="250">250</th><td>                         <span class='type' title='tensorflow::Feature' data-ref="tensorflow::Feature">Feature</span>* <dfn class="local col5 decl" id="25feature" title='feature' data-type='tensorflow::Feature *' data-ref="25feature">feature</dfn>) {</td></tr>
+<tr><th id="251">251</th><td>  AppendFeatureValues(<a class="local col4 ref" href="#24container" title='container' data-ref="24container">container</a>.begin(), <a class="local col4 ref" href="#24container" title='container' data-ref="24container">container</a>.end(), <a class="local col5 ref" href="#25feature" title='feature' data-ref="25feature">feature</a>);</td></tr>
+<tr><th id="252">252</th><td>}</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td><b>template</b> &lt;<b>typename</b> ContainerType&gt;</td></tr>
+<tr><th id="255">255</th><td><em>void</em> <dfn class="decl def" id="_ZN10tensorflow19AppendFeatureValuesERKT_PNS_7FeatureE" title='tensorflow::AppendFeatureValues' data-ref="_ZN10tensorflow19AppendFeatureValuesERKT_PNS_7FeatureE">AppendFeatureValues</dfn>(<em>const</em> ContainerType&amp; <dfn class="local col6 decl" id="26container" title='container' data-type='const ContainerType &amp;' data-ref="26container">container</dfn>, <span class='type' title='tensorflow::Feature' data-ref="tensorflow::Feature">Feature</span>* <dfn class="local col7 decl" id="27feature" title='feature' data-type='tensorflow::Feature *' data-ref="27feature">feature</dfn>) {</td></tr>
+<tr><th id="256">256</th><td>  <b>using</b> <dfn class="local col8 typedef" id="28IteratorType" title='IteratorType' data-type='typename ContainerType::const_iterator' data-ref="28IteratorType">IteratorType</dfn> = <b>typename</b> ContainerType::const_iterator;</td></tr>
+<tr><th id="257">257</th><td>  AppendFeatureValues&lt;<a class="local col8 typedef" href="#28IteratorType" title='IteratorType' data-type='typename ContainerType::const_iterator' data-ref="28IteratorType">IteratorType</a>&gt;(<a class="local col6 ref" href="#26container" title='container' data-ref="26container">container</a>.begin(), <a class="local col6 ref" href="#26container" title='container' data-ref="26container">container</a>.end(),</td></tr>
+<tr><th id="258">258</th><td>                                    <a class="local col7 ref" href="#27feature" title='feature' data-ref="27feature">feature</a>);</td></tr>
+<tr><th id="259">259</th><td>}</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td><i>// Copies elements from the range, defined by [first, last) into the feature</i></td></tr>
+<tr><th id="262">262</th><td><i>// obtainable from the (proto, key) combination.</i></td></tr>
+<tr><th id="263">263</th><td><b>template</b> &lt;<b>typename</b> IteratorType, <b>typename</b> ProtoType&gt;</td></tr>
+<tr><th id="264">264</th><td><em>void</em> <dfn class="decl def" id="_ZN10tensorflow19AppendFeatureValuesET_S0_RKSsPT0_" title='tensorflow::AppendFeatureValues' data-ref="_ZN10tensorflow19AppendFeatureValuesET_S0_RKSsPT0_">AppendFeatureValues</dfn>(IteratorType <dfn class="local col9 decl" id="29first" title='first' data-type='IteratorType' data-ref="29first">first</dfn>, IteratorType <dfn class="local col0 decl" id="30last" title='last' data-type='IteratorType' data-ref="30last">last</dfn>,</td></tr>
+<tr><th id="265">265</th><td>                         <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="31key" title='key' data-type='const string &amp;' data-ref="31key">key</dfn>, ProtoType* <dfn class="local col2 decl" id="32proto" title='proto' data-type='ProtoType *' data-ref="32proto">proto</dfn>) {</td></tr>
+<tr><th id="266">266</th><td>  AppendFeatureValues(<a class="local col9 ref" href="#29first" title='first' data-ref="29first">first</a>, <a class="local col0 ref" href="#30last" title='last' data-ref="30last">last</a>, GetFeature(<a class="local col1 ref" href="#31key" title='key' data-ref="31key">key</a>, GetFeatures(<a class="local col2 ref" href="#32proto" title='proto' data-ref="32proto">proto</a>)));</td></tr>
+<tr><th id="267">267</th><td>}</td></tr>
+<tr><th id="268">268</th><td></td></tr>
+<tr><th id="269">269</th><td><i>// Copies all elements from the container into a feature.</i></td></tr>
+<tr><th id="270">270</th><td><b>template</b> &lt;<b>typename</b> ContainerType, <b>typename</b> ProtoType&gt;</td></tr>
+<tr><th id="271">271</th><td><em>void</em> <dfn class="decl def" id="_ZN10tensorflow19AppendFeatureValuesERKT_RKSsPT0_" title='tensorflow::AppendFeatureValues' data-ref="_ZN10tensorflow19AppendFeatureValuesERKT_RKSsPT0_">AppendFeatureValues</dfn>(<em>const</em> ContainerType&amp; <dfn class="local col3 decl" id="33container" title='container' data-type='const ContainerType &amp;' data-ref="33container">container</dfn>, <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col4 decl" id="34key" title='key' data-type='const string &amp;' data-ref="34key">key</dfn>,</td></tr>
+<tr><th id="272">272</th><td>                         ProtoType* <dfn class="local col5 decl" id="35proto" title='proto' data-type='ProtoType *' data-ref="35proto">proto</dfn>) {</td></tr>
+<tr><th id="273">273</th><td>  <b>using</b> <dfn class="local col6 typedef" id="36IteratorType" title='IteratorType' data-type='typename ContainerType::const_iterator' data-ref="36IteratorType">IteratorType</dfn> = <b>typename</b> ContainerType::const_iterator;</td></tr>
+<tr><th id="274">274</th><td>  AppendFeatureValues&lt;<a class="local col6 typedef" href="#36IteratorType" title='IteratorType' data-type='typename ContainerType::const_iterator' data-ref="36IteratorType">IteratorType</a>&gt;(<a class="local col3 ref" href="#33container" title='container' data-ref="33container">container</a>.begin(), <a class="local col3 ref" href="#33container" title='container' data-ref="33container">container</a>.end(), <a class="local col4 ref" href="#34key" title='key' data-ref="34key">key</a>,</td></tr>
+<tr><th id="275">275</th><td>                                    <a class="local col5 ref" href="#35proto" title='proto' data-ref="35proto">proto</a>);</td></tr>
+<tr><th id="276">276</th><td>}</td></tr>
+<tr><th id="277">277</th><td></td></tr>
+<tr><th id="278">278</th><td><i>// Copies all elements from the initializer list into a Feature contained by</i></td></tr>
+<tr><th id="279">279</th><td><i>// Features or Example proto.</i></td></tr>
+<tr><th id="280">280</th><td><b>template</b> &lt;<b>typename</b> ValueType, <b>typename</b> ProtoType&gt;</td></tr>
+<tr><th id="281">281</th><td><em>void</em> <dfn class="decl def" id="_ZN10tensorflow19AppendFeatureValuesESt16initializer_listIT_ERKSsPT0_" title='tensorflow::AppendFeatureValues' data-ref="_ZN10tensorflow19AppendFeatureValuesESt16initializer_listIT_ERKSsPT0_">AppendFeatureValues</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/initializer_list.html#std::initializer_list" title='std::initializer_list' data-ref="std::initializer_list">initializer_list</a>&lt;ValueType&gt; <dfn class="local col7 decl" id="37container" title='container' data-type='std::initializer_list&lt;ValueType&gt;' data-ref="37container">container</dfn>,</td></tr>
+<tr><th id="282">282</th><td>                         <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col8 decl" id="38key" title='key' data-type='const string &amp;' data-ref="38key">key</dfn>, ProtoType* <dfn class="local col9 decl" id="39proto" title='proto' data-type='ProtoType *' data-ref="39proto">proto</dfn>) {</td></tr>
+<tr><th id="283">283</th><td>  <b>using</b> <dfn class="local col0 typedef" id="40IteratorType" title='IteratorType' data-type='typename std::initializer_list&lt;ValueType&gt;::const_iterator' data-ref="40IteratorType">IteratorType</dfn> =</td></tr>
+<tr><th id="284">284</th><td>      <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/initializer_list.html#std::initializer_list" title='std::initializer_list' data-ref="std::initializer_list">initializer_list</a>&lt;ValueType&gt;::const_iterator;</td></tr>
+<tr><th id="285">285</th><td>  AppendFeatureValues&lt;<a class="local col0 typedef" href="#40IteratorType" title='IteratorType' data-type='typename std::initializer_list&lt;ValueType&gt;::const_iterator' data-ref="40IteratorType">IteratorType</a>&gt;(<a class="local col7 ref" href="#37container" title='container' data-ref="37container">container</a>.begin(), <a class="local col7 ref" href="#37container" title='container' data-ref="37container">container</a>.end(), <a class="local col8 ref" href="#38key" title='key' data-ref="38key">key</a>,</td></tr>
+<tr><th id="286">286</th><td>                                    <a class="local col9 ref" href="#39proto" title='proto' data-ref="39proto">proto</a>);</td></tr>
+<tr><th id="287">287</th><td>}</td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td><i>// Returns true if a feature with the specified key belongs to the Features.</i></td></tr>
+<tr><th id="290">290</th><td><i>// The template parameter pack accepts zero or one template argument - which</i></td></tr>
+<tr><th id="291">291</th><td><i>// is FeatureType. If the FeatureType not specified (zero template arguments)</i></td></tr>
+<tr><th id="292">292</th><td><i>// the function will not check the feature type. Otherwise it will return false</i></td></tr>
+<tr><th id="293">293</th><td><i>// if the feature has a wrong type.</i></td></tr>
+<tr><th id="294">294</th><td><b>template</b> &lt;<b>typename</b>... FeatureType&gt;</td></tr>
+<tr><th id="295">295</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow10HasFeatureERKSsRKNS_8FeaturesE" title='tensorflow::HasFeature' data-ref="_ZN10tensorflow10HasFeatureERKSsRKNS_8FeaturesE">HasFeature</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="41key" title='key' data-type='const string &amp;' data-ref="41key">key</dfn>, <em>const</em> <span class='type' title='tensorflow::Features' data-ref="tensorflow::Features">Features</span>&amp; <dfn class="local col2 decl" id="42features" title='features' data-type='const tensorflow::Features &amp;' data-ref="42features">features</dfn>);</td></tr>
+<tr><th id="296">296</th><td></td></tr>
+<tr><th id="297">297</th><td><i>// Returns true if a feature with the specified key belongs to the Example.</i></td></tr>
+<tr><th id="298">298</th><td><i>// Doesn't check feature type if used without FeatureType, otherwise the</i></td></tr>
+<tr><th id="299">299</th><td><i>// specialized versions return false if the feature has a wrong type.</i></td></tr>
+<tr><th id="300">300</th><td><b>template</b> &lt;<b>typename</b>... FeatureType&gt;</td></tr>
+<tr><th id="301">301</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow10HasFeatureERKSsRKNS_7ExampleE" title='tensorflow::HasFeature' data-ref="_ZN10tensorflow10HasFeatureERKSsRKNS_7ExampleE">HasFeature</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col3 decl" id="43key" title='key' data-type='const string &amp;' data-ref="43key">key</dfn>, <em>const</em> <span class='type' title='tensorflow::Example' data-ref="tensorflow::Example">Example</span>&amp; <dfn class="local col4 decl" id="44example" title='example' data-type='const tensorflow::Example &amp;' data-ref="44example">example</dfn>) {</td></tr>
+<tr><th id="302">302</th><td>  <b>return</b> HasFeature&lt;FeatureType...&gt;(<a class="local col3 ref" href="#43key" title='key' data-ref="43key">key</a>, <a class="ref" href="feature_util.cc.html#_ZN10tensorflow11GetFeaturesERKT_" title='tensorflow::GetFeatures' data-ref="_ZN10tensorflow11GetFeaturesERKT_">GetFeatures</a>(<a class="local col4 ref" href="#44example" title='example' data-ref="44example">example</a>));</td></tr>
+<tr><th id="303">303</th><td>};</td></tr>
+<tr><th id="304">304</th><td></td></tr>
+<tr><th id="305">305</th><td><i>// DEPRECATED: use HasFeature instead.</i></td></tr>
+<tr><th id="306">306</th><td><i>// TODO(gorban): update all clients in a followup CL.</i></td></tr>
+<tr><th id="307">307</th><td><b>template</b> &lt;<b>typename</b>... FeatureType&gt;</td></tr>
+<tr><th id="308">308</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow17ExampleHasFeatureERKSsRKNS_7ExampleE" title='tensorflow::ExampleHasFeature' data-ref="_ZN10tensorflow17ExampleHasFeatureERKSsRKNS_7ExampleE">ExampleHasFeature</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col5 decl" id="45key" title='key' data-type='const string &amp;' data-ref="45key">key</dfn>, <em>const</em> <span class='type' title='tensorflow::Example' data-ref="tensorflow::Example">Example</span>&amp; <dfn class="local col6 decl" id="46example" title='example' data-type='const tensorflow::Example &amp;' data-ref="46example">example</dfn>) {</td></tr>
+<tr><th id="309">309</th><td>  <b>return</b> HasFeature&lt;FeatureType...&gt;(<a class="local col5 ref" href="#45key" title='key' data-ref="45key">key</a>, <a class="local col6 ref" href="#46example" title='example' data-ref="46example">example</a>);</td></tr>
+<tr><th id="310">310</th><td>}</td></tr>
+<tr><th id="311">311</th><td></td></tr>
+<tr><th id="312">312</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="313">313</th><td><u>#<span data-ppcond="100">endif</span>  // TENSORFLOW_EXAMPLE_FEATURE_H_</u></td></tr>
+<tr><th id="314">314</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='feature_util.cc.html'>tensorflow/tensorflow/core/example/feature_util.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

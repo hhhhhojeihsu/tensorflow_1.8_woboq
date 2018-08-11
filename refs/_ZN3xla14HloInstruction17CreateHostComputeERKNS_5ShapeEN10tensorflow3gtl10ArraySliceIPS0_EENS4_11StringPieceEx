@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='485' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateHostCompute(const xla::Shape &amp; shape, tensorflow::gtl::ArraySlice&lt;HloInstruction *&gt; operands, tensorflow::StringPiece channel_name, const int64 cost_estimate_ns)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='483'>// Creates a HostCompute instruction, which records host-side control and
+  // data dependencies for use in instruction scheduling.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1155' ll='1166' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateHostCompute(const xla::Shape &amp; shape, tensorflow::gtl::ArraySlice&lt;HloInstruction *&gt; operands, tensorflow::StringPiece channel_name, const int64 cost_estimate_ns)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1298' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1155'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3400' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

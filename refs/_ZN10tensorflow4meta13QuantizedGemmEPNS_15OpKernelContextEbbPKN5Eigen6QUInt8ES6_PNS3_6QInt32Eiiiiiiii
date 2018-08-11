@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/kernels/meta_support.h' l='70' type='void tensorflow::meta::QuantizedGemm(tensorflow::OpKernelContext * context, bool transpose_a, bool transpose_b, const quint8 * a_data, const quint8 * b_data, qint32 * c_data, int m, int n, int k, int offset_a, int offset_b, int lda, int ldb, int ldc)'/>
+<doc f='tensorflow/tensorflow/core/kernels/meta_support.h' l='60'>// Calculate the quantized matrix multiplication:
+//
+// for (i, j) in [0, m) x [0, n) do
+//   c_data[i, j] :=
+//     sum((a_data[i, l] + offset_a) * (b_data[l, j] + offset_b)) : l in [0, k)
+//
+// If transpose_a is false the lhs operand has row major layout, otherwise
+// column major. Similarly transpose_b describes the layout of the rhs operand.
+// lda, ldb, and ldc are the strides of the lhs operand, rhs operand and the
+// result arrays.</doc>
+<def f='tensorflow/tensorflow/core/kernels/meta_support.cc' l='220' ll='254' type='void tensorflow::meta::QuantizedGemm(tensorflow::OpKernelContext * tf_context, bool transpose_a, bool transpose_b, const quint8 * a_data, const quint8 * b_data, qint32 * c_data, int m, int n, int k, int offset_a, int offset_b, int lda, int ldb, int ldc)'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_conv_ops.cc' l='391' u='c' c='_ZN10tensorflow17Im2ColConvFunctorclEPNS_15OpKernelContextEPKT_iiiiiPKT0_iiiiiNS_7PaddingEPT1_iiiii'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_matmul_op.cc' l='141' u='c' c='_ZN10tensorflow17QuantizedMatMulOp7ComputeEPNS_15OpKernelContextE'/>

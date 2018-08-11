@@ -1,0 +1,8 @@
+<use f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='144' c='_ZN10tensorflow10monitoring7SamplerC1ERKNS0_9MetricDefILNS0_10MetricKindE1ENS_14HistogramProtoEXT_EEESt10unique_ptrINS0_7BucketsESt14default_deleteIS9_EE'/>
+<dec f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='166' type='std::map&lt;LabelArray, SamplerCell&gt;'/>
+<use f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='203' u='c' c='_ZN10tensorflow10monitoring7Sampler7GetCellEDpRKT_'/>
+<use f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='204' u='c' c='_ZN10tensorflow10monitoring7Sampler7GetCellEDpRKT_'/>
+<use f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='207' u='c' c='_ZN10tensorflow10monitoring7Sampler7GetCellEDpRKT_'/>
+<doc f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='163'>// we need a container here that guarantees pointer stability of the value,
+  // namely, the pointer of the value should remain valid even after more cells
+  // are inserted.</doc>

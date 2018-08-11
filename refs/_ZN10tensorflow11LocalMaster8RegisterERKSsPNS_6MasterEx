@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/local_master.h' l='91' type='static void tensorflow::LocalMaster::Register(const string &amp; target, tensorflow::Master * master, int64 default_timeout_in_ms)'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/local_master.cc' l='223' ll='228' type='static void tensorflow::LocalMaster::Register(const string &amp; target, tensorflow::Master * master, int64 default_timeout_in_ms)'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/local_master.cc' l='222'>/* static */</doc>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/local_master.h' l='84'>// Registers the mapping from the given `target` to the given `master`.
+  //
+  // WARNING: The `master` pointer remains owned by the caller. It is
+  // the responsibility of the caller to ensure that `master` outlives
+  // any LocalMaster objects that may wrap this master. There is no
+  // corresponding deregister method, since clean server shutdown is
+  // not currently implemented for any server type.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='238' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>

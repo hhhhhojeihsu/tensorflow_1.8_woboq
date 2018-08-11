@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>custom_call_target_registry.h source code [tensorflow/tensorflow/compiler/xla/service/cpu/custom_call_target_registry.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="xla::cpu::CustomCallTargetRegistry,xla::cpu::RegisterCustomCallTarget "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/compiler/xla/service/cpu/custom_call_target_registry.h'; var root_path = '../../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>tensorflow</a>/<a href='../../../..'>tensorflow</a>/<a href='../../..'>compiler</a>/<a href='../..'>xla</a>/<a href='..'>service</a>/<a href='./'>cpu</a>/<a href='custom_call_target_registry.h.html'>custom_call_target_registry.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CUSTOM_CALL_TARGET_REGISTRY_H_">TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CUSTOM_CALL_TARGET_REGISTRY_H_</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CUSTOM_CALL_TARGET_REGISTRY_H_" data-ref="_M/TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CUSTOM_CALL_TARGET_REGISTRY_H_">TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CUSTOM_CALL_TARGET_REGISTRY_H_</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><i>// This file is depended on by kernels that have to build for mobile devices.</i></td></tr>
+<tr><th id="19">19</th><td><i>// For this reason, we avoid relying on TensorFlow and instead only use the</i></td></tr>
+<tr><th id="20">20</th><td><i>// standard C++ library.</i></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../../../include/c++/5/mutex.html">&lt;mutex&gt;</a>  // NOLINT</u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../../../../../../include/c++/5/unordered_map.html">&lt;unordered_map&gt;</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>namespace</b> <span class="namespace">xla</span> {</td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">cpu</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i>// The CPU JIT compiler uses this registry to resolve symbolic CustomCall</i></td></tr>
+<tr><th id="30">30</th><td><i>// targets; so when using the CPU JIT, CustomCall targets need to be registered</i></td></tr>
+<tr><th id="31">31</th><td><i>// here with the symbol name used in the CustomCall.</i></td></tr>
+<tr><th id="32">32</th><td><i>//</i></td></tr>
+<tr><th id="33">33</th><td><i>// The XLA AOT compiler links using a standard offline linker; so when compiling</i></td></tr>
+<tr><th id="34">34</th><td><i>// in AOT mode, you *also* need to make sure the name of the callee (presumably</i></td></tr>
+<tr><th id="35">35</th><td><i>// implemented in C++) matches up with the symbolic name used in the CustomCall.</i></td></tr>
+<tr><th id="36">36</th><td><i>//</i></td></tr>
+<tr><th id="37">37</th><td><i>// We maintain the registry in both the JIT and the AOT cases for simplicity,</i></td></tr>
+<tr><th id="38">38</th><td><i>// but we only use it when running in JIT mode.</i></td></tr>
+<tr><th id="39">39</th><td><b>class</b> <dfn class="type def" id="xla::cpu::CustomCallTargetRegistry" title='xla::cpu::CustomCallTargetRegistry' data-ref="xla::cpu::CustomCallTargetRegistry">CustomCallTargetRegistry</dfn> {</td></tr>
+<tr><th id="40">40</th><td> <b>public</b>:</td></tr>
+<tr><th id="41">41</th><td>  <em>static</em> <a class="type" href="#xla::cpu::CustomCallTargetRegistry" title='xla::cpu::CustomCallTargetRegistry' data-ref="xla::cpu::CustomCallTargetRegistry">CustomCallTargetRegistry</a>* <a class="decl" href="custom_call_target_registry.cc.html#_ZN3xla3cpu24CustomCallTargetRegistry6GlobalEv" title='xla::cpu::CustomCallTargetRegistry::Global' data-ref="_ZN3xla3cpu24CustomCallTargetRegistry6GlobalEv" id="_ZN3xla3cpu24CustomCallTargetRegistry6GlobalEv">Global</a>();</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>  <em>void</em> <a class="decl" href="custom_call_target_registry.cc.html#_ZN3xla3cpu24CustomCallTargetRegistry8RegisterERKSsPv" title='xla::cpu::CustomCallTargetRegistry::Register' data-ref="_ZN3xla3cpu24CustomCallTargetRegistry8RegisterERKSsPv" id="_ZN3xla3cpu24CustomCallTargetRegistry8RegisterERKSsPv">Register</a>(<em>const</em> <span class="namespace">std::</span><a class="typedef" href="../../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="1symbol" title='symbol' data-type='const std::string &amp;' data-ref="1symbol">symbol</dfn>, <em>void</em>* <dfn class="local col2 decl" id="2address" title='address' data-type='void *' data-ref="2address">address</dfn>);</td></tr>
+<tr><th id="44">44</th><td>  <em>void</em>* <a class="decl" href="custom_call_target_registry.cc.html#_ZNK3xla3cpu24CustomCallTargetRegistry6LookupERKSs" title='xla::cpu::CustomCallTargetRegistry::Lookup' data-ref="_ZNK3xla3cpu24CustomCallTargetRegistry6LookupERKSs" id="_ZNK3xla3cpu24CustomCallTargetRegistry6LookupERKSs">Lookup</a>(<em>const</em> <span class="namespace">std::</span><a class="typedef" href="../../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col3 decl" id="3symbol" title='symbol' data-type='const std::string &amp;' data-ref="3symbol">symbol</dfn>) <em>const</em>;</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td> <b>private</b>:</td></tr>
+<tr><th id="47">47</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/unordered_map.h.html#std::unordered_map" title='std::unordered_map' data-ref="std::unordered_map">unordered_map</a>&lt;<span class="namespace">std::</span><a class="typedef" href="../../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <em>void</em>*&gt; <dfn class="decl" id="xla::cpu::CustomCallTargetRegistry::registered_symbols_" title='xla::cpu::CustomCallTargetRegistry::registered_symbols_' data-ref="xla::cpu::CustomCallTargetRegistry::registered_symbols_">registered_symbols_</dfn>;</td></tr>
+<tr><th id="48">48</th><td>  <em>mutable</em> <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/mutex.html#std::mutex" title='std::mutex' data-ref="std::mutex">mutex</a> <dfn class="decl" id="xla::cpu::CustomCallTargetRegistry::mu_" title='xla::cpu::CustomCallTargetRegistry::mu_' data-ref="xla::cpu::CustomCallTargetRegistry::mu_">mu_</dfn>;</td></tr>
+<tr><th id="49">49</th><td>};</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><b>class</b> <dfn class="type def" id="xla::cpu::RegisterCustomCallTarget" title='xla::cpu::RegisterCustomCallTarget' data-ref="xla::cpu::RegisterCustomCallTarget">RegisterCustomCallTarget</dfn> {</td></tr>
+<tr><th id="52">52</th><td> <b>public</b>:</td></tr>
+<tr><th id="53">53</th><td>  <b>explicit</b> <dfn class="decl def" id="_ZN3xla3cpu24RegisterCustomCallTargetC1ERKSsPv" title='xla::cpu::RegisterCustomCallTarget::RegisterCustomCallTarget' data-ref="_ZN3xla3cpu24RegisterCustomCallTargetC1ERKSsPv">RegisterCustomCallTarget</dfn>(<em>const</em> <span class="namespace">std::</span><a class="typedef" href="../../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col4 decl" id="4name" title='name' data-type='const std::string &amp;' data-ref="4name">name</dfn>, <em>void</em>* <dfn class="local col5 decl" id="5address" title='address' data-type='void *' data-ref="5address">address</dfn>) {</td></tr>
+<tr><th id="54">54</th><td>    <a class="type" href="#xla::cpu::CustomCallTargetRegistry" title='xla::cpu::CustomCallTargetRegistry' data-ref="xla::cpu::CustomCallTargetRegistry">CustomCallTargetRegistry</a>::<a class="ref" href="custom_call_target_registry.cc.html#_ZN3xla3cpu24CustomCallTargetRegistry6GlobalEv" title='xla::cpu::CustomCallTargetRegistry::Global' data-ref="_ZN3xla3cpu24CustomCallTargetRegistry6GlobalEv">Global</a>()-&gt;<a class="ref" href="custom_call_target_registry.cc.html#_ZN3xla3cpu24CustomCallTargetRegistry8RegisterERKSsPv" title='xla::cpu::CustomCallTargetRegistry::Register' data-ref="_ZN3xla3cpu24CustomCallTargetRegistry8RegisterERKSsPv">Register</a>(<a class="local col4 ref" href="#4name" title='name' data-ref="4name">name</a>, <a class="local col5 ref" href="#5address" title='address' data-ref="5address">address</a>);</td></tr>
+<tr><th id="55">55</th><td>  }</td></tr>
+<tr><th id="56">56</th><td>};</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/REGISTER_CUSTOM_CALL_CONCAT" data-ref="_M/REGISTER_CUSTOM_CALL_CONCAT">REGISTER_CUSTOM_CALL_CONCAT</dfn>(a, b) a##b</u></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/REGISTER_CUSTOM_CALL_TARGET_WITH_SYM_HELPER" data-ref="_M/REGISTER_CUSTOM_CALL_TARGET_WITH_SYM_HELPER">REGISTER_CUSTOM_CALL_TARGET_WITH_SYM_HELPER</dfn>(symbol, address, counter) \</u></td></tr>
+<tr><th id="61">61</th><td><u>  static ::xla::cpu::RegisterCustomCallTarget REGISTER_CUSTOM_CALL_CONCAT(    \</u></td></tr>
+<tr><th id="62">62</th><td><u>      custom_call_target_register, counter)(symbol,                           \</u></td></tr>
+<tr><th id="63">63</th><td><u>                                            reinterpret_cast&lt;void*&gt;(address))</u></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/REGISTER_CUSTOM_CALL_TARGET_WITH_SYM" data-ref="_M/REGISTER_CUSTOM_CALL_TARGET_WITH_SYM">REGISTER_CUSTOM_CALL_TARGET_WITH_SYM</dfn>(symbol, address) \</u></td></tr>
+<tr><th id="66">66</th><td><u>  REGISTER_CUSTOM_CALL_TARGET_WITH_SYM_HELPER(symbol, address, __COUNTER__)</u></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><u>#define <dfn class="macro" id="_M/REGISTER_CUSTOM_CALL_TARGET" data-ref="_M/REGISTER_CUSTOM_CALL_TARGET">REGISTER_CUSTOM_CALL_TARGET</dfn>(function) \</u></td></tr>
+<tr><th id="69">69</th><td><u>  REGISTER_CUSTOM_CALL_TARGET_WITH_SYM(#function, function)</u></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>}  <i>// namespace cpu</i></td></tr>
+<tr><th id="72">72</th><td>}  <i>// namespace xla</i></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><u>#<span data-ppcond="15">endif</span>  // TENSORFLOW_COMPILER_XLA_SERVICE_CPU_CUSTOM_CALL_TARGET_REGISTRY_H_</u></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='custom_call_target_registry.cc.html'>tensorflow/tensorflow/compiler/xla/service/cpu/custom_call_target_registry.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

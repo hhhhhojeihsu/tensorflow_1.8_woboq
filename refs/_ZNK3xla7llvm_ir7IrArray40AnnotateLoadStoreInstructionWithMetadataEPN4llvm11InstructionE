@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='210' type='void xla::llvm_ir::IrArray::AnnotateLoadStoreInstructionWithMetadata(llvm::Instruction * instruction) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='209'>// Attach metadata this IrArray instance knows about to &quot;instruction&quot;.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1546' u='c' c='_ZN3xla3cpu9IrEmitter35EmitInnerLoopForVectorizedReductionERKSt8functionIFPN4llvm5ValueEPNS3_9IRBuilderINS3_14ConstantFolderENS3_24IRBuilderDefaultIns8816630'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1581' u='c' c='_ZN3xla3cpu9IrEmitter22EmitShardedVectorStoreEPN4llvm5ValueERKSt6vectorIS4_SaIS4_EEiRKNS_7llvm_ir7IrArrayE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2439' u='c' c='_ZN3xla3cpu9IrEmitter20EmitTransferElementsEPN4llvm5ValueES4_xNS_13PrimitiveTypeERKNS_7llvm_ir7IrArrayES9_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2443' u='c' c='_ZN3xla3cpu9IrEmitter20EmitTransferElementsEPN4llvm5ValueES4_xNS_13PrimitiveTypeERKNS_7llvm_ir7IrArrayES9_'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='371' ll='381' type='void xla::llvm_ir::IrArray::AnnotateLoadStoreInstructionWithMetadata(llvm::Instruction * instruction) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='389' u='c' c='_ZNK3xla7llvm_ir7IrArray20EmitReadArrayElementERKNS1_5IndexEPN4llvm9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='397' u='c' c='_ZNK3xla7llvm_ir7IrArray21EmitWriteArrayElementERKNS1_5IndexEPN4llvm5ValueEPNS5_9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/tuple_ops.cc' l='83' u='c' c='_ZN3xla7llvm_ir9EmitTupleENS0_7IrArrayEN10tensorflow3gtl10ArraySliceIPN4llvm5ValueEEEPNS5_9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEEPNS5_6ModuleE'/>

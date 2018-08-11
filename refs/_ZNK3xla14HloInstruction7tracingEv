@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='817' type='xla::HloInstruction * xla::HloInstruction::tracing() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='814'>// Returns a logging instruction, if the output of this instruction is logged.
+  //
+  // Postcondition: retval == nullptr || retval-&gt;opcode() == HloOpcode::kTrace</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2466' type='xla::HloInstruction * xla::HloInstruction::tracing() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2482' u='c' c='_ZNK3xla14HloInstruction9IsFusableEv'/>

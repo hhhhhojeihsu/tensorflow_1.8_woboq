@@ -1,0 +1,33 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='110' type='bool toco::IdentifyDilatedConv::Run(toco::Model * model, std::size_t op_index)'/>
+<inh f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='30' c='_ZN4toco19GraphTransformation3RunEPNS_5ModelEm'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/identify_dilated_conv.cc' l='56' ll='211' type='bool toco::IdentifyDilatedConv::Run(toco::Model * model, std::size_t op_index)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/identify_dilated_conv.cc' l='25'>// A dilated convolution can be emulated with a regular convolution by chaining
+// SpaceToBatch and BatchToSpace ops before and after it:
+//
+//     SpaceToBatchND -&gt; Conv2D -&gt; BatchToSpaceND
+//
+// This method was common before Conv2D fully supported dilated convolution in
+// TensorFlow. This transformation detects this &quot;emulation&quot;, and replaces it
+// with a true dilated convolution, eliminating the SpaceToBatch and
+// BatchtoSpace ops.
+//
+// Detecting this alone would be relatively easy. However, in practice some
+// extra ops are used, so we detect the following patterns:
+//
+//
+//   SpaceToBatchND -&gt; Expand -&gt; Conv2D -&gt; Squeeze -&gt; BatchToSpaceND -&gt; BiasAdd
+//
+//   SpaceToBatchND -&gt; Expand -&gt; Conv2D -&gt; Squeeze -&gt; Pad -&gt; BatchToSpaceND -&gt;
+//   BiasAdd
+//
+//   SpaceToBatchND -&gt; Expand -&gt; Conv2D -&gt; Squeeze -&gt; BiasAdd -&gt; BatchToSpaceND
+//
+//   SpaceToBatchND -&gt; Conv2D -&gt; Pad -&gt; BatchToSpaceND -&gt; BiasAdd
+//
+//   SpaceToBatchND -&gt; Conv2D -&gt; BatchToSpaceND -&gt; BiasAdd
+//
+//
+// The Expand/Squeeze combination is used to adapt a 3D array (such as in
+// WaveNet) to the 4D arrays that Conv2D requires. Padding and BiasAdd are
+// thrown in just for the extra headache. Padding adapts non-conforming input
+// sizes, and can be discarded. The bias is necessary, so is kept.</doc>

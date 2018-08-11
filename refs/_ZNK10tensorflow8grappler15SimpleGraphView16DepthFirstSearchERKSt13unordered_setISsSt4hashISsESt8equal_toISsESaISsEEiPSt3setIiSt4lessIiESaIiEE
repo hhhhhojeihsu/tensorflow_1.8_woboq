@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/grappler/utils.h' l='209' type='void tensorflow::grappler::SimpleGraphView::DepthFirstSearch(const std::unordered_set&lt;string&gt; &amp; op_types_to_traverse, int node_idx, std::set&lt;int&gt; * nodes_found) const'/>
+<doc f='tensorflow/tensorflow/core/grappler/utils.h' l='205'>// Traverse the graph starting at `node_idx`, collecting indices of nodes
+  // visited in nodes_found. If a node has an op in `op_types_to_traverse`, the
+  // walk continues to its children. It is assumed that *graph_ was not modified
+  // after the call to Initialize().</doc>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1409' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_114FeedsInPlaceOpERKNS0_15SimpleGraphViewERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='446' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_126GetStackPushNodesToConvertERKNS0_15SimpleGraphViewERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEi'/>
+<def f='tensorflow/tensorflow/core/grappler/utils.cc' l='432' ll='456' type='void tensorflow::grappler::SimpleGraphView::DepthFirstSearch(const std::unordered_set&lt;string&gt; &amp; op_types_to_traverse, int root_node, std::set&lt;int&gt; * nodes_found) const'/>

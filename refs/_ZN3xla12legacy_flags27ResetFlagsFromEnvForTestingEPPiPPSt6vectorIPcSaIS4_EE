@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/legacy_flags/parse_flags_from_env.h' l='61' type='void xla::legacy_flags::ResetFlagsFromEnvForTesting(int ** pargc, std::vector&lt;char *&gt; ** pargv)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/legacy_flags/parse_flags_from_env.h' l='60'>// Used only for testing.  Not to be used by clients.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/legacy_flags/parse_flags_from_env.cc' l='186' ll='203' type='void xla::legacy_flags::ResetFlagsFromEnvForTesting(int ** pargc, std::vector&lt;char *&gt; ** pargv)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/legacy_flags/parse_flags_from_env.cc' l='181'>// Testing only.
+// Reset the env_argv struct so that subsequent calls to ParseFlagsFromEnv()
+// will parse the environment variable (or the file it points to) anew, and set
+// *pargc, and *pargv to point to the internal locations of the argc and argv
+// constructed from the environment.</doc>

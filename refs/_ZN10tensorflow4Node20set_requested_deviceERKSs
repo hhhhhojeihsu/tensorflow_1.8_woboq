@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='105' type='void tensorflow::Node::set_requested_device(const string &amp; device)'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='103'>// This changes the user requested device but not necessarily the device that
+  // on which the operation will run.</doc>
+<use f='tensorflow/tensorflow/c/python_api.cc' l='46' u='c' c='_ZN10tensorflow18SetRequestedDeviceEP8TF_GraphP12TF_OperationPKc'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.cc' l='286' u='c' c='_ZN10tensorflow28SetNodeShardingFromNeighborsEPNS_4NodeEb'/>
+<def f='tensorflow/tensorflow/core/graph/graph.cc' l='190' ll='193' type='void tensorflow::Node::set_requested_device(const string &amp; device)'/>

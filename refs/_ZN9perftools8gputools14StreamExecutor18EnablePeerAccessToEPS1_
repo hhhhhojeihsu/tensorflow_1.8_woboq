@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='296' type='port::Status perftools::gputools::StreamExecutor::EnablePeerAccessTo(perftools::gputools::StreamExecutor * other)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='289'>// Enables peer access from this StreamExecutor to memory
+  // allocated by other, such that launched device code, memcpies, etc may
+  // access it directly.
+  //
+  // Both this StreamExecutor and other must be backed by the same platform (as
+  // in
+  // CUDA vs OpenCL) implementation.</doc>
+<use f='tensorflow/tensorflow/stream_executor/platform.cc' l='126' u='c' c='_ZN9perftools8gputools8Platform16EnablePeerAccessEv'/>
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='244' ll='246' type='port::Status perftools::gputools::StreamExecutor::EnablePeerAccessTo(perftools::gputools::StreamExecutor * other)'/>

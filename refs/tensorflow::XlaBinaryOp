@@ -1,0 +1,50 @@
+<inh f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='33' c='tensorflow::XlaOpKernel'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/kernels/cwise_ops.h' l='36' ll='75'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='50' c='tensorflow::(anonymousnamespace)::AddOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='51' c='tensorflow::(anonymousnamespace)::SubOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='52' c='tensorflow::(anonymousnamespace)::MulOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='53' c='tensorflow::(anonymousnamespace)::DivOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='55' c='tensorflow::(anonymousnamespace)::Atan2Op'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='56' c='tensorflow::(anonymousnamespace)::ComplexOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='84' c='tensorflow::(anonymousnamespace)::FloorDivOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='101' c='tensorflow::(anonymousnamespace)::FloorModOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='104' c='tensorflow::(anonymousnamespace)::BitwiseAndOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='105' c='tensorflow::(anonymousnamespace)::BitwiseOrOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='107' c='tensorflow::(anonymousnamespace)::LeftShiftOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='108' c='tensorflow::(anonymousnamespace)::RightShiftOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='113' c='tensorflow::(anonymousnamespace)::LogicalAndOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='114' c='tensorflow::(anonymousnamespace)::LogicalOrOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='115' c='tensorflow::(anonymousnamespace)::ModOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='116' c='tensorflow::(anonymousnamespace)::MaximumOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='117' c='tensorflow::(anonymousnamespace)::MinimumOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='118' c='tensorflow::(anonymousnamespace)::RealDivOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='119' c='tensorflow::(anonymousnamespace)::ReciprocalGradOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='120' c='tensorflow::(anonymousnamespace)::RsqrtGradOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='125' c='tensorflow::(anonymousnamespace)::SqrtGradOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='135' c='tensorflow::(anonymousnamespace)::SquaredDifferenceOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='138' c='tensorflow::(anonymousnamespace)::TruncateDivOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='139' c='tensorflow::(anonymousnamespace)::TruncateModOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='142' c='tensorflow::(anonymousnamespace)::EqualOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='143' c='tensorflow::(anonymousnamespace)::NotEqualOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='144' c='tensorflow::(anonymousnamespace)::GreaterOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='145' c='tensorflow::(anonymousnamespace)::GreaterEqualOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='146' c='tensorflow::(anonymousnamespace)::LessOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='147' c='tensorflow::(anonymousnamespace)::LessEqualOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='150' c='tensorflow::(anonymousnamespace)::SigmoidGradOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='154' c='tensorflow::(anonymousnamespace)::SoftplusGradOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='159' c='tensorflow::(anonymousnamespace)::SoftsignGradOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='163' c='tensorflow::(anonymousnamespace)::TanhGradOp'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='166' c='tensorflow::(anonymousnamespace)::PowOp'/>
+<size>288</size>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/kernels/cwise_ops.h' l='29'>// Coefficient-wise binary operations. Each binary Op expects two
+// inputs that can be broadcast to the same shape. The base class
+// contains pure virtual methods to override: description is a textual
+// description of the operation; and Computation adds the
+// implementation of the operation to a xla::ComputationBuilder. For most
+// arithmetic Ops XLA handles the broadcasting automatically given the input
+// tensors.</doc>
+<fun r='_ZN10tensorflow11XlaBinaryOpC1EPNS_20OpKernelConstructionE'/>
+<fun r='_ZN10tensorflow11XlaBinaryOpD1Ev'/>
+<fun r='_ZN10tensorflow11XlaBinaryOp11ComputationEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleERKNS_3gtl10ArraySliceIxEES6_SB_RKNS_5BCastERKSt6vectorIxSaIxEE'/>
+<fun r='_ZN10tensorflow11XlaBinaryOp7CompileEPNS_18XlaOpKernelContextE'/>
+<fun r='_ZN10tensorflow11XlaBinaryOp9BroadcastEPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleES6_RKNS_5BCastE'/>

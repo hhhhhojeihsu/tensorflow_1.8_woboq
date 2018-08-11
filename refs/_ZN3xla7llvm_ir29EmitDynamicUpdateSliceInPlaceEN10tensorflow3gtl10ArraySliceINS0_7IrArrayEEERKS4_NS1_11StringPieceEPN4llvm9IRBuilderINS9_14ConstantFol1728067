@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.h' l='66' type='tensorflow::Status xla::llvm_ir::EmitDynamicUpdateSliceInPlace(tensorflow::gtl::ArraySlice&lt;IrArray&gt; operand_arrays, const xla::llvm_ir::IrArray &amp; output_array, tensorflow::StringPiece name, llvm::IRBuilder&lt;&gt; * ir_builder)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1980' u='c' c='_ZN3xla3cpu9IrEmitter24HandleDynamicUpdateSliceEPNS_14HloInstructionE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.h' l='63'>// Emits IR for running the given dynamic-update-slice op in-place -- that is,
+// where the input and output buffers share the same slice, so we can simply
+// modify the input/output buffer without touching any of the other elements.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.cc' l='86' ll='109' type='tensorflow::Status xla::llvm_ir::EmitDynamicUpdateSliceInPlace(tensorflow::gtl::ArraySlice&lt;IrArray&gt; operand_arrays, const xla::llvm_ir::IrArray &amp; output_array, tensorflow::StringPiece name, llvm::IRBuilder&lt;&gt; * ir_builder)'/>

@@ -1,0 +1,5 @@
+<def f='tensorflow/tensorflow/tools/graph_transforms/fold_batch_norms.cc' l='33' ll='116' type='tensorflow::Status tensorflow::graph_transforms::FoldBatchNorms(const tensorflow::GraphDef &amp; input_graph_def, const tensorflow::graph_transforms::TransformFuncContext &amp; context, tensorflow::GraphDef * output_graph_def)'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/fold_batch_norms.cc' l='118' u='r'/>
+<doc f='tensorflow/tensorflow/tools/graph_transforms/fold_batch_norms.cc' l='30'>// Converts Conv2D or MatMul ops followed by column-wise Muls into equivalent
+// ops with the Mul baked into the convolution weights, to save computation
+// during inference.</doc>

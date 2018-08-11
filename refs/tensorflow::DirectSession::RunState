@@ -1,0 +1,23 @@
+<def f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='174' ll='195'/>
+<size>304</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='170'>// For each live partial execution, the session maintains a RunState.
+  // &apos;status&apos; is the current status of this partial execution. &apos;executor_done&apos;
+  // is &quot;notified&quot; when all executors are done. &apos;pending_inputs&apos; are the set
+  // of pending feeds and &apos;pending_outputs&apos; are the set of pending fetches.</doc>
+<mbr r='tensorflow::DirectSession::RunState::mu_' o='0' t='tensorflow::mutex'/>
+<mbr r='tensorflow::DirectSession::RunState::status' o='128' t='tensorflow::Status'/>
+<mbr r='tensorflow::DirectSession::RunState::rendez' o='192' t='tensorflow::IntraProcessRendezvous *'/>
+<mbr r='tensorflow::DirectSession::RunState::collector' o='256' t='std::unique_ptr&lt;StepStatsCollector&gt;'/>
+<mbr r='tensorflow::DirectSession::RunState::executors_done' o='320' t='tensorflow::Notification'/>
+<mbr r='tensorflow::DirectSession::RunState::pending_inputs' o='640' t='std::unordered_map&lt;string, bool&gt;'/>
+<mbr r='tensorflow::DirectSession::RunState::pending_outputs' o='1088' t='std::unordered_map&lt;string, bool&gt;'/>
+<mbr r='tensorflow::DirectSession::RunState::tensor_store' o='1536' t='tensorflow::TensorStore'/>
+<mbr r='tensorflow::DirectSession::RunState::step_container' o='2112' t='tensorflow::ScopedStepContainer'/>
+<fun r='_ZN10tensorflow13DirectSession8RunStateC1ExPKSt6vectorIPNS_6DeviceESaIS4_EE'/>
+<fun r='_ZN10tensorflow13DirectSession8RunStateC1ERKSt6vectorISsSaISsEES6_xPKS2_IPNS_6DeviceESaIS8_EE'/>
+<fun r='_ZNK10tensorflow13DirectSession8RunState11PendingDoneEv'/>
+<fun r='_ZN10tensorflow13DirectSession8RunStateD1Ev'/>
+<fun r='_ZN10tensorflow13DirectSession8RunStateC1ERKSt6vectorISsSaISsEES6_xPKS2_IPNS_6DeviceESaIS8_EE'/>
+<fun r='_ZN10tensorflow13DirectSession8RunStateC1ExPKSt6vectorIPNS_6DeviceESaIS4_EE'/>
+<fun r='_ZN10tensorflow13DirectSession8RunStateD1Ev'/>
+<fun r='_ZNK10tensorflow13DirectSession8RunState11PendingDoneEv'/>

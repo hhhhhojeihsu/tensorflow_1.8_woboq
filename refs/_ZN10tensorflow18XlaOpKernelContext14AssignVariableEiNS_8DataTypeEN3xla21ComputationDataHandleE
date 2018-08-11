@@ -1,0 +1,24 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='177' type='tensorflow::Status tensorflow::XlaOpKernelContext::AssignVariable(int input_index, tensorflow::DataType type, xla::ComputationDataHandle handle)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='173'>// Assigns the value `handle` to the variable referenced by input
+  // `input_index`. The variable must be of `type`. Returns an error if the
+  // variable has been initialized with a different type or with a
+  // different shape.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='322' u='c' c='_ZN10tensorflow12_GLOBAL__N_120StridedSliceAssignOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='52' u='c' c='_ZN10tensorflow12_GLOBAL__N_128ResourceApplyGradientDescent7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='109' u='c' c='_ZN10tensorflow12_GLOBAL__N_121ResourceApplyMomentum7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='110' u='c' c='_ZN10tensorflow12_GLOBAL__N_121ResourceApplyMomentum7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='156' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResourceApplyAdagrad7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='157' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResourceApplyAdagrad7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='242' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ResourceApplyAdam7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='243' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ResourceApplyAdam7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='244' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ResourceApplyAdam7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='334' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResourceApplyRMSProp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='335' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResourceApplyRMSProp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='336' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResourceApplyRMSProp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='447' u='c' c='_ZN10tensorflow12_GLOBAL__N_111CompileFtrlEPNS_18XlaOpKernelContextENS_8DataTypeEb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='448' u='c' c='_ZN10tensorflow12_GLOBAL__N_111CompileFtrlEPNS_18XlaOpKernelContextENS_8DataTypeEb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='449' u='c' c='_ZN10tensorflow12_GLOBAL__N_111CompileFtrlEPNS_18XlaOpKernelContextENS_8DataTypeEb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/variable_ops.cc' l='67' u='c' c='_ZN10tensorflow12_GLOBAL__N_116AssignVariableOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/variable_ops.cc' l='81' u='c' c='_ZN10tensorflow12_GLOBAL__N_119AssignAddVariableOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/variable_ops.cc' l='97' u='c' c='_ZN10tensorflow12_GLOBAL__N_119AssignSubVariableOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='412' ll='439' type='tensorflow::Status tensorflow::XlaOpKernelContext::AssignVariable(int input_index, tensorflow::DataType type, xla::ComputationDataHandle handle)'/>

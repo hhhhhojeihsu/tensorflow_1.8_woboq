@@ -1,0 +1,47 @@
+<def f='tensorflow/tensorflow/core/framework/allocator.h' l='68' ll='247'/>
+<ovr f='tensorflow/tensorflow/core/framework/allocator.h' l='285' c='tensorflow::AllocatorWrapper'/>
+<ovr f='tensorflow/tensorflow/core/framework/tracking_allocator.h' l='56' c='tensorflow::TrackingAllocator'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/framework/allocator.h' l='66'>// Allocator is an abstract interface for allocating and deallocating
+// device memory.</doc>
+<smbr r='tensorflow::Allocator::kAllocatorAlignment' t='const size_t'/>
+<fun r='_ZN10tensorflow9AllocatorD1Ev'/>
+<fun r='_ZN10tensorflow9Allocator4NameEv'/>
+<fun r='_ZN10tensorflow9Allocator11AllocateRawEmm'/>
+<fun r='_ZN10tensorflow9Allocator11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<fun r='_ZN10tensorflow9Allocator13DeallocateRawEPv'/>
+<fun r='_ZN10tensorflow9Allocator8AllocateEm'/>
+<fun r='_ZN10tensorflow9Allocator8AllocateEmRKNS_20AllocationAttributesE'/>
+<fun r='_ZN10tensorflow9Allocator10DeallocateEPT_m'/>
+<fun r='_ZN10tensorflow9Allocator21TracksAllocationSizesEv'/>
+<fun r='_ZN10tensorflow9Allocator26ShouldAllocateEmptyTensorsEv'/>
+<fun r='_ZN10tensorflow9Allocator13RequestedSizeEPKv'/>
+<fun r='_ZN10tensorflow9Allocator13AllocatedSizeEPKv'/>
+<fun r='_ZN10tensorflow9Allocator12AllocationIdEPKv'/>
+<fun r='_ZN10tensorflow9Allocator17AllocatedSizeSlowEPKv'/>
+<fun r='_ZN10tensorflow9Allocator8GetStatsEPNS_14AllocatorStatsE'/>
+<fun r='_ZN10tensorflow9Allocator10ClearStatsEv'/>
+<fun r='_ZN10tensorflow9Allocator7RunCtorEPT_m'/>
+<fun r='_ZN10tensorflow9Allocator7RunDtorEPT_m'/>
+<fun r='_ZN10tensorflow9Allocator13RunStringCtorEPSsm'/>
+<fun r='_ZN10tensorflow9Allocator13RunStringDtorEPSsm'/>
+<fun r='_ZN10tensorflow9Allocator15RunResourceCtorEPNS_14ResourceHandleEm'/>
+<fun r='_ZN10tensorflow9Allocator15RunResourceDtorEPNS_14ResourceHandleEm'/>
+<fun r='_ZN10tensorflow9Allocator14RunVariantCtorEPNS_7VariantEm'/>
+<fun r='_ZN10tensorflow9Allocator14RunVariantDtorEPNS_7VariantEm'/>
+<fun r='_ZN10tensorflow9Allocator7RunCtorEPT_m'/>
+<fun r='_ZN10tensorflow9Allocator7RunDtorEPT_m'/>
+<fun r='_ZN10tensorflow9Allocator7RunCtorEPT_m'/>
+<fun r='_ZN10tensorflow9Allocator7RunDtorEPT_m'/>
+<fun r='_ZN10tensorflow9Allocator7RunCtorEPT_m'/>
+<fun r='_ZN10tensorflow9Allocator7RunDtorEPT_m'/>
+<ovr f='tensorflow/tensorflow/compiler/jit/xla_device_context.h' l='33' c='tensorflow::XlaDeviceAllocator'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.cc' l='35' c='tensorflow::XlaCompilationAllocator'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/visitable_allocator.h' l='28' c='tensorflow::VisitableAllocator'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_managed_allocator.h' l='27' c='tensorflow::GpuManagedAllocator'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/gpu/process_state.h' l='144' c='tensorflow::internal::RecordingAllocator'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/scoped_allocator.h' l='87' c='tensorflow::ScopedAllocatorInstance'/>
+<ovr f='tensorflow/tensorflow/core/framework/allocator.cc' l='91' c='tensorflow::CPUAllocator'/>
+<smbr r='tensorflow::Allocator::kAllocatorAlignment' t='const size_t'/>
+<fun r='_ZN10tensorflow9AllocatorD1Ev'/>
+<ovr f='tensorflow/tensorflow/core/kernels/immutable_constant_op.cc' l='23' c='tensorflow::(anonymousnamespace)::MemmappedTensorAllocator'/>

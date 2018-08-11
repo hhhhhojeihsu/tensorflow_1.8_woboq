@@ -1,0 +1,29 @@
+<dec f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='137' type='static tensorflow::gtl::ArraySlice&lt;int64&gt; xla::LayoutUtil::MinorToMajor(const xla::Shape &amp; shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='662' u='c' c='_ZN3xla9ShapeUtil20ForEachIndexInternalERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_S7_RKT_b'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='135'>// Returns the minor_to_major array for the given Shape.  Requires that the
+  // shape is an array and has a dense layout.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/index_util.cc' l='81' u='c' c='_ZN3xla9IndexUtil34MultidimensionalIndexToLinearIndexERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/index_util.cc' l='113' u='c' c='_ZN3xla9IndexUtil34LinearIndexToMultidimensionalIndexERKNS_5ShapeEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/index_util.cc' l='139' u='c' c='_ZN3xla9IndexUtil18GetDimensionStrideERKNS_5ShapeEx'/>
+<def f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='335' ll='339' type='static tensorflow::gtl::ArraySlice&lt;int64&gt; xla::LayoutUtil::MinorToMajor(const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='335'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='817' u='c' c='_ZNK3xla7Literal9TransposeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='844' u='c' c='_ZNK3xla7Literal5SliceEN10tensorflow3gtl10ArraySliceIxEES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1478' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor60TryToSinkReshapeOrBroadcastAfterOpWithUniqueNonScalarOperandEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1488' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor60TryToSinkReshapeOrBroadcastAfterOpWithUniqueNonScalarOperandEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1497' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor60TryToSinkReshapeOrBroadcastAfterOpWithUniqueNonScalarOperandEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1987' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1989' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='1038' u='c' c='_ZN3xla3cpu12DotOpEmitter24EmitOperandArrayLoopNestEPNS_7llvm_ir11ForLoopNestERKNS2_7IrArrayExN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1653' u='c' c='_ZN3xla3cpu9IrEmitter20EmitVectorizedReduceEPNS_14HloInstructionES3_S3_N10tensorflow3gtl10ArraySliceIxEEPNS_14HloComputationEPSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1700' u='c' c='_ZN3xla3cpu9IrEmitter20EmitVectorizedReduceEPNS_14HloInstructionES3_S3_N10tensorflow3gtl10ArraySliceIxEEPNS_14HloComputationEPSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1703' u='c' c='_ZN3xla3cpu9IrEmitter20EmitVectorizedReduceEPNS_14HloInstructionES3_S3_N10tensorflow3gtl10ArraySliceIxEEPNS_14HloComputationEPSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_loop_emitter.cc' l='42' u='c' c='_ZN3xla3cpu19ParallelLoopEmitter29EmitIndexAndSetExitBasicBlockEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='217' u='c' c='_ZN3xla12_GLOBAL__N_118MakeDimMultipliersERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_tfgraph_builder.cc' l='169' u='c' c='_ZNK3xla16hlo_graph_dumper17HloTfGraphBuilder12SetNodeAttrsEPKNS_14HloInstructionEPN10tensorflow7NodeDefE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='228' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index20SourceIndexOfBitcastERKNS_5ShapeES5_PN4llvm9IRBuilderINS6_14ConstantFolderENS6_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='363' u='c' c='_ZNK3xla7llvm_ir7IrArray23EmitArrayElementAddressERKNS1_5IndexEPN4llvm9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='230' u='c' c='_ZN3xla7llvm_ir13ShapeToIrTypeERKNS_5ShapeEPN4llvm6ModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/loop_emitter.cc' l='105' u='c' c='_ZN3xla7llvm_ir11LoopEmitter29EmitIndexAndSetExitBasicBlockEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='88' u='c' c='_ZN3xla12_GLOBAL__N_113CompareShapesERKNS_5ShapeES3_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='89' u='c' c='_ZN3xla12_GLOBAL__N_113CompareShapesERKNS_5ShapeES3_b'/>

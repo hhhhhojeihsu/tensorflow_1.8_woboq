@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_logger.h' l='59' type='void tensorflow::WorkerCacheLogger::RecordRecvTensor(int64 step_id, int64 start_usecs, int64 end_usecs, const string &amp; tensor_name, const string &amp; src_device, const string &amp; dst_device, int64 bytes)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_remote_worker.cc' l='157' u='c' c='_ZN10tensorflow16GrpcRemoteWorker15RecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPNS_14TensorResponseESt8functionIFvRKNS_6StatusEEE'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_logger.h' l='57'>// Generates a NodeExecStats record with the given data, and saves for
+  // later retrieval by RetrieveLogs().</doc>
+<def f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_logger.cc' l='85' ll='93' type='void tensorflow::WorkerCacheLogger::RecordRecvTensor(int64 step_id, int64 start_usecs, int64 end_usecs, const string &amp; tensor_name, const string &amp; src_device, const string &amp; dst_device, int64 bytes)'/>

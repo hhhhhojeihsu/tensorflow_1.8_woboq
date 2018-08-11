@@ -1,0 +1,126 @@
+<def f='tensorflow/tensorflow/core/framework/variant.h' l='153' ll='344'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/framework/variant.h' l='53'>// This is an implementation of a type-erased container that can store an
+// object of any type. The implementation is very similar to std::any, but has
+// restrictions on the types of objects that can be stored, and eschews some of
+// the fancier constructors available for std::any. An object of
+// tensorflow::Variant is intended to be used as the value that will be stored
+// in a tensorflow::Tensor object when its type is DT_VARIANT.
+//
+// tensorflow::Variant can store an object of a class that satisfies the
+// following constraints:
+//
+// * The class is CopyConstructible.
+// * The class has a default constructor.
+// * It&apos;s either a protocol buffer, a tensorflow::Tensor, or defines the
+// following functions:
+//
+//   string TypeName() const;
+//   void Encode(VariantTensorData* data) const;
+//   void Decode(const VariantTensorData&amp; data);
+//
+// Simple POD types can elide the Encode/Decode functions, they are provided by
+// helper methods.
+// Here are some typical usage patterns:
+//
+//   Variant x = 10;
+//   EXPECT_EQ(*x.get&lt;int&gt;(), 10);
+//
+//   Tensor t(DT_FLOAT, TensorShape({}));
+//   t.flat&lt;float&gt;()(0) = 42.0f;
+//   Variant x = t;
+//   EXPECT_EQ(x.get&lt;Tensor&gt;()-&gt;flat&lt;float&gt;()(0), 42.0f);
+//
+// Accessing the stored object:
+//
+// The get&lt;T&gt; function is the main mechanism to access the object
+// stored in the container. It is type-safe, that is, calling
+// get&lt;T&gt; when the stored object&apos;s type is not T, returns a
+// nullptr. A raw pointer to the stored object can be obtained by calling
+// get&lt;void&gt;().
+//
+// Serializing/deserializing Variant object:
+//
+// The Variant class delegates serializing and deserializing operations to the
+// contained object. Helper functions to do these operations are provided for
+// POD data types, tensorflow::Tensor, and protocol buffer objects. However,
+// other classes have to provide Encode/Decode functions to handle
+// serialization.
+//
+// Objects stored in a Variant object often contain references to other
+// tensorflow::Tensors of primitive types (Eg., a list of tensorflow::Tensors).
+// To efficiently support those use cases, a structure is imposed on the
+// serialization format. Namely, classes should serialize their contents into a
+// VariantTensorData object:
+//
+//   struct VariantTensorData {
+//     string type_name;
+//     string metadata;
+//     std::vector&lt;Tensor&gt; tensors;
+//   };
+//
+// Objects with references to other Tensors can simply store those tensors in
+// the `tensors` field, and serialize other metadata content in to the
+// `metadata` field.
+//
+// Serialization example:
+//
+//   Foo f = Foo {...};
+//   Variant x = f;
+//   string serialized_f;
+//   x.Encode(&amp;serialized_f);
+//
+//   Variant y = Foo(); // default constructed Foo.
+//   y.Decode(&amp;serialized_f);
+//   EXPECT_EQ(*x.get&lt;Foo&gt;(), *y.get&lt;Foo&gt;());
+//
+//
+// A Variant storing serialized Variant data (a value of type
+// VariantTensorDataProto) has different behavior from a standard Variant.
+// Namely, its TypeName matches the TypeName of the original Variant;
+// and its non-const get method performs lazy deserialization.
+//
+// Decode and copy example:
+//
+//   Foo f = Foo {...};
+//   Variant x = f;
+//
+//   VariantTensorData serialized_data_f;
+//   VariantTensorDataProto serialized_proto_f;
+//   x.Encode(&amp;serialized_data_f);
+//   serialized_data_f.ToProto(&amp;serialized_proto_f);
+//
+//   Variant y_type_unknown = serialized_proto_f;  // Store serialized Variant.
+//
+//   EXPECT_EQ(x.TypeName(), y_type_unknown.TypeName());  // Looks like Foo.
+//   EXPECT_EQ(MakeTypeIndex&lt;VariantTensorDataProto&gt;(),
+//             y_type_unknown.TypeId());
+//   // Decode and get y_type_unknown; compare to value in x.
+//   Foo f_decoded;
+//   EXPECT_TRUE(x.MaybeDecodeAndCopy(&amp;f_decoded));
+//   EXPECT_EQ(f_decoded, f);
+//</doc>
+<fun r='_ZN10tensorflow7VariantC1Ev'/>
+<fun r='_ZN10tensorflow7VariantC1ERKS0_'/>
+<fun r='_ZN10tensorflow7VariantC1EOS0_'/>
+<fun r='_ZN10tensorflow7VariantC1EOT_'/>
+<fun r='_ZN10tensorflow7VariantaSERKS0_'/>
+<fun r='_ZN10tensorflow7VariantaSEOS0_'/>
+<fun r='_ZNK10tensorflow7Variant8is_emptyEv'/>
+<fun r='_ZN10tensorflow7Variant5clearEv'/>
+<fun r='_ZN10tensorflow7Variant4swapERS0_'/>
+<fun r='_ZNK10tensorflow7Variant6TypeIdEv'/>
+<fun r='_ZNK10tensorflow7Variant11DebugStringEv'/>
+<fun r='_ZN10tensorflow7Variant3getEv'/>
+<fun r='_ZNK10tensorflow7Variant3getEv'/>
+<fun r='_ZNK10tensorflow7Variant8TypeNameEv'/>
+<fun r='_ZNK10tensorflow7Variant6EncodeEPNS_17VariantTensorDataE'/>
+<fun r='_ZN10tensorflow7Variant6DecodeERKNS_17VariantTensorDataE'/>
+<fun r='_ZNK10tensorflow7Variant6EncodeEPSs'/>
+<fun r='_ZN10tensorflow7Variant6DecodeERKSs'/>
+<fun r='_ZNK10tensorflow7Variant18MaybeDecodeAndCopyEPT_'/>
+<fun r='_ZNK10tensorflow7Variant9TryDecodeEPS0_'/>
+<smbr r='tensorflow::Variant::in_place' t='const tensorflow::Variant::in_place_t'/>
+<mbr r='tensorflow::Variant::value_' o='0' t='std::unique_ptr&lt;ValueInterface&gt;'/>
+<fun r='_ZN10tensorflow7Variant3getEv'/>
+<fun r='_ZNK10tensorflow7Variant3getEv'/>

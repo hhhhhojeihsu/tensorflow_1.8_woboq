@@ -1,0 +1,18 @@
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='481' u='r' c='_ZN10tensorflow15OpKernelContext6ParamsD1Ev'/>
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='502' type='tensorflow::PerOpGpuDevice *'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='506' u='r' c='_ZN10tensorflow15OpKernelContext6Params23ensure_eigen_gpu_deviceEv'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='514' u='w' c='_ZN10tensorflow15OpKernelContext6Params23ensure_eigen_gpu_deviceEv'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1009' u='r' c='_ZNK10tensorflow15OpKernelContext16eigen_gpu_deviceEv'/>
+<offset>192</offset>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='492'>// The Eigen GPU device wrapper, which may include a per-op
+    // wrapped allocator. The concrete type of this object depends on
+    // the type of this-&gt;device, so eigen_gpu_device can&apos;t be an
+    // inline member and must be heap allocated. However, we don&apos;t
+    // want to allocate a new eigen_gpu_device for every Op that is
+    // executed. Instead this member is allocated on first use using
+    // ensure_eigen_gpu_device, and then if the Params structure is
+    // re-used for subsequent Ops, the eigen_gpu_device is
+    // ReInitialized in the OpKernelContext constructor. Unlike the
+    // other pointers in Params, this one is owned by Params.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='1504' u='w' c='_ZN10tensorflow12_GLOBAL__N_113ExecutorState10AsyncState31ParamsButClearingEigenGPUDeviceEPNS_15OpKernelContext6ParamsE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='267' u='r' c='_ZN10tensorflow15OpKernelContextC1EPNS0_6ParamsEi'/>

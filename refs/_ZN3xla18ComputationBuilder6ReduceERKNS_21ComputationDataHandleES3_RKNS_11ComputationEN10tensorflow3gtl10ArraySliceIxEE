@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='524' type='xla::ComputationDataHandle xla::ComputationBuilder::Reduce(const xla::ComputationDataHandle &amp; operand, const xla::ComputationDataHandle &amp; init_value, const xla::Computation &amp; computation, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions_to_reduce)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='522'>// Reduces an array among the provided dimensions, given &quot;computation&quot; as a
+  // reduction operator.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/batch_norm_op.cc' l='167' u='c' c='_ZN10tensorflow12_GLOBAL__N_120FusedBatchNormGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/batch_norm_op.cc' l='181' u='c' c='_ZN10tensorflow12_GLOBAL__N_120FusedBatchNormGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/bias_ops.cc' l='112' u='c' c='_ZN10tensorflow12_GLOBAL__N_113BiasAddGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/conv_ops.cc' l='173' u='c' c='_ZN10tensorflow12_GLOBAL__N_134ContractFilterForDepthwiseBackpropEPNS_18XlaOpKernelContextERKNS_11TensorShapeENS_8DataTypeERKN3xla21ComputationDataHan3663921'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_ops.cc' l='186' u='c' c='_ZN10tensorflow12_GLOBAL__N_118AdjustContrastOpV27CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/l2loss_op.cc' l='43' u='c' c='_ZN10tensorflow12_GLOBAL__N_18L2LossOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reduction_ops_common.cc' l='115' u='c' c='_ZN10tensorflow14XlaReductionOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='51' u='c' c='_ZN10tensorflow12_GLOBAL__N_19SoftmaxOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='60' u='c' c='_ZN10tensorflow12_GLOBAL__N_19SoftmaxOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='91' u='c' c='_ZN10tensorflow12_GLOBAL__N_122CrossEntropyWithLogitsEPNS_18XlaOpKernelContextENS_8DataTypeERKN3xla21ComputationDataHandleES7_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='104' u='c' c='_ZN10tensorflow12_GLOBAL__N_122CrossEntropyWithLogitsEPNS_18XlaOpKernelContextENS_8DataTypeERKN3xla21ComputationDataHandleES7_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='118' u='c' c='_ZN10tensorflow12_GLOBAL__N_122CrossEntropyWithLogitsEPNS_18XlaOpKernelContextENS_8DataTypeERKN3xla21ComputationDataHandleES7_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='53' u='c' c='_ZN10tensorflow12_GLOBAL__N_19ArgMinMaxEPN3xla18ComputationBuilderEPNS_18XlaOpKernelContextERKNS1_21ComputationDataHandleERKNS_11TensorShapeENS_8DataTypeESC_ibPS6_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='85' u='c' c='_ZN10tensorflow12_GLOBAL__N_19ArgMinMaxEPN3xla18ComputationBuilderEPNS_18XlaOpKernelContextERKNS1_21ComputationDataHandleERKNS_11TensorShapeENS_8DataTypeESC_ibPS6_'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1257' ll='1270' type='xla::ComputationDataHandle xla::ComputationBuilder::Reduce(const xla::ComputationDataHandle &amp; operand, const xla::ComputationDataHandle &amp; init_value, const xla::Computation &amp; computation, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions_to_reduce)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1286' u='c' c='_ZN3xla18ComputationBuilder9ReduceAllERKNS_21ComputationDataHandleES3_RKNS_11ComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/lib/arithmetic.cc' l='136' u='c' c='_ZN3xla3AnyERKNS_21ComputationDataHandleEPNS_18ComputationBuilderE'/>

@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/core/framework/shape_inference.h' l='592' ll='594' type='const std::vector&lt;ShapeAndType&gt; * tensorflow::shape_inference::InferenceContext::output_handle_shapes_and_types(int idx)'/>
+<doc f='tensorflow/tensorflow/core/framework/shape_inference.h' l='590'>// Returns the output handle shapes and types, for the resource tensor output
+  // at index &lt;idx&gt;. Returns NULL if the shape and types were never set.</doc>
+<use f='tensorflow/tensorflow/c/python_api.cc' l='124' u='c' c='_ZN10tensorflow26ResourceHandleShapeAndTypeEP8TF_Graph9TF_Output'/>
+<use f='tensorflow/tensorflow/core/common_runtime/shape_refiner.cc' l='237' u='c' c='_ZN10tensorflow12ShapeRefiner7AddNodeEPKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/shape_refiner.cc' l='363' u='c' c='_ZN10tensorflow12ShapeRefiner10UpdateNodeEPKNS_4NodeEbPb'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='877' u='c' c='_ZN10tensorflow8grappler15GraphProperties14UpdateResourceEPKNS_4NodeERKSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EEPNS0_20SymbolicShapeRe1862584'/>
+<use f='tensorflow/tensorflow/python/framework/cpp_shape_inference.cc' l='142' u='c' c='_ZN10tensorflow4swig12_GLOBAL__N_124RunCppShapeInferenceImplEiRKSsRKSt6vectorISsSaISsEERKS4_IP7_objectSaISA_EES8_PS6_PSs'/>

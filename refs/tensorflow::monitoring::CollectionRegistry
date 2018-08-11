@@ -1,0 +1,18 @@
+<def f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.h' l='124' ll='191'/>
+<size>72</size>
+<doc f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.h' l='118'>// A collection registry for metrics.
+//
+// Metrics are registered here so that their state can be collected later and
+// exported.
+//
+// This class is thread-safe.</doc>
+<fun r='_ZN10tensorflow10monitoring18CollectionRegistryD1Ev'/>
+<fun r='_ZN10tensorflow10monitoring18CollectionRegistry7DefaultEv'/>
+<fun r='_ZN10tensorflow10monitoring18CollectionRegistry8RegisterEPKNS0_17AbstractMetricDefERKSt8functionIFvNS0_21MetricCollectorGetterEEE'/>
+<fun r='_ZNK10tensorflow10monitoring18CollectionRegistry14CollectMetricsERKNS1_21CollectMetricsOptionsE'/>
+<fun r='_ZN10tensorflow10monitoring18CollectionRegistryC1EPNS_3EnvE'/>
+<fun r='_ZN10tensorflow10monitoring18CollectionRegistry10UnregisterEPKNS0_17AbstractMetricDefE'/>
+<mbr r='tensorflow::monitoring::CollectionRegistry::env_' o='0' t='tensorflow::Env *const'/>
+<mbr r='tensorflow::monitoring::CollectionRegistry::mu_' o='64' t='tensorflow::mutex'/>
+<mbr r='tensorflow::monitoring::CollectionRegistry::registry_' o='192' t='std::map&lt;StringPiece, CollectionInfo&gt;'/>
+<fun r='_ZN10tensorflow10monitoring18CollectionRegistryC1ERKS1_'/>

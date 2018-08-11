@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/stream_executor/blas.h' l='124' type='const AlgorithmType'/>
+<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='117'>// blas uses -1 to represent the default algorithm. This happens to match up
+// with the CUBLAS_GEMM_DFALT constant, so cuda_blas.cc is using static_cast
+// to convert from AlgorithmType to cublasGemmAlgo_t, and uses a static_assert
+// to ensure that this assumption does not break.
+// If another blas implementation uses a different value for the default
+// algorithm, then it needs to convert kDefaultGemmAlgo to that value
+// (e.g. via a function called ToWhateverGemmAlgo).</doc>

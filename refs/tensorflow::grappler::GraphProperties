@@ -1,0 +1,31 @@
+<def f='tensorflow/tensorflow/core/grappler/costs/graph_properties.h' l='38' ll='130'/>
+<size>344</size>
+<doc f='tensorflow/tensorflow/core/grappler/costs/graph_properties.h' l='32'>// Infer OpInfo::TensorProperties for graph nodes inputs/outputs.
+//
+// Typical use case, is to infer tensor properties from a graph, before doing
+// optimization pass. Nodes modified during optimization pass have to be
+// invalidated, to prevent further incorrect optimizations based on wrong shape
+// and data type properties.</doc>
+<fun r='_ZN10tensorflow8grappler15GraphPropertiesC1ERKNS0_12GrapplerItemE'/>
+<fun r='_ZN10tensorflow8grappler15GraphProperties15InferStaticallyEb'/>
+<fun r='_ZN10tensorflow8grappler15GraphProperties16InferDynamicallyEPNS0_7ClusterE'/>
+<fun r='_ZN10tensorflow8grappler15GraphProperties18InferFromCostGraphERKNS_12CostGraphDefE'/>
+<fun r='_ZNK10tensorflow8grappler15GraphProperties20AnnotateOutputShapesEPNS_8GraphDefE'/>
+<fun r='_ZNK10tensorflow8grappler15GraphProperties18HasInputPropertiesERKSs'/>
+<fun r='_ZNK10tensorflow8grappler15GraphProperties19HasOutputPropertiesERKSs'/>
+<fun r='_ZNK10tensorflow8grappler15GraphProperties18GetInputPropertiesERKSs'/>
+<fun r='_ZNK10tensorflow8grappler15GraphProperties19GetOutputPropertiesERKSs'/>
+<fun r='_ZN10tensorflow8grappler15GraphProperties20ClearInputPropertiesERKSs'/>
+<fun r='_ZN10tensorflow8grappler15GraphProperties21ClearOutputPropertiesERKSs'/>
+<fun r='_ZN10tensorflow8grappler15GraphProperties26MergeEnqueueShapesAndTypesEPNS0_20SymbolicShapeRefinerEPKNS_4NodeERKSt6vectorINS_15shape_inference12ShapeAndTypeESaIS9_EEPSB_'/>
+<fun r='_ZN10tensorflow8grappler15GraphProperties31RelaxEnqueueShapesAndMergeTypesEPNS0_20SymbolicShapeRefinerEPKNS_4NodeERKSt6vectorINS_15shape_inference12Sh1722677'/>
+<fun r='_ZN10tensorflow8grappler15GraphProperties14UpdateResourceEPKNS_4NodeERKSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EEPNS0_20SymbolicShapeRe1862584'/>
+<fun r='_ZN10tensorflow8grappler15GraphProperties15UpdateMergeNodeEPNS0_20SymbolicShapeRefinerEPKNS_4NodeEbPNS0_9TopoQueueE'/>
+<fun r='_ZN10tensorflow8grappler15GraphProperties11UpdateEnterEPNS0_20SymbolicShapeRefinerEPKNS_4NodeEbPNS0_9TopoQueueE'/>
+<fun r='_ZNK10tensorflow8grappler15GraphProperties17OverwriteFedPortsEPNS0_20SymbolicShapeRefinerERKSt13unordered_mapISsSt13unordered_setIiSt4hashIiESt8equal_5891987'/>
+<fun r='_ZNK10tensorflow8grappler15GraphProperties12UpdateShapesEPNS0_20SymbolicShapeRefinerEbRKSt13unordered_mapISsSt13unordered_setIiSt4hashIiESt8equal_toIi2360630'/>
+<fun r='_ZNK10tensorflow8grappler15GraphProperties15PropagateShapesEPNS0_20SymbolicShapeRefinerEbPNS0_9TopoQueueERKSt13unordered_mapIPKNS_4NodeESt13unordered_14915696'/>
+<mbr r='tensorflow::grappler::GraphProperties::item_' o='0' t='tensorflow::grappler::GrapplerItem'/>
+<mbr r='tensorflow::grappler::GraphProperties::input_properties_' o='1792' t='std::map&lt;string, std::vector&lt;OpInfo::TensorProperties&gt; &gt;'/>
+<mbr r='tensorflow::grappler::GraphProperties::output_properties_' o='2176' t='std::map&lt;string, std::vector&lt;OpInfo::TensorProperties&gt; &gt;'/>
+<mbr r='tensorflow::grappler::GraphProperties::missing_properties_' o='2560' t='const std::vector&lt;OpInfo::TensorProperties&gt;'/>

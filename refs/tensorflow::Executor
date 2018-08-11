@@ -1,0 +1,19 @@
+<def f='tensorflow/tensorflow/core/common_runtime/executor.h' l='46' ll='121'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/executor.h' l='33'>// Executor runs a graph computation.
+// Example:
+//   Graph* graph = ...;
+//      ... construct graph ...
+//   Executor* executor;
+//   TF_CHECK_OK(NewSimpleExecutor(my_device, graph, &amp;executor));
+//   Rendezvous* rendezvous = NewNaiveRendezvous();
+//   TF_CHECK_OK(rendezvous-&gt;Send(&quot;input&quot;, some_input_tensor));
+//   TF_CHECK_OK(executor-&gt;Run({ExecutorOpts, rendezvous, nullptr}));
+//   TF_CHECK_OK(rendezvous-&gt;Recv(&quot;output&quot;, &amp;output_tensor));
+//   ... ...
+//
+// Multiple threads can call Executor::Run concurrently.</doc>
+<fun r='_ZN10tensorflow8ExecutorD1Ev'/>
+<fun r='_ZN10tensorflow8Executor8RunAsyncERKNS0_4ArgsESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow8Executor3RunERKNS0_4ArgsE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='348' c='tensorflow::(anonymousnamespace)::ExecutorImpl'/>

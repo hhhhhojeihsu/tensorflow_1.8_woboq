@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/framework/common_shape_fns.h' l='152' type='tensorflow::Status tensorflow::shape_inference::GetWindowedOutputSizeFromDimsV2(tensorflow::shape_inference::InferenceContext * c, tensorflow::shape_inference::DimensionHandle input_size, tensorflow::shape_inference::DimensionOrConstant filter_size, int64 dilation_rate, int64 stride, tensorflow::Padding padding_type, tensorflow::shape_inference::DimensionHandle * output_size)'/>
+<doc f='tensorflow/tensorflow/core/framework/common_shape_fns.h' l='150'>// The V2 version computes the same outputs with arbitrary dilation_rate. For
+// detailed equations, refer to the comments for GetWindowedOutputSizeV2().</doc>
+<def f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='122' ll='162' type='tensorflow::Status tensorflow::shape_inference::GetWindowedOutputSizeFromDimsV2(shape_inference::InferenceContext * c, shape_inference::DimensionHandle input_size, shape_inference::DimensionOrConstant filter_size, int64 dilation_rate, int64 stride, tensorflow::Padding padding_type, shape_inference::DimensionHandle * output_size)'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='169' u='c' c='_ZN10tensorflow15shape_inference29GetWindowedOutputSizeFromDimsEPNS0_16InferenceContextENS0_15DimensionHandleENS0_19DimensionOrConstantExNS_7PaddingEPS3_'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='465' u='c' c='_ZN10tensorflow15shape_inference11Conv2DShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='468' u='c' c='_ZN10tensorflow15shape_inference11Conv2DShapeEPNS0_16InferenceContextE'/>
+<doc f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='119'>// The V2 version computes windowed output size with arbitrary dilation_rate,
+// while the original version only handles the cases where dilation_rates equal
+// to 1.</doc>

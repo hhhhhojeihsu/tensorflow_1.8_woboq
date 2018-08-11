@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>counter.h source code [tensorflow/tensorflow/core/lib/monitoring/counter.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::monitoring::Counter,tensorflow::monitoring::CounterCell "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/lib/monitoring/counter.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>lib</a>/<a href='./'>monitoring</a>/<a href='counter.h.html'>counter.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CORE_LIB_MONITORING_COUNTER_H_">TENSORFLOW_CORE_LIB_MONITORING_COUNTER_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CORE_LIB_MONITORING_COUNTER_H_" data-ref="_M/TENSORFLOW_CORE_LIB_MONITORING_COUNTER_H_">TENSORFLOW_CORE_LIB_MONITORING_COUNTER_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><i>// We replace this implementation with a null implementation for mobile</i></td></tr>
+<tr><th id="20">20</th><td><i>// platforms.</i></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../platform/platform.h.html">"tensorflow/core/platform/platform.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#<span data-ppcond="22">ifdef</span> <span class="macro" data-ref="_M/IS_MOBILE_PLATFORM">IS_MOBILE_PLATFORM</span></u></td></tr>
+<tr><th id="23">23</th><td><u>#include "tensorflow/core/lib/monitoring/mobile_counter.h"</u></td></tr>
+<tr><th id="24">24</th><td><u>#<span data-ppcond="22">else</span></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../../../../include/c++/5/array.html">&lt;array&gt;</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../../../../include/c++/5/atomic.html">&lt;atomic&gt;</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../../../../include/c++/5/map.html">&lt;map&gt;</a></u></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="collection_registry.h.html">"tensorflow/core/lib/monitoring/collection_registry.h"</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="metric_def.h.html">"tensorflow/core/lib/monitoring/metric_def.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../platform/logging.h.html">"tensorflow/core/platform/logging.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../../platform/macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../../platform/mutex.h.html">"tensorflow/core/platform/mutex.h"</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="../../platform/thread_annotations.h.html">"tensorflow/core/platform/thread_annotations.h"</a></u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="38">38</th><td><b>namespace</b> <span class="namespace">monitoring</span> {</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><i>// CounterCell stores each value of an Counter.</i></td></tr>
+<tr><th id="41">41</th><td><i>//</i></td></tr>
+<tr><th id="42">42</th><td><i>// A cell can be passed off to a module which may repeatedly update it without</i></td></tr>
+<tr><th id="43">43</th><td><i>// needing further map-indexing computations. This improves both encapsulation</i></td></tr>
+<tr><th id="44">44</th><td><i>// (separate modules can own a cell each, without needing to know about the map</i></td></tr>
+<tr><th id="45">45</th><td><i>// to which both cells belong) and performance (since map indexing and</i></td></tr>
+<tr><th id="46">46</th><td><i>// associated locking are both avoided).</i></td></tr>
+<tr><th id="47">47</th><td><i>//</i></td></tr>
+<tr><th id="48">48</th><td><i>// This class is thread-safe.</i></td></tr>
+<tr><th id="49">49</th><td><b>class</b> <dfn class="type def" id="tensorflow::monitoring::CounterCell" title='tensorflow::monitoring::CounterCell' data-ref="tensorflow::monitoring::CounterCell">CounterCell</dfn> {</td></tr>
+<tr><th id="50">50</th><td> <b>public</b>:</td></tr>
+<tr><th id="51">51</th><td>  <dfn class="decl def" id="_ZN10tensorflow10monitoring11CounterCellC1Ex" title='tensorflow::monitoring::CounterCell::CounterCell' data-ref="_ZN10tensorflow10monitoring11CounterCellC1Ex">CounterCell</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col6 decl" id="76value" title='value' data-type='int64' data-ref="76value">value</dfn>) : <a class="member" href="#tensorflow::monitoring::CounterCell::value_" title='tensorflow::monitoring::CounterCell::value_' data-ref="tensorflow::monitoring::CounterCell::value_">value_</a><a class="ref" href="../../../../../include/c++/5/atomic.html#_ZNSt6atomicIxEC1Ex" title='std::atomic&lt;long long&gt;::atomic' data-ref="_ZNSt6atomicIxEC1Ex">(</a><a class="local col6 ref" href="#76value" title='value' data-ref="76value">value</a>) {}</td></tr>
+<tr><th id="52">52</th><td>  <dfn class="decl def" id="_ZN10tensorflow10monitoring11CounterCellD1Ev" title='tensorflow::monitoring::CounterCell::~CounterCell' data-ref="_ZN10tensorflow10monitoring11CounterCellD1Ev">~CounterCell</dfn>() {}</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>  <i>// Atomically increments the value by step.</i></td></tr>
+<tr><th id="55">55</th><td><i>  // REQUIRES: Step be non-negative.</i></td></tr>
+<tr><th id="56">56</th><td>  <em>void</em> <a class="decl" href="#_ZN10tensorflow10monitoring11CounterCell11IncrementByEx" title='tensorflow::monitoring::CounterCell::IncrementBy' data-ref="_ZN10tensorflow10monitoring11CounterCell11IncrementByEx">IncrementBy</a>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col7 decl" id="77step" title='step' data-type='int64' data-ref="77step">step</dfn>);</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <i>// Retrieves the current value.</i></td></tr>
+<tr><th id="59">59</th><td>  <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <a class="decl" href="#_ZNK10tensorflow10monitoring11CounterCell5valueEv" title='tensorflow::monitoring::CounterCell::value' data-ref="_ZNK10tensorflow10monitoring11CounterCell5valueEv">value</a>() <em>const</em>;</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td> <b>private</b>:</td></tr>
+<tr><th id="62">62</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/atomic_base.h.html#std::atomic" title='std::atomic' data-ref="std::atomic">atomic</a>&lt;<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>&gt; <dfn class="decl" id="tensorflow::monitoring::CounterCell::value_" title='tensorflow::monitoring::CounterCell::value_' data-ref="tensorflow::monitoring::CounterCell::value_">value_</dfn>;</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>  <a class="macro" href="../../platform/macros.h.html#91" title="CounterCell(const CounterCell&amp;) = delete; void operator=(const CounterCell&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN10tensorflow10monitoring11CounterCellC1ERKS1_" title='tensorflow::monitoring::CounterCell::CounterCell' data-ref="_ZN10tensorflow10monitoring11CounterCellC1ERKS1_"><a class="type" href="#tensorflow::monitoring::CounterCell" title='tensorflow::monitoring::CounterCell' data-ref="tensorflow::monitoring::CounterCell"><a class="type" href="#tensorflow::monitoring::CounterCell" title='tensorflow::monitoring::CounterCell' data-ref="tensorflow::monitoring::CounterCell">CounterCell</a></a></dfn>);</td></tr>
+<tr><th id="65">65</th><td>};</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><i>// A stateful class for updating a cumulative integer metric.</i></td></tr>
+<tr><th id="68">68</th><td><i>//</i></td></tr>
+<tr><th id="69">69</th><td><i>// This class encapsulates a set of values (or a single value for a label-less</i></td></tr>
+<tr><th id="70">70</th><td><i>// metric). Each value is identified by a tuple of labels. The class allows the</i></td></tr>
+<tr><th id="71">71</th><td><i>// user to increment each value.</i></td></tr>
+<tr><th id="72">72</th><td><i>//</i></td></tr>
+<tr><th id="73">73</th><td><i>// Counter allocates storage and maintains a cell for each value. You can</i></td></tr>
+<tr><th id="74">74</th><td><i>// retrieve an individual cell using a label-tuple and update it separately.</i></td></tr>
+<tr><th id="75">75</th><td><i>// This improves performance since operations related to retrieval, like</i></td></tr>
+<tr><th id="76">76</th><td><i>// map-indexing and locking, are avoided.</i></td></tr>
+<tr><th id="77">77</th><td><i>//</i></td></tr>
+<tr><th id="78">78</th><td><i>// This class is thread-safe.</i></td></tr>
+<tr><th id="79">79</th><td><b>template</b> &lt;<em>int</em> NumLabels&gt;</td></tr>
+<tr><th id="80">80</th><td><b>class</b> <dfn class="type def" id="tensorflow::monitoring::Counter" title='tensorflow::monitoring::Counter' data-ref="tensorflow::monitoring::Counter">Counter</dfn> {</td></tr>
+<tr><th id="81">81</th><td> <b>public</b>:</td></tr>
+<tr><th id="82">82</th><td>  <dfn class="decl def" id="_ZN10tensorflow10monitoring7CounterD1Ev" title='tensorflow::monitoring::Counter::~Counter&lt;NumLabels&gt;' data-ref="_ZN10tensorflow10monitoring7CounterD1Ev">~Counter</dfn>() {</td></tr>
+<tr><th id="83">83</th><td>    <i>// Deleted here, before the metric_def is destroyed.</i></td></tr>
+<tr><th id="84">84</th><td>    <a class="member" href="#tensorflow::monitoring::Counter::registration_handle_" title='tensorflow::monitoring::Counter::registration_handle_' data-ref="tensorflow::monitoring::Counter::registration_handle_">registration_handle_</a>.<a class="ref" href="../../../../../include/c++/5/bits/unique_ptr.h.html#_ZNSt10unique_ptr5resetENNS_8_PointerE4typeE" title='std::unique_ptr::reset' data-ref="_ZNSt10unique_ptr5resetENNS_8_PointerE4typeE">reset</a>();</td></tr>
+<tr><th id="85">85</th><td>  }</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>  <i>// Creates the metric based on the metric-definition arguments.</i></td></tr>
+<tr><th id="88">88</th><td><i>  //</i></td></tr>
+<tr><th id="89">89</th><td><i>  // Example;</i></td></tr>
+<tr><th id="90">90</th><td><i>  // auto* counter_with_label = Counter&lt;1&gt;::New("/tensorflow/counter",</i></td></tr>
+<tr><th id="91">91</th><td><i>  //   "Tensorflow counter", "MyLabelName");</i></td></tr>
+<tr><th id="92">92</th><td>  <b>template</b> &lt;<b>typename</b>... MetricDefArgs&gt;</td></tr>
+<tr><th id="93">93</th><td>  <em>static</em> Counter* <a class="decl" href="#_ZN10tensorflow10monitoring7Counter3NewEDpOT_" title='tensorflow::monitoring::Counter::New' data-ref="_ZN10tensorflow10monitoring7Counter3NewEDpOT_">New</a>(MetricDefArgs&amp;&amp;... <dfn class="local col8 decl" id="78metric_def_args" title='metric_def_args' data-type='MetricDefArgs &amp;&amp;...' data-ref="78metric_def_args">metric_def_args</dfn>);</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>  <i>// Retrieves the cell for the specified labels, creating it on demand if</i></td></tr>
+<tr><th id="96">96</th><td><i>  // not already present.</i></td></tr>
+<tr><th id="97">97</th><td>  <b>template</b> &lt;<b>typename</b>... Labels&gt;</td></tr>
+<tr><th id="98">98</th><td>  <a class="type" href="#tensorflow::monitoring::CounterCell" title='tensorflow::monitoring::CounterCell' data-ref="tensorflow::monitoring::CounterCell">CounterCell</a>* <a class="decl" href="#_ZN10tensorflow10monitoring7Counter7GetCellEDpRKT_" title='tensorflow::monitoring::Counter::GetCell' data-ref="_ZN10tensorflow10monitoring7Counter7GetCellEDpRKT_">GetCell</a>(<em>const</em> Labels&amp;... <dfn class="local col9 decl" id="79labels" title='labels' data-type='const Labels &amp;...' data-ref="79labels">labels</dfn>) <a class="macro" href="../../platform/default/thread_annotations.h.html#97" title="__attribute__((locks_excluded(mu_)))" data-ref="_M/LOCKS_EXCLUDED">LOCKS_EXCLUDED</a>(<a class="member" href="#tensorflow::monitoring::Counter::mu_" title='tensorflow::monitoring::Counter::mu_' data-ref="tensorflow::monitoring::Counter::mu_">mu_</a>);</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td> <b>private</b>:</td></tr>
+<tr><th id="101">101</th><td>  <b>explicit</b> <dfn class="decl def" id="_ZN10tensorflow10monitoring7CounterC1ERKNS0_9MetricDefILNS0_10MetricKindE1ExXT_EEE" title='tensorflow::monitoring::Counter::Counter&lt;NumLabels&gt;' data-ref="_ZN10tensorflow10monitoring7CounterC1ERKNS0_9MetricDefILNS0_10MetricKindE1ExXT_EEE">Counter</dfn>(</td></tr>
+<tr><th id="102">102</th><td>      <em>const</em> <a class="type" href="metric_def.h.html#tensorflow::monitoring::MetricDef" title='tensorflow::monitoring::MetricDef' data-ref="tensorflow::monitoring::MetricDef">MetricDef</a>&lt;<a class="type" href="metric_def.h.html#tensorflow::monitoring::MetricKind" title='tensorflow::monitoring::MetricKind' data-ref="tensorflow::monitoring::MetricKind">MetricKind</a>::<a class="enum" href="metric_def.h.html#tensorflow::monitoring::MetricKind::kCumulative" title='tensorflow::monitoring::MetricKind::kCumulative' data-ref="tensorflow::monitoring::MetricKind::kCumulative">kCumulative</a>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>, <a class="tu member" href="#tensorflow::monitoring::Counter::NumLabels" title='tensorflow::monitoring::Counter::NumLabels' data-ref="tensorflow::monitoring::Counter::NumLabels">NumLabels</a>&gt;&amp; <dfn class="local col0 decl" id="80metric_def" title='metric_def' data-type='const MetricDef&lt;MetricKind::kCumulative, int64, NumLabels&gt; &amp;' data-ref="80metric_def">metric_def</dfn>)</td></tr>
+<tr><th id="103">103</th><td>      : <a class="member" href="#tensorflow::monitoring::Counter::metric_def_" title='tensorflow::monitoring::Counter::metric_def_' data-ref="tensorflow::monitoring::Counter::metric_def_">metric_def_</a>(<a class="local col0 ref" href="#80metric_def" title='metric_def' data-ref="80metric_def">metric_def</a>),</td></tr>
+<tr><th id="104">104</th><td>        <a class="member" href="#tensorflow::monitoring::Counter::registration_handle_" title='tensorflow::monitoring::Counter::registration_handle_' data-ref="tensorflow::monitoring::Counter::registration_handle_">registration_handle_</a>(<a class="type" href="collection_registry.h.html#tensorflow::monitoring::CollectionRegistry" title='tensorflow::monitoring::CollectionRegistry' data-ref="tensorflow::monitoring::CollectionRegistry">CollectionRegistry</a>::<a class="ref" href="collection_registry.h.html#_ZN10tensorflow10monitoring18CollectionRegistry7DefaultEv" title='tensorflow::monitoring::CollectionRegistry::Default' data-ref="_ZN10tensorflow10monitoring18CollectionRegistry7DefaultEv">Default</a>()-&gt;<a class="ref" href="collection_registry.h.html#_ZN10tensorflow10monitoring18CollectionRegistry8RegisterEPKNS0_17AbstractMetricDefERKSt8functionIFvNS0_21MetricCollectorGetterEEE" title='tensorflow::monitoring::CollectionRegistry::Register' data-ref="_ZN10tensorflow10monitoring18CollectionRegistry8RegisterEPKNS0_17AbstractMetricDefERKSt8functionIFvNS0_21MetricCollectorGetterEEE">Register</a>(</td></tr>
+<tr><th id="105">105</th><td>            &amp;<a class="member" href="#tensorflow::monitoring::Counter::metric_def_" title='tensorflow::monitoring::Counter::metric_def_' data-ref="tensorflow::monitoring::Counter::metric_def_">metric_def_</a>, [&amp;](<a class="type" href="collection_registry.h.html#tensorflow::monitoring::MetricCollectorGetter" title='tensorflow::monitoring::MetricCollectorGetter' data-ref="tensorflow::monitoring::MetricCollectorGetter">MetricCollectorGetter</a> <dfn class="local col1 decl" id="81getter" title='getter' data-type='tensorflow::monitoring::MetricCollectorGetter' data-ref="81getter">getter</dfn>) {</td></tr>
+<tr><th id="106">106</th><td>              <em>auto</em> <dfn class="local col2 decl" id="82metric_collector" title='metric_collector' data-type='auto' data-ref="82metric_collector">metric_collector</dfn> = <a class="local col1 ref" href="#81getter" title='getter' data-ref="81getter">getter</a>.Get(&amp;<a class="member" href="#tensorflow::monitoring::Counter::metric_def_" title='tensorflow::monitoring::Counter::metric_def_' data-ref="tensorflow::monitoring::Counter::metric_def_">metric_def_</a>);</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>              <a class="type" href="../../platform/default/mutex.h.html#tensorflow::mutex_lock" title='tensorflow::mutex_lock' data-ref="tensorflow::mutex_lock">mutex_lock</a> <dfn class="local col3 decl" id="83l" title='l' data-type='tensorflow::mutex_lock' data-ref="83l">l</dfn>(<a class="member" href="#tensorflow::monitoring::Counter::mu_" title='tensorflow::monitoring::Counter::mu_' data-ref="tensorflow::monitoring::Counter::mu_">mu_</a>);</td></tr>
+<tr><th id="109">109</th><td>              <b>for</b> (<em>const</em> <em>auto</em>&amp; <dfn class="local col4 decl" id="84cell" title='cell' data-type='const auto &amp;' data-ref="84cell">cell</dfn> : <a class="member" href="#tensorflow::monitoring::Counter::cells_" title='tensorflow::monitoring::Counter::cells_' data-ref="tensorflow::monitoring::Counter::cells_">cells_</a>) {</td></tr>
+<tr><th id="110">110</th><td>                <a class="local col2 ref" href="#82metric_collector" title='metric_collector' data-ref="82metric_collector">metric_collector</a>.CollectValue(<a class="local col4 ref" href="#84cell" title='cell' data-ref="84cell">cell</a>.first, <a class="local col4 ref" href="#84cell" title='cell' data-ref="84cell">cell</a>.second.value());</td></tr>
+<tr><th id="111">111</th><td>              }</td></tr>
+<tr><th id="112">112</th><td>            })) {}</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>  <em>mutable</em> <a class="type" href="../../platform/default/mutex.h.html#tensorflow::mutex" title='tensorflow::mutex' data-ref="tensorflow::mutex">mutex</a> <dfn class="decl" id="tensorflow::monitoring::Counter::mu_" title='tensorflow::monitoring::Counter::mu_' data-ref="tensorflow::monitoring::Counter::mu_">mu_</dfn>;</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td>  <i>// The metric definition. This will be used to identify the metric when we</i></td></tr>
+<tr><th id="117">117</th><td><i>  // register it for collection.</i></td></tr>
+<tr><th id="118">118</th><td>  <em>const</em> <a class="type" href="metric_def.h.html#tensorflow::monitoring::MetricDef" title='tensorflow::monitoring::MetricDef' data-ref="tensorflow::monitoring::MetricDef">MetricDef</a>&lt;<a class="type" href="metric_def.h.html#tensorflow::monitoring::MetricKind" title='tensorflow::monitoring::MetricKind' data-ref="tensorflow::monitoring::MetricKind">MetricKind</a>::<a class="enum" href="metric_def.h.html#tensorflow::monitoring::MetricKind::kCumulative" title='tensorflow::monitoring::MetricKind::kCumulative' data-ref="tensorflow::monitoring::MetricKind::kCumulative">kCumulative</a>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>, <a class="tu ref" href="#tensorflow::monitoring::Counter::NumLabels" title='tensorflow::monitoring::Counter::NumLabels' data-ref="tensorflow::monitoring::Counter::NumLabels">NumLabels</a>&gt; <dfn class="decl" id="tensorflow::monitoring::Counter::metric_def_" title='tensorflow::monitoring::Counter::metric_def_' data-ref="tensorflow::monitoring::Counter::metric_def_">metric_def_</dfn>;</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="collection_registry.h.html#tensorflow::monitoring::CollectionRegistry" title='tensorflow::monitoring::CollectionRegistry' data-ref="tensorflow::monitoring::CollectionRegistry">CollectionRegistry</a>::<a class="type" href="collection_registry.h.html#tensorflow::monitoring::CollectionRegistry::RegistrationHandle" title='tensorflow::monitoring::CollectionRegistry::RegistrationHandle' data-ref="tensorflow::monitoring::CollectionRegistry::RegistrationHandle">RegistrationHandle</a>&gt; <dfn class="decl" id="tensorflow::monitoring::Counter::registration_handle_" title='tensorflow::monitoring::Counter::registration_handle_' data-ref="tensorflow::monitoring::Counter::registration_handle_">registration_handle_</dfn>;</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td>  <b>using</b> <dfn class="typedef" id="tensorflow::monitoring::Counter::LabelArray" title='tensorflow::monitoring::Counter::LabelArray' data-type='std::array&lt;string, NumLabels&gt;' data-ref="tensorflow::monitoring::Counter::LabelArray">LabelArray</dfn> = <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <a class="tu ref" href="#tensorflow::monitoring::Counter::NumLabels" title='tensorflow::monitoring::Counter::NumLabels' data-ref="tensorflow::monitoring::Counter::NumLabels">NumLabels</a>&gt;;</td></tr>
+<tr><th id="123">123</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_map.h.html#std::map" title='std::map' data-ref="std::map">map</a>&lt;<a class="typedef" href="#tensorflow::monitoring::Counter::LabelArray" title='tensorflow::monitoring::Counter::LabelArray' data-type='std::array&lt;string, NumLabels&gt;' data-ref="tensorflow::monitoring::Counter::LabelArray">LabelArray</a>, <a class="type" href="#tensorflow::monitoring::CounterCell" title='tensorflow::monitoring::CounterCell' data-ref="tensorflow::monitoring::CounterCell">CounterCell</a>&gt; <dfn class="decl" id="tensorflow::monitoring::Counter::cells_" title='tensorflow::monitoring::Counter::cells_' data-ref="tensorflow::monitoring::Counter::cells_">cells_</dfn> <a class="macro" href="../../platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(mu_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::monitoring::Counter::mu_" title='tensorflow::monitoring::Counter::mu_' data-ref="tensorflow::monitoring::Counter::mu_">mu_</a>);</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>  <a class="macro" href="../../platform/macros.h.html#91" title="Counter(const Counter&amp;) = delete; void operator=(const Counter&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN10tensorflow10monitoring7CounterC1ERKNS0_7CounterIXT_EEE" title='tensorflow::monitoring::Counter::Counter&lt;NumLabels&gt;' data-ref="_ZN10tensorflow10monitoring7CounterC1ERKNS0_7CounterIXT_EEE">Counter</dfn>);</td></tr>
+<tr><th id="126">126</th><td>};</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><i>////</i></td></tr>
+<tr><th id="129">129</th><td><i>//  Implementation details follow. API readers may skip.</i></td></tr>
+<tr><th id="130">130</th><td><i>////</i></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><b>inline</b> <em>void</em> <a class="type" href="#tensorflow::monitoring::CounterCell" title='tensorflow::monitoring::CounterCell' data-ref="tensorflow::monitoring::CounterCell">CounterCell</a>::<dfn class="decl def" id="_ZN10tensorflow10monitoring11CounterCell11IncrementByEx" title='tensorflow::monitoring::CounterCell::IncrementBy' data-ref="_ZN10tensorflow10monitoring11CounterCell11IncrementByEx">IncrementBy</dfn>(<em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col5 decl" id="85step" title='step' data-type='const int64' data-ref="85step">step</dfn>) {</td></tr>
+<tr><th id="133">133</th><td>  <a class="macro" href="../../platform/default/logging.h.html#285" title="while (false &amp;&amp; ((void)(0), (void)(step), 0)) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/core/lib/monitoring/counter.h&quot;, 133)" data-ref="_M/DCHECK_LE">DCHECK_LE</a>(<var>0</var>, <a class="local col5 ref" href="#85step" title='step' data-ref="85step">step</a>) <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsOSt13basic_ostreamIT_T0_ERKT1_" title='std::operator&lt;&lt;' data-ref="_ZStlsOSt13basic_ostreamIT_T0_ERKT1_">&lt;&lt;</a> <q>"Must not decrement cumulative metrics."</q>;</td></tr>
+<tr><th id="134">134</th><td>  <a class="member" href="#tensorflow::monitoring::CounterCell::value_" title='tensorflow::monitoring::CounterCell::value_' data-ref="tensorflow::monitoring::CounterCell::value_">value_</a> <a class="ref" href="../../../../../include/c++/5/bits/atomic_base.h.html#_ZNSt13__atomic_basepLET_" title='std::__atomic_base::operator+=' data-ref="_ZNSt13__atomic_basepLET_">+=</a> <a class="local col5 ref" href="#85step" title='step' data-ref="85step">step</a>;</td></tr>
+<tr><th id="135">135</th><td>}</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td><b>inline</b> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <a class="type" href="#tensorflow::monitoring::CounterCell" title='tensorflow::monitoring::CounterCell' data-ref="tensorflow::monitoring::CounterCell">CounterCell</a>::<dfn class="decl def" id="_ZNK10tensorflow10monitoring11CounterCell5valueEv" title='tensorflow::monitoring::CounterCell::value' data-ref="_ZNK10tensorflow10monitoring11CounterCell5valueEv">value</dfn>() <em>const</em> { <b>return</b> <a class="ref fake" href="../../../../../include/c++/5/bits/atomic_base.h.html#_ZNKSt13__atomic_basecvT_Ev" title='std::__atomic_base::operator type-parameter-0-0' data-ref="_ZNKSt13__atomic_basecvT_Ev"></a><a class="member" href="#tensorflow::monitoring::CounterCell::value_" title='tensorflow::monitoring::CounterCell::value_' data-ref="tensorflow::monitoring::CounterCell::value_">value_</a>; }</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td><b>template</b> &lt;<em>int</em> NumLabels&gt;</td></tr>
+<tr><th id="140">140</th><td><b>template</b> &lt;<b>typename</b>... MetricDefArgs&gt;</td></tr>
+<tr><th id="141">141</th><td><a class="type" href="#tensorflow::monitoring::Counter" title='tensorflow::monitoring::Counter' data-ref="tensorflow::monitoring::Counter">Counter</a>&lt;<a class="tu ref" href="#NumLabels" title='NumLabels' data-ref="NumLabels">NumLabels</a>&gt;* <a class="type" href="#tensorflow::monitoring::Counter" title='tensorflow::monitoring::Counter' data-ref="tensorflow::monitoring::Counter">Counter</a>&lt;<a class="tu ref" href="#NumLabels" title='NumLabels' data-ref="NumLabels">NumLabels</a>&gt;::<dfn class="decl def" id="_ZN10tensorflow10monitoring7Counter3NewEDpOT_" title='tensorflow::monitoring::Counter::New' data-ref="_ZN10tensorflow10monitoring7Counter3NewEDpOT_">New</dfn>(</td></tr>
+<tr><th id="142">142</th><td>    MetricDefArgs&amp;&amp;... <dfn class="local col6 decl" id="86metric_def_args" title='metric_def_args' data-type='MetricDefArgs &amp;&amp;...' data-ref="86metric_def_args">metric_def_args</dfn>) {</td></tr>
+<tr><th id="143">143</th><td>  <b>return</b> <b>new</b> <a class="type" href="#tensorflow::monitoring::Counter" title='tensorflow::monitoring::Counter' data-ref="tensorflow::monitoring::Counter">Counter</a>&lt;<a class="tu ref" href="#NumLabels" title='NumLabels' data-use='r' data-ref="NumLabels">NumLabels</a>&gt;(</td></tr>
+<tr><th id="144">144</th><td>      <a class="type" href="metric_def.h.html#tensorflow::monitoring::MetricDef" title='tensorflow::monitoring::MetricDef' data-ref="tensorflow::monitoring::MetricDef">MetricDef</a>&lt;<a class="type" href="metric_def.h.html#tensorflow::monitoring::MetricKind" title='tensorflow::monitoring::MetricKind' data-ref="tensorflow::monitoring::MetricKind">MetricKind</a>::<a class="enum" href="metric_def.h.html#tensorflow::monitoring::MetricKind::kCumulative" title='tensorflow::monitoring::MetricKind::kCumulative' data-ref="tensorflow::monitoring::MetricKind::kCumulative">kCumulative</a>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>, <a class="tu ref" href="#NumLabels" title='NumLabels' data-use='r' data-ref="NumLabels">NumLabels</a>&gt;(</td></tr>
+<tr><th id="145">145</th><td>          <span class="namespace">std::</span>forward&lt;MetricDefArgs&gt;(<a class="local col6 ref" href="#86metric_def_args" title='metric_def_args' data-ref="86metric_def_args">metric_def_args</a>)...));</td></tr>
+<tr><th id="146">146</th><td>}</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td><b>template</b> &lt;<em>int</em> NumLabels&gt;</td></tr>
+<tr><th id="149">149</th><td><b>template</b> &lt;<b>typename</b>... Labels&gt;</td></tr>
+<tr><th id="150">150</th><td><a class="type" href="#tensorflow::monitoring::CounterCell" title='tensorflow::monitoring::CounterCell' data-ref="tensorflow::monitoring::CounterCell">CounterCell</a>* <a class="type" href="#tensorflow::monitoring::Counter" title='tensorflow::monitoring::Counter' data-ref="tensorflow::monitoring::Counter">Counter</a>&lt;<a class="tu ref" href="#NumLabels" title='NumLabels' data-ref="NumLabels">NumLabels</a>&gt;::<dfn class="decl def" id="_ZN10tensorflow10monitoring7Counter7GetCellEDpRKT_" title='tensorflow::monitoring::Counter::GetCell' data-ref="_ZN10tensorflow10monitoring7Counter7GetCellEDpRKT_">GetCell</dfn>(<em>const</em> Labels&amp;... <dfn class="local col7 decl" id="87labels" title='labels' data-type='const Labels &amp;...' data-ref="87labels">labels</dfn>)</td></tr>
+<tr><th id="151">151</th><td>    <a class="macro" href="../../platform/default/thread_annotations.h.html#97" title="__attribute__((locks_excluded(mu_)))" data-ref="_M/LOCKS_EXCLUDED">LOCKS_EXCLUDED</a>(<a class="member" href="#tensorflow::monitoring::Counter::mu_" title='tensorflow::monitoring::Counter::mu_' data-ref="tensorflow::monitoring::Counter::mu_">mu_</a>) {</td></tr>
+<tr><th id="152">152</th><td>  <i>// Provides a more informative error message than the one during array</i></td></tr>
+<tr><th id="153">153</th><td><i>  // construction below.</i></td></tr>
+<tr><th id="154">154</th><td>  <b>static_assert</b>(<b>sizeof</b>...(Labels) == <a class="tu ref" href="#NumLabels" title='NumLabels' data-use='r' data-ref="NumLabels">NumLabels</a>,</td></tr>
+<tr><th id="155">155</th><td>                <q>"Mismatch between Counter&lt;NumLabels&gt; and number of labels "</q></td></tr>
+<tr><th id="156">156</th><td>                <q>"provided in GetCell(...)."</q>);</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>  <em>const</em> <a class="typedef" href="#tensorflow::monitoring::Counter::LabelArray" title='tensorflow::monitoring::Counter::LabelArray' data-type='std::array&lt;string, NumLabels&gt;' data-ref="tensorflow::monitoring::Counter::LabelArray">LabelArray</a>&amp; <dfn class="local col8 decl" id="88label_array" title='label_array' data-type='const LabelArray &amp;' data-ref="88label_array">label_array</dfn> = {{<a class="local col7 ref" href="#87labels" title='labels' data-ref="87labels">labels</a>...}};</td></tr>
+<tr><th id="159">159</th><td>  <a class="type" href="../../platform/default/mutex.h.html#tensorflow::mutex_lock" title='tensorflow::mutex_lock' data-ref="tensorflow::mutex_lock">mutex_lock</a> <dfn class="local col9 decl" id="89l" title='l' data-type='tensorflow::mutex_lock' data-ref="89l">l</dfn>(<a class="member" href="#tensorflow::monitoring::Counter::mu_" title='tensorflow::monitoring::Counter::mu_' data-ref="tensorflow::monitoring::Counter::mu_">mu_</a>);</td></tr>
+<tr><th id="160">160</th><td>  <em>const</em> <em>auto</em> <dfn class="local col0 decl" id="90found_it" title='found_it' data-type='const auto' data-ref="90found_it">found_it</dfn> = <a class="member" href="#tensorflow::monitoring::Counter::cells_" title='tensorflow::monitoring::Counter::cells_' data-ref="tensorflow::monitoring::Counter::cells_">cells_</a>.find(<a class="local col8 ref" href="#88label_array" title='label_array' data-ref="88label_array">label_array</a>);</td></tr>
+<tr><th id="161">161</th><td>  <b>if</b> (<a class="local col0 ref" href="#90found_it" title='found_it' data-ref="90found_it">found_it</a> != <a class="member" href="#tensorflow::monitoring::Counter::cells_" title='tensorflow::monitoring::Counter::cells_' data-ref="tensorflow::monitoring::Counter::cells_">cells_</a>.end()) {</td></tr>
+<tr><th id="162">162</th><td>    <b>return</b> &amp;(<a class="local col0 ref" href="#90found_it" title='found_it' data-ref="90found_it">found_it</a>-&gt;second);</td></tr>
+<tr><th id="163">163</th><td>  }</td></tr>
+<tr><th id="164">164</th><td>  <b>return</b> &amp;(<a class="member" href="#tensorflow::monitoring::Counter::cells_" title='tensorflow::monitoring::Counter::cells_' data-ref="tensorflow::monitoring::Counter::cells_">cells_</a></td></tr>
+<tr><th id="165">165</th><td>               .emplace(<span class="namespace">std::</span><a class="ref" href="../../../../../include/c++/5/bits/stl_pair.h.html#std::piecewise_construct" title='std::piecewise_construct' data-ref="std::piecewise_construct">piecewise_construct</a>,</td></tr>
+<tr><th id="166">166</th><td>                        <span class="namespace">std::</span>forward_as_tuple(<a class="local col8 ref" href="#88label_array" title='label_array' data-ref="88label_array">label_array</a>),</td></tr>
+<tr><th id="167">167</th><td>                        <span class="namespace">std::</span><a class="ref" href="../../../../../include/c++/5/tuple.html#_ZSt16forward_as_tupleDpOT_" title='std::forward_as_tuple' data-ref="_ZSt16forward_as_tupleDpOT_">forward_as_tuple</a>(<var>0</var>))</td></tr>
+<tr><th id="168">168</th><td>               .first-&gt;second);</td></tr>
+<tr><th id="169">169</th><td>}</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>}  <i>// namespace monitoring</i></td></tr>
+<tr><th id="172">172</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td><u>#<span data-ppcond="22">endif</span>  // IS_MOBILE_PLATFORM</u></td></tr>
+<tr><th id="175">175</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CORE_LIB_MONITORING_COUNTER_H_</u></td></tr>
+<tr><th id="176">176</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../cc/saved_model/loader.cc.html'>tensorflow/tensorflow/cc/saved_model/loader.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

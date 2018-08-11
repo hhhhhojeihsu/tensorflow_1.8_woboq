@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/jit/xla_launch_util.h' l='41' type='std::map&lt;int, OptionalTensor&gt; tensorflow::SnapshotResourceVariables(tensorflow::OpKernelContext * ctx, int num_variables)'/>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='129' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<doc f='tensorflow/tensorflow/compiler/jit/xla_launch_util.h' l='34'>// Takes a snapshot of the values of resource variable arguments, which are
+// the last `num_variables` arguments. We snapshot tensors that back
+// resource variables since concurrent updates may modify the shape, and it is
+// important that the shapes used for compilation match the true shapes of the
+// buffers.
+//
+// Returns a map of TensorFlow argument index to resource variable.</doc>
+<def f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='39' ll='55' type='std::map&lt;int, OptionalTensor&gt; tensorflow::SnapshotResourceVariables(tensorflow::OpKernelContext * ctx, int num_variables)'/>

@@ -1,0 +1,13 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='181' ll='197'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='203' c='xla::NoFragmentationStatsHeap'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='220' c='xla::DecreasingSizeRunsHeap'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='264' c='xla::LazyBestFitHeap'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='177'>// Abstract base class describing a heap simulation algorithm that assigns
+// offsets to buffers.  A sequence of Alloc / Free calls will be made, with the
+// same semantics as a regular memory heap.  Finish will be called at the end to
+// collect the simulation results.</doc>
+<fun r='_ZN3xla13HeapAlgorithmD1Ev'/>
+<fun r='_ZN3xla13HeapAlgorithm5AllocEPKNS_13LogicalBufferEx'/>
+<fun r='_ZN3xla13HeapAlgorithm4FreeEPKNS_13LogicalBufferEx'/>
+<fun r='_ZN3xla13HeapAlgorithm6FinishEv'/>

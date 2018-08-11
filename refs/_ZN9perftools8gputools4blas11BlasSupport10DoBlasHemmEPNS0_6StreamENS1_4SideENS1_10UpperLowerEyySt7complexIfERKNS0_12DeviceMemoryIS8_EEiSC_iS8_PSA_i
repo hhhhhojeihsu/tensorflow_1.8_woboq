@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='1119' type='bool perftools::gputools::blas::BlasSupport::DoBlasHemm(perftools::gputools::Stream * stream, blas::Side side, blas::UpperLower uplo, uint64 m, uint64 n, std::complex&lt;float&gt; alpha, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; a, int lda, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; b, int ldb, std::complex&lt;float&gt; beta, DeviceMemory&lt;std::complex&lt;float&gt; &gt; * c, int ldc)'/>
+<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='1111'>// Computes a matrix-matrix product where one input matrix is Hermitian:
+  //
+  //     c &lt;- alpha * a * b + beta * c,
+  // or
+  //     c &lt;- alpha * b * a + beta * c,
+  //
+  // alpha and beta are scalars; a is a Hermitian matrix; b and c are m-by-n
+  // matrices.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4038' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasHemmENS0_4blas4SideENS2_10UpperLowerEyySt7complexIfERKNS0_12DeviceMemoryIS6_EEiSA_iS6_PS8_i'/>

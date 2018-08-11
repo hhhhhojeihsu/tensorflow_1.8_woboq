@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='157' type='void perftools::gputools::CudaPtxInMemory::CudaPtxInMemory(port::StringPiece ptx, port::StringPiece kernelname, bool ptx_compressed = false)'/>
+<doc f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='149'>// Single-PTX constructor. Adds the provided PTX version with an unknown
+  // compute capability. Since the CC is unknown, the PTX is assumed to be very
+  // generally usable - in other words, PTX specified in this manner is VERY
+  // likely to be used as the default! Note that the PTX can be compressed,
+  // which is indicated by the argument ptx_compressed.
+  //
+  // Warning: the string backing the provided port::StringPiece ptx must outlive this
+  // instance.</doc>
+<def f='tensorflow/tensorflow/stream_executor/kernel_spec.cc' l='50' ll='61' type='void perftools::gputools::CudaPtxInMemory::CudaPtxInMemory(port::StringPiece ptx, port::StringPiece kernel_name, bool ptx_compressed = false)'/>
+<use f='tensorflow/tensorflow/stream_executor/kernel_spec.cc' l='218' u='c' c='_ZN9perftools8gputools21MultiKernelLoaderSpec18AddCudaPtxInMemoryEN10tensorflow11StringPieceES3_'/>
+<use f='tensorflow/tensorflow/stream_executor/kernel_spec.cc' l='226' u='c' c='_ZN9perftools8gputools21MultiKernelLoaderSpec28AddCudaCompressedPtxInMemoryEN10tensorflow11StringPieceES3_'/>

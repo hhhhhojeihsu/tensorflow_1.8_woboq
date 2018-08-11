@@ -1,0 +1,40 @@
+<def f='include/c++/5/bits/stl_set.h' l='316' ll='318' type='iterator std::set::begin() const'/>
+<use f='tensorflow/tensorflow/core/graph/edgeset.h' l='156' u='c' c='_ZNK10tensorflow7EdgeSet5beginEv'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1417' u='c' c='_Z24TF_FinishOperationLockedP23TF_OperationDescriptionP9TF_Status'/>
+<doc f='include/c++/5/bits/stl_set.h' l='311'>/**
+       *  Returns a read-only (constant) iterator that points to the first
+       *  element in the %set.  Iteration is done in ascending order according
+       *  to the keys.
+       */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='570' u='c' c='_ZNK3xla16BufferAssignment18HaveDisjointSlicesEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='561' u='c' c='_ZN3xla15LazyBestFitHeap5AllocEPKNS_13LogicalBufferEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='619' u='c' c='_ZN3xla15LazyBestFitHeap12AddFreeChunkExx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='639' u='c' c='_ZN3xla15LazyBestFitHeap6FinishEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='640' u='c' c='_ZN3xla15LazyBestFitHeap6FinishEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1498' u='c' c='_ZN3xla16LayoutAssignment16RunOnComputationERKNS_17ComputationLayoutERKNS_21TuplePointsToAnalysisEPNS_14HloComputationEPNS_24ChannelLayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/alias_analysis.cc' l='50' u='c' c='_ZN3xla7llvm_ir13AliasAnalysis31AddAliasingInformationToIrArrayERKNS_14HloInstructionEPNS0_7IrArrayE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/allocate_transient_arrays.cc' l='131' u='c' c='_ZN4toco12_GLOBAL__N_19Allocator10DeallocateERKNS_5AllocE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='860' u='c' c='_ZN4toco21CheckOperatorOrderingERKNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='885' u='c' c='_ZN4toco19FixOperatorOrderingEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='935' u='c' c='_ZN4toco19FixOperatorOrderingEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='291' u='c' c='_ZN10tensorflow12BFCAllocator12FindChunkPtrEimm'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='361' u='c' c='_ZN10tensorflow8grappler9TopoQueue3popEv'/>
+<use f='tensorflow/tensorflow/core/grappler/inputs/utils.cc' l='29' u='c' c='_ZN10tensorflow8grappler10FilesExistERKSt3setISsSt4lessISsESaISsEE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='728' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_133HoistCommonFactorOutOfAggregation11TrySimplifyEPNS_7NodeDefEPSs'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='813' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_133HoistCommonFactorOutOfAggregation16GetCommonFactorsEPKNS_7NodeDefEPSt3setISsSt4lessISsESaISsEEPSt6vectorISsS9_E'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='813' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_133HoistCommonFactorOutOfAggregation16GetCommonFactorsEPKNS_7NodeDefEPSt3setISsSt4lessISsESaISsEEPSt6vectorISsS9_E'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='815' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_133HoistCommonFactorOutOfAggregation16GetCommonFactorsEPKNS_7NodeDefEPSt3setISsSt4lessISsESaISsEEPSt6vectorISsS9_E'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1721' u='c' c='_ZN10tensorflow8grappler19ArithmeticOptimizer25TrySimplifyAndReplaceUsesEPKNS_7NodeDefEPNS0_9SetVectorIPS2_EE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1954' u='c' c='_ZN10tensorflow8grappler19ArithmeticOptimizer21SimplifyArithmeticOpsEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1262' u='c' c='_ZN10tensorflow8grappler15ConstantFolding9FoldGraphEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1831' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2132' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/dependency_optimizer.cc' l='283' u='c' c='_ZN10tensorflow8grappler19DependencyOptimizer12OptimizeNodeEiPNS0_9SetVectorIiEEPSt3setIiSt4lessIiESaIiEE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='2104' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_119DataLayoutOptimizer8CollapseEv'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='809' u='c' c='_ZN10tensorflow8grapplerL17FindSwapInTriggerEPKNS_7NodeDefERKNS0_8SwapInfoERKSt13unordered_mapISsS3_St4hashISsESt8equal_toISsESaISt4pairIKSsS3_EEERKS713704763'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='810' u='c' c='_ZN10tensorflow8grapplerL17FindSwapInTriggerEPKNS_7NodeDefERKNS0_8SwapInfoERKSt13unordered_mapISsS3_St4hashISsESt8equal_toISsESaISt4pairIKSsS3_EEERKS713704763'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='801' u='c' c='_ZN10tensorflow6tfprof16TFMultiGraphNode13SnapshotNodesExRKSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_code.cc' l='208' u='c' c='_ZN10tensorflow6tfprof12_GLOBAL__N_17Samples3AddEPKNS0_8CodeNodeERKSt6vectorIySaIyEE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_code.cc' l='315' u='c' c='_ZN10tensorflow6tfprof12_GLOBAL__N_116PprofProfileImpl5BuildEPNS0_5pprof7ProfileE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_code.cc' l='464' u='c' c='_ZN10tensorflow6tfprof6TFCode12ShowInternalERKNS0_7OptionsEPNS0_8TimelineE'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/strip_unused_nodes.cc' l='159' u='c' c='_ZN10tensorflow16graph_transforms16StripUnusedNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>

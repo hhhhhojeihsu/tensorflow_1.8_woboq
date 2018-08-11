@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/core/lib/bfloat16/bfloat16.h' l='181' ll='352' type='static tensorflow::bfloat16 tensorflow::bfloat16::round_to_bfloat16(float v)'/>
+<doc f='tensorflow/tensorflow/core/lib/bfloat16/bfloat16.h' l='173'>// Converts a float point to bfloat16, with round-nearest-to-even as rounding
+  // method.
+  // TODO(b/69266521): Add a truncate_to_bfloat16 function and make this
+  // function as default behavior.
+  // TODO: There is a slightly faster implementation (8% faster on CPU)
+  // than this (documented in cl/175987786), that is exponentially harder to
+  // understand and document. Switch to the faster version when converting to
+  // BF16 becomes compute-bound.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1568' u='c' c='_ZNK3xla7Literal14ConvertToShapeERKNS_5ShapeEb'/>

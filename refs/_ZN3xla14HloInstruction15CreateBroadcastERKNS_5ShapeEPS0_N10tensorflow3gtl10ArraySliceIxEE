@@ -1,0 +1,38 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='400' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateBroadcast(const xla::Shape &amp; shape, xla::HloInstruction * operand, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_dimensions)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='399'>// Creates a broadcast instruction.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='534' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor14HandleConstantEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='706' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor26HandleDotStrengthReductionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='943' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9HandleDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1165' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1195' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1214' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1265' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9HandlePadEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1363' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor11HandlePowerEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1398' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor11HandlePowerEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1493' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor60TryToSinkReshapeOrBroadcastAfterOpWithUniqueNonScalarOperandEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1539' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor13HandleReshapeEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1640' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1720' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1917' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='196' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='199' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='236' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='251' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='344' u='c' c='_ZN3xla24BatchNormExpanderVisitor24HandleBatchNormInferenceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='347' u='c' c='_ZN3xla24BatchNormExpanderVisitor24HandleBatchNormInferenceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='350' u='c' c='_ZN3xla24BatchNormExpanderVisitor24HandleBatchNormInferenceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='353' u='c' c='_ZN3xla24BatchNormExpanderVisitor24HandleBatchNormInferenceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='471' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='473' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='478' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='537' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='541' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='131' u='c' c='_ZN3xla16MakeBroadcastHloEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIxEES5_'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='675' ll='684' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateBroadcast(const xla::Shape &amp; shape, xla::HloInstruction * operand, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_dimensions)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='707' u='c' c='_ZN3xla14HloInstruction23CreateBroadcastSequenceERKNS_5ShapeEPS0_RKSt8functionIFS4_St10unique_ptrIS0_St14default_deleteIS0_EEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='738' u='c' c='_ZN3xla14HloInstruction23CreateBroadcastSequenceERKNS_5ShapeEPS0_RKSt8functionIFS4_St10unique_ptrIS0_St14default_deleteIS0_EEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1285' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='675'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/inliner.cc' l='98' u='c' c='_ZN3xla14InlinerVisitor9HandleMapEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3178' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3453' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

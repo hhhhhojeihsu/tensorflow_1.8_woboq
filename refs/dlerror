@@ -1,0 +1,6 @@
+<dec f='include/dlfcn.h' l='82' type='char * dlerror()'/>
+<doc f='include/dlfcn.h' l='79'>/* When any of the above functions fails, call this function
+   to return a string describing the error.  Each call resets
+   the error string so that a following call returns null.  */</doc>
+<use f='tensorflow/tensorflow/core/platform/posix/load_library.cc' l='29' u='c' c='_ZN10tensorflow8internal11LoadLibraryEPKcPPv'/>
+<use f='tensorflow/tensorflow/core/platform/posix/load_library.cc' l='38' u='c' c='_ZN10tensorflow8internal20GetSymbolFromLibraryEPvPKcPS1_'/>

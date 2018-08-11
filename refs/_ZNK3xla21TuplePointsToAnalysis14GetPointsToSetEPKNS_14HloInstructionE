@@ -1,0 +1,29 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.h' l='191' type='const xla::PointsToSet &amp; xla::TuplePointsToAnalysis::GetPointsToSet(const xla::HloInstruction * hlo_instruction) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='177' u='c' c='_ZN3xla12_GLOBAL__N_123AddBufferToColocatedSetEPKNS_14HloInstructionERKNS_10ShapeIndexERKNS_21TuplePointsToAnalysisEPSt6vectorIPKNS_13LogicalBufferESaISD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='453' u='c' c='_ZNK3xla16BufferAssignment14GetPointsToSetEPKNS_14HloInstructionE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.h' l='189'>// Return the points-to set of an instruction. This describes the potential
+  // sources of each buffer in the instruction&apos;s output.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_liveness.cc' l='58' u='c' c='_ZN3xla14BufferLiveness7AnalyzeEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_liveness.cc' l='69' u='c' c='_ZN3xla14BufferLiveness7AnalyzeEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='364' u='c' c='_ZNK3xla3cpu13CpuExecutable18GetRootPointsToSetEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='526' u='c' c='_ZNK3xla3cpu21ParallelCpuExecutable18GetRootPointsToSetEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='95' u='c' c='_ZN3xla13HeapSimulator14RunComputationERKNS_14HloComputationERKSt6vectorIPKNS_14HloInstructionESaIS7_EERKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='111' u='c' c='_ZN3xla13HeapSimulator14RunComputationERKNS_14HloComputationERKSt6vectorIPKNS_14HloInstructionESaIS7_EERKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='121' u='c' c='_ZN3xla13HeapSimulator14RunComputationERKNS_14HloComputationERKSt6vectorIPKNS_14HloInstructionESaIS7_EERKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_scheduling.cc' l='106' u='c' c='_ZN3xla12_GLOBAL__N_113ListSchedulerC1ERKNS_14HloComputationERKNS_21TuplePointsToAnalysisERKSt8functionIFxRKNS_13LogicalBufferEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_scheduling.cc' l='133' u='c' c='_ZN3xla12_GLOBAL__N_113ListSchedulerC1ERKNS_14HloComputationERKNS_21TuplePointsToAnalysisERKSt8functionIFxRKNS_13LogicalBufferEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='205' u='c' c='_ZNK3xla17LayoutConstraints12GetBufferSetEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='396' u='c' c='_ZN3xla17LayoutConstraints20SetInstructionLayoutERKNS_5ShapeEPKNS_14HloInstructionEbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='810' u='c' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1143' u='c' c='_ZN3xla16LayoutAssignment28PropagateUseConstraintToDefsERKNS_11ShapeLayoutEPKNS_14HloInstructionEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1291' u='c' c='_ZN3xla12_GLOBAL__N_116InferArrayLayoutERKNS_21TuplePointsToAnalysisEPNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='114' u='c' c='_ZN3xla12_GLOBAL__N_130GetAllUsesOfInstructionAtIndexEPNS_14HloInstructionERKNS_10ShapeIndexERKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='187' u='c' c='_ZN3xla21TuplePointsToAnalysis32PopulateDefinedBuffersAndAliasesERKN10tensorflow3gtl14iterator_rangeINS_18UnwrappingIteratorISt14_List_iteratorISt10un1923812'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='290' u='c' c='_ZN3xla21TuplePointsToAnalysis14HandleRecvDoneEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='324' u='c' c='_ZN3xla21TuplePointsToAnalysis10HandleSendEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='416' ll='419' type='const xla::PointsToSet &amp; xla::TuplePointsToAnalysis::GetPointsToSet(const xla::HloInstruction * hlo_instruction) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='434' u='c' c='_ZNK3xla21TuplePointsToAnalysis31InstructionDefinesBufferAtIndexEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='476' u='c' c='_ZNK3xla21TuplePointsToAnalysis18GetBufferDefinedAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='500' u='c' c='_ZN3xla21TuplePointsToAnalysis33GatherBuffersDefinedByInstructionEPKNS_14HloInstructionEPN10tensorflow3gtl13InlinedVectorIPKNS_13LogicalBufferELi1EEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='529' u='c' c='_ZN3xla21TuplePointsToAnalysis23CreateCopiedPointsToSetEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='576' u='c' c='_ZNK3xla21TuplePointsToAnalysis19InstructionToStringEPKNS_14HloInstructionEPSs'/>

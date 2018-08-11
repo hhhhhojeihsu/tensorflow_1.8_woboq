@@ -1,0 +1,13 @@
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.h' l='145' u='c' c='_ZN9perftools8gputools20MultiPlatformManager13WithPlatformsESt8functionIFN10tensorflow6StatusEPSt3mapISsPNS0_8PlatformESt4lessISsESaISt4pairIKSsS7_EEEEE'/>
+<def f='tensorflow/tensorflow/stream_executor/multi_platform_manager.h' l='159' ll='162' type='static PlatformMap * perftools::gputools::MultiPlatformManager::GetPlatformMap()'/>
+<doc f='tensorflow/tensorflow/stream_executor/multi_platform_manager.h' l='153'>// TODO(b/22689637): Clean up these two maps; make sure they coexist nicely.
+  // TODO(b/22689637): Move this (whatever the final/&quot;official&quot; map is) to
+  // plugin_regstry.h, along with the associated functionality.
+  // Platform-name-to-object mapping. These platforms are registered via module
+  // initializers, and linkage determines which platforms are available to a
+  // given target.</doc>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='30' u='c' c='_ZN9perftools8gputools20MultiPlatformManager18LookupByNameLockedERKSs'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='57' u='c' c='_ZN9perftools8gputools20MultiPlatformManager16RegisterPlatformESt10unique_ptrINS0_8PlatformESt14default_deleteIS3_EE'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='57' u='c' c='_ZN9perftools8gputools20MultiPlatformManager16RegisterPlatformESt10unique_ptrINS0_8PlatformESt14default_deleteIS3_EE'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='68' u='c' c='_ZN9perftools8gputools20MultiPlatformManager16RegisterPlatformESt10unique_ptrINS0_8PlatformESt14default_deleteIS3_EE'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='131' u='c' c='_ZN9perftools8gputools20MultiPlatformManager21ClearPlatformRegistryEv'/>

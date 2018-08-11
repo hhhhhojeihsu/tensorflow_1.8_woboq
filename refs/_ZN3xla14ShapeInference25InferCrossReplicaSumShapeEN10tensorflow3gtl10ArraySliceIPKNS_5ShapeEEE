@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='135' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferCrossReplicaSumShape(tensorflow::gtl::ArraySlice&lt;const Shape *&gt; operand_shapes)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='133'>// Infers the shape produced a cross replica sum with the given operand
+  // shapes.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='98' u='c' c='_ZN3xla13ShapeVerifier21HandleCrossReplicaSumEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1848' ll='1862' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferCrossReplicaSumShape(tensorflow::gtl::ArraySlice&lt;const Shape *&gt; operand_shapes)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1848'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='1178' u='c' c='_ZN3xla15UserComputation29AddCrossReplicaSumInstructionERKNS_22CrossReplicaSumRequestE'/>

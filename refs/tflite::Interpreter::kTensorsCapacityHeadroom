@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='325' type='const int'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='445' u='r' c='_ZN6tflite11Interpreter27EnsureTensorsVectorCapacityEv'/>
+<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='321'>// The capacity headroom of `tensors_` vector before calling ops&apos;
+  // `prepare` and `invoke` function. In these functions, it&apos;s guaranteed
+  // allocating up to `kTensorsCapacityHeadroom` more tensors won&apos;t invalidate
+  // pointers to existing tensors.</doc>

@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/framework/collective.h' l='189' type='void tensorflow::StepSequenceInterface::RetireStepId(int64 graph_key, int64 step_id)'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/collective_executor_mgr.h' l='56' c='_ZN10tensorflow21CollectiveExecutorMgr12RetireStepIdExx'/>
+<doc f='tensorflow/tensorflow/core/framework/collective.h' l='186'>// Reports that execution of the given step has completed successfully.
+  // Should be called immediately after a step completes with OK status,
+  // prior to calling NextStepId().  If the step fails, don&apos;t call.</doc>

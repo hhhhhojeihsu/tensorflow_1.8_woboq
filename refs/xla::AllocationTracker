@@ -1,0 +1,22 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.h' l='38' ll='139'/>
+<size>160</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.h' l='36'>// Tracks allocations for the XLA service; allocations can be registered
+// with shape/device/tag and resolved from a handle for later use.</doc>
+<fun r='_ZN3xla17AllocationTrackerC1EPNS_7BackendE'/>
+<fun r='_ZN3xla17AllocationTracker8RegisterESt10unique_ptrINS_12ShapedBufferESt14default_deleteIS2_EERKSs'/>
+<fun r='_ZN3xla17AllocationTracker25RegisterReplicatedBuffersESt6vectorISt10unique_ptrINS_12ShapedBufferESt14default_deleteIS3_EESaIS6_EERKSs'/>
+<fun r='_ZN3xla17AllocationTracker10UnregisterERKNS_16GlobalDataHandleE'/>
+<fun r='_ZN3xla17AllocationTracker16DeconstructTupleERKNS_16GlobalDataHandleE'/>
+<fun r='_ZN3xla17AllocationTracker7ResolveERKNS_16GlobalDataHandleE'/>
+<fun r='_ZN3xla17AllocationTracker17ResolveForReplicaERKNS_16GlobalDataHandleEi'/>
+<fun r='_ZN3xla17AllocationTracker15ResolveInternalERKNS_16GlobalDataHandleE'/>
+<fun r='_ZN3xla17AllocationTracker16RegisterInternalESt6vectorISt10unique_ptrINS_12ShapedBufferESt14default_deleteIS3_EESaIS6_EERKSs'/>
+<fun r='_ZN3xla17AllocationTracker5ResetERKNS_16GlobalDataHandleE'/>
+<fun r='_ZN3xla17AllocationTracker32AddAllocationOrIncrementRefCountEN9perftools8gputools16DeviceMemoryBaseEi'/>
+<fun r='_ZN3xla17AllocationTracker17DecrementRefCountEN9perftools8gputools16DeviceMemoryBaseEi'/>
+<mbr r='xla::AllocationTracker::mutex_' o='0' t='tensorflow::mutex'/>
+<mbr r='xla::AllocationTracker::backend_' o='128' t='xla::Backend *'/>
+<mbr r='xla::AllocationTracker::next_handle_' o='192' t='int64'/>
+<mbr r='xla::AllocationTracker::opaque_to_allocation_map_' o='256' t='tensorflow::gtl::FlatMap&lt;int, AllocationMap&gt;'/>
+<mbr r='xla::AllocationTracker::handle_to_shaped_buffers_' o='768' t='tensorflow::gtl::FlatMap&lt;int64, std::vector&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; &gt;'/>
+<fun r='_ZN3xla17AllocationTrackerC1ERKS0_'/>

@@ -1,0 +1,13 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='156' type='const std::vector&lt;HloUse&gt; &amp; xla::HloValue::uses() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='155'>// Return all uses of the HloValue.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='521' u='c' c='_ZN3xla12_GLOBAL__N_111CopyRemover18BufferValueTracker12AddValueListEN10tensorflow3gtl10ArraySliceIPKNS_8HloValueEEEPNS4_7FlatMapIS8_PNS2_9ValueNodeEN12439270'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='522' u='c' c='_ZN3xla12_GLOBAL__N_111CopyRemover18BufferValueTracker12AddValueListEN10tensorflow3gtl10ArraySliceIPKNS_8HloValueEEEPNS4_7FlatMapIS8_PNS2_9ValueNodeEN12439270'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='178' u='c' c='_ZN3xla14BufferValueMap26ComputeWhileAliasedBuffersERKNS_8HloValueEPSt6vectorIxSaIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='277' u='c' c='_ZN3xla14BufferValueMap21ComputeAliasedBuffersERKNS_8HloValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='252' u='c' c='_ZNK3xla11HloOrdering23LiveRangeStrictlyBeforeERKNS_8HloValueES3_RKNS_19HloDataflowAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_value.cc' l='104' u='c' c='_ZNK3xla8HloValue8ToStringEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='86' u='c' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_19HloDataflowAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='91' u='c' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_19HloDataflowAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='298' u='c' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_19HloDataflowAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='301' u='c' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_19HloDataflowAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='353' u='c' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_19HloDataflowAnalysisE'/>

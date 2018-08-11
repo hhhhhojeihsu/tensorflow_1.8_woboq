@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/platform_util.h' l='38' type='static StatusOr&lt;std::vector&lt;perftools::gputools::Platform *&gt; &gt; xla::PlatformUtil::GetSupportedPlatforms()'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/platform_util.h' l='33'>// Returns the platforms present on the system and supported by XLA.
+  //
+  // Note that, even if a platform is present with zero devices, if we *do* have
+  // compilation support for it, it will be returned in this sequence.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='62' ll='101' type='static StatusOr&lt;std::vector&lt;se::Platform *&gt; &gt; xla::PlatformUtil::GetSupportedPlatforms()'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='104' u='c' c='_ZN3xla12PlatformUtil15GetSolePlatformEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='121' u='c' c='_ZN3xla12PlatformUtil18GetDefaultPlatformEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='148' u='c' c='_ZN3xla12PlatformUtil11GetPlatformERKSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='161' u='c' c='_ZN3xla12PlatformUtil20GetPlatformExceptForERKSs'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='62'>/* static */</doc>

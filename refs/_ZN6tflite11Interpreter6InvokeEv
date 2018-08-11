@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='264' type='TfLiteStatus tflite::Interpreter::Invoke()'/>
+<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='258'>// Invoke the interpreter (run the whole graph in dependency order).
+  //
+  // NOTE: It is possible that the interpreter is not in a ready state
+  // to evaluate (i.e. if a ResizeTensor() has been performed without an
+  // AllocateTensors().
+  // Returns status of success or failure.</doc>
+<def f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='503' ll='570' type='TfLiteStatus tflite::Interpreter::Invoke()'/>

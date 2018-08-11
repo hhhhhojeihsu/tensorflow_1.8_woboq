@@ -1,0 +1,15 @@
+<def f='tensorflow/tensorflow/core/framework/device_base.h' l='147' ll='149' type='const tensorflow::DeviceBase::GpuDeviceInfo * tensorflow::DeviceBase::tensorflow_gpu_device_info() const'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='933' u='c' c='_ZN10tensorflow15OpKernelContext17op_device_contextEv'/>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='58' u='c' c='_ZN12_GLOBAL__N_15IsCPUEPKN10tensorflow6DeviceE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='53' c='_ZNK10tensorflow13RenamedDevice26tensorflow_gpu_device_infoEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='54' u='c' c='_ZNK10tensorflow13RenamedDevice26tensorflow_gpu_device_infoEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='119' u='c' c='_ZN10tensorflow12TensorHandle12CopyToDeviceEPNS_12EagerContextEPNS_6DeviceEPPS0_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='120' u='c' c='_ZN10tensorflow12TensorHandle12CopyToDeviceEPNS_12EagerContextEPNS_6DeviceEPPS0_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='148' u='c' c='_ZN10tensorflow12TensorHandle12CopyToDeviceEPNS_12EagerContextEPNS_6DeviceEPPS0_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='152' u='c' c='_ZN10tensorflow12TensorHandle12CopyToDeviceEPNS_12EagerContextEPNS_6DeviceEPPS0_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='72' u='c' c='_ZN10tensorflow11PrepareCopyEPNS_6DeviceEPKNS_13DeviceContextERKNS_6TensorEPS6_PPKNS_10DeviceBase13GpuDeviceInfoEPPN9perftools8gputools6StreamE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='351' u='c' c='_ZN10tensorflow7GPUUtil4SyncEPNS_6DeviceE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='360' u='c' c='_ZN10tensorflow7GPUUtil7SyncAllEPNS_6DeviceE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='379' u='c' c='_ZN10tensorflow7GPUUtil17MemoryDebugStringEPKNS_6DeviceEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.cc' l='149' u='c' c='_ZN10tensorflow29ProcessFunctionLibraryRuntime16GetDeviceContextERKSsPPNS_13DeviceContextE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.cc' l='410' u='c' c='_ZN10tensorflow10GrpcWorker19GrpcRecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPN4grpc10ByteBufferESt8functionIFvRKNS_6StatusEEE'/>

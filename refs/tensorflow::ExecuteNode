@@ -1,0 +1,12 @@
+<inh f='tensorflow/tensorflow/core/common_runtime/eager/eager_executor.h' l='43' c='tensorflow::EagerNode'/>
+<def f='tensorflow/tensorflow/core/common_runtime/eager/execute_node.h' l='32' ll='84'/>
+<size>128</size>
+<fun r='_ZN10tensorflow11ExecuteNodeC1EyPNS_12EagerContextEPNS_6DeviceERKNS_3gtl13InlinedVectorIPNS_12TensorHandleELi4EEEPNS_15KernelAndDeviceEPNS_13NodeExecS9207900'/>
+<fun r='_ZN10tensorflow11ExecuteNodeD1Ev'/>
+<fun r='_ZN10tensorflow11ExecuteNode3RunEv'/>
+<mbr r='tensorflow::ExecuteNode::ctx_' o='128' t='tensorflow::EagerContext *'/>
+<mbr r='tensorflow::ExecuteNode::op_device_' o='192' t='tensorflow::Device *'/>
+<mbr r='tensorflow::ExecuteNode::inputs_' o='256' t='tensorflow::gtl::InlinedVector&lt;TensorHandle *, 4&gt;'/>
+<mbr r='tensorflow::ExecuteNode::kernel_' o='640' t='tensorflow::KernelAndDevice *'/>
+<mbr r='tensorflow::ExecuteNode::maybe_stats_' o='704' t='std::unique_ptr&lt;NodeExecStats&gt;'/>
+<mbr r='tensorflow::ExecuteNode::retvals_' o='768' t='tensorflow::gtl::InlinedVector&lt;TensorHandle *, 2&gt;'/>

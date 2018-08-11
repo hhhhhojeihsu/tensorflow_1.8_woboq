@@ -1,0 +1,48 @@
+<dec f='tensorflow/tensorflow/core/framework/node_def_util.h' l='168' type='tensorflow::Status tensorflow::GetNodeAttr(const tensorflow::AttrSlice &amp; attrs, tensorflow::StringPiece attr_name, string * value)'/>
+<doc f='tensorflow/tensorflow/core/framework/node_def_util.h' l='165'>// Look up the attr with name attr_name and set *value to its value.  If no
+// attr with attr_name is found in node_def, or the attr does not have
+// a matching type, a non-ok status will be returned.</doc>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='176' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117CheckNumericsGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='368' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_113MirrorPadGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='381' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117MirrorPadGradGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='111' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117BiasAddGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='128' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_110Conv2DGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='129' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_110Conv2DGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='155' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117MaxPoolGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='157' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117MaxPoolGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='173' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119MaxPoolGradV2HelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='174' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119MaxPoolGradV2HelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='195' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119MaxPool3DGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='196' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119MaxPool3DGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='216' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117AvgPoolGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='217' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117AvgPoolGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='238' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119AvgPool3DGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='239' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119AvgPool3DGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1264' u='c' c='_ZNK10tensorflow12_GLOBAL__N_112Encapsulator19GetFunctionNameAttrEPKNS_4NodeEPSsS5_'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1272' u='c' c='_ZNK10tensorflow12_GLOBAL__N_112Encapsulator19GetFunctionNameAttrEPKNS_4NodeEPSsS5_'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='701' u='c' c='_ZN10tensorflow22MarkForCompilationPass7RunImplERKNS_28GraphOptimizationPassOptionsERKSt8functionIFbPKNS_4NodeERKNS_10DeviceTypeEEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='702' u='c' c='_ZN10tensorflow22MarkForCompilationPass7RunImplERKNS_28GraphOptimizationPassOptionsERKSt8functionIFbPKNS_4NodeERKNS_10DeviceTypeEEE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/sharding_util.cc' l='37' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GetShardingFromNodeDefERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='84' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='102' u='c' c='_ZN10tensorflow12_GLOBAL__N_116SetTimelineLabelEPKNS_4NodeEPNS_20NodeExecStatsWrapperE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='104' u='c' c='_ZN10tensorflow12_GLOBAL__N_116SetTimelineLabelEPKNS_4NodeEPNS_20NodeExecStatsWrapperE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='110' u='c' c='_ZN10tensorflow12_GLOBAL__N_116SetTimelineLabelEPKNS_4NodeEPNS_20NodeExecStatsWrapperE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='112' u='c' c='_ZN10tensorflow12_GLOBAL__N_116SetTimelineLabelEPKNS_4NodeEPNS_20NodeExecStatsWrapperE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='687' u='c' c='_ZN10tensorflow12_GLOBAL__N_112ExecutorImpl10InitializeEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='742' u='c' c='_ZN10tensorflow12_GLOBAL__N_114InferAllocAttrEPKNS_4NodeES3_RKNS_15DeviceNameUtils10ParsedNameEPNS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='767' u='c' c='_ZN10tensorflow12_GLOBAL__N_114InferAllocAttrEPKNS_4NodeES3_RKNS_15DeviceNameUtils10ParsedNameEPNS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='1382' u='c' c='_ZN10tensorflow12_GLOBAL__N_112ExecutorImpl20BuildControlFlowInfoEPKNS_5GraphEPNS1_15ControlFlowInfoE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='2301' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ExecutorState22FindOrCreateChildFrameEPNS1_10FrameStateExPKNS_4NodeEPS3_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/parallel_concat_optimizer.cc' l='58' u='c' c='_ZN10tensorflow12_GLOBAL__N_124ParallelConcatRemovePass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='361' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20TrackFeedsAndFetchesEPNS1_4PartERKNS_8GraphDefERKNS_16PartitionOptionsE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='363' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20TrackFeedsAndFetchesEPNS1_4PartERKNS_8GraphDefERKNS_16PartitionOptionsE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='365' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20TrackFeedsAndFetchesEPNS1_4PartERKNS_8GraphDefERKNS_16PartitionOptionsE'/>
+<def f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='215' macro='1' type='tensorflow::Status tensorflow::GetNodeAttr(const tensorflow::AttrSlice &amp; attrs, tensorflow::StringPiece attr_name, string * value)'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.cc' l='244' u='c' c='_ZN10tensorflow13ContainerInfo4InitEPNS_11ResourceMgrERKNS_7NodeDefEb'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.cc' l='250' u='c' c='_ZN10tensorflow13ContainerInfo4InitEPNS_11ResourceMgrERKNS_7NodeDefEb'/>
+<use f='tensorflow/tensorflow/core/graph/control_flow.cc' l='92' u='c' c='_ZN10tensorflow20BuildControlFlowInfoEPKNS_5GraphEPSt6vectorINS_15ControlFlowInfoESaIS4_EE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='912' u='c' c='_ZN10tensorflow14SetIncarnationERKNS_16PartitionOptionsEPNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1189' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils32FuseRemoteGraphByPlacedArgumentsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPS1_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1329' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils11IsFuseReadyERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/util/mirror_pad_mode.cc' l='27' u='c' c='_ZN10tensorflow11GetNodeAttrERKNS_7NodeDefENS_11StringPieceEPNS_13MirrorPadModeE'/>
+<use f='tensorflow/tensorflow/core/util/padding.cc' l='27' u='c' c='_ZN10tensorflow11GetNodeAttrERKNS_7NodeDefENS_11StringPieceEPNS_7PaddingE'/>

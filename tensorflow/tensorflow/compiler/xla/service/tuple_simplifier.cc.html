@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>tuple_simplifier.cc source code [tensorflow/tensorflow/compiler/xla/service/tuple_simplifier.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/compiler/xla/service/tuple_simplifier.cc'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>compiler</a>/<a href='..'>xla</a>/<a href='./'>service</a>/<a href='tuple_simplifier.cc.html'>tuple_simplifier.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="tuple_simplifier.h.html">"tensorflow/compiler/xla/service/tuple_simplifier.h"</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../../include/c++/5/queue.html">&lt;queue&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="hlo_computation.h.html">"tensorflow/compiler/xla/service/hlo_computation.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="hlo_instruction.h.html">"tensorflow/compiler/xla/service/hlo_instruction.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="hlo_opcode.h.html">"tensorflow/compiler/xla/service/hlo_opcode.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../status_macros.h.html">"tensorflow/compiler/xla/status_macros.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../types.h.html">"tensorflow/compiler/xla/types.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../util.h.html">"tensorflow/compiler/xla/util.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../../core/lib/core/errors.h.html">"tensorflow/core/lib/core/errors.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../../core/lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../../core/platform/logging.h.html">"tensorflow/core/platform/logging.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../core/platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>namespace</b> <span class="namespace">xla</span> {</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><a class="type" href="../statusor.h.html#xla::StatusOr" title='xla::StatusOr' data-ref="xla::StatusOr">StatusOr</a>&lt;<em>bool</em>&gt; <a class="type" href="tuple_simplifier.h.html#xla::TupleSimplifier" title='xla::TupleSimplifier' data-ref="xla::TupleSimplifier">TupleSimplifier</a>::<dfn class="virtual decl def" id="_ZN3xla15TupleSimplifier3RunEPNS_9HloModuleE" title='xla::TupleSimplifier::Run' data-ref="_ZN3xla15TupleSimplifier3RunEPNS_9HloModuleE">Run</dfn>(<a class="type" href="hlo_module.h.html#xla::HloModule" title='xla::HloModule' data-ref="xla::HloModule">HloModule</a>* <dfn class="local col1 decl" id="1module" title='module' data-type='xla::HloModule *' data-ref="1module">module</dfn>) {</td></tr>
+<tr><th id="34">34</th><td>  <i>// Initially add all GTE and Tuple instructions to the worklist.</i></td></tr>
+<tr><th id="35">35</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_queue.h.html#std::queue" title='std::queue' data-ref="std::queue">queue</a>&lt;<a class="type" href="hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>*&gt; <a class="ref fake" href="../../../../../include/c++/5/bits/stl_queue.h.html#_ZNSt5queueC1EOT0_" title='std::queue::queue&lt;_Tp, _Sequence&gt;' data-ref="_ZNSt5queueC1EOT0_"></a><dfn class="local col2 decl" id="2worklist" title='worklist' data-type='std::queue&lt;HloInstruction *&gt;' data-ref="2worklist">worklist</dfn>;</td></tr>
+<tr><th id="36">36</th><td>  <b>for</b> (<em>auto</em>* <dfn class="local col3 decl" id="3computation" title='computation' data-type='xla::HloComputation *' data-ref="3computation">computation</dfn> : <a class="local col1 ref" href="#1module" title='module' data-ref="1module">module</a>-&gt;<a class="ref" href="hlo_module.h.html#_ZN3xla9HloModule12computationsEv" title='xla::HloModule::computations' data-ref="_ZN3xla9HloModule12computationsEv">computations</a>()) {</td></tr>
+<tr><th id="37">37</th><td>    <b>for</b> (<em>auto</em>* <dfn class="local col4 decl" id="4instruction" title='instruction' data-type='xla::HloInstruction *' data-ref="4instruction">instruction</dfn> : <a class="local col3 ref" href="#3computation" title='computation' data-ref="3computation">computation</a>-&gt;<a class="ref" href="hlo_computation.h.html#_ZN3xla14HloComputation12instructionsEv" title='xla::HloComputation::instructions' data-ref="_ZN3xla14HloComputation12instructionsEv">instructions</a>()) {</td></tr>
+<tr><th id="38">38</th><td>      <b>if</b> (<a class="local col4 ref" href="#4instruction" title='instruction' data-ref="4instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction6opcodeEv" title='xla::HloInstruction::opcode' data-ref="_ZNK3xla14HloInstruction6opcodeEv">opcode</a>() == <a class="type" href="hlo_opcode.h.html#xla::HloOpcode" title='xla::HloOpcode' data-ref="xla::HloOpcode">HloOpcode</a>::<a class="enum" href="hlo_opcode.h.html#135" title='xla::HloOpcode::kTuple' data-ref="xla::HloOpcode::kTuple">kTuple</a> ||</td></tr>
+<tr><th id="39">39</th><td>          <a class="local col4 ref" href="#4instruction" title='instruction' data-ref="4instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction6opcodeEv" title='xla::HloInstruction::opcode' data-ref="_ZNK3xla14HloInstruction6opcodeEv">opcode</a>() == <a class="type" href="hlo_opcode.h.html#xla::HloOpcode" title='xla::HloOpcode' data-ref="xla::HloOpcode">HloOpcode</a>::<a class="enum" href="hlo_opcode.h.html#135" title='xla::HloOpcode::kGetTupleElement' data-ref="xla::HloOpcode::kGetTupleElement">kGetTupleElement</a>) {</td></tr>
+<tr><th id="40">40</th><td>        <a class="local col2 ref" href="#2worklist" title='worklist' data-ref="2worklist">worklist</a>.<a class="ref" href="../../../../../include/c++/5/bits/stl_queue.h.html#_ZNSt5queue4pushERKNT0_10value_typeE" title='std::queue::push' data-ref="_ZNSt5queue4pushERKNT0_10value_typeE">push</a>(<a class="local col4 ref" href="#4instruction" title='instruction' data-ref="4instruction">instruction</a>);</td></tr>
+<tr><th id="41">41</th><td>      }</td></tr>
+<tr><th id="42">42</th><td>    }</td></tr>
+<tr><th id="43">43</th><td>  }</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>  <em>bool</em> <dfn class="local col5 decl" id="5changed" title='changed' data-type='bool' data-ref="5changed">changed</dfn> = <b>false</b>;</td></tr>
+<tr><th id="46">46</th><td>  <b>while</b> (!<a class="local col2 ref" href="#2worklist" title='worklist' data-ref="2worklist">worklist</a>.<a class="ref" href="../../../../../include/c++/5/bits/stl_queue.h.html#_ZNKSt5queue5emptyEv" title='std::queue::empty' data-ref="_ZNKSt5queue5emptyEv">empty</a>()) {</td></tr>
+<tr><th id="47">47</th><td>    <a class="type" href="hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="local col6 decl" id="6instruction" title='instruction' data-type='xla::HloInstruction *' data-ref="6instruction">instruction</dfn> = <a class="local col2 ref" href="#2worklist" title='worklist' data-ref="2worklist">worklist</a>.<a class="ref" href="../../../../../include/c++/5/bits/stl_queue.h.html#_ZNSt5queue5frontEv" title='std::queue::front' data-ref="_ZNSt5queue5frontEv">front</a>();</td></tr>
+<tr><th id="48">48</th><td>    <a class="local col2 ref" href="#2worklist" title='worklist' data-ref="2worklist">worklist</a>.<a class="ref" href="../../../../../include/c++/5/bits/stl_queue.h.html#_ZNSt5queue3popEv" title='std::queue::pop' data-ref="_ZNSt5queue3popEv">pop</a>();</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>    <b>if</b> (<a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction10user_countEv" title='xla::HloInstruction::user_count' data-ref="_ZNK3xla14HloInstruction10user_countEv">user_count</a>() == <var>0</var> &amp;&amp;</td></tr>
+<tr><th id="51">51</th><td>        <a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a> != <a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZN3xla14HloInstruction6parentEv" title='xla::HloInstruction::parent' data-ref="_ZN3xla14HloInstruction6parentEv">parent</a>()-&gt;<a class="ref" href="hlo_computation.h.html#_ZNK3xla14HloComputation16root_instructionEv" title='xla::HloComputation::root_instruction' data-ref="_ZNK3xla14HloComputation16root_instructionEv">root_instruction</a>()) {</td></tr>
+<tr><th id="52">52</th><td>      <i>// Tuple simplification works by replacing users of optimized away</i></td></tr>
+<tr><th id="53">53</th><td><i>      // instructions with a simpler form. If there is no user of the</i></td></tr>
+<tr><th id="54">54</th><td><i>      // instruction (including being the root), then there is nothing to do.</i></td></tr>
+<tr><th id="55">55</th><td>      <b>continue</b>;</td></tr>
+<tr><th id="56">56</th><td>    }</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>    <b>if</b> (<a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction6opcodeEv" title='xla::HloInstruction::opcode' data-ref="_ZNK3xla14HloInstruction6opcodeEv">opcode</a>() == <a class="type" href="hlo_opcode.h.html#xla::HloOpcode" title='xla::HloOpcode' data-ref="xla::HloOpcode">HloOpcode</a>::<a class="enum" href="hlo_opcode.h.html#135" title='xla::HloOpcode::kTuple' data-ref="xla::HloOpcode::kTuple">kTuple</a>) {</td></tr>
+<tr><th id="59">59</th><td>      <i>// Collapse the following structure into just 'Tuple-shaped Op':</i></td></tr>
+<tr><th id="60">60</th><td><i>      //</i></td></tr>
+<tr><th id="61">61</th><td><i>      //   Tuple-shaped Op</i></td></tr>
+<tr><th id="62">62</th><td><i>      //         |</i></td></tr>
+<tr><th id="63">63</th><td><i>      //   +-----+-----+</i></td></tr>
+<tr><th id="64">64</th><td><i>      //   |     |     |</i></td></tr>
+<tr><th id="65">65</th><td><i>      //  GTE   GTE   GTE</i></td></tr>
+<tr><th id="66">66</th><td><i>      //   |     |     |</i></td></tr>
+<tr><th id="67">67</th><td><i>      //   +-----+-----+</i></td></tr>
+<tr><th id="68">68</th><td><i>      //         |</i></td></tr>
+<tr><th id="69">69</th><td><i>      //       Tuple</i></td></tr>
+<tr><th id="70">70</th><td><i>      //</i></td></tr>
+<tr><th id="71">71</th><td>      <a class="type" href="hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="local col7 decl" id="7top_tuple" title='top_tuple' data-type='xla::HloInstruction *' data-ref="7top_tuple">top_tuple</dfn> = <b>nullptr</b>;</td></tr>
+<tr><th id="72">72</th><td>      <em>bool</em> <dfn class="local col8 decl" id="8can_simplify" title='can_simplify' data-type='bool' data-ref="8can_simplify">can_simplify</dfn> = <b>true</b>;</td></tr>
+<tr><th id="73">73</th><td>      <b>for</b> (<a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col9 decl" id="9operand_number" title='operand_number' data-type='int64' data-ref="9operand_number">operand_number</dfn> = <var>0</var>;</td></tr>
+<tr><th id="74">74</th><td>           <a class="local col9 ref" href="#9operand_number" title='operand_number' data-ref="9operand_number">operand_number</a> &lt; <a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction13operand_countEv" title='xla::HloInstruction::operand_count' data-ref="_ZNK3xla14HloInstruction13operand_countEv">operand_count</a>(); ++<a class="local col9 ref" href="#9operand_number" title='operand_number' data-ref="9operand_number">operand_number</a>) {</td></tr>
+<tr><th id="75">75</th><td>        <a class="type" href="hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="local col0 decl" id="10operand" title='operand' data-type='xla::HloInstruction *' data-ref="10operand">operand</dfn> = <a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZN3xla14HloInstruction15mutable_operandEx" title='xla::HloInstruction::mutable_operand' data-ref="_ZN3xla14HloInstruction15mutable_operandEx">mutable_operand</a>(<a class="local col9 ref" href="#9operand_number" title='operand_number' data-ref="9operand_number">operand_number</a>);</td></tr>
+<tr><th id="76">76</th><td>        <b>if</b> (<a class="local col0 ref" href="#10operand" title='operand' data-ref="10operand">operand</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction6opcodeEv" title='xla::HloInstruction::opcode' data-ref="_ZNK3xla14HloInstruction6opcodeEv">opcode</a>() != <a class="type" href="hlo_opcode.h.html#xla::HloOpcode" title='xla::HloOpcode' data-ref="xla::HloOpcode">HloOpcode</a>::<a class="enum" href="hlo_opcode.h.html#135" title='xla::HloOpcode::kGetTupleElement' data-ref="xla::HloOpcode::kGetTupleElement">kGetTupleElement</a> ||</td></tr>
+<tr><th id="77">77</th><td>            <a class="local col0 ref" href="#10operand" title='operand' data-ref="10operand">operand</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction11tuple_indexEv" title='xla::HloInstruction::tuple_index' data-ref="_ZNK3xla14HloInstruction11tuple_indexEv">tuple_index</a>() != <a class="local col9 ref" href="#9operand_number" title='operand_number' data-ref="9operand_number">operand_number</a>) {</td></tr>
+<tr><th id="78">78</th><td>          <a class="local col8 ref" href="#8can_simplify" title='can_simplify' data-ref="8can_simplify">can_simplify</a> = <b>false</b>;</td></tr>
+<tr><th id="79">79</th><td>          <b>break</b>;</td></tr>
+<tr><th id="80">80</th><td>        }</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>        <b>if</b> (<a class="local col7 ref" href="#7top_tuple" title='top_tuple' data-ref="7top_tuple">top_tuple</a> == <b>nullptr</b>) {</td></tr>
+<tr><th id="83">83</th><td>          <a class="local col7 ref" href="#7top_tuple" title='top_tuple' data-ref="7top_tuple">top_tuple</a> = <a class="local col0 ref" href="#10operand" title='operand' data-ref="10operand">operand</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZN3xla14HloInstruction15mutable_operandEx" title='xla::HloInstruction::mutable_operand' data-ref="_ZN3xla14HloInstruction15mutable_operandEx">mutable_operand</a>(<var>0</var>);</td></tr>
+<tr><th id="84">84</th><td>          <b>if</b> (!<a class="type" href="../shape_util.h.html#xla::ShapeUtil" title='xla::ShapeUtil' data-ref="xla::ShapeUtil">ShapeUtil</a>::<a class="ref" href="../shape_util.h.html#_ZN3xla9ShapeUtil10CompatibleERKNS_5ShapeES3_" title='xla::ShapeUtil::Compatible' data-ref="_ZN3xla9ShapeUtil10CompatibleERKNS_5ShapeES3_">Compatible</a>(<a class="local col7 ref" href="#7top_tuple" title='top_tuple' data-ref="7top_tuple">top_tuple</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction5shapeEv" title='xla::HloInstruction::shape' data-ref="_ZNK3xla14HloInstruction5shapeEv">shape</a>(),</td></tr>
+<tr><th id="85">85</th><td>                                     <a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction5shapeEv" title='xla::HloInstruction::shape' data-ref="_ZNK3xla14HloInstruction5shapeEv">shape</a>())) {</td></tr>
+<tr><th id="86">86</th><td>            <a class="local col8 ref" href="#8can_simplify" title='can_simplify' data-ref="8can_simplify">can_simplify</a> = <b>false</b>;</td></tr>
+<tr><th id="87">87</th><td>            <b>break</b>;</td></tr>
+<tr><th id="88">88</th><td>          }</td></tr>
+<tr><th id="89">89</th><td>        } <b>else</b> <b>if</b> (<a class="local col7 ref" href="#7top_tuple" title='top_tuple' data-ref="7top_tuple">top_tuple</a> != <a class="local col0 ref" href="#10operand" title='operand' data-ref="10operand">operand</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction7operandEx" title='xla::HloInstruction::operand' data-ref="_ZNK3xla14HloInstruction7operandEx">operand</a>(<var>0</var>)) {</td></tr>
+<tr><th id="90">90</th><td>          <a class="local col8 ref" href="#8can_simplify" title='can_simplify' data-ref="8can_simplify">can_simplify</a> = <b>false</b>;</td></tr>
+<tr><th id="91">91</th><td>          <b>break</b>;</td></tr>
+<tr><th id="92">92</th><td>        }</td></tr>
+<tr><th id="93">93</th><td>      }</td></tr>
+<tr><th id="94">94</th><td>      <b>if</b> (<a class="local col8 ref" href="#8can_simplify" title='can_simplify' data-ref="8can_simplify">can_simplify</a> &amp;&amp; <a class="local col7 ref" href="#7top_tuple" title='top_tuple' data-ref="7top_tuple">top_tuple</a> != <b>nullptr</b>) {</td></tr>
+<tr><th id="95">95</th><td>        <a class="local col5 ref" href="#5changed" title='changed' data-ref="5changed">changed</a> = <b>true</b>;</td></tr>
+<tr><th id="96">96</th><td>        <a class="macro" href="../../../core/lib/core/errors.h.html#69" title="do { const ::tensorflow::Status _status = (instruction-&gt;ReplaceAllUsesWith(top_tuple)); if ((__builtin_expect(!_status.ok(), 0))) return _status; } while (0)" data-ref="_M/TF_RETURN_IF_ERROR">TF_RETURN_IF_ERROR</a>(<a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZN3xla14HloInstruction18ReplaceAllUsesWithEPS0_" title='xla::HloInstruction::ReplaceAllUsesWith' data-ref="_ZN3xla14HloInstruction18ReplaceAllUsesWithEPS0_">ReplaceAllUsesWith</a>(<a class="local col7 ref" href="#7top_tuple" title='top_tuple' data-ref="7top_tuple">top_tuple</a>));</td></tr>
+<tr><th id="97">97</th><td>        <i>// No need to add anything to the worklist.</i></td></tr>
+<tr><th id="98">98</th><td>      }</td></tr>
+<tr><th id="99">99</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="100">100</th><td>      <a class="macro" href="../../../core/platform/default/logging.h.html#251" title="while (::tensorflow::internal::CheckOpString _result = ::tensorflow::internal::Check_EQImpl( ::tensorflow::internal::GetReferenceableValue(instruction-&gt;opcode()), ::tensorflow::internal::GetReferenceableValue(HloOpcode::kGetTupleElement), &quot;instruction-&gt;opcode()&quot; &quot; &quot; &quot;==&quot; &quot; &quot; &quot;HloOpcode::kGetTupleElement&quot;)) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/compiler/xla/service/tuple_simplifier.cc&quot;, 100) &lt;&lt; *(_result.str_)" data-ref="_M/CHECK_EQ">CHECK_EQ</a>(<a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction6opcodeEv" title='xla::HloInstruction::opcode' data-ref="_ZNK3xla14HloInstruction6opcodeEv">opcode</a>(), <a class="type" href="hlo_opcode.h.html#xla::HloOpcode" title='xla::HloOpcode' data-ref="xla::HloOpcode">HloOpcode</a>::<a class="enum" href="hlo_opcode.h.html#135" title='xla::HloOpcode::kGetTupleElement' data-ref="xla::HloOpcode::kGetTupleElement">kGetTupleElement</a>);</td></tr>
+<tr><th id="101">101</th><td>      <i>// If possible replace a GTE with the operation which produces the</i></td></tr>
+<tr><th id="102">102</th><td><i>      // element. For example, replace uses of GTE with below with just 'Op'</i></td></tr>
+<tr><th id="103">103</th><td><i>      // (assuming 'Op' is at the index of the GTE instruction):</i></td></tr>
+<tr><th id="104">104</th><td><i>      //</i></td></tr>
+<tr><th id="105">105</th><td><i>      //     ...  Op ...</i></td></tr>
+<tr><th id="106">106</th><td><i>      //       \  |   /</i></td></tr>
+<tr><th id="107">107</th><td><i>      //        Tuple</i></td></tr>
+<tr><th id="108">108</th><td><i>      //          |</i></td></tr>
+<tr><th id="109">109</th><td><i>      //         GTE</i></td></tr>
+<tr><th id="110">110</th><td>      <b>if</b> (<a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction7operandEx" title='xla::HloInstruction::operand' data-ref="_ZNK3xla14HloInstruction7operandEx">operand</a>(<var>0</var>)-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction6opcodeEv" title='xla::HloInstruction::opcode' data-ref="_ZNK3xla14HloInstruction6opcodeEv">opcode</a>() == <a class="type" href="hlo_opcode.h.html#xla::HloOpcode" title='xla::HloOpcode' data-ref="xla::HloOpcode">HloOpcode</a>::<a class="enum" href="hlo_opcode.h.html#135" title='xla::HloOpcode::kTuple' data-ref="xla::HloOpcode::kTuple">kTuple</a>) {</td></tr>
+<tr><th id="111">111</th><td>        <a class="local col5 ref" href="#5changed" title='changed' data-ref="5changed">changed</a> = <b>true</b>;</td></tr>
+<tr><th id="112">112</th><td>        <a class="type" href="hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="local col1 decl" id="11element_source" title='element_source' data-type='xla::HloInstruction *' data-ref="11element_source">element_source</dfn> =</td></tr>
+<tr><th id="113">113</th><td>            <a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZN3xla14HloInstruction15mutable_operandEx" title='xla::HloInstruction::mutable_operand' data-ref="_ZN3xla14HloInstruction15mutable_operandEx">mutable_operand</a>(<var>0</var>)-&gt;<a class="ref" href="hlo_instruction.h.html#_ZN3xla14HloInstruction15mutable_operandEx" title='xla::HloInstruction::mutable_operand' data-ref="_ZN3xla14HloInstruction15mutable_operandEx">mutable_operand</a>(</td></tr>
+<tr><th id="114">114</th><td>                <a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction11tuple_indexEv" title='xla::HloInstruction::tuple_index' data-ref="_ZNK3xla14HloInstruction11tuple_indexEv">tuple_index</a>());</td></tr>
+<tr><th id="115">115</th><td>        <a class="macro" href="../../../core/lib/core/errors.h.html#69" title="do { const ::tensorflow::Status _status = (instruction-&gt;ReplaceAllUsesWith(element_source)); if ((__builtin_expect(!_status.ok(), 0))) return _status; } while (0)" data-ref="_M/TF_RETURN_IF_ERROR">TF_RETURN_IF_ERROR</a>(<a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZN3xla14HloInstruction18ReplaceAllUsesWithEPS0_" title='xla::HloInstruction::ReplaceAllUsesWith' data-ref="_ZN3xla14HloInstruction18ReplaceAllUsesWithEPS0_">ReplaceAllUsesWith</a>(<a class="local col1 ref" href="#11element_source" title='element_source' data-ref="11element_source">element_source</a>));</td></tr>
+<tr><th id="116">116</th><td>        <b>for</b> (<a class="type" href="hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="local col2 decl" id="12user" title='user' data-type='xla::HloInstruction *' data-ref="12user">user</dfn> : <a class="local col1 ref" href="#11element_source" title='element_source' data-ref="11element_source">element_source</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction5usersEv" title='xla::HloInstruction::users' data-ref="_ZNK3xla14HloInstruction5usersEv">users</a>()) {</td></tr>
+<tr><th id="117">117</th><td>          <b>if</b> (<a class="local col2 ref" href="#12user" title='user' data-ref="12user">user</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction6opcodeEv" title='xla::HloInstruction::opcode' data-ref="_ZNK3xla14HloInstruction6opcodeEv">opcode</a>() == <a class="type" href="hlo_opcode.h.html#xla::HloOpcode" title='xla::HloOpcode' data-ref="xla::HloOpcode">HloOpcode</a>::<a class="enum" href="hlo_opcode.h.html#135" title='xla::HloOpcode::kTuple' data-ref="xla::HloOpcode::kTuple">kTuple</a> ||</td></tr>
+<tr><th id="118">118</th><td>              <a class="local col2 ref" href="#12user" title='user' data-ref="12user">user</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction6opcodeEv" title='xla::HloInstruction::opcode' data-ref="_ZNK3xla14HloInstruction6opcodeEv">opcode</a>() == <a class="type" href="hlo_opcode.h.html#xla::HloOpcode" title='xla::HloOpcode' data-ref="xla::HloOpcode">HloOpcode</a>::<a class="enum" href="hlo_opcode.h.html#135" title='xla::HloOpcode::kGetTupleElement' data-ref="xla::HloOpcode::kGetTupleElement">kGetTupleElement</a>) {</td></tr>
+<tr><th id="119">119</th><td>            <a class="local col2 ref" href="#2worklist" title='worklist' data-ref="2worklist">worklist</a>.<a class="ref" href="../../../../../include/c++/5/bits/stl_queue.h.html#_ZNSt5queue4pushERKNT0_10value_typeE" title='std::queue::push' data-ref="_ZNSt5queue4pushERKNT0_10value_typeE">push</a>(<a class="local col2 ref" href="#12user" title='user' data-ref="12user">user</a>);</td></tr>
+<tr><th id="120">120</th><td>          }</td></tr>
+<tr><th id="121">121</th><td>        }</td></tr>
+<tr><th id="122">122</th><td>      }</td></tr>
+<tr><th id="123">123</th><td>    }</td></tr>
+<tr><th id="124">124</th><td>  }</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>  <b>return</b> <a class="ref fake" href="../statusor.h.html#_ZN3xla8StatusOrC1ERKT_" title='xla::StatusOr::StatusOr&lt;T&gt;' data-ref="_ZN3xla8StatusOrC1ERKT_"></a><a class="local col5 ref" href="#5changed" title='changed' data-ref="5changed">changed</a>;</td></tr>
+<tr><th id="127">127</th><td>}</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>}  <i>// namespace xla</i></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

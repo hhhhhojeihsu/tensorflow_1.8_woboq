@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/contrib/lite/context.h' l='410' type='void (*)(TfLiteDelegate *, TfLiteBufferHandle *)'/>
+<offset>256</offset>
+<doc f='tensorflow/tensorflow/contrib/lite/context.h' l='406'>// Free the Delegate Buffer Handle. Note: This only frees the handle, but
+  // this doesn&apos;t release the underlying resource (e.g. textures). The
+  // resources are either owned by application layer or the delegate.
+  // This can be null if the delegate doesn&apos;t use its own buffer.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='126' u='r' c='_ZN6tflite11InterpreterD1Ev'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='835' u='r' c='_ZN6tflite11Interpreter15SetBufferHandleEiiP15_TfLiteDelegate'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='836' u='r' c='_ZN6tflite11Interpreter15SetBufferHandleEiiP15_TfLiteDelegate'/>

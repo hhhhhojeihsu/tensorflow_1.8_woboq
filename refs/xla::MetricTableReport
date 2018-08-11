@@ -1,0 +1,73 @@
+<def f='tensorflow/tensorflow/compiler/xla/metric_table_report.h' l='52' ll='171'/>
+<size>88</size>
+<doc f='tensorflow/tensorflow/compiler/xla/metric_table_report.h' l='27'>// Class for creating a text format table showing entries with a metric
+// (e.g. cycles) and a text (e.g. name of function taking that many
+// cycles). Entries are grouped by a category and sorted in decreasing order of
+// the metric.
+//
+// Example of a categories table generated using this class:
+//
+// ********** microseconds report **********
+// There are 3,912,517 microseconds in total.
+// There are 123 microseconds ( 0.00%) not accounted for by the data.
+// There are 3002 ops.
+//
+// ********** categories table **********
+// The left hand side numbers are microseconds.
+// 1,749,414 (44.71% Σ44.72%)   convolution (206 ops)
+//                             * 10.51% %convolution.202
+//                             * 10.51% %convolution.204
+//                             * 10.51% %convolution.203
+//                             * ... (203 more ops)
+//   884,939 (22.62% Σ67.33%)   convolution window-dilated (7 ops)
+//                             *  7.50% %convolution-window-dilated.7
+// [...]
+//
+// The entry table is similar, it just has the entries directly as the entries
+// instead of grouping by categories first.</doc>
+<fun r='_ZN3xla17MetricTableReport8AddEntryENS0_5EntryE'/>
+<fun r='_ZN3xla17MetricTableReport13SetMetricNameESs'/>
+<fun r='_ZN3xla17MetricTableReport12SetEntryNameESs'/>
+<fun r='_ZN3xla17MetricTableReport17SetShowAllEntriesEv'/>
+<fun r='_ZN3xla17MetricTableReport20SetShowCategoryTableEv'/>
+<fun r='_ZN3xla17MetricTableReport17SetShowEntryTableEv'/>
+<fun r='_ZN3xla17MetricTableReport10MakeReportEd'/>
+<fun r='_ZN3xla17MetricTableReport20WriteReportToInfoLogEd'/>
+<smbr r='xla::MetricTableReport::kDefaultMaxMetricProportionToShow' t='const double'/>
+<smbr r='xla::MetricTableReport::kDefaultMaxEntriesToShow' t='const int64'/>
+<smbr r='xla::MetricTableReport::kDefaultMaxEntriesPerCategoryToShow' t='const int64'/>
+<fun r='_ZN3xla17MetricTableReport10AppendLineEDpT_'/>
+<fun r='_ZN3xla17MetricTableReport14MakeCategoriesEPKSt6vectorINS0_5EntryESaIS2_EE'/>
+<fun r='_ZN3xla17MetricTableReport12AppendHeaderEv'/>
+<fun r='_ZN3xla17MetricTableReport19AppendCategoryTableEv'/>
+<fun r='_ZN3xla17MetricTableReport16AppendEntryTableEv'/>
+<fun r='_ZN3xla17MetricTableReport14AppendTableRowERKSsdd'/>
+<fun r='_ZN3xla17MetricTableReport17UnaccountedMetricEv'/>
+<fun r='_ZN3xla17MetricTableReport12MetricStringEd'/>
+<fun r='_ZN3xla17MetricTableReport13MetricPercentEd'/>
+<mbr r='xla::MetricTableReport::entries_' o='0' t='std::vector&lt;Entry&gt;'/>
+<mbr r='xla::MetricTableReport::expected_metric_sum_' o='192' t='double'/>
+<mbr r='xla::MetricTableReport::metric_name_' o='256' t='string'/>
+<mbr r='xla::MetricTableReport::entry_name_' o='320' t='string'/>
+<mbr r='xla::MetricTableReport::show_category_table_' o='384' t='bool'/>
+<mbr r='xla::MetricTableReport::show_entry_table_' o='392' t='bool'/>
+<mbr r='xla::MetricTableReport::max_entries_to_show_' o='448' t='int64'/>
+<mbr r='xla::MetricTableReport::max_entries_per_category_to_show_' o='512' t='int64'/>
+<mbr r='xla::MetricTableReport::max_metric_proportion_to_show_' o='576' t='double'/>
+<mbr r='xla::MetricTableReport::report_' o='640' t='string'/>
+<fun r='_ZN3xla17MetricTableReport8AddEntryENS0_5EntryE'/>
+<fun r='_ZN3xla17MetricTableReport13SetMetricNameESs'/>
+<fun r='_ZN3xla17MetricTableReport12SetEntryNameESs'/>
+<fun r='_ZN3xla17MetricTableReport17SetShowAllEntriesEv'/>
+<fun r='_ZN3xla17MetricTableReport20SetShowCategoryTableEv'/>
+<fun r='_ZN3xla17MetricTableReport17SetShowEntryTableEv'/>
+<fun r='_ZN3xla17MetricTableReport10MakeReportEd'/>
+<fun r='_ZN3xla17MetricTableReport20WriteReportToInfoLogEd'/>
+<fun r='_ZN3xla17MetricTableReport14MakeCategoriesEPKSt6vectorINS0_5EntryESaIS2_EE'/>
+<fun r='_ZN3xla17MetricTableReport12AppendHeaderEv'/>
+<fun r='_ZN3xla17MetricTableReport19AppendCategoryTableEv'/>
+<fun r='_ZN3xla17MetricTableReport16AppendEntryTableEv'/>
+<fun r='_ZN3xla17MetricTableReport14AppendTableRowERKSsdd'/>
+<fun r='_ZN3xla17MetricTableReport17UnaccountedMetricEv'/>
+<fun r='_ZN3xla17MetricTableReport12MetricStringEd'/>
+<fun r='_ZN3xla17MetricTableReport13MetricPercentEd'/>

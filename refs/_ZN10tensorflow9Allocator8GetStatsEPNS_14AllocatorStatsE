@@ -1,0 +1,20 @@
+<def f='tensorflow/tensorflow/core/framework/allocator.h' l='199' type='void tensorflow::Allocator::GetStats(tensorflow::AllocatorStats * stats)'/>
+<doc f='tensorflow/tensorflow/core/framework/allocator.h' l='198'>// Fills in &apos;stats&apos; with statistics collected by this allocator.</doc>
+<ovr f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='50' c='_ZN10tensorflow18XlaDeviceAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.cc' l='62' c='_ZN10tensorflow23XlaCompilationAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<use f='tensorflow/tensorflow/contrib/memory_stats/kernels/memory_stats_ops.cc' l='28' u='c' c='_ZN10tensorflow13MemoryStatsOp7ComputeEPNS_15OpKernelContextE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='683' c='_ZN10tensorflow12BFCAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/kernel_and_device.cc' l='117' u='c' c='_ZN10tensorflow15KernelAndDevice3RunEPSt6vectorINS_6TensorESaIS2_EES5_PNS_13NodeExecStatsE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.cc' l='142' c='_ZN10tensorflow17GPUDebugAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.cc' l='143' u='c' c='_ZN10tensorflow17GPUDebugAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.cc' l='221' c='_ZN10tensorflow20GPUNanResetAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.cc' l='222' u='c' c='_ZN10tensorflow20GPUNanResetAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/gpu/process_state.h' l='166' c='_ZN10tensorflow8internal18RecordingAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/process_state.h' l='166' u='c' c='_ZN10tensorflow8internal18RecordingAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/gpu/pool_allocator.h' l='114' c='_ZN10tensorflow13PoolAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='54' u='c' c='_ZN10tensorflow20NodeExecStatsWrapper13AddAllocationEPNS_9AllocatorEPNS_17TrackingAllocatorE'/>
+<ovr f='tensorflow/tensorflow/core/framework/allocator.cc' l='138' c='_ZN10tensorflow12CPUAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<ovr f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='155' c='_ZN10tensorflow17TrackingAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<use f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='156' u='c' c='_ZN10tensorflow17TrackingAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/single_machine.cc' l='236' u='c' c='_ZNK10tensorflow8grappler13SingleMachine18GetPeakMemoryUsageEPSt13unordered_mapISsySt4hashISsESt8equal_toISsESaISt4pairIKSsyEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/stack_ops.cc' l='287' u='c' c='_ZN10tensorflow11StackPushOp12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE'/>

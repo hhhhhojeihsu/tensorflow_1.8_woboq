@@ -1,0 +1,25 @@
+<def f='tensorflow/tensorflow/stream_executor/kernel.h' l='353' ll='369'/>
+<ovr f='tensorflow/tensorflow/stream_executor/kernel.h' l='395' c='perftools::gputools::KernelArgsArray'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/stream_executor/kernel.h' l='336'>// Base class for KernelArgsArray.
+//
+// Supports all the getter methods that do not depend on the compile-time number
+// of arguments template parameter.
+//
+// This class exists as a way to pass kernel arguments to
+// StreamExecutorInterface::Launch. That Launch method is virtual, so it can&apos;t
+// be templated to accept any KernelArgsArray type, therefore a reference to
+// this base type is passed instead.
+//
+// Performance is not a concern here because each of these methods will be
+// called at most once per kernel launch. Past performance concerns with
+// KernelArgsArray have been in reference to the argument packing routines which
+// are called once per kernel argument. Those packing routines are now handled
+// by the templated KernelArgsArray subclass of this class where they can take
+// advantage of compile-time knowledge of the number of arguments in order to be
+// very efficient.</doc>
+<fun r='_ZN9perftools8gputools19KernelArgsArrayBaseD1Ev'/>
+<fun r='_ZNK9perftools8gputools19KernelArgsArrayBase19number_of_argumentsEv'/>
+<fun r='_ZNK9perftools8gputools19KernelArgsArrayBase22number_of_shared_bytesEv'/>
+<fun r='_ZNK9perftools8gputools19KernelArgsArrayBase18argument_addressesEv'/>
+<fun r='_ZNK9perftools8gputools19KernelArgsArrayBase12arg_iteratorEv'/>

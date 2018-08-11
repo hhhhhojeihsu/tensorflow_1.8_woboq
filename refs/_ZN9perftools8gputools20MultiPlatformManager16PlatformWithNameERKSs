@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/stream_executor/multi_platform_manager.h' l='101' type='static port::StatusOr&lt;Platform *&gt; perftools::gputools::MultiPlatformManager::PlatformWithName(const string &amp; target)'/>
+<doc f='tensorflow/tensorflow/stream_executor/multi_platform_manager.h' l='91'>// Retrieves the platform registered with the given platform name (e.g.
+  // &quot;CUDA&quot;, &quot;OpenCL&quot;, ...) or id (an opaque, comparable value provided by the
+  // Platform&apos;s Id() method).
+  //
+  // If the platform has not already been initialized, it will be initialized
+  // with a default set of parameters.
+  //
+  // If the requested platform is not registered, an error status is returned.
+  // Ownership of the platform is NOT transferred to the caller --
+  // the MultiPlatformManager owns the platforms in a singleton-like fashion.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='122' u='c' c='_ZN10tensorflow9XlaDevice6CreateERKSsS2_iS2_RKNS_14SessionOptionsES2_RKNS_13XlaOpRegistry18DeviceRegistrationEbPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_init.cc' l='34' u='c' c='_ZN10tensorflow25ValidateGPUMachineManagerEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_init.cc' l='43' u='c' c='_ZN10tensorflow17GPUMachineManagerEv'/>
+<def f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='72' ll='82' type='static port::StatusOr&lt;Platform *&gt; perftools::gputools::MultiPlatformManager::PlatformWithName(const string &amp; target)'/>
+<doc f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='72'>/* static */</doc>

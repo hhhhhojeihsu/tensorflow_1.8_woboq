@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/kernels/spectrogram.h' l='54' type='bool tensorflow::Spectrogram::Initialize(int window_length, int step_length)'/>
+<def f='tensorflow/tensorflow/core/kernels/spectrogram.cc' l='39' ll='43' type='bool tensorflow::Spectrogram::Initialize(int window_length, int step_length)'/>
+<doc f='tensorflow/tensorflow/core/kernels/spectrogram.h' l='49'>// Initializes the class with a given window length and step length
+  // (both in samples). Internally a Hann window is used as the window
+  // function. Returns true on success, after which calls to Process()
+  // are possible. window_length must be greater than 1 and step
+  // length must be greater than 0.</doc>
+<use f='tensorflow/tensorflow/core/kernels/spectrogram_op.cc' l='45' u='c' c='_ZN10tensorflow18AudioSpectrogramOp7ComputeEPNS_15OpKernelContextE'/>

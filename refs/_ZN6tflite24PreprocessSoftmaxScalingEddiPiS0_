@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.h' l='196' type='void tflite::PreprocessSoftmaxScaling(double beta, double input_scale, int input_integer_bits, int32_t * quantized_multiplier, int * left_shift)'/>
+<def f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.cc' l='62' ll='79' type='void tflite::PreprocessSoftmaxScaling(double beta, double input_scale, int input_integer_bits, int32_t * quantized_multiplier, int * left_shift)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.h' l='192'>// This first creates a multiplier in a double equivalent of
+// Q(input_integer_bits).(31-input_integer_bits) representation, with extra
+// precision in the double&apos;s fractional bits.  It then splits the result into
+// significand and exponent.</doc>

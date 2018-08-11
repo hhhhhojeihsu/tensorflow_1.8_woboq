@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/kernels/cwise_ops.h' l='953' type='void tensorflow::functor::BinaryFunctor::BCast(const Device &amp; d, typename TTypes&lt;typename Functor::out_type, NDIMS&gt;::Tensor out, typename TTypes&lt;typename Functor::in_type, NDIMS&gt;::ConstTensor in0, typename Eigen::array&lt;Eigen::DenseIndex, NDIMS&gt; bcast0, typename TTypes&lt;typename Functor::in_type, NDIMS&gt;::ConstTensor in1, typename Eigen::array&lt;Eigen::DenseIndex, NDIMS&gt; bcast1, bool * error)'/>
+<doc f='tensorflow/tensorflow/core/kernels/cwise_ops.h' l='948'>// Computes on device &quot;d&quot;:
+  //   out = Functor(in0.broadcast(bcast0), in1.broadcast(bcast1))
+  //
+  // TODO(zhifengc): makes BCast a template member function on NDIMS
+  // instead making BinaryFunctor templates on NDIMS.</doc>

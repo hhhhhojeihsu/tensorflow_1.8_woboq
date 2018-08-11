@@ -1,0 +1,25 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.h' l='51' ll='153'/>
+<size>64</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.h' l='45'>// A class describing the source(s) of the Buffer(s) contained in the output of
+// a particular HLO instruction. The structure of PointsToSet mirrors the
+// structure of the instruction&apos;s shape, which may be an arbitrary tree (eg, a
+// nested tuple). Each node in this tree corresponds to a single buffer in the
+// instruction&apos;s output and contains the set of Buffers which might define
+// the corresponding buffer.</doc>
+<fun r='_ZN3xla11PointsToSetC1EPKNS_5ShapeE'/>
+<fun r='_ZNK3xla11PointsToSet11IsAmbiguousEv'/>
+<fun r='_ZNK3xla11PointsToSet10IsDistinctEv'/>
+<fun r='_ZNK3xla11PointsToSet4sizeEv'/>
+<fun r='_ZNK3xla11PointsToSet18CreateFlattenedSetEv'/>
+<fun r='_ZNK3xla11PointsToSet21ContainsBufferAtIndexERKNS_13LogicalBufferERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla11PointsToSet14ContainsBufferERKNS_13LogicalBufferE'/>
+<fun r='_ZN3xla11PointsToSet18AddPointedToBufferERKNS_13LogicalBufferERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla11PointsToSet13tuple_sourcesERKNS_10ShapeIndexE'/>
+<fun r='_ZN3xla11PointsToSet16add_tuple_sourceERKNS_10ShapeIndexEPNS_14HloInstructionE'/>
+<fun r='_ZNK3xla11PointsToSet7elementERKNS_10ShapeIndexE'/>
+<fun r='_ZN3xla11PointsToSet15mutable_elementERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla11PointsToSet14ForEachElementERKT_'/>
+<fun r='_ZN3xla11PointsToSet21ForEachMutableElementERKT_'/>
+<fun r='_ZNK3xla11PointsToSet24ForEachElementWithStatusERKT_'/>
+<mbr r='xla::PointsToSet::tree_' o='0' t='ShapeTree&lt;xla::PointsToSet::Elem&gt;'/>
+<fun r='_ZN3xla11PointsToSetC1ERKS0_'/>

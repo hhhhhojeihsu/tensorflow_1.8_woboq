@@ -1,0 +1,38 @@
+<dec f='tensorflow/tensorflow/core/lib/gtl/inlined_vector.h' l='76' type='void tensorflow::gtl::InlinedVector::InlinedVector&lt;T, N&gt;(size_t n, const value_type &amp; elem)'/>
+<def f='tensorflow/tensorflow/core/lib/gtl/inlined_vector.h' l='552' ll='560' type='void tensorflow::gtl::InlinedVector::InlinedVector&lt;T, N&gt;(size_t n, const value_type &amp; elem)'/>
+<doc f='tensorflow/tensorflow/core/lib/gtl/inlined_vector.h' l='75'>// Create a vector with n copies of elem</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1311' u='c' c='_ZN3xla7Literal16PopulateInternalERKT0_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1382' u='c' c='_ZNK3xla7Literal9ReplicateEx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reduction_ops_common.cc' l='67' u='c' c='_ZN10tensorflow14XlaReductionOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='67' u='c' c='_ZN3xla7Literal12StrideConfigC1ERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='68' u='c' c='_ZN3xla7Literal12StrideConfigC1ERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='221' u='c' c='_ZN3xla7Literal21CopySliceFromInternalERKS0_N10tensorflow3gtl10ArraySliceIxEES6_S6_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='222' u='c' c='_ZN3xla7Literal21CopySliceFromInternalERKS0_N10tensorflow3gtl10ArraySliceIxEES6_S6_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1047' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2396' u='c' c='_ZN3xla12HloEvaluator17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2397' u='c' c='_ZN3xla12HloEvaluator17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/core/util/sparse/sparse_tensor.h' l='199' u='c' c='_ZN10tensorflow6sparse12SparseTensor14UndefinedOrderENS_3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc' l='524' u='c' c='_ZN10tensorflow20SparseFeatureCrossOp18ExtractFeatureDataERKNS_11OpInputListExPSt6vectorIS4_IxSaIxEESaIS6_EES9_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1094' u='c' c='_ZN10tensorflow24RemoveListArrayConverterEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/framework/tensor.cc' l='1063' u='c' c='_ZN10tensorflow6Tensor20ComputeFlatInnerDimsENS_3gtl10ArraySliceIxEEx'/>
+<use f='tensorflow/tensorflow/core/framework/tensor.cc' l='1077' u='c' c='_ZN10tensorflow6Tensor20ComputeFlatOuterDimsENS_3gtl10ArraySliceIxEEx'/>
+<use f='tensorflow/tensorflow/core/kernels/control_flow_ops.cc' l='211' u='c' c='_ZN10tensorflow7MergeOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/sparse_tensor_slice_dataset_op.cc' l='254' u='c' c='_ZN10tensorflow12_GLOBAL__N_126SparseTensorSliceDatasetOp11MakeDatasetEPNS_15OpKernelContextEPPNS_11DatasetBaseE'/>
+<use f='tensorflow/tensorflow/core/kernels/reduce_join_op.cc' l='133' u='c' c='_ZN10tensorflow12ReduceJoinOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/transpose_functor.h' l='90' u='c' c='_ZN10tensorflow8internal25ReduceTransposeDimensionsERKNS_11TensorShapeENS_3gtl10ArraySliceIiEEPNS4_13InlinedVectorIiLi8EEEPNS7_IxLi8EEE'/>
+<use f='tensorflow/tensorflow/core/kernels/transpose_functor.h' l='91' u='c' c='_ZN10tensorflow8internal25ReduceTransposeDimensionsERKNS_11TensorShapeENS_3gtl10ArraySliceIiEEPNS4_13InlinedVectorIiLi8EEEPNS7_IxLi8EEE'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops_common.cc' l='80' u='c' c='_ZN10tensorflow15ReductionHelper8SimplifyERKNS_6TensorES3_b'/>
+<use f='tensorflow/tensorflow/core/kernels/reverse_op.cc' l='250' u='c' c='_ZN10tensorflow11ReverseV2Op7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/roll_op.cc' l='255' u='c' c='_ZN10tensorflow6RollOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_internal.h' l='73' u='c' c='_ZN10tensorflow4sdca17ExampleStatisticsC1Ei'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_internal.h' l='73' u='c' c='_ZN10tensorflow4sdca17ExampleStatisticsC1Ei'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_cross_op.cc' l='481' u='c' c='_ZN10tensorflow13SparseCrossOp18ExtractFeatureDataERKNS_11OpInputListExPSt6vectorIS4_IxSaIxEESaIS6_EES9_'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='157' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='171' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='171' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='171' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='171' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='171' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='171' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='171' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='171' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>

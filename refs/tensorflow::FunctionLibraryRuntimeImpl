@@ -1,0 +1,61 @@
+<inh f='tensorflow/tensorflow/core/framework/function.h' l='415' c='tensorflow::FunctionLibraryRuntime'/>
+<def f='tensorflow/tensorflow/core/common_runtime/function.cc' l='140' ll='244'/>
+<size>312</size>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImplC1EPKNS_9DeviceMgrEPNS_3EnvEPNS_6DeviceEiPKNS_25FunctionLibraryDefinitionEPNS_6thread10ThreadPoolERKNS_16Op5390099'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImplD1Ev'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl11InstantiateERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl13ReleaseHandleEy'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl15GetFunctionBodyEy'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl12CreateKernelERKNS_7NodeDefEPPNS_8OpKernelE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl3RunERKNS_22FunctionLibraryRuntime7OptionsEyNS_3gtl10ArraySliceINS_6TensorEEEPSt6vectorIS7_SaIS7_EESt8funct5302468'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl3RunERKNS_22FunctionLibraryRuntime7OptionsEyPNS_18CallFrameInterfaceESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl10IsStatefulERKSs'/>
+<fun r='_ZNK10tensorflow26FunctionLibraryRuntimeImpl28GetFunctionLibraryDefinitionEv'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl6deviceEv'/>
+<fun r='_ZNK10tensorflow26FunctionLibraryRuntimeImpl10device_mgrEv'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl3envEv'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl17graph_def_versionEv'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl11DebugStringEy'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl5CloneEPSt10unique_ptrINS_25FunctionLibraryDefinitionESt14default_deleteIS2_EEPS1_INS_29ProcessFunctionLibr5423532'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::device_mgr_' o='64' t='const tensorflow::DeviceMgr *const'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::device_' o='128' t='tensorflow::Device *const'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::env_' o='192' t='tensorflow::Env *const'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::graph_def_version_' o='256' t='const int'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::base_lib_def_' o='320' t='const tensorflow::FunctionLibraryDefinition *const'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::optimizer_' o='384' t='tensorflow::GraphOptimizer'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::custom_kernel_creator_' o='704' t='const CustomKernelCreator'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::default_runner_' o='960' t='Executor::Args::Runner'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::device_name_' o='1216' t='const string'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::get_func_sig_' o='1280' t='std::function&lt;Status (const string &amp;, const OpDef **)&gt;'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::create_kernel_' o='1536' t='std::function&lt;Status (const NodeDef &amp;, OpKernel **)&gt;'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::mu_' o='1792' t='tensorflow::mutex'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::next_handle_' o='1920' t='int'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::items_' o='1984' t='std::unordered_map&lt;Handle, Item *&gt;'/>
+<mbr r='tensorflow::FunctionLibraryRuntimeImpl::parent_' o='2432' t='tensorflow::ProcessFunctionLibraryRuntime *'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl12CreateKernelERKNS_7NodeDefEPKNS_25FunctionLibraryDefinitionEPPNS_8OpKernelE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl17FunctionDefToBodyERKNS_11FunctionDefENS_9AttrSliceEPKNS_25FunctionLibraryDefinitionEPPNS_12FunctionBodyE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl10CreateItemEyPPNS0_4ItemE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl15GetOrCreateItemEyPPNS0_4ItemE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl27InstantiateSymbolicGradientERKNS_12NameAttrListEPKNS_25FunctionLibraryDefinitionEPPNS_12FunctionBodyE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl13IsLocalTargetERKNS_22FunctionLibraryRuntime18InstantiateOptionsE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl8FixAttrsERKNS_9AttrSliceE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl9RunRemoteERKNS_22FunctionLibraryRuntime7OptionsEyNS_3gtl10ArraySliceINS_6TensorEEEPSt6vectorIS7_SaIS7_EEPN10516260'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImplC1ERKS0_'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImplC1EPKNS_9DeviceMgrEPNS_3EnvEPNS_6DeviceEiPKNS_25FunctionLibraryDefinitionEPNS_6thread10ThreadPoolERKNS_16Op5390099'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImplD1Ev'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl15GetFunctionBodyEy'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl12CreateKernelERKNS_7NodeDefEPPNS_8OpKernelE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl12CreateKernelERKNS_7NodeDefEPKNS_25FunctionLibraryDefinitionEPPNS_8OpKernelE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl17FunctionDefToBodyERKNS_11FunctionDefENS_9AttrSliceEPKNS_25FunctionLibraryDefinitionEPPNS_12FunctionBodyE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl27InstantiateSymbolicGradientERKNS_12NameAttrListEPKNS_25FunctionLibraryDefinitionEPPNS_12FunctionBodyE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl13IsLocalTargetERKNS_22FunctionLibraryRuntime18InstantiateOptionsE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl11InstantiateERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl13ReleaseHandleEy'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl10CreateItemEyPPNS0_4ItemE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl15GetOrCreateItemEyPPNS0_4ItemE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl9RunRemoteERKNS_22FunctionLibraryRuntime7OptionsEyNS_3gtl10ArraySliceINS_6TensorEEEPSt6vectorIS7_SaIS7_EEPN10516260'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl3RunERKNS_22FunctionLibraryRuntime7OptionsEyNS_3gtl10ArraySliceINS_6TensorEEEPSt6vectorIS7_SaIS7_EESt8funct5302468'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl3RunERKNS_22FunctionLibraryRuntime7OptionsEyPNS_18CallFrameInterfaceESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl10IsStatefulERKSs'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl11DebugStringEy'/>
+<fun r='_ZN10tensorflow26FunctionLibraryRuntimeImpl5CloneEPSt10unique_ptrINS_25FunctionLibraryDefinitionESt14default_deleteIS2_EEPS1_INS_29ProcessFunctionLibr5423532'/>

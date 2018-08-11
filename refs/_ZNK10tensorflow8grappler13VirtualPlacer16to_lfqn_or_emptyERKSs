@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/grappler/costs/virtual_placer.h' l='45' type='string tensorflow::grappler::VirtualPlacer::to_lfqn_or_empty(const string &amp; device_name) const'/>
+<doc f='tensorflow/tensorflow/core/grappler/costs/virtual_placer.h' l='42'>// Converts given device name to Lowercase Fully-Qualified Name (LFQN) string.
+  // This helps us disambiguate device names internally and simplify matching.
+  // If device_name couldn&apos;t be parsed successfully, returns empty string.</doc>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_placer.cc' l='36' u='c' c='_ZN10tensorflow8grappler13VirtualPlacerC1EPKNS0_7ClusterE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_placer.cc' l='129' u='c' c='_ZNK10tensorflow8grappler13VirtualPlacer25get_canonical_device_nameERKNS_7NodeDefE'/>
+<def f='tensorflow/tensorflow/core/grappler/costs/virtual_placer.cc' l='142' ll='173' type='string tensorflow::grappler::VirtualPlacer::to_lfqn_or_empty(const string &amp; device_name) const'/>

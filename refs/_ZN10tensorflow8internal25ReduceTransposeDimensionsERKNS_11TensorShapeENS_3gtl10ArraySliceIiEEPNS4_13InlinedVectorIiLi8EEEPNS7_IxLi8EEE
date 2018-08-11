@@ -1,0 +1,6 @@
+<def f='tensorflow/tensorflow/core/kernels/transpose_functor.h' l='78' ll='122' type='void tensorflow::internal::ReduceTransposeDimensions(const tensorflow::TensorShape &amp; shape, gtl::ArraySlice&lt;int32&gt; perm, TransposePermsVec * new_perm, TransposeDimsVec * new_dims)'/>
+<doc f='tensorflow/tensorflow/core/kernels/transpose_functor.h' l='73'>// Helper function that takes a tensor shape, a permutation, combines the
+// neighboring shapes if their indices in the permutation are consecutive.
+// The function outputs the combined shape and new permutation.
+// Example: Tensor shape {2, 3, 4, 5, 120} and permutation {0, 4, 1, 2, 3} will
+// produce new shape {2, 60, 120} and new permutation {0, 2, 1}.</doc>

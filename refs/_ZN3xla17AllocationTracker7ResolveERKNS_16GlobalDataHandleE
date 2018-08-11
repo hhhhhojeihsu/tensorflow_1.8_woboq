@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.h' l='67' type='StatusOr&lt;std::vector&lt;const ShapedBuffer *&gt; &gt; xla::AllocationTracker::Resolve(const xla::GlobalDataHandle &amp; data)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.h' l='64'>// Resolve a handle from an XLA client to a vector of shaped buffers, one per
+  // replica, or provide an error status to say whether any of those buffers
+  // were not found (or found, but found deallocated).</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.cc' l='166' ll='170' type='StatusOr&lt;std::vector&lt;const ShapedBuffer *&gt; &gt; xla::AllocationTracker::Resolve(const xla::GlobalDataHandle &amp; data)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='244' u='c' c='_ZN3xla7Service27ResolveAndValidateArgumentsEN10tensorflow3gtl10ArraySliceIPKNS_16GlobalDataHandleEEENS3_IPN9perftools8gputools14StreamExecutorEEE'/>

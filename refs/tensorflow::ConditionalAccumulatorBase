@@ -1,0 +1,51 @@
+<inh f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='76' c='tensorflow::ResourceBase'/>
+<def f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base.h' l='47' ll='157'/>
+<size>168</size>
+<doc f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base.h' l='29'>/**
+ * ConditionalAccumulator/ConditionalAccumulatorBase implements an aggregation
+ * object for adding gradients.
+ * The two main methods of this class are TryApplyGrad and TryTakeGrad.
+ *
+ * TryApplyGrad tries add a gradient to the accumulator. The attempt is
+ * successful if local_step &gt;= global_step, i.e., if the gradient is not stale,
+ * having been computed using up-to-date information. Otherwise, the gradient is
+ * silently dropped.
+ *
+ * TryTakeGrad logs an attempt to read the average gradient. The attempt is
+ * blocked until the number of gradients accumulated (via TryApplyGrad) is equal
+ * or exceeds the number requested by TryTakeGrad.
+ * Once this condition is satisfied, the following actions are taken:
+ * (1) the value of the average gradient is returned
+ * (2) the count of accumulated gradients is reset to 0
+ * (3) the internal global_step value (current_global_step_) is incremented by 1
+ */</doc>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBaseC1ERKNS_8DataTypeERKNS_18PartialTensorShapeERKSs'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase12TryApplyGradExPNS_15OpKernelContextE'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase11TryTakeGradEiPNS_15OpKernelContextESt8functionIFvvEE'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase15num_accumulatedEv'/>
+<fun r='_ZNK10tensorflow26ConditionalAccumulatorBase5dtypeEv'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase11DebugStringEv'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase13SetGlobalStepEx'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase14MatchesNodeDefERKNS_7NodeDefE'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase24DivideAccumGradByCounterEPNS_15OpKernelContextE'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase9SetOutputEPNS_15OpKernelContextE'/>
+<mbr r='tensorflow::ConditionalAccumulatorBase::dtype_' o='128' t='const tensorflow::DataType'/>
+<mbr r='tensorflow::ConditionalAccumulatorBase::shape_' o='192' t='const tensorflow::PartialTensorShape'/>
+<mbr r='tensorflow::ConditionalAccumulatorBase::name_' o='384' t='const string'/>
+<mbr r='tensorflow::ConditionalAccumulatorBase::mu_' o='448' t='tensorflow::mutex'/>
+<mbr r='tensorflow::ConditionalAccumulatorBase::counter_' o='576' t='int'/>
+<mbr r='tensorflow::ConditionalAccumulatorBase::current_global_step_' o='640' t='int64'/>
+<mbr r='tensorflow::ConditionalAccumulatorBase::takegrad_attempts_' o='704' t='std::deque&lt;Attempt&gt;'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase6CancelEPNS_19CancellationManagerEx'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase13FlushUnlockedEv'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase16TryAttemptLockedEPSt6vectorINS0_7CleanUpESaIS2_EE'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase20TakeGradLockedHelperEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBaseC1ERKNS_8DataTypeERKNS_18PartialTensorShapeERKSs'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase14MatchesNodeDefERKNS_7NodeDefE'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase13SetGlobalStepEx'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase11TryTakeGradEiPNS_15OpKernelContextESt8functionIFvvEE'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase6CancelEPNS_19CancellationManagerEx'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase16TryAttemptLockedEPSt6vectorINS0_7CleanUpESaIS2_EE'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase13FlushUnlockedEv'/>
+<fun r='_ZN10tensorflow26ConditionalAccumulatorBase20TakeGradLockedHelperEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/typed_conditional_accumulator_base.h' l='34' c='tensorflow::TypedConditionalAccumulatorBase'/>

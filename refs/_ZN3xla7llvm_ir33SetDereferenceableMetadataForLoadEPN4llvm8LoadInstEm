@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='241' type='void xla::llvm_ir::SetDereferenceableMetadataForLoad(llvm::LoadInst * load, uint64_t dereferenceable_bytes)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='238'>// Adds dereferenceable metadata to a load instruction using the given
+// the number of dereferenceable bytes.
+// Dereferenceable refers to the result of the load, not the load itself.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='296' u='c' c='_ZN3xla3cpu9IrEmitter36AttachDereferenceableMetadataForLoadEPN4llvm8LoadInstEx'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='510' ll='521' type='void xla::llvm_ir::SetDereferenceableMetadataForLoad(llvm::LoadInst * load, uint64_t dereferenceable_bytes)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/tuple_ops.cc' l='97' u='c' c='_ZN3xla7llvm_ir19EmitGetTupleElementERKNS_5ShapeExiPN4llvm5ValueEPNS4_9IRBuilderINS4_14ConstantFolderENS4_24IRBuilderDefaultInserterEEEPNS4_6ModuleE'/>

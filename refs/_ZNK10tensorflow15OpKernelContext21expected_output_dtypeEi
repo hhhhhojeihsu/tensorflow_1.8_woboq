@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='600' type='tensorflow::DataType tensorflow::OpKernelContext::expected_output_dtype(int index) const'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1353' ll='1357' type='tensorflow::DataType tensorflow::OpKernelContext::expected_output_dtype(int index) const'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1502' u='c' c='_ZNK10tensorflow12OpOutputList21expected_output_dtypeEi'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='265' u='c' c='_ZN10tensorflow19XlaCompilationCache11CompileImplERKNS_11XlaCompiler7OptionsERKNS_12NameAttrListERKSt3mapIiNS_6TensorESt4lessIiESaISt4pairIKiS9_EEERKS262968'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='239' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext15PopulateOutputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultESt10unique_ptrIN3xla18Scoped494850'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='132' u='c' c='_ZNK10tensorflow18XlaOpKernelContext21expected_output_dtypeEi'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='636' u='c' c='_ZN10tensorflow11XlaCompiler15CompileSingleOpERKNS0_14CompileOptionsERKSsPNS_15OpKernelContextERKSt6vectorINS0_8ArgumentESaIS9_EEPNS0_17CompilationResultE'/>
+<use f='tensorflow/tensorflow/core/framework/resource_op_kernel.h' l='97' u='c' c='_ZN10tensorflow16ResourceOpKernel7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='423' u='c' c='_ZN10tensorflow15OpKernelContext34forward_input_to_output_with_shapeEiiRKNS_11TensorShapeEPPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.h' l='85' u='c' c='_ZN10tensorflow13LookupTableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops_common.h' l='179' u='c' c='_ZN10tensorflow11ReductionOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/save_restore_tensor.cc' l='180' u='c' c='_ZN10tensorflow13RestoreTensorEPNS_15OpKernelContextESt8functionIFNS_6StatusERKSsPPNS_10checkpoint17TensorSliceReader5TableEEEibi'/>
+<use f='tensorflow/tensorflow/core/kernels/save_restore_tensor.cc' l='182' u='c' c='_ZN10tensorflow13RestoreTensorEPNS_15OpKernelContextESt8functionIFNS_6StatusERKSsPPNS_10checkpoint17TensorSliceReader5TableEEEibi'/>
+<use f='tensorflow/tensorflow/core/kernels/session_ops.cc' l='51' u='c' c='_ZN10tensorflow18GetSessionHandleOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/stack_ops.cc' l='202' u='c' c='_ZN10tensorflow7StackOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/tensor_array_ops.cc' l='122' u='c' c='_ZN10tensorflow21TensorArrayCreationOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/tensor_array_ops.cc' l='125' u='c' c='_ZN10tensorflow21TensorArrayCreationOp7ComputeEPNS_15OpKernelContextE'/>

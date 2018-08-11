@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='213' ll='216' type='void tensorflow::TensorShapeBase::RemoveLastDims(int n)'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='211'>/// \brief Removes last `n` dimensions from the `TensorShape`.
+  /// REQUIRES: `0 &lt;= n &lt;= dims()`</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/gather_op.cc' l='42' u='c' c='_ZN10tensorflow9XlaGatherERKN3xla21ComputationDataHandleERKNS_11TensorShapeES3_S4_xbNS_8DataTypeES7_PNS0_18ComputationBuilderEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_band_part_op.cc' l='55' u='c' c='_ZN10tensorflow12_GLOBAL__N_116MatrixBandPartOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_set_diag_op.cc' l='46' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/gather_nd_op.cc' l='127' u='c' c='_ZN10tensorflow7functor10DoGatherNdEPNS_15OpKernelContextERKNS_6TensorES5_PS3_'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='476' u='c' c='_ZN10tensorflow6lookup21MutableDenseHashTable32CheckKeyAndValueTensorsForImportERKNS_6TensorES4_'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='670' u='c' c='_ZN10tensorflow17LookupTableFindOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/matrix_set_diag_op.cc' l='66' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7ComputeEPNS_15OpKernelContextE'/>

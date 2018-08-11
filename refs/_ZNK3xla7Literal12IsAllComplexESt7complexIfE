@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='641' type='bool xla::Literal::IsAllComplex(complex64 value) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='630'>// Like IsAll(const Literal&amp;, int8), except we check whether the literal is
+  // equal to a particular complex number.
+  //
+  // If the literal is not a complex value, this always returns false.
+  //
+  // This casts value to the type of literal, then compares using ==.  The usual
+  // admonishments about floating-point equality checks apply.  We expect you to
+  // use this to check for complex values that can be expressed precisely as
+  // float pairs e.g. (-0.5, 1.0).
+  //
+  // This literal must have a dense layout.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1762' ll='1770' type='bool xla::Literal::IsAllComplex(complex64 value) const'/>

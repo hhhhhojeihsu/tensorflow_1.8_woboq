@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/core/kernels/batching_util/batch_scheduler.h' l='159' type='tensorflow::Status tensorflow::serving::BatchScheduler::Schedule(std::unique_ptr&lt;TaskType&gt; * task)'/>
+<use f='tensorflow/tensorflow/core/kernels/batch_kernels.cc' l='263' u='c' c='_ZN10tensorflow13BatchResource13RegisterInputExPNS_15OpKernelContextERKSsSt8functionIFvvEE'/>
+<doc f='tensorflow/tensorflow/core/kernels/batching_util/batch_scheduler.h' l='141'>// Submits a task to be processed as part of a batch.
+  //
+  // Ownership of &apos;*task&apos; is transferred to the callee iff the method returns
+  // Status::OK. In that case, &apos;*task&apos; is left as nullptr. Otherwise, &apos;*task&apos; is
+  // left as-is.
+  //
+  // If no batch processing capacity is available to process this task at the
+  // present time, and any task queue maintained by the implementing subclass is
+  // full, this method returns an UNAVAILABLE error code. The client may retry
+  // later.
+  //
+  // Other problems, such as the task size being larger than the maximum batch
+  // size, yield other, permanent error types.
+  //
+  // In all cases, this method returns &quot;quickly&quot; without blocking for any
+  // substantial amount of time. If the method returns Status::OK, the task is
+  // processed asynchronously, and any errors that occur during the processing
+  // of the batch that includes the task can be reported to &apos;task&apos;.</doc>

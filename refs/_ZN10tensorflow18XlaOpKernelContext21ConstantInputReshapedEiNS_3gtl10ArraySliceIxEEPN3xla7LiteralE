@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='104' type='tensorflow::Status tensorflow::XlaOpKernelContext::ConstantInputReshaped(int index, gtl::ArraySlice&lt;int64&gt; new_shape, xla::Literal * constant_literal)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='99'>// Evaluates input &apos;index&apos;, reshapes it to &apos;new_shape&apos; if new_shape !=
+  // InputShape(index), and stores it in &apos;*constant_literal&apos;. If the input
+  // cannot be evaluated, e.g., because it depends on unbound parameters,
+  // returns a non-Ok status. If InputShape(index).num_elements() !=
+  // new_shape.num_elements(), returns an error status.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/fill_op.cc' l='47' u='c' c='_ZN10tensorflow12_GLOBAL__N_16FillOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/mirror_pad_op.cc' l='77' u='c' c='_ZN10tensorflow12_GLOBAL__N_111MirrorPadOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pad_op.cc' l='58' u='c' c='_ZN10tensorflow12_GLOBAL__N_15PadOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reduction_ops_common.cc' l='61' u='c' c='_ZN10tensorflow14XlaReductionOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reverse_op.cc' l='53' u='c' c='_ZN10tensorflow12_GLOBAL__N_19ReverseOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/shape_op.cc' l='122' u='c' c='_ZN10tensorflow12_GLOBAL__N_112ExpandDimsOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/transpose_op.cc' l='54' u='c' c='_ZN10tensorflow12_GLOBAL__N_111TransposeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='74' u='c' c='_ZN10tensorflow18XlaOpKernelContext13ConstantInputEiPN3xla7LiteralE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='78' ll='155' type='tensorflow::Status tensorflow::XlaOpKernelContext::ConstantInputReshaped(int index, gtl::ArraySlice&lt;int64&gt; new_dims, xla::Literal * constant_literal)'/>

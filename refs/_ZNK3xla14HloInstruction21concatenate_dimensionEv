@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='707' type='int64 xla::HloInstruction::concatenate_dimension() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='705'>// Accessor for the dimension in which a concatenate HLO should occur.
+  // Precondition: opcode() == HloOpcode::kConcatenate</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='480' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='814' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor25OptimizeDotOfConcatHelperERKNS_5ShapeEPNS_14HloInstructionExS5_xb'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1625' ll='1629' type='int64 xla::HloInstruction::concatenate_dimension() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='48' u='c' c='_ZN3xla13ShapeVerifier17HandleConcatenateEPNS_14HloInstructionE'/>

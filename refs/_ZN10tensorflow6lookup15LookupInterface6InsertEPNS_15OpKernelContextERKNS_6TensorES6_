@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/framework/lookup_interface.h' l='64' type='tensorflow::Status tensorflow::lookup::LookupInterface::Insert(tensorflow::OpKernelContext * ctx, const tensorflow::Tensor &amp; keys, const tensorflow::Tensor &amp; values)'/>
+<doc f='tensorflow/tensorflow/core/framework/lookup_interface.h' l='53'>// Inserts elements into the table. Each element of the key tensor is
+  // associated with the corresponding element in the value tensor.
+  // This method is only implemented in mutable tables that can be updated over
+  // the execution of the graph. It returns Status::NotImplemented for read-only
+  // tables that are initialized once before they can be looked up.
+
+  // Returns the following statuses:
+  // - OK: when the insert finishes successfully.
+  // - InvalidArgument: if any of the preconditions on the lookup key or value
+  //   fails.
+  // - Unimplemented: if the table does not support insertions.</doc>
+<ovr f='tensorflow/tensorflow/core/kernels/initializable_lookup_table.h' l='48' c='_ZN10tensorflow6lookup24InitializableLookupTable6InsertEPNS_15OpKernelContextERKNS_6TensorES6_'/>
+<ovr f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='87' c='_ZN10tensorflow6lookup25MutableHashTableOfScalars6InsertEPNS_15OpKernelContextERKNS_6TensorES6_'/>
+<ovr f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='211' c='_ZN10tensorflow6lookup25MutableHashTableOfTensors6InsertEPNS_15OpKernelContextERKNS_6TensorES6_'/>
+<ovr f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='404' c='_ZN10tensorflow6lookup21MutableDenseHashTable6InsertEPNS_15OpKernelContextERKNS_6TensorES6_'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='708' u='c' c='_ZN10tensorflow19LookupTableInsertOp7ComputeEPNS_15OpKernelContextE'/>

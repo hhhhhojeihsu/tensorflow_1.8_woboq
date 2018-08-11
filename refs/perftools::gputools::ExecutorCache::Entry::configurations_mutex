@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/stream_executor/executor_cache.h' l='62' type='tensorflow::mutex'/>
+<use f='tensorflow/tensorflow/stream_executor/executor_cache.h' l='67'/>
+<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='45' u='a' c='_ZN9perftools8gputools13ExecutorCache11GetOrCreateERKNS0_20StreamExecutorConfigERKSt8functionIFNS0_4port8StatusOrISt10unique_ptrINS0_14StreamExecutorE10549996'/>
+<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='80' u='a' c='_ZN9perftools8gputools13ExecutorCache3GetERKNS0_20StreamExecutorConfigE'/>
+<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='103' u='a' c='_ZN9perftools8gputools13ExecutorCache5EntryD1Ev'/>
+<offset>0</offset>
+<doc f='tensorflow/tensorflow/stream_executor/executor_cache.h' l='58'>// Mutex that locks the contents of each entry. The &apos;mutex_&apos; of the
+    // ExecutorCache class protects both the &apos;cache_&apos; and the existence of each
+    // Entry, but not the Entry&apos;s contents. &apos;configurations_mutex&apos; protects the
+    // contents of the entry after &apos;mutex_&apos; has been dropped.</doc>

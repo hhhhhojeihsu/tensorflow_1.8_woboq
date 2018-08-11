@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='264' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateDot(const xla::Shape &amp; shape, xla::HloInstruction * lhs, xla::HloInstruction * rhs, const xla::DotDimensionNumbers &amp; dimension_numbers)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='262'>// Creates a dot op with operands &apos;lhs&apos; and &apos;rhs&apos; with contracting and batch
+  // dimensions specified in &apos;dimension_numbers&apos;.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='909' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor25OptimizeDotOfConcatHelperERKNS_5ShapeEPNS_14HloInstructionExS5_xb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='967' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9HandleDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='2041' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/dot_decomposer.cc' l='137' u='c' c='_ZN3xla12_GLOBAL__N_117DecomposeBatchDotEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='362' ll='371' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateDot(const xla::Shape &amp; shape, xla::HloInstruction * lhs, xla::HloInstruction * rhs, const xla::DotDimensionNumbers &amp; dimension_numbers)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1324' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='362'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2993' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

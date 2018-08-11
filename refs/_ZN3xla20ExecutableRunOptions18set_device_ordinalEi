@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/executable_run_options.h' l='58' type='xla::ExecutableRunOptions &amp; xla::ExecutableRunOptions::set_device_ordinal(int device_ordinal)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/executable_run_options.h' l='53'>// If set, this is the device to run the computation on. Valid device_ordinal
+  // values are: 0 to # of devices - 1. These values are identical to the device
+  // ordinal values used by StreamExecutor. The device must be of the same type
+  // as the executable was compiled for. A value of -1 indicates this option has
+  // not been set.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/executable_run_options.cc' l='20' ll='24' type='xla::ExecutableRunOptions &amp; xla::ExecutableRunOptions::set_device_ordinal(int device_ordinal)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='698' u='c' c='_ZN3xla7Service24ExecuteAndRegisterResultEPNS_10ExecutableEN10tensorflow3gtl10ArraySliceISt6vectorIPKNS_12ShapedBufferESaIS9_EEEEPNS_7BackendERKSsPNS_16ExecutionProfileE'/>

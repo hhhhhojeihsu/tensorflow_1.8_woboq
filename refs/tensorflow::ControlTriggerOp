@@ -1,0 +1,10 @@
+<inh f='tensorflow/tensorflow/core/framework/op_kernel.h' l='74' c='tensorflow::OpKernel'/>
+<def f='tensorflow/tensorflow/core/kernels/control_flow_ops.h' l='27' ll='33'/>
+<size>288</size>
+<doc f='tensorflow/tensorflow/core/kernels/control_flow_ops.h' l='23'>// A ControlTriggerOp is similar to a NoOp. However, it always treats the input
+// control edges as Live edges. Its primary use so far is in the scheduling of
+// recvs, where we add ControlTrigger nodes and use them to trigger recvs. We
+// allow ControlTrigger nodes to be enabled by dead nodes.</doc>
+<fun r='_ZN10tensorflow16ControlTriggerOpC1EPNS_20OpKernelConstructionE'/>
+<fun r='_ZN10tensorflow16ControlTriggerOp7ComputeEPNS_15OpKernelContextE'/>
+<fun r='_ZN10tensorflow16ControlTriggerOp11IsExpensiveEv'/>

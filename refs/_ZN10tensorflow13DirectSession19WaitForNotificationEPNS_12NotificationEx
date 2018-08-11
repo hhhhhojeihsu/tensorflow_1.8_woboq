@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='272' type='::tensorflow::Status tensorflow::DirectSession::WaitForNotification(tensorflow::Notification * n, int64 timeout_in_ms)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1565' u='c' c='_ZN10tensorflow13DirectSession19WaitForNotificationEPNS0_8RunStateEPNS_19CancellationManagerEx'/>
+<def f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1579' ll='1593' type='::tensorflow::Status tensorflow::DirectSession::WaitForNotification(tensorflow::Notification * notification, int64 timeout_in_ms)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='268'>// Use the appropriate WaitForNotification function based on whether
+  // operation_timeout_in_ms is greater than 0.
+  //
+  // If the timeout expires, the `cm-&gt;StartCancel()` will be called.</doc>

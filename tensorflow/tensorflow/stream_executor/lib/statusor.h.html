@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>statusor.h source code [tensorflow/tensorflow/stream_executor/lib/statusor.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="perftools::gputools::port::StatusOr "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/stream_executor/lib/statusor.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>stream_executor</a>/<a href='./'>lib</a>/<a href='statusor.h.html'>statusor.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// IWYU pragma: private, include "perftools/gputools/executor/stream_executor.h"</i></td></tr>
+<tr><th id="17">17</th><td><i>//</i></td></tr>
+<tr><th id="18">18</th><td><i>// StatusOr&lt;T&gt; is the union of a Status object and a T</i></td></tr>
+<tr><th id="19">19</th><td><i>// object. StatusOr models the concept of an object that is either a</i></td></tr>
+<tr><th id="20">20</th><td><i>// usable value, or an error Status explaining why such a value is</i></td></tr>
+<tr><th id="21">21</th><td><i>// not present. To this end, StatusOr&lt;T&gt; does not allow its Status</i></td></tr>
+<tr><th id="22">22</th><td><i>// value to be Status::OK. Further, StatusOr&lt;T*&gt; does not allow the</i></td></tr>
+<tr><th id="23">23</th><td><i>// contained pointer to be NULL.</i></td></tr>
+<tr><th id="24">24</th><td><i>//</i></td></tr>
+<tr><th id="25">25</th><td><i>// The primary use-case for StatusOr&lt;T&gt; is as the return value of a</i></td></tr>
+<tr><th id="26">26</th><td><i>// function which may fail.</i></td></tr>
+<tr><th id="27">27</th><td><i>//</i></td></tr>
+<tr><th id="28">28</th><td><i>// Example client usage for a StatusOr&lt;T&gt;, where T is not a pointer:</i></td></tr>
+<tr><th id="29">29</th><td><i>//</i></td></tr>
+<tr><th id="30">30</th><td><i>//  StatusOr&lt;float&gt; result = DoBigCalculationThatCouldFail();</i></td></tr>
+<tr><th id="31">31</th><td><i>//  if (result.ok()) {</i></td></tr>
+<tr><th id="32">32</th><td><i>//    float answer = result.ValueOrDie();</i></td></tr>
+<tr><th id="33">33</th><td><i>//    printf("Big calculation yielded: %f", answer);</i></td></tr>
+<tr><th id="34">34</th><td><i>//  } else {</i></td></tr>
+<tr><th id="35">35</th><td><i>//    LOG(ERROR) &lt;&lt; result.status();</i></td></tr>
+<tr><th id="36">36</th><td><i>//  }</i></td></tr>
+<tr><th id="37">37</th><td><i>//</i></td></tr>
+<tr><th id="38">38</th><td><i>// Example client usage for a StatusOr&lt;T*&gt;:</i></td></tr>
+<tr><th id="39">39</th><td><i>//</i></td></tr>
+<tr><th id="40">40</th><td><i>//  StatusOr&lt;Foo*&gt; result = FooFactory::MakeNewFoo(arg);</i></td></tr>
+<tr><th id="41">41</th><td><i>//  if (result.ok()) {</i></td></tr>
+<tr><th id="42">42</th><td><i>//    std::unique_ptr&lt;Foo&gt; foo(result.ValueOrDie());</i></td></tr>
+<tr><th id="43">43</th><td><i>//    foo-&gt;DoSomethingCool();</i></td></tr>
+<tr><th id="44">44</th><td><i>//  } else {</i></td></tr>
+<tr><th id="45">45</th><td><i>//    LOG(ERROR) &lt;&lt; result.status();</i></td></tr>
+<tr><th id="46">46</th><td><i>//  }</i></td></tr>
+<tr><th id="47">47</th><td><i>//</i></td></tr>
+<tr><th id="48">48</th><td><i>// Example client usage for a StatusOr&lt;std::unique_ptr&lt;T&gt;&gt;:</i></td></tr>
+<tr><th id="49">49</th><td><i>//</i></td></tr>
+<tr><th id="50">50</th><td><i>//  StatusOr&lt;std::unique_ptr&lt;Foo&gt;&gt; result = FooFactory::MakeNewFoo(arg);</i></td></tr>
+<tr><th id="51">51</th><td><i>//  if (result.ok()) {</i></td></tr>
+<tr><th id="52">52</th><td><i>//    std::unique_ptr&lt;Foo&gt; foo = std::move(result.ValueOrDie());</i></td></tr>
+<tr><th id="53">53</th><td><i>//    foo-&gt;DoSomethingCool();</i></td></tr>
+<tr><th id="54">54</th><td><i>//  } else {</i></td></tr>
+<tr><th id="55">55</th><td><i>//    LOG(ERROR) &lt;&lt; result.status();</i></td></tr>
+<tr><th id="56">56</th><td><i>//  }</i></td></tr>
+<tr><th id="57">57</th><td><i>//</i></td></tr>
+<tr><th id="58">58</th><td><i>// Example factory implementation returning StatusOr&lt;T*&gt;:</i></td></tr>
+<tr><th id="59">59</th><td><i>//</i></td></tr>
+<tr><th id="60">60</th><td><i>//  StatusOr&lt;Foo*&gt; FooFactory::MakeNewFoo(int arg) {</i></td></tr>
+<tr><th id="61">61</th><td><i>//    if (arg &lt;= 0) {</i></td></tr>
+<tr><th id="62">62</th><td><i>//      return Status(port::error::INVALID_ARGUMENT,</i></td></tr>
+<tr><th id="63">63</th><td><i>//                            "Arg must be positive");</i></td></tr>
+<tr><th id="64">64</th><td><i>//    } else {</i></td></tr>
+<tr><th id="65">65</th><td><i>//      return new Foo(arg);</i></td></tr>
+<tr><th id="66">66</th><td><i>//    }</i></td></tr>
+<tr><th id="67">67</th><td><i>//  }</i></td></tr>
+<tr><th id="68">68</th><td><i>//</i></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><u>#<span data-ppcond="70">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_LIB_STATUSOR_H_">TENSORFLOW_STREAM_EXECUTOR_LIB_STATUSOR_H_</span></u></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_STREAM_EXECUTOR_LIB_STATUSOR_H_" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_LIB_STATUSOR_H_">TENSORFLOW_STREAM_EXECUTOR_LIB_STATUSOR_H_</dfn></u></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><u>#include <a href="../../../../include/c++/5/new.html">&lt;new&gt;</a></u></td></tr>
+<tr><th id="74">74</th><td><u>#include <a href="../platform/port.h.html">"tensorflow/stream_executor/platform/port.h"</a></u></td></tr>
+<tr><th id="75">75</th><td><u>#include <a href="../../../../include/c++/5/type_traits.html">&lt;type_traits&gt;</a></u></td></tr>
+<tr><th id="76">76</th><td><u>#include <a href="../../../../include/c++/5/utility.html">&lt;utility&gt;</a></u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><u>#include <a href="error.h.html">"tensorflow/stream_executor/lib/error.h"</a></u></td></tr>
+<tr><th id="79">79</th><td><u>#include <a href="status.h.html">"tensorflow/stream_executor/lib/status.h"</a></u></td></tr>
+<tr><th id="80">80</th><td><u>#include <a href="../platform/logging.h.html">"tensorflow/stream_executor/platform/logging.h"</a></u></td></tr>
+<tr><th id="81">81</th><td><u>#include <a href="../platform/port.h.html">"tensorflow/stream_executor/platform/port.h"</a></u></td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><b>namespace</b> <span class="namespace">perftools</span> {</td></tr>
+<tr><th id="84">84</th><td><b>namespace</b> <span class="namespace">gputools</span> {</td></tr>
+<tr><th id="85">85</th><td><b>namespace</b> <span class="namespace">port</span> {</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><b>template</b>&lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="88">88</th><td><b>class</b> <dfn class="type def" id="perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</dfn> {</td></tr>
+<tr><th id="89">89</th><td>  <b>template</b>&lt;<b>typename</b> U&gt; <b>friend</b> <b>class</b> <a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>;</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td> <b>public</b>:</td></tr>
+<tr><th id="92">92</th><td>  <i>// Construct a new StatusOr with Status::UNKNOWN status</i></td></tr>
+<tr><th id="93">93</th><td>  <dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOrC1Ev" title='perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;' data-ref="_ZN9perftools8gputools4port8StatusOrC1Ev">StatusOr</dfn>() : <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a><a class="ref" href="../../core/lib/core/status.h.html#_ZN10tensorflow6StatusC1ENS_5error4CodeENS_11StringPieceE" title='tensorflow::Status::Status' data-ref="_ZN10tensorflow6StatusC1ENS_5error4CodeENS_11StringPieceE">(</a><span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::UNKNOWN' data-ref="tensorflow::error::Code::UNKNOWN">UNKNOWN</span>, <a class="ref fake" href="../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>""</q>) {}</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>  <i>// Construct a new StatusOr with the given non-ok status. After calling</i></td></tr>
+<tr><th id="96">96</th><td><i>  // this constructor, calls to ValueOrDie() is invalid.</i></td></tr>
+<tr><th id="97">97</th><td><i>  //</i></td></tr>
+<tr><th id="98">98</th><td><i>  // NOTE: Not explicit - we want to use StatusOr&lt;T&gt; as a return</i></td></tr>
+<tr><th id="99">99</th><td><i>  // value, so it is convenient and sensible to be able to do 'return</i></td></tr>
+<tr><th id="100">100</th><td><i>  // Status()' when the return type is StatusOr&lt;T&gt;.</i></td></tr>
+<tr><th id="101">101</th><td><i>  //</i></td></tr>
+<tr><th id="102">102</th><td><i>  // REQUIRES: status != Status::OK.</i></td></tr>
+<tr><th id="103">103</th><td><i>  // In optimized builds, passing Status::OK here will have the effect</i></td></tr>
+<tr><th id="104">104</th><td><i>  // of passing PosixErrorSpace::EINVAL as a fallback.</i></td></tr>
+<tr><th id="105">105</th><td>  <a class="decl" href="#_ZN9perftools8gputools4port8StatusOrC1ERKN10tensorflow6StatusE" title='perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;' data-ref="_ZN9perftools8gputools4port8StatusOrC1ERKN10tensorflow6StatusE">StatusOr</a>(<em>const</em> <a class="typedef" href="status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a>&amp; <dfn class="local col2 decl" id="1722status" title='status' data-type='const Status &amp;' data-ref="1722status">status</dfn>);  <i>// NOLINT</i></td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>  <i>// Construct a new StatusOr with the given value. If T is a plain pointer,</i></td></tr>
+<tr><th id="108">108</th><td><i>  // value must not be NULL. After calling this constructor, calls to</i></td></tr>
+<tr><th id="109">109</th><td><i>  // ValueOrDie() will succeed, and calls to status() will return OK.</i></td></tr>
+<tr><th id="110">110</th><td><i>  //</i></td></tr>
+<tr><th id="111">111</th><td><i>  // NOTE: Not explicit - we want to use StatusOr&lt;T&gt; as a return type</i></td></tr>
+<tr><th id="112">112</th><td><i>  // so it is convenient and sensible to be able to do 'return T()'</i></td></tr>
+<tr><th id="113">113</th><td><i>  // when the return type is StatusOr&lt;T&gt;.</i></td></tr>
+<tr><th id="114">114</th><td><i>  //</i></td></tr>
+<tr><th id="115">115</th><td><i>  // REQUIRES: if T is a plain pointer, value != NULL.</i></td></tr>
+<tr><th id="116">116</th><td><i>  // In optimized builds, passing a NULL pointer here will have</i></td></tr>
+<tr><th id="117">117</th><td><i>  // the effect of passing PosixErrorSpace::EINVAL as a fallback.</i></td></tr>
+<tr><th id="118">118</th><td>  <a class="decl" href="#_ZN9perftools8gputools4port8StatusOrC1ERKT_" title='perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;' data-ref="_ZN9perftools8gputools4port8StatusOrC1ERKT_">StatusOr</a>(<em>const</em> T&amp; <dfn class="local col3 decl" id="1723value" title='value' data-type='const T &amp;' data-ref="1723value">value</dfn>);  <i>// NOLINT</i></td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>  <i>// Conversion copy constructor, T must be copy constructible from U</i></td></tr>
+<tr><th id="121">121</th><td>  <b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="122">122</th><td>  <dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOrC1ERKNS1_8StatusOrIT_EE" title='perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;' data-ref="_ZN9perftools8gputools4port8StatusOrC1ERKNS1_8StatusOrIT_EE">StatusOr</dfn>(<em>const</em> <a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;U&gt;&amp; <dfn class="local col4 decl" id="1724other" title='other' data-type='const StatusOr&lt;U&gt; &amp;' data-ref="1724other">other</dfn>)  <i>// NOLINT</i></td></tr>
+<tr><th id="123">123</th><td>      : <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a>(<a class="local col4 ref" href="#1724other" title='other' data-ref="1724other">other</a>.status_),</td></tr>
+<tr><th id="124">124</th><td>        <a class="member" href="#perftools::gputools::port::StatusOr::value_" title='perftools::gputools::port::StatusOr::value_' data-ref="perftools::gputools::port::StatusOr::value_">value_</a>(<a class="local col4 ref" href="#1724other" title='other' data-ref="1724other">other</a>.value_) {}</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>  <i>// Conversion assignment operator, T must be assignable from U</i></td></tr>
+<tr><th id="127">127</th><td>  <b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="128">128</th><td>  StatusOr&amp; <dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOraSERKNS1_8StatusOrIT_EE" title='perftools::gputools::port::StatusOr::operator=' data-ref="_ZN9perftools8gputools4port8StatusOraSERKNS1_8StatusOrIT_EE"><b>operator</b>=</dfn>(<em>const</em> <a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;U&gt;&amp; <dfn class="local col5 decl" id="1725other" title='other' data-type='const StatusOr&lt;U&gt; &amp;' data-ref="1725other">other</dfn>) {</td></tr>
+<tr><th id="129">129</th><td>    <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a> = <a class="local col5 ref" href="#1725other" title='other' data-ref="1725other">other</a>.status_;</td></tr>
+<tr><th id="130">130</th><td>    <a class="member" href="#perftools::gputools::port::StatusOr::value_" title='perftools::gputools::port::StatusOr::value_' data-ref="perftools::gputools::port::StatusOr::value_">value_</a> = <a class="local col5 ref" href="#1725other" title='other' data-ref="1725other">other</a>.value_;</td></tr>
+<tr><th id="131">131</th><td>    <b>return</b> *<b>this</b>;</td></tr>
+<tr><th id="132">132</th><td>  }</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>  <i>// Rvalue-reference overloads of the other constructors and assignment</i></td></tr>
+<tr><th id="135">135</th><td><i>  // operators, to support move-only types and avoid unnecessary copying.</i></td></tr>
+<tr><th id="136">136</th><td>  <a class="decl" href="#_ZN9perftools8gputools4port8StatusOrC1EOT_" title='perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;' data-ref="_ZN9perftools8gputools4port8StatusOrC1EOT_">StatusOr</a>(T&amp;&amp; <dfn class="local col6 decl" id="1726value" title='value' data-type='T &amp;&amp;' data-ref="1726value">value</dfn>);  <i>// NOLINT</i></td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>  <i>// Move conversion operator to avoid unnecessary copy.</i></td></tr>
+<tr><th id="139">139</th><td><i>  // T must be assignable from U.</i></td></tr>
+<tr><th id="140">140</th><td><i>  // Not marked with explicit so the implicit conversion can happen.</i></td></tr>
+<tr><th id="141">141</th><td>  <b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="142">142</th><td>  <dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOrC1EONS1_8StatusOrIT_EE" title='perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;' data-ref="_ZN9perftools8gputools4port8StatusOrC1EONS1_8StatusOrIT_EE">StatusOr</dfn>(<a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;U&gt;&amp;&amp; <dfn class="local col7 decl" id="1727other" title='other' data-type='StatusOr&lt;U&gt; &amp;&amp;' data-ref="1727other">other</dfn>)  <i>// NOLINT</i></td></tr>
+<tr><th id="143">143</th><td>      : <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a>(<span class="namespace">std::</span>move(<a class="local col7 ref" href="#1727other" title='other' data-ref="1727other">other</a>.status_)),</td></tr>
+<tr><th id="144">144</th><td>        <a class="member" href="#perftools::gputools::port::StatusOr::value_" title='perftools::gputools::port::StatusOr::value_' data-ref="perftools::gputools::port::StatusOr::value_">value_</a>(<span class="namespace">std::</span>move(<a class="local col7 ref" href="#1727other" title='other' data-ref="1727other">other</a>.value_)) {}</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td>  <i>// Move assignment operator to avoid unnecessary copy.</i></td></tr>
+<tr><th id="147">147</th><td><i>  // T must be assignable from U</i></td></tr>
+<tr><th id="148">148</th><td>  <b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="149">149</th><td>  StatusOr&amp; <dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOraSEONS1_8StatusOrIT_EE" title='perftools::gputools::port::StatusOr::operator=' data-ref="_ZN9perftools8gputools4port8StatusOraSEONS1_8StatusOrIT_EE"><b>operator</b>=</dfn>(<a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;U&gt;&amp;&amp; <dfn class="local col8 decl" id="1728other" title='other' data-type='StatusOr&lt;U&gt; &amp;&amp;' data-ref="1728other">other</dfn>) {</td></tr>
+<tr><th id="150">150</th><td>    <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a> = <span class="namespace">std::</span>move(<a class="local col8 ref" href="#1728other" title='other' data-ref="1728other">other</a>.status_);</td></tr>
+<tr><th id="151">151</th><td>    <a class="member" href="#perftools::gputools::port::StatusOr::value_" title='perftools::gputools::port::StatusOr::value_' data-ref="perftools::gputools::port::StatusOr::value_">value_</a> = <span class="namespace">std::</span>move(<a class="local col8 ref" href="#1728other" title='other' data-ref="1728other">other</a>.value_);</td></tr>
+<tr><th id="152">152</th><td>    <b>return</b> *<b>this</b>;</td></tr>
+<tr><th id="153">153</th><td>  }</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>  <i>// Returns a reference to our status. If this contains a T, then</i></td></tr>
+<tr><th id="156">156</th><td><i>  // returns Status::OK.</i></td></tr>
+<tr><th id="157">157</th><td>  <em>const</em> <a class="typedef" href="status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a>&amp; <dfn class="decl def" id="_ZNK9perftools8gputools4port8StatusOr6statusEv" title='perftools::gputools::port::StatusOr::status' data-ref="_ZNK9perftools8gputools4port8StatusOr6statusEv">status</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a>; }</td></tr>
+<tr><th id="158">158</th><td></td></tr>
+<tr><th id="159">159</th><td>  <i>// Returns this-&gt;status().ok()</i></td></tr>
+<tr><th id="160">160</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK9perftools8gputools4port8StatusOr2okEv" title='perftools::gputools::port::StatusOr::ok' data-ref="_ZNK9perftools8gputools4port8StatusOr2okEv">ok</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a>.<a class="ref" href="../../core/lib/core/status.h.html#_ZNK10tensorflow6Status2okEv" title='tensorflow::Status::ok' data-ref="_ZNK10tensorflow6Status2okEv">ok</a>(); }</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td>  <i>// Returns a reference to our current value, requires that this-&gt;ok().</i></td></tr>
+<tr><th id="163">163</th><td><i>  // If you need to initialize a T object from the stored value,</i></td></tr>
+<tr><th id="164">164</th><td><i>  // ConsumeValueOrDie() may be more efficient.</i></td></tr>
+<tr><th id="165">165</th><td>  <em>const</em> T&amp; <a class="decl" href="#_ZNK9perftools8gputools4port8StatusOr10ValueOrDieEv" title='perftools::gputools::port::StatusOr::ValueOrDie' data-ref="_ZNK9perftools8gputools4port8StatusOr10ValueOrDieEv">ValueOrDie</a>() <em>const</em>;</td></tr>
+<tr><th id="166">166</th><td>  T&amp; <a class="decl" href="#_ZN9perftools8gputools4port8StatusOr10ValueOrDieEv" title='perftools::gputools::port::StatusOr::ValueOrDie' data-ref="_ZN9perftools8gputools4port8StatusOr10ValueOrDieEv">ValueOrDie</a>();</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td>  <i>// Returns our current value, requires this-&gt;ok(). Use this if</i></td></tr>
+<tr><th id="169">169</th><td><i>  // you would otherwise want to say std::move(s.ValueOrDie()), for example</i></td></tr>
+<tr><th id="170">170</th><td><i>  // if you need to initialize a T object from the stored value and you don't</i></td></tr>
+<tr><th id="171">171</th><td><i>  // need subsequent access to the stored value. It uses T's move constructor,</i></td></tr>
+<tr><th id="172">172</th><td><i>  // if it has one, so it will work with move-only types, and will often be</i></td></tr>
+<tr><th id="173">173</th><td><i>  // more efficient than ValueOrDie, but may leave the stored value</i></td></tr>
+<tr><th id="174">174</th><td><i>  // in an arbitrary valid state.</i></td></tr>
+<tr><th id="175">175</th><td>  T <a class="decl" href="#_ZN9perftools8gputools4port8StatusOr17ConsumeValueOrDieEv" title='perftools::gputools::port::StatusOr::ConsumeValueOrDie' data-ref="_ZN9perftools8gputools4port8StatusOr17ConsumeValueOrDieEv">ConsumeValueOrDie</a>();</td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td> <b>private</b>:</td></tr>
+<tr><th id="178">178</th><td>  <a class="typedef" href="status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a> <dfn class="decl" id="perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</dfn>;</td></tr>
+<tr><th id="179">179</th><td>  T <dfn class="decl" id="perftools::gputools::port::StatusOr::value_" title='perftools::gputools::port::StatusOr::value_' data-ref="perftools::gputools::port::StatusOr::value_">value_</dfn>;</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td>  <em>void</em> <a class="decl" href="#_ZN9perftools8gputools4port8StatusOr17CheckValueNotNullERKT_" title='perftools::gputools::port::StatusOr::CheckValueNotNull' data-ref="_ZN9perftools8gputools4port8StatusOr17CheckValueNotNullERKT_">CheckValueNotNull</a>(<em>const</em> T&amp; <dfn class="local col9 decl" id="1729value" title='value' data-type='const T &amp;' data-ref="1729value">value</dfn>);</td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td>  <b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="184">184</th><td>  <b>struct</b> <dfn class="type def" id="perftools::gputools::port::StatusOr::IsNull" title='perftools::gputools::port::StatusOr::IsNull' data-ref="perftools::gputools::port::StatusOr::IsNull">IsNull</dfn> {</td></tr>
+<tr><th id="185">185</th><td>    <i>// For non-pointer U, a reference can never be NULL.</i></td></tr>
+<tr><th id="186">186</th><td>    <em>static</em> <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOr6IsNull11IsValueNullERKT_" title='perftools::gputools::port::StatusOr::IsNull::IsValueNull' data-ref="_ZN9perftools8gputools4port8StatusOr6IsNull11IsValueNullERKT_">IsValueNull</dfn>(<em>const</em> U&amp; <dfn class="local col0 decl" id="1730t" title='t' data-type='const U &amp;' data-ref="1730t">t</dfn>) { <b>return</b> <b>false</b>; }</td></tr>
+<tr><th id="187">187</th><td>  };</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td>  <b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="190">190</th><td>  <b>struct</b> <dfn class="type def" id="perftools::gputools::port::StatusOr::IsNull" title='perftools::gputools::port::StatusOr::IsNull' data-ref="perftools::gputools::port::StatusOr::IsNull">IsNull</dfn>&lt;U*&gt; {</td></tr>
+<tr><th id="191">191</th><td>    <em>static</em> <b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOr6IsNullIPT_E11IsValueNullEPKS4_" title='perftools::gputools::port::StatusOr::IsNull&lt;type-parameter-1-0 *&gt;::IsValueNull' data-ref="_ZN9perftools8gputools4port8StatusOr6IsNullIPT_E11IsValueNullEPKS4_">IsValueNull</dfn>(<em>const</em> U* <dfn class="local col1 decl" id="1731t" title='t' data-type='const U *' data-ref="1731t">t</dfn>) { <b>return</b> <a class="local col1 ref" href="#1731t" title='t' data-ref="1731t">t</a> == <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>; }</td></tr>
+<tr><th id="192">192</th><td>  };</td></tr>
+<tr><th id="193">193</th><td>};</td></tr>
+<tr><th id="194">194</th><td></td></tr>
+<tr><th id="195">195</th><td><i>////////////////////////////////////////////////////////////////////////////////</i></td></tr>
+<tr><th id="196">196</th><td><i>// Implementation details for StatusOr&lt;T&gt;</i></td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="199">199</th><td><a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;T&gt;::<dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOrC1ERKT_" title='perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;' data-ref="_ZN9perftools8gputools4port8StatusOrC1ERKT_">StatusOr</dfn>(<em>const</em> T&amp; <dfn class="local col2 decl" id="1732value" title='value' data-type='const T &amp;' data-ref="1732value">value</dfn>)</td></tr>
+<tr><th id="200">200</th><td>    : <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a><a class="ref" href="../../core/lib/core/status.h.html#_ZN10tensorflow6StatusC1Ev" title='tensorflow::Status::Status' data-ref="_ZN10tensorflow6StatusC1Ev">(</a>), <a class="member" href="#perftools::gputools::port::StatusOr::value_" title='perftools::gputools::port::StatusOr::value_' data-ref="perftools::gputools::port::StatusOr::value_">value_</a>(<a class="local col2 ref" href="#1732value" title='value' data-ref="1732value">value</a>) {</td></tr>
+<tr><th id="201">201</th><td>  <a class="member" href="#_ZN9perftools8gputools4port8StatusOr17CheckValueNotNullERKT_" title='perftools::gputools::port::StatusOr::CheckValueNotNull' data-ref="_ZN9perftools8gputools4port8StatusOr17CheckValueNotNullERKT_">CheckValueNotNull</a>(<a class="local col2 ref" href="#1732value" title='value' data-ref="1732value">value</a>);</td></tr>
+<tr><th id="202">202</th><td>}</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="205">205</th><td><em>const</em> T&amp; <a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;T&gt;::<dfn class="decl def" id="_ZNK9perftools8gputools4port8StatusOr10ValueOrDieEv" title='perftools::gputools::port::StatusOr::ValueOrDie' data-ref="_ZNK9perftools8gputools4port8StatusOr10ValueOrDieEv">ValueOrDie</dfn>() <em>const</em> {</td></tr>
+<tr><th id="206">206</th><td>  <a class="macro" href="../../core/lib/core/status.h.html#134" title="while (auto _result = ::tensorflow::TfCheckOpHelper(status_, &quot;status_&quot;)) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/stream_executor/lib/statusor.h&quot;, 206) &lt;&lt; *(_result)" data-ref="_M/TF_CHECK_OK">TF_CHECK_OK</a>(<a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a>);</td></tr>
+<tr><th id="207">207</th><td>  <b>return</b> <a class="member" href="#perftools::gputools::port::StatusOr::value_" title='perftools::gputools::port::StatusOr::value_' data-ref="perftools::gputools::port::StatusOr::value_">value_</a>;</td></tr>
+<tr><th id="208">208</th><td>}</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="211">211</th><td>T&amp; <a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;T&gt;::<dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOr10ValueOrDieEv" title='perftools::gputools::port::StatusOr::ValueOrDie' data-ref="_ZN9perftools8gputools4port8StatusOr10ValueOrDieEv">ValueOrDie</dfn>() {</td></tr>
+<tr><th id="212">212</th><td>  <a class="macro" href="../../core/lib/core/status.h.html#134" title="while (auto _result = ::tensorflow::TfCheckOpHelper(status_, &quot;status_&quot;)) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/stream_executor/lib/statusor.h&quot;, 212) &lt;&lt; *(_result)" data-ref="_M/TF_CHECK_OK">TF_CHECK_OK</a>(<a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a>);</td></tr>
+<tr><th id="213">213</th><td>  <b>return</b> <a class="member" href="#perftools::gputools::port::StatusOr::value_" title='perftools::gputools::port::StatusOr::value_' data-ref="perftools::gputools::port::StatusOr::value_">value_</a>;</td></tr>
+<tr><th id="214">214</th><td>}</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="217">217</th><td>T <a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;T&gt;::<dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOr17ConsumeValueOrDieEv" title='perftools::gputools::port::StatusOr::ConsumeValueOrDie' data-ref="_ZN9perftools8gputools4port8StatusOr17ConsumeValueOrDieEv">ConsumeValueOrDie</dfn>() {</td></tr>
+<tr><th id="218">218</th><td>  <a class="macro" href="../../core/lib/core/status.h.html#134" title="while (auto _result = ::tensorflow::TfCheckOpHelper(status_, &quot;status_&quot;)) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/stream_executor/lib/statusor.h&quot;, 218) &lt;&lt; *(_result)" data-ref="_M/TF_CHECK_OK">TF_CHECK_OK</a>(<a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a>);</td></tr>
+<tr><th id="219">219</th><td>  <b>return</b> <span class="namespace">std::</span>move(<a class="member" href="#perftools::gputools::port::StatusOr::value_" title='perftools::gputools::port::StatusOr::value_' data-ref="perftools::gputools::port::StatusOr::value_">value_</a>);</td></tr>
+<tr><th id="220">220</th><td>}</td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="223">223</th><td><a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;T&gt;::<dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOrC1ERKN10tensorflow6StatusE" title='perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;' data-ref="_ZN9perftools8gputools4port8StatusOrC1ERKN10tensorflow6StatusE">StatusOr</dfn>(<em>const</em> <a class="typedef" href="status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a>&amp; <dfn class="local col3 decl" id="1733status" title='status' data-type='const Status &amp;' data-ref="1733status">status</dfn>)</td></tr>
+<tr><th id="224">224</th><td>    : <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a><a class="ref" href="../../core/lib/core/status.h.html#_ZN10tensorflow6StatusC1ERKS0_" title='tensorflow::Status::Status' data-ref="_ZN10tensorflow6StatusC1ERKS0_">(</a><a class="local col3 ref" href="#1733status" title='status' data-ref="1733status">status</a>) {</td></tr>
+<tr><th id="225">225</th><td>  <a class="macro" href="../../../../include/assert.h.html#50" title="(static_cast&lt;void&gt; (0))" data-ref="_M/assert">assert</a>(!status.ok());</td></tr>
+<tr><th id="226">226</th><td>  <b>if</b> (<a class="local col3 ref" href="#1733status" title='status' data-ref="1733status">status</a>.<a class="ref" href="../../core/lib/core/status.h.html#_ZNK10tensorflow6Status2okEv" title='tensorflow::Status::ok' data-ref="_ZNK10tensorflow6Status2okEv">ok</a>()) {</td></tr>
+<tr><th id="227">227</th><td>    <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a> =</td></tr>
+<tr><th id="228">228</th><td>        <a class="typedef" href="status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a><a class="ref" href="../../core/lib/core/status.h.html#_ZN10tensorflow6StatusC1ENS_5error4CodeENS_11StringPieceE" title='tensorflow::Status::Status' data-ref="_ZN10tensorflow6StatusC1ENS_5error4CodeENS_11StringPieceE">(</a><span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::INTERNAL' data-ref="tensorflow::error::Code::INTERNAL">INTERNAL</span>,</td></tr>
+<tr><th id="229">229</th><td>               <a class="ref fake" href="../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"Status::OK is not a valid constructor argument to StatusOr&lt;T&gt;"</q>);</td></tr>
+<tr><th id="230">230</th><td>  }</td></tr>
+<tr><th id="231">231</th><td>}</td></tr>
+<tr><th id="232">232</th><td></td></tr>
+<tr><th id="233">233</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="234">234</th><td><a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;T&gt;::<dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOrC1EOT_" title='perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;' data-ref="_ZN9perftools8gputools4port8StatusOrC1EOT_">StatusOr</dfn>(T&amp;&amp; <dfn class="local col4 decl" id="1734value" title='value' data-type='T &amp;&amp;' data-ref="1734value">value</dfn>)</td></tr>
+<tr><th id="235">235</th><td>    : <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a><a class="ref" href="../../core/lib/core/status.h.html#_ZN10tensorflow6StatusC1Ev" title='tensorflow::Status::Status' data-ref="_ZN10tensorflow6StatusC1Ev">(</a>) {</td></tr>
+<tr><th id="236">236</th><td>  <a class="member" href="#_ZN9perftools8gputools4port8StatusOr17CheckValueNotNullERKT_" title='perftools::gputools::port::StatusOr::CheckValueNotNull' data-ref="_ZN9perftools8gputools4port8StatusOr17CheckValueNotNullERKT_">CheckValueNotNull</a>(<a class="local col4 ref" href="#1734value" title='value' data-ref="1734value">value</a>);</td></tr>
+<tr><th id="237">237</th><td>  <a class="member" href="#perftools::gputools::port::StatusOr::value_" title='perftools::gputools::port::StatusOr::value_' data-ref="perftools::gputools::port::StatusOr::value_">value_</a> = <span class="namespace">std::</span>move(<a class="local col4 ref" href="#1734value" title='value' data-ref="1734value">value</a>);</td></tr>
+<tr><th id="238">238</th><td>}</td></tr>
+<tr><th id="239">239</th><td></td></tr>
+<tr><th id="240">240</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="241">241</th><td><em>void</em> <a class="type" href="#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;T&gt;::<dfn class="decl def" id="_ZN9perftools8gputools4port8StatusOr17CheckValueNotNullERKT_" title='perftools::gputools::port::StatusOr::CheckValueNotNull' data-ref="_ZN9perftools8gputools4port8StatusOr17CheckValueNotNullERKT_">CheckValueNotNull</dfn>(<em>const</em> T&amp; <dfn class="local col5 decl" id="1735value" title='value' data-type='const T &amp;' data-ref="1735value">value</dfn>) {</td></tr>
+<tr><th id="242">242</th><td>  <a class="macro" href="../../../../include/assert.h.html#50" title="(static_cast&lt;void&gt; (0))" data-ref="_M/assert">assert</a>(!IsNull&lt;T&gt;::IsValueNull(value));</td></tr>
+<tr><th id="243">243</th><td>  <b>if</b> (<a class="type" href="#perftools::gputools::port::StatusOr::IsNull" title='perftools::gputools::port::StatusOr::IsNull' data-ref="perftools::gputools::port::StatusOr::IsNull">IsNull</a>&lt;T&gt;::IsValueNull(<a class="local col5 ref" href="#1735value" title='value' data-ref="1735value">value</a>)) {</td></tr>
+<tr><th id="244">244</th><td>    <a class="member" href="#perftools::gputools::port::StatusOr::status_" title='perftools::gputools::port::StatusOr::status_' data-ref="perftools::gputools::port::StatusOr::status_">status_</a> =</td></tr>
+<tr><th id="245">245</th><td>        <a class="typedef" href="status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a><a class="ref" href="../../core/lib/core/status.h.html#_ZN10tensorflow6StatusC1ENS_5error4CodeENS_11StringPieceE" title='tensorflow::Status::Status' data-ref="_ZN10tensorflow6StatusC1ENS_5error4CodeENS_11StringPieceE">(</a><span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::INTERNAL' data-ref="tensorflow::error::Code::INTERNAL">INTERNAL</span>,</td></tr>
+<tr><th id="246">246</th><td>               <a class="ref fake" href="../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"NULL is not a valid constructor argument to StatusOr&lt;T*&gt;"</q>);</td></tr>
+<tr><th id="247">247</th><td>  }</td></tr>
+<tr><th id="248">248</th><td>}</td></tr>
+<tr><th id="249">249</th><td></td></tr>
+<tr><th id="250">250</th><td>}  <i>// namespace port</i></td></tr>
+<tr><th id="251">251</th><td>}  <i>// namespace gputools</i></td></tr>
+<tr><th id="252">252</th><td>}  <i>// namespace perftools</i></td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td><u>#<span data-ppcond="70">endif</span>  // TENSORFLOW_STREAM_EXECUTOR_LIB_STATUSOR_H_</u></td></tr>
+<tr><th id="255">255</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../compiler/jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

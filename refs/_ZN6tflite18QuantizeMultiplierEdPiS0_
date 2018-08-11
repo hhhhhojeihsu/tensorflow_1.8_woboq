@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.h' l='189' type='void tflite::QuantizeMultiplier(double double_multiplier, int32_t * quantized_multiplier, int * shift)'/>
+<def f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.cc' l='25' ll='41' type='void tflite::QuantizeMultiplier(double double_multiplier, int32_t * quantized_multiplier, int * shift)'/>
+<use f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.cc' l='47' u='c' c='_ZN6tflite32QuantizeMultiplierGreaterThanOneEdPiS0_'/>
+<use f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.cc' l='57' u='c' c='_ZN6tflite32QuantizeMultiplierSmallerThanOneEdPiS0_'/>
+<doc f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.h' l='182'>// Decompose a double multiplier into a Q0.31 int32 representation of its
+// significand, and shift representation of its exponent.
+//
+// Handles an arbitrary positive multiplier. The &apos;shift&apos; output-value is
+// basically the &apos;floating-point exponent&apos; of the multiplier:
+// Negative for a right-shift (when the multiplier is &lt;1), positive for a
+// left-shift (when the multiplier is &gt;1)</doc>

@@ -1,0 +1,13 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/disassembler.h' l='49' ll='68'/>
+<size>48</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/disassembler.h' l='46'>// Class for disassembling object files (and potentially other constructs) into
+// x86/ARM assembly. Builds all the LLVM disassembly and instruction printing
+// constructs from a given TargetMachine.</doc>
+<fun r='_ZN3xla3cpu12DisassemblerC1ERKN4llvm13TargetMachineE'/>
+<fun r='_ZNK3xla3cpu12Disassembler21DisassembleObjectFileERKN4llvm6object10ObjectFileE'/>
+<mbr r='xla::cpu::Disassembler::subtarget_info_' o='0' t='const llvm::MCSubtargetInfo &amp;'/>
+<mbr r='xla::cpu::Disassembler::objfile_info_' o='64' t='std::unique_ptr&lt;llvm::MCObjectFileInfo&gt;'/>
+<mbr r='xla::cpu::Disassembler::mc_context_' o='128' t='std::unique_ptr&lt;llvm::MCContext&gt;'/>
+<mbr r='xla::cpu::Disassembler::disassembler_' o='192' t='std::unique_ptr&lt;llvm::MCDisassembler&gt;'/>
+<mbr r='xla::cpu::Disassembler::inst_printer_' o='256' t='std::unique_ptr&lt;llvm::MCInstPrinter&gt;'/>
+<mbr r='xla::cpu::Disassembler::inst_analysis_' o='320' t='std::unique_ptr&lt;llvm::MCInstrAnalysis&gt;'/>

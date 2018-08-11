@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='213' type='tensorflow::gtl::FlatMap&lt;const HloInstruction *, int&gt;'/>
+<offset>704</offset>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='207'>// The position of every instruction in the HLO module in its respective
+  // computation sequence (a value of zero indicates the instruction is first in
+  // the sequence, etc). Instructions from all computations are contained in
+  // this map so more than one instruction may have the same position
+  // value. This is not a problem because ExecutesBefore also verifies
+  // instructions are in the same computation.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='340' u='m' c='_ZN3xla21SequentialHloOrderingC1EPKNS_9HloModuleERKN10tensorflow3gtl7FlatMapIPKNS_14HloComputationESt6vectorIPKNS_14HloInstructionESaISD_EENS4_4hashIS7986748'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='341' u='m' c='_ZN3xla21SequentialHloOrderingC1EPKNS_9HloModuleERKN10tensorflow3gtl7FlatMapIPKNS_14HloComputationESt6vectorIPKNS_14HloInstructionESaISD_EENS4_4hashIS7986748'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='350' u='m' c='_ZNK3xla21SequentialHloOrdering31ExecutesBeforeInSameComputationEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='350' u='m' c='_ZNK3xla21SequentialHloOrdering31ExecutesBeforeInSameComputationEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='353' u='m' c='_ZNK3xla21SequentialHloOrdering31ExecutesBeforeInSameComputationEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='353' u='m' c='_ZNK3xla21SequentialHloOrdering31ExecutesBeforeInSameComputationEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='372' c='_ZNK3xla21SequentialHloOrdering8ToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='380' u='m' c='_ZNK3xla21SequentialHloOrdering8ToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='380' u='m' c='_ZNK3xla21SequentialHloOrdering8ToStringEv'/>

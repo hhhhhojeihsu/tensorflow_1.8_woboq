@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.h' l='188' type='std::unique_ptr&lt;ForLoop&gt; xla::llvm_ir::ForLoopNest::AddLoop(tensorflow::StringPiece suffix, llvm::Value * start_index, llvm::Value * end_index, llvm::Value * stride, bool prevent_unrolling = false, bool prevent_vectorization = false)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.h' l='183'>// Adds a loop to the nest. If no loop has been added yet then emit a loop at
+  // the current insert point of the given builder. If one or more loops have
+  // been added then emit loop inside the body of the last added loop.  If
+  // prevent_unrolling is true, then metadata is emitting directing LLVM to not
+  // unroll this loop.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.cc' l='183' u='c' c='_ZN3xla7llvm_ir11ForLoopNest7AddLoopEN10tensorflow11StringPieceEPN4llvm5ValueES6_bb'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.cc' l='187' ll='213' type='std::unique_ptr&lt;ForLoop&gt; xla::llvm_ir::ForLoopNest::AddLoop(tensorflow::StringPiece suffix, llvm::Value * start_index, llvm::Value * end_index, llvm::Value * stride, bool prevent_unrolling = false, bool prevent_vectorization = false)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.cc' l='232' u='c' c='_ZN3xla7llvm_ir11ForLoopNest7AddLoopExxxN10tensorflow11StringPieceEbb'/>

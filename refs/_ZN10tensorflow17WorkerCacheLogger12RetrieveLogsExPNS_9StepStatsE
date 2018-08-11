@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_logger.h' l='48' type='bool tensorflow::WorkerCacheLogger::RetrieveLogs(int64 step_id, tensorflow::StepStats * ss)'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_logger.h' l='46'>// Return logs for the identified step in *ss.  Any returned data will no
+  // longer be stored.  Returns true iff *ss was modified.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_cache.cc' l='84' u='c' c='_ZN10tensorflow12_GLOBAL__N_115GrpcWorkerCache12RetrieveLogsExPNS_9StepStatsE'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_logger.cc' l='59' ll='69' type='bool tensorflow::WorkerCacheLogger::RetrieveLogs(int64 step_id, tensorflow::StepStats * ss)'/>

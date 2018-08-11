@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='88' type='void xla::llvm_ir::IrArray::Index::Index(tensorflow::gtl::ArraySlice&lt;llvm::Value *&gt; multidim, llvm::Value * linear, const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='85'>// Constructs an index from both a multi-dimensional index and a linear
+    // index. &quot;shape&quot; has the same meaning as that in the constructor that takes
+    // only a linear index.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='74' ll='84' type='void xla::llvm_ir::IrArray::Index::Index(tensorflow::gtl::ArraySlice&lt;llvm::Value *&gt; multidim, llvm::Value * linear, const xla::Shape &amp; shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='169' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index20SourceIndexOfReshapeERKNS_5ShapeES5_PN4llvm9IRBuilderINS6_14ConstantFolderENS6_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='206' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index22SourceIndexOfTransposeERKNS_5ShapeES5_N10tensorflow3gtl10ArraySliceIxEEPN4llvm9IRBuilderINSA_14ConstantFolderENSA_24IR13174488'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='241' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index20SourceIndexOfBitcastERKNS_5ShapeES5_PN4llvm9IRBuilderINS6_14ConstantFolderENS6_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='304' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index22SourceIndexOfBroadcastERKNS_5ShapeES5_N10tensorflow3gtl10ArraySliceIxEEPN4llvm9IRBuilderINSA_14ConstantFolderENSA_24IR6925640'/>

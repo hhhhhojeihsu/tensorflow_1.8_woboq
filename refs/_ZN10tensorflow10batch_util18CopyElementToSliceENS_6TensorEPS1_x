@@ -1,0 +1,22 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor.h' l='46' type='tensorflow::Status tensorflow::batch_util::CopyElementToSlice(tensorflow::Tensor element, tensorflow::Tensor * parent, int64 index)'/>
+<dec f='tensorflow/tensorflow/core/framework/tensor.h' l='493' type='tensorflow::Status tensorflow::batch_util::CopyElementToSlice(tensorflow::Tensor element, tensorflow::Tensor * parent, int64 index)'/>
+<use f='tensorflow/tensorflow/core/kernels/barrier_ops.cc' l='168' u='c' c='_ZN10tensorflow7barrier7Barrier13TryInsertManyERKNS_6TensorEiS4_PNS_15OpKernelContextERKSt8functionIFvvEE'/>
+<dec f='tensorflow/tensorflow/core/kernels/batch_util.h' l='30' type='tensorflow::Status tensorflow::batch_util::CopyElementToSlice(tensorflow::Tensor element, tensorflow::Tensor * parent, int64 index)'/>
+<def f='tensorflow/tensorflow/core/kernels/batch_util.cc' l='94' ll='112' type='tensorflow::Status tensorflow::batch_util::CopyElementToSlice(tensorflow::Tensor element, tensorflow::Tensor * parent, int64 index)'/>
+<doc f='tensorflow/tensorflow/core/kernels/batch_util.cc' l='93'>// Copies element into the index^th slice of parent (in the 0th dimension).</doc>
+<doc f='tensorflow/tensorflow/core/kernels/batch_util.h' l='24'>// Copies element into the index^th slice of parent (in the 0th dimension).
+//
+// NOTE(mrry): The `element` argument is taken by value. Use `std::move()`
+// to move the `element` argument into this function, and the implementation
+// may be able to optimize the copy to a move. This is particularly important
+// for DT_STRING tensors.</doc>
+<use f='tensorflow/tensorflow/core/kernels/data/batch_dataset_op.cc' l='162' u='c' c='_ZN10tensorflow12_GLOBAL__N_114BatchDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/padded_batch_dataset_op.cc' l='299' u='c' c='_ZN10tensorflow12_GLOBAL__N_120PaddedBatchDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/slide_dataset_op.cc' l='175' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SlideDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='220' u='c' c='_ZN10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS6_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='228' u='c' c='_ZN10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS6_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='332' u='c' c='_ZN10tensorflow9FIFOQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.cc' l='211' u='c' c='_ZN10tensorflow16PaddingFIFOQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/priority_queue.cc' l='362' u='c' c='_ZN10tensorflow13PriorityQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_base.cc' l='345' u='c' c='_ZN10tensorflow9QueueBase18CopyElementToSliceERKNS_6TensorEPS1_x'/>
+<use f='tensorflow/tensorflow/core/kernels/random_shuffle_queue_op.cc' l='410' u='c' c='_ZN10tensorflow18RandomShuffleQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>

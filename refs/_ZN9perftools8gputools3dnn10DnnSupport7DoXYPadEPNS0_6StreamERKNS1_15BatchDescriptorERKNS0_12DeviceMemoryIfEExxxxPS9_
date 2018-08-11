@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/stream_executor/dnn.h' l='1868' type='bool perftools::gputools::dnn::DnnSupport::DoXYPad(perftools::gputools::Stream * stream, const dnn::BatchDescriptor &amp; dimensions, const DeviceMemory&lt;float&gt; &amp; input_data, int64 left_pad, int64 right_pad, int64 top_pad, int64 bottom_pad, DeviceMemory&lt;float&gt; * output_data)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1853'>// Pads the input with zeros in the X and Y dimensions. The feature_map
+  // dimension is unchanged.
+  //
+  // Arguments (all borrowed):
+  //  stream: borrowed pointer to the stream that the &apos;elementwise operation&apos;
+  // should be enqueued onto.
+  //  dimensions: The dimensions of the input.
+  //  input_data: un-owned device memory region which contains the
+  //    input data for the input layer.
+  //  left_pad: Amount to pad the input on the left.
+  //  right_pad: Amount to pad the input on the right.
+  //  top_pad: Amount to pad the input at the top (low Y).
+  //  bottom_pad: Amount to pad the input at the bottom (high Y).
+  //  output_data: un-owned device memory region in which to place the
+  //    padded result.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='1781' u='c' c='_ZN9perftools8gputools6Stream9ThenXYPadERKNS0_3dnn15BatchDescriptorERKNS0_12DeviceMemoryIfEExxxxPS7_'/>

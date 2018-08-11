@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>dilation_ops.h source code [tensorflow/tensorflow/core/kernels/dilation_ops.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::functor::Dilation,tensorflow::functor::DilationBackpropFilter,tensorflow::functor::DilationBackpropInput "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/kernels/dilation_ops.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>kernels</a>/<a href='dilation_ops.h.html'>dilation_ops.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CORE_KERNELS_DILATION_OPS_H_">TENSORFLOW_CORE_KERNELS_DILATION_OPS_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CORE_KERNELS_DILATION_OPS_H_" data-ref="_M/TENSORFLOW_CORE_KERNELS_DILATION_OPS_H_">TENSORFLOW_CORE_KERNELS_DILATION_OPS_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../third_party/eigen3/unsupported/Eigen/CXX11/Tensor.html">"third_party/eigen3/unsupported/Eigen/CXX11/Tensor"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../framework/tensor_types.h.html">"tensorflow/core/framework/tensor_types.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">functor</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T&gt;</td></tr>
+<tr><th id="27">27</th><td><b>struct</b> <dfn class="type def" id="tensorflow::functor::Dilation" title='tensorflow::functor::Dilation' data-ref="tensorflow::functor::Dilation">Dilation</dfn> {</td></tr>
+<tr><th id="28">28</th><td>  <i>// We assume that the tensor sizes are correct.</i></td></tr>
+<tr><th id="29">29</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow7functor8DilationclERKT_NS_6TTypesIT0_Li4ElE11ConstTensorENS5_IS6_Li3ElE11ConstTensorEiiiiiiNS7_6TensorE" title='tensorflow::functor::Dilation::operator()' data-ref="_ZN10tensorflow7functor8DilationclERKT_NS_6TTypesIT0_Li4ElE11ConstTensorENS5_IS6_Li3ElE11ConstTensorEiiiiiiNS7_6TensorE"><b>operator</b>()</dfn>(<em>const</em> Device&amp; <dfn class="local col1 decl" id="1d" title='d' data-type='const Device &amp;' data-ref="1d">d</dfn>, <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>4</var>&gt;::ConstTensor <dfn class="local col2 decl" id="2input" title='input' data-type='typename TTypes&lt;T, 4&gt;::ConstTensor' data-ref="2input">input</dfn>,</td></tr>
+<tr><th id="30">30</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>3</var>&gt;::ConstTensor <dfn class="local col3 decl" id="3filter" title='filter' data-type='typename TTypes&lt;T, 3&gt;::ConstTensor' data-ref="3filter">filter</dfn>, <em>int</em> <dfn class="local col4 decl" id="4stride_rows" title='stride_rows' data-type='int' data-ref="4stride_rows">stride_rows</dfn>,</td></tr>
+<tr><th id="31">31</th><td>                  <em>int</em> <dfn class="local col5 decl" id="5stride_cols" title='stride_cols' data-type='int' data-ref="5stride_cols">stride_cols</dfn>, <em>int</em> <dfn class="local col6 decl" id="6rate_rows" title='rate_rows' data-type='int' data-ref="6rate_rows">rate_rows</dfn>, <em>int</em> <dfn class="local col7 decl" id="7rate_cols" title='rate_cols' data-type='int' data-ref="7rate_cols">rate_cols</dfn>, <em>int</em> <dfn class="local col8 decl" id="8pad_top" title='pad_top' data-type='int' data-ref="8pad_top">pad_top</dfn>,</td></tr>
+<tr><th id="32">32</th><td>                  <em>int</em> <dfn class="local col9 decl" id="9pad_left" title='pad_left' data-type='int' data-ref="9pad_left">pad_left</dfn>, <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>4</var>&gt;::Tensor <dfn class="local col0 decl" id="10output" title='output' data-type='typename TTypes&lt;T, 4&gt;::Tensor' data-ref="10output">output</dfn>);</td></tr>
+<tr><th id="33">33</th><td>};</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T&gt;</td></tr>
+<tr><th id="36">36</th><td><b>struct</b> <dfn class="type def" id="tensorflow::functor::DilationBackpropInput" title='tensorflow::functor::DilationBackpropInput' data-ref="tensorflow::functor::DilationBackpropInput">DilationBackpropInput</dfn> {</td></tr>
+<tr><th id="37">37</th><td>  <i>// We assume that the tensor sizes are correct.</i></td></tr>
+<tr><th id="38">38</th><td><i>  // To avoid storing the argmax values during forward computation, we recompute</i></td></tr>
+<tr><th id="39">39</th><td><i>  // the argmax during backward computation, which is the reason why we provide</i></td></tr>
+<tr><th id="40">40</th><td><i>  // filter as argument to the backward computation routine.</i></td></tr>
+<tr><th id="41">41</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow7functor21DilationBackpropInputclERKT_NS_6TTypesIT0_Li4ElE11ConstTensorENS5_IS6_Li3ElE11ConstTensorES8_iiiiiiNS7_6TensorE" title='tensorflow::functor::DilationBackpropInput::operator()' data-ref="_ZN10tensorflow7functor21DilationBackpropInputclERKT_NS_6TTypesIT0_Li4ElE11ConstTensorENS5_IS6_Li3ElE11ConstTensorES8_iiiiiiNS7_6TensorE"><b>operator</b>()</dfn>(<em>const</em> Device&amp; <dfn class="local col1 decl" id="11d" title='d' data-type='const Device &amp;' data-ref="11d">d</dfn>, <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>4</var>&gt;::ConstTensor <dfn class="local col2 decl" id="12input" title='input' data-type='typename TTypes&lt;T, 4&gt;::ConstTensor' data-ref="12input">input</dfn>,</td></tr>
+<tr><th id="42">42</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>3</var>&gt;::ConstTensor <dfn class="local col3 decl" id="13filter" title='filter' data-type='typename TTypes&lt;T, 3&gt;::ConstTensor' data-ref="13filter">filter</dfn>,</td></tr>
+<tr><th id="43">43</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>4</var>&gt;::ConstTensor <dfn class="local col4 decl" id="14out_backprop" title='out_backprop' data-type='typename TTypes&lt;T, 4&gt;::ConstTensor' data-ref="14out_backprop">out_backprop</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                  <em>int</em> <dfn class="local col5 decl" id="15stride_rows" title='stride_rows' data-type='int' data-ref="15stride_rows">stride_rows</dfn>, <em>int</em> <dfn class="local col6 decl" id="16stride_cols" title='stride_cols' data-type='int' data-ref="16stride_cols">stride_cols</dfn>, <em>int</em> <dfn class="local col7 decl" id="17rate_rows" title='rate_rows' data-type='int' data-ref="17rate_rows">rate_rows</dfn>,</td></tr>
+<tr><th id="45">45</th><td>                  <em>int</em> <dfn class="local col8 decl" id="18rate_cols" title='rate_cols' data-type='int' data-ref="18rate_cols">rate_cols</dfn>, <em>int</em> <dfn class="local col9 decl" id="19pad_top" title='pad_top' data-type='int' data-ref="19pad_top">pad_top</dfn>, <em>int</em> <dfn class="local col0 decl" id="20pad_left" title='pad_left' data-type='int' data-ref="20pad_left">pad_left</dfn>,</td></tr>
+<tr><th id="46">46</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>4</var>&gt;::Tensor <dfn class="local col1 decl" id="21in_backprop" title='in_backprop' data-type='typename TTypes&lt;T, 4&gt;::Tensor' data-ref="21in_backprop">in_backprop</dfn>);</td></tr>
+<tr><th id="47">47</th><td>};</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T&gt;</td></tr>
+<tr><th id="50">50</th><td><b>struct</b> <dfn class="type def" id="tensorflow::functor::DilationBackpropFilter" title='tensorflow::functor::DilationBackpropFilter' data-ref="tensorflow::functor::DilationBackpropFilter">DilationBackpropFilter</dfn> {</td></tr>
+<tr><th id="51">51</th><td>  <i>// We assume that the tensor sizes are correct.</i></td></tr>
+<tr><th id="52">52</th><td><i>  // To avoid storing the argmax values during forward computation, we recompute</i></td></tr>
+<tr><th id="53">53</th><td><i>  // the argmax during backward computation, which is the reason why we provide</i></td></tr>
+<tr><th id="54">54</th><td><i>  // filter as argument to the backward computation routine.</i></td></tr>
+<tr><th id="55">55</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow7functor22DilationBackpropFilterclERKT_NS_6TTypesIT0_Li4ElE11ConstTensorENS5_IS6_Li3ElE11ConstTensorES8_iiiiiiNS9_6TensorE" title='tensorflow::functor::DilationBackpropFilter::operator()' data-ref="_ZN10tensorflow7functor22DilationBackpropFilterclERKT_NS_6TTypesIT0_Li4ElE11ConstTensorENS5_IS6_Li3ElE11ConstTensorES8_iiiiiiNS9_6TensorE"><b>operator</b>()</dfn>(<em>const</em> Device&amp; <dfn class="local col2 decl" id="22d" title='d' data-type='const Device &amp;' data-ref="22d">d</dfn>, <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>4</var>&gt;::ConstTensor <dfn class="local col3 decl" id="23input" title='input' data-type='typename TTypes&lt;T, 4&gt;::ConstTensor' data-ref="23input">input</dfn>,</td></tr>
+<tr><th id="56">56</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>3</var>&gt;::ConstTensor <dfn class="local col4 decl" id="24filter" title='filter' data-type='typename TTypes&lt;T, 3&gt;::ConstTensor' data-ref="24filter">filter</dfn>,</td></tr>
+<tr><th id="57">57</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>4</var>&gt;::ConstTensor <dfn class="local col5 decl" id="25out_backprop" title='out_backprop' data-type='typename TTypes&lt;T, 4&gt;::ConstTensor' data-ref="25out_backprop">out_backprop</dfn>,</td></tr>
+<tr><th id="58">58</th><td>                  <em>int</em> <dfn class="local col6 decl" id="26stride_rows" title='stride_rows' data-type='int' data-ref="26stride_rows">stride_rows</dfn>, <em>int</em> <dfn class="local col7 decl" id="27stride_cols" title='stride_cols' data-type='int' data-ref="27stride_cols">stride_cols</dfn>, <em>int</em> <dfn class="local col8 decl" id="28rate_rows" title='rate_rows' data-type='int' data-ref="28rate_rows">rate_rows</dfn>,</td></tr>
+<tr><th id="59">59</th><td>                  <em>int</em> <dfn class="local col9 decl" id="29rate_cols" title='rate_cols' data-type='int' data-ref="29rate_cols">rate_cols</dfn>, <em>int</em> <dfn class="local col0 decl" id="30pad_top" title='pad_top' data-type='int' data-ref="30pad_top">pad_top</dfn>, <em>int</em> <dfn class="local col1 decl" id="31pad_left" title='pad_left' data-type='int' data-ref="31pad_left">pad_left</dfn>,</td></tr>
+<tr><th id="60">60</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>3</var>&gt;::Tensor <dfn class="local col2 decl" id="32filter_backprop" title='filter_backprop' data-type='typename TTypes&lt;T, 3&gt;::Tensor' data-ref="32filter_backprop">filter_backprop</dfn>);</td></tr>
+<tr><th id="61">61</th><td>};</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>}  <i>// namespace functor</i></td></tr>
+<tr><th id="64">64</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CORE_KERNELS_DILATION_OPS_H_</u></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='dilation_ops.cc.html'>tensorflow/tensorflow/core/kernels/dilation_ops.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,48 @@
+<dec f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='105' type='void perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;(const Status &amp; status)'/>
+<def f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='222' ll='231' type='void perftools::gputools::port::StatusOr::StatusOr&lt;T&gt;(const Status &amp; status)'/>
+<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='891' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport10GetVersionEv'/>
+<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='2017' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport19createRnnDescriptorEiiiNS1_12RnnInputModeENS1_16RnnDirectionModeENS1_7RnnModeENS1_8DataTypeERKNS1_15AlgorithmC14912073'/>
+<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='2032' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport33createRnnSequenceTensorDescriptorEiiiNS1_8DataTypeE'/>
+<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='2041' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport30createRnnStateTensorDescriptorEiiiNS1_8DataTypeE'/>
+<doc f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='95'>// Construct a new StatusOr with the given non-ok status. After calling
+  // this constructor, calls to ValueOrDie() is invalid.
+  //
+  // NOTE: Not explicit - we want to use StatusOr&lt;T&gt; as a return
+  // value, so it is convenient and sensible to be able to do &apos;return
+  // Status()&apos; when the return type is StatusOr&lt;T&gt;.
+  //
+  // REQUIRES: status != Status::OK.
+  // In optimized builds, passing Status::OK here will have the effect
+  // of passing PosixErrorSpace::EINVAL as a fallback.</doc>
+<doc f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='105'>// NOLINT</doc>
+<use f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='288' u='c' c='_ZN9perftools8gputools8internal15CachedDsoLoader17FetchHandleResultESt8functionIFN10tensorflow6StatusEPPvEE'/>
+<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='60' u='c' c='_ZN9perftools8gputools13ExecutorCache11GetOrCreateERKNS0_20StreamExecutorConfigERKSt8functionIFNS0_4port8StatusOrISt10unique_ptrINS0_14StreamExecutorE10549996'/>
+<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='75' u='c' c='_ZN9perftools8gputools13ExecutorCache3GetERKNS0_20StreamExecutorConfigE'/>
+<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='82' u='c' c='_ZN9perftools8gputools13ExecutorCache3GetERKNS0_20StreamExecutorConfigE'/>
+<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='93' u='c' c='_ZN9perftools8gputools13ExecutorCache3GetERKNS0_20StreamExecutorConfigE'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_platform.cc' l='76' u='c' c='_ZN9perftools8gputools4host12HostPlatform19GetUncachedExecutorERKNS0_20StreamExecutorConfigE'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='33' u='c' c='_ZN9perftools8gputools20MultiPlatformManager18LookupByNameLockedERKSs'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='45' u='c' c='_ZN9perftools8gputools20MultiPlatformManager16LookupByIdLockedERKPv'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='76' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='78' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='88' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='90' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='101' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='103' u='c' c='_ZN9perftools8gputools20MultiPlatformManager26InitializePlatformWithNameERKSsRKSt3mapISsSsSt4lessISsESaISt4pairIS2_SsEEE'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='107' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='117' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='119' u='c' c='_ZN9perftools8gputools20MultiPlatformManager24InitializePlatformWithIdERKPvRKSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEE'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='124' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='216' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryEPvS2_'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='235' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryENS0_12PlatformKindEPv'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='216' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryEPvS2_'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='235' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryENS0_12PlatformKindEPv'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='216' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryEPvS2_'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='235' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryENS0_12PlatformKindEPv'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='216' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryEPvS2_'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='235' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryENS0_12PlatformKindEPv'/>
+<use f='tensorflow/tensorflow/stream_executor/scratch_allocator.cc' l='36' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='361' u='c' c='_ZN9perftools8gputools14StreamExecutor19createRnnDescriptorEiiiNS0_3dnn12RnnInputModeENS2_16RnnDirectionModeENS2_7RnnModeENS2_8DataTypeERKNS2_15Algori10603204'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='375' u='c' c='_ZN9perftools8gputools14StreamExecutor33createRnnSequenceTensorDescriptorEiiiNS0_3dnn8DataTypeE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='388' u='c' c='_ZN9perftools8gputools14StreamExecutor30createRnnStateTensorDescriptorEiiiNS0_3dnn8DataTypeE'/>
+<use f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.cc' l='100' u='c' c='_ZN9perftools8gputools8internal22TemporaryMemoryManager17AllocateArrayBaseEyy'/>

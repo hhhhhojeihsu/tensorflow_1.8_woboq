@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_scheduling.h' l='70' type='StatusOr&lt;SequentialHloOrdering::HloModuleSequence&gt; xla::CreateMemoryMinimizingSequence(const xla::HloModule &amp; module, const LogicalBuffer::SizeFunction &amp; size_function, const MemorySchedulerAlgorithm &amp; algorithm = {})'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_scheduling.h' l='66'>// Returns an HloModuleSequence which seeks to minimize the memory required for
+// the computation. size_function is the function returning the number of bytes
+// required for a LogicalBuffer.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='642' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='821' u='c' c='_ZN3xla3cpu11CpuCompiler18CompileAheadOfTimeESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS4_EESaIS7_EERKNS_21AotCompilationOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_scheduling.cc' l='473' ll='487' type='StatusOr&lt;SequentialHloOrdering::HloModuleSequence&gt; xla::CreateMemoryMinimizingSequence(const xla::HloModule &amp; module, const LogicalBuffer::SizeFunction &amp; size_function, const MemorySchedulerAlgorithm &amp; algorithm = {})'/>

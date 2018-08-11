@@ -1,0 +1,9 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_interface.h' l='29' c='xla::HloPassInterface'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/inliner.h' l='27' ll='35'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/inliner.h' l='24'>// A pass which performs inlining. Which can result, for example, in functions
+// that were previously being mapped by Map instead directly applied to the
+// forwarded operands (i.e., map({X, Y}, max) -&gt; max(X, Y)).</doc>
+<fun r='_ZN3xla7InlinerD1Ev'/>
+<fun r='_ZNK3xla7Inliner4nameEv'/>
+<fun r='_ZN3xla7Inliner3RunEPNS_9HloModuleE'/>

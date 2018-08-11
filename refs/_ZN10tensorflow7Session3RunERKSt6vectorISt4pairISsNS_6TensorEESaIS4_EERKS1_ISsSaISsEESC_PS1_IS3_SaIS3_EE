@@ -1,0 +1,25 @@
+<dec f='tensorflow/tensorflow/core/public/session.h' l='121' type='tensorflow::Status tensorflow::Session::Run(const std::vector&lt;std::pair&lt;string, Tensor&gt; &gt; &amp; inputs, const std::vector&lt;string&gt; &amp; output_tensor_names, const std::vector&lt;string&gt; &amp; target_node_names, std::vector&lt;Tensor&gt; * outputs)'/>
+<doc f='tensorflow/tensorflow/core/public/session.h' l='102'>/// \brief Runs the graph with the provided input tensors and fills
+  /// `outputs` for the endpoints specified in `output_tensor_names`.
+  /// Runs to but does not return Tensors for the nodes in
+  /// `target_node_names`.
+  ///
+  /// The order of tensors in `outputs` will match the order provided
+  /// by `output_tensor_names`.
+  ///
+  /// If `Run` returns `OK()`, then `outputs-&gt;size()` will be equal to
+  /// `output_tensor_names.size()`.  If `Run` does not return `OK()`, the
+  /// state of `outputs` is undefined.
+  ///
+  /// REQUIRES: The name of each Tensor of the input or output must
+  /// match a &quot;Tensor endpoint&quot; in the `GraphDef` passed to `Create()`.
+  ///
+  /// REQUIRES: At least one of `output_tensor_names` and
+  /// `target_node_names` must be non-empty.
+  ///
+  /// REQUIRES: outputs is not nullptr if `output_tensor_names` is non-empty.</doc>
+<use f='tensorflow/tensorflow/cc/tools/freeze_saved_model.cc' l='133' u='c' c='_ZN10tensorflow12_GLOBAL__N_126GetVariableNameToTensorMapEPNS_7SessionERKSt13unordered_mapISsPNS_7NodeDefESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_E11648775'/>
+<use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='235' u='c' c='_ZN10tensorflow11QueueRunner7RealRunEPNS_7SessionERKSsb'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='390' c='_ZN10tensorflow13DirectSession3RunERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EERKS1_ISsSaISsEESC_PS1_IS3_SaIS3_EE'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='273' c='_ZN10tensorflow11GrpcSession3RunERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EERKS1_ISsSaISsEESC_PS1_IS3_SaIS3_EE'/>
+<use f='tensorflow/tensorflow/core/example/example_parser_configuration.cc' l='105' u='c' c='_ZN10tensorflow33ExtractExampleParserConfigurationERKNS_8GraphDefERKSsPNS_7SessionEPSt6vectorINS_15FixedLenFeatureESaIS8_EEPS7_INS_13VarLenFeatureESaISC_EE'/>

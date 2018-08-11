@@ -1,0 +1,21 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='573' type='void xla::BufferAssigner::AddSetToColocatedBufferSets(const std::vector&lt;const LogicalBuffer *&gt; &amp; colocated_set, std::vector&lt;ColocatedBufferSet&gt; * colocated_buffer_sets)'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1266' ll='1318' type='void xla::BufferAssigner::AddSetToColocatedBufferSets(const std::vector&lt;const LogicalBuffer *&gt; &amp; colocated_set, std::vector&lt;ColocatedBufferSet&gt; * colocated_buffer_sets)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1450' u='c' c='_ZN3xla14BufferAssigner24BuildColocatedBufferSetsEPKNS_9HloModuleERKNS_14BufferLivenessERKSt8functionIFxRKNS_13LogicalBufferEEEPSt6vectorIN10tensorflo5486195'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1468' u='c' c='_ZN3xla14BufferAssigner24BuildColocatedBufferSetsEPKNS_9HloModuleERKNS_14BufferLivenessERKSt8functionIFxRKNS_13LogicalBufferEEEPSt6vectorIN10tensorflo5486195'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1488' u='c' c='_ZN3xla14BufferAssigner24BuildColocatedBufferSetsEPKNS_9HloModuleERKNS_14BufferLivenessERKSt8functionIFxRKNS_13LogicalBufferEEEPSt6vectorIN10tensorflo5486195'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1506' u='c' c='_ZN3xla14BufferAssigner24BuildColocatedBufferSetsEPKNS_9HloModuleERKNS_14BufferLivenessERKSt8functionIFxRKNS_13LogicalBufferEEEPSt6vectorIN10tensorflo5486195'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1525' u='c' c='_ZN3xla14BufferAssigner24BuildColocatedBufferSetsEPKNS_9HloModuleERKNS_14BufferLivenessERKSt8functionIFxRKNS_13LogicalBufferEEEPSt6vectorIN10tensorflo5486195'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1254'>// Adds the &apos;colocated_set&apos; of buffers to &apos;colocated_buffer_sets&apos;, maintaining
+// the invariant that all sets in &apos;colocated_buffer_sets&apos; are disjoint.
+//
+// A practical example of when this is necessary is a chain of kCall ops:
+//   computation.entry
+//     %a = call() -&gt; computation.1
+//   computation.1
+//     %b = call() -&gt; computation.2
+//   computation.2
+//     %c = parameter()
+// This yields the logical sets {%a,%b} {%b,%c} {%c}, which need to be merged
+// into a single set {%a,%b,%c}</doc>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='571'>// Adds the &apos;colocated_set&apos; of buffers to &apos;colocated_buffer_sets&apos;, maintaining
+  // the invariant that all sets in &apos;colocated_buffer_sets&apos; are disjoint.</doc>

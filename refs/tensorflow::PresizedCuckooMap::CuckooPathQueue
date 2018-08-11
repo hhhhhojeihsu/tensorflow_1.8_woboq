@@ -1,0 +1,14 @@
+<def f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='193' ll='218'/>
+<doc f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='189'>// CuckooPathQueue is a trivial circular queue for path entries.
+  // The caller is responsible for not inserting more than kMaxQueueSize
+  // entries.  Each PresizedCuckooMap has one (heap-allocated) CuckooPathQueue
+  // that it reuses across inserts.</doc>
+<fun r='_ZN10tensorflow17PresizedCuckooMap15CuckooPathQueueC1Ev'/>
+<fun r='_ZN10tensorflow17PresizedCuckooMap15CuckooPathQueue9push_backENS0_15CuckooPathEntryE'/>
+<fun r='_ZN10tensorflow17PresizedCuckooMap15CuckooPathQueue9pop_frontEv'/>
+<fun r='_ZNK10tensorflow17PresizedCuckooMap15CuckooPathQueue5emptyEv'/>
+<fun r='_ZNK10tensorflow17PresizedCuckooMap15CuckooPathQueue4fullEv'/>
+<fun r='_ZN10tensorflow17PresizedCuckooMap15CuckooPathQueue5resetEv'/>
+<mbr r='tensorflow::PresizedCuckooMap::CuckooPathQueue::queue_' t='tensorflow::PresizedCuckooMap::CuckooPathEntry [kMaxQueueSize]'/>
+<mbr r='tensorflow::PresizedCuckooMap::CuckooPathQueue::head_' t='int'/>
+<mbr r='tensorflow::PresizedCuckooMap::CuckooPathQueue::tail_' t='int'/>

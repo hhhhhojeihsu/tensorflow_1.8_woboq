@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>typeslots.h source code [include/python3.5m/typeslots.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'include/python3.5m/typeslots.h'; var root_path = '../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>include</a>/<a href='./'>python3.5m</a>/<a href='typeslots.h.html'>typeslots.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Do not renumber the file; these numbers are part of the stable ABI. */</i></td></tr>
+<tr><th id="2">2</th><td><i>/* Disabled, see #10181 */</i></td></tr>
+<tr><th id="3">3</th><td><u>#undef <span class="macro" data-ref="_M/Py_bf_getbuffer">Py_bf_getbuffer</span></u></td></tr>
+<tr><th id="4">4</th><td><u>#undef <span class="macro" data-ref="_M/Py_bf_releasebuffer">Py_bf_releasebuffer</span></u></td></tr>
+<tr><th id="5">5</th><td><u>#define <dfn class="macro" id="_M/Py_mp_ass_subscript" data-ref="_M/Py_mp_ass_subscript">Py_mp_ass_subscript</dfn> 3</u></td></tr>
+<tr><th id="6">6</th><td><u>#define <dfn class="macro" id="_M/Py_mp_length" data-ref="_M/Py_mp_length">Py_mp_length</dfn> 4</u></td></tr>
+<tr><th id="7">7</th><td><u>#define <dfn class="macro" id="_M/Py_mp_subscript" data-ref="_M/Py_mp_subscript">Py_mp_subscript</dfn> 5</u></td></tr>
+<tr><th id="8">8</th><td><u>#define <dfn class="macro" id="_M/Py_nb_absolute" data-ref="_M/Py_nb_absolute">Py_nb_absolute</dfn> 6</u></td></tr>
+<tr><th id="9">9</th><td><u>#define <dfn class="macro" id="_M/Py_nb_add" data-ref="_M/Py_nb_add">Py_nb_add</dfn> 7</u></td></tr>
+<tr><th id="10">10</th><td><u>#define <dfn class="macro" id="_M/Py_nb_and" data-ref="_M/Py_nb_and">Py_nb_and</dfn> 8</u></td></tr>
+<tr><th id="11">11</th><td><u>#define <dfn class="macro" id="_M/Py_nb_bool" data-ref="_M/Py_nb_bool">Py_nb_bool</dfn> 9</u></td></tr>
+<tr><th id="12">12</th><td><u>#define <dfn class="macro" id="_M/Py_nb_divmod" data-ref="_M/Py_nb_divmod">Py_nb_divmod</dfn> 10</u></td></tr>
+<tr><th id="13">13</th><td><u>#define <dfn class="macro" id="_M/Py_nb_float" data-ref="_M/Py_nb_float">Py_nb_float</dfn> 11</u></td></tr>
+<tr><th id="14">14</th><td><u>#define <dfn class="macro" id="_M/Py_nb_floor_divide" data-ref="_M/Py_nb_floor_divide">Py_nb_floor_divide</dfn> 12</u></td></tr>
+<tr><th id="15">15</th><td><u>#define <dfn class="macro" id="_M/Py_nb_index" data-ref="_M/Py_nb_index">Py_nb_index</dfn> 13</u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_add" data-ref="_M/Py_nb_inplace_add">Py_nb_inplace_add</dfn> 14</u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_and" data-ref="_M/Py_nb_inplace_and">Py_nb_inplace_and</dfn> 15</u></td></tr>
+<tr><th id="18">18</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_floor_divide" data-ref="_M/Py_nb_inplace_floor_divide">Py_nb_inplace_floor_divide</dfn> 16</u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_lshift" data-ref="_M/Py_nb_inplace_lshift">Py_nb_inplace_lshift</dfn> 17</u></td></tr>
+<tr><th id="20">20</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_multiply" data-ref="_M/Py_nb_inplace_multiply">Py_nb_inplace_multiply</dfn> 18</u></td></tr>
+<tr><th id="21">21</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_or" data-ref="_M/Py_nb_inplace_or">Py_nb_inplace_or</dfn> 19</u></td></tr>
+<tr><th id="22">22</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_power" data-ref="_M/Py_nb_inplace_power">Py_nb_inplace_power</dfn> 20</u></td></tr>
+<tr><th id="23">23</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_remainder" data-ref="_M/Py_nb_inplace_remainder">Py_nb_inplace_remainder</dfn> 21</u></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_rshift" data-ref="_M/Py_nb_inplace_rshift">Py_nb_inplace_rshift</dfn> 22</u></td></tr>
+<tr><th id="25">25</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_subtract" data-ref="_M/Py_nb_inplace_subtract">Py_nb_inplace_subtract</dfn> 23</u></td></tr>
+<tr><th id="26">26</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_true_divide" data-ref="_M/Py_nb_inplace_true_divide">Py_nb_inplace_true_divide</dfn> 24</u></td></tr>
+<tr><th id="27">27</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_xor" data-ref="_M/Py_nb_inplace_xor">Py_nb_inplace_xor</dfn> 25</u></td></tr>
+<tr><th id="28">28</th><td><u>#define <dfn class="macro" id="_M/Py_nb_int" data-ref="_M/Py_nb_int">Py_nb_int</dfn> 26</u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/Py_nb_invert" data-ref="_M/Py_nb_invert">Py_nb_invert</dfn> 27</u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/Py_nb_lshift" data-ref="_M/Py_nb_lshift">Py_nb_lshift</dfn> 28</u></td></tr>
+<tr><th id="31">31</th><td><u>#define <dfn class="macro" id="_M/Py_nb_multiply" data-ref="_M/Py_nb_multiply">Py_nb_multiply</dfn> 29</u></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/Py_nb_negative" data-ref="_M/Py_nb_negative">Py_nb_negative</dfn> 30</u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/Py_nb_or" data-ref="_M/Py_nb_or">Py_nb_or</dfn> 31</u></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/Py_nb_positive" data-ref="_M/Py_nb_positive">Py_nb_positive</dfn> 32</u></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/Py_nb_power" data-ref="_M/Py_nb_power">Py_nb_power</dfn> 33</u></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/Py_nb_remainder" data-ref="_M/Py_nb_remainder">Py_nb_remainder</dfn> 34</u></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/Py_nb_rshift" data-ref="_M/Py_nb_rshift">Py_nb_rshift</dfn> 35</u></td></tr>
+<tr><th id="38">38</th><td><u>#define <dfn class="macro" id="_M/Py_nb_subtract" data-ref="_M/Py_nb_subtract">Py_nb_subtract</dfn> 36</u></td></tr>
+<tr><th id="39">39</th><td><u>#define <dfn class="macro" id="_M/Py_nb_true_divide" data-ref="_M/Py_nb_true_divide">Py_nb_true_divide</dfn> 37</u></td></tr>
+<tr><th id="40">40</th><td><u>#define <dfn class="macro" id="_M/Py_nb_xor" data-ref="_M/Py_nb_xor">Py_nb_xor</dfn> 38</u></td></tr>
+<tr><th id="41">41</th><td><u>#define <dfn class="macro" id="_M/Py_sq_ass_item" data-ref="_M/Py_sq_ass_item">Py_sq_ass_item</dfn> 39</u></td></tr>
+<tr><th id="42">42</th><td><u>#define <dfn class="macro" id="_M/Py_sq_concat" data-ref="_M/Py_sq_concat">Py_sq_concat</dfn> 40</u></td></tr>
+<tr><th id="43">43</th><td><u>#define <dfn class="macro" id="_M/Py_sq_contains" data-ref="_M/Py_sq_contains">Py_sq_contains</dfn> 41</u></td></tr>
+<tr><th id="44">44</th><td><u>#define <dfn class="macro" id="_M/Py_sq_inplace_concat" data-ref="_M/Py_sq_inplace_concat">Py_sq_inplace_concat</dfn> 42</u></td></tr>
+<tr><th id="45">45</th><td><u>#define <dfn class="macro" id="_M/Py_sq_inplace_repeat" data-ref="_M/Py_sq_inplace_repeat">Py_sq_inplace_repeat</dfn> 43</u></td></tr>
+<tr><th id="46">46</th><td><u>#define <dfn class="macro" id="_M/Py_sq_item" data-ref="_M/Py_sq_item">Py_sq_item</dfn> 44</u></td></tr>
+<tr><th id="47">47</th><td><u>#define <dfn class="macro" id="_M/Py_sq_length" data-ref="_M/Py_sq_length">Py_sq_length</dfn> 45</u></td></tr>
+<tr><th id="48">48</th><td><u>#define <dfn class="macro" id="_M/Py_sq_repeat" data-ref="_M/Py_sq_repeat">Py_sq_repeat</dfn> 46</u></td></tr>
+<tr><th id="49">49</th><td><u>#define <dfn class="macro" id="_M/Py_tp_alloc" data-ref="_M/Py_tp_alloc">Py_tp_alloc</dfn> 47</u></td></tr>
+<tr><th id="50">50</th><td><u>#define <dfn class="macro" id="_M/Py_tp_base" data-ref="_M/Py_tp_base">Py_tp_base</dfn> 48</u></td></tr>
+<tr><th id="51">51</th><td><u>#define <dfn class="macro" id="_M/Py_tp_bases" data-ref="_M/Py_tp_bases">Py_tp_bases</dfn> 49</u></td></tr>
+<tr><th id="52">52</th><td><u>#define <dfn class="macro" id="_M/Py_tp_call" data-ref="_M/Py_tp_call">Py_tp_call</dfn> 50</u></td></tr>
+<tr><th id="53">53</th><td><u>#define <dfn class="macro" id="_M/Py_tp_clear" data-ref="_M/Py_tp_clear">Py_tp_clear</dfn> 51</u></td></tr>
+<tr><th id="54">54</th><td><u>#define <dfn class="macro" id="_M/Py_tp_dealloc" data-ref="_M/Py_tp_dealloc">Py_tp_dealloc</dfn> 52</u></td></tr>
+<tr><th id="55">55</th><td><u>#define <dfn class="macro" id="_M/Py_tp_del" data-ref="_M/Py_tp_del">Py_tp_del</dfn> 53</u></td></tr>
+<tr><th id="56">56</th><td><u>#define <dfn class="macro" id="_M/Py_tp_descr_get" data-ref="_M/Py_tp_descr_get">Py_tp_descr_get</dfn> 54</u></td></tr>
+<tr><th id="57">57</th><td><u>#define <dfn class="macro" id="_M/Py_tp_descr_set" data-ref="_M/Py_tp_descr_set">Py_tp_descr_set</dfn> 55</u></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/Py_tp_doc" data-ref="_M/Py_tp_doc">Py_tp_doc</dfn> 56</u></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/Py_tp_getattr" data-ref="_M/Py_tp_getattr">Py_tp_getattr</dfn> 57</u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/Py_tp_getattro" data-ref="_M/Py_tp_getattro">Py_tp_getattro</dfn> 58</u></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/Py_tp_hash" data-ref="_M/Py_tp_hash">Py_tp_hash</dfn> 59</u></td></tr>
+<tr><th id="62">62</th><td><u>#define <dfn class="macro" id="_M/Py_tp_init" data-ref="_M/Py_tp_init">Py_tp_init</dfn> 60</u></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/Py_tp_is_gc" data-ref="_M/Py_tp_is_gc">Py_tp_is_gc</dfn> 61</u></td></tr>
+<tr><th id="64">64</th><td><u>#define <dfn class="macro" id="_M/Py_tp_iter" data-ref="_M/Py_tp_iter">Py_tp_iter</dfn> 62</u></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/Py_tp_iternext" data-ref="_M/Py_tp_iternext">Py_tp_iternext</dfn> 63</u></td></tr>
+<tr><th id="66">66</th><td><u>#define <dfn class="macro" id="_M/Py_tp_methods" data-ref="_M/Py_tp_methods">Py_tp_methods</dfn> 64</u></td></tr>
+<tr><th id="67">67</th><td><u>#define <dfn class="macro" id="_M/Py_tp_new" data-ref="_M/Py_tp_new">Py_tp_new</dfn> 65</u></td></tr>
+<tr><th id="68">68</th><td><u>#define <dfn class="macro" id="_M/Py_tp_repr" data-ref="_M/Py_tp_repr">Py_tp_repr</dfn> 66</u></td></tr>
+<tr><th id="69">69</th><td><u>#define <dfn class="macro" id="_M/Py_tp_richcompare" data-ref="_M/Py_tp_richcompare">Py_tp_richcompare</dfn> 67</u></td></tr>
+<tr><th id="70">70</th><td><u>#define <dfn class="macro" id="_M/Py_tp_setattr" data-ref="_M/Py_tp_setattr">Py_tp_setattr</dfn> 68</u></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/Py_tp_setattro" data-ref="_M/Py_tp_setattro">Py_tp_setattro</dfn> 69</u></td></tr>
+<tr><th id="72">72</th><td><u>#define <dfn class="macro" id="_M/Py_tp_str" data-ref="_M/Py_tp_str">Py_tp_str</dfn> 70</u></td></tr>
+<tr><th id="73">73</th><td><u>#define <dfn class="macro" id="_M/Py_tp_traverse" data-ref="_M/Py_tp_traverse">Py_tp_traverse</dfn> 71</u></td></tr>
+<tr><th id="74">74</th><td><u>#define <dfn class="macro" id="_M/Py_tp_members" data-ref="_M/Py_tp_members">Py_tp_members</dfn> 72</u></td></tr>
+<tr><th id="75">75</th><td><u>#define <dfn class="macro" id="_M/Py_tp_getset" data-ref="_M/Py_tp_getset">Py_tp_getset</dfn> 73</u></td></tr>
+<tr><th id="76">76</th><td><u>#define <dfn class="macro" id="_M/Py_tp_free" data-ref="_M/Py_tp_free">Py_tp_free</dfn> 74</u></td></tr>
+<tr><th id="77">77</th><td><u>#define <dfn class="macro" id="_M/Py_nb_matrix_multiply" data-ref="_M/Py_nb_matrix_multiply">Py_nb_matrix_multiply</dfn> 75</u></td></tr>
+<tr><th id="78">78</th><td><u>#define <dfn class="macro" id="_M/Py_nb_inplace_matrix_multiply" data-ref="_M/Py_nb_inplace_matrix_multiply">Py_nb_inplace_matrix_multiply</dfn> 76</u></td></tr>
+<tr><th id="79">79</th><td><u>#define <dfn class="macro" id="_M/Py_am_await" data-ref="_M/Py_am_await">Py_am_await</dfn> 77</u></td></tr>
+<tr><th id="80">80</th><td><u>#define <dfn class="macro" id="_M/Py_am_aiter" data-ref="_M/Py_am_aiter">Py_am_aiter</dfn> 78</u></td></tr>
+<tr><th id="81">81</th><td><u>#define <dfn class="macro" id="_M/Py_am_anext" data-ref="_M/Py_am_anext">Py_am_anext</dfn> 79</u></td></tr>
+<tr><th id="82">82</th><td><u>#<span data-ppcond="82">if</span> !defined(<span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span>) || Py_LIMITED_API+0 &gt;= 0x03050000</u></td></tr>
+<tr><th id="83">83</th><td><i>/* New in 3.5 */</i></td></tr>
+<tr><th id="84">84</th><td><u>#define <dfn class="macro" id="_M/Py_tp_finalize" data-ref="_M/Py_tp_finalize">Py_tp_finalize</dfn> 80</u></td></tr>
+<tr><th id="85">85</th><td><u>#<span data-ppcond="82">endif</span></u></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc.html'>tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc</a><br/>Generated on <em>2018-Aug-09</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

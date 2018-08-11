@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/device_set.h' l='56' type='void tensorflow::DeviceSet::FindMatchingDevices(const DeviceNameUtils::ParsedName &amp; spec, std::vector&lt;Device *&gt; * devices) const'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/device_set.h' l='53'>// Given a DeviceNameUtils::ParsedName (which may have some
+  // wildcards for different components), fills &quot;*devices&quot; with all
+  // devices in &quot;*this&quot; that match &quot;spec&quot;.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/device_set.cc' l='41' ll='51' type='void tensorflow::DeviceSet::FindMatchingDevices(const DeviceNameUtils::ParsedName &amp; spec, std::vector&lt;Device *&gt; * devices) const'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='313' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ColocationGraph17GetDevicesForNodeEPNS_4NodeEPPSt6vectorIPNS_6DeviceESaIS6_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='332' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ColocationGraph17GetDevicesForNodeEPNS_4NodeEPPSt6vectorIPNS_6DeviceESaIS6_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='353' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ColocationGraph17GetDevicesForNodeEPNS_4NodeEPPSt6vectorIPNS_6DeviceESaIS6_EE'/>

@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.h' l='107' type='tensorflow::Status tensorflow::XlaResource::Pack(xla::ComputationDataHandle * pack, xla::ComputationBuilder * builder) const'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.h' l='102'>// Packs a resource into a single XLA value `pack`, suitable for use as
+  // an XlaCompiler::Argument. For non-TensorArrays or TensorArrays without
+  // gradients, sets `*pack` to `value`.
+  // For TensorArrays with gradients, packs the value and its gradient values in
+  // a tuple; the gradients values are packed in order by source name.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='63' u='c' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='243' u='c' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='406' u='c' c='_ZN10tensorflow12_GLOBAL__N_116BuildComputationERKSt6vectorINS_11XlaCompiler8ArgumentESaIS3_EERKS1_IiSaIiEERKS1_INS_13XlaExpressionESaISC_EERKS1_ISt107037535'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.cc' l='147' ll='161' type='tensorflow::Status tensorflow::XlaResource::Pack(xla::ComputationDataHandle * pack, xla::ComputationBuilder * builder) const'/>

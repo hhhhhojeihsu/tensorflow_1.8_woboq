@@ -1,0 +1,10 @@
+<dec f='include/python3.5m/traceback.h' l='65' type='const char * _Py_DumpTracebackThreads(int fd, PyInterpreterState * interp, PyThreadState * current_thread)'/>
+<doc f='include/python3.5m/traceback.h' l='55'>/* Write the traceback of all threads into the file &apos;fd&apos;. current_thread can be
+   NULL. Return NULL on success, or an error message on error.
+
+   This function is written for debug purpose only. It calls
+   _Py_DumpTraceback() for each thread, and so has the same limitations. It
+   only write the traceback of the first 100 threads: write &quot;...&quot; if there are
+   more threads.
+
+   This function is signal safe. */</doc>

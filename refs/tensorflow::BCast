@@ -1,0 +1,68 @@
+<def f='tensorflow/tensorflow/core/util/bcast.h' l='69' ll='131'/>
+<size>392</size>
+<doc f='tensorflow/tensorflow/core/util/bcast.h' l='28'>// BCast is a helper for broadcasting binary tensor operation.
+// TensorFlow&apos;s broadcasting rule follows that of numpy (See
+// http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html).
+//
+// The rule has the following properties:
+//
+//   1. suffix matching: the rule starts with the right-most
+//      dimension, and works towards the left-most dimension. Since
+//      TensorFlow is row-major, the right-most dimension (the last
+//      element in the shape of a tensor) is the inner-most, a.k.a.
+//      the fastest changing, dimension.
+//
+//   2. Two dimensions are compatible for broadcasting if both are the
+//      same or either is 1.
+//
+// BCast takes the shape of two tensors and computes a few vectors of
+// int32 that are useful for the caller to reshape the tensors, apply
+// the right broadcasts to them, compute the broadcasted operation,
+// and possibly the gradients. In a nutshell, the caller is expected
+// to compute the broadcasted operation as following:
+//
+//   BCast b(x.shape(), y.shape());
+//   output = x.reshape(b.x_reshape()).broadcast(b.x_bcast())
+//            _op_
+//            y.reshape(b.y_reshape()).broadcast(b.y_bcast())
+//
+// For the gradient computation,
+//   grad_x = sum(grad * backprop_x(x, y), grad_x_reduce_idx)
+//            .reshape(x.shape())
+//   grad_y = sum(grad * backprop_y(x, y), grad_y_reduce_idx)
+//            .reshape(y.shape())
+// backprop_x and backprop_y are functionals of the binary function &quot;op&quot;,
+// e.g.,
+//   for +, backprop_x(x, y) = backprop_y(x, y) = 1;
+//   for *, backprop_x(x, y) =  y, backprop_y(x, y) = x;
+//   for /, backprop_x(x, y) = 1/y, backprop_y(x, y) = -x/y^2;
+//
+// The multiplication in the grad * backprop_x itself is also
+// broadcasting following the same rule.
+//
+// TODO(zhifengc): Adds support for n-ary (n &gt;= 2).</doc>
+<fun r='_ZN10tensorflow5BCastC1ERKNS_3gtl13InlinedVectorIxLi4EEES5_b'/>
+<fun r='_ZN10tensorflow5BCastD1Ev'/>
+<fun r='_ZNK10tensorflow5BCast7IsValidEv'/>
+<fun r='_ZNK10tensorflow5BCast9x_reshapeEv'/>
+<fun r='_ZNK10tensorflow5BCast7x_bcastEv'/>
+<fun r='_ZNK10tensorflow5BCast9y_reshapeEv'/>
+<fun r='_ZNK10tensorflow5BCast7y_bcastEv'/>
+<fun r='_ZNK10tensorflow5BCast12result_shapeEv'/>
+<fun r='_ZNK10tensorflow5BCast12output_shapeEv'/>
+<fun r='_ZNK10tensorflow5BCast17grad_x_reduce_idxEv'/>
+<fun r='_ZNK10tensorflow5BCast17grad_y_reduce_idxEv'/>
+<fun r='_ZN10tensorflow5BCast9FromShapeERKNS_11TensorShapeE'/>
+<fun r='_ZN10tensorflow5BCast7ToShapeERKNS_3gtl13InlinedVectorIxLi4EEE'/>
+<fun r='_ZN10tensorflow5BCast12ToIndexArrayERKNS_3gtl13InlinedVectorIxLi4EEE'/>
+<mbr r='tensorflow::BCast::valid_' o='0' t='bool'/>
+<mbr r='tensorflow::BCast::x_reshape_' o='64' t='Vec'/>
+<mbr r='tensorflow::BCast::x_bcast_' o='448' t='Vec'/>
+<mbr r='tensorflow::BCast::y_reshape_' o='832' t='Vec'/>
+<mbr r='tensorflow::BCast::y_bcast_' o='1216' t='Vec'/>
+<mbr r='tensorflow::BCast::result_' o='1600' t='Vec'/>
+<mbr r='tensorflow::BCast::output_' o='1984' t='Vec'/>
+<mbr r='tensorflow::BCast::grad_x_reduce_idx_' o='2368' t='Vec'/>
+<mbr r='tensorflow::BCast::grad_y_reduce_idx_' o='2752' t='Vec'/>
+<fun r='_ZN10tensorflow5BCast7ReverseEPNS_3gtl13InlinedVectorIxLi4EEE'/>
+<fun r='_ZN10tensorflow5BCastC1ERKS0_'/>

@@ -1,0 +1,38 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/dfs_hlo_visitor_with_default.h' l='45' c='xla::DfsHloVisitorWithDefaultBase'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/fused_ir_emitter.h' l='52' ll='115'/>
+<size>248</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/fused_ir_emitter.h' l='35'>// FusedIrEmitter is used to generate code for fusion nodes.
+//
+// Unlike IrEmitter and its ilk, which directly create LLVM IR in an LLVM
+// Module, FusedIrEmitter is better understood as &quot;IR generator generator&quot;.
+// FusedIrEmitter recursively creates a generator (a host function) which the
+// compiler can invoke at a later time.  Invoking the generator emits LLVM IR
+// that, when run, produces the value at a particular index of the output.
+//
+// After building this generator, the compiler creates a loop (or its moral
+// equivalent, e.g. a GPU kernel) and calls the generator from within the loop.
+// This generates code that produces each element of the output.
+//
+// This class handles both vanilla fusion and multi-output fusion.  In the MOF
+// case, the fusion node ends with a kTuple instruction, and the generator
+// created produces an LLVM struct with N elements, one for each element of the
+// arrays in the tuple.  It follows that the arrays in the tuple must have the
+// same length.</doc>
+<fun r='_ZN3xla14FusedIrEmitterC1EN10tensorflow3gtl10ArraySliceINS_7llvm_ir7IrArrayEEEPNS_18ElementalIrEmitterE'/>
+<fun r='_ZN3xla14FusedIrEmitter13DefaultActionEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla14FusedIrEmitter14HandleConstantEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla14FusedIrEmitter21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla14FusedIrEmitter15HandleParameterEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla14FusedIrEmitter11HandleTupleEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla14FusedIrEmitter11FinishVisitEPNS_14HloInstructionE'/>
+<fun r='_ZNK3xla14FusedIrEmitter16GetRootGeneratorEv'/>
+<fun r='_ZNK3xla14FusedIrEmitter12GetGeneratorEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla14FusedIrEmitter16GetIrValueForGTEEPKNS_14HloInstructionE'/>
+<mbr r='xla::FusedIrEmitter::parameter_arrays_' o='256' t='tensorflow::gtl::ArraySlice&lt;llvm_ir::IrArray&gt;'/>
+<mbr r='xla::FusedIrEmitter::elemental_emitter_' o='384' t='xla::ElementalIrEmitter *'/>
+<mbr r='xla::FusedIrEmitter::fused_root_' o='448' t='const xla::HloInstruction *'/>
+<mbr r='xla::FusedIrEmitter::ir_builder_' o='512' t='llvm::IRBuilder&lt;&gt; *'/>
+<mbr r='xla::FusedIrEmitter::module_' o='576' t='llvm::Module *'/>
+<mbr r='xla::FusedIrEmitter::generators_' o='640' t='std::unordered_map&lt;const HloInstruction *, Generator&gt;'/>
+<mbr r='xla::FusedIrEmitter::generated_value_cache_' o='1088' t='std::unordered_map&lt;const HloInstruction *, std::map&lt;std::vector&lt;llvm::Value *&gt;, llvm::Value *&gt; &gt;'/>
+<mbr r='xla::FusedIrEmitter::gte_values_' o='1536' t='std::unordered_map&lt;const HloInstruction *, llvm::Value *&gt;'/>

@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.h' l='74' type='xla::cpu::runtime::XfeedBuffer * xla::cpu::runtime::XfeedQueueManager::BlockingDequeueBuffer()'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.h' l='69'>// Blocks until the queue is non-empty, then returns the buffer at the head of
+  // the queue. Sets the current buffer to be the returned buffer. It is an
+  // error to call BlockingDequeueBuffer if there is an unreleased current
+  // buffer, i.e., ReleaseCurrentBuffer must be called between calls to
+  // BlockingDequeueBuffer.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='102' u='c' c='__xla_cpu_runtime_AcquireInfeedBufferForDequeue'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='134' u='c' c='__xla_cpu_runtime_AcquireOutfeedBufferForPopulation'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.cc' l='57' ll='68' type='xla::cpu::runtime::XfeedBuffer * xla::cpu::runtime::XfeedQueueManager::BlockingDequeueBuffer()'/>

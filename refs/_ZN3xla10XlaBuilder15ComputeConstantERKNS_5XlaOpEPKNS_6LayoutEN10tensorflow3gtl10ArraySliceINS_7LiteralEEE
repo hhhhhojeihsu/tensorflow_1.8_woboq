@@ -1,0 +1,26 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='758' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::XlaBuilder::ComputeConstant(const xla::XlaOp &amp; operand, const xla::Layout * output_layout = nullptr, tensorflow::gtl::ArraySlice&lt;Literal&gt; parameters = {})'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='734'>// Computes the value of a constant indicated by a XlaOp using a non-optimized
+  // interpreter on the host.
+  //
+  // The operand must represent a constant value, which in this case
+  // means that it must not statically depend on any parameter of the
+  // computation that is being built other then the ones specified on the
+  // parameter list. The parameters in the list will be indexed by their
+  // parameter id property so the number of parameters specified should be at
+  // least as many as the largest used parameter index.
+  //
+  // `IsConstant` can be used to test whether a computation is a compile-time
+  // constant without evaluation it. `ComputeConstant` only succeeds for
+  // computations where `IsConstant` returns true.
+  //
+  // This functionality can be useful when translating a computation
+  // into XLA where something that looked dynamic is required by
+  // XLA to be specified as a constant. E.g. the source
+  // computation (outside of XLA) may include a dynamic
+  // computation of the shape of something and ComputeConstant lets
+  // you determine what the value of that computation is in the case
+  // where the value can be determined at compile time.
+  //
+  // If output_layout is non-null, then the output of the computation
+  // will be stored using that layout.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1257' ll='1261' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::XlaBuilder::ComputeConstant(const xla::XlaOp &amp; operand, const xla::Layout * output_layout = nullptr, tensorflow::gtl::ArraySlice&lt;Literal&gt; parameters = {})'/>

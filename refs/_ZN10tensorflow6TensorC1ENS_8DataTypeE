@@ -1,0 +1,40 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor.h' l='109' type='void tensorflow::Tensor::Tensor(tensorflow::DataType type)'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor.h' l='104'>/// \brief Creates an empty Tensor of the given data type.
+  ///
+  /// Like Tensor(), returns a 1-dimensional, 0-element Tensor with
+  /// IsInitialized() returning True. See the Tensor() documentation
+  /// for details.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.h' l='64' u='c' c='_ZN10tensorflow12TensorHandleC1EyNS_8DataTypeEPNS_12EagerContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.h' l='34' u='c' c='_ZN10tensorflow3VarC1ENS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='264' u='c' c='_ZN10tensorflow9XlaDevice19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/const_op.cc' l='100' u='c' c='_ZN10tensorflow12_GLOBAL__N_17ConstOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='589' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TensorArrayGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='94' u='c' c='_ZN10tensorflow18XlaOpKernelContext21ConstantInputReshapedEiNS_3gtl10ArraySliceIxEEPN3xla7LiteralE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/single_threaded_cpu_device.h' l='62' u='c' c='_ZN10tensorflow23SingleThreadedCpuDevice19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/threadpool_device.cc' l='86' u='c' c='_ZN10tensorflow16ThreadPoolDevice19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='29' u='c' c='_ZN10tensorflow12_GLOBAL__N_124ParseTensorProtoToTensorERKNS_11TensorProtoEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='84' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ReEncodeConstsEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/tensor_coding.cc' l='278' u='c' c='_ZN10tensorflow14TensorResponse9ParseSlowEPNS0_6SourceE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='95' u='c' c='_ZN10tensorflow6Worker15PrepareRunGraphEPNS_22RunGraphRequestWrapperEPSt3mapISsNS_6TensorESt4lessISsESaISt4pairIKSsS4_EEESC_'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='421' u='c' c='_ZN10tensorflow18AreAttrValuesEqualERKNS_9AttrValueES2_'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='425' u='c' c='_ZN10tensorflow18AreAttrValuesEqualERKNS_9AttrValueES2_'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='474' u='c' c='_ZN10tensorflow13AttrValueHashERKNS_9AttrValueE'/>
+<use f='tensorflow/tensorflow/core/framework/tensor.cc' l='597' u='c' c='_ZN10tensorflow6TensorC1Ev'/>
+<def f='tensorflow/tensorflow/core/framework/tensor.cc' l='599' type='void tensorflow::Tensor::Tensor(tensorflow::DataType type)'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='746' u='c' c='_ZN10tensorflow8grappler34GetTensorShapeProtoFromTensorProtoERKNS_11TensorProtoEPNS_16TensorShapeProtoE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='94' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_112DeviceSimple19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='327' u='c' c='_ZN10tensorflow8grappler15ConstantFolding17MaterializeShapesERKNS0_15GraphPropertiesE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='395' u='c' c='_ZN10tensorflow8grappler15ConstantFolding17MaterializeShapesERKNS0_15GraphPropertiesE'/>
+<use f='tensorflow/tensorflow/core/kernels/barrier_ops.cc' l='227' u='c' c='_ZN10tensorflow7barrier7Barrier11TryTakeManyEibxPNS_15OpKernelContextERKSt8functionIFvRKNS_6TensorES7_RKSt6vectorIS5_SaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/barrier_ops.cc' l='227' u='c' c='_ZN10tensorflow7barrier7Barrier11TryTakeManyEibxPNS_15OpKernelContextERKSt8functionIFvRKNS_6TensorES7_RKSt6vectorIS5_SaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/barrier_ops.cc' l='236' u='c' c='_ZN10tensorflow7barrier7Barrier11TryTakeManyEibxPNS_15OpKernelContextERKSt8functionIFvRKNS_6TensorES7_RKSt6vectorIS5_SaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/barrier_ops.cc' l='237' u='c' c='_ZN10tensorflow7barrier7Barrier11TryTakeManyEibxPNS_15OpKernelContextERKSt8functionIFvRKNS_6TensorES7_RKSt6vectorIS5_SaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/barrier_ops.cc' l='356' u='c' c='_ZN10tensorflow7barrier7Barrier15InsertOneLockedEPNS_15OpKernelContextERKNS_6TensorES6_RKNS_11TensorShapeEiiPSt6vectorISA_IS4_SaIS4_EESaISC_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/constant_op.cc' l='71' u='c' c='_ZN10tensorflow10ConstantOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/constant_op.cc' l='144' u='c' c='_ZN10tensorflow14HostConstantOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1100' u='c' c='_ZN10tensorflow15GraphTransferer19MakeTensorFromProtoERKNS_11TensorProtoEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/list_kernels.cc' l='73' u='c' c='_ZN10tensorflowL20TensorListDeviceCopyERKNS_10TensorListEPS0_RKSt8functionIFNS_6StatusERKNS_6TensorEPS6_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/list_kernels.cc' l='363' u='c' c='_ZN10tensorflow17TensorListReserve7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/reshape_op.h' l='85' u='c' c='_ZN10tensorflow9ReshapeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='355' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils19MakeTensorFromProtoERKNS_11TensorProtoEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='30' u='c' c='_ZN10tensorflow9LegacyVarC1ENS_8DataTypeE'/>

@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/partial_run_mgr.h' l='66' type='void tensorflow::PartialRunMgr::PartialRunDone(int step_id, StatusCallback done, const tensorflow::Status &amp; status)'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/partial_run_mgr.cc' l='72' ll='94' type='void tensorflow::PartialRunMgr::PartialRunDone(int step_id, StatusCallback done, const tensorflow::Status &amp; status)'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/partial_run_mgr.h' l='60'>// Calls done if the executor has already completed (ExecutorDone has been
+  // called). Otherwise, stores the status and done callback, calling them when
+  // ExecutorDone is called. The callback will either be called by the calling
+  // thread of either PartialRunDone or ExecutorDone.
+  // If executor_status in ExecutorDone is not OK, it takes precedence over
+  // status and is passed to the done callback.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='277' u='c' c='_ZN10tensorflow6Worker17DoPartialRunGraphEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>

@@ -1,0 +1,22 @@
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.h' l='65' type='tensorflow::DataType tensorflow::XlaResource::type() const'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.h' l='60'>// Current type and value of the resource. Uninitialized resources are
+  // represented by a default (zero) handle and type DT_INVALID.
+  // While the type of a resource is notionally fixed during execution, when
+  // a resource is first initialized we do not yet know its type, so we keep
+  // track of its type dynamically.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='65' u='c' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stack_ops.cc' l='66' u='c' c='_ZN10tensorflow12_GLOBAL__N_120MaybeInitializeStackEPN3xla18ComputationBuilderEPNS_11XlaResourceENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stack_ops.cc' l='68' u='c' c='_ZN10tensorflow12_GLOBAL__N_120MaybeInitializeStackEPN3xla18ComputationBuilderEPNS_11XlaResourceENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stack_ops.cc' l='79' u='c' c='_ZN10tensorflow12_GLOBAL__N_120MaybeInitializeStackEPN3xla18ComputationBuilderEPNS_11XlaResourceENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='57' u='c' c='_ZN10tensorflow12_GLOBAL__N_126MaybeInitializeTensorArrayEPN3xla18ComputationBuilderEPNS_11XlaResourceENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='59' u='c' c='_ZN10tensorflow12_GLOBAL__N_126MaybeInitializeTensorArrayEPN3xla18ComputationBuilderEPNS_11XlaResourceENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='68' u='c' c='_ZN10tensorflow12_GLOBAL__N_126MaybeInitializeTensorArrayEPN3xla18ComputationBuilderEPNS_11XlaResourceENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='107' u='c' c='_ZN10tensorflow12_GLOBAL__N_129CheckTensorArrayIsInitializedERKSsPKNS_11XlaResourceENS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='109' u='c' c='_ZN10tensorflow12_GLOBAL__N_129CheckTensorArrayIsInitializedERKSsPKNS_11XlaResourceENS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='578' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TensorArrayGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='60' u='c' c='_ZN10tensorflow12_GLOBAL__N_134MakeXlaCompilerArgumentsFromInputsEPNS_18XlaOpKernelContextEPSt6vectorINS_11XlaCompiler8ArgumentESaIS5_EEPbS9_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='393' u='c' c='_ZN10tensorflow12_GLOBAL__N_116BuildComputationERKSt6vectorINS_11XlaCompiler8ArgumentESaIS3_EERKS1_IiSaIiEERKS1_INS_13XlaExpressionESaISC_EERKS1_ISt107037535'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='300' u='c' c='_ZN10tensorflow18XlaOpKernelContext17ReadVariableInputEiNS_8DataTypeEPNS_11TensorShapeEPN3xla21ComputationDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='303' u='c' c='_ZN10tensorflow18XlaOpKernelContext17ReadVariableInputEiNS_8DataTypeEPNS_11TensorShapeEPN3xla21ComputationDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='311' u='c' c='_ZN10tensorflow18XlaOpKernelContext17ReadVariableInputEiNS_8DataTypeEPNS_11TensorShapeEPN3xla21ComputationDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='332' u='c' c='_ZNK10tensorflow18XlaOpKernelContext23GetVariableTypeAndShapeEiPNS_8DataTypeEPNS_11TensorShapeE'/>

@@ -1,0 +1,15 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_interface.h' l='29' c='xla::HloPassInterface'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/conv_canonicalization.h' l='33' ll='41'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/conv_canonicalization.h' l='25'>// An HLO pass that canonicalizes the dimension numbers of all top-level
+// convolutions in the given module.
+//
+// In order to hit the fast path of using Eigen&apos;s convolution implementation, a
+// convolution&apos;s dimension numbers need to satisfy certain constraints (so
+// called canonical convolutions). This pass expands non-canonical convolutions
+// into reshapes and canonical convolutions, so that these non-canonical
+// convolutions can run faster.</doc>
+<fun r='_ZN3xla3cpu20ConvCanonicalizationD1Ev'/>
+<fun r='_ZNK3xla3cpu20ConvCanonicalization4nameEv'/>
+<fun r='_ZN3xla3cpu20ConvCanonicalization3RunEPNS_9HloModuleE'/>
+<fun r='_ZN3xla3cpu20ConvCanonicalization3RunEPNS_9HloModuleE'/>

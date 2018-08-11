@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.h' l='98' type='tensorflow::Status tensorflow::XlaResource::GetOrCreateTensorArrayGradient(const string &amp; source, xla::ComputationBuilder * builder, tensorflow::XlaResource ** gradient_out)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.h' l='94'>// Looks up the gradient for `source`, or creates it if it does not already
+  // exist. The call target must be an initialized TensorArray resource. A
+  // TensorArray can have multiple named gradients; see the operator
+  // documentation for TensorArrayGradV3 for details.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='116' u='c' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='586' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TensorArrayGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='171' u='c' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.cc' l='124' ll='145' type='tensorflow::Status tensorflow::XlaResource::GetOrCreateTensorArrayGradient(const string &amp; source, xla::ComputationBuilder * builder, tensorflow::XlaResource ** gradient_out)'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.cc' l='183' u='c' c='_ZN10tensorflow11XlaResource11SetFromPackERKSt3setISsSt4lessISsESaISsEERKN3xla21ComputationDataHandleEPNS8_18ComputationBuilderE'/>

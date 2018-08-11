@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/framework/common_shape_fns.h' l='126' type='tensorflow::Status tensorflow::Get3dOutputSize(const std::array&lt;int64, 3&gt; &amp; input, const std::array&lt;int64, 3&gt; &amp; window, const std::array&lt;int64, 3&gt; &amp; strides, tensorflow::Padding padding_type, std::array&lt;int64, 3&gt; * output_ptr, std::array&lt;int64, 3&gt; * padding_ptr)'/>
+<doc f='tensorflow/tensorflow/core/framework/common_shape_fns.h' l='121'>// Given an input tensor, kernel, stride and padding type, populates the 3D size
+// of the output tensor and padding to be applied to the input tensor at the
+// lower end of every dimension. Use for 3D convolutions, where the input data
+// is padded with zeros, as well as for 3D avg/max pooling, where the input data
+// is padded with invalid values that are not considered for pooling.</doc>
+<def f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='90' ll='101' type='tensorflow::Status tensorflow::Get3dOutputSize(const std::array&lt;int64, 3&gt; &amp; input, const std::array&lt;int64, 3&gt; &amp; window, const std::array&lt;int64, 3&gt; &amp; strides, tensorflow::Padding padding_type, std::array&lt;int64, 3&gt; * output_ptr, std::array&lt;int64, 3&gt; * padding_ptr)'/>

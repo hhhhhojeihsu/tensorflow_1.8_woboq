@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/core/lib/strings/numbers.h' l='66' type='size_t tensorflow::strings::FastInt32ToBufferLeft(int32 i, char * buffer)'/>
+<use f='tensorflow/tensorflow/core/lib/strings/strcat.h' l='104' u='c' c='_ZN10tensorflow7strings8AlphaNumC1Ei'/>
+<doc f='tensorflow/tensorflow/core/lib/strings/numbers.h' l='50'>// ----------------------------------------------------------------------
+// FastInt32ToBufferLeft()
+// FastUInt32ToBufferLeft()
+// FastInt64ToBufferLeft()
+// FastUInt64ToBufferLeft()
+//
+// These functions convert their numeric argument to an ASCII
+// representation of the numeric value in base 10, with the
+// representation being left-aligned in the buffer.  The caller is
+// responsible for ensuring that the buffer has enough space to hold
+// the output.  The buffer should typically be at least kFastToBufferSize
+// bytes.
+//
+// Returns the number of characters written.
+// ----------------------------------------------------------------------</doc>
+<doc f='tensorflow/tensorflow/core/lib/strings/numbers.h' l='66'>// at least 12 bytes</doc>
+<def f='tensorflow/tensorflow/core/lib/strings/numbers.cc' l='110' ll='123' type='size_t tensorflow::strings::FastInt32ToBufferLeft(int32 i, char * buffer)'/>

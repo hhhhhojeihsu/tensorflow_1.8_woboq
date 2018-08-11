@@ -1,0 +1,6 @@
+<def f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='51' ll='69' type='uint64 tensorflow::presized_cuckoo_map::multiply_high_u64(uint64 x, uint64 y)'/>
+<use f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='339' u='c' c='_ZNK10tensorflow17PresizedCuckooMap19fast_map_to_bucketsEy'/>
+<doc f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='47'>// Utility function to compute (x * y) &gt;&gt; 64, or &quot;multiply high&quot;.
+// On x86-64, this is a single instruction, but not all platforms
+// support the __uint128_t type, so we provide a generic
+// implementation as well.</doc>

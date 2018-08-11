@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/executable_build_options.h' l='43' type='xla::ExecutableBuildOptions &amp; xla::ExecutableBuildOptions::set_result_layout(const xla::Shape &amp; shape_with_layout)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/executable_build_options.h' l='39'>// If set, this specifies the layout of the result of the computation. If not
+  // set, the service will chose the layout of the result. A Shape is used to
+  // store the layout to accommodate tuple result shapes. A value of nullptr
+  // indicates the option has not been set.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='198' u='c' c='_ZN10tensorflow19XlaCompilationCache15BuildExecutableERKNS_11XlaCompiler7OptionsERKNS1_17CompilationResultEPSt10unique_ptrIN3xla15LocalExecutableESt14default_deleteISA_EE'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/executable_build_options.cc' l='42' ll='47' type='xla::ExecutableBuildOptions &amp; xla::ExecutableBuildOptions::set_result_layout(const xla::Shape &amp; shape_with_layout)'/>

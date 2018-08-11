@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/debug/debug_io_utils.h' l='78' type='static tensorflow::Status tensorflow::DebugIO::PublishDebugTensor(const tensorflow::DebugNodeKey &amp; debug_node_key, const tensorflow::Tensor &amp; tensor, const uint64 wall_time_us, const gtl::ArraySlice&lt;string&gt; &amp; debug_urls, const bool gated_grpc)'/>
+<def f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='410' ll='464' type='static tensorflow::Status tensorflow::DebugIO::PublishDebugTensor(const tensorflow::DebugNodeKey &amp; debug_node_key, const tensorflow::Tensor &amp; tensor, const uint64 wall_time_us, const gtl::ArraySlice&lt;string&gt; &amp; debug_urls, const bool gated_grpc)'/>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='470' u='c' c='_ZN10tensorflow7DebugIO18PublishDebugTensorERKNS_12DebugNodeKeyERKNS_6TensorEyRKNS_3gtl10ArraySliceISsEE'/>
+<doc f='tensorflow/tensorflow/core/debug/debug_io_utils.h' l='69'>// Publishes a tensor to a debug target URL.
+  //
+  // Args:
+  //   debug_node_key: A DebugNodeKey identifying the debug node.
+  //   tensor: The Tensor object being published.
+  //   wall_time_us: Time stamp for the Tensor. Unit: microseconds (us).
+  //   debug_urls: An array of debug target URLs, e.g.,
+  //     &quot;file:///foo/tfdbg_dump&quot;, &quot;grpc://localhost:11011&quot;
+  //   gated_grpc: Whether this call is subject to gRPC gating.</doc>
+<use f='tensorflow/tensorflow/core/kernels/debug_ops.h' l='182' u='c' c='_ZN10tensorflow11BaseDebugOp13PublishTensorERKNS_6TensorE'/>

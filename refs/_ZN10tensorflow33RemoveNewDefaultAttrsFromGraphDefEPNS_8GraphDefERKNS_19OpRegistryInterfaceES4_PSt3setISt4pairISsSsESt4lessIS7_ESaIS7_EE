@@ -1,0 +1,32 @@
+<dec f='tensorflow/tensorflow/core/framework/graph_def_util.h' l='95' type='tensorflow::Status tensorflow::RemoveNewDefaultAttrsFromGraphDef(tensorflow::GraphDef * graph_def, const tensorflow::OpRegistryInterface &amp; consumer_op_registry, const tensorflow::OpRegistryInterface &amp; producer_op_registry, std::set&lt;std::pair&lt;string, string&gt; &gt; * op_attr_removed)'/>
+<doc f='tensorflow/tensorflow/core/framework/graph_def_util.h' l='65'>// Remove attrs from &apos;graph_def&apos; that have the default value according
+// to &apos;producer_op_registry&apos;, but don&apos;t exist according to
+// &apos;consumer_op_registry&apos;. This can allow &apos;graph_def&apos; to run on the
+// consumer even if consumer was built at an earlier CL (before an
+// attr with a default was added). Note that this will not affect
+// attrs with non-default values, so you must run a
+// ValidateGraphDef...() function to see if the result is in fact
+// compatible. If not nullptr, the op/attr pairs that were removed
+// are added to &apos;*op_attr_removed&apos;.
+//
+// Expected usage, for a producer that wants to prepare a graph for
+// a consumer:
+// // For each consumer, update &apos;graph_def&apos;:
+//   OpListOpRegistry consumer_op_registry(consumer_server_op_list);
+//   std::unordered_set&lt;std::pair&lt;string, string&gt;&gt; op_attr_removed;
+//   TF_RETURN_IF_ERROR(RemoveNewDefaultAttrsFromGraphDef(
+//       &amp;graph_def, consumer_op_registry, *OpRegistry::Global(),
+//       &amp;op_attr_removed));
+// // Validate that each consumer can understand the resulting &apos;graph_def&apos;
+//   TF_RETURN_IF_ERROR(graph::ValidateGraphDefAgainstOpRegistry(
+//       graph_def, consumer_op_registry));
+// // Consumer can use &apos;graph_def&apos;, and &apos;op_attr_removed&apos; summarizes
+// // what changes had to be made to &apos;graph_def&apos; for it to work.
+//
+// Expected usage, for a consumer that has a graph and a
+// (optionally-stripped) op_list from a producer (say from a call to
+// StrippedOpListForGraph(), or in the MetaGraphDef):
+//   OpListOpRegistry producer_op_registry(producer_stripped_op_list);
+//   TF_RETURN_IF_ERROR(RemoveNewDefaultAttrsFromGraphDef(
+//       &amp;graph_def, *OpRegistry::Global(), producer_op_registry, nullptr));</doc>
+<def f='tensorflow/tensorflow/core/framework/graph_def_util.cc' l='136' ll='164' type='tensorflow::Status tensorflow::RemoveNewDefaultAttrsFromGraphDef(tensorflow::GraphDef * graph_def, const tensorflow::OpRegistryInterface &amp; consumer_op_registry, const tensorflow::OpRegistryInterface &amp; producer_op_registry, std::set&lt;std::pair&lt;string, string&gt; &gt; * op_attr_removed)'/>

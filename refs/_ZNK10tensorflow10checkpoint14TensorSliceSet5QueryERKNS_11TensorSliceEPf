@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_slice_set.h' l='63' type='bool tensorflow::checkpoint::TensorSliceSet::Query(const tensorflow::TensorSlice &amp; slice, float * data) const'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_slice_set.h' l='58'>// Query about a new slice: checks if we have data for &quot;slice&quot; and if we have
+  // the data and &quot;data&quot; is not nullptr, fill &quot;data&quot; with the slice data. The
+  // caller needs to make sure &quot;data&quot; point to a large enough buffer.
+  // TODO(yangke): avoid unnecessary copying by using a core::RefCounted
+  // pointer.</doc>
+<def f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='63' ll='117' type='bool tensorflow::checkpoint::TensorSliceSet::Query(const tensorflow::TensorSlice &amp; slice, float * data) const'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='62'>// TODO(yangke): merge Query() with QueryMeta()</doc>

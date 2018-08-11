@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/core/framework/node_def_util.h' l='178' type='tensorflow::Status tensorflow::GetNodeAttr(const tensorflow::AttrSlice &amp; attrs, tensorflow::StringPiece attr_name, tensorflow::DataType * value)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1745' u='c' c='TF_OperationGetAttrType'/>
+<use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='128' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='145' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='95' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/parallel_concat_optimizer.cc' l='68' u='c' c='_ZN10tensorflow12_GLOBAL__N_124ParallelConcatRemovePass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='583' u='c' c='_ZN10tensorflow12_GLOBAL__N_15PrintENS_3gtl10ArraySliceIPKNS_7NodeDefEEE'/>
+<def f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='229' macro='1' type='tensorflow::Status tensorflow::GetNodeAttr(const tensorflow::AttrSlice &amp; attrs, tensorflow::StringPiece attr_name, tensorflow::DataType * value)'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='310' u='c' c='_ZN10tensorflow12_GLOBAL__N_111AddArgToSigERKNS_7NodeDefERKNS_12OpDef_ArgDefEPNS_3gtl13InlinedVectorINS_8DataTypeELi4EEE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='147' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='375' u='c' c='_ZN10tensorflow13ReverseV2GradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='399' u='c' c='_ZN10tensorflow9SliceGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='434' u='c' c='_ZN10tensorflow16StridedSliceGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='471' u='c' c='_ZN10tensorflow20StridedSliceGradGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/functional_grad.cc' l='28' u='c' c='_ZN10tensorflow17MapAccumulateGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='436' u='c' c='_ZN10tensorflow7MulGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='500' u='c' c='_ZN10tensorflow7PowGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='731' u='c' c='_ZN10tensorflow16MatMulGradCommonERKSsS1_S1_RKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/sparsify_gather.cc' l='327' u='c' c='_ZN10tensorflow16graph_transforms22SparsifyGatherInternalERKNS_8GraphDefERKSt10unique_ptrISt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIK3845914'/>

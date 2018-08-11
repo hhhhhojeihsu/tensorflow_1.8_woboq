@@ -1,0 +1,14 @@
+<inh f='tensorflow/tensorflow/core/common_runtime/device.h' l='54' c='tensorflow::Device'/>
+<def f='tensorflow/tensorflow/core/common_runtime/single_threaded_cpu_device.h' l='34' ll='78'/>
+<size>288</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/single_threaded_cpu_device.h' l='31'>// A simple single-threaded CPU device. This can be used to run inexpensive
+// computations. In particular, using this avoids initializing the global thread
+// pools in LocalDevice.</doc>
+<fun r='_ZN10tensorflow23SingleThreadedCpuDeviceC1EPNS_3EnvE'/>
+<fun r='_ZN10tensorflow23SingleThreadedCpuDeviceD1Ev'/>
+<fun r='_ZN10tensorflow23SingleThreadedCpuDevice4SyncEv'/>
+<fun r='_ZN10tensorflow23SingleThreadedCpuDevice19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<fun r='_ZN10tensorflow23SingleThreadedCpuDevice12GetAllocatorENS_19AllocatorAttributesE'/>
+<mbr r='tensorflow::SingleThreadedCpuDevice::eigen_worker_threads_' o='2048' t='DeviceBase::CpuWorkerThreads'/>
+<mbr r='tensorflow::SingleThreadedCpuDevice::eigen_threadpool_wrapper_' o='2176' t='std::unique_ptr&lt;Eigen::ThreadPoolInterface&gt;'/>
+<mbr r='tensorflow::SingleThreadedCpuDevice::eigen_device_' o='2240' t='std::unique_ptr&lt;Eigen::ThreadPoolDevice&gt;'/>

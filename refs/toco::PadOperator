@@ -1,0 +1,20 @@
+<inh f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='274' c='toco::Operator'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='819' ll='824'/>
+<size>120</size>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='805'>// Padding operator. Pads a tensor with zeros.
+//
+// Inputs:
+//   inputs[0]: required: the input array
+//   inputs[1]: required: the padding array
+//
+// This operation pads a `input` with zeros according to the `paddings` you
+// specify. `paddings` is an integer tensor with shape `[Dn, 2]`, where n is the
+// rank of `input`. For each dimension D of `input`, `paddings[D, 0]` indicates
+// how many zeros to add before the contents of `input` in that dimension, and
+// `paddings[D, 1]` indicates how many zeros to add after the contents of
+// `input` in that dimension.
+//
+// TensorFlow equivalent: Pad</doc>
+<fun r='_ZN4toco11PadOperatorC1Ev'/>
+<mbr r='toco::PadOperator::left_padding' o='576' t='std::vector&lt;int&gt;'/>
+<mbr r='toco::PadOperator::right_padding' o='768' t='std::vector&lt;int&gt;'/>

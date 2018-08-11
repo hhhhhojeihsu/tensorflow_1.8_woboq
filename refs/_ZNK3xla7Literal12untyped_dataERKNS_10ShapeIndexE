@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='116' type='const void * xla::Literal::untyped_data(const xla::ShapeIndex &amp; shape_index = {}) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='113'>// Returns a pointer to (or size of) the underlying buffer holding the array
+  // at the given shape index. CHECKs if the subshape of the literal at the
+  // given ShapeIndex is not array.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/literal_util.cc' l='59' u='c' c='_ZN10tensorflow23CopyLiteralToHostTensorERKN3xla7LiteralEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='265' u='c' c='_ZN3xla7Literal15CopyElementFromERKS0_N10tensorflow3gtl10ArraySliceIxEES6_'/>
+<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='2113' ll='2115' type='const void * xla::Literal::untyped_data(const xla::ShapeIndex &amp; shape_index = {}) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='566' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='101' u='c' c='_ZN3xla18CpuTransferManager23TransferLiteralToInfeedEPN9perftools8gputools14StreamExecutorERKNS_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='127' u='c' c='_ZN3xla18CpuTransferManager23TransferLiteralToInfeedEPN9perftools8gputools14StreamExecutorERKNS_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/external_constant_pool.cc' l='41' u='c' c='_ZN3xla3cpu20ExternalConstantPool6InsertESsRKNS_7LiteralEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='125' u='c' c='_ZN3xla22GenericTransferManager23TransferLiteralToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS_12ShapedBufferE'/>

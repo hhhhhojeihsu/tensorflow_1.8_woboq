@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='382' type='StatusOr&lt;bool&gt; xla::cpu::IrEmitter::EmitFastConcatenate(xla::HloInstruction * concatenate, tensorflow::gtl::ArraySlice&lt;HloInstruction *&gt; operands, string * failure_reason)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='379'>// Tries to emit a fast concatenate operation using memcpy.  Returns true if
+  // successful, and false on failure.  On failure, sets &quot;failure_reason&quot; to a
+  // string describing why it could not emit a fast concatenate.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2320' ll='2421' type='StatusOr&lt;bool&gt; xla::cpu::IrEmitter::EmitFastConcatenate(xla::HloInstruction * concatenate, gtl::ArraySlice&lt;HloInstruction *&gt; operands, string * failure_reason)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2465' u='c' c='_ZN3xla3cpu9IrEmitter17HandleConcatenateEPNS_14HloInstructionE'/>

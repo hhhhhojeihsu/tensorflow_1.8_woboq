@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='175' type='T perftools::gputools::port::StatusOr::ConsumeValueOrDie()'/>
+<def f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='216' ll='220' type='T perftools::gputools::port::StatusOr::ConsumeValueOrDie()'/>
+<use f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='146' u='c' c='_ZN9perftools8gputools8internal22TemporaryMemoryManager13AllocateArrayEy'/>
+<doc f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='168'>// Returns our current value, requires this-&gt;ok(). Use this if
+  // you would otherwise want to say std::move(s.ValueOrDie()), for example
+  // if you need to initialize a T object from the stored value and you don&apos;t
+  // need subsequent access to the stored value. It uses T&apos;s move constructor,
+  // if it has one, so it will work with move-only types, and will often be
+  // more efficient than ValueOrDie, but may leave the stored value
+  // in an arbitrary valid state.</doc>

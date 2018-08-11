@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/platform/file_system.h' l='116' type='tensorflow::Status tensorflow::FileSystem::GetChildren(const string &amp; dir, std::vector&lt;string&gt; * result)'/>
+<doc f='tensorflow/tensorflow/core/platform/file_system.h' l='113'>/// \brief Returns the immediate children in the given directory.
+  ///
+  /// The returned paths are relative to &apos;dir&apos;.</doc>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='212' u='c' c='_ZN10tensorflow3Env11GetChildrenERKSsPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/core/platform/file_system.cc' l='101' u='c' c='_ZN10tensorflow10FileSystem17DeleteRecursivelyERKSsPxS3_'/>
+<use f='tensorflow/tensorflow/core/platform/file_system_helper.cc' l='84' u='c' c='_ZN10tensorflow8internal16GetMatchingPathsEPNS_10FileSystemEPNS_3EnvERKSsPSt6vectorISsSaISsEE'/>
+<ovr f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='210' c='_ZN10tensorflow15PosixFileSystem11GetChildrenERKSsPSt6vectorISsSaISsEE'/>
+<ovr f='tensorflow/tensorflow/core/util/memmapped_file_system.cc' l='156' c='_ZN10tensorflow19MemmappedFileSystem11GetChildrenERKSsPSt6vectorISsSaISsEE'/>

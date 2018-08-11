@@ -1,0 +1,10 @@
+<dec f='include/python3.5m/abstract.h' l='305' type='PyObject * PyObject_CallMethod(PyObject * o, const char * method, const char * format)'/>
+<doc f='include/python3.5m/abstract.h' l='295'>/*
+     Call a callable Python object, callable_object, with a
+     variable number of C arguments. The C arguments are described
+     using a mkvalue-style format string. The format may be NULL,
+     indicating that no arguments are provided.  Returns the
+     result of the call on success, or NULL on failure.  This is
+     the equivalent of the Python expression: o(*args).
+       */</doc>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1041' u='c' c='_ZL20TapeTensorFromTensorP7_object'/>

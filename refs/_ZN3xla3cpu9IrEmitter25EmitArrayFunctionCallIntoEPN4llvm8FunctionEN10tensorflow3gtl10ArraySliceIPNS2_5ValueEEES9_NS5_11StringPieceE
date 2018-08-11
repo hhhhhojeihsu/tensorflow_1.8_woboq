@@ -1,0 +1,24 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='258' type='void xla::cpu::IrEmitter::EmitArrayFunctionCallInto(llvm::Function * function, tensorflow::gtl::ArraySlice&lt;llvm::Value *&gt; parameter_addresses, llvm::Value * return_value_buffer, tensorflow::StringPiece name)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='250'>// Array function call emitter.  Stores the function&apos;s result into a supplied
+  // buffer.
+  // Parameters:
+  //   function - The LLVM function to call.
+  //   parameter_addresses - pointers to be passed to the function as
+  //     parameters.
+  //   return_value - pointer to a buffer where the call result is stored.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2182' u='c' c='_ZN3xla3cpu9IrEmitter10HandleCallEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2308' u='c' c='_ZN3xla3cpu9IrEmitter11HandleWhileEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2525' u='c' c='_ZN3xla3cpu9IrEmitter17HandleConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2529' u='c' c='_ZN3xla3cpu9IrEmitter17HandleConditionalEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2793' ll='2803' type='void xla::cpu::IrEmitter::EmitArrayFunctionCallInto(llvm::Function * function, gtl::ArraySlice&lt;llvm::Value *&gt; parameter_addresses, llvm::Value * return_value_buffer, tensorflow::StringPiece name)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2817' u='c' c='_ZN3xla3cpu9IrEmitter21EmitArrayFunctionCallEPN4llvm8FunctionERKNS_5ShapeExN10tensorflow3gtl10ArraySliceIPNS2_5ValueEEENS8_11StringPieceE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2783'>// Emits a core function call based on the following pseudo-code.
+//
+//   char** parameter_addresses_buffer =
+//       allocate buffer with a pointer for each parameter to the function
+//   for each parameter index, i.e. for i = 0, ..., #parameters:
+//     parameter_addresses_buffer[i] = parameter_addresses[i]
+//   call function(return_value_buffer,
+//                 parameter_addresses_buffer,
+//                 temps)
+//   return return_value_buffer  -- address of the return value.</doc>

@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='37' type='StatusOr&lt;xla::HloInstruction *&gt; xla::MakePadHlo(xla::HloInstruction * operand, xla::HloInstruction * padding_value, const xla::PaddingConfig &amp; padding_config)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1312' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9HandlePadEPNS_14HloInstructionE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='34'>// Creates a pad HLO instruction and adds it to the computation containing
+// `operand` and `padding_value` (`operand` and `padding_value` must be in the
+// same computation).</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='36' ll='47' type='StatusOr&lt;xla::HloInstruction *&gt; xla::MakePadHlo(xla::HloInstruction * operand, xla::HloInstruction * padding_value, const xla::PaddingConfig &amp; padding_config)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='243' u='c' c='_ZN3xla18PadVectorWithZerosEPNS_14HloInstructionExx'/>

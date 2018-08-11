@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='323' type='StatusOr&lt;bool&gt; xla::cpu::IrEmitter::EmitVectorizedReduce(xla::HloInstruction * reduce, xla::HloInstruction * arg, xla::HloInstruction * init_value, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions, xla::HloComputation * function, string * failure_reason)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='314'>// Tries to codegen a reduction operation using vectorized instructions.
+  // Returns true if successful, and false on failure.  On failure, sets
+  // &quot;failure_reason&quot; to a string describing why it could not vectorize the
+  // reduction.
+  //
+  // TODO(sanjoy): Some of the things we do here can be abstracted out into
+  // concepts that generalize over other vectorizable operations.  We should
+  // consider pulling out these abstractions into a VectorizingIrEmitter or
+  // something similar.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1591' ll='1737' type='StatusOr&lt;bool&gt; xla::cpu::IrEmitter::EmitVectorizedReduce(xla::HloInstruction * reduce, xla::HloInstruction * arg, xla::HloInstruction * init_value, gtl::ArraySlice&lt;int64&gt; dimensions, xla::HloComputation * function, string * failure_reason)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1748' u='c' c='_ZN3xla3cpu9IrEmitter12HandleReduceEPNS_14HloInstructionE'/>

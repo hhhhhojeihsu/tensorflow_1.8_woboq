@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.h' l='279' type='static tensorflow::Status tensorflow::RemoteFusedGraphExecuteUtils::CopyByteArrayToTensor(const void * src_ptr, const int src_size, tensorflow::Tensor * tensor)'/>
+<doc f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.h' l='273'>// Copy a byte array to a tensor data.  Though tensor data must be
+  // updated with typed information in general, we can&apos;t guarantee that
+  // returned values from a remote processor has typed information because
+  // a logic running in the remote processor possibly be in a separate binary
+  // which may not link tensorflow libraries.  To deal with this situation,
+  // remote fused graph needs to overwrite the tensor data by a byte array.</doc>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/hexagon_control_wrapper.cc' l='376' u='c' c='_ZN10tensorflow21HexagonControlWrapper14ReadOutputNodeERKSsSt8functionIFPNS_6TensorERKNS_11TensorShapeEEE'/>
+<def f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1337' ll='1398' type='static tensorflow::Status tensorflow::RemoteFusedGraphExecuteUtils::CopyByteArrayToTensor(const void * src_ptr, const int src_size, tensorflow::Tensor * tensor)'/>
+<doc f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1337'>/* static */</doc>

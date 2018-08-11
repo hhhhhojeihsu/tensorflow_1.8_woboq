@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='490' type='tensorflow::DeviceBase *'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='505' u='r' c='_ZN10tensorflow15OpKernelContext6Params23ensure_eigen_gpu_deviceEv'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='514' u='r' c='_ZN10tensorflow15OpKernelContext6Params23ensure_eigen_gpu_deviceEv'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='586' u='r' c='_ZNK10tensorflow15OpKernelContext3envEv'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1050' u='r' c='_ZNK10tensorflow15OpKernelContext6deviceEv'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1371' u='r' c='_ZN10tensorflow15OpKernelContext23record_tensor_referenceERKNS_6TensorE'/>
+<offset>128</offset>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='489'>// The device on which the kernel is running.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/graph_compiler.cc' l='240' u='w' c='_ZN10tensorflow13GraphCompiler20PartiallySetupParamsEPNS_15OpKernelContext6ParamsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/kernel_and_device.cc' l='71' u='w' c='_ZN10tensorflow15KernelAndDevice3RunEPSt6vectorINS_6TensorESaIS2_EES5_PNS_13NodeExecStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='1522' u='w' c='_ZN10tensorflow12_GLOBAL__N_113ExecutorState7ProcessENS1_10TaggedNodeEx'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='267' u='r' c='_ZN10tensorflow15OpKernelContextC1EPNS0_6ParamsEi'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='287' u='r' c='_ZN10tensorflow15OpKernelContext13get_allocatorENS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='290' u='r' c='_ZN10tensorflow15OpKernelContext13get_allocatorENS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='682' u='r' c='_ZN10tensorflow15OpKernelContext15allocate_tensorENS_8DataTypeERKNS_11TensorShapeEPNS_6TensorENS_19AllocatorAttributesERKNS_20AllocationAttributesE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='967' u='w' c='_ZNK10tensorflow8grappler15ConstantFolding12EvaluateNodeERKNS_7NodeDefERKNS_3gtl13InlinedVectorINS_11TensorValueELi4EEEPS8_'/>

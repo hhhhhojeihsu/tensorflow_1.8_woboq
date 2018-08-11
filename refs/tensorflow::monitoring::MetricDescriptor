@@ -1,0 +1,31 @@
+<def f='tensorflow/tensorflow/core/lib/monitoring/collected_metrics.h' l='58' ll='72'/>
+<size>48</size>
+<doc f='tensorflow/tensorflow/core/lib/monitoring/collected_metrics.h' l='34'>// A metric is a statistic about a monitorable entity.
+//
+// Metrics are named with path-like strings, which must conform to the regular
+// expression (/[a-zA-Z0-9_-]+)+.  For example:
+//
+//     /proc/cpu_usage
+//     /rpc/client/count
+//
+// Metrics may optionally have labels, which are additional dimensions used to
+// identify the metric&apos;s values.  For example, the metric /rpc/client/count
+// might have two labels named &quot;rpc_service&quot; and &quot;rpc_method&quot;.
+//
+// A label name must be an identifier, which conform to the regular expression
+// [a-zA-Z_][a-zA-Z_0-9]*, and is only unique within the context of the metric
+// it is a label for.
+//
+// MetricDescriptor defines the structure of the metric (e.g. the fact that it&apos;s
+// a counter and that it has two labels named &quot;rpc_service&quot; and &quot;rpc_method&quot;).
+// Individual points will provide a value for the metric (e.g. the counter
+// value) and specific values for each of the labels.
+//
+// There&apos;s no scoping relationship between metrics and monitorable entities: the
+// metric /rpc/client/count should be defined the same way no matter which
+// monitorable entity is exporting it.</doc>
+<mbr r='tensorflow::monitoring::MetricDescriptor::name' o='0' t='string'/>
+<mbr r='tensorflow::monitoring::MetricDescriptor::description' o='64' t='string'/>
+<mbr r='tensorflow::monitoring::MetricDescriptor::label_names' o='128' t='std::vector&lt;string&gt;'/>
+<mbr r='tensorflow::monitoring::MetricDescriptor::metric_kind' o='320' t='tensorflow::monitoring::MetricKind'/>
+<mbr r='tensorflow::monitoring::MetricDescriptor::value_type' o='352' t='tensorflow::monitoring::ValueType'/>

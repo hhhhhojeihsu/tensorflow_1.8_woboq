@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/framework/function.h' l='344' type='tensorflow::Status tensorflow::FunctionLibraryDefinition::LookUp(const string &amp; op_type_name, const tensorflow::OpRegistrationData ** op_reg_data) const'/>
+<doc f='tensorflow/tensorflow/core/framework/function.h' l='339'>// OpRegistryInterface method. Useful for constructing a Graph.
+  //
+  // If &quot;op&quot; is defined in the library, returns its signature.
+  // Otherwise, assume &quot;op&quot; is a primitive op and returns its op
+  // signature and shape inference function.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1746' u='c' c='_ZN10tensorflow12_GLOBAL__N_112_GLOBAL__N_129CopyShapeInferenceNodeToGraphEPNS_4NodeEPKS2_RKSt13unordered_mapIS3_S3_St4hashIS3_ESt8equal_toIS3_ESaISt4211990'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1931' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator28MakePrunedGraphCopyAndInlineERKNS_5GraphERKSt6vectorIPNS_4NodeESaIS7_EEPSt10unique_ptrIS2_St14default_del3709695'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/context.cc' l='102' u='c' c='_ZN10tensorflow12EagerContext18FindFunctionOpDataERKSsPPKNS_18OpRegistrationDataE'/>
+<use f='tensorflow/tensorflow/core/framework/dataset.cc' l='164' u='c' c='_ZN10tensorflow22GraphDefBuilderWrapper11AddFunctionEPNS_15OpKernelContextERKSs'/>
+<inh f='tensorflow/tensorflow/core/framework/op.h' l='48' c='_ZNK10tensorflow19OpRegistryInterface6LookUpERKSsPPKNS_18OpRegistrationDataE'/>
+<def f='tensorflow/tensorflow/core/framework/function.cc' l='1105' ll='1113' type='tensorflow::Status tensorflow::FunctionLibraryDefinition::LookUp(const string &amp; op, const tensorflow::OpRegistrationData ** op_reg_data) const'/>
+<use f='tensorflow/tensorflow/core/grappler/utils/functions.cc' l='82' u='c' c='_ZN10tensorflow8grappler27GrapplerItemFromFunctionDefERKNS_11FunctionDefERKSt13unordered_mapISsNS_9AttrValueESt4hashISsESt8equal_toISsESaISt4pairIKSsS9048812'/>

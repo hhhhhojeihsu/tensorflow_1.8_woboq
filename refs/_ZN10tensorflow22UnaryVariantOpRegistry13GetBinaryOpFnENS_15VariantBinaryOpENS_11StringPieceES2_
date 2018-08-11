@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='132' type='VariantBinaryOpFn * tensorflow::UnaryVariantOpRegistry::GetBinaryOpFn(tensorflow::VariantBinaryOp op, tensorflow::StringPiece device, tensorflow::StringPiece type_name)'/>
+<use f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='308' u='c' c='_ZN10tensorflow16BinaryOpVariantsEPNS_15OpKernelContextENS_15VariantBinaryOpERKNS_7VariantES5_PS3_'/>
+<doc f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='130'>// Returns nullptr if no binary op function was found for the given
+  // op, device and TypeName.</doc>
+<def f='tensorflow/tensorflow/core/framework/variant_op_registry.cc' l='227' ll='233' type='UnaryVariantOpRegistry::VariantBinaryOpFn * tensorflow::UnaryVariantOpRegistry::GetBinaryOpFn(tensorflow::VariantBinaryOp op, tensorflow::StringPiece device, tensorflow::StringPiece type_name)'/>
+<use f='tensorflow/tensorflow/core/framework/variant_op_registry.cc' l='239' u='c' c='_ZN10tensorflow22UnaryVariantOpRegistry18RegisterBinaryOpFnENS_15VariantBinaryOpERKSsS3_RKSt8functionIFNS_6StatusEPNS_15OpKernelContextERKNS_7VariantESA_PS8_EE'/>
+<doc f='tensorflow/tensorflow/core/framework/variant_op_registry.cc' l='226'>// Special casing BinaryOpFn per op and per device.</doc>

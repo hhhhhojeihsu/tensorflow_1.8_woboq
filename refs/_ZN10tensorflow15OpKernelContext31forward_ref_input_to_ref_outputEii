@@ -1,0 +1,24 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='698' type='void tensorflow::OpKernelContext::forward_ref_input_to_ref_output(int input_index, int output_index)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='692'>// Input to output forwarding.
+
+  // Set the output Ref Tensor at output_index to be an alias of the
+  // input Ref Tensor at input_index.
+  // REQUIRES: IsRefType(input_dtype(input_index)).
+  // REQUIRES: IsRefType(output_dtype(output_index)).</doc>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='130' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ParallelCheckOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/identity_op.h' l='29' u='c' c='_ZN10tensorflow10IdentityOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/framework/kernels/zero_initializer_op.cc' l='57' u='c' c='_ZN10tensorflow17ZeroInitializerOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='407' ll='414' type='void tensorflow::OpKernelContext::forward_ref_input_to_ref_output(int input_index, int output_index)'/>
+<use f='tensorflow/tensorflow/core/kernels/control_flow_ops.cc' l='36' u='c' c='_ZN10tensorflow8SwitchOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/control_flow_ops.cc' l='185' u='c' c='_ZN10tensorflow11RefSelectOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/control_flow_ops.cc' l='227' u='c' c='_ZN10tensorflow7MergeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/control_flow_ops.cc' l='338' u='c' c='_ZN10tensorflow7EnterOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/control_flow_ops.cc' l='433' u='c' c='_ZN10tensorflow6ExitOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/control_flow_ops.cc' l='512' u='c' c='_ZN10tensorflow15NextIterationOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/assign_op.h' l='45' u='c' c='_ZN10tensorflow8AssignOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/dense_update_ops.cc' l='58' u='c' c='_ZN10tensorflow13DenseUpdateOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/logging_ops.cc' l='65' u='c' c='_ZN10tensorflow7PrintOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/scatter_nd_op.cc' l='148' u='c' c='_ZN10tensorflow17ScatterNdUpdateOp9DoComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/scatter_op.cc' l='121' u='c' c='_ZN10tensorflow15ScatterUpdateOp9DoComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/strided_slice_op.cc' l='314' u='c' c='_ZN10tensorflow20StridedSliceAssignOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/training_op_helpers.cc' l='71' u='c' c='_ZN10tensorflow31MaybeForwardRefInputToRefOutputEPNS_15OpKernelContextEii'/>

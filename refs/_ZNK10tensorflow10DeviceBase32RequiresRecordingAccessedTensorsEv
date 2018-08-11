@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/core/framework/device_base.h' l='108' type='bool tensorflow::DeviceBase::RequiresRecordingAccessedTensors() const'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1371' u='c' c='_ZN10tensorflow15OpKernelContext23record_tensor_referenceERKNS_6TensorE'/>
+<doc f='tensorflow/tensorflow/core/framework/device_base.h' l='105'>// Override this to return true for devices that require an Op&apos;s
+  // compute method to save references to the temporary tensors it
+  // allocates until the Op execution completes</doc>
+<ovr f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='38' c='_ZNK10tensorflow13RenamedDevice32RequiresRecordingAccessedTensorsEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='39' u='c' c='_ZNK10tensorflow13RenamedDevice32RequiresRecordingAccessedTensorsEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='632' u='c' c='_ZN10tensorflow12_GLOBAL__N_112ExecutorImpl10InitializeEv'/>

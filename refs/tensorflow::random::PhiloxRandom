@@ -1,0 +1,52 @@
+<def f='tensorflow/tensorflow/core/lib/random/philox_random.h' l='102' ll='246'/>
+<size>24</size>
+<doc f='tensorflow/tensorflow/core/lib/random/philox_random.h' l='70'>// A class that encapsulates all the states for a random number generator using
+// the philox_4x32_10 algorithm. Each invocation returns a 128-bit random bits
+// in the form of four uint32.
+// There are multiple variants of this algorithm, we picked the 4x32_10 version
+// that is most suited for our applications.
+// Since this class is meant to be copied between CPU to GPU, it maintains a
+// value semantics.
+//
+// For example: To use this class and populate an array of 1024 randoms on CPU
+// with two threads,
+//
+//  void Fill(PhiloxRandom rnd, uint32* output, int start, int limit) {
+//    assert(start % 4 == 0);
+//    assert(limit % 4 == 0);
+//    rnd.Skip(start / 4);
+//    for (int i = start; i &lt; limit; i += 4) {
+//      auto sample = rnd();
+//      ... copy sample[0..3] to output[i..i+3]
+//    }
+//  }
+//
+//  PhiloxRandom rng(seed);
+//  PhiloxRandom rng_copy = rng;
+//  rng.Skip(1000/4);
+//
+//  ... schedule Fill(rng_copy, output, 0, 512) in thread 1;
+//  ... schedule Fill(rng_copy, output, 512, 1024) in thread 2;
+//  ... wait for thread 1 &amp; 2 to finish executing Fill().
+//
+// NOTE:
+// 1. PhiloxRandom is trivially copyable.
+// 2. PhiloxRandom is compilable by gcc and nvcc.</doc>
+<smbr r='tensorflow::random::PhiloxRandom::kResultElementCount' t='const int'/>
+<smbr r='tensorflow::random::PhiloxRandom::kElementCost' t='const int'/>
+<fun r='_ZN10tensorflow6random12PhiloxRandomC1Ev'/>
+<fun r='_ZN10tensorflow6random12PhiloxRandomC1Ey'/>
+<fun r='_ZN10tensorflow6random12PhiloxRandomC1Eyy'/>
+<fun r='_ZN10tensorflow6random12PhiloxRandomC1ENS0_5ArrayIjLi4EEENS2_IjLi2EEE'/>
+<fun r='_ZN10tensorflow6random12PhiloxRandom4SkipEy'/>
+<fun r='_ZN10tensorflow6random12PhiloxRandomclEv'/>
+<smbr r='tensorflow::random::PhiloxRandom::kPhiloxW32A' t='const uint32'/>
+<smbr r='tensorflow::random::PhiloxRandom::kPhiloxW32B' t='const uint32'/>
+<smbr r='tensorflow::random::PhiloxRandom::kPhiloxM4x32A' t='const uint32'/>
+<smbr r='tensorflow::random::PhiloxRandom::kPhiloxM4x32B' t='const uint32'/>
+<fun r='_ZN10tensorflow6random12PhiloxRandom7SkipOneEv'/>
+<fun r='_ZN10tensorflow6random12PhiloxRandom15MultiplyHighLowEjjPjS2_'/>
+<fun r='_ZN10tensorflow6random12PhiloxRandom18ComputeSingleRoundERKNS0_5ArrayIjLi4EEERKNS2_IjLi2EEE'/>
+<fun r='_ZN10tensorflow6random12PhiloxRandom8RaiseKeyEPNS0_5ArrayIjLi2EEE'/>
+<mbr r='tensorflow::random::PhiloxRandom::counter_' o='0' t='ResultType'/>
+<mbr r='tensorflow::random::PhiloxRandom::key_' o='128' t='Key'/>

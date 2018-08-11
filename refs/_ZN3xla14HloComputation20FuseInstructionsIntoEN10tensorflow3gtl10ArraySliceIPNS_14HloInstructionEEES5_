@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='359' type='void xla::HloComputation::FuseInstructionsInto(tensorflow::gtl::ArraySlice&lt;HloInstruction *&gt; instructions_to_fuse, xla::HloInstruction * fusion_instruction)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='356'>// Fuses HLOs in instructions_to_fuse into fusion_instruction.
+  //
+  // Pre-condition: fusion_instruction&apos;s opcode is kFusion.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='431' ll='448' type='void xla::HloComputation::FuseInstructionsInto(tensorflow::gtl::ArraySlice&lt;HloInstruction *&gt; instructions_to_fuse, xla::HloInstruction * fusion_instruction)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='456' u='c' c='_ZN3xla14HloComputation23CreateFusionInstructionEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEENS4_10FusionKindE'/>

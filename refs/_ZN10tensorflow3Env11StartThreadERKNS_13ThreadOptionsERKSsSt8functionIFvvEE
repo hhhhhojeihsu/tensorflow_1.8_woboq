@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/core/platform/env.h' l='249' type='tensorflow::Thread * tensorflow::Env::StartThread(const tensorflow::ThreadOptions &amp; thread_options, const string &amp; name, std::function&lt;void ()&gt; fn)'/>
+<ovr f='tensorflow/tensorflow/core/platform/env.h' l='338' c='_ZN10tensorflow10EnvWrapper11StartThreadERKNS_13ThreadOptionsERKSsSt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/platform/env.h' l='340' u='c' c='_ZN10tensorflow10EnvWrapper11StartThreadERKNS_13ThreadOptionsERKSsSt8functionIFvvEE'/>
+<doc f='tensorflow/tensorflow/core/platform/env.h' l='244'>/// \brief Returns a new thread that is running fn() and is identified
+  /// (for debugging/performance-analysis) by &quot;name&quot;.
+  ///
+  /// Caller takes ownership of the result and must delete it eventually
+  /// (the deletion will block until fn() stops running).</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/eager_executor.cc' l='36' u='c' c='_ZN10tensorflow13EagerExecutor11EnableAsyncEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='73' u='c' c='_ZN10tensorflow6MasterC1EPNS_9MasterEnvEd'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_rpc_factory.cc' l='83' u='c' c='_ZN10tensorflow14GrpcRPCFactoryC1EPNS_20OpKernelConstructionEbx'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='326' u='c' c='_ZN10tensorflow10GrpcServer5StartEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='329' u='c' c='_ZN10tensorflow10GrpcServer5StartEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_cache.cc' l='93' u='c' c='_ZN10tensorflow12_GLOBAL__N_115GrpcWorkerCache21GrpcWorkerCacheThreadC1Ev'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.cc' l='133' u='c' c='_ZN10tensorflow12_GLOBAL__N_117GrpcWorkerService23GrpcWorkerServiceThread5StartEv'/>
+<use f='tensorflow/tensorflow/core/kernels/batching_util/periodic_function.cc' l='42' u='c' c='_ZN10tensorflow7serving16PeriodicFunctionC1ERKSt8functionIFvvEExRKNS1_7OptionsE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/parallel_interleave_dataset_op.cc' l='361' u='c' c='_ZN10tensorflow12_GLOBAL__N_127ParallelInterleaveDatasetOp7Dataset8Iterator26EnsureWorkerThreadsStartedEPNS_15IteratorContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/prefetch_dataset_op.cc' l='231' u='c' c='_ZN10tensorflow12_GLOBAL__N_117PrefetchDatasetOp7Dataset8Iterator27EnsurePrefetchThreadStartedEPNS_15IteratorContextE'/>
+<use f='tensorflow/tensorflow/core/lib/core/threadpool.cc' l='51' u='c' c='_ZN10tensorflow6thread16EigenEnvironment12CreateThreadESt8functionIFvvEE'/>
+<ovr f='tensorflow/tensorflow/core/platform/posix/env.cc' l='84' c='_ZN10tensorflow12_GLOBAL__N_18PosixEnv11StartThreadERKNS_13ThreadOptionsERKSsSt8functionIFvvEE'/>

@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/stream_executor/dnn.h' l='1213' type='bool perftools::gputools::dnn::DnnSupport::DoConvolveQuantized(perftools::gputools::Stream * stream, const dnn::BatchDescriptor &amp; input_descriptor, const DeviceMemory&lt;float&gt; &amp; input_data, const dnn::FilterDescriptor &amp; filter_descriptor, const DeviceMemory&lt;int8&gt; &amp; filter_coefficients, const DeviceMemory&lt;float&gt; &amp; coefficient_scales, const dnn::ConvolutionDescriptor &amp; convolution_descriptor, const dnn::BatchDescriptor &amp; output_descriptor, DeviceMemory&lt;float&gt; * output_data)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1208'>// Version of DoConvolve that uses pre-quantized 8 bit coefficients.
+  // coefficient_scales specifies the scaling of each column of coefficients:
+  // original float coefficient[row * num_columns + column] =
+  //     quantized coefficient[row * num_columns + column] *
+  //     coefficient_scales[column].</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='828' u='c' c='_ZN9perftools8gputools6Stream21ThenConvolveQuantizedERKNS0_3dnn15BatchDescriptorERKNS0_12DeviceMemoryIfEERKNS2_16FilterDescriptorERKNS6_IaEES9_RKNS2_214138556'/>

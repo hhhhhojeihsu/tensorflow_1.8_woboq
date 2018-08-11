@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/cc/framework/scope.h' l='208' type='tensorflow::Status tensorflow::Scope::DoShapeInference(tensorflow::Node * node) const'/>
+<doc f='tensorflow/tensorflow/cc/framework/scope.h' l='204'>// Calls AddNode() using this scope&apos;s ShapeRefiner. This exists in the public
+  // API to prevent custom op wrappers from needing access to shape_refiner.h or
+  // scope_internal.h.
+  // TODO(skyewm): remove this from public API</doc>
+<use f='tensorflow/tensorflow/cc/ops/const_op.h' l='62' u='c' c='_ZN10tensorflow3ops5ConstERKNS_5ScopeERKNS_5Input11InitializerE'/>
+<def f='tensorflow/tensorflow/cc/framework/scope.cc' l='427' ll='430' type='tensorflow::Status tensorflow::Scope::DoShapeInference(tensorflow::Node * node) const'/>
+<use f='tensorflow/tensorflow/cc/ops/const_op.cc' l='37' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_111ConstHelperERKNS_5ScopeERKT_NS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='85' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_111CreateMergeERKNS_5ScopeEiRKNS_6OutputEPS5_'/>

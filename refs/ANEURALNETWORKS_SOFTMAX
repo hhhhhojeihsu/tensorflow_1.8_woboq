@@ -1,0 +1,24 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='949' type='25'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='927'>/** Computes the softmax activation on the input tensor element-wise, per
+   * batch, by normalizing the input vector so the maximum coefficient is zero.
+   *
+   * The output is calculated using this formula:
+   *
+   *     output[batch, i] =
+   *         exp((input[batch, i] - max(input[batch, :])) * beta) /
+   *         sum_{k}{exp((input[batch, k] - max(input[batch, :])) * beta)}
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   * * {@link ANEURALNETWORKS_TENSOR_QUANT8_ASYMM}
+   *
+   * Supported tensor rank: 2 or 4.
+   *
+   * Inputs:
+   * * 0: A 2-D or 4-D tensor, specifying the tensor to be reshaped.
+   * * 1: A FLOAT32 value, specifying the scaling factor for the exponent, beta.
+   *
+   * Outputs:
+   * * 0: The output tensor of same shape as input0.
+   */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='294' u='r' c='_ZN6tflite15AddOpsAndParamsEPNS_11InterpreterEP20ANeuralNetworksModelj'/>

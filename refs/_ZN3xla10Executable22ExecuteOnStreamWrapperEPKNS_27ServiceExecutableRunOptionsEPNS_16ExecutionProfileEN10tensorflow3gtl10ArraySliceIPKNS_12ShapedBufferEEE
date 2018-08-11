@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='100' type='StatusOr&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; xla::Executable::ExecuteOnStreamWrapper(const xla::ServiceExecutableRunOptions * run_options, xla::ExecutionProfile * profile, tensorflow::gtl::ArraySlice&lt;const ShapedBuffer *&gt; arguments)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='97'>// Convenience wrapper for calling Executable::ExecuteOnStream. Sets up a
+  // timer for the execution, sets up HLO profiling if enabled, and fills in the
+  // given ExecutionProfile if non-null.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='173' u='c' c='_ZN3xla15LocalExecutable3RunEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEENS_20ExecutableRunOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='61' ll='128' type='StatusOr&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; xla::Executable::ExecuteOnStreamWrapper(const xla::ServiceExecutableRunOptions * run_options, xla::ExecutionProfile * profile, ArraySlice&lt;const xla::ShapedBuffer *&gt; arguments)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='710' u='c' c='_ZN3xla7Service24ExecuteAndRegisterResultEPNS_10ExecutableEN10tensorflow3gtl10ArraySliceISt6vectorIPKNS_12ShapedBufferESaIS9_EEEEPNS_7BackendERKSsPNS_16ExecutionProfileE'/>

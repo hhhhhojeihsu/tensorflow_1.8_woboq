@@ -1,0 +1,22 @@
+<inh f='tensorflow/tensorflow/core/common_runtime/local_device.h' l='34' c='tensorflow::LocalDevice'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.h' l='50' ll='68'/>
+<size>272</size>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.h' l='38'>// This is a &apos;dummy&apos; TensorFlow device that is only used to execute a
+// subgraph of XLA compilation Ops to construct a compiled version
+// of the subgraph&apos;s computation. It has a &apos;dummy&apos; allocator that
+// backs each Tensor with metadata indicating the computation the
+// Tensor represents.
+//
+// We deliberately don&apos;t register a device factory because we *never*
+// want placement to put Ops on a compilation device. The device is created
+// manually, not using a factory.
+//
+// XLA compilation is not thread-safe. OpKernels registered on the
+// XlaCompilationDevice must not use threads or concurrency.</doc>
+<fun r='_ZN10tensorflow20XlaCompilationDeviceC1ERKNS_14SessionOptionsENS_10DeviceTypeE'/>
+<fun r='_ZN10tensorflow20XlaCompilationDeviceD1Ev'/>
+<fun r='_ZN10tensorflow20XlaCompilationDevice12GetAllocatorENS_19AllocatorAttributesE'/>
+<fun r='_ZN10tensorflow20XlaCompilationDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<fun r='_ZN10tensorflow20XlaCompilationDevice4SyncEv'/>
+<fun r='_ZN10tensorflow20XlaCompilationDevice19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<mbr r='tensorflow::XlaCompilationDevice::allocator_' o='2112' t='std::unique_ptr&lt;XlaCompilationAllocator&gt;'/>

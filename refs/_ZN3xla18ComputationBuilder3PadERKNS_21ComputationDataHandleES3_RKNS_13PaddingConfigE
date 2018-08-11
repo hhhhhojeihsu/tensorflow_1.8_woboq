@@ -1,0 +1,23 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='178' type='xla::ComputationDataHandle xla::ComputationBuilder::Pad(const xla::ComputationDataHandle &amp; operand, const xla::ComputationDataHandle &amp; padding_value, const xla::PaddingConfig &amp; padding_config)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='175'>// Enqueues a pad operation onto the computation that pads the given value on
+  // the edges as well as between the elements of the input. padding_config
+  // specifies the padding amount for each dimension.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/diag_op.cc' l='182' u='c' c='_ZN10tensorflow12_GLOBAL__N_110DiagPartOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/diag_op.cc' l='281' u='c' c='_ZN10tensorflow12_GLOBAL__N_116MatrixDiagPartOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/gather_op.cc' l='125' u='c' c='_ZN10tensorflow9XlaGatherERKN3xla21ComputationDataHandleERKNS_11TensorShapeES3_S4_xbNS_8DataTypeES7_PNS0_18ComputationBuilderEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/gather_op.cc' l='134' u='c' c='_ZN10tensorflow9XlaGatherERKN3xla21ComputationDataHandleERKNS_11TensorShapeES3_S4_xbNS_8DataTypeES7_PNS0_18ComputationBuilderEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='245' u='c' c='_ZN10tensorflow12_GLOBAL__N_139ResizeUsingDilationAndConvolutionGradOpEPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleEiSt6vectorIxSaIxEES9_x'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pad_op.cc' l='78' u='c' c='_ZN10tensorflow12_GLOBAL__N_15PadOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pad_op.cc' l='81' u='c' c='_ZN10tensorflow12_GLOBAL__N_15PadOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='489' u='c' c='_ZN10tensorflow12_GLOBAL__N_113AvgPoolGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/spacetobatch_op.cc' l='77' u='c' c='_ZN10tensorflow12_GLOBAL__N_112SpaceToBatchEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS_3gtl10ArraySliceIxEERKNS3_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stack_ops.cc' l='156' u='c' c='_ZN10tensorflow12_GLOBAL__N_111StackPushOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stack_ops.cc' l='211' u='c' c='_ZN10tensorflow12_GLOBAL__N_110StackPopOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='209' u='c' c='_ZN10tensorflow12_GLOBAL__N_118StridedSliceGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='223' u='c' c='_ZN10tensorflow12_GLOBAL__N_118TensorArrayWriteOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='267' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TensorArrayReadOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='421' u='c' c='_ZN10tensorflow12_GLOBAL__N_120TensorArrayScatterOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/scatter.cc' l='128' u='c' c='_ZN10tensorflow10XlaScatterERKN3xla21ComputationDataHandleES3_S3_bRKSt8functionIFS1_S1_S1_PNS0_18ComputationBuilderEEES6_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/scatter.cc' l='146' u='c' c='_ZN10tensorflow10XlaScatterERKN3xla21ComputationDataHandleES3_S3_bRKSt8functionIFS1_S1_S1_PNS0_18ComputationBuilderEEES6_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/scatter.cc' l='152' u='c' c='_ZN10tensorflow10XlaScatterERKN3xla21ComputationDataHandleES3_S3_bRKSt8functionIFS1_S1_S1_PNS0_18ComputationBuilderEEES6_'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='345' ll='355' type='xla::ComputationDataHandle xla::ComputationBuilder::Pad(const xla::ComputationDataHandle &amp; operand, const xla::ComputationDataHandle &amp; padding_value, const xla::PaddingConfig &amp; padding_config)'/>

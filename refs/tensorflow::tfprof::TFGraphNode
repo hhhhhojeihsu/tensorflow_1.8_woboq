@@ -1,0 +1,59 @@
+<def f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='308' ll='757'/>
+<size>1080</size>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNodeC1ERKNS0_11ProfileNodeERKNS0_12ProfileProtoEPKSt3mapIxSsSt4lessIxESaISt4pairIKxSsEEEPKS8_ISsSt10unique_ptrIS1_St14d730117'/>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNodeC1EPKNS_7NodeDefExPKSt3mapISsSt10unique_ptrIS1_St14default_deleteIS1_EESt4lessISsESaISt4pairIKSsS9_EEE'/>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNode8AddInputERKSsxi'/>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNode9AddOpTypeERKSs'/>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNode11AddStepStatExRKSsRKNS_13NodeExecStatsE'/>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNode11AddFloatOpsEx'/>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNode7AddCodeERKNS0_7CodeDefEPKSt3mapIxSsSt4lessIxESaISt4pairIKxSsEEE'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode4nameEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode2idEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode2opEv'/>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNode4nodeEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode9trackableEx'/>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNode7ToProtoERKSt3mapISsSt10unique_ptrIS1_St14default_deleteIS1_EESt4lessISsESaISt4pairIKSsS6_EEE'/>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNode9FromProtoERKNS0_11ProfileNodeERKNS0_12ProfileProtoEPKSt3mapIxSsSt4lessIxESaISt4pairIKxSsEEE'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode6inputsEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode9run_countEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode11exec_microsEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode23accelerator_exec_microsEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode15cpu_exec_microsEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode15requested_bytesEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode10peak_bytesEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode14residual_bytesEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode12output_bytesEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode16all_start_microsEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode17latest_end_microsEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode27lastest_schedule_end_microsEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode8op_execsEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode9cpu_execsEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode12all_op_execsEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode22accelerator_temp_bytesEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode15host_temp_bytesEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode28accelerator_persistent_bytesEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode22allocator_bytes_in_useEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode11allocationsEx'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode10parametersEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode9float_opsEx'/>
+<fun r='_ZN10tensorflow6tfprof11TFGraphNode10call_stackEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode16canonical_deviceEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode11host_deviceEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode8op_typesEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode8op_attrsERKSs'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode5shapeEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode13output_shapesEv'/>
+<fun r='_ZNK10tensorflow6tfprof11TFGraphNode12input_shapesEv'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::nodes_map_' o='0' t='const std::map&lt;string, std::unique_ptr&lt;TFGraphNode&gt; &gt; *'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::inputs_' o='64' t='std::map&lt;int, string&gt;'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::src_output_idx_' o='448' t='std::map&lt;string, int32&gt;'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::node_' o='832' t='tensorflow::tfprof::ProfileNode'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::call_stack_' o='5888' t='std::unique_ptr&lt;CallStack&gt;'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::shape_' o='5952' t='std::vector&lt;int64&gt;'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::input_shapes_' o='6144' t='std::map&lt;int, std::vector&lt;int64&gt; &gt;'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::output_shapes_' o='6528' t='std::map&lt;int, std::vector&lt;int64&gt; &gt;'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::op_types_' o='6912' t='std::set&lt;string&gt;'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::execs_' o='7296' t='std::map&lt;int64, ExecStep&gt;'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::empty_bytes_in_use_' o='7680' t='std::map&lt;int64, int64&gt;'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::empty_execs_' o='8064' t='std::map&lt;string, std::vector&lt;std::pair&lt;int64, int64&gt; &gt; &gt;'/>
+<mbr r='tensorflow::tfprof::TFGraphNode::empty_allocations_' o='8448' t='std::vector&lt;AllocationRecord&gt;'/>

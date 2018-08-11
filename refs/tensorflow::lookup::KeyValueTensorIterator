@@ -1,0 +1,20 @@
+<inh f='tensorflow/tensorflow/core/kernels/initializable_lookup_table.h' l='97' c='tensorflow::lookup::InitializableLookupTable::InitTableIterator'/>
+<def f='tensorflow/tensorflow/core/kernels/lookup_util.h' l='54' ll='98'/>
+<size>40</size>
+<doc f='tensorflow/tensorflow/core/kernels/lookup_util.h' l='49'>// Iterator to initialize tables given &apos;keys&apos; and &apos;values&apos; tensors.
+//
+// The two tensors are returned in the first iteration. It doesn&apos;t loop
+// over each element of the tensor since insertions in the lookup table can
+// process batches.</doc>
+<fun r='_ZN10tensorflow6lookup22KeyValueTensorIteratorC1EPKNS_6TensorES4_'/>
+<fun r='_ZNK10tensorflow6lookup22KeyValueTensorIterator5ValidEv'/>
+<fun r='_ZN10tensorflow6lookup22KeyValueTensorIterator4NextEv'/>
+<fun r='_ZNK10tensorflow6lookup22KeyValueTensorIterator4keysEv'/>
+<fun r='_ZNK10tensorflow6lookup22KeyValueTensorIterator6valuesEv'/>
+<fun r='_ZNK10tensorflow6lookup22KeyValueTensorIterator6statusEv'/>
+<fun r='_ZNK10tensorflow6lookup22KeyValueTensorIterator10total_sizeEv'/>
+<fun r='_ZN10tensorflow6lookup22KeyValueTensorIteratorC1ERKS1_'/>
+<mbr r='tensorflow::lookup::KeyValueTensorIterator::keys_' o='64' t='const tensorflow::Tensor *'/>
+<mbr r='tensorflow::lookup::KeyValueTensorIterator::values_' o='128' t='const tensorflow::Tensor *'/>
+<mbr r='tensorflow::lookup::KeyValueTensorIterator::valid_' o='192' t='bool'/>
+<mbr r='tensorflow::lookup::KeyValueTensorIterator::status_' o='256' t='tensorflow::Status'/>

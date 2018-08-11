@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='333' type='std::unordered_map&lt;string, std::shared_ptr&lt;ExecutorsAndKeys&gt; &gt;'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='305' c='_ZN10tensorflow13DirectSessionD1Ev'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='806' u='m' c='_ZN10tensorflow13DirectSession4PRunERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS6_EERKS3_ISsSaISsEEPS3_IS5_SaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='807' u='m' c='_ZN10tensorflow13DirectSession4PRunERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS6_EERKS3_ISsSaISsEEPS3_IS5_SaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1257' u='m' c='_ZN10tensorflow13DirectSession20GetOrCreateExecutorsENS_3gtl10ArraySliceISsEES3_S3_PPNS0_16ExecutorsAndKeysEPNS0_12RunStateArgsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1258' u='m' c='_ZN10tensorflow13DirectSession20GetOrCreateExecutorsENS_3gtl10ArraySliceISsEES3_S3_PPNS0_16ExecutorsAndKeysEPNS0_12RunStateArgsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1290' u='m' c='_ZN10tensorflow13DirectSession20GetOrCreateExecutorsENS_3gtl10ArraySliceISsEES3_S3_PPNS0_16ExecutorsAndKeysEPNS0_12RunStateArgsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1291' u='m' c='_ZN10tensorflow13DirectSession20GetOrCreateExecutorsENS_3gtl10ArraySliceISsEES3_S3_PPNS0_16ExecutorsAndKeysEPNS0_12RunStateArgsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1294' u='m' c='_ZN10tensorflow13DirectSession20GetOrCreateExecutorsENS_3gtl10ArraySliceISsEES3_S3_PPNS0_16ExecutorsAndKeysEPNS0_12RunStateArgsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1325' u='m' c='_ZN10tensorflow13DirectSession20GetOrCreateExecutorsENS_3gtl10ArraySliceISsEES3_S3_PPNS0_16ExecutorsAndKeysEPNS0_12RunStateArgsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1329' u='m' c='_ZN10tensorflow13DirectSession20GetOrCreateExecutorsENS_3gtl10ArraySliceISsEES3_S3_PPNS0_16ExecutorsAndKeysEPNS0_12RunStateArgsE'/>
+<offset>4160</offset>
+<doc f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='328'>// Holds mappings from signature to the executors that process
+  // it. The reason for a level of indirection around mapped_type is
+  // to guarantee address stability.
+  // The map value is a shared_ptr since multiple map keys can point to the
+  // same ExecutorsAndKey object.</doc>

@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1092' type='void tensorflow::OpKernelContext::record_persistent_memory_allocation(int64 size, int64 alloc_id = -1)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1090'>// Records persistent memory allocation, size can be negative indicating
+  // deallocation.</doc>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='745' u='c' c='_ZN10tensorflow15OpKernelContext19allocate_persistentENS_8DataTypeERKNS_11TensorShapeEPNS_16PersistentTensorEPPNS_6TensorENS_19AllocatorAttributesE'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='882' ll='892' type='void tensorflow::OpKernelContext::record_persistent_memory_allocation(int64 size, int64 alloc_id = -1)'/>
+<use f='tensorflow/tensorflow/core/kernels/constant_op.cc' l='86' u='c' c='_ZN10tensorflow10ConstantOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_op.h' l='48' u='c' c='_ZN10tensorflow7QueueOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.h' l='67' u='c' c='_ZN10tensorflow13LookupTableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_init_op.cc' l='85' u='c' c='_ZN10tensorflow17InitializeTableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_init_op.cc' l='147' u='c' c='_ZN10tensorflow29InitializeTableFromTextFileOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='710' u='c' c='_ZN10tensorflow19LookupTableInsertOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='787' u='c' c='_ZN10tensorflow19LookupTableImportOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='79' u='c' c='_ZN10tensorflow10VariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='110' u='c' c='_ZN10tensorflow19TemporaryVariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='154' u='c' c='_ZN10tensorflow26DestroyTemporaryVariableOp7ComputeEPNS_15OpKernelContextE'/>

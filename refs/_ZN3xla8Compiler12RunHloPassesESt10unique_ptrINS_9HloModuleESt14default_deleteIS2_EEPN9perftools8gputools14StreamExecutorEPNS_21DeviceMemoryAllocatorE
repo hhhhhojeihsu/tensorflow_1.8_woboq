@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/compiler.h' l='122' type='StatusOr&lt;std::unique_ptr&lt;HloModule&gt; &gt; xla::Compiler::RunHloPasses(std::unique_ptr&lt;HloModule&gt; module, perftools::gputools::StreamExecutor * executor, xla::DeviceMemoryAllocator * device_allocator)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/compiler.h' l='114'>// Runs Hlo passes to optimize the given Hlo module, returns the optimized
+  // module.
+  //
+  // If device_allocator is not null, the compiler may use it to allocate temp
+  // space on the device for use during compilation.  For example, the compiler
+  // may allocate buffers on the device and then run variants of a given
+  // algorithm over those buffers, to see which variant is fastest.  Any space
+  // allocated should be deallocated before this function returns.</doc>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='442' c='_ZN3xla3cpu11CpuCompiler12RunHloPassesESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_compiler.cc' l='48' u='c' c='_ZN3xla12LLVMCompiler7CompileESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EESaIS6_EES1_IS1_IPN9perftools8gputools14StreamExecutorESaI14102789'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='479' u='c' c='_ZN3xla7Service15BuildExecutableERKNS_26VersionedComputationHandleESt10unique_ptrINS_15HloModuleConfigESt14default_deleteIS5_EEPNS_7BackendEPN9perftoo7048551'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1144' u='c' c='_ZN3xla7Service15BuildExecutableERKNS_14HloModuleProtoESt10unique_ptrINS_15HloModuleConfigESt14default_deleteIS5_EEPNS_7BackendEPN9perftools8gputools116387209'/>

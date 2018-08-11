@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='52' type='tensorflow::Status tensorflow::XlaTensor::AllocateShapedBuffer(tensorflow::DataType dtype, const tensorflow::TensorShape &amp; shape, xla::LocalClient * client, int device_ordinal)'/>
+<doc f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='49'>// Assign the internal ShapedBuffer to new memory for the given dtype and
+  // shape. If a ShapedBuffer exists already (has_shaped_buffer() == true), it
+  // is replaced and the managed memory deallocated.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='102' u='c' c='_ZNK10tensorflow18XlaTransferManager21CopyCPUTensorToDeviceEPKNS_6TensorEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='195' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext15PopulateOutputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultESt10unique_ptrIN3xla18Scoped494850'/>
+<def f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='47' ll='73' type='tensorflow::Status tensorflow::XlaTensor::AllocateShapedBuffer(tensorflow::DataType dtype, const tensorflow::TensorShape &amp; shape, xla::LocalClient * client, int device_ordinal)'/>

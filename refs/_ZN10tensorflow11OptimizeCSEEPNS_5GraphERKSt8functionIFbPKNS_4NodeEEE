@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/graph/optimizer_cse.h' l='32' type='bool tensorflow::OptimizeCSE(tensorflow::Graph * g, const std::function&lt;bool (const Node *)&gt; &amp; consider_fn)'/>
+<doc f='tensorflow/tensorflow/core/graph/optimizer_cse.h' l='26'>// Perform common-subexpression elimination on the graph &quot;*g&quot;.  If
+// &quot;consider_fn&quot; is not nullptr, then only nodes for which
+// consider_fn(node) returns true will be considered for combining
+// during the common subexpression elimination.
+//
+// Returns true if and only if &apos;g&apos; is mutated.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_optimizer.cc' l='84' u='c' c='_ZN10tensorflow14GraphOptimizer8OptimizeEPNS_22FunctionLibraryRuntimeEPNS_3EnvEPNS_6DeviceEPSt10unique_ptrINS_5GraphESt14default_deleteIS8_EEPKSt13uno8191696'/>
+<def f='tensorflow/tensorflow/core/graph/optimizer_cse.cc' l='223' ll='227' type='bool tensorflow::OptimizeCSE(tensorflow::Graph * g, const std::function&lt;bool (const Node *)&gt; &amp; consider_fn)'/>

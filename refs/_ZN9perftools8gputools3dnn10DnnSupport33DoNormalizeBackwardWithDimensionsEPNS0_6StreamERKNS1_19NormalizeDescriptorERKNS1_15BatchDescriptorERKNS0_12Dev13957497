@@ -1,0 +1,14 @@
+<def f='tensorflow/tensorflow/stream_executor/dnn.h' l='1628' ll='1636' type='bool perftools::gputools::dnn::DnnSupport::DoNormalizeBackwardWithDimensions(perftools::gputools::Stream * stream, const dnn::NormalizeDescriptor &amp; normalize_descriptor, const dnn::BatchDescriptor &amp; dimensions, const DeviceMemory&lt;float&gt; &amp; raw_data, const DeviceMemory&lt;float&gt; &amp; normalized_data, const DeviceMemory&lt;float&gt; &amp; normalized_variable_gradient, DeviceMemory&lt;float&gt; * raw_variable_gradient)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1616'>// Performs backpropagation for the normalization operation
+  //
+  // Given raw data, its corresponding normalized output, and a gradient of some
+  // unspecified function with respect to the normalized variables, computes the
+  // gradient of that unspecified function with respect to the raw variables.
+  //
+  // The normalized data input array is expected to match the output that would
+  // be obtained by running the raw data input array through the DoNormalize
+  // method above.
+  //
+  // See comments on NormalizeDescriptor for a description of local response
+  // normalization.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='1553' u='c' c='_ZN9perftools8gputools6Stream35ThenNormalizeBackwardWithDimensionsERKNS0_3dnn19NormalizeDescriptorERKNS2_15BatchDescriptorERKNS0_12DeviceMemoryIfEESC_SC_PSA_'/>

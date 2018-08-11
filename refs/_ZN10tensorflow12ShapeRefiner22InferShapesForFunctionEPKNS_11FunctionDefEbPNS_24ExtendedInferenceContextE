@@ -1,0 +1,23 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='214' type='tensorflow::Status tensorflow::ShapeRefiner::InferShapesForFunction(const tensorflow::FunctionDef * function_def, bool keep_nested_shapes, tensorflow::ExtendedInferenceContext * outer_context)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='202'>// Performs shape inference for the given function_def within the
+  // given outer_context. Internally it instantiates the function as a graph
+  // and runs shape inference recursively on it with the input shapes provided
+  // by the outer_context.
+  //
+  // Returns an error if:
+  // - number of inputs/outputs on outer_context doesn&apos;t match the function_def
+  //
+  // On success:
+  // - outer_context will contain output shapes inferred from input shapes
+  // - outer_context will contain nested inferences collection, iff
+  //   keep_nested_shapes is true</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/shape_refiner.cc' l='132' ll='209' type='tensorflow::Status tensorflow::ShapeRefiner::InferShapesForFunction(const tensorflow::FunctionDef * function_def, bool keep_nested_shapes, tensorflow::ExtendedInferenceContext * outer_context)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/shape_refiner.cc' l='551' u='c' c='_ZN10tensorflow12ShapeRefiner10RunShapeFnEPKNS_4NodeEPKNS_18OpRegistrationDataEPNS_24ExtendedInferenceContextE'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/shape_refiner.cc' l='124'>// TODO(cwhipkey): When an inference context inside function has
+// requested_input_tensor(i) or requested_input_tensor_as_partial_shape(i)
+// set when input(i) is an _Arg op, then this request should propagate to
+// context, and vice versa.
+//
+// NOTE: Recursive user-defined functions are not supported.
+// Maybe we won&apos;t support recursive functions at all in TF, because of
+// other maintainability issues.</doc>

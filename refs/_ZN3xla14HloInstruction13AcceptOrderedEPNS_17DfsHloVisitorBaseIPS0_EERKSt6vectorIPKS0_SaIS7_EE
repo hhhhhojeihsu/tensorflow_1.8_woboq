@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='678' type='tensorflow::Status xla::HloInstruction::AcceptOrdered(DfsHloVisitor * visitor, const std::vector&lt;const HloInstruction *&gt; &amp; order)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='671'>// Visits all instructions rooted at this instruction using the given visitor
+  // in the given order. &apos;order&apos; must contain at least the set of instructions
+  // rooted at this node (ie, those accessible from a DFS traversal from this
+  // instruction). Instructions contained in &apos;order&apos; which are not in the set of
+  // instructions rooted at this node are ignored. &apos;order&apos; must also be a valid
+  // topological sort of these instructions (defs appear before uses) though
+  // need not be a DFS post-order.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2910' ll='2947' type='tensorflow::Status xla::HloInstruction::AcceptOrdered(DfsHloVisitor * visitor, const std::vector&lt;const HloInstruction *&gt; &amp; order)'/>

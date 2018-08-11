@@ -1,0 +1,14 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='84' ll='86' type='bool xla::BufferAllocation::is_entry_computation_parameter() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='180' u='c' c='_ZNK3xla16BufferAllocation15IsInputOrOutputEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='187' u='c' c='_ZNK3xla16BufferAllocation24IsPreallocatedTempBufferEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='407' u='c' c='_ZNK3xla16BufferAllocation8ToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='707' u='c' c='_ZN3xla16BufferAssignment19ComputeSummaryStatsEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='853' u='c' c='_ZN3xla14BufferAssigner17MaybeAssignBufferEPNS_16BufferAllocationERKNS_13LogicalBufferEPNS_16BufferAssignmentE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='81'>// Whether this allocation holds a LogicalBuffer from a parameter of the entry
+  // computation. These buffers have lifetimes which may be longer than the
+  // XLA computation.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='904' u='c' c='_ZN3xla3cpu11CpuCompiler18CompileAheadOfTimeESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS4_EESaIS7_EERKNS_21AotCompilationOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='88' u='c' c='_ZN3xla3cpu13CpuExecutable15AllocateBuffersEPNS_21DeviceMemoryAllocatorEiPSt6vectorIN9perftools8gputools16DeviceMemoryBaseESaIS7_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='275' u='c' c='_ZN3xla3cpu13CpuExecutable24CreateResultShapedBufferEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIN9perftools8gputools16DeviceMemo12922924'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='338' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable15AllocateBuffersEPNS_21DeviceMemoryAllocatorEiPSt6vectorIN9perftools8gputools16DeviceMemoryBaseESaIS7_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='492' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>

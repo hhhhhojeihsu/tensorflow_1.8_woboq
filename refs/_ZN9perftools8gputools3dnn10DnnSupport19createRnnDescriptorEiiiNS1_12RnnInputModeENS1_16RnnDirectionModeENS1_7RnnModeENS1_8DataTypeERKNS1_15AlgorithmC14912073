@@ -1,0 +1,22 @@
+<def f='tensorflow/tensorflow/stream_executor/dnn.h' l='2009' ll='2019' type='port::StatusOr&lt;std::unique_ptr&lt;dnn::RnnDescriptor&gt; &gt; perftools::gputools::dnn::DnnSupport::createRnnDescriptor(int num_layers, int hidden_size, int input_size, dnn::RnnInputMode input_mode, dnn::RnnDirectionMode direction_mode, dnn::RnnMode rnn_mode, dnn::DataType data_type, const dnn::AlgorithmConfig &amp; algorithm_config, float dropout, uint64 seed, perftools::gputools::ScratchAllocator * state_allocator)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1989'>// Create an RNN descriptor based on model shapes and configurations.
+  // The caller retains the ownership of the descriptor.
+  //
+  // Arguments:
+  //  num_layers: the number of layers for a RNN model.
+  //  hidden_size: the size of the hidden state.
+  //  input_size: the size of the input state.
+  //  input_mode: an enum to specify whether a linear transformation is added
+  //    after the input state. If input_size is different from hidden_size, this
+  //    is required.
+  //  direction_mode: an enum to specify whether this model is unidirectional or
+  //    bidirectional.
+  //  rnn_mode: an enum to specify the type of model to build.
+  //  data_type: an enum to specify the data types used in this model.
+  //  dropout: the dropout threshold between layers. When it is 0., no dropout
+  //    is added.
+  //  seed: a seed for initializing the dropout layers.
+  //  state_allocator: an memory allocator that will be used to store the state
+  //    for dropout layer. The user has to maintain the memory until the model
+  //    is no longer in use.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='364' u='c' c='_ZN9perftools8gputools14StreamExecutor19createRnnDescriptorEiiiNS0_3dnn12RnnInputModeENS2_16RnnDirectionModeENS2_7RnnModeENS2_8DataTypeERKNS2_15Algori10603204'/>

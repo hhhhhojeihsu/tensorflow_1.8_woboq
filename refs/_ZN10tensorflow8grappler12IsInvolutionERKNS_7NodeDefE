@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/grappler/op_types.h' l='169' type='bool tensorflow::grappler::IsInvolution(const tensorflow::NodeDef &amp; node)'/>
+<doc f='tensorflow/tensorflow/core/grappler/op_types.h' l='167'>// Returns true if the op is an element-wise involution, i.e. if it is its
+// own inverse such that f(f(x)) == x.</doc>
+<def f='tensorflow/tensorflow/core/grappler/op_types.cc' l='453' ll='457' type='bool tensorflow::grappler::IsInvolution(const tensorflow::NodeDef &amp; node)'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1526' u='c' c='_ZN10tensorflow8grappler19ArithmeticOptimizer25TrySimplifyAndReplaceUsesEPKNS_7NodeDefEPNS0_9SetVectorIPS2_EE'/>

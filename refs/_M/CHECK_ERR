@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/stream_executor/platform/logging.h' l='32'/>
+<doc f='tensorflow/tensorflow/stream_executor/platform/logging.h' l='24'>// A CHECK() macro that lets you assert the success of a function that
+// returns -1 and sets errno in case of an error. E.g.
+//
+// CHECK_ERR(mkdir(path, 0700));
+//
+// or
+//
+// int fd = open(filename, flags); CHECK_ERR(fd) &lt;&lt; &quot;: open &quot; &lt;&lt; filename;</doc>

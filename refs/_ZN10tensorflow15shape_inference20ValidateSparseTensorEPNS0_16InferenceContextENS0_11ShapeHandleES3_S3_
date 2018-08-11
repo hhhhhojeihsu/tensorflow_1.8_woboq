@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/framework/common_shape_fns.h' l='283' type='tensorflow::Status tensorflow::shape_inference::ValidateSparseTensor(tensorflow::shape_inference::InferenceContext * c, tensorflow::shape_inference::ShapeHandle indices_shape, tensorflow::shape_inference::ShapeHandle values_shape, tensorflow::shape_inference::ShapeHandle shape_shape)'/>
+<doc f='tensorflow/tensorflow/core/framework/common_shape_fns.h' l='281'>// Validates the 3 component tensors of a sparse tensor have the proper
+// shapes. This mimics SparseTensor.__init__ in python/framework/ops.py.</doc>
+<def f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1286' ll='1325' type='tensorflow::Status tensorflow::shape_inference::ValidateSparseTensor(tensorflow::shape_inference::InferenceContext * c, tensorflow::shape_inference::ShapeHandle indices_shape, tensorflow::shape_inference::ShapeHandle values_shape, tensorflow::shape_inference::ShapeHandle shape_shape)'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='892' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='894' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/set_ops.cc' l='110' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/set_ops.cc' l='157' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/set_ops.cc' l='159' u='c'/>

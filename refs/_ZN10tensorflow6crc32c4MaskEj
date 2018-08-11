@@ -1,0 +1,11 @@
+<def f='tensorflow/tensorflow/core/lib/hash/crc32c.h' l='40' ll='43' type='uint32 tensorflow::crc32c::Mask(uint32 crc)'/>
+<doc f='tensorflow/tensorflow/core/lib/hash/crc32c.h' l='35'>// Return a masked representation of crc.
+//
+// Motivation: it is problematic to compute the CRC of a string that
+// contains embedded CRCs.  Therefore we recommend that CRCs stored
+// somewhere (e.g., in files) should be masked before being stored.</doc>
+<use f='tensorflow/tensorflow/core/lib/io/record_writer.cc' l='92' u='c' c='_ZN10tensorflow2ioL9MaskedCrcEPKcm'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='212' u='c' c='_ZN10tensorflow5table12TableBuilder13WriteRawBlockERKNS_11StringPieceENS0_15CompressionTypeEPNS0_11BlockHandleE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='244' u='c' c='_ZN10tensorflow12_GLOBAL__N_117WriteStringTensorERKNS_6TensorEPNS_16FileOutputBufferEPmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='297' u='c' c='_ZN10tensorflow12_GLOBAL__N_118WriteVariantTensorERKNS_6TensorEPNS_16FileOutputBufferEPmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='424' u='c' c='_ZN10tensorflow12BundleWriter3AddENS_11StringPieceERKNS_6TensorE'/>

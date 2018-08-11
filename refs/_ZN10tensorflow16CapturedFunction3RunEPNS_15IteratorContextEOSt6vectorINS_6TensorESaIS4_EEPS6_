@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/kernels/data/captured_function.h' l='57' type='tensorflow::Status tensorflow::CapturedFunction::Run(tensorflow::IteratorContext * ctx, std::vector&lt;Tensor&gt; &amp;&amp; args, std::vector&lt;Tensor&gt; * rets)'/>
+<def f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='191' ll='222' type='tensorflow::Status tensorflow::CapturedFunction::Run(tensorflow::IteratorContext * ctx, std::vector&lt;Tensor&gt; &amp;&amp; args, std::vector&lt;Tensor&gt; * rets)'/>
+<doc f='tensorflow/tensorflow/core/kernels/data/captured_function.h' l='51'>// Runs the &quot;Captured function&quot; using the given FLR and caches the lib and
+  // handle generated during instantiation. If Run is called with a different
+  // lib afterwards, generates an error. This method takes ownership of the
+  // tensors in `args`, in order to be able to deallocate them as early as
+  // possible. Use `RunWithBorrowedArgs()` if the caller needs to retain
+  // ownership of the `args`.</doc>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='254' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='469' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset8Iterator18StartFlushingGroupEPNS_15IteratorContextEx'/>
+<use f='tensorflow/tensorflow/core/kernels/data/map_dataset_op.cc' l='146' u='c' c='_ZN10tensorflow12_GLOBAL__N_112MapDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/scan_dataset_op.cc' l='177' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ScanDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>

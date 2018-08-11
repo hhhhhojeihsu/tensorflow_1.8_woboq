@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='274' type='std::vector&lt;Literal&gt; xla::Literal::DecomposeTuple()'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='270'>// Returns a vector containing the tuple elements of this Literal as separate
+  // Literals. This Literal must be tuple-shaped and can be a nested tuple. The
+  // elements are moved into the new Literals; no data is copied. Upon return
+  // this Literal is set to a nil shape (empty tuple)</doc>
+<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='273' ll='300' type='std::vector&lt;Literal&gt; xla::Literal::DecomposeTuple()'/>

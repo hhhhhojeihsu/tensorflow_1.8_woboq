@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.h' l='176' type='void xla::HloDataflowAnalysis::UpdatePositionsOfValuesAt(xla::HloInstruction * instruction, const xla::InstructionValueSet &amp; new_value_set, const xla::InstructionValueSet * prev_value_set = nullptr)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.h' l='169'>// Updates the positions of the HloValues in the output of the given
+  // instruction. This should be called after the instruction value set of
+  // &apos;instruction&apos; has been changed. &apos;prev_value_set&apos; must point to the previous
+  // state of the value set prior to the change. &apos;prev_value_set&apos; may be null if
+  // this is the first time positions are being computed. The previous state is
+  // necessary to efficiently remove positions which have been eliminated due to
+  // changes in the instructions&apos; InstructionValueSet.</doc>

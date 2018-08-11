@@ -1,0 +1,6 @@
+<def f='tensorflow/tensorflow/core/framework/tensor.h' l='510' ll='514' type='void tensorflow::Tensor::set_shape(const tensorflow::TensorShape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor.h' l='506'>// Only needed by variable op to set the shape of an uninitialized
+  // Tensor.
+  // TODO: Remove this when we have a better story for detecting
+  // uninitialized tensors.</doc>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='64' u='c' c='_ZN10tensorflow10VariableOp7ComputeEPNS_15OpKernelContextE'/>

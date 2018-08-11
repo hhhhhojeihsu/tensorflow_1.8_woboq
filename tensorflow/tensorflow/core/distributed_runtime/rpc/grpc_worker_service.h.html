@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>grpc_worker_service.h source code [tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::GrpcWorker "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>distributed_runtime</a>/<a href='./'>rpc</a>/<a href='grpc_worker_service.h.html'>grpc_worker_service.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_WORKER_SERVICE_H_">TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_WORKER_SERVICE_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_WORKER_SERVICE_H_" data-ref="_M/TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_WORKER_SERVICE_H_">TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_WORKER_SERVICE_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../recent_request_ids.h.html">"tensorflow/core/distributed_runtime/recent_request_ids.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../worker.h.html">"tensorflow/core/distributed_runtime/worker.h"</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">grpc</span> {</td></tr>
+<tr><th id="23">23</th><td><b>class</b> <dfn class='type' title='grpc::ByteBuffer' data-ref="grpc::ByteBuffer" id="grpc::ByteBuffer">ByteBuffer</dfn>;</td></tr>
+<tr><th id="24">24</th><td><b>class</b> <dfn class='type' title='grpc::ServerBuilder' data-ref="grpc::ServerBuilder" id="grpc::ServerBuilder">ServerBuilder</dfn>;</td></tr>
+<tr><th id="25">25</th><td>}  <i>// namespace grpc</i></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>class</b> <a class="type" href="async_service_interface.h.html#tensorflow::AsyncServiceInterface" title='tensorflow::AsyncServiceInterface' data-ref="tensorflow::AsyncServiceInterface" id="tensorflow::AsyncServiceInterface">AsyncServiceInterface</a>;</td></tr>
+<tr><th id="30">30</th><td><b>struct</b> <a class="type" href="../worker_env.h.html#tensorflow::WorkerEnv" title='tensorflow::WorkerEnv' data-ref="tensorflow::WorkerEnv" id="tensorflow::WorkerEnv">WorkerEnv</a>;</td></tr>
+<tr><th id="31">31</th><td><b>struct</b> <a class="type" href="../worker_session.h.html#tensorflow::WorkerSession" title='tensorflow::WorkerSession' data-ref="tensorflow::WorkerSession" id="tensorflow::WorkerSession">WorkerSession</a>;</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><b>class</b> <dfn class="type def" id="tensorflow::GrpcWorker" title='tensorflow::GrpcWorker' data-ref="tensorflow::GrpcWorker">GrpcWorker</dfn> : <b>public</b> <a class="type" href="../worker.h.html#tensorflow::Worker" title='tensorflow::Worker' data-ref="tensorflow::Worker">Worker</a> {</td></tr>
+<tr><th id="34">34</th><td> <b>public</b>:</td></tr>
+<tr><th id="35">35</th><td>  <dfn class="decl" id="_ZN10tensorflow10GrpcWorkerC1EPNS_9WorkerEnvE" title='tensorflow::GrpcWorker::GrpcWorker' data-ref="_ZN10tensorflow10GrpcWorkerC1EPNS_9WorkerEnvE">GrpcWorker</dfn>(<a class="type" href="../worker_env.h.html#tensorflow::WorkerEnv" title='tensorflow::WorkerEnv' data-ref="tensorflow::WorkerEnv">WorkerEnv</a>* <dfn class="local col7 decl" id="97env" title='env' data-type='tensorflow::WorkerEnv *' data-ref="97env">env</dfn>);</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>  <i>// Specialized version of RecvTensor for gRPC, which avoids a copy.</i></td></tr>
+<tr><th id="38">38</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN10tensorflow10GrpcWorker19GrpcRecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPN4grpc10ByteBufferESt8functionIFvRKNS_6StatusEEE" title='tensorflow::GrpcWorker::GrpcRecvTensorAsync' data-ref="_ZN10tensorflow10GrpcWorker19GrpcRecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPN4grpc10ByteBufferESt8functionIFvRKNS_6StatusEEE">GrpcRecvTensorAsync</dfn>(<a class="type" href="../call_options.h.html#tensorflow::CallOptions" title='tensorflow::CallOptions' data-ref="tensorflow::CallOptions">CallOptions</a>* <dfn class="local col8 decl" id="98opts" title='opts' data-type='tensorflow::CallOptions *' data-ref="98opts">opts</dfn>,</td></tr>
+<tr><th id="39">39</th><td>                                   <em>const</em> <span class='type' title='tensorflow::RecvTensorRequest' data-ref="tensorflow::RecvTensorRequest">RecvTensorRequest</span>* <dfn class="local col9 decl" id="99request" title='request' data-type='const tensorflow::RecvTensorRequest *' data-ref="99request">request</dfn>,</td></tr>
+<tr><th id="40">40</th><td>                                   <span class="namespace">::grpc::</span><span class='type' title='grpc::ByteBuffer' data-ref="grpc::ByteBuffer">ByteBuffer</span>* <dfn class="local col0 decl" id="100response" title='response' data-type='::grpc::ByteBuffer *' data-ref="100response">response</dfn>,</td></tr>
+<tr><th id="41">41</th><td>                                   <a class="typedef" href="../../lib/core/status.h.html#tensorflow::StatusCallback" title='tensorflow::StatusCallback' data-type='std::function&lt;void (const Status &amp;)&gt;' data-ref="tensorflow::StatusCallback">StatusCallback</a> <dfn class="local col1 decl" id="101done" title='done' data-type='StatusCallback' data-ref="101done">done</dfn>);</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN10tensorflow10GrpcWorker12LoggingAsyncEPKNS_14LoggingRequestEPNS_15LoggingResponseESt8functionIFvRKNS_6StatusEEE" title='tensorflow::GrpcWorker::LoggingAsync' data-ref="_ZN10tensorflow10GrpcWorker12LoggingAsyncEPKNS_14LoggingRequestEPNS_15LoggingResponseESt8functionIFvRKNS_6StatusEEE">LoggingAsync</dfn>(<em>const</em> <span class='type' title='tensorflow::LoggingRequest' data-ref="tensorflow::LoggingRequest">LoggingRequest</span>* <dfn class="local col2 decl" id="102request" title='request' data-type='const tensorflow::LoggingRequest *' data-ref="102request">request</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                            <span class='type' title='tensorflow::LoggingResponse' data-ref="tensorflow::LoggingResponse">LoggingResponse</span>* <dfn class="local col3 decl" id="103response" title='response' data-type='tensorflow::LoggingResponse *' data-ref="103response">response</dfn>, <a class="typedef" href="../../lib/core/status.h.html#tensorflow::StatusCallback" title='tensorflow::StatusCallback' data-type='std::function&lt;void (const Status &amp;)&gt;' data-ref="tensorflow::StatusCallback">StatusCallback</a> <dfn class="local col4 decl" id="104done" title='done' data-type='StatusCallback' data-ref="104done">done</dfn>);</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td>  <a class="type" href="../worker_env.h.html#tensorflow::WorkerEnv" title='tensorflow::WorkerEnv' data-ref="tensorflow::WorkerEnv">WorkerEnv</a>* <dfn class="decl" id="_ZN10tensorflow10GrpcWorker3envEv" title='tensorflow::GrpcWorker::env' data-ref="_ZN10tensorflow10GrpcWorker3envEv">env</dfn>();</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td> <b>private</b>:</td></tr>
+<tr><th id="49">49</th><td>  <a class="type" href="../recent_request_ids.h.html#tensorflow::RecentRequestIds" title='tensorflow::RecentRequestIds' data-ref="tensorflow::RecentRequestIds">RecentRequestIds</a> <dfn class="decl" id="tensorflow::GrpcWorker::recv_tensor_recent_request_ids_" title='tensorflow::GrpcWorker::recv_tensor_recent_request_ids_' data-ref="tensorflow::GrpcWorker::recv_tensor_recent_request_ids_">recv_tensor_recent_request_ids_</dfn>;</td></tr>
+<tr><th id="50">50</th><td>};</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#tensorflow::GrpcWorker" title='tensorflow::GrpcWorker' data-ref="tensorflow::GrpcWorker">GrpcWorker</a>&gt; <dfn class="decl" id="_ZN10tensorflow13NewGrpcWorkerEPNS_9WorkerEnvE" title='tensorflow::NewGrpcWorker' data-ref="_ZN10tensorflow13NewGrpcWorkerEPNS_9WorkerEnvE">NewGrpcWorker</dfn>(<a class="type" href="../worker_env.h.html#tensorflow::WorkerEnv" title='tensorflow::WorkerEnv' data-ref="tensorflow::WorkerEnv">WorkerEnv</a>* <dfn class="local col5 decl" id="105worker_env" title='worker_env' data-type='tensorflow::WorkerEnv *' data-ref="105worker_env">worker_env</dfn>);</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><i>// Returns an implementation of WorkerService rpc service.</i></td></tr>
+<tr><th id="55">55</th><td><span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="async_service_interface.h.html#tensorflow::AsyncServiceInterface" title='tensorflow::AsyncServiceInterface' data-ref="tensorflow::AsyncServiceInterface">AsyncServiceInterface</a>&gt; <dfn class="decl" id="_ZN10tensorflow20NewGrpcWorkerServiceEPNS_10GrpcWorkerEPN4grpc13ServerBuilderE" title='tensorflow::NewGrpcWorkerService' data-ref="_ZN10tensorflow20NewGrpcWorkerServiceEPNS_10GrpcWorkerEPN4grpc13ServerBuilderE">NewGrpcWorkerService</dfn>(</td></tr>
+<tr><th id="56">56</th><td>    <a class="type" href="#tensorflow::GrpcWorker" title='tensorflow::GrpcWorker' data-ref="tensorflow::GrpcWorker">GrpcWorker</a>* <dfn class="local col6 decl" id="106worker" title='worker' data-type='tensorflow::GrpcWorker *' data-ref="106worker">worker</dfn>, <span class="namespace">::grpc::</span><span class='type' title='grpc::ServerBuilder' data-ref="grpc::ServerBuilder">ServerBuilder</span>* <dfn class="local col7 decl" id="107builder" title='builder' data-type='::grpc::ServerBuilder *' data-ref="107builder">builder</dfn>);</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_WORKER_SERVICE_H_</u></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='grpc_server_lib.cc.html'>tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

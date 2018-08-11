@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/core/util/tensor_slice_reader_cache.h' l='53' ll='82'/>
+<size>136</size>
+<doc f='tensorflow/tensorflow/core/util/tensor_slice_reader_cache.h' l='52'>// A cache of TensorSliceReaders.</doc>
+<fun r='_ZN10tensorflow10checkpoint22TensorSliceReaderCacheC1Ev'/>
+<fun r='_ZN10tensorflow10checkpoint22TensorSliceReaderCacheD1Ev'/>
+<fun r='_ZN10tensorflow10checkpoint22TensorSliceReaderCache9GetReaderERKSsSt8functionIFNS_6StatusES3_PPNS0_17TensorSliceReader5TableEEEi'/>
+<mbr r='tensorflow::checkpoint::TensorSliceReaderCache::mu_' o='0' t='tensorflow::mutex'/>
+<mbr r='tensorflow::checkpoint::TensorSliceReaderCache::readers_' o='128' t='std::unordered_map&lt;string, std::pair&lt;OpenFuncType, TensorSliceReader *&gt; &gt;'/>
+<mbr r='tensorflow::checkpoint::TensorSliceReaderCache::still_opening_' o='576' t='std::set&lt;string&gt;'/>
+<mbr r='tensorflow::checkpoint::TensorSliceReaderCache::cv_' o='960' t='tensorflow::condition_variable'/>

@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/function.h' l='40' type='void tensorflow::RegisterDefaultCustomKernelCreator(CustomKernelCreator cb)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/function.h' l='33'>// Registers a default customizable kernel creator for a function call.
+//
+// If &apos;cb()&apos; returns a non-OK, we still fall back to an executor-based
+// interpreter op kernel to execute a function. If &apos;cb()&apos; returns OK,
+// takes ownership of the returned OpKernel.
+//
+// TODO(zhifengc/phawkins): b/32379046</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/function.cc' l='978' ll='980' type='void tensorflow::RegisterDefaultCustomKernelCreator(CustomKernelCreator cb)'/>

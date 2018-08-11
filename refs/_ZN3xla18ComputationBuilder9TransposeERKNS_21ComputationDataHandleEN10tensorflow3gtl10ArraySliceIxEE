@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='661' type='xla::ComputationDataHandle xla::ComputationBuilder::Transpose(const xla::ComputationDataHandle &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; permutation)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='660'>// Enqueues a transpose instruction onto the computation.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/batchtospace_op.cc' l='94' u='c' c='_ZN10tensorflow12_GLOBAL__N_112BatchToSpaceEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS_3gtl10ArraySliceIxEERKNS3_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/depthtospace_op.cc' l='145' u='c' c='_ZN10tensorflow12_GLOBAL__N_114DepthToSpaceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matmul_op.cc' l='79' u='c' c='_ZN10tensorflow12_GLOBAL__N_18MatMulOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matmul_op.cc' l='80' u='c' c='_ZN10tensorflow12_GLOBAL__N_18MatMulOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/select_op.cc' l='77' u='c' c='_ZN10tensorflow12_GLOBAL__N_18SelectOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/spacetobatch_op.cc' l='125' u='c' c='_ZN10tensorflow12_GLOBAL__N_112SpaceToBatchEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS_3gtl10ArraySliceIxEERKNS3_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/spacetodepth_op.cc' l='149' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SpaceToDepthOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/transpose_op.cc' l='88' u='c' c='_ZN10tensorflow12_GLOBAL__N_111TransposeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/batch_dot.cc' l='102' u='c' c='_ZN10tensorflow8BatchDotEPN3xla18ComputationBuilderENS0_21ComputationDataHandleES3_bbbb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/batch_dot.cc' l='103' u='c' c='_ZN10tensorflow8BatchDotEPN3xla18ComputationBuilderENS0_21ComputationDataHandleES3_bbbb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/util.cc' l='173' u='c' c='_ZN10tensorflow20TransposeInMinorDimsEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleE'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='953' ll='963' type='xla::ComputationDataHandle xla::ComputationBuilder::Transpose(const xla::ComputationDataHandle &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; permutation)'/>

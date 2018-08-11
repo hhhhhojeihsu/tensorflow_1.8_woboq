@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/stream_executor/kernel.h' l='528' ll='531' type='void perftools::gputools::TypedKernel::PackParams(KernelArgsArray&lt;kNumberOfParameters&gt; * args, Params &amp;... params) const'/>
+<doc f='tensorflow/tensorflow/stream_executor/kernel.h' l='517'>// This is the main entry point into the magic. Packs the parameters (which
+  // must type check against the class template) into the args and sizes
+  // arrays.
+  //
+  // Const refs are taken as parameters on all of the handlers to avoid
+  // implicit type promotion of integers.
+  //
+  // WARNING: as a performance optimization this method may store pointers to
+  // some of the input parameters in the kernel args structure, so any params
+  // passed into this method must live at least as long as the kernel args
+  // structure.</doc>

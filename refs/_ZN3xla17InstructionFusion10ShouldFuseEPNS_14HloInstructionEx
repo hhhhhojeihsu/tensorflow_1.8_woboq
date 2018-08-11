@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.h' l='62' type='bool xla::InstructionFusion::ShouldFuse(xla::HloInstruction * consumer, int64 operand_index)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.h' l='51'>// Returns whether the given producer instruction should be fused into the
+  // given consumer instruction. producer is necessarily an operand of consumer.
+  // Derived classes should define this method to specify which instructions
+  // should be fused. `operand_index` is which operand of the consumer the
+  // producer is.
+  //
+  // Instructions are traversed in reverse post order (computation root to
+  // leaves). This method is called for each operand of the instruction (where
+  // the operand is &apos;producer&apos; and the instruction is &apos;consumer&apos;)
+  //
+  // Subtypes can override this with target-specific heuristics.</doc>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_instruction_fusion.cc' l='63' c='_ZN3xla3cpu20CpuInstructionFusion10ShouldFuseEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_instruction_fusion.cc' l='96' u='c' c='_ZN3xla3cpu20CpuInstructionFusion10ShouldFuseEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='180' u='c' c='_ZN3xla17InstructionFusion17CanFuseOnAllPathsERKNS_18HloReachabilityMapEPNS_14HloInstructionES5_PSt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='201' u='c' c='_ZN3xla17InstructionFusion17CanFuseOnAllPathsERKNS_18HloReachabilityMapEPNS_14HloInstructionES5_PSt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='365' u='c' c='_ZN3xla17InstructionFusion3RunEPNS_9HloModuleE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='424' ll='449' type='bool xla::InstructionFusion::ShouldFuse(xla::HloInstruction * consumer, int64 operand_index)'/>

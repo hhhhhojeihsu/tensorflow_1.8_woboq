@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/grappler/optimizers/static_schedule.h' l='41' type='tensorflow::Status tensorflow::grappler::EstimateRequiredTimes(const tensorflow::grappler::GrapplerItem &amp; item, const tensorflow::grappler::Cluster * cluster, const std::unordered_map&lt;const NodeDef *, Costs::NanoSeconds&gt; &amp; execution_times, std::unordered_map&lt;const NodeDef *, Costs::NanoSeconds&gt; * required_times)'/>
+<doc f='tensorflow/tensorflow/core/grappler/optimizers/static_schedule.h' l='38'>// Compute the time by which the execution of each node must complete to ensure
+// the subsequent nodes can still be executed by the times predicted by the
+// EstimateEarliestExecutionTimes function.</doc>
+<def f='tensorflow/tensorflow/core/grappler/optimizers/static_schedule.cc' l='128' ll='192' type='tensorflow::Status tensorflow::grappler::EstimateRequiredTimes(const tensorflow::grappler::GrapplerItem &amp; item, const tensorflow::grappler::Cluster * cluster, const std::unordered_map&lt;const NodeDef *, Costs::NanoSeconds&gt; &amp; execution_times, std::unordered_map&lt;const NodeDef *, Costs::NanoSeconds&gt; * required_times)'/>

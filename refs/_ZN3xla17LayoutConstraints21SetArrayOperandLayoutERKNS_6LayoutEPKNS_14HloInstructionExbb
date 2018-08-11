@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='176' type='tensorflow::Status xla::LayoutConstraints::SetArrayOperandLayout(const xla::Layout &amp; layout, const xla::HloInstruction * instruction, int64 operand_no, bool mandatory = true, bool dfs = true)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='174'>// Convenience wrapper around SetOperandLayout for setting the layout of a
+  // operand using a Layout object. The operand must be array-shaped.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='337' ll='346' type='tensorflow::Status xla::LayoutConstraints::SetArrayOperandLayout(const xla::Layout &amp; layout, const xla::HloInstruction * instruction, int64 operand_no, bool mandatory = true, bool dfs = true)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1227' u='c' c='_ZN3xla16LayoutAssignment25PropagateBufferConstraintERKNS_22BufferLayoutConstraintEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1252' u='c' c='_ZN3xla16LayoutAssignment31PropagateBufferConstraintToUsesERKNS_22BufferLayoutConstraintEPNS_17LayoutConstraintsE'/>

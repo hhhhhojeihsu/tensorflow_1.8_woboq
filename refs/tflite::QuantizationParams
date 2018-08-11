@@ -1,0 +1,15 @@
+<def f='tensorflow/tensorflow/contrib/lite/kernels/internal/types.h' l='35' ll='38'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/contrib/lite/kernels/internal/types.h' l='24'>// Quantization parameters, determining the mapping of quantized values
+// to real values (i.e. determining how quantized values are mathematically
+// interpreted).
+//
+// The correspondence is as follows:
+//
+//   real_value = scale * (quantized_value - zero_point);
+//
+// In other words, zero_point designates which quantized value corresponds to
+// the real 0 value, and scale designates the difference between the real values
+// corresponding to consecutive quantized values differing by 1.</doc>
+<mbr r='tflite::QuantizationParams::zero_point' o='0' t='int32'/>
+<mbr r='tflite::QuantizationParams::scale' o='64' t='double'/>

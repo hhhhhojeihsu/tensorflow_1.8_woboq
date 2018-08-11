@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.h' l='170' type='void tflite::QuantizeMultiplierSmallerThanOne(double double_multiplier, int32_t * quantized_multiplier, int * right_shift)'/>
+<def f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.cc' l='51' ll='60' type='void tflite::QuantizeMultiplierSmallerThanOne(double double_multiplier, int32_t * quantized_multiplier, int * right_shift)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.h' l='165'>// Decompose a double multiplier into a Q0.31 int32 representation of its
+// significand, and shift representation of NEGATIVE its exponent ---
+// this is intended as a RIGHT-shift.
+//
+// Restricted to the case where the multiplier &lt; 1 (and non-negative).</doc>

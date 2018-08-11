@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='85' type='static StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::Literal::CreateFromProto(const xla::LiteralProto &amp; proto)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='84'>// Serialize to and from a proto.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/client.cc' l='63' u='c' c='_ZN3xla6Client8TransferERKNS_10GlobalDataEPKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/client.cc' l='145' u='c' c='_ZN3xla6Client19TransferFromOutfeedEPKNS_5ShapeExPKNS_12DeviceHandleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1179' u='c' c='_ZN3xla18ComputationBuilder15ComputeConstantERKNS_21ComputationDataHandleEPKNS_6LayoutEN10tensorflow3gtl10ArraySliceINS_7LiteralEEE'/>
+<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='2076' ll='2111' type='static StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::Literal::CreateFromProto(const xla::LiteralProto &amp; proto)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='2075'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='114' u='c' c='_ZN3xla14HloInstruction15CreateFromProtoEPNS_9HloModuleERKNS_19HloInstructionProtoERKN10tensorflow3gtl7FlatMapIxPS0_NS6_4hashIxEESt8equal_toIxEEERKNS816766634'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1346' u='c' c='_ZN3xla7Service16TransferToServerEPKNS_23TransferToServerRequestEPNS_24TransferToServerResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1405' u='c' c='_ZN3xla7Service16TransferToInfeedEPKNS_23TransferToInfeedRequestEPNS_24TransferToInfeedResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1538' u='c' c='_ZN3xla7Service15ComputeConstantEPKNS_22ComputeConstantRequestEPNS_23ComputeConstantResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2900' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

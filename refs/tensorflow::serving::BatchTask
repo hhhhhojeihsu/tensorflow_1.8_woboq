@@ -1,0 +1,16 @@
+<def f='tensorflow/tensorflow/core/kernels/batching_util/batch_scheduler.h' l='58' ll='65'/>
+<ovr f='tensorflow/tensorflow/core/kernels/batch_kernels.cc' l='270' c='tensorflow::BatchResource::BatchTask'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/kernels/batching_util/batch_scheduler.h' l='47'>// The abstract superclass for a unit of work to be done as part of a batch.
+//
+// An implementing subclass typically contains (or points to):
+//  (a) input data;
+//  (b) a thread-safe completion signal (e.g. a Notification);
+//  (c) a place to store the outcome (success, or some error), upon completion;
+//  (d) a place to store the output data, upon success.
+//
+// Items (b), (c) and (d) are typically non-owned pointers to data homed
+// elsewhere, because a task&apos;s ownership gets transferred to a BatchScheduler
+// (see below) and it may be deleted as soon as it is done executing.</doc>
+<fun r='_ZN10tensorflow7serving9BatchTaskD1Ev'/>
+<fun r='_ZNK10tensorflow7serving9BatchTask4sizeEv'/>

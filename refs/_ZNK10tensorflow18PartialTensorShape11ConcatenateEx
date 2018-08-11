@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='405' type='tensorflow::PartialTensorShape tensorflow::PartialTensorShape::Concatenate(int64 size) const'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='402'>/// Add a dimension to the end (&quot;inner-most&quot;), returns a new
+  /// PartialTensorShape.
+  /// REQUIRES: `size &gt;= -1`, where -1 means unknown</doc>
+<def f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='551' ll='555' type='tensorflow::PartialTensorShape tensorflow::PartialTensorShape::Concatenate(int64 size) const'/>
+<use f='tensorflow/tensorflow/core/kernels/data/concatenate_dataset_op.cc' l='176' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ConcatenateDatasetOp7Dataset27MostSpecificCompatibleShapeERKNS_18PartialTensorShapeES5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/concatenate_dataset_op.cc' l='178' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ConcatenateDatasetOp7Dataset27MostSpecificCompatibleShapeERKNS_18PartialTensorShapeES5_'/>

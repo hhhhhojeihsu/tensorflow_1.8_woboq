@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.h' l='106' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::HloEvaluator::EvaluateWithSubstitutions(const xla::HloInstruction * instruction, const std::unordered_map&lt;const HloInstruction *, const Literal *&gt; &amp; substitutions)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.h' l='101'>// Evaluates a single HLO instruction, substituting the given literals for
+  // some of the instruction&apos;s operands.
+  //
+  // For example, given instruction = op(A, B, C) and the map
+  // {A = x, C = y}, this evaluates op(x, B, y).</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2308' ll='2340' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::HloEvaluator::EvaluateWithSubstitutions(const xla::HloInstruction * instruction, const std::unordered_map&lt;const HloInstruction *, const Literal *&gt; &amp; substitutions)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='234' u='c' c='_ZN3xlaL16GetLoopTripCountEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='262' u='c' c='_ZN3xlaL16GetLoopTripCountEPNS_14HloInstructionE'/>

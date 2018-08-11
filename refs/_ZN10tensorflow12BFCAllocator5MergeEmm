@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='322' type='void tensorflow::BFCAllocator::Merge(ChunkHandle h, ChunkHandle h2)'/>
+<def f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='400' ll='427' type='void tensorflow::BFCAllocator::Merge(BFCAllocator::ChunkHandle h1, BFCAllocator::ChunkHandle h2)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='489' u='c' c='_ZN10tensorflow12BFCAllocator20FreeAndMaybeCoalesceEm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='505' u='c' c='_ZN10tensorflow12BFCAllocator20FreeAndMaybeCoalesceEm'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='398'>// Merges h1 and h2 when Chunk(h1)-&gt;next is h2 and Chunk(h2)-&gt;prev is c1.
+// We merge Chunk(h2) into Chunk(h1).</doc>
+<doc f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='320'>// Merges the two chunk handles.  Requires that the chunks are
+  // contiguous in their allocation.</doc>

@@ -1,0 +1,14 @@
+<def f='tensorflow/tensorflow/core/platform/default/mutex.h' l='38' ll='60'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/core/platform/default/mutex.h' l='35'>// Mimic std::mutex + C++17&apos;s shared_mutex, adding a LinkerInitialized
+// constructor interface.  This type is as fast as mutex, but is also a shared
+// lock.</doc>
+<fun r='_ZN10tensorflow5mutexC1Ev'/>
+<fun r='_ZN10tensorflow5mutexC1ENS_17LinkerInitializedE'/>
+<fun r='_ZN10tensorflow5mutex4lockEv'/>
+<fun r='_ZN10tensorflow5mutex8try_lockEv'/>
+<fun r='_ZN10tensorflow5mutex6unlockEv'/>
+<fun r='_ZN10tensorflow5mutex11lock_sharedEv'/>
+<fun r='_ZN10tensorflow5mutex15try_lock_sharedEv'/>
+<fun r='_ZN10tensorflow5mutex13unlock_sharedEv'/>
+<mbr r='tensorflow::mutex::mu_' o='0' t='tensorflow::mutex::external_mu_space'/>

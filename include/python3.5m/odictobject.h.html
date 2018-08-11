@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>odictobject.h source code [include/python3.5m/odictobject.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'include/python3.5m/odictobject.h'; var root_path = '../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>include</a>/<a href='./'>python3.5m</a>/<a href='odictobject.h.html'>odictobject.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/Py_ODICTOBJECT_H">Py_ODICTOBJECT_H</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/Py_ODICTOBJECT_H" data-ref="_M/Py_ODICTOBJECT_H">Py_ODICTOBJECT_H</dfn></u></td></tr>
+<tr><th id="3">3</th><td><u>#<span data-ppcond="3">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="4">4</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="5">5</th><td><u>#<span data-ppcond="3">endif</span></u></td></tr>
+<tr><th id="6">6</th><td></td></tr>
+<tr><th id="7">7</th><td></td></tr>
+<tr><th id="8">8</th><td><i>/* OrderedDict */</i></td></tr>
+<tr><th id="9">9</th><td></td></tr>
+<tr><th id="10">10</th><td><u>#<span data-ppcond="10">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="11">11</th><td></td></tr>
+<tr><th id="12">12</th><td><b>typedef</b> <b>struct</b> <dfn class="type" id="_odictobject" title='_odictobject' data-ref="_odictobject"><a class="type" href="#_odictobject" title='_odictobject' data-ref="_odictobject">_odictobject</a></dfn> <dfn class="typedef" id="PyODictObject" title='PyODictObject' data-type='struct _odictobject' data-ref="PyODictObject">PyODictObject</dfn>;</td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><a class="macro" href="pyport.h.html#771" title="extern PyTypeObject" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<a class="typedef" href="object.h.html#PyTypeObject" title='PyTypeObject' data-type='struct _typeobject' data-ref="PyTypeObject">PyTypeObject</a>) <dfn class="decl" id="PyODict_Type" title='PyODict_Type' data-ref="PyODict_Type">PyODict_Type</dfn>;</td></tr>
+<tr><th id="15">15</th><td><a class="macro" href="pyport.h.html#771" title="extern PyTypeObject" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<a class="typedef" href="object.h.html#PyTypeObject" title='PyTypeObject' data-type='struct _typeobject' data-ref="PyTypeObject">PyTypeObject</a>) <dfn class="decl" id="PyODictIter_Type" title='PyODictIter_Type' data-ref="PyODictIter_Type">PyODictIter_Type</dfn>;</td></tr>
+<tr><th id="16">16</th><td><a class="macro" href="pyport.h.html#771" title="extern PyTypeObject" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<a class="typedef" href="object.h.html#PyTypeObject" title='PyTypeObject' data-type='struct _typeobject' data-ref="PyTypeObject">PyTypeObject</a>) <dfn class="decl" id="PyODictKeys_Type" title='PyODictKeys_Type' data-ref="PyODictKeys_Type">PyODictKeys_Type</dfn>;</td></tr>
+<tr><th id="17">17</th><td><a class="macro" href="pyport.h.html#771" title="extern PyTypeObject" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<a class="typedef" href="object.h.html#PyTypeObject" title='PyTypeObject' data-type='struct _typeobject' data-ref="PyTypeObject">PyTypeObject</a>) <dfn class="decl" id="PyODictItems_Type" title='PyODictItems_Type' data-ref="PyODictItems_Type">PyODictItems_Type</dfn>;</td></tr>
+<tr><th id="18">18</th><td><a class="macro" href="pyport.h.html#771" title="extern PyTypeObject" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<a class="typedef" href="object.h.html#PyTypeObject" title='PyTypeObject' data-type='struct _typeobject' data-ref="PyTypeObject">PyTypeObject</a>) <dfn class="decl" id="PyODictValues_Type" title='PyODictValues_Type' data-ref="PyODictValues_Type">PyODictValues_Type</dfn>;</td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#<span data-ppcond="10">endif</span> /* Py_LIMITED_API */</u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#define <dfn class="macro" id="_M/PyODict_Check" data-ref="_M/PyODict_Check">PyODict_Check</dfn>(op) PyObject_TypeCheck(op, &amp;PyODict_Type)</u></td></tr>
+<tr><th id="23">23</th><td><u>#define <dfn class="macro" id="_M/PyODict_CheckExact" data-ref="_M/PyODict_CheckExact">PyODict_CheckExact</dfn>(op) (Py_TYPE(op) == &amp;PyODict_Type)</u></td></tr>
+<tr><th id="24">24</th><td><u>#define <dfn class="macro" id="_M/PyODict_SIZE" data-ref="_M/PyODict_SIZE">PyODict_SIZE</dfn>(op) ((PyDictObject *)op)-&gt;ma_used</u></td></tr>
+<tr><th id="25">25</th><td><u>#define <dfn class="macro" id="_M/PyODict_HasKey" data-ref="_M/PyODict_HasKey">PyODict_HasKey</dfn>(od, key) (PyMapping_HasKey(PyObject *)od, key)</u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><a class="macro" href="pyport.h.html#768" title="PyObject *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *) <dfn class="decl" id="PyODict_New" title='PyODict_New' data-ref="PyODict_New">PyODict_New</dfn>(<em>void</em>);</td></tr>
+<tr><th id="28">28</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="PyODict_SetItem" title='PyODict_SetItem' data-ref="PyODict_SetItem">PyODict_SetItem</dfn>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col0 decl" id="650od" title='od' data-type='PyObject *' data-ref="650od">od</dfn>, <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col1 decl" id="651key" title='key' data-type='PyObject *' data-ref="651key">key</dfn>, <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col2 decl" id="652item" title='item' data-type='PyObject *' data-ref="652item">item</dfn>);</td></tr>
+<tr><th id="29">29</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="PyODict_DelItem" title='PyODict_DelItem' data-ref="PyODict_DelItem">PyODict_DelItem</dfn>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col3 decl" id="653od" title='od' data-type='PyObject *' data-ref="653od">od</dfn>, <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col4 decl" id="654key" title='key' data-type='PyObject *' data-ref="654key">key</dfn>);</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><i>/* wrappers around PyDict* functions */</i></td></tr>
+<tr><th id="32">32</th><td><u>#define <dfn class="macro" id="_M/PyODict_GetItem" data-ref="_M/PyODict_GetItem">PyODict_GetItem</dfn>(od, key) PyDict_GetItem((PyObject *)od, key)</u></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/PyODict_GetItemWithError" data-ref="_M/PyODict_GetItemWithError">PyODict_GetItemWithError</dfn>(od, key) \</u></td></tr>
+<tr><th id="34">34</th><td><u>    PyDict_GetItemWithError((PyObject *)od, key)</u></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/PyODict_Contains" data-ref="_M/PyODict_Contains">PyODict_Contains</dfn>(od, key) PyDict_Contains((PyObject *)od, key)</u></td></tr>
+<tr><th id="36">36</th><td><u>#define <dfn class="macro" id="_M/PyODict_Size" data-ref="_M/PyODict_Size">PyODict_Size</dfn>(od) PyDict_Size((PyObject *)od)</u></td></tr>
+<tr><th id="37">37</th><td><u>#define <dfn class="macro" id="_M/PyODict_GetItemString" data-ref="_M/PyODict_GetItemString">PyODict_GetItemString</dfn>(od, key) \</u></td></tr>
+<tr><th id="38">38</th><td><u>    PyDict_GetItemString((PyObject *)od, key)</u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><u>#<span data-ppcond="40">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="41">41</th><td>}</td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="40">endif</span></u></td></tr>
+<tr><th id="43">43</th><td><u>#<span data-ppcond="1">endif</span> /* !Py_ODICTOBJECT_H */</u></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc.html'>tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc</a><br/>Generated on <em>2018-Aug-09</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,29 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='828' type='xla::XlaOp xla::XlaBuilder::BinaryOp(xla::HloOpcode binop, const xla::XlaOp &amp; lhs, const xla::XlaOp &amp; rhs, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_dimensions)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='825'>// Internal helper method that does the building for an arbitrary binary op.
+  // broadcast_dimensions specifies which dimensions to use for broadcasting
+  // when the operation is between tensors of different ranks.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='281' ll='336' type='xla::XlaOp xla::XlaBuilder::BinaryOp(xla::HloOpcode binop, const xla::XlaOp &amp; lhs, const xla::XlaOp &amp; rhs, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_dimensions)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='378' u='c' c='_ZN3xla10XlaBuilder3AddERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='383' u='c' c='_ZN3xla10XlaBuilder3MulERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='686' u='c' c='_ZN3xla10XlaBuilder2EqERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='691' u='c' c='_ZN3xla10XlaBuilder2NeERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='696' u='c' c='_ZN3xla10XlaBuilder2GeERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='701' u='c' c='_ZN3xla10XlaBuilder2GtERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='706' u='c' c='_ZN3xla10XlaBuilder2LeERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='711' u='c' c='_ZN3xla10XlaBuilder2LtERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='836' u='c' c='_ZN3xla10XlaBuilder7ComplexERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='843' u='c' c='_ZN3xla10XlaBuilder3SubERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='848' u='c' c='_ZN3xla10XlaBuilder3DivERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='853' u='c' c='_ZN3xla10XlaBuilder3RemERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='858' u='c' c='_ZN3xla10XlaBuilder3MaxERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='863' u='c' c='_ZN3xla10XlaBuilder3MinERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='868' u='c' c='_ZN3xla10XlaBuilder3AndERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='873' u='c' c='_ZN3xla10XlaBuilder2OrERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='890' u='c' c='_ZN3xla10XlaBuilder9ShiftLeftERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='896' u='c' c='_ZN3xla10XlaBuilder20ShiftRightArithmeticERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='903' u='c' c='_ZN3xla10XlaBuilder17ShiftRightLogicalERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='914' u='c' c='_ZN3xla10XlaBuilder5Atan2ERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='990' u='c' c='_ZN3xla10XlaBuilder7SqrtF32ERKNS_5XlaOpE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='996' u='c' c='_ZN3xla10XlaBuilder3PowERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1017' u='c' c='_ZN3xla10XlaBuilder9SquareF32ERKNS_5XlaOpE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1022' u='c' c='_ZN3xla10XlaBuilder13ReciprocalF32ERKNS_5XlaOpE'/>

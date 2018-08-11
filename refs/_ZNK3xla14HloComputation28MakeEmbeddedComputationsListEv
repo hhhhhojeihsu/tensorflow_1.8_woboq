@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='214' type='std::list&lt;HloComputation *&gt; xla::HloComputation::MakeEmbeddedComputationsList() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='209'>// Creates and returns a list of the embedded computations called by this
+  // computation. This includes all embedded computations called directly or
+  // transitively. The embedded computations are sorted such that if computation
+  // A calls computation B (eg, via a map instruction) then A will appear after
+  // B in the list.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='591' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='673' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='852' u='c' c='_ZN3xla3cpu11CpuCompiler18CompileAheadOfTimeESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS4_EESaIS7_EERKNS_21AotCompilationOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='342' ll='358' type='std::list&lt;HloComputation *&gt; xla::HloComputation::MakeEmbeddedComputationsList() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='453' u='c' c='_ZNK3xla9HloModule24MakeComputationPostOrderEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_tfgraph_builder.cc' l='78' u='c' c='_ZN3xla16hlo_graph_dumper17HloTfGraphBuilder14AddComputationERKNS_14HloComputationE'/>

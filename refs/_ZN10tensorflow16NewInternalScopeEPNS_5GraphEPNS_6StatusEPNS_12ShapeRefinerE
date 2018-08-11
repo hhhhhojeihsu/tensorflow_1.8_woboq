@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/cc/framework/scope_internal.h' l='29' type='tensorflow::Scope tensorflow::NewInternalScope(tensorflow::Graph * graph, tensorflow::Status * status, tensorflow::ShapeRefiner * refiner)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2375' u='c' c='(anonymousnamespace)::TF_FinishWhileHelper'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2441' u='c' c='TF_AddGradients'/>
+<doc f='tensorflow/tensorflow/cc/framework/scope_internal.h' l='25'>// NewInternalScope returns a new scope which doesn&apos;t take ownership of
+// graph, status, name_map, and refiner.
+// This is intended to enable the C API (which are used by other language
+// bindings) to create a Scope and access C++ functionality (i.e. gradients).</doc>
+<def f='tensorflow/tensorflow/cc/framework/scope.cc' l='450' ll='452' type='tensorflow::Scope tensorflow::NewInternalScope(tensorflow::Graph * graph, tensorflow::Status * status, tensorflow::ShapeRefiner * refiner)'/>

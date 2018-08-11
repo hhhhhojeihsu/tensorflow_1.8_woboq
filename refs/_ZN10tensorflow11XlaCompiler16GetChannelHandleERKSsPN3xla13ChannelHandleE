@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='310' type='tensorflow::Status tensorflow::XlaCompiler::GetChannelHandle(const string &amp; key, xla::ChannelHandle * channel)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='305'>// Retrieves the channel handle associated with `key`. Allocates
+  // a new channel handle if none exists.
+  // Channel handles can be used to communicate between different
+  // computations. Computations that communicate should be compiled with the
+  // same XlaCompiler.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/sendrecv_ops.cc' l='47' u='c' c='_ZN10tensorflow12_GLOBAL__N_16SendOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/sendrecv_ops.cc' l='78' u='c' c='_ZN10tensorflow12_GLOBAL__N_16RecvOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='750' ll='759' type='tensorflow::Status tensorflow::XlaCompiler::GetChannelHandle(const string &amp; key, xla::ChannelHandle * channel)'/>

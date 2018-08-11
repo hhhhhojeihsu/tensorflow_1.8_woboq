@@ -1,0 +1,22 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='507' type='string tensorflow::Graph::NewName(tensorflow::StringPiece prefix)'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='505'>// Generate new node name with the specified prefix that is unique
+  // across this graph.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.cc' l='42' u='c' c='_ZN10tensorflowL15BuildLaunchNodeERKSsS1_RKN6google8protobuf3MapISsNS_9AttrValueEEES1_RKNS_3gtl13InlinedVectorINS_8DataTypeELi4EEEiSE_SE_PNS_5GraphEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.cc' l='85' u='c' c='_ZN10tensorflowL24ReplaceNodeWithXlaLaunchEPNS_5GraphEPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1054' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph20BuildParallelCheckOpERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='91' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass11rewriteNodeEPNS_4NodeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='560' u='c' c='_ZN10tensorflow12ConstantFoldERKNS_22ConstantFoldingOptionsEPNS_22FunctionLibraryRuntimeEPNS_3EnvEPNS_6DeviceEPNS_5GraphEPb'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='88' u='c' c='_ZN10tensorflowL7AddNoOpEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='99' u='c' c='_ZN10tensorflowL11AddIdentityEPNS_5GraphENS_8EndpointE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='114' u='c' c='_ZN10tensorflowL6AddArgEPNS_5GraphENS_8DataTypeEi'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='128' u='c' c='_ZN10tensorflowL6AddRetEPNS_5GraphENS_8EndpointEi'/>
+<use f='tensorflow/tensorflow/core/common_runtime/memory_types.cc' l='123' u='c' c='_ZN10tensorflowL4SendEPNS_5GraphERKSsS3_bPKNS_4EdgeE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/memory_types.cc' l='138' u='c' c='_ZN10tensorflowL4RecvEPNS_5GraphERKSsS3_bPKNS_4EdgeE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/parallel_concat_optimizer.cc' l='65' u='c' c='_ZN10tensorflow12_GLOBAL__N_124ParallelConcatRemovePass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<use f='tensorflow/tensorflow/core/graph/gradients.cc' l='69' u='c' c='_ZN10tensorflowL12AddZerosLikeEPNS_5GraphENS_7NodeOutE'/>
+<use f='tensorflow/tensorflow/core/graph/gradients.cc' l='86' u='c' c='_ZN10tensorflowL10AddSymGradEPNS_5GraphEPNS_4NodeENS_3gtl10ArraySliceINS_7NodeOutEEE'/>
+<use f='tensorflow/tensorflow/core/graph/gradients.cc' l='282' u='c' c='_ZN10tensorflow23SymbolicGradientBuilder12SumGradientsERKNS_7NodeOutE'/>
+<def f='tensorflow/tensorflow/core/graph/graph.cc' l='595' ll='597' type='string tensorflow::Graph::NewName(tensorflow::StringPiece prefix)'/>
+<use f='tensorflow/tensorflow/core/graph/graph_def_builder.cc' l='75' u='c' c='_ZNK10tensorflow15GraphDefBuilder7Options12GetNameForOpENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='267' u='c' c='_ZN10tensorflow12_GLOBAL__N_127AddRestoreVariableSubgraphsEPNS_5GraphEPNS_4NodeERKSt6vectorIPKNS_4EdgeESaIS8_EERKS5_IS4_SaIS4_EE'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='269' u='c' c='_ZN10tensorflow12_GLOBAL__N_127AddRestoreVariableSubgraphsEPNS_5GraphEPNS_4NodeERKSt6vectorIPKNS_4EdgeESaIS8_EERKS5_IS4_SaIS4_EE'/>

@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.h' l='75' type='void xla::hlo_graph_dumper::DumpText(const xla::HloModule &amp; module, const string &amp; label, const string &amp; directory_path, bool do_prefix = true)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.h' l='69'>// Dumps the HloModule::ToString() as a file into the provided directory path
+// suffixed with the provided label.
+//
+// If do_prefix is true, a timestamp will be prepended onto the label to
+// construct a filename in the directory path; otherwise, the label is used
+// as the filename directly.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='1442' ll='1454' type='void xla::hlo_graph_dumper::DumpText(const xla::HloModule &amp; module, const string &amp; label, const string &amp; directory_path, bool do_prefix = true)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='1476' u='c' c='_ZN3xla16hlo_graph_dumper18MaybeDumpHloModuleERKNS_9HloModuleERKSsPKNS_19HloExecutionProfileE'/>

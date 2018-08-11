@@ -1,0 +1,16 @@
+<def f='include/c++/5/sstream' l='420' ll='424' type='void std::basic_istringstream::basic_istringstream&lt;_CharT, _Traits, _Alloc&gt;(const __string_type &amp; __str, ios_base::openmode __mode = ios_base::in)'/>
+<doc f='include/c++/5/sstream' l='407'>/**
+       *  @brief  Starts with an existing string buffer.
+       *  @param  __str  A string to copy as a starting buffer.
+       *  @param  __mode  Whether the buffer can read, or write, or both.
+       *
+       *  @c ios_base::in is automatically included in @a mode.
+       *
+       *  Initializes @c sb using @a str and @c mode|in, and passes @c &amp;sb
+       *  to the base class initializer.
+       *
+       *  That&apos;s a lie.  We initialize the base class with NULL, because the
+       *  string class does its own memory management.
+      */</doc>
+<use f='tensorflow/tensorflow/core/platform/default/logging.cc' l='106' u='c' c='_ZN10tensorflow8internal12_GLOBAL__N_116LogLevelStrToIntEPKc'/>
+<use f='tensorflow/tensorflow/core/util/stat_summarizer.cc' l='466' u='c' c='_ZNK10tensorflow14StatSummarizer14PrintStepStatsEv'/>

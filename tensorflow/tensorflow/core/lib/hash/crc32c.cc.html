@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>crc32c.cc source code [tensorflow/tensorflow/core/lib/hash/crc32c.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/lib/hash/crc32c.cc'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>lib</a>/<a href='./'>hash</a>/<a href='crc32c.cc.html'>crc32c.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// A portable implementation of crc32c, optimized to handle</i></td></tr>
+<tr><th id="17">17</th><td><i>// four bytes at a time.</i></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="crc32c.h.html">"tensorflow/core/lib/hash/crc32c.h"</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include &lt;stdint.h&gt;</u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../core/coding.h.html">"tensorflow/core/lib/core/coding.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">crc32c</span> {</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>extern</b> <em>bool</em> <dfn class="decl" id="_ZN10tensorflow6crc32c13CanAccelerateEv" title='tensorflow::crc32c::CanAccelerate' data-ref="_ZN10tensorflow6crc32c13CanAccelerateEv">CanAccelerate</dfn>();</td></tr>
+<tr><th id="28">28</th><td><b>extern</b> <a class="typedef" href="../../../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> <dfn class="decl" id="_ZN10tensorflow6crc32c17AcceleratedExtendEjPKcm" title='tensorflow::crc32c::AcceleratedExtend' data-ref="_ZN10tensorflow6crc32c17AcceleratedExtendEjPKcm">AcceleratedExtend</dfn>(<a class="typedef" href="../../../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> <dfn class="local col1 decl" id="1crc" title='crc' data-type='uint32_t' data-ref="1crc">crc</dfn>, <em>const</em> <em>char</em> *<dfn class="local col2 decl" id="2buf" title='buf' data-type='const char *' data-ref="2buf">buf</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="3size" title='size' data-type='size_t' data-ref="3size">size</dfn>);</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><em>static</em> <em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="tu decl def" id="tensorflow::crc32c::table0_" title='tensorflow::crc32c::table0_' data-type='const uint32 [256]' data-ref="tensorflow::crc32c::table0_">table0_</dfn>[<var>256</var>] = {</td></tr>
+<tr><th id="31">31</th><td>    <var>0x00000000</var>, <var>0xf26b8303</var>, <var>0xe13b70f7</var>, <var>0x1350f3f4</var>, <var>0xc79a971f</var>, <var>0x35f1141c</var>,</td></tr>
+<tr><th id="32">32</th><td>    <var>0x26a1e7e8</var>, <var>0xd4ca64eb</var>, <var>0x8ad958cf</var>, <var>0x78b2dbcc</var>, <var>0x6be22838</var>, <var>0x9989ab3b</var>,</td></tr>
+<tr><th id="33">33</th><td>    <var>0x4d43cfd0</var>, <var>0xbf284cd3</var>, <var>0xac78bf27</var>, <var>0x5e133c24</var>, <var>0x105ec76f</var>, <var>0xe235446c</var>,</td></tr>
+<tr><th id="34">34</th><td>    <var>0xf165b798</var>, <var>0x030e349b</var>, <var>0xd7c45070</var>, <var>0x25afd373</var>, <var>0x36ff2087</var>, <var>0xc494a384</var>,</td></tr>
+<tr><th id="35">35</th><td>    <var>0x9a879fa0</var>, <var>0x68ec1ca3</var>, <var>0x7bbcef57</var>, <var>0x89d76c54</var>, <var>0x5d1d08bf</var>, <var>0xaf768bbc</var>,</td></tr>
+<tr><th id="36">36</th><td>    <var>0xbc267848</var>, <var>0x4e4dfb4b</var>, <var>0x20bd8ede</var>, <var>0xd2d60ddd</var>, <var>0xc186fe29</var>, <var>0x33ed7d2a</var>,</td></tr>
+<tr><th id="37">37</th><td>    <var>0xe72719c1</var>, <var>0x154c9ac2</var>, <var>0x061c6936</var>, <var>0xf477ea35</var>, <var>0xaa64d611</var>, <var>0x580f5512</var>,</td></tr>
+<tr><th id="38">38</th><td>    <var>0x4b5fa6e6</var>, <var>0xb93425e5</var>, <var>0x6dfe410e</var>, <var>0x9f95c20d</var>, <var>0x8cc531f9</var>, <var>0x7eaeb2fa</var>,</td></tr>
+<tr><th id="39">39</th><td>    <var>0x30e349b1</var>, <var>0xc288cab2</var>, <var>0xd1d83946</var>, <var>0x23b3ba45</var>, <var>0xf779deae</var>, <var>0x05125dad</var>,</td></tr>
+<tr><th id="40">40</th><td>    <var>0x1642ae59</var>, <var>0xe4292d5a</var>, <var>0xba3a117e</var>, <var>0x4851927d</var>, <var>0x5b016189</var>, <var>0xa96ae28a</var>,</td></tr>
+<tr><th id="41">41</th><td>    <var>0x7da08661</var>, <var>0x8fcb0562</var>, <var>0x9c9bf696</var>, <var>0x6ef07595</var>, <var>0x417b1dbc</var>, <var>0xb3109ebf</var>,</td></tr>
+<tr><th id="42">42</th><td>    <var>0xa0406d4b</var>, <var>0x522bee48</var>, <var>0x86e18aa3</var>, <var>0x748a09a0</var>, <var>0x67dafa54</var>, <var>0x95b17957</var>,</td></tr>
+<tr><th id="43">43</th><td>    <var>0xcba24573</var>, <var>0x39c9c670</var>, <var>0x2a993584</var>, <var>0xd8f2b687</var>, <var>0x0c38d26c</var>, <var>0xfe53516f</var>,</td></tr>
+<tr><th id="44">44</th><td>    <var>0xed03a29b</var>, <var>0x1f682198</var>, <var>0x5125dad3</var>, <var>0xa34e59d0</var>, <var>0xb01eaa24</var>, <var>0x42752927</var>,</td></tr>
+<tr><th id="45">45</th><td>    <var>0x96bf4dcc</var>, <var>0x64d4cecf</var>, <var>0x77843d3b</var>, <var>0x85efbe38</var>, <var>0xdbfc821c</var>, <var>0x2997011f</var>,</td></tr>
+<tr><th id="46">46</th><td>    <var>0x3ac7f2eb</var>, <var>0xc8ac71e8</var>, <var>0x1c661503</var>, <var>0xee0d9600</var>, <var>0xfd5d65f4</var>, <var>0x0f36e6f7</var>,</td></tr>
+<tr><th id="47">47</th><td>    <var>0x61c69362</var>, <var>0x93ad1061</var>, <var>0x80fde395</var>, <var>0x72966096</var>, <var>0xa65c047d</var>, <var>0x5437877e</var>,</td></tr>
+<tr><th id="48">48</th><td>    <var>0x4767748a</var>, <var>0xb50cf789</var>, <var>0xeb1fcbad</var>, <var>0x197448ae</var>, <var>0x0a24bb5a</var>, <var>0xf84f3859</var>,</td></tr>
+<tr><th id="49">49</th><td>    <var>0x2c855cb2</var>, <var>0xdeeedfb1</var>, <var>0xcdbe2c45</var>, <var>0x3fd5af46</var>, <var>0x7198540d</var>, <var>0x83f3d70e</var>,</td></tr>
+<tr><th id="50">50</th><td>    <var>0x90a324fa</var>, <var>0x62c8a7f9</var>, <var>0xb602c312</var>, <var>0x44694011</var>, <var>0x5739b3e5</var>, <var>0xa55230e6</var>,</td></tr>
+<tr><th id="51">51</th><td>    <var>0xfb410cc2</var>, <var>0x092a8fc1</var>, <var>0x1a7a7c35</var>, <var>0xe811ff36</var>, <var>0x3cdb9bdd</var>, <var>0xceb018de</var>,</td></tr>
+<tr><th id="52">52</th><td>    <var>0xdde0eb2a</var>, <var>0x2f8b6829</var>, <var>0x82f63b78</var>, <var>0x709db87b</var>, <var>0x63cd4b8f</var>, <var>0x91a6c88c</var>,</td></tr>
+<tr><th id="53">53</th><td>    <var>0x456cac67</var>, <var>0xb7072f64</var>, <var>0xa457dc90</var>, <var>0x563c5f93</var>, <var>0x082f63b7</var>, <var>0xfa44e0b4</var>,</td></tr>
+<tr><th id="54">54</th><td>    <var>0xe9141340</var>, <var>0x1b7f9043</var>, <var>0xcfb5f4a8</var>, <var>0x3dde77ab</var>, <var>0x2e8e845f</var>, <var>0xdce5075c</var>,</td></tr>
+<tr><th id="55">55</th><td>    <var>0x92a8fc17</var>, <var>0x60c37f14</var>, <var>0x73938ce0</var>, <var>0x81f80fe3</var>, <var>0x55326b08</var>, <var>0xa759e80b</var>,</td></tr>
+<tr><th id="56">56</th><td>    <var>0xb4091bff</var>, <var>0x466298fc</var>, <var>0x1871a4d8</var>, <var>0xea1a27db</var>, <var>0xf94ad42f</var>, <var>0x0b21572c</var>,</td></tr>
+<tr><th id="57">57</th><td>    <var>0xdfeb33c7</var>, <var>0x2d80b0c4</var>, <var>0x3ed04330</var>, <var>0xccbbc033</var>, <var>0xa24bb5a6</var>, <var>0x502036a5</var>,</td></tr>
+<tr><th id="58">58</th><td>    <var>0x4370c551</var>, <var>0xb11b4652</var>, <var>0x65d122b9</var>, <var>0x97baa1ba</var>, <var>0x84ea524e</var>, <var>0x7681d14d</var>,</td></tr>
+<tr><th id="59">59</th><td>    <var>0x2892ed69</var>, <var>0xdaf96e6a</var>, <var>0xc9a99d9e</var>, <var>0x3bc21e9d</var>, <var>0xef087a76</var>, <var>0x1d63f975</var>,</td></tr>
+<tr><th id="60">60</th><td>    <var>0x0e330a81</var>, <var>0xfc588982</var>, <var>0xb21572c9</var>, <var>0x407ef1ca</var>, <var>0x532e023e</var>, <var>0xa145813d</var>,</td></tr>
+<tr><th id="61">61</th><td>    <var>0x758fe5d6</var>, <var>0x87e466d5</var>, <var>0x94b49521</var>, <var>0x66df1622</var>, <var>0x38cc2a06</var>, <var>0xcaa7a905</var>,</td></tr>
+<tr><th id="62">62</th><td>    <var>0xd9f75af1</var>, <var>0x2b9cd9f2</var>, <var>0xff56bd19</var>, <var>0x0d3d3e1a</var>, <var>0x1e6dcdee</var>, <var>0xec064eed</var>,</td></tr>
+<tr><th id="63">63</th><td>    <var>0xc38d26c4</var>, <var>0x31e6a5c7</var>, <var>0x22b65633</var>, <var>0xd0ddd530</var>, <var>0x0417b1db</var>, <var>0xf67c32d8</var>,</td></tr>
+<tr><th id="64">64</th><td>    <var>0xe52cc12c</var>, <var>0x1747422f</var>, <var>0x49547e0b</var>, <var>0xbb3ffd08</var>, <var>0xa86f0efc</var>, <var>0x5a048dff</var>,</td></tr>
+<tr><th id="65">65</th><td>    <var>0x8ecee914</var>, <var>0x7ca56a17</var>, <var>0x6ff599e3</var>, <var>0x9d9e1ae0</var>, <var>0xd3d3e1ab</var>, <var>0x21b862a8</var>,</td></tr>
+<tr><th id="66">66</th><td>    <var>0x32e8915c</var>, <var>0xc083125f</var>, <var>0x144976b4</var>, <var>0xe622f5b7</var>, <var>0xf5720643</var>, <var>0x07198540</var>,</td></tr>
+<tr><th id="67">67</th><td>    <var>0x590ab964</var>, <var>0xab613a67</var>, <var>0xb831c993</var>, <var>0x4a5a4a90</var>, <var>0x9e902e7b</var>, <var>0x6cfbad78</var>,</td></tr>
+<tr><th id="68">68</th><td>    <var>0x7fab5e8c</var>, <var>0x8dc0dd8f</var>, <var>0xe330a81a</var>, <var>0x115b2b19</var>, <var>0x020bd8ed</var>, <var>0xf0605bee</var>,</td></tr>
+<tr><th id="69">69</th><td>    <var>0x24aa3f05</var>, <var>0xd6c1bc06</var>, <var>0xc5914ff2</var>, <var>0x37faccf1</var>, <var>0x69e9f0d5</var>, <var>0x9b8273d6</var>,</td></tr>
+<tr><th id="70">70</th><td>    <var>0x88d28022</var>, <var>0x7ab90321</var>, <var>0xae7367ca</var>, <var>0x5c18e4c9</var>, <var>0x4f48173d</var>, <var>0xbd23943e</var>,</td></tr>
+<tr><th id="71">71</th><td>    <var>0xf36e6f75</var>, <var>0x0105ec76</var>, <var>0x12551f82</var>, <var>0xe03e9c81</var>, <var>0x34f4f86a</var>, <var>0xc69f7b69</var>,</td></tr>
+<tr><th id="72">72</th><td>    <var>0xd5cf889d</var>, <var>0x27a40b9e</var>, <var>0x79b737ba</var>, <var>0x8bdcb4b9</var>, <var>0x988c474d</var>, <var>0x6ae7c44e</var>,</td></tr>
+<tr><th id="73">73</th><td>    <var>0xbe2da0a5</var>, <var>0x4c4623a6</var>, <var>0x5f16d052</var>, <var>0xad7d5351</var>};</td></tr>
+<tr><th id="74">74</th><td><em>static</em> <em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="tu decl def" id="tensorflow::crc32c::table1_" title='tensorflow::crc32c::table1_' data-type='const uint32 [256]' data-ref="tensorflow::crc32c::table1_">table1_</dfn>[<var>256</var>] = {</td></tr>
+<tr><th id="75">75</th><td>    <var>0x00000000</var>, <var>0x13a29877</var>, <var>0x274530ee</var>, <var>0x34e7a899</var>, <var>0x4e8a61dc</var>, <var>0x5d28f9ab</var>,</td></tr>
+<tr><th id="76">76</th><td>    <var>0x69cf5132</var>, <var>0x7a6dc945</var>, <var>0x9d14c3b8</var>, <var>0x8eb65bcf</var>, <var>0xba51f356</var>, <var>0xa9f36b21</var>,</td></tr>
+<tr><th id="77">77</th><td>    <var>0xd39ea264</var>, <var>0xc03c3a13</var>, <var>0xf4db928a</var>, <var>0xe7790afd</var>, <var>0x3fc5f181</var>, <var>0x2c6769f6</var>,</td></tr>
+<tr><th id="78">78</th><td>    <var>0x1880c16f</var>, <var>0x0b225918</var>, <var>0x714f905d</var>, <var>0x62ed082a</var>, <var>0x560aa0b3</var>, <var>0x45a838c4</var>,</td></tr>
+<tr><th id="79">79</th><td>    <var>0xa2d13239</var>, <var>0xb173aa4e</var>, <var>0x859402d7</var>, <var>0x96369aa0</var>, <var>0xec5b53e5</var>, <var>0xfff9cb92</var>,</td></tr>
+<tr><th id="80">80</th><td>    <var>0xcb1e630b</var>, <var>0xd8bcfb7c</var>, <var>0x7f8be302</var>, <var>0x6c297b75</var>, <var>0x58ced3ec</var>, <var>0x4b6c4b9b</var>,</td></tr>
+<tr><th id="81">81</th><td>    <var>0x310182de</var>, <var>0x22a31aa9</var>, <var>0x1644b230</var>, <var>0x05e62a47</var>, <var>0xe29f20ba</var>, <var>0xf13db8cd</var>,</td></tr>
+<tr><th id="82">82</th><td>    <var>0xc5da1054</var>, <var>0xd6788823</var>, <var>0xac154166</var>, <var>0xbfb7d911</var>, <var>0x8b507188</var>, <var>0x98f2e9ff</var>,</td></tr>
+<tr><th id="83">83</th><td>    <var>0x404e1283</var>, <var>0x53ec8af4</var>, <var>0x670b226d</var>, <var>0x74a9ba1a</var>, <var>0x0ec4735f</var>, <var>0x1d66eb28</var>,</td></tr>
+<tr><th id="84">84</th><td>    <var>0x298143b1</var>, <var>0x3a23dbc6</var>, <var>0xdd5ad13b</var>, <var>0xcef8494c</var>, <var>0xfa1fe1d5</var>, <var>0xe9bd79a2</var>,</td></tr>
+<tr><th id="85">85</th><td>    <var>0x93d0b0e7</var>, <var>0x80722890</var>, <var>0xb4958009</var>, <var>0xa737187e</var>, <var>0xff17c604</var>, <var>0xecb55e73</var>,</td></tr>
+<tr><th id="86">86</th><td>    <var>0xd852f6ea</var>, <var>0xcbf06e9d</var>, <var>0xb19da7d8</var>, <var>0xa23f3faf</var>, <var>0x96d89736</var>, <var>0x857a0f41</var>,</td></tr>
+<tr><th id="87">87</th><td>    <var>0x620305bc</var>, <var>0x71a19dcb</var>, <var>0x45463552</var>, <var>0x56e4ad25</var>, <var>0x2c896460</var>, <var>0x3f2bfc17</var>,</td></tr>
+<tr><th id="88">88</th><td>    <var>0x0bcc548e</var>, <var>0x186eccf9</var>, <var>0xc0d23785</var>, <var>0xd370aff2</var>, <var>0xe797076b</var>, <var>0xf4359f1c</var>,</td></tr>
+<tr><th id="89">89</th><td>    <var>0x8e585659</var>, <var>0x9dface2e</var>, <var>0xa91d66b7</var>, <var>0xbabffec0</var>, <var>0x5dc6f43d</var>, <var>0x4e646c4a</var>,</td></tr>
+<tr><th id="90">90</th><td>    <var>0x7a83c4d3</var>, <var>0x69215ca4</var>, <var>0x134c95e1</var>, <var>0x00ee0d96</var>, <var>0x3409a50f</var>, <var>0x27ab3d78</var>,</td></tr>
+<tr><th id="91">91</th><td>    <var>0x809c2506</var>, <var>0x933ebd71</var>, <var>0xa7d915e8</var>, <var>0xb47b8d9f</var>, <var>0xce1644da</var>, <var>0xddb4dcad</var>,</td></tr>
+<tr><th id="92">92</th><td>    <var>0xe9537434</var>, <var>0xfaf1ec43</var>, <var>0x1d88e6be</var>, <var>0x0e2a7ec9</var>, <var>0x3acdd650</var>, <var>0x296f4e27</var>,</td></tr>
+<tr><th id="93">93</th><td>    <var>0x53028762</var>, <var>0x40a01f15</var>, <var>0x7447b78c</var>, <var>0x67e52ffb</var>, <var>0xbf59d487</var>, <var>0xacfb4cf0</var>,</td></tr>
+<tr><th id="94">94</th><td>    <var>0x981ce469</var>, <var>0x8bbe7c1e</var>, <var>0xf1d3b55b</var>, <var>0xe2712d2c</var>, <var>0xd69685b5</var>, <var>0xc5341dc2</var>,</td></tr>
+<tr><th id="95">95</th><td>    <var>0x224d173f</var>, <var>0x31ef8f48</var>, <var>0x050827d1</var>, <var>0x16aabfa6</var>, <var>0x6cc776e3</var>, <var>0x7f65ee94</var>,</td></tr>
+<tr><th id="96">96</th><td>    <var>0x4b82460d</var>, <var>0x5820de7a</var>, <var>0xfbc3faf9</var>, <var>0xe861628e</var>, <var>0xdc86ca17</var>, <var>0xcf245260</var>,</td></tr>
+<tr><th id="97">97</th><td>    <var>0xb5499b25</var>, <var>0xa6eb0352</var>, <var>0x920cabcb</var>, <var>0x81ae33bc</var>, <var>0x66d73941</var>, <var>0x7575a136</var>,</td></tr>
+<tr><th id="98">98</th><td>    <var>0x419209af</var>, <var>0x523091d8</var>, <var>0x285d589d</var>, <var>0x3bffc0ea</var>, <var>0x0f186873</var>, <var>0x1cbaf004</var>,</td></tr>
+<tr><th id="99">99</th><td>    <var>0xc4060b78</var>, <var>0xd7a4930f</var>, <var>0xe3433b96</var>, <var>0xf0e1a3e1</var>, <var>0x8a8c6aa4</var>, <var>0x992ef2d3</var>,</td></tr>
+<tr><th id="100">100</th><td>    <var>0xadc95a4a</var>, <var>0xbe6bc23d</var>, <var>0x5912c8c0</var>, <var>0x4ab050b7</var>, <var>0x7e57f82e</var>, <var>0x6df56059</var>,</td></tr>
+<tr><th id="101">101</th><td>    <var>0x1798a91c</var>, <var>0x043a316b</var>, <var>0x30dd99f2</var>, <var>0x237f0185</var>, <var>0x844819fb</var>, <var>0x97ea818c</var>,</td></tr>
+<tr><th id="102">102</th><td>    <var>0xa30d2915</var>, <var>0xb0afb162</var>, <var>0xcac27827</var>, <var>0xd960e050</var>, <var>0xed8748c9</var>, <var>0xfe25d0be</var>,</td></tr>
+<tr><th id="103">103</th><td>    <var>0x195cda43</var>, <var>0x0afe4234</var>, <var>0x3e19eaad</var>, <var>0x2dbb72da</var>, <var>0x57d6bb9f</var>, <var>0x447423e8</var>,</td></tr>
+<tr><th id="104">104</th><td>    <var>0x70938b71</var>, <var>0x63311306</var>, <var>0xbb8de87a</var>, <var>0xa82f700d</var>, <var>0x9cc8d894</var>, <var>0x8f6a40e3</var>,</td></tr>
+<tr><th id="105">105</th><td>    <var>0xf50789a6</var>, <var>0xe6a511d1</var>, <var>0xd242b948</var>, <var>0xc1e0213f</var>, <var>0x26992bc2</var>, <var>0x353bb3b5</var>,</td></tr>
+<tr><th id="106">106</th><td>    <var>0x01dc1b2c</var>, <var>0x127e835b</var>, <var>0x68134a1e</var>, <var>0x7bb1d269</var>, <var>0x4f567af0</var>, <var>0x5cf4e287</var>,</td></tr>
+<tr><th id="107">107</th><td>    <var>0x04d43cfd</var>, <var>0x1776a48a</var>, <var>0x23910c13</var>, <var>0x30339464</var>, <var>0x4a5e5d21</var>, <var>0x59fcc556</var>,</td></tr>
+<tr><th id="108">108</th><td>    <var>0x6d1b6dcf</var>, <var>0x7eb9f5b8</var>, <var>0x99c0ff45</var>, <var>0x8a626732</var>, <var>0xbe85cfab</var>, <var>0xad2757dc</var>,</td></tr>
+<tr><th id="109">109</th><td>    <var>0xd74a9e99</var>, <var>0xc4e806ee</var>, <var>0xf00fae77</var>, <var>0xe3ad3600</var>, <var>0x3b11cd7c</var>, <var>0x28b3550b</var>,</td></tr>
+<tr><th id="110">110</th><td>    <var>0x1c54fd92</var>, <var>0x0ff665e5</var>, <var>0x759baca0</var>, <var>0x663934d7</var>, <var>0x52de9c4e</var>, <var>0x417c0439</var>,</td></tr>
+<tr><th id="111">111</th><td>    <var>0xa6050ec4</var>, <var>0xb5a796b3</var>, <var>0x81403e2a</var>, <var>0x92e2a65d</var>, <var>0xe88f6f18</var>, <var>0xfb2df76f</var>,</td></tr>
+<tr><th id="112">112</th><td>    <var>0xcfca5ff6</var>, <var>0xdc68c781</var>, <var>0x7b5fdfff</var>, <var>0x68fd4788</var>, <var>0x5c1aef11</var>, <var>0x4fb87766</var>,</td></tr>
+<tr><th id="113">113</th><td>    <var>0x35d5be23</var>, <var>0x26772654</var>, <var>0x12908ecd</var>, <var>0x013216ba</var>, <var>0xe64b1c47</var>, <var>0xf5e98430</var>,</td></tr>
+<tr><th id="114">114</th><td>    <var>0xc10e2ca9</var>, <var>0xd2acb4de</var>, <var>0xa8c17d9b</var>, <var>0xbb63e5ec</var>, <var>0x8f844d75</var>, <var>0x9c26d502</var>,</td></tr>
+<tr><th id="115">115</th><td>    <var>0x449a2e7e</var>, <var>0x5738b609</var>, <var>0x63df1e90</var>, <var>0x707d86e7</var>, <var>0x0a104fa2</var>, <var>0x19b2d7d5</var>,</td></tr>
+<tr><th id="116">116</th><td>    <var>0x2d557f4c</var>, <var>0x3ef7e73b</var>, <var>0xd98eedc6</var>, <var>0xca2c75b1</var>, <var>0xfecbdd28</var>, <var>0xed69455f</var>,</td></tr>
+<tr><th id="117">117</th><td>    <var>0x97048c1a</var>, <var>0x84a6146d</var>, <var>0xb041bcf4</var>, <var>0xa3e32483</var>};</td></tr>
+<tr><th id="118">118</th><td><em>static</em> <em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="tu decl def" id="tensorflow::crc32c::table2_" title='tensorflow::crc32c::table2_' data-type='const uint32 [256]' data-ref="tensorflow::crc32c::table2_">table2_</dfn>[<var>256</var>] = {</td></tr>
+<tr><th id="119">119</th><td>    <var>0x00000000</var>, <var>0xa541927e</var>, <var>0x4f6f520d</var>, <var>0xea2ec073</var>, <var>0x9edea41a</var>, <var>0x3b9f3664</var>,</td></tr>
+<tr><th id="120">120</th><td>    <var>0xd1b1f617</var>, <var>0x74f06469</var>, <var>0x38513ec5</var>, <var>0x9d10acbb</var>, <var>0x773e6cc8</var>, <var>0xd27ffeb6</var>,</td></tr>
+<tr><th id="121">121</th><td>    <var>0xa68f9adf</var>, <var>0x03ce08a1</var>, <var>0xe9e0c8d2</var>, <var>0x4ca15aac</var>, <var>0x70a27d8a</var>, <var>0xd5e3eff4</var>,</td></tr>
+<tr><th id="122">122</th><td>    <var>0x3fcd2f87</var>, <var>0x9a8cbdf9</var>, <var>0xee7cd990</var>, <var>0x4b3d4bee</var>, <var>0xa1138b9d</var>, <var>0x045219e3</var>,</td></tr>
+<tr><th id="123">123</th><td>    <var>0x48f3434f</var>, <var>0xedb2d131</var>, <var>0x079c1142</var>, <var>0xa2dd833c</var>, <var>0xd62de755</var>, <var>0x736c752b</var>,</td></tr>
+<tr><th id="124">124</th><td>    <var>0x9942b558</var>, <var>0x3c032726</var>, <var>0xe144fb14</var>, <var>0x4405696a</var>, <var>0xae2ba919</var>, <var>0x0b6a3b67</var>,</td></tr>
+<tr><th id="125">125</th><td>    <var>0x7f9a5f0e</var>, <var>0xdadbcd70</var>, <var>0x30f50d03</var>, <var>0x95b49f7d</var>, <var>0xd915c5d1</var>, <var>0x7c5457af</var>,</td></tr>
+<tr><th id="126">126</th><td>    <var>0x967a97dc</var>, <var>0x333b05a2</var>, <var>0x47cb61cb</var>, <var>0xe28af3b5</var>, <var>0x08a433c6</var>, <var>0xade5a1b8</var>,</td></tr>
+<tr><th id="127">127</th><td>    <var>0x91e6869e</var>, <var>0x34a714e0</var>, <var>0xde89d493</var>, <var>0x7bc846ed</var>, <var>0x0f382284</var>, <var>0xaa79b0fa</var>,</td></tr>
+<tr><th id="128">128</th><td>    <var>0x40577089</var>, <var>0xe516e2f7</var>, <var>0xa9b7b85b</var>, <var>0x0cf62a25</var>, <var>0xe6d8ea56</var>, <var>0x43997828</var>,</td></tr>
+<tr><th id="129">129</th><td>    <var>0x37691c41</var>, <var>0x92288e3f</var>, <var>0x78064e4c</var>, <var>0xdd47dc32</var>, <var>0xc76580d9</var>, <var>0x622412a7</var>,</td></tr>
+<tr><th id="130">130</th><td>    <var>0x880ad2d4</var>, <var>0x2d4b40aa</var>, <var>0x59bb24c3</var>, <var>0xfcfab6bd</var>, <var>0x16d476ce</var>, <var>0xb395e4b0</var>,</td></tr>
+<tr><th id="131">131</th><td>    <var>0xff34be1c</var>, <var>0x5a752c62</var>, <var>0xb05bec11</var>, <var>0x151a7e6f</var>, <var>0x61ea1a06</var>, <var>0xc4ab8878</var>,</td></tr>
+<tr><th id="132">132</th><td>    <var>0x2e85480b</var>, <var>0x8bc4da75</var>, <var>0xb7c7fd53</var>, <var>0x12866f2d</var>, <var>0xf8a8af5e</var>, <var>0x5de93d20</var>,</td></tr>
+<tr><th id="133">133</th><td>    <var>0x29195949</var>, <var>0x8c58cb37</var>, <var>0x66760b44</var>, <var>0xc337993a</var>, <var>0x8f96c396</var>, <var>0x2ad751e8</var>,</td></tr>
+<tr><th id="134">134</th><td>    <var>0xc0f9919b</var>, <var>0x65b803e5</var>, <var>0x1148678c</var>, <var>0xb409f5f2</var>, <var>0x5e273581</var>, <var>0xfb66a7ff</var>,</td></tr>
+<tr><th id="135">135</th><td>    <var>0x26217bcd</var>, <var>0x8360e9b3</var>, <var>0x694e29c0</var>, <var>0xcc0fbbbe</var>, <var>0xb8ffdfd7</var>, <var>0x1dbe4da9</var>,</td></tr>
+<tr><th id="136">136</th><td>    <var>0xf7908dda</var>, <var>0x52d11fa4</var>, <var>0x1e704508</var>, <var>0xbb31d776</var>, <var>0x511f1705</var>, <var>0xf45e857b</var>,</td></tr>
+<tr><th id="137">137</th><td>    <var>0x80aee112</var>, <var>0x25ef736c</var>, <var>0xcfc1b31f</var>, <var>0x6a802161</var>, <var>0x56830647</var>, <var>0xf3c29439</var>,</td></tr>
+<tr><th id="138">138</th><td>    <var>0x19ec544a</var>, <var>0xbcadc634</var>, <var>0xc85da25d</var>, <var>0x6d1c3023</var>, <var>0x8732f050</var>, <var>0x2273622e</var>,</td></tr>
+<tr><th id="139">139</th><td>    <var>0x6ed23882</var>, <var>0xcb93aafc</var>, <var>0x21bd6a8f</var>, <var>0x84fcf8f1</var>, <var>0xf00c9c98</var>, <var>0x554d0ee6</var>,</td></tr>
+<tr><th id="140">140</th><td>    <var>0xbf63ce95</var>, <var>0x1a225ceb</var>, <var>0x8b277743</var>, <var>0x2e66e53d</var>, <var>0xc448254e</var>, <var>0x6109b730</var>,</td></tr>
+<tr><th id="141">141</th><td>    <var>0x15f9d359</var>, <var>0xb0b84127</var>, <var>0x5a968154</var>, <var>0xffd7132a</var>, <var>0xb3764986</var>, <var>0x1637dbf8</var>,</td></tr>
+<tr><th id="142">142</th><td>    <var>0xfc191b8b</var>, <var>0x595889f5</var>, <var>0x2da8ed9c</var>, <var>0x88e97fe2</var>, <var>0x62c7bf91</var>, <var>0xc7862def</var>,</td></tr>
+<tr><th id="143">143</th><td>    <var>0xfb850ac9</var>, <var>0x5ec498b7</var>, <var>0xb4ea58c4</var>, <var>0x11abcaba</var>, <var>0x655baed3</var>, <var>0xc01a3cad</var>,</td></tr>
+<tr><th id="144">144</th><td>    <var>0x2a34fcde</var>, <var>0x8f756ea0</var>, <var>0xc3d4340c</var>, <var>0x6695a672</var>, <var>0x8cbb6601</var>, <var>0x29faf47f</var>,</td></tr>
+<tr><th id="145">145</th><td>    <var>0x5d0a9016</var>, <var>0xf84b0268</var>, <var>0x1265c21b</var>, <var>0xb7245065</var>, <var>0x6a638c57</var>, <var>0xcf221e29</var>,</td></tr>
+<tr><th id="146">146</th><td>    <var>0x250cde5a</var>, <var>0x804d4c24</var>, <var>0xf4bd284d</var>, <var>0x51fcba33</var>, <var>0xbbd27a40</var>, <var>0x1e93e83e</var>,</td></tr>
+<tr><th id="147">147</th><td>    <var>0x5232b292</var>, <var>0xf77320ec</var>, <var>0x1d5de09f</var>, <var>0xb81c72e1</var>, <var>0xccec1688</var>, <var>0x69ad84f6</var>,</td></tr>
+<tr><th id="148">148</th><td>    <var>0x83834485</var>, <var>0x26c2d6fb</var>, <var>0x1ac1f1dd</var>, <var>0xbf8063a3</var>, <var>0x55aea3d0</var>, <var>0xf0ef31ae</var>,</td></tr>
+<tr><th id="149">149</th><td>    <var>0x841f55c7</var>, <var>0x215ec7b9</var>, <var>0xcb7007ca</var>, <var>0x6e3195b4</var>, <var>0x2290cf18</var>, <var>0x87d15d66</var>,</td></tr>
+<tr><th id="150">150</th><td>    <var>0x6dff9d15</var>, <var>0xc8be0f6b</var>, <var>0xbc4e6b02</var>, <var>0x190ff97c</var>, <var>0xf321390f</var>, <var>0x5660ab71</var>,</td></tr>
+<tr><th id="151">151</th><td>    <var>0x4c42f79a</var>, <var>0xe90365e4</var>, <var>0x032da597</var>, <var>0xa66c37e9</var>, <var>0xd29c5380</var>, <var>0x77ddc1fe</var>,</td></tr>
+<tr><th id="152">152</th><td>    <var>0x9df3018d</var>, <var>0x38b293f3</var>, <var>0x7413c95f</var>, <var>0xd1525b21</var>, <var>0x3b7c9b52</var>, <var>0x9e3d092c</var>,</td></tr>
+<tr><th id="153">153</th><td>    <var>0xeacd6d45</var>, <var>0x4f8cff3b</var>, <var>0xa5a23f48</var>, <var>0x00e3ad36</var>, <var>0x3ce08a10</var>, <var>0x99a1186e</var>,</td></tr>
+<tr><th id="154">154</th><td>    <var>0x738fd81d</var>, <var>0xd6ce4a63</var>, <var>0xa23e2e0a</var>, <var>0x077fbc74</var>, <var>0xed517c07</var>, <var>0x4810ee79</var>,</td></tr>
+<tr><th id="155">155</th><td>    <var>0x04b1b4d5</var>, <var>0xa1f026ab</var>, <var>0x4bdee6d8</var>, <var>0xee9f74a6</var>, <var>0x9a6f10cf</var>, <var>0x3f2e82b1</var>,</td></tr>
+<tr><th id="156">156</th><td>    <var>0xd50042c2</var>, <var>0x7041d0bc</var>, <var>0xad060c8e</var>, <var>0x08479ef0</var>, <var>0xe2695e83</var>, <var>0x4728ccfd</var>,</td></tr>
+<tr><th id="157">157</th><td>    <var>0x33d8a894</var>, <var>0x96993aea</var>, <var>0x7cb7fa99</var>, <var>0xd9f668e7</var>, <var>0x9557324b</var>, <var>0x3016a035</var>,</td></tr>
+<tr><th id="158">158</th><td>    <var>0xda386046</var>, <var>0x7f79f238</var>, <var>0x0b899651</var>, <var>0xaec8042f</var>, <var>0x44e6c45c</var>, <var>0xe1a75622</var>,</td></tr>
+<tr><th id="159">159</th><td>    <var>0xdda47104</var>, <var>0x78e5e37a</var>, <var>0x92cb2309</var>, <var>0x378ab177</var>, <var>0x437ad51e</var>, <var>0xe63b4760</var>,</td></tr>
+<tr><th id="160">160</th><td>    <var>0x0c158713</var>, <var>0xa954156d</var>, <var>0xe5f54fc1</var>, <var>0x40b4ddbf</var>, <var>0xaa9a1dcc</var>, <var>0x0fdb8fb2</var>,</td></tr>
+<tr><th id="161">161</th><td>    <var>0x7b2bebdb</var>, <var>0xde6a79a5</var>, <var>0x3444b9d6</var>, <var>0x91052ba8</var>};</td></tr>
+<tr><th id="162">162</th><td><em>static</em> <em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="tu decl def" id="tensorflow::crc32c::table3_" title='tensorflow::crc32c::table3_' data-type='const uint32 [256]' data-ref="tensorflow::crc32c::table3_">table3_</dfn>[<var>256</var>] = {</td></tr>
+<tr><th id="163">163</th><td>    <var>0x00000000</var>, <var>0xdd45aab8</var>, <var>0xbf672381</var>, <var>0x62228939</var>, <var>0x7b2231f3</var>, <var>0xa6679b4b</var>,</td></tr>
+<tr><th id="164">164</th><td>    <var>0xc4451272</var>, <var>0x1900b8ca</var>, <var>0xf64463e6</var>, <var>0x2b01c95e</var>, <var>0x49234067</var>, <var>0x9466eadf</var>,</td></tr>
+<tr><th id="165">165</th><td>    <var>0x8d665215</var>, <var>0x5023f8ad</var>, <var>0x32017194</var>, <var>0xef44db2c</var>, <var>0xe964b13d</var>, <var>0x34211b85</var>,</td></tr>
+<tr><th id="166">166</th><td>    <var>0x560392bc</var>, <var>0x8b463804</var>, <var>0x924680ce</var>, <var>0x4f032a76</var>, <var>0x2d21a34f</var>, <var>0xf06409f7</var>,</td></tr>
+<tr><th id="167">167</th><td>    <var>0x1f20d2db</var>, <var>0xc2657863</var>, <var>0xa047f15a</var>, <var>0x7d025be2</var>, <var>0x6402e328</var>, <var>0xb9474990</var>,</td></tr>
+<tr><th id="168">168</th><td>    <var>0xdb65c0a9</var>, <var>0x06206a11</var>, <var>0xd725148b</var>, <var>0x0a60be33</var>, <var>0x6842370a</var>, <var>0xb5079db2</var>,</td></tr>
+<tr><th id="169">169</th><td>    <var>0xac072578</var>, <var>0x71428fc0</var>, <var>0x136006f9</var>, <var>0xce25ac41</var>, <var>0x2161776d</var>, <var>0xfc24ddd5</var>,</td></tr>
+<tr><th id="170">170</th><td>    <var>0x9e0654ec</var>, <var>0x4343fe54</var>, <var>0x5a43469e</var>, <var>0x8706ec26</var>, <var>0xe524651f</var>, <var>0x3861cfa7</var>,</td></tr>
+<tr><th id="171">171</th><td>    <var>0x3e41a5b6</var>, <var>0xe3040f0e</var>, <var>0x81268637</var>, <var>0x5c632c8f</var>, <var>0x45639445</var>, <var>0x98263efd</var>,</td></tr>
+<tr><th id="172">172</th><td>    <var>0xfa04b7c4</var>, <var>0x27411d7c</var>, <var>0xc805c650</var>, <var>0x15406ce8</var>, <var>0x7762e5d1</var>, <var>0xaa274f69</var>,</td></tr>
+<tr><th id="173">173</th><td>    <var>0xb327f7a3</var>, <var>0x6e625d1b</var>, <var>0x0c40d422</var>, <var>0xd1057e9a</var>, <var>0xaba65fe7</var>, <var>0x76e3f55f</var>,</td></tr>
+<tr><th id="174">174</th><td>    <var>0x14c17c66</var>, <var>0xc984d6de</var>, <var>0xd0846e14</var>, <var>0x0dc1c4ac</var>, <var>0x6fe34d95</var>, <var>0xb2a6e72d</var>,</td></tr>
+<tr><th id="175">175</th><td>    <var>0x5de23c01</var>, <var>0x80a796b9</var>, <var>0xe2851f80</var>, <var>0x3fc0b538</var>, <var>0x26c00df2</var>, <var>0xfb85a74a</var>,</td></tr>
+<tr><th id="176">176</th><td>    <var>0x99a72e73</var>, <var>0x44e284cb</var>, <var>0x42c2eeda</var>, <var>0x9f874462</var>, <var>0xfda5cd5b</var>, <var>0x20e067e3</var>,</td></tr>
+<tr><th id="177">177</th><td>    <var>0x39e0df29</var>, <var>0xe4a57591</var>, <var>0x8687fca8</var>, <var>0x5bc25610</var>, <var>0xb4868d3c</var>, <var>0x69c32784</var>,</td></tr>
+<tr><th id="178">178</th><td>    <var>0x0be1aebd</var>, <var>0xd6a40405</var>, <var>0xcfa4bccf</var>, <var>0x12e11677</var>, <var>0x70c39f4e</var>, <var>0xad8635f6</var>,</td></tr>
+<tr><th id="179">179</th><td>    <var>0x7c834b6c</var>, <var>0xa1c6e1d4</var>, <var>0xc3e468ed</var>, <var>0x1ea1c255</var>, <var>0x07a17a9f</var>, <var>0xdae4d027</var>,</td></tr>
+<tr><th id="180">180</th><td>    <var>0xb8c6591e</var>, <var>0x6583f3a6</var>, <var>0x8ac7288a</var>, <var>0x57828232</var>, <var>0x35a00b0b</var>, <var>0xe8e5a1b3</var>,</td></tr>
+<tr><th id="181">181</th><td>    <var>0xf1e51979</var>, <var>0x2ca0b3c1</var>, <var>0x4e823af8</var>, <var>0x93c79040</var>, <var>0x95e7fa51</var>, <var>0x48a250e9</var>,</td></tr>
+<tr><th id="182">182</th><td>    <var>0x2a80d9d0</var>, <var>0xf7c57368</var>, <var>0xeec5cba2</var>, <var>0x3380611a</var>, <var>0x51a2e823</var>, <var>0x8ce7429b</var>,</td></tr>
+<tr><th id="183">183</th><td>    <var>0x63a399b7</var>, <var>0xbee6330f</var>, <var>0xdcc4ba36</var>, <var>0x0181108e</var>, <var>0x1881a844</var>, <var>0xc5c402fc</var>,</td></tr>
+<tr><th id="184">184</th><td>    <var>0xa7e68bc5</var>, <var>0x7aa3217d</var>, <var>0x52a0c93f</var>, <var>0x8fe56387</var>, <var>0xedc7eabe</var>, <var>0x30824006</var>,</td></tr>
+<tr><th id="185">185</th><td>    <var>0x2982f8cc</var>, <var>0xf4c75274</var>, <var>0x96e5db4d</var>, <var>0x4ba071f5</var>, <var>0xa4e4aad9</var>, <var>0x79a10061</var>,</td></tr>
+<tr><th id="186">186</th><td>    <var>0x1b838958</var>, <var>0xc6c623e0</var>, <var>0xdfc69b2a</var>, <var>0x02833192</var>, <var>0x60a1b8ab</var>, <var>0xbde41213</var>,</td></tr>
+<tr><th id="187">187</th><td>    <var>0xbbc47802</var>, <var>0x6681d2ba</var>, <var>0x04a35b83</var>, <var>0xd9e6f13b</var>, <var>0xc0e649f1</var>, <var>0x1da3e349</var>,</td></tr>
+<tr><th id="188">188</th><td>    <var>0x7f816a70</var>, <var>0xa2c4c0c8</var>, <var>0x4d801be4</var>, <var>0x90c5b15c</var>, <var>0xf2e73865</var>, <var>0x2fa292dd</var>,</td></tr>
+<tr><th id="189">189</th><td>    <var>0x36a22a17</var>, <var>0xebe780af</var>, <var>0x89c50996</var>, <var>0x5480a32e</var>, <var>0x8585ddb4</var>, <var>0x58c0770c</var>,</td></tr>
+<tr><th id="190">190</th><td>    <var>0x3ae2fe35</var>, <var>0xe7a7548d</var>, <var>0xfea7ec47</var>, <var>0x23e246ff</var>, <var>0x41c0cfc6</var>, <var>0x9c85657e</var>,</td></tr>
+<tr><th id="191">191</th><td>    <var>0x73c1be52</var>, <var>0xae8414ea</var>, <var>0xcca69dd3</var>, <var>0x11e3376b</var>, <var>0x08e38fa1</var>, <var>0xd5a62519</var>,</td></tr>
+<tr><th id="192">192</th><td>    <var>0xb784ac20</var>, <var>0x6ac10698</var>, <var>0x6ce16c89</var>, <var>0xb1a4c631</var>, <var>0xd3864f08</var>, <var>0x0ec3e5b0</var>,</td></tr>
+<tr><th id="193">193</th><td>    <var>0x17c35d7a</var>, <var>0xca86f7c2</var>, <var>0xa8a47efb</var>, <var>0x75e1d443</var>, <var>0x9aa50f6f</var>, <var>0x47e0a5d7</var>,</td></tr>
+<tr><th id="194">194</th><td>    <var>0x25c22cee</var>, <var>0xf8878656</var>, <var>0xe1873e9c</var>, <var>0x3cc29424</var>, <var>0x5ee01d1d</var>, <var>0x83a5b7a5</var>,</td></tr>
+<tr><th id="195">195</th><td>    <var>0xf90696d8</var>, <var>0x24433c60</var>, <var>0x4661b559</var>, <var>0x9b241fe1</var>, <var>0x8224a72b</var>, <var>0x5f610d93</var>,</td></tr>
+<tr><th id="196">196</th><td>    <var>0x3d4384aa</var>, <var>0xe0062e12</var>, <var>0x0f42f53e</var>, <var>0xd2075f86</var>, <var>0xb025d6bf</var>, <var>0x6d607c07</var>,</td></tr>
+<tr><th id="197">197</th><td>    <var>0x7460c4cd</var>, <var>0xa9256e75</var>, <var>0xcb07e74c</var>, <var>0x16424df4</var>, <var>0x106227e5</var>, <var>0xcd278d5d</var>,</td></tr>
+<tr><th id="198">198</th><td>    <var>0xaf050464</var>, <var>0x7240aedc</var>, <var>0x6b401616</var>, <var>0xb605bcae</var>, <var>0xd4273597</var>, <var>0x09629f2f</var>,</td></tr>
+<tr><th id="199">199</th><td>    <var>0xe6264403</var>, <var>0x3b63eebb</var>, <var>0x59416782</var>, <var>0x8404cd3a</var>, <var>0x9d0475f0</var>, <var>0x4041df48</var>,</td></tr>
+<tr><th id="200">200</th><td>    <var>0x22635671</var>, <var>0xff26fcc9</var>, <var>0x2e238253</var>, <var>0xf36628eb</var>, <var>0x9144a1d2</var>, <var>0x4c010b6a</var>,</td></tr>
+<tr><th id="201">201</th><td>    <var>0x5501b3a0</var>, <var>0x88441918</var>, <var>0xea669021</var>, <var>0x37233a99</var>, <var>0xd867e1b5</var>, <var>0x05224b0d</var>,</td></tr>
+<tr><th id="202">202</th><td>    <var>0x6700c234</var>, <var>0xba45688c</var>, <var>0xa345d046</var>, <var>0x7e007afe</var>, <var>0x1c22f3c7</var>, <var>0xc167597f</var>,</td></tr>
+<tr><th id="203">203</th><td>    <var>0xc747336e</var>, <var>0x1a0299d6</var>, <var>0x782010ef</var>, <var>0xa565ba57</var>, <var>0xbc65029d</var>, <var>0x6120a825</var>,</td></tr>
+<tr><th id="204">204</th><td>    <var>0x0302211c</var>, <var>0xde478ba4</var>, <var>0x31035088</var>, <var>0xec46fa30</var>, <var>0x8e647309</var>, <var>0x5321d9b1</var>,</td></tr>
+<tr><th id="205">205</th><td>    <var>0x4a21617b</var>, <var>0x9764cbc3</var>, <var>0xf54642fa</var>, <var>0x2803e842</var>};</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td><i  data-doc="_ZN10tensorflow6crc32cL9LE_LOAD32EPKh">// Used to fetch a naturally-aligned 32-bit word in little endian byte-order</i></td></tr>
+<tr><th id="208">208</th><td><em>static</em> <b>inline</b> <a class="typedef" href="../../../../../include/stdint.h.html#uint32_t" title='uint32_t' data-type='unsigned int' data-ref="uint32_t">uint32_t</a> <dfn class="tu decl def" id="_ZN10tensorflow6crc32cL9LE_LOAD32EPKh" title='tensorflow::crc32c::LE_LOAD32' data-type='uint32_t tensorflow::crc32c::LE_LOAD32(const uint8_t * p)' data-ref="_ZN10tensorflow6crc32cL9LE_LOAD32EPKh">LE_LOAD32</dfn>(<em>const</em> <a class="typedef" href="../../../../../include/stdint.h.html#uint8_t" title='uint8_t' data-type='unsigned char' data-ref="uint8_t">uint8_t</a> *<dfn class="local col4 decl" id="4p" title='p' data-type='const uint8_t *' data-ref="4p">p</dfn>) {</td></tr>
+<tr><th id="209">209</th><td>  <b>return</b> <span class="namespace">core::</span><a class="ref" href="../core/raw_coding.h.html#_ZN10tensorflow4core13DecodeFixed32EPKc" title='tensorflow::core::DecodeFixed32' data-ref="_ZN10tensorflow4core13DecodeFixed32EPKc">DecodeFixed32</a>(<b>reinterpret_cast</b>&lt;<em>const</em> <em>char</em> *&gt;(<a class="local col4 ref" href="#4p" title='p' data-ref="4p">p</a>));</td></tr>
+<tr><th id="210">210</th><td>}</td></tr>
+<tr><th id="211">211</th><td></td></tr>
+<tr><th id="212">212</th><td><a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="decl def" id="_ZN10tensorflow6crc32c6ExtendEjPKcm" title='tensorflow::crc32c::Extend' data-ref="_ZN10tensorflow6crc32c6ExtendEjPKcm">Extend</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="local col5 decl" id="5crc" title='crc' data-type='uint32' data-ref="5crc">crc</dfn>, <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="6buf" title='buf' data-type='const char *' data-ref="6buf">buf</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col7 decl" id="7size" title='size' data-type='size_t' data-ref="7size">size</dfn>) {</td></tr>
+<tr><th id="213">213</th><td>  <em>static</em> <em>bool</em> <dfn class="local col8 decl" id="8can_accelerate" title='can_accelerate' data-type='bool' data-ref="8can_accelerate">can_accelerate</dfn> = <a class="ref" href="#_ZN10tensorflow6crc32c13CanAccelerateEv" title='tensorflow::crc32c::CanAccelerate' data-ref="_ZN10tensorflow6crc32c13CanAccelerateEv">CanAccelerate</a>();</td></tr>
+<tr><th id="214">214</th><td>  <b>if</b> (<a class="local col8 ref" href="#8can_accelerate" title='can_accelerate' data-ref="8can_accelerate">can_accelerate</a>) {</td></tr>
+<tr><th id="215">215</th><td>    <b>return</b> <a class="ref" href="#_ZN10tensorflow6crc32c17AcceleratedExtendEjPKcm" title='tensorflow::crc32c::AcceleratedExtend' data-ref="_ZN10tensorflow6crc32c17AcceleratedExtendEjPKcm">AcceleratedExtend</a>(<a class="local col5 ref" href="#5crc" title='crc' data-ref="5crc">crc</a>, <a class="local col6 ref" href="#6buf" title='buf' data-ref="6buf">buf</a>, <a class="local col7 ref" href="#7size" title='size' data-ref="7size">size</a>);</td></tr>
+<tr><th id="216">216</th><td>  }</td></tr>
+<tr><th id="217">217</th><td></td></tr>
+<tr><th id="218">218</th><td>  <em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint8" title='tensorflow::uint8' data-type='unsigned char' data-ref="tensorflow::uint8">uint8</a> *<dfn class="local col9 decl" id="9p" title='p' data-type='const uint8 *' data-ref="9p">p</dfn> = <b>reinterpret_cast</b>&lt;<em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint8" title='tensorflow::uint8' data-type='unsigned char' data-ref="tensorflow::uint8">uint8</a> *&gt;(<a class="local col6 ref" href="#6buf" title='buf' data-ref="6buf">buf</a>);</td></tr>
+<tr><th id="219">219</th><td>  <em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint8" title='tensorflow::uint8' data-type='unsigned char' data-ref="tensorflow::uint8">uint8</a> *<dfn class="local col0 decl" id="10e" title='e' data-type='const uint8 *' data-ref="10e">e</dfn> = <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a> + <a class="local col7 ref" href="#7size" title='size' data-ref="7size">size</a>;</td></tr>
+<tr><th id="220">220</th><td>  <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="local col1 decl" id="11l" title='l' data-type='uint32' data-ref="11l">l</dfn> = <a class="local col5 ref" href="#5crc" title='crc' data-ref="5crc">crc</a> ^ <var>0xffffffffu</var>;</td></tr>
+<tr><th id="221">221</th><td></td></tr>
+<tr><th id="222">222</th><td><u>#define <dfn class="macro" id="_M/STEP1" data-ref="_M/STEP1">STEP1</dfn>                  \</u></td></tr>
+<tr><th id="223">223</th><td><u>  do {                         \</u></td></tr>
+<tr><th id="224">224</th><td><u>    int <dfn class="local col4 decl" id="14c" title='c' data-type='int' data-ref="14c"><dfn class="local col0 decl" id="20c" title='c' data-type='int' data-ref="20c">c</dfn></dfn> = (<a class="local col1 ref" href="#11l" title='l' data-ref="11l">l</a> &amp; 0xff) ^ *<a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>++; \</u></td></tr>
+<tr><th id="225">225</th><td><u>    <a class="local col1 ref" href="#11l" title='l' data-ref="11l">l</a> = <a class="tu ref" href="#tensorflow::crc32c::table0_" title='tensorflow::crc32c::table0_' data-use='r' data-ref="tensorflow::crc32c::table0_">table0_</a>[<a class="local col4 ref" href="#243" title='c' data-ref="14c"><a class="local col0 ref" href="#259" title='c' data-ref="20c">c</a></a>] ^ (<a class="local col1 ref" href="#11l" title='l' data-ref="11l">l</a> &gt;&gt; 8); \</u></td></tr>
+<tr><th id="226">226</th><td><u>  } while (0)</u></td></tr>
+<tr><th id="227">227</th><td></td></tr>
+<tr><th id="228">228</th><td><u>#define <dfn class="macro" id="_M/STEP4" data-ref="_M/STEP4">STEP4</dfn>                                          \</u></td></tr>
+<tr><th id="229">229</th><td><u>  do {                                                 \</u></td></tr>
+<tr><th id="230">230</th><td><u>    <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="local col5 decl" id="15c" title='c' data-type='uint32' data-ref="15c"><dfn class="local col6 decl" id="16c" title='c' data-type='uint32' data-ref="16c"><dfn class="local col7 decl" id="17c" title='c' data-type='uint32' data-ref="17c"><dfn class="local col8 decl" id="18c" title='c' data-type='uint32' data-ref="18c"><dfn class="local col9 decl" id="19c" title='c' data-type='uint32' data-ref="19c">c</dfn></dfn></dfn></dfn></dfn> = <a class="local col1 ref" href="#11l" title='l' data-ref="11l">l</a> ^ <a class="tu ref" href="#_ZN10tensorflow6crc32cL9LE_LOAD32EPKh" title='tensorflow::crc32c::LE_LOAD32' data-use='c' data-ref="_ZN10tensorflow6crc32cL9LE_LOAD32EPKh">LE_LOAD32</a>(<a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>);                       \</u></td></tr>
+<tr><th id="231">231</th><td><u>    <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a> += 4;                                            \</u></td></tr>
+<tr><th id="232">232</th><td><u>    <a class="local col1 ref" href="#11l" title='l' data-ref="11l">l</a> = <a class="tu ref" href="#tensorflow::crc32c::table3_" title='tensorflow::crc32c::table3_' data-use='r' data-ref="tensorflow::crc32c::table3_">table3_</a>[<a class="local col5 ref" href="#248" title='c' data-ref="15c"><a class="local col6 ref" href="#249" title='c' data-ref="16c"><a class="local col7 ref" href="#250" title='c' data-ref="17c"><a class="local col8 ref" href="#251" title='c' data-ref="18c"><a class="local col9 ref" href="#255" title='c' data-ref="19c">c</a></a></a></a></a> &amp; 0xff] ^ <a class="tu ref" href="#tensorflow::crc32c::table2_" title='tensorflow::crc32c::table2_' data-use='r' data-ref="tensorflow::crc32c::table2_">table2_</a>[(<a class="local col5 ref" href="#248" title='c' data-ref="15c"><a class="local col6 ref" href="#249" title='c' data-ref="16c"><a class="local col7 ref" href="#250" title='c' data-ref="17c"><a class="local col8 ref" href="#251" title='c' data-ref="18c"><a class="local col9 ref" href="#255" title='c' data-ref="19c">c</a></a></a></a></a> &gt;&gt; 8) &amp; 0xff] ^ \</u></td></tr>
+<tr><th id="233">233</th><td><u>        <a class="tu ref" href="#tensorflow::crc32c::table1_" title='tensorflow::crc32c::table1_' data-use='r' data-ref="tensorflow::crc32c::table1_">table1_</a>[(<a class="local col5 ref" href="#248" title='c' data-ref="15c"><a class="local col6 ref" href="#249" title='c' data-ref="16c"><a class="local col7 ref" href="#250" title='c' data-ref="17c"><a class="local col8 ref" href="#251" title='c' data-ref="18c"><a class="local col9 ref" href="#255" title='c' data-ref="19c">c</a></a></a></a></a> &gt;&gt; 16) &amp; 0xff] ^ <a class="tu ref" href="#tensorflow::crc32c::table0_" title='tensorflow::crc32c::table0_' data-use='r' data-ref="tensorflow::crc32c::table0_">table0_</a>[<a class="local col5 ref" href="#248" title='c' data-ref="15c"><a class="local col6 ref" href="#249" title='c' data-ref="16c"><a class="local col7 ref" href="#250" title='c' data-ref="17c"><a class="local col8 ref" href="#251" title='c' data-ref="18c"><a class="local col9 ref" href="#255" title='c' data-ref="19c">c</a></a></a></a></a> &gt;&gt; 24];  \</u></td></tr>
+<tr><th id="234">234</th><td><u>  } while (0)</u></td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td>  <i>// Point x at first 4-byte aligned byte in string.  This might be</i></td></tr>
+<tr><th id="237">237</th><td><i>  // just past the end of the string.</i></td></tr>
+<tr><th id="238">238</th><td>  <em>const</em> <a class="typedef" href="../../../../../include/stdint.h.html#uintptr_t" title='uintptr_t' data-type='unsigned long' data-ref="uintptr_t">uintptr_t</a> <dfn class="local col2 decl" id="12pval" title='pval' data-type='const uintptr_t' data-ref="12pval">pval</dfn> = <b>reinterpret_cast</b>&lt;<a class="typedef" href="../../../../../include/stdint.h.html#uintptr_t" title='uintptr_t' data-type='unsigned long' data-ref="uintptr_t">uintptr_t</a>&gt;(<a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>);</td></tr>
+<tr><th id="239">239</th><td>  <em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint8" title='tensorflow::uint8' data-type='unsigned char' data-ref="tensorflow::uint8">uint8</a> *<dfn class="local col3 decl" id="13x" title='x' data-type='const uint8 *' data-ref="13x">x</dfn> = <b>reinterpret_cast</b>&lt;<em>const</em> <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint8" title='tensorflow::uint8' data-type='unsigned char' data-ref="tensorflow::uint8">uint8</a> *&gt;(((<a class="local col2 ref" href="#12pval" title='pval' data-ref="12pval">pval</a> + <var>3</var>) &gt;&gt; <var>2</var>) &lt;&lt; <var>2</var>);</td></tr>
+<tr><th id="240">240</th><td>  <b>if</b> (<a class="local col3 ref" href="#13x" title='x' data-ref="13x">x</a> &lt;= <a class="local col0 ref" href="#10e" title='e' data-ref="10e">e</a>) {</td></tr>
+<tr><th id="241">241</th><td>    <i>// Process bytes until finished or p is 4-byte aligned</i></td></tr>
+<tr><th id="242">242</th><td>    <b>while</b> (<a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a> != <a class="local col3 ref" href="#13x" title='x' data-ref="13x">x</a>) {</td></tr>
+<tr><th id="243">243</th><td>      <a class="macro" href="#222" title="do { int c = (l &amp; 0xff) ^ *p++; l = table0_[c] ^ (l &gt;&gt; 8); } while (0)" data-ref="_M/STEP1">STEP1</a>;</td></tr>
+<tr><th id="244">244</th><td>    }</td></tr>
+<tr><th id="245">245</th><td>  }</td></tr>
+<tr><th id="246">246</th><td>  <i>// Process bytes 16 at a time</i></td></tr>
+<tr><th id="247">247</th><td>  <b>while</b> ((<a class="local col0 ref" href="#10e" title='e' data-ref="10e">e</a> - <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>) &gt;= <var>16</var>) {</td></tr>
+<tr><th id="248">248</th><td>    <a class="macro" href="#228" title="do { uint32 c = l ^ LE_LOAD32(p); p += 4; l = table3_[c &amp; 0xff] ^ table2_[(c &gt;&gt; 8) &amp; 0xff] ^ table1_[(c &gt;&gt; 16) &amp; 0xff] ^ table0_[c &gt;&gt; 24]; } while (0)" data-ref="_M/STEP4">STEP4</a>;</td></tr>
+<tr><th id="249">249</th><td>    <a class="macro" href="#228" title="do { uint32 c = l ^ LE_LOAD32(p); p += 4; l = table3_[c &amp; 0xff] ^ table2_[(c &gt;&gt; 8) &amp; 0xff] ^ table1_[(c &gt;&gt; 16) &amp; 0xff] ^ table0_[c &gt;&gt; 24]; } while (0)" data-ref="_M/STEP4">STEP4</a>;</td></tr>
+<tr><th id="250">250</th><td>    <a class="macro" href="#228" title="do { uint32 c = l ^ LE_LOAD32(p); p += 4; l = table3_[c &amp; 0xff] ^ table2_[(c &gt;&gt; 8) &amp; 0xff] ^ table1_[(c &gt;&gt; 16) &amp; 0xff] ^ table0_[c &gt;&gt; 24]; } while (0)" data-ref="_M/STEP4">STEP4</a>;</td></tr>
+<tr><th id="251">251</th><td>    <a class="macro" href="#228" title="do { uint32 c = l ^ LE_LOAD32(p); p += 4; l = table3_[c &amp; 0xff] ^ table2_[(c &gt;&gt; 8) &amp; 0xff] ^ table1_[(c &gt;&gt; 16) &amp; 0xff] ^ table0_[c &gt;&gt; 24]; } while (0)" data-ref="_M/STEP4">STEP4</a>;</td></tr>
+<tr><th id="252">252</th><td>  }</td></tr>
+<tr><th id="253">253</th><td>  <i>// Process bytes 4 at a time</i></td></tr>
+<tr><th id="254">254</th><td>  <b>while</b> ((<a class="local col0 ref" href="#10e" title='e' data-ref="10e">e</a> - <a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a>) &gt;= <var>4</var>) {</td></tr>
+<tr><th id="255">255</th><td>    <a class="macro" href="#228" title="do { uint32 c = l ^ LE_LOAD32(p); p += 4; l = table3_[c &amp; 0xff] ^ table2_[(c &gt;&gt; 8) &amp; 0xff] ^ table1_[(c &gt;&gt; 16) &amp; 0xff] ^ table0_[c &gt;&gt; 24]; } while (0)" data-ref="_M/STEP4">STEP4</a>;</td></tr>
+<tr><th id="256">256</th><td>  }</td></tr>
+<tr><th id="257">257</th><td>  <i>// Process the last few bytes</i></td></tr>
+<tr><th id="258">258</th><td>  <b>while</b> (<a class="local col9 ref" href="#9p" title='p' data-ref="9p">p</a> != <a class="local col0 ref" href="#10e" title='e' data-ref="10e">e</a>) {</td></tr>
+<tr><th id="259">259</th><td>    <a class="macro" href="#222" title="do { int c = (l &amp; 0xff) ^ *p++; l = table0_[c] ^ (l &gt;&gt; 8); } while (0)" data-ref="_M/STEP1">STEP1</a>;</td></tr>
+<tr><th id="260">260</th><td>  }</td></tr>
+<tr><th id="261">261</th><td><u>#undef <a class="macro" href="#228" data-ref="_M/STEP4">STEP4</a></u></td></tr>
+<tr><th id="262">262</th><td><u>#undef <a class="macro" href="#222" data-ref="_M/STEP1">STEP1</a></u></td></tr>
+<tr><th id="263">263</th><td>  <b>return</b> <a class="local col1 ref" href="#11l" title='l' data-ref="11l">l</a> ^ <var>0xffffffffu</var>;</td></tr>
+<tr><th id="264">264</th><td>}</td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td>}  <i>// namespace crc32c</i></td></tr>
+<tr><th id="267">267</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="268">268</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

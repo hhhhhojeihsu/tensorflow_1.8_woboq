@@ -1,0 +1,44 @@
+<dec f='tensorflow/tensorflow/core/util/work_sharder.h' l='48' type='void tensorflow::Shard(int max_parallelism, thread::ThreadPool * workers, int64 total, int64 cost_per_unit, std::function&lt;void (int64, int64)&gt; work)'/>
+<doc f='tensorflow/tensorflow/core/util/work_sharder.h' l='26'>// Shards the &quot;total&quot; unit of work assuming each unit of work having
+// roughly &quot;cost_per_unit&quot;. Each unit of work is indexed 0, 1, ...,
+// total - 1. Each shard contains 1 or more units of work and the
+// total cost of each shard is roughly the same. The calling thread and the
+// &quot;workers&quot; are used to compute each shard (calling work(start,
+// limit). A common configuration is that &quot;workers&quot; is a thread pool
+// with at least &quot;max_parallelism&quot; threads.
+//
+// &quot;cost_per_unit&quot; is an estimate of the number of CPU cycles (or nanoseconds
+// if not CPU-bound) to complete a unit of work. Overestimating creates too
+// many shards and CPU time will be dominated by per-shard overhead, such as
+// Context creation. Underestimating may not fully make use of the specified
+// parallelism.
+//
+// &quot;work&quot; should be a callable taking (int64, int64) arguments.
+// work(start, limit) computes the work units from [start,
+// limit), i.e., [start, limit) is a shard.
+//
+// REQUIRES: max_parallelism &gt;= 0
+// REQUIRES: workers != nullptr
+// REQUIRES: total &gt;= 0
+// REQUIRES: cost_per_unit &gt;= 0</doc>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='442' u='c' c='_ZN10tensorflow23MakeQuantileSummariesOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='841' u='c' c='_ZN10tensorflow17QuantileBucketsOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/image/kernels/adjust_hsv_in_yiq_op.cc' l='116' u='c' c='_ZN10tensorflow16AdjustHsvInYiqOpIN5Eigen16ThreadPoolDeviceEE9DoComputeEPNS_15OpKernelContextERKNS_20AdjustHsvInYiqOpBase14ComputeOptionsE'/>
+<use f='tensorflow/tensorflow/contrib/resampler/kernels/resampler_ops.cc' l='118' u='c' c='_ZN10tensorflow7functor18Resampler2DFunctorIN5Eigen16ThreadPoolDeviceET_EclEPNS_15OpKernelContextERKS3_PKS4_SB_PS4_iiiii'/>
+<use f='tensorflow/tensorflow/contrib/resampler/kernels/resampler_ops.cc' l='322' u='c' c='_ZN10tensorflow7functor22ResamplerGrad2DFunctorIN5Eigen16ThreadPoolDeviceET_EclEPNS_15OpKernelContextERKS3_PKS4_SB_SB_PS4_SC_iiiii'/>
+<use f='tensorflow/tensorflow/contrib/seq2seq/kernels/beam_search_ops.cc' l='161' u='c' c='_ZN10tensorflow7functor10GatherTreeIN5Eigen16ThreadPoolDeviceEiEclEPNS_15OpKernelContextERKS3_NS2_9TensorMapINS2_6TensorIKiLi3ELi1ElEELi16ENS2_11MakeP8366872'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/model_ops.cc' l='219' u='c' c='_ZN10tensorflow12tensorforest19TreePredictionsV4Op7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/model_ops.cc' l='314' u='c' c='_ZN10tensorflow12tensorforest16TraverseTreeV4Op7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/reinterpret_string_to_float_op.cc' l='76' u='c' c='_ZN10tensorflow24ReinterpretStringToFloat7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/stats_ops.cc' l='332' u='c' c='_ZN10tensorflow12tensorforest14ProcessInputOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/stats_ops.cc' l='335' u='c' c='_ZN10tensorflow12tensorforest14ProcessInputOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/adjust_hue_op.cc' l='217' u='c' c='_ZN10tensorflow11AdjustHueOpIN5Eigen16ThreadPoolDeviceEE9DoComputeEPNS_15OpKernelContextERKNS_15AdjustHueOpBase14ComputeOptionsE'/>
+<use f='tensorflow/tensorflow/core/kernels/adjust_saturation_op.cc' l='194' u='c' c='_ZN10tensorflow18AdjustSaturationOpIN5Eigen16ThreadPoolDeviceEE9DoComputeEPNS_15OpKernelContextERKNS_22AdjustSaturationOpBase14ComputeOptionsE'/>
+<use f='tensorflow/tensorflow/core/kernels/boosted_trees/prediction_ops.cc' l='163' u='c' c='_ZN10tensorflow29BoostedTreesTrainingPredictOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/boosted_trees/prediction_ops.cc' l='250' u='c' c='_ZN10tensorflow21BoostedTreesPredictOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_internal.cc' l='452' u='c' c='_ZN10tensorflow4sdca8Examples33CreateSparseFeatureRepresentationERKNS_10DeviceBase16CpuWorkerThreadsEiiRKNS0_12ModelWeightsERKNS_11OpInputListESB_SB_P14565143'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_internal.cc' l='484' u='c' c='_ZN10tensorflow4sdca8Examples32CreateDenseFeatureRepresentationERKNS_10DeviceBase16CpuWorkerThreadsEiiRKNS0_12ModelWeightsERKNS_11OpInputListEPSt6vect10630188'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_internal.cc' l='522' u='c' c='_ZN10tensorflow4sdca8Examples28ComputeSquaredNormPerExampleERKNS_10DeviceBase16CpuWorkerThreadsEiiiPSt6vectorINS0_7ExampleESaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_ops.cc' l='218' u='c' c='_ZN10tensorflow12_GLOBAL__N_19DoComputeERKNS0_14ComputeOptionsEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_ops.cc' l='272' u='c' c='_ZN10tensorflow12SdcaShrinkL17ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/util/work_sharder.cc' l='23' ll='75' type='void tensorflow::Shard(int max_parallelism, thread::ThreadPool * workers, int64 total, int64 cost_per_unit, std::function&lt;void (int64, int64)&gt; work)'/>

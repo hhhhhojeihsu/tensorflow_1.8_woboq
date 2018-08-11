@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='110' type='bool toco::ConvertSqueezeToReshape::Run(toco::Model * model, std::size_t op_index)'/>
+<inh f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='30' c='_ZN4toco19GraphTransformation3RunEPNS_5ModelEm'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/convert_squeeze_to_reshape.cc' l='33' ll='83' type='bool toco::ConvertSqueezeToReshape::Run(toco::Model * model, std::size_t op_index)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/convert_squeeze_to_reshape.cc' l='28'>// Replaces a tf.squeeze operator with a reshape.
+// Squeeze removes dimensions == 1 (if in the list of squeeze_dims). This
+// means that the data layout will never change with this op, just the shape.
+// By converting these to reshapes once we have run shape propagation we allow
+// standard reshape optimization transforms to do their magic.</doc>

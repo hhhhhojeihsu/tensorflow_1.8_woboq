@@ -1,0 +1,25 @@
+<def f='tensorflow/tensorflow/core/graph/graph.h' l='135' type='bool tensorflow::Node::IsSource() const'/>
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='671' u='c' c='_ZN10tensorflow8IsSourceEPKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1543' u='c' c='TF_OperationNumControlInputs'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1555' u='c' c='TF_OperationGetControlInputs'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='134'>// Node type helpers.</doc>
+<use f='tensorflow/tensorflow/c/c_api_function.cc' l='187' u='c' c='_ZN10tensorflow12_GLOBAL__N_116FillFunctionBodyERKSsRKNS0_15NodeNameMappingERKSt6vectorIPKNS_4NodeESaIS9_EERKSt13unordered_mapISsSsSt4hashISsESt8equal3813842'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1906' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator28MakePrunedGraphCopyAndInlineERKNS_5GraphERKSt6vectorIPNS_4NodeESaIS7_EEPSt10unique_ptrIS2_St14default_del3709695'/>
+<use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='176' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='237' u='c' c='_ZN10tensorflow12_GLOBAL__N_118IsConstantFoldableEPKNS_4NodeEPKSt13unordered_mapISsSt6vectorINS_18PartialTensorShapeESaIS6_EESt4hashISsESt8equal_toISs13441938'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='295' u='c' c='_ZN10tensorflow12_GLOBAL__N_128ConsiderConstantFoldableNodeEPNS_4NodeERKNS_22ConstantFoldingOptionsEPSt6vectorIS2_SaIS2_EEPSt13unordered_mapIPKS1_NS_34699890'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1007' u='c' c='_ZN10tensorflow15RemoveDeadNodesEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1251' u='c' c='_ZN10tensorflow18InlineFunctionBodyERKNS_25FunctionLibraryDefinitionEPNS_5GraphEPNS_4NodeEPKNS_12FunctionBodyE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1263' u='c' c='_ZN10tensorflow18InlineFunctionBodyERKNS_25FunctionLibraryDefinitionEPNS_5GraphEPNS_4NodeEPKNS_12FunctionBodyE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1263' u='c' c='_ZN10tensorflow18InlineFunctionBodyERKNS_25FunctionLibraryDefinitionEPNS_5GraphEPNS_4NodeEPKNS_12FunctionBodyE'/>
+<use f='tensorflow/tensorflow/core/graph/algorithm.cc' l='205' u='c' c='_ZN10tensorflow27PruneForReverseReachabilityEPNS_5GraphESt13unordered_setIPKNS_4NodeESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/graph/algorithm.cc' l='219' u='c' c='_ZN10tensorflow23FixupSourceAndSinkEdgesEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='97' u='c' c='_ZNK10tensorflow4Node11DebugStringEv'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='343' u='c' c='_ZN10tensorflow5Graph8CopyNodeEPKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='363' u='c' c='_ZN10tensorflow5Graph10RemoveNodeEPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='438' u='c' c='_ZN10tensorflow5Graph14AddControlEdgeEPNS_4NodeES2_b'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='457' u='c' c='_ZN10tensorflow5Graph17RemoveControlEdgeEPKNS_4EdgeE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='1277' u='c' c='_ZN10tensorflow9CopyGraphERKNS_5GraphEPS0_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='775' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils15ClusterizeNodesERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEERKNS_8GraphDefEPSt6vectorISt5tup10877082'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='840' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23BuildClusterSubgraphDefERKSt5tupleIJSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEESt6vectorISsS716399687'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='932' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils20BuildClusterByBorderERKSt6vectorISsSaISsEES5_RKNS_8GraphDefEPSt5tupleIJSt13unordered_setISsSt4hashISsES5911363'/>

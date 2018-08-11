@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='347' type='static xla::Shape xla::ShapeUtil::MakeShapeWithDescendingLayout(xla::PrimitiveType element_type, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions)'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1362' u='c' c='_ZN3xla7Literal30CreateFullWithDescendingLayoutEN10tensorflow3gtl10ArraySliceIxEET_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='346'>// Constructs a new shape with major-first layout (i.e. {n, n-1, ..., 0}).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='2017' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='2022' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='2024' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='645' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='658' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='198' ll='203' type='static xla::Shape xla::ShapeUtil::MakeShapeWithDescendingLayout(xla::PrimitiveType element_type, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions)'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='223' u='c' c='_ZN3xla9ShapeUtil50MakeShapeWithDescendingLayoutAndSamePhysicalLayoutERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1248' u='c' c='_ZN3xla9ShapeUtil16ReshapeIsBitcastERKNS_5ShapeES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1250' u='c' c='_ZN3xla9ShapeUtil16ReshapeIsBitcastERKNS_5ShapeES3_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='198'>/* static */</doc>

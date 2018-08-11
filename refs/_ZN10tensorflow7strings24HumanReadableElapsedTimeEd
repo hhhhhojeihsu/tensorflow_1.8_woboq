@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/lib/strings/numbers.h' l='172' type='string tensorflow::strings::HumanReadableElapsedTime(double seconds)'/>
+<doc f='tensorflow/tensorflow/core/lib/strings/numbers.h' l='165'>// Converts a time interval as double to a human readable
+// string. For example:
+//   0.001       -&gt; &quot;1 ms&quot;
+//   10.0        -&gt; &quot;10 s&quot;
+//   933120.0    -&gt; &quot;10.8 days&quot;
+//   39420000.0  -&gt; &quot;1.25 years&quot;
+//   -10         -&gt; &quot;-10 s&quot;</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/human_readable_profile_builder.cc' l='36' u='c' c='_ZNK3xla27HumanReadableProfileBuilder8ToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='53' u='c' c='_ZN3xla18ScopedLoggingTimerD1Ev'/>
+<def f='tensorflow/tensorflow/core/lib/strings/numbers.cc' l='469' ll='520' type='string tensorflow::strings::HumanReadableElapsedTime(double seconds)'/>

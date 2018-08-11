@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/compilation_cache.h' l='34' ll='74'/>
+<size>64</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/compilation_cache.h' l='33'>// A cache which stores Executables indexed by computation handle and version.</doc>
+<fun r='_ZN3xla16CompilationCacheC1Ev'/>
+<fun r='_ZN3xla16CompilationCache6InsertESt10unique_ptrINS_10ExecutableESt14default_deleteIS2_EERKNS_15HloModuleConfigE'/>
+<fun r='_ZNK3xla16CompilationCache6LookUpERKNS_26VersionedComputationHandleERKNS_15HloModuleConfigE'/>
+<mbr r='xla::CompilationCache::mutex_' o='0' t='tensorflow::mutex'/>
+<fun r='_ZNK3xla16CompilationCache8BuildKeyERKNS_26VersionedComputationHandleERKNS_15HloModuleConfigE'/>
+<mbr r='xla::CompilationCache::cache_' o='128' t='std::map&lt;CacheKey, std::shared_ptr&lt;Executable&gt; &gt;'/>
+<fun r='_ZN3xla16CompilationCacheC1ERKS0_'/>

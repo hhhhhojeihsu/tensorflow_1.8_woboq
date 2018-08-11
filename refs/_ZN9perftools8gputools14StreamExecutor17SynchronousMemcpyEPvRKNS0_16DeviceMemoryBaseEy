@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='237' type='bool perftools::gputools::StreamExecutor::SynchronousMemcpy(void * host_dst, const perftools::gputools::DeviceMemoryBase &amp; device_src, uint64 size)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='233'>// [deprecated] Blocks the caller while a data segment of the given size is
+  // copied from the device source to the host destination.
+  //
+  // Deprecation: prefer explicit D2H below, to avoid error-prone API usage.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.cc' l='48' u='c' c='_ZN10tensorflow12_GLOBAL__N_19CheckMaskEPN9perftools8gputools14StreamExecutorEPvPx'/>
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='543' ll='556' type='bool perftools::gputools::StreamExecutor::SynchronousMemcpy(void * host_dst, const perftools::gputools::DeviceMemoryBase &amp; device_src, uint64 size)'/>

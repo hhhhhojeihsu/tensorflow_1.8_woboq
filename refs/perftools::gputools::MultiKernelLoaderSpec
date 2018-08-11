@@ -1,0 +1,37 @@
+<def f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='274' ll='375'/>
+<size>64</size>
+<doc f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='273'>// Describes how to load a kernel on any subset of a number of target platforms.</doc>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpecC1Em'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec5arityEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec20has_cuda_ptx_on_diskEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec22has_cuda_cubin_on_diskEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec24has_cuda_cubin_in_memoryEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec22has_cuda_ptx_in_memoryEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec20has_ocl_text_on_diskEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec22has_ocl_binary_on_diskEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec22has_ocl_text_in_memoryEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec16cuda_ptx_on_diskEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec18cuda_cubin_on_diskEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec20cuda_cubin_in_memoryEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec18cuda_ptx_in_memoryEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec16ocl_text_on_diskEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec18ocl_binary_on_diskEv'/>
+<fun r='_ZNK9perftools8gputools21MultiKernelLoaderSpec18ocl_text_in_memoryEv'/>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpec19AddOpenCLTextOnDiskEN10tensorflow11StringPieceES3_'/>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpec21AddOpenCLBinaryOnDiskEN10tensorflow11StringPieceES3_'/>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpec21AddOpenCLTextInMemoryEN10tensorflow11StringPieceES3_'/>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpec16AddCudaPtxOnDiskEN10tensorflow11StringPieceES3_'/>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpec18AddCudaCubinOnDiskEN10tensorflow11StringPieceES3_'/>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpec20AddCudaCubinInMemoryEPKcN10tensorflow11StringPieceE'/>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpec18AddCudaPtxInMemoryEN10tensorflow11StringPieceES3_'/>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpec28AddCudaCompressedPtxInMemoryEN10tensorflow11StringPieceES3_'/>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpec18AddCudaPtxInMemoryESt16initializer_listISt5tupleIJiiN10tensorflow11StringPieceEEEES5_'/>
+<fun r='_ZN9perftools8gputools21MultiKernelLoaderSpec28AddCudaCompressedPtxInMemoryESt16initializer_listISt5tupleIJiiN10tensorflow11StringPieceEEEES5_'/>
+<mbr r='perftools::gputools::MultiKernelLoaderSpec::cuda_ptx_on_disk_' o='0' t='std::unique_ptr&lt;CudaPtxOnDisk&gt;'/>
+<mbr r='perftools::gputools::MultiKernelLoaderSpec::cuda_cubin_on_disk_' o='64' t='std::unique_ptr&lt;CudaCubinOnDisk&gt;'/>
+<mbr r='perftools::gputools::MultiKernelLoaderSpec::cuda_cubin_in_memory_' o='128' t='std::unique_ptr&lt;CudaCubinInMemory&gt;'/>
+<mbr r='perftools::gputools::MultiKernelLoaderSpec::cuda_ptx_in_memory_' o='192' t='std::unique_ptr&lt;CudaPtxInMemory&gt;'/>
+<mbr r='perftools::gputools::MultiKernelLoaderSpec::ocl_text_on_disk_' o='256' t='std::unique_ptr&lt;OpenCLTextOnDisk&gt;'/>
+<mbr r='perftools::gputools::MultiKernelLoaderSpec::ocl_binary_on_disk_' o='320' t='std::unique_ptr&lt;OpenCLBinaryOnDisk&gt;'/>
+<mbr r='perftools::gputools::MultiKernelLoaderSpec::ocl_text_in_memory_' o='384' t='std::unique_ptr&lt;OpenCLTextInMemory&gt;'/>
+<mbr r='perftools::gputools::MultiKernelLoaderSpec::arity_' o='448' t='size_t'/>

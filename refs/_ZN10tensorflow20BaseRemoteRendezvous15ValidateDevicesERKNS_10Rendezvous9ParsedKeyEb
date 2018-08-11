@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.h' l='205' type='tensorflow::Status tensorflow::BaseRemoteRendezvous::ValidateDevices(const Rendezvous::ParsedKey &amp; parsed, bool is_src)'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='205' ll='227' type='tensorflow::Status tensorflow::BaseRemoteRendezvous::ValidateDevices(const tensorflow::Rendezvous::ParsedKey &amp; parsed, bool is_src)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='297' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='353' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous22RecvLocalAsyncInternalERKNS_10Rendezvous9ParsedKeyESt8functionIFvRKNS_6StatusERKNS1_4ArgsESB_RKNS_6TensorEbEE'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.h' l='202'>// If &quot;is_src&quot; is true, checks that the rendezvous key &quot;parsed&quot;&apos;s
+  // source is in this process. If &quot;is_src&quot; is false, checks that the
+  // rendezvous key &quot;parsed&quot;&apos;s destination is in this process.</doc>

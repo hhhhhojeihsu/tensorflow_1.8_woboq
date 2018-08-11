@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='715' type='xla::XlaOp xla::XlaBuilder::BatchNormInference(const xla::XlaOp &amp; operand, const xla::XlaOp &amp; scale, const xla::XlaOp &amp; offset, const xla::XlaOp &amp; mean, const xla::XlaOp &amp; variance, float epsilon, int64 feature_index)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='705'>// Normalizes operand across spatial and batch dimensions for each feature.
+  //
+  // `BatchNormInference` is equivalent to calling `BatchNormTraining` without
+  // computing `mean` and `variance` for each batch inside the operation. It
+  // uses the input `mean` and `variance` instead as estimated values. The
+  // purpose of this op is to reduce latency in inference, hence the name
+  // `BatchNormInference`.
+  //
+  // The output has the same shape as `operand`, and contains the normalized
+  // values for each batch.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1170' ll='1175' type='xla::XlaOp xla::XlaBuilder::BatchNormInference(const xla::XlaOp &amp; operand, const xla::XlaOp &amp; scale, const xla::XlaOp &amp; offset, const xla::XlaOp &amp; mean, const xla::XlaOp &amp; variance, float epsilon, int64 feature_index)'/>

@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/grappler/op_types.h' l='174' type='bool tensorflow::grappler::IsValuePreserving(const tensorflow::NodeDef &amp; node)'/>
+<doc f='tensorflow/tensorflow/core/grappler/op_types.h' l='171'>// Returns true if the op in node only rearranges the order of elements in its
+// first input tensor and possible changes its shape. More precisely, this
+// function returns true if the op commutes with all element-wise operations.</doc>
+<def f='tensorflow/tensorflow/core/grappler/op_types.cc' l='459' ll='468' type='bool tensorflow::grappler::IsValuePreserving(const tensorflow::NodeDef &amp; node)'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='256' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_129GetTailOfValuePreservingChainERKNS_7NodeDefERKNS0_7NodeMapERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEE'/>

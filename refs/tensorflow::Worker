@@ -1,0 +1,38 @@
+<inh f='tensorflow/tensorflow/core/distributed_runtime/worker_interface.h' l='37' c='tensorflow::WorkerInterface'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/worker.h' l='42' ll='119'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.h' l='33' c='tensorflow::GrpcWorker'/>
+<size>112</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/worker.h' l='33'>// A TensorFlow Worker runs registered graphs and supports worker-to-worker
+// Tensor transfer.
+//
+// See `../protobuf/worker_service.proto` for more details about each method.
+//
+// This class may be subclassed to provide specialized implementations of
+// particular methods for different transport mechanism. For example,
+// `GrpcWorker` specializes the `RecvTensorAsync()` method to support a more
+// efficient gRPC data structure for handling large binary data.</doc>
+<fun r='_ZN10tensorflow6WorkerC1EPNS_9WorkerEnvE'/>
+<fun r='_ZN10tensorflow6WorkerD1Ev'/>
+<fun r='_ZN10tensorflow6Worker14GetStatusAsyncEPKNS_16GetStatusRequestEPNS_17GetStatusResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker24CreateWorkerSessionAsyncEPKNS_26CreateWorkerSessionRequestEPNS_27CreateWorkerSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker24DeleteWorkerSessionAsyncEPKNS_26DeleteWorkerSessionRequestEPNS_27DeleteWorkerSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker18RegisterGraphAsyncEPKNS_20RegisterGraphRequestEPNS_21RegisterGraphResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker20DeregisterGraphAsyncEPKNS_22DeregisterGraphRequestEPNS_23DeregisterGraphResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker13RunGraphAsyncEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker21CreateRunGraphRequestEv'/>
+<fun r='_ZN10tensorflow6Worker22CreateRunGraphResponseEv'/>
+<fun r='_ZN10tensorflow6Worker17CleanupGraphAsyncEPKNS_19CleanupGraphRequestEPNS_20CleanupGraphResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker15CleanupAllAsyncEPKNS_17CleanupAllRequestEPNS_18CleanupAllResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker15RecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPNS_14TensorResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker12LoggingAsyncEPKNS_14LoggingRequestEPNS_15LoggingResponseESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker12TracingAsyncEPKNS_14TracingRequestEPNS_15TracingResponseESt8functionIFvRKNS_6StatusEEE'/>
+<mbr r='tensorflow::Worker::env_' o='64' t='tensorflow::WorkerEnv *const'/>
+<fun r='_ZN10tensorflow6Worker17PrepareRecvTensorERKNS_10Rendezvous9ParsedKeyEPPNS_6DeviceE'/>
+<fun r='_ZN10tensorflow6Worker9AbortStepEx'/>
+<mbr r='tensorflow::Worker::partial_run_mgr_' o='128' t='tensorflow::PartialRunMgr'/>
+<mbr r='tensorflow::Worker::mu_' o='704' t='tensorflow::mutex'/>
+<mbr r='tensorflow::Worker::cancellation_manager_' o='832' t='tensorflow::CancellationManager *'/>
+<fun r='_ZN10tensorflow6Worker15PrepareRunGraphEPNS_22RunGraphRequestWrapperEPSt3mapISsNS_6TensorESt4lessISsESaISt4pairIKSsS4_EEESC_'/>
+<fun r='_ZN10tensorflow6Worker10DoRunGraphEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6Worker17DoPartialRunGraphEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow6WorkerC1ERKS0_'/>

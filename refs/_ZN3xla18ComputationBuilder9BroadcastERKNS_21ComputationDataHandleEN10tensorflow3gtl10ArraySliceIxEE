@@ -1,0 +1,63 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='171' type='xla::ComputationDataHandle xla::ComputationBuilder::Broadcast(const xla::ComputationDataHandle &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_sizes)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='161'>// Adds dimensions to an array by duplicating the data in the array.
+  //
+  // The new dimensions are inserted on the left, i.e. if
+  // broadcast_sizes has values {a0, ..., aN} and the operand shape
+  // has dimensions {b0, ..., bM} then the shape of the output has
+  // dimensions {a0, ..., aN, b0, ..., bM}.
+  //
+  // The new dimensions index into copies of the operand, i.e.
+  //
+  //   output[i0, ..., iN, j0, ..., jM] = operand[j0, ..., jM]</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/const_op.cc' l='57' u='c' c='_ZN10tensorflow12_GLOBAL__N_17ConstOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/const_op.cc' l='65' u='c' c='_ZN10tensorflow12_GLOBAL__N_17ConstOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/const_op.cc' l='73' u='c' c='_ZN10tensorflow12_GLOBAL__N_17ConstOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/const_op.cc' l='81' u='c' c='_ZN10tensorflow12_GLOBAL__N_17ConstOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/const_op.cc' l='89' u='c' c='_ZN10tensorflow12_GLOBAL__N_17ConstOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/conv_ops.cc' l='55' u='c' c='_ZN10tensorflow12_GLOBAL__N_118CreateExpandedZeroERKNS_11TensorShapeENS_8DataTypeEPN3xla18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/conv_ops.cc' l='118' u='c' c='_ZN10tensorflow12_GLOBAL__N_124CreateExpandedFilterMaskERKNS_11TensorShapeEPN3xla18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/cwise_ops.cc' l='109' u='c' c='_ZN10tensorflow11XlaBinaryOp9BroadcastEPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleES6_RKNS_5BCastE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/cwise_ops.cc' l='112' u='c' c='_ZN10tensorflow11XlaBinaryOp9BroadcastEPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleES6_RKNS_5BCastE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/diag_op.cc' l='45' u='c' c='_ZN10tensorflow12_GLOBAL__N_114CreateDiagonalERKN3xla21ComputationDataHandleExNS_3gtl10ArraySliceIxEEPNS_18XlaOpKernelContextEPNS1_18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/diag_op.cc' l='51' u='c' c='_ZN10tensorflow12_GLOBAL__N_114CreateDiagonalERKN3xla21ComputationDataHandleExNS_3gtl10ArraySliceIxEEPNS_18XlaOpKernelContextEPNS1_18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/fake_quantize_ops.cc' l='175' u='c' c='_ZN10tensorflow12_GLOBAL__N_129FakeQuantWithMinMaxArgsGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/fake_quantize_ops.cc' l='264' u='c' c='_ZN10tensorflow12_GLOBAL__N_129FakeQuantWithMinMaxVarsGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/fill_op.cc' l='66' u='c' c='_ZN10tensorflow12_GLOBAL__N_16FillOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/gather_op.cc' l='78' u='c' c='_ZN10tensorflow9XlaGatherERKN3xla21ComputationDataHandleERKNS_11TensorShapeES3_S4_xbNS_8DataTypeES7_PNS0_18ComputationBuilderEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/gather_op.cc' l='102' u='c' c='_ZN10tensorflow9XlaGatherERKN3xla21ComputationDataHandleERKNS_11TensorShapeES3_S4_xbNS_8DataTypeES7_PNS0_18ComputationBuilderEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_ops.cc' l='40' u='c' c='_ZN10tensorflow12_GLOBAL__N_18RGBToHSVEPNS_18XlaOpKernelContextEPN3xla18ComputationBuilderERKSt5arrayINS3_21ComputationDataHandleELm3EENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='130' u='c' c='_ZN10tensorflow12_GLOBAL__N_124MakeBilinearResizeKernelEPN3xla18ComputationBuilderENS_3gtl10ArraySliceIxEEx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_band_part_op.cc' l='67' u='c' c='_ZN10tensorflow12_GLOBAL__N_116MatrixBandPartOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_band_part_op.cc' l='82' u='c' c='_ZN10tensorflow12_GLOBAL__N_116MatrixBandPartOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_band_part_op.cc' l='87' u='c' c='_ZN10tensorflow12_GLOBAL__N_116MatrixBandPartOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_set_diag_op.cc' l='69' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_set_diag_op.cc' l='71' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_set_diag_op.cc' l='80' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='215' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L20AvgPoolDivideByCountEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS3_7Padd1983718'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/relu_op.cc' l='62' u='c' c='_ZN10tensorflow12_GLOBAL__N_110ReluGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/relu_op.cc' l='77' u='c' c='_ZN10tensorflow12_GLOBAL__N_111Relu6GradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/relu_op.cc' l='78' u='c' c='_ZN10tensorflow12_GLOBAL__N_111Relu6GradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reverse_sequence_op.cc' l='109' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReverseSequenceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reverse_sequence_op.cc' l='167' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReverseSequenceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/scatter_nd_op.cc' l='106' u='c' c='_ZN10tensorflow12_GLOBAL__N_111ScatterNdOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/segment_reduction_ops.cc' l='69' u='c' c='_ZN10tensorflow12_GLOBAL__N_118UnsortedSegmentSum7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/select_op.cc' l='72' u='c' c='_ZN10tensorflow12_GLOBAL__N_18SelectOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/shape_op.cc' l='225' u='c' c='_ZN10tensorflow12_GLOBAL__N_111ZerosLikeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/shape_op.cc' l='239' u='c' c='_ZN10tensorflow12_GLOBAL__N_110OnesLikeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='215' u='c' c='_ZN10tensorflow12_GLOBAL__N_129SparseSoftmaxXentWithLogitsOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='217' u='c' c='_ZN10tensorflow12_GLOBAL__N_129SparseSoftmaxXentWithLogitsOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stateless_random_ops.cc' l='201' u='c' c='_ZN10tensorflow12_GLOBAL__N_19ErfInvF32EPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stateless_random_ops.cc' l='203' u='c' c='_ZN10tensorflow12_GLOBAL__N_19ErfInvF32EPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='170' u='c' c='_ZN10tensorflow12_GLOBAL__N_113TensorArrayOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tile_ops.cc' l='96' u='c' c='_ZN10tensorflow12_GLOBAL__N_16TileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tile_ops.cc' l='106' u='c' c='_ZN10tensorflow12_GLOBAL__N_16TileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/batch_dot.cc' l='86' u='c' c='_ZN10tensorflow8BatchDotEPN3xla18ComputationBuilderENS0_21ComputationDataHandleES3_bbbb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/util.cc' l='32' u='c' c='_ZN10tensorflow5ZerosEPN3xla18ComputationBuilderERKNS0_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='275' u='c' c='_ZN10tensorflow10XlaHelpers6OneHotEPN3xla18ComputationBuilderExiNS_8DataTypeERKNS_11TensorShapeERKNS1_21ComputationDataHandleESA_SA_PS8_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='276' u='c' c='_ZN10tensorflow10XlaHelpers6OneHotEPN3xla18ComputationBuilderExiNS_8DataTypeERKNS_11TensorShapeERKNS1_21ComputationDataHandleESA_SA_PS8_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.cc' l='94' u='c' c='_ZN10tensorflow11XlaResource12SetZeroValueEPN3xla18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.cc' l='102' u='c' c='_ZN10tensorflow11XlaResource12SetZeroValueEPN3xla18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.cc' l='111' u='c' c='_ZN10tensorflow11XlaResource12SetZeroValueEPN3xla18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.cc' l='111' u='c' c='_ZN10tensorflow11XlaResource12SetZeroValueEPN3xla18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.cc' l='135' u='c' c='_ZN10tensorflow11XlaResource30GetOrCreateTensorArrayGradientERKSsPN3xla18ComputationBuilderEPPS0_'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='333' ll='343' type='xla::ComputationDataHandle xla::ComputationBuilder::Broadcast(const xla::ComputationDataHandle &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_sizes)'/>

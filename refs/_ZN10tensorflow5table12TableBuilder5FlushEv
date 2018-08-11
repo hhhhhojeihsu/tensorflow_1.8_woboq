@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/lib/io/table_builder.h' l='58' type='void tensorflow::table::TableBuilder::Flush()'/>
+<doc f='tensorflow/tensorflow/core/lib/io/table_builder.h' l='53'>// Advanced operation: writes any buffered key/value pairs to file.
+  // Can be used to ensure that two adjacent entries never live in
+  // the same data block.  Most clients should not need to use this method.
+  // Does not flush the file itself.
+  // REQUIRES: Finish(), Abandon() have not been called</doc>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='129' u='c' c='_ZN10tensorflow5table12TableBuilder3AddERKNS_11StringPieceES4_'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='148' u='c' c='_ZN10tensorflow5table12TableBuilder3AddERKNS_11StringPieceES4_'/>
+<def f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='152' ll='163' type='void tensorflow::table::TableBuilder::Flush()'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='224' u='c' c='_ZN10tensorflow5table12TableBuilder6FinishEv'/>

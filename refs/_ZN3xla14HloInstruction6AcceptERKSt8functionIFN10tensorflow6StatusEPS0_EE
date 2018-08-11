@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='667' type='tensorflow::Status xla::HloInstruction::Accept(const std::function&lt;Status (HloInstruction *)&gt; &amp; visitor_func)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='665'>// Performs a postorder DFS visit using this node as the root. Calls the given
+  // visitor function at each instruction.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dce.cc' l='45' u='c' c='_ZN3xla6HloDCE3RunEPNS_9HloModuleE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2898' ll='2902' type='tensorflow::Status xla::HloInstruction::Accept(const std::function&lt;Status (HloInstruction *)&gt; &amp; visitor_func)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2917' u='c' c='_ZN3xla14HloInstruction13AcceptOrderedEPNS_17DfsHloVisitorBaseIPS0_EERKSt6vectorIPKS0_SaIS7_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='528' u='c' c='_ZN3xla9HloModule20DeepCloneComputationEPNS_14HloComputationE'/>

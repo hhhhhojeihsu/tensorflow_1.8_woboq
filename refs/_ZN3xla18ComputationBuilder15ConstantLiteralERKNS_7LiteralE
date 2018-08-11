@@ -1,0 +1,28 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='109' type='xla::ComputationDataHandle xla::ComputationBuilder::ConstantLiteral(const xla::Literal &amp; literal)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='953' u='c' c='_ZN3xla18ComputationBuilder10ConstantR0ET_'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='959' u='c' c='_ZN3xla18ComputationBuilder10ConstantR1EN10tensorflow3gtl10ArraySliceIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='968' u='c' c='_ZN3xla18ComputationBuilder10ConstantR1ExT_'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='973' u='c' c='_ZN3xla18ComputationBuilder10ConstantR1ERKN10tensorflow4core6BitmapE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='979' u='c' c='_ZN3xla18ComputationBuilder10ConstantR2ESt16initializer_listIS1_IT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='985' u='c' c='_ZN3xla18ComputationBuilder27ConstantFromArrayWithLayoutERKNS_5ArrayIT_EERKNS_6LayoutE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='992' u='c' c='_ZN3xla18ComputationBuilder17ConstantFromArrayERKNS_5ArrayIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='998' u='c' c='_ZN3xla18ComputationBuilder31ConstantR2FromArray2DWithLayoutERKNS_7Array2DIT_EERKNS_6LayoutE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='1005' u='c' c='_ZN3xla18ComputationBuilder21ConstantR2FromArray2DERKNS_7Array2DIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='1011' u='c' c='_ZN3xla18ComputationBuilder31ConstantR3FromArray3DWithLayoutERKNS_7Array3DIT_EERKNS_6LayoutE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='107'>// Enqueues a constant with the value of the given literal onto the
+  // computation.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/batch_dot.cc' l='87' u='c' c='_ZN10tensorflow8BatchDotEPN3xla18ComputationBuilderENS0_21ComputationDataHandleES3_bbbb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/scatter.cc' l='121' u='c' c='_ZN10tensorflow10XlaScatterERKN3xla21ComputationDataHandleES3_S3_bRKSt8functionIFS1_S1_S1_PNS0_18ComputationBuilderEEES6_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/util.cc' l='33' u='c' c='_ZN10tensorflow5ZerosEPN3xla18ComputationBuilderERKNS0_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/util.cc' l='112' u='c' c='_ZN10tensorflow14IntegerLiteralEPN3xla18ComputationBuilderENS0_13PrimitiveTypeEx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/while_loop.cc' l='102' u='c' c='_ZN10tensorflow15XlaForEachIndexExN3xla13PrimitiveTypeERKSt8functionIFNS0_8StatusOrISt6vectorINS0_21ComputationDataHandleESaIS5_EEEES5_NS_3gtl10ArrayS2377571'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/while_loop.cc' l='115' u='c' c='_ZN10tensorflow15XlaForEachIndexExN3xla13PrimitiveTypeERKSt8functionIFNS0_8StatusOrISt6vectorINS0_21ComputationDataHandleESaIS5_EEEES5_NS_3gtl10ArrayS2377571'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_context.cc' l='102' u='c' c='_ZN10tensorflow10XlaContext14AddConstRetvalEiNS_8DataTypeERKN3xla7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='98' u='c' c='_ZN10tensorflow10XlaHelpers8MinValueEPN3xla18ComputationBuilderENS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='105' u='c' c='_ZN10tensorflow10XlaHelpers8MaxValueEPN3xla18ComputationBuilderENS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='112' u='c' c='_ZN10tensorflow10XlaHelpers4ZeroEPN3xla18ComputationBuilderENS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='119' u='c' c='_ZN10tensorflow10XlaHelpers3OneEPN3xla18ComputationBuilderENS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='226' u='c' c='_ZN10tensorflow10XlaHelpers4IotaEPN3xla18ComputationBuilderENS_8DataTypeExPNS1_21ComputationDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='271' u='c' c='_ZN10tensorflow10XlaHelpers6OneHotEPN3xla18ComputationBuilderExiNS_8DataTypeERKNS_11TensorShapeERKNS1_21ComputationDataHandleESA_SA_PS8_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='367' u='c' c='_ZN10tensorflow18XlaOpKernelContext17SetConstantOutputEiRKNS_6TensorE'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='187' ll='194' type='xla::ComputationDataHandle xla::ComputationBuilder::ConstantLiteral(const xla::Literal &amp; literal)'/>

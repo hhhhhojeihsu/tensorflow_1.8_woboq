@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>schema.h source code [tensorflow/tensorflow/contrib/tensorboard/db/schema.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/contrib/tensorboard/db/schema.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>contrib</a>/<a href='..'>tensorboard</a>/<a href='./'>db</a>/<a href='schema.h.html'>schema.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CONTRIB_TENSORBOARD_DB_SCHEMA_H_">TENSORFLOW_CONTRIB_TENSORBOARD_DB_SCHEMA_H_</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CONTRIB_TENSORBOARD_DB_SCHEMA_H_" data-ref="_M/TENSORFLOW_CONTRIB_TENSORBOARD_DB_SCHEMA_H_">TENSORFLOW_CONTRIB_TENSORBOARD_DB_SCHEMA_H_</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../core/lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../core/lib/db/sqlite.h.html">"tensorflow/core/lib/db/sqlite.h"</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>constexpr</b> <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="decl def" id="tensorflow::kTensorboardSqliteApplicationId" title='tensorflow::kTensorboardSqliteApplicationId' data-ref="tensorflow::kTensorboardSqliteApplicationId">kTensorboardSqliteApplicationId</dfn> = <var>0xfeedabee</var>;</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i class="doc">/// <span class="command">\brief</span> Creates TensorBoard SQLite tables and indexes.</i></td></tr>
+<tr><th id="26">26</th><td><i class="doc">///</i></td></tr>
+<tr><th id="27">27</th><td><i class="doc">/// If they are already created, this has no effect. If schema</i></td></tr>
+<tr><th id="28">28</th><td><i class="doc">/// migrations are necessary, they will be performed with logging.</i></td></tr>
+<tr><th id="29">29</th><td><a class="type" href="../../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="decl" href="schema.cc.html#_ZN10tensorflow24SetupTensorboardSqliteDbEPNS_6SqliteE" title='tensorflow::SetupTensorboardSqliteDb' data-ref="_ZN10tensorflow24SetupTensorboardSqliteDbEPNS_6SqliteE" id="_ZN10tensorflow24SetupTensorboardSqliteDbEPNS_6SqliteE">SetupTensorboardSqliteDb</a>(<a class="type" href="../../../core/lib/db/sqlite.h.html#tensorflow::Sqlite" title='tensorflow::Sqlite' data-ref="tensorflow::Sqlite">Sqlite</a>* <dfn class="local col6 decl" id="56db" title='db' data-type='tensorflow::Sqlite *' data-ref="56db">db</dfn>);</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#<span data-ppcond="15">endif</span>  // TENSORFLOW_CONTRIB_TENSORBOARD_DB_SCHEMA_H_</u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='schema.cc.html'>tensorflow/tensorflow/contrib/tensorboard/db/schema.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

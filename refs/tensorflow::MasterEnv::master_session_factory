@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/master_env.h' l='87' type='std::function&lt;MasterSession *(SessionOptions, MasterEnv *, std::unique_ptr&lt;std::vector&lt;std::unique_ptr&lt;Device&gt; &gt; &gt;, std::unique_ptr&lt;WorkerCacheInterface&gt;, std::unique_ptr&lt;DeviceSet&gt;)&gt;'/>
+<offset>384</offset>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/master_env.h' l='76'>// Factory for creating master sessions, given session options and a
+  // vector of devices.
+  //
+  // The caller of the function takes ownership of the returned
+  // `MasterSession`, which may not be null. Ownership of the
+  // `MasterEnv*` is retained by the caller.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='420' u='m' c='_ZN10tensorflow6Master13CreateSessionEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='220' u='w' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>

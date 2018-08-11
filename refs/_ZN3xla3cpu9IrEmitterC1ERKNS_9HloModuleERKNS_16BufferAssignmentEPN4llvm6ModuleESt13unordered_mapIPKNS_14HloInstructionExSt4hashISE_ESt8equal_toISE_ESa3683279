@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='73' type='void xla::cpu::IrEmitter::IrEmitter(const xla::HloModule &amp; hlo_module, const xla::BufferAssignment &amp; assignment, llvm::Module * llvm_module, std::unordered_map&lt;const HloInstruction *, int64&gt; instruction_to_profile_idx, std::unordered_map&lt;const HloComputation *, int64&gt; computation_to_profile_idx, llvm::TargetMachine * target_machine, xla::cpu::ExternalConstantPool * external_constant_pool)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='583' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='667' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='843' u='c' c='_ZN3xla3cpu11CpuCompiler18CompileAheadOfTimeESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS4_EESaIS7_EERKNS_21AotCompilationOptionsE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='60'>// Create a new LLVM IR emitter.
+  //
+  // hlo_module: the HLO module we are emitting IR for.
+  // assignment: a BufferAssignment from which we know which temporary buffers
+  //             are used by the HLO nodes.
+  // llvm_module: the LLVM module to emit IR into.
+  // instruction_to_profile_idx: the mapping from HLO instructions to their
+  //              index in the profiling array.
+  // computation_to_profile_idx: the mapping from HLO computations to their
+  //              index in the profiling array.
+  // external_constant_pool: if non-null, points to an ExternalConstantPool
+  //                         instance into which the Ir emitter can spill
+  //                         constants.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='81' ll='104' type='void xla::cpu::IrEmitter::IrEmitter(const xla::HloModule &amp; hlo_module, const xla::BufferAssignment &amp; assignment, llvm::Module * llvm_module, std::unordered_map&lt;const HloInstruction *, int64&gt; instruction_to_profile_idx, std::unordered_map&lt;const HloComputation *, int64&gt; computation_to_profile_idx, llvm::TargetMachine * target_machine, xla::cpu::ExternalConstantPool * external_constant_pool)'/>

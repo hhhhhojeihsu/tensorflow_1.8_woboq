@@ -1,0 +1,25 @@
+<def f='tensorflow/tensorflow/core/util/guarded_philox_random.h' l='40' ll='76'/>
+<size>48</size>
+<doc f='tensorflow/tensorflow/core/util/guarded_philox_random.h' l='27'>// A thread safe wrapper around a Philox generator.  Example usage:
+//
+//   GuardedRandomPhilox generator;
+//   generator.Init(context);
+//
+//   // In thread safe code
+//   const int samples = ...;
+//   auto local_generator = generator.ReserveSamples128(samples);
+//   for (int i = 0; i &lt; samples; i++)
+//     Array&lt;uint32, 4&gt; sample = local_generator();
+//     // Use sample
+//   }
+//</doc>
+<fun r='_ZN10tensorflow19GuardedPhiloxRandomC1Ev'/>
+<fun r='_ZN10tensorflow19GuardedPhiloxRandom4InitEPNS_20OpKernelConstructionE'/>
+<fun r='_ZN10tensorflow19GuardedPhiloxRandom4InitExx'/>
+<fun r='_ZN10tensorflow19GuardedPhiloxRandom17ReserveSamples128Ex'/>
+<fun r='_ZN10tensorflow19GuardedPhiloxRandom16ReserveSamples32Ex'/>
+<fun r='_ZN10tensorflow19GuardedPhiloxRandom20ReserveRandomOutputsExi'/>
+<mbr r='tensorflow::GuardedPhiloxRandom::mu_' o='0' t='tensorflow::mutex'/>
+<mbr r='tensorflow::GuardedPhiloxRandom::generator_' o='128' t='random::PhiloxRandom'/>
+<mbr r='tensorflow::GuardedPhiloxRandom::initialized_' o='320' t='bool'/>
+<fun r='_ZN10tensorflow19GuardedPhiloxRandomC1ERKS0_'/>

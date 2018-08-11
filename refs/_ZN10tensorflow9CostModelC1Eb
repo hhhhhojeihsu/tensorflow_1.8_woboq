@@ -1,0 +1,5 @@
+<def f='tensorflow/tensorflow/core/graph/costmodel.h' l='49' ll='51' type='void tensorflow::CostModel::CostModel(bool is_global)'/>
+<doc f='tensorflow/tensorflow/core/graph/costmodel.h' l='47'>// If &quot;global&quot; is true, maintains costs based on Node::cost_id, otherwise
+  // maintains costs based on Node::id.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/costmodel_manager.cc' l='39' u='c' c='_ZN10tensorflow16CostModelManager21FindOrCreateCostModelEPKNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='388' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph17DoBuildPartitionsENS_16PartitionOptionsEPSt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_toISs342710'/>

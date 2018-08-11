@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/process_util.h' l='45' type='void tensorflow::SchedNonBlockingClosureAfter(int64 micros, std::function&lt;void ()&gt; closure)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/process_util.h' l='43'>// Schedule &quot;closure&quot; after the given number of microseconds in the
+// fixed-size ThreadPool used for non-blocking compute tasks.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/process_util.cc' l='98' ll='100' type='void tensorflow::SchedNonBlockingClosureAfter(int64 micros, std::function&lt;void ()&gt; closure)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='83' u='c' c='_ZN10tensorflow6Worker9AbortStepEx'/>

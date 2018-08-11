@@ -1,0 +1,71 @@
+<def f='tensorflow/tensorflow/core/public/session.h' l='83' ll='233'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/public/session.h' l='33'>/// \brief A Session instance lets a caller drive a TensorFlow graph
+/// computation.
+///
+/// When a Session is created with a given target, a new Session object
+/// is bound to the universe of resources specified by that target.
+/// Those resources are available to this session to perform
+/// computation described in the GraphDef.  After extending the session
+/// with a graph, the caller uses the Run() API to perform the
+/// computation and potentially fetch outputs as Tensors.
+///
+/// Example:
+///
+/// ```c++
+///
+///     tensorflow::GraphDef graph;
+///     // ... Create or load graph into &quot;graph&quot;.
+///
+///     // This example uses the default options which connects
+///     // to a local runtime.
+///     tensorflow::SessionOptions options;
+///     std::unique_ptr&lt;tensorflow::Session&gt;
+///     session(tensorflow::NewSession(options));
+///
+///     // Create the session with this graph.
+///     tensorflow::Status s = session-&gt;Create(graph);
+///     if (!s.ok()) { ... }
+///
+///     // Run the graph and fetch the first output of the &quot;output&quot;
+///     // operation, and also run to but do not return anything
+///     // for the &quot;update_state&quot; operation.
+///     std::vector&lt;tensorflow::Tensor&gt; outputs;
+///     s = session-&gt;Run({}, {&quot;output:0&quot;}, {&quot;update_state&quot;}, &amp;outputs);
+///     if (!s.ok()) { ... }
+///
+///     // Map the output as a flattened float tensor, and do something
+///     // with it.
+///     auto output_tensor = outputs[0].flat&lt;float&gt;();
+///     if (output_tensor(0) &gt; 0.5) { ... }
+///
+///     // Close the session to release the resources associated with
+///     // this session.
+///     session-&gt;Close();
+///
+/// ```
+///
+/// A Session allows concurrent calls to Run(), though a Session must
+/// be created / extended by a single thread.
+///
+/// Only one thread must call Close(), and Close() must only be called
+/// after all other calls to Run() have returned.</doc>
+<fun r='_ZN10tensorflow7SessionC1Ev'/>
+<fun r='_ZN10tensorflow7SessionD1Ev'/>
+<fun r='_ZN10tensorflow7Session6CreateERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow7Session6ExtendERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow7Session3RunERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EERKS1_ISsSaISsEESC_PS1_IS3_SaIS3_EE'/>
+<fun r='_ZN10tensorflow7Session6CreateERKNS_10RunOptionsERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow7Session6ExtendERKNS_10RunOptionsERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow7Session5CloseERKNS_10RunOptionsE'/>
+<fun r='_ZN10tensorflow7Session3RunERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow7Session9PRunSetupERKSt6vectorISsSaISsEES5_S5_PSs'/>
+<fun r='_ZN10tensorflow7Session4PRunERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS6_EERKS3_ISsSaISsEEPS3_IS5_SaIS5_EE'/>
+<fun r='_ZN10tensorflow7Session11ListDevicesEPSt6vectorINS_16DeviceAttributesESaIS2_EE'/>
+<fun r='_ZN10tensorflow7Session5CloseEv'/>
+<fun r='_ZN10tensorflow7Session18LocalDeviceManagerEPPKNS_9DeviceMgrE'/>
+<fun r='_ZN10tensorflow7Session12MakeCallableERKNS_15CallableOptionsEPx'/>
+<fun r='_ZN10tensorflow7Session11RunCallableExRKSt6vectorINS_6TensorESaIS2_EEPS4_PNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow7Session15ReleaseCallableEx'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='54' c='tensorflow::DirectSession'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.h' l='49' c='tensorflow::GrpcSession'/>

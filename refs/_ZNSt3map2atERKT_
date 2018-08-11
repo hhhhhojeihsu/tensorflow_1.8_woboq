@@ -1,0 +1,21 @@
+<def f='include/c++/5/bits/stl_map.h' l='518' ll='525' type='mapped_type &amp; std::map::at(const key_type &amp; __k)'/>
+<doc f='include/c++/5/bits/stl_map.h' l='511'>/**
+       *  @brief  Access to %map data.
+       *  @param  __k  The key for which data should be retrieved.
+       *  @return  A reference to the data whose key is equivalent to @a __k, if
+       *           such a data is present in the %map.
+       *  @throw  std::out_of_range  If no such data is present.
+       */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='120' u='c' c='_ZN3xla7Backend12BorrowStreamEPN9perftools8gputools14StreamExecutorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/compilation_cache.cc' l='47' u='c' c='_ZN3xla16CompilationCache6InsertESt10unique_ptrINS_10ExecutableESt14default_deleteIS2_EERKNS_15HloModuleConfigE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/compiler.cc' l='86' u='c' c='_ZN3xla8Compiler14GetForPlatformEPKN9perftools8gputools8PlatformE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.cc' l='198' u='c' c='_ZNK3xla18ComputationTracker14BuildHloModuleERKNS_26VersionedComputationHandleERKNS_15HloModuleConfigEb'/>
+<use f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='390' u='c' c='_ZN10tensorflow18StepStatsCollector16FinalizeInternalEv'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='183' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils20GetExecutorBuildFuncERKSs'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/advisor/accelerator_utilization_checker.h' l='86' u='c' c='_ZN10tensorflow6tfprof29AcceleratorUtilizationChecker14BuildExecStatsEPKNS0_11TFGraphNodeE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_stats.cc' l='206' u='c' c='_ZN10tensorflow6tfprof7TFStats8AddGraphESt10unique_ptrINS_8GraphDefESt14default_deleteIS3_EE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_stats.cc' l='297' u='c' c='_ZN10tensorflow6tfprof7TFStats10AddRunMetaExSt10unique_ptrINS_11RunMetadataESt14default_deleteIS3_EE'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/freeze_requantization_ranges.cc' l='180' u='c' c='_ZN10tensorflow16graph_transforms26FreezeRequantizationRangesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/freeze_requantization_ranges.cc' l='190' u='c' c='_ZN10tensorflow16graph_transforms26FreezeRequantizationRangesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/transform_graph.cc' l='266' u='c' c='_ZN10tensorflow16graph_transforms14TransformGraphERKSt6vectorISsSaISsEES5_RKS1_ISt4pairISsSt3mapISsS3_St4lessISsESaIS6_IKSsS3_EEEESaISE_EEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='501' u='c' c='_ZN10tensorflow16graph_transforms16RenameNodeInputsERKNS_8GraphDefERKSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPS1_'/>

@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='236' type='void xla::llvm_ir::SetAlignmentMetadataForLoad(llvm::LoadInst * load, uint64_t alignment)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='234'>// Adds alignment metadata to a load instruction using the given alignment.
+// The alignment refers to the result of the load, not the load itself.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='276' u='c' c='_ZN3xla3cpu9IrEmitter30AttachAlignmentMetadataForLoadEPN4llvm8LoadInstERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='284' u='c' c='_ZN3xla3cpu9IrEmitter30AttachAlignmentMetadataForLoadEPN4llvm8LoadInstEx'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='498' ll='508' type='void xla::llvm_ir::SetAlignmentMetadataForLoad(llvm::LoadInst * load, uint64_t alignment)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/tuple_ops.cc' l='101' u='c' c='_ZN3xla7llvm_ir19EmitGetTupleElementERKNS_5ShapeExiPN4llvm5ValueEPNS4_9IRBuilderINS4_14ConstantFolderENS4_24IRBuilderDefaultInserterEEEPNS4_6ModuleE'/>

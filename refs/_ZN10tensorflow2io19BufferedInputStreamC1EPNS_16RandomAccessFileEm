@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.h' l='40' type='void tensorflow::io::BufferedInputStream::BufferedInputStream(tensorflow::RandomAccessFile * file, size_t buffer_bytes)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.h' l='36'>// For backwards compatibility, expose an interface that is similar to what
+  // InputBuffer exposes. Does not take ownership of file. file must outlive
+  // *this. This will be removed once we migrate all uses of this class to the
+  // constructor above.</doc>
+<use f='tensorflow/tensorflow/core/kernels/fixed_length_record_reader_op.cc' l='67' u='c' c='_ZN10tensorflow23FixedLengthRecordReader19OnWorkStartedLockedEv'/>
+<def f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.cc' l='32' ll='35' type='void tensorflow::io::BufferedInputStream::BufferedInputStream(tensorflow::RandomAccessFile * file, size_t buffer_size)'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='61' u='c' c='_ZN10tensorflow2io12RecordReaderC1EPNS_16RandomAccessFileERKNS0_19RecordReaderOptionsE'/>

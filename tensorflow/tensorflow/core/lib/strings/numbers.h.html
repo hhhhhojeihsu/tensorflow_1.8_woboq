@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>numbers.h source code [tensorflow/tensorflow/core/lib/strings/numbers.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/lib/strings/numbers.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>lib</a>/<a href='./'>strings</a>/<a href='numbers.h.html'>numbers.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_LIB_STRINGS_NUMBERS_H_">TENSORFLOW_LIB_STRINGS_NUMBERS_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_LIB_STRINGS_NUMBERS_H_" data-ref="_M/TENSORFLOW_LIB_STRINGS_NUMBERS_H_">TENSORFLOW_LIB_STRINGS_NUMBERS_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../core/stringpiece.h.html">"tensorflow/core/lib/core/stringpiece.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">strings</span> {</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><i>// ----------------------------------------------------------------------</i></td></tr>
+<tr><th id="28">28</th><td><i>// FastIntToBufferLeft()</i></td></tr>
+<tr><th id="29">29</th><td><i>//    These are intended for speed.</i></td></tr>
+<tr><th id="30">30</th><td><i>//</i></td></tr>
+<tr><th id="31">31</th><td><i>//    All functions take the output buffer as an arg.  FastInt() uses</i></td></tr>
+<tr><th id="32">32</th><td><i>//    at most 22 bytes, FastTime() uses exactly 30 bytes.  They all</i></td></tr>
+<tr><th id="33">33</th><td><i>//    return a pointer to the beginning of the output, which is the same as</i></td></tr>
+<tr><th id="34">34</th><td><i>//    the beginning of the input buffer.</i></td></tr>
+<tr><th id="35">35</th><td><i>//</i></td></tr>
+<tr><th id="36">36</th><td><i>//    NOTE: In 64-bit land, sizeof(time_t) is 8, so it is possible</i></td></tr>
+<tr><th id="37">37</th><td><i>//    to pass to FastTimeToBuffer() a time whose year cannot be</i></td></tr>
+<tr><th id="38">38</th><td><i>//    represented in 4 digits. In this case, the output buffer</i></td></tr>
+<tr><th id="39">39</th><td><i>//    will contain the string "Invalid:&lt;value&gt;"</i></td></tr>
+<tr><th id="40">40</th><td><i>// ----------------------------------------------------------------------</i></td></tr>
+<tr><th id="41">41</th><td><i></i></td></tr>
+<tr><th id="42">42</th><td><i>// Previously documented minimums -- the buffers provided must be at least this</i></td></tr>
+<tr><th id="43">43</th><td><i>// long, though these numbers are subject to change:</i></td></tr>
+<tr><th id="44">44</th><td><i>//     Int32, UInt32:                   12 bytes</i></td></tr>
+<tr><th id="45">45</th><td><i>//     Int64, UInt64, Int, Uint:        22 bytes</i></td></tr>
+<tr><th id="46">46</th><td><i>//     Time:                            30 bytes</i></td></tr>
+<tr><th id="47">47</th><td><i>// Use kFastToBufferSize rather than hardcoding constants.</i></td></tr>
+<tr><th id="48">48</th><td><em>static</em> <em>const</em> <em>int</em> <dfn class="decl def" id="tensorflow::strings::kFastToBufferSize" title='tensorflow::strings::kFastToBufferSize' data-ref="tensorflow::strings::kFastToBufferSize">kFastToBufferSize</dfn> = <var>32</var>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i>// ----------------------------------------------------------------------</i></td></tr>
+<tr><th id="51">51</th><td><i>// FastInt32ToBufferLeft()</i></td></tr>
+<tr><th id="52">52</th><td><i>// FastUInt32ToBufferLeft()</i></td></tr>
+<tr><th id="53">53</th><td><i>// FastInt64ToBufferLeft()</i></td></tr>
+<tr><th id="54">54</th><td><i>// FastUInt64ToBufferLeft()</i></td></tr>
+<tr><th id="55">55</th><td><i>//</i></td></tr>
+<tr><th id="56">56</th><td><i>// These functions convert their numeric argument to an ASCII</i></td></tr>
+<tr><th id="57">57</th><td><i>// representation of the numeric value in base 10, with the</i></td></tr>
+<tr><th id="58">58</th><td><i>// representation being left-aligned in the buffer.  The caller is</i></td></tr>
+<tr><th id="59">59</th><td><i>// responsible for ensuring that the buffer has enough space to hold</i></td></tr>
+<tr><th id="60">60</th><td><i>// the output.  The buffer should typically be at least kFastToBufferSize</i></td></tr>
+<tr><th id="61">61</th><td><i>// bytes.</i></td></tr>
+<tr><th id="62">62</th><td><i>//</i></td></tr>
+<tr><th id="63">63</th><td><i>// Returns the number of characters written.</i></td></tr>
+<tr><th id="64">64</th><td><i>// ----------------------------------------------------------------------</i></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="_ZN10tensorflow7strings21FastInt32ToBufferLeftEiPc" title='tensorflow::strings::FastInt32ToBufferLeft' data-ref="_ZN10tensorflow7strings21FastInt32ToBufferLeftEiPc">FastInt32ToBufferLeft</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a> <dfn class="local col9 decl" id="13909i" title='i' data-type='int32' data-ref="13909i">i</dfn>, <em>char</em>* <dfn class="local col0 decl" id="13910buffer" title='buffer' data-type='char *' data-ref="13910buffer">buffer</dfn>);    <i>// at least 12 bytes</i></td></tr>
+<tr><th id="67">67</th><td><span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="_ZN10tensorflow7strings22FastUInt32ToBufferLeftEjPc" title='tensorflow::strings::FastUInt32ToBufferLeft' data-ref="_ZN10tensorflow7strings22FastUInt32ToBufferLeftEjPc">FastUInt32ToBufferLeft</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a> <dfn class="local col1 decl" id="13911i" title='i' data-type='uint32' data-ref="13911i">i</dfn>, <em>char</em>* <dfn class="local col2 decl" id="13912buffer" title='buffer' data-type='char *' data-ref="13912buffer">buffer</dfn>);  <i>// at least 12 bytes</i></td></tr>
+<tr><th id="68">68</th><td><span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="_ZN10tensorflow7strings21FastInt64ToBufferLeftExPc" title='tensorflow::strings::FastInt64ToBufferLeft' data-ref="_ZN10tensorflow7strings21FastInt64ToBufferLeftExPc">FastInt64ToBufferLeft</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col3 decl" id="13913i" title='i' data-type='int64' data-ref="13913i">i</dfn>, <em>char</em>* <dfn class="local col4 decl" id="13914buffer" title='buffer' data-type='char *' data-ref="13914buffer">buffer</dfn>);    <i>// at least 22 bytes</i></td></tr>
+<tr><th id="69">69</th><td><span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="_ZN10tensorflow7strings22FastUInt64ToBufferLeftEyPc" title='tensorflow::strings::FastUInt64ToBufferLeft' data-ref="_ZN10tensorflow7strings22FastUInt64ToBufferLeftEyPc">FastUInt64ToBufferLeft</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="local col5 decl" id="13915i" title='i' data-type='uint64' data-ref="13915i">i</dfn>, <em>char</em>* <dfn class="local col6 decl" id="13916buffer" title='buffer' data-type='char *' data-ref="13916buffer">buffer</dfn>);  <i>// at least 22 bytes</i></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><i>// Required buffer size for DoubleToBuffer is kFastToBufferSize.</i></td></tr>
+<tr><th id="72">72</th><td><i>// Required buffer size for FloatToBuffer is kFastToBufferSize.</i></td></tr>
+<tr><th id="73">73</th><td><span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="_ZN10tensorflow7strings14DoubleToBufferEdPc" title='tensorflow::strings::DoubleToBuffer' data-ref="_ZN10tensorflow7strings14DoubleToBufferEdPc">DoubleToBuffer</dfn>(<em>double</em> <dfn class="local col7 decl" id="13917value" title='value' data-type='double' data-ref="13917value">value</dfn>, <em>char</em>* <dfn class="local col8 decl" id="13918buffer" title='buffer' data-type='char *' data-ref="13918buffer">buffer</dfn>);</td></tr>
+<tr><th id="74">74</th><td><span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="_ZN10tensorflow7strings13FloatToBufferEfPc" title='tensorflow::strings::FloatToBuffer' data-ref="_ZN10tensorflow7strings13FloatToBufferEfPc">FloatToBuffer</dfn>(<em>float</em> <dfn class="local col9 decl" id="13919value" title='value' data-type='float' data-ref="13919value">value</dfn>, <em>char</em>* <dfn class="local col0 decl" id="13920buffer" title='buffer' data-type='char *' data-ref="13920buffer">buffer</dfn>);</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><i>// Convert a 64-bit fingerprint value to an ASCII representation.</i></td></tr>
+<tr><th id="77">77</th><td><a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="_ZN10tensorflow7strings10FpToStringEy" title='tensorflow::strings::FpToString' data-ref="_ZN10tensorflow7strings10FpToStringEy">FpToString</dfn>(<a class="typedef" href="../../platform/types.h.html#tensorflow::Fprint" title='tensorflow::Fprint' data-type='uint64' data-ref="tensorflow::Fprint">Fprint</a> <dfn class="local col1 decl" id="13921fp" title='fp' data-type='Fprint' data-ref="13921fp">fp</dfn>);</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><i>// Attempt to parse a fingerprint in the form encoded by FpToString.  If</i></td></tr>
+<tr><th id="80">80</th><td><i>// successful, stores the fingerprint in *fp and returns true.  Otherwise,</i></td></tr>
+<tr><th id="81">81</th><td><i>// returns false.</i></td></tr>
+<tr><th id="82">82</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow7strings10StringToFpERKSsPy" title='tensorflow::strings::StringToFp' data-ref="_ZN10tensorflow7strings10StringToFpERKSsPy">StringToFp</dfn>(<em>const</em> <a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col2 decl" id="13922s" title='s' data-type='const string &amp;' data-ref="13922s">s</dfn>, <a class="typedef" href="../../platform/types.h.html#tensorflow::Fprint" title='tensorflow::Fprint' data-type='uint64' data-ref="tensorflow::Fprint">Fprint</a>* <dfn class="local col3 decl" id="13923fp" title='fp' data-type='Fprint *' data-ref="13923fp">fp</dfn>);</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><i>// Convert a 64-bit fingerprint value to an ASCII representation that</i></td></tr>
+<tr><th id="85">85</th><td><i>// is terminated by a '\0'.</i></td></tr>
+<tr><th id="86">86</th><td><i>// Buf must point to an array of at least kFastToBufferSize characters</i></td></tr>
+<tr><th id="87">87</th><td><a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="decl" id="_ZN10tensorflow7strings17Uint64ToHexStringEyPc" title='tensorflow::strings::Uint64ToHexString' data-ref="_ZN10tensorflow7strings17Uint64ToHexStringEyPc">Uint64ToHexString</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="local col4 decl" id="13924v" title='v' data-type='uint64' data-ref="13924v">v</dfn>, <em>char</em>* <dfn class="local col5 decl" id="13925buf" title='buf' data-type='char *' data-ref="13925buf">buf</dfn>);</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><i>// Attempt to parse a uint64 in the form encoded by FastUint64ToHexString.  If</i></td></tr>
+<tr><th id="90">90</th><td><i>// successful, stores the value in *v and returns true.  Otherwise,</i></td></tr>
+<tr><th id="91">91</th><td><i>// returns false.</i></td></tr>
+<tr><th id="92">92</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow7strings17HexStringToUint64ERKNS_11StringPieceEPy" title='tensorflow::strings::HexStringToUint64' data-ref="_ZN10tensorflow7strings17HexStringToUint64ERKNS_11StringPieceEPy">HexStringToUint64</dfn>(<em>const</em> <a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a>&amp; <dfn class="local col6 decl" id="13926s" title='s' data-type='const tensorflow::StringPiece &amp;' data-ref="13926s">s</dfn>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a>* <dfn class="local col7 decl" id="13927v" title='v' data-type='uint64 *' data-ref="13927v">v</dfn>);</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td><i>// Convert strings to 32bit integer values.</i></td></tr>
+<tr><th id="95">95</th><td><i>// Leading and trailing spaces are allowed.</i></td></tr>
+<tr><th id="96">96</th><td><i>// Return false with overflow or invalid input.</i></td></tr>
+<tr><th id="97">97</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow7strings12safe_strto32ENS_11StringPieceEPi" title='tensorflow::strings::safe_strto32' data-ref="_ZN10tensorflow7strings12safe_strto32ENS_11StringPieceEPi">safe_strto32</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col8 decl" id="13928str" title='str' data-type='tensorflow::StringPiece' data-ref="13928str">str</dfn>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>* <dfn class="local col9 decl" id="13929value" title='value' data-type='int32 *' data-ref="13929value">value</dfn>);</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><i>// Convert strings to unsigned 32bit integer values.</i></td></tr>
+<tr><th id="100">100</th><td><i>// Leading and trailing spaces are allowed.</i></td></tr>
+<tr><th id="101">101</th><td><i>// Return false with overflow or invalid input.</i></td></tr>
+<tr><th id="102">102</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow7strings13safe_strtou32ENS_11StringPieceEPj" title='tensorflow::strings::safe_strtou32' data-ref="_ZN10tensorflow7strings13safe_strtou32ENS_11StringPieceEPj">safe_strtou32</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col0 decl" id="13930str" title='str' data-type='tensorflow::StringPiece' data-ref="13930str">str</dfn>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a>* <dfn class="local col1 decl" id="13931value" title='value' data-type='uint32 *' data-ref="13931value">value</dfn>);</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><i>// Convert strings to 64bit integer values.</i></td></tr>
+<tr><th id="105">105</th><td><i>// Leading and trailing spaces are allowed.</i></td></tr>
+<tr><th id="106">106</th><td><i>// Return false with overflow or invalid input.</i></td></tr>
+<tr><th id="107">107</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow7strings12safe_strto64ENS_11StringPieceEPx" title='tensorflow::strings::safe_strto64' data-ref="_ZN10tensorflow7strings12safe_strto64ENS_11StringPieceEPx">safe_strto64</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col2 decl" id="13932str" title='str' data-type='tensorflow::StringPiece' data-ref="13932str">str</dfn>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>* <dfn class="local col3 decl" id="13933value" title='value' data-type='int64 *' data-ref="13933value">value</dfn>);</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><i>// Convert strings to unsigned 64bit integer values.</i></td></tr>
+<tr><th id="110">110</th><td><i>// Leading and trailing spaces are allowed.</i></td></tr>
+<tr><th id="111">111</th><td><i>// Return false with overflow or invalid input.</i></td></tr>
+<tr><th id="112">112</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow7strings13safe_strtou64ENS_11StringPieceEPy" title='tensorflow::strings::safe_strtou64' data-ref="_ZN10tensorflow7strings13safe_strtou64ENS_11StringPieceEPy">safe_strtou64</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col4 decl" id="13934str" title='str' data-type='tensorflow::StringPiece' data-ref="13934str">str</dfn>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a>* <dfn class="local col5 decl" id="13935value" title='value' data-type='uint64 *' data-ref="13935value">value</dfn>);</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td><i>// Convert strings to floating point values.</i></td></tr>
+<tr><th id="115">115</th><td><i>// Leading and trailing spaces are allowed.</i></td></tr>
+<tr><th id="116">116</th><td><i>// Values may be rounded on over- and underflow.</i></td></tr>
+<tr><th id="117">117</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow7strings11safe_strtofEPKcPf" title='tensorflow::strings::safe_strtof' data-ref="_ZN10tensorflow7strings11safe_strtofEPKcPf">safe_strtof</dfn>(<em>const</em> <em>char</em>* <dfn class="local col6 decl" id="13936str" title='str' data-type='const char *' data-ref="13936str">str</dfn>, <em>float</em>* <dfn class="local col7 decl" id="13937value" title='value' data-type='float *' data-ref="13937value">value</dfn>);</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td><i>// Convert strings to double precision floating point values.</i></td></tr>
+<tr><th id="120">120</th><td><i>// Leading and trailing spaces are allowed.</i></td></tr>
+<tr><th id="121">121</th><td><i>// Values may be rounded on over- and underflow.</i></td></tr>
+<tr><th id="122">122</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow7strings11safe_strtodEPKcPd" title='tensorflow::strings::safe_strtod' data-ref="_ZN10tensorflow7strings11safe_strtodEPKcPd">safe_strtod</dfn>(<em>const</em> <em>char</em>* <dfn class="local col8 decl" id="13938str" title='str' data-type='const char *' data-ref="13938str">str</dfn>, <em>double</em>* <dfn class="local col9 decl" id="13939value" title='value' data-type='double *' data-ref="13939value">value</dfn>);</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td><b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPi" title='tensorflow::strings::ProtoParseNumeric' data-ref="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPi">ProtoParseNumeric</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col0 decl" id="13940s" title='s' data-type='tensorflow::StringPiece' data-ref="13940s">s</dfn>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>* <dfn class="local col1 decl" id="13941value" title='value' data-type='int32 *' data-ref="13941value">value</dfn>) {</td></tr>
+<tr><th id="125">125</th><td>  <b>return</b> <a class="ref" href="#_ZN10tensorflow7strings12safe_strto32ENS_11StringPieceEPi" title='tensorflow::strings::safe_strto32' data-ref="_ZN10tensorflow7strings12safe_strto32ENS_11StringPieceEPi">safe_strto32</a>(<a class="ref fake" href="../core/stringpiece.h.html#38" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1ERKS0_"></a><a class="local col0 ref" href="#13940s" title='s' data-ref="13940s">s</a>, <a class="local col1 ref" href="#13941value" title='value' data-ref="13941value">value</a>);</td></tr>
+<tr><th id="126">126</th><td>}</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td><b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPj" title='tensorflow::strings::ProtoParseNumeric' data-ref="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPj">ProtoParseNumeric</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col2 decl" id="13942s" title='s' data-type='tensorflow::StringPiece' data-ref="13942s">s</dfn>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint32" title='tensorflow::uint32' data-type='unsigned int' data-ref="tensorflow::uint32">uint32</a>* <dfn class="local col3 decl" id="13943value" title='value' data-type='uint32 *' data-ref="13943value">value</dfn>) {</td></tr>
+<tr><th id="129">129</th><td>  <b>return</b> <a class="ref" href="#_ZN10tensorflow7strings13safe_strtou32ENS_11StringPieceEPj" title='tensorflow::strings::safe_strtou32' data-ref="_ZN10tensorflow7strings13safe_strtou32ENS_11StringPieceEPj">safe_strtou32</a>(<a class="ref fake" href="../core/stringpiece.h.html#38" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1ERKS0_"></a><a class="local col2 ref" href="#13942s" title='s' data-ref="13942s">s</a>, <a class="local col3 ref" href="#13943value" title='value' data-ref="13943value">value</a>);</td></tr>
+<tr><th id="130">130</th><td>}</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPx" title='tensorflow::strings::ProtoParseNumeric' data-ref="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPx">ProtoParseNumeric</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col4 decl" id="13944s" title='s' data-type='tensorflow::StringPiece' data-ref="13944s">s</dfn>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>* <dfn class="local col5 decl" id="13945value" title='value' data-type='int64 *' data-ref="13945value">value</dfn>) {</td></tr>
+<tr><th id="133">133</th><td>  <b>return</b> <a class="ref" href="#_ZN10tensorflow7strings12safe_strto64ENS_11StringPieceEPx" title='tensorflow::strings::safe_strto64' data-ref="_ZN10tensorflow7strings12safe_strto64ENS_11StringPieceEPx">safe_strto64</a>(<a class="ref fake" href="../core/stringpiece.h.html#38" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1ERKS0_"></a><a class="local col4 ref" href="#13944s" title='s' data-ref="13944s">s</a>, <a class="local col5 ref" href="#13945value" title='value' data-ref="13945value">value</a>);</td></tr>
+<tr><th id="134">134</th><td>}</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPy" title='tensorflow::strings::ProtoParseNumeric' data-ref="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPy">ProtoParseNumeric</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col6 decl" id="13946s" title='s' data-type='tensorflow::StringPiece' data-ref="13946s">s</dfn>, <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a>* <dfn class="local col7 decl" id="13947value" title='value' data-type='uint64 *' data-ref="13947value">value</dfn>) {</td></tr>
+<tr><th id="137">137</th><td>  <b>return</b> <a class="ref" href="#_ZN10tensorflow7strings13safe_strtou64ENS_11StringPieceEPy" title='tensorflow::strings::safe_strtou64' data-ref="_ZN10tensorflow7strings13safe_strtou64ENS_11StringPieceEPy">safe_strtou64</a>(<a class="ref fake" href="../core/stringpiece.h.html#38" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1ERKS0_"></a><a class="local col6 ref" href="#13946s" title='s' data-ref="13946s">s</a>, <a class="local col7 ref" href="#13947value" title='value' data-ref="13947value">value</a>);</td></tr>
+<tr><th id="138">138</th><td>}</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td><b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPf" title='tensorflow::strings::ProtoParseNumeric' data-ref="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPf">ProtoParseNumeric</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col8 decl" id="13948s" title='s' data-type='tensorflow::StringPiece' data-ref="13948s">s</dfn>, <em>float</em>* <dfn class="local col9 decl" id="13949value" title='value' data-type='float *' data-ref="13949value">value</dfn>) {</td></tr>
+<tr><th id="141">141</th><td>  <b>return</b> <a class="ref" href="#_ZN10tensorflow7strings11safe_strtofEPKcPf" title='tensorflow::strings::safe_strtof' data-ref="_ZN10tensorflow7strings11safe_strtofEPKcPf">safe_strtof</a>(<a class="local col8 ref" href="#13948s" title='s' data-ref="13948s">s</a>.<a class="ref" href="../core/stringpiece.h.html#_ZNK10tensorflow11StringPiece8ToStringEv" title='tensorflow::StringPiece::ToString' data-ref="_ZNK10tensorflow11StringPiece8ToStringEv">ToString</a>().<a class="ref" href="../../../../../include/c++/5/bits/basic_string.h.html#_ZNKSt12basic_string5c_strEv" title='std::basic_string::c_str' data-ref="_ZNKSt12basic_string5c_strEv">c_str</a>(), <a class="local col9 ref" href="#13949value" title='value' data-ref="13949value">value</a>);</td></tr>
+<tr><th id="142">142</th><td>}</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><b>inline</b> <em>bool</em> <dfn class="decl def" id="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPd" title='tensorflow::strings::ProtoParseNumeric' data-ref="_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPd">ProtoParseNumeric</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col0 decl" id="13950s" title='s' data-type='tensorflow::StringPiece' data-ref="13950s">s</dfn>, <em>double</em>* <dfn class="local col1 decl" id="13951value" title='value' data-type='double *' data-ref="13951value">value</dfn>) {</td></tr>
+<tr><th id="145">145</th><td>  <b>return</b> <a class="ref" href="#_ZN10tensorflow7strings11safe_strtodEPKcPd" title='tensorflow::strings::safe_strtod' data-ref="_ZN10tensorflow7strings11safe_strtodEPKcPd">safe_strtod</a>(<a class="local col0 ref" href="#13950s" title='s' data-ref="13950s">s</a>.<a class="ref" href="../core/stringpiece.h.html#_ZNK10tensorflow11StringPiece8ToStringEv" title='tensorflow::StringPiece::ToString' data-ref="_ZNK10tensorflow11StringPiece8ToStringEv">ToString</a>().<a class="ref" href="../../../../../include/c++/5/bits/basic_string.h.html#_ZNKSt12basic_string5c_strEv" title='std::basic_string::c_str' data-ref="_ZNKSt12basic_string5c_strEv">c_str</a>(), <a class="local col1 ref" href="#13951value" title='value' data-ref="13951value">value</a>);</td></tr>
+<tr><th id="146">146</th><td>}</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td><i>// Convert strings to number of type T.</i></td></tr>
+<tr><th id="149">149</th><td><i>// Leading and trailing spaces are allowed.</i></td></tr>
+<tr><th id="150">150</th><td><i>// Values may be rounded on over- and underflow.</i></td></tr>
+<tr><th id="151">151</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="152">152</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow7strings19SafeStringToNumericENS_11StringPieceEPT_" title='tensorflow::strings::SafeStringToNumeric' data-ref="_ZN10tensorflow7strings19SafeStringToNumericENS_11StringPieceEPT_">SafeStringToNumeric</dfn>(<a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col2 decl" id="13952s" title='s' data-type='tensorflow::StringPiece' data-ref="13952s">s</dfn>, T* <dfn class="local col3 decl" id="13953value" title='value' data-type='T *' data-ref="13953value">value</dfn>) {</td></tr>
+<tr><th id="153">153</th><td>  <b>return</b> ProtoParseNumeric(<a class="local col2 ref" href="#13952s" title='s' data-ref="13952s">s</a>, <a class="local col3 ref" href="#13953value" title='value' data-ref="13953value">value</a>);</td></tr>
+<tr><th id="154">154</th><td>}</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><i>// Converts from an int64 to a human readable string representing the</i></td></tr>
+<tr><th id="157">157</th><td><i>// same number, using decimal powers.  e.g. 1200000 -&gt; "1.20M".</i></td></tr>
+<tr><th id="158">158</th><td><a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="_ZN10tensorflow7strings16HumanReadableNumEx" title='tensorflow::strings::HumanReadableNum' data-ref="_ZN10tensorflow7strings16HumanReadableNumEx">HumanReadableNum</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col4 decl" id="13954value" title='value' data-type='int64' data-ref="13954value">value</dfn>);</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><i>// Converts from an int64 representing a number of bytes to a</i></td></tr>
+<tr><th id="161">161</th><td><i>// human readable string representing the same number.</i></td></tr>
+<tr><th id="162">162</th><td><i>// e.g. 12345678 -&gt; "11.77MiB".</i></td></tr>
+<tr><th id="163">163</th><td><a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="_ZN10tensorflow7strings21HumanReadableNumBytesEx" title='tensorflow::strings::HumanReadableNumBytes' data-ref="_ZN10tensorflow7strings21HumanReadableNumBytesEx">HumanReadableNumBytes</dfn>(<a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col5 decl" id="13955num_bytes" title='num_bytes' data-type='int64' data-ref="13955num_bytes">num_bytes</dfn>);</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td><i>// Converts a time interval as double to a human readable</i></td></tr>
+<tr><th id="166">166</th><td><i>// string. For example:</i></td></tr>
+<tr><th id="167">167</th><td><i>//   0.001       -&gt; "1 ms"</i></td></tr>
+<tr><th id="168">168</th><td><i>//   10.0        -&gt; "10 s"</i></td></tr>
+<tr><th id="169">169</th><td><i>//   933120.0    -&gt; "10.8 days"</i></td></tr>
+<tr><th id="170">170</th><td><i>//   39420000.0  -&gt; "1.25 years"</i></td></tr>
+<tr><th id="171">171</th><td><i>//   -10         -&gt; "-10 s"</i></td></tr>
+<tr><th id="172">172</th><td><a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="_ZN10tensorflow7strings24HumanReadableElapsedTimeEd" title='tensorflow::strings::HumanReadableElapsedTime' data-ref="_ZN10tensorflow7strings24HumanReadableElapsedTimeEd">HumanReadableElapsedTime</dfn>(<em>double</em> <dfn class="local col6 decl" id="13956seconds" title='seconds' data-type='double' data-ref="13956seconds">seconds</dfn>);</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td>}  <i>// namespace strings</i></td></tr>
+<tr><th id="175">175</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="176">176</th><td></td></tr>
+<tr><th id="177">177</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_LIB_STRINGS_NUMBERS_H_</u></td></tr>
+<tr><th id="178">178</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../c/c_api.cc.html'>tensorflow/tensorflow/c/c_api.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/lib/jpeg/jpeg_mem.h' l='105' type='bool tensorflow::jpeg::GetImageInfo(const void * srcdata, int datasize, int * width, int * height, int * components)'/>
+<doc f='tensorflow/tensorflow/core/lib/jpeg/jpeg_mem.h' l='103'>// Read jpeg header and get image information.  Returns true on success.
+// The width, height, and components points may be null.</doc>
+<use f='tensorflow/tensorflow/core/kernels/extract_jpeg_shape_op.cc' l='53' u='c' c='_ZN10tensorflow18ExtractJpegShapeOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/lib/jpeg/jpeg_mem.cc' l='537' ll='572' type='bool tensorflow::jpeg::GetImageInfo(const void * srcdata, int datasize, int * width, int * height, int * components)'/>
+<doc f='tensorflow/tensorflow/core/lib/jpeg/jpeg_mem.cc' l='534'>// ----------------------------------------------------------------------------
+// Computes image information from jpeg header.
+// Returns true on success; false on failure.</doc>

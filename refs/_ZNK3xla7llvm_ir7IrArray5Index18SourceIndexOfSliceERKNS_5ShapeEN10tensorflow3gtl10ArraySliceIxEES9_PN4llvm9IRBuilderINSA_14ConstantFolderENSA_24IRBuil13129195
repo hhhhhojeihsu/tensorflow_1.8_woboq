@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='124' type='xla::llvm_ir::IrArray::Index xla::llvm_ir::IrArray::Index::SourceIndexOfSlice(const xla::Shape &amp; shape, tensorflow::gtl::ArraySlice&lt;int64&gt; starts, tensorflow::gtl::ArraySlice&lt;int64&gt; strides, llvm::IRBuilder&lt;&gt; * builder) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='119'>// Returns the index into the source operand from which a slice operation
+    // selects a value to be placed into index &quot;this&quot;. The slice is described
+    // by starting indices `starts` and stride values `strides`.
+    //
+    // Precondition: &quot;this&quot; is an index into a slice whose shape is `shape`.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1932' u='c' c='_ZN3xla3cpu9IrEmitter11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1535' u='c' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='174' ll='194' type='IrArray::Index xla::llvm_ir::IrArray::Index::SourceIndexOfSlice(const xla::Shape &amp; shape, tensorflow::gtl::ArraySlice&lt;int64&gt; starts, tensorflow::gtl::ArraySlice&lt;int64&gt; strides, llvm::IRBuilder&lt;&gt; * builder) const'/>

@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='115' type='tensorflow::Status tensorflow::ShapeRefiner::SetShape(const tensorflow::Node * node, int output_port, shape_inference::ShapeHandle shape)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1080' u='c' c='TF_GraphSetTensorShape'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='110'>// Sets &apos;node&apos;s &apos;output_port&apos; output to have shape &apos;shape&apos;.
+  //
+  // Returns an error if &apos;node&apos; was not previously added to this
+  // object, if &apos;output_port&apos; is invalid, or if &apos;shape&apos; is
+  // not compatible with the existing shape of the output.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/shape_refiner.cc' l='280' ll='306' type='tensorflow::Status tensorflow::ShapeRefiner::SetShape(const tensorflow::Node * node, int output_port, tensorflow::shape_inference::ShapeHandle shape)'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='596' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor13ValidateShapeEPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='358' u='c' c='_ZN10tensorflow15GraphTransferer38TransformGraphToAddAggregatedInputNodeERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EEPNS_5GraphEPNS_12ShapeRefinerE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='462' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23PropagateShapeInferenceERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPNS_5GraphEPNS_12ShapeRefinerE'/>

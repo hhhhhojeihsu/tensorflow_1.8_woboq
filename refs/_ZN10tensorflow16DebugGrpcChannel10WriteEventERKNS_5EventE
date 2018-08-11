@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/debug/debug_io_utils.h' l='264' type='bool tensorflow::DebugGrpcChannel::WriteEvent(const tensorflow::Event &amp; event)'/>
+<def f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='698' ll='701' type='bool tensorflow::DebugGrpcChannel::WriteEvent(const tensorflow::Event &amp; event)'/>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='825' u='c' c='_ZN10tensorflow11DebugGrpcIO31SendEventProtoThroughGrpcStreamERKNS_5EventERKSsb'/>
+<doc f='tensorflow/tensorflow/core/debug/debug_io_utils.h' l='254'>// Write an Event proto to the debug gRPC stream.
+  //
+  // Thread-safety: Safe with respect to other calls to the same method and
+  //   calls to ReadEventReply() and Close().
+  //
+  // Args:
+  //   event: The event proto to be written to the stream.
+  //
+  // Returns:
+  //   True iff the write is successful.</doc>

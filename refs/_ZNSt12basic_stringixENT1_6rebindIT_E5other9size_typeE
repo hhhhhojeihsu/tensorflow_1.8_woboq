@@ -1,0 +1,75 @@
+<def f='include/c++/5/bits/basic_string.h' l='3250' ll='3260' type='reference std::basic_string::operator[](size_type __pos)'/>
+<doc f='include/c++/5/bits/basic_string.h' l='3240'>/**
+       *  @brief  Subscript access to the data contained in the %string.
+       *  @param  __pos  The index of the character to access.
+       *  @return  Read/write reference to the character.
+       *
+       *  This operator allows for easy, array-style, data access.
+       *  Note that data access with this operator is unchecked and
+       *  out_of_range lookups are not defined. (For checked lookups
+       *  see at().)  Unshares the string.
+       */</doc>
+<use f='tensorflow/tensorflow/c/c_api_function.cc' l='84' u='c' c='_ZN10tensorflow12_GLOBAL__N_115NodeNameMapping9NormalizeESs'/>
+<use f='tensorflow/tensorflow/c/c_api_function.cc' l='87' u='c' c='_ZN10tensorflow12_GLOBAL__N_115NodeNameMapping9NormalizeESs'/>
+<use f='tensorflow/tensorflow/c/c_api_function.cc' l='90' u='c' c='_ZN10tensorflow12_GLOBAL__N_115NodeNameMapping9NormalizeESs'/>
+<use f='tensorflow/tensorflow/c/c_api_function.cc' l='97' u='c' c='_ZN10tensorflow12_GLOBAL__N_115NodeNameMapping9NormalizeESs'/>
+<use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='71' u='c' c='_ZNK10tensorflow12_GLOBAL__N_115NodeNameMapping15NormalizeHelperESs'/>
+<use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='74' u='c' c='_ZNK10tensorflow12_GLOBAL__N_115NodeNameMapping15NormalizeHelperESs'/>
+<use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='77' u='c' c='_ZNK10tensorflow12_GLOBAL__N_115NodeNameMapping15NormalizeHelperESs'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/dump_graph.cc' l='41' u='c' c='_ZN10tensorflow10dump_graph12_GLOBAL__N_114MakeUniquePathESs'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/dump_graph.cc' l='43' u='c' c='_ZN10tensorflow10dump_graph12_GLOBAL__N_114MakeUniquePathESs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='576' u='c' c='_ZN3xla7llvm_ir20SanitizeFunctionNameESs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='577' u='c' c='_ZN3xla7llvm_ir20SanitizeFunctionNameESs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/name_uniquer.cc' l='43' u='c' c='_ZN3xla11NameUniquer16GetSanitizedNameERKSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/name_uniquer.cc' l='45' u='c' c='_ZN3xla11NameUniquer16GetSanitizedNameERKSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/name_uniquer.cc' l='48' u='c' c='_ZN3xla11NameUniquer16GetSanitizedNameERKSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/name_uniquer.cc' l='49' u='c' c='_ZN3xla11NameUniquer16GetSanitizedNameERKSs'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='149' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_111ReadPcmFileERKSs'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='149' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_111ReadPcmFileERKSs'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='149' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_111ReadPcmFileERKSs'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='149' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_111ReadPcmFileERKSs'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='319' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='310' u='c' c='_ZN10tensorflow17ReadEventFromFileERKSsPNS_5EventE'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.cc' l='251' u='c' c='_ZN10tensorflow13ContainerInfo4InitEPNS_11ResourceMgrERKNS_7NodeDefEb'/>
+<use f='tensorflow/tensorflow/core/kernels/data_format_ops.cc' l='52' u='c' c='_ZN10tensorflow18DataFormatDimMapOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/data_format_ops.cc' l='52' u='c' c='_ZN10tensorflow18DataFormatDimMapOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_compressed_op.cc' l='51' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MemoryInputStream10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_csv_op.cc' l='39' u='c' c='_ZN10tensorflow11DecodeCSVOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/fact_op.cc' l='72' u='c' c='_ZN10tensorflowL1EEPSs'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_init_op.cc' l='113' u='c' c='_ZN10tensorflow29InitializeTableFromTextFileOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/ops_util.cc' l='65' u='c' c='_ZN10tensorflow20SanitizeThreadSuffixESs'/>
+<use f='tensorflow/tensorflow/core/lib/core/bitmap.cc' l='101' u='c' c='_ZNK10tensorflow4core6Bitmap8ToStringEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.cc' l='70' u='c' c='_ZN10tensorflow2io19BufferedInputStream14ReadLineHelperEPSsb'/>
+<use f='tensorflow/tensorflow/core/lib/io/inputbuffer.cc' l='82' u='c' c='_ZN10tensorflow2io11InputBuffer10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/path.cc' l='49' u='c' c='_ZN10tensorflow2io8internal12JoinPathImplESt16initializer_listINS_11StringPieceEE'/>
+<use f='tensorflow/tensorflow/core/lib/io/path.cc' l='196' u='c' c='_ZN10tensorflow2io9CleanPathENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/io/path.cc' l='273' u='c' c='_ZN10tensorflow2io15GetTempFilenameERKSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/path.cc' l='278' u='c' c='_ZN10tensorflow2io15GetTempFilenameERKSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/random_inputstream.cc' l='39' u='c' c='_ZN10tensorflow2io23RandomAccessInputStream10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='190' u='c' c='_ZN10tensorflow2io12RecordReader10ReadRecordEPyPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='38' u='c' c='_ZN10tensorflow5table12_GLOBAL__N_121FindShortestSeparatorEPSsRKNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='45' u='c' c='_ZN10tensorflow5table12_GLOBAL__N_121FindShortestSeparatorEPSsRKNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='48' u='c' c='_ZN10tensorflow5table12_GLOBAL__N_121FindShortestSeparatorEPSsRKNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='59' u='c' c='_ZN10tensorflow5table12_GLOBAL__N_118FindShortSuccessorEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='61' u='c' c='_ZN10tensorflow5table12_GLOBAL__N_118FindShortSuccessorEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/strings/numbers.cc' l='56' u='c' c='_ZN10tensorflow12_GLOBAL__N_127locale_independent_strtonumEPKcPS2_'/>
+<use f='tensorflow/tensorflow/core/lib/strings/numbers.cc' l='57' u='c' c='_ZN10tensorflow12_GLOBAL__N_127locale_independent_strtonumEPKcPS2_'/>
+<use f='tensorflow/tensorflow/core/lib/strings/ordered_code.cc' l='307' u='c' c='_ZN10tensorflow7strings11OrderedCode12TEST_CorruptEPSsi'/>
+<use f='tensorflow/tensorflow/core/lib/strings/ordered_code.cc' l='307' u='c' c='_ZN10tensorflow7strings11OrderedCode12TEST_CorruptEPSsi'/>
+<use f='tensorflow/tensorflow/core/lib/strings/ordered_code.cc' l='310' u='c' c='_ZN10tensorflow7strings11OrderedCode12TEST_CorruptEPSsi'/>
+<use f='tensorflow/tensorflow/core/lib/strings/proto_serialization.cc' l='26' u='c' c='_ZN10tensorflow30SerializeToStringDeterministicERKN6google8protobuf11MessageLiteEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='246' u='c' c='_ZN10tensorflow8str_util23StripTrailingWhitespaceEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='309' u='c' c='_ZN10tensorflow8str_util10ArgDefCaseENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='311' u='c' c='_ZN10tensorflow8str_util10ArgDefCaseENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='313' u='c' c='_ZN10tensorflow8str_util10ArgDefCaseENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/env.cc' l='162' u='c' c='_ZN10tensorflow12_GLOBAL__N_18PosixEnv23GetLocalTempDirectoriesEPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/port.cc' l='140' u='c' c='_ZN10tensorflow4port15Snappy_CompressEPKcmPSs'/>
+<use f='tensorflow/tensorflow/core/platform/tracing.cc' l='59' u='c' c='_ZN10tensorflow4port7Tracing14ParseEventMaskEPKcRKSs'/>
+<use f='tensorflow/tensorflow/core/util/util.cc' l='92' u='c' c='_ZN10tensorflow11PrintMemoryEPKcm'/>
+<use f='tensorflow/tensorflow/core/util/util.cc' l='93' u='c' c='_ZN10tensorflow11PrintMemoryEPKcm'/>
+<use f='tensorflow/tensorflow/core/util/util.cc' l='94' u='c' c='_ZN10tensorflow11PrintMemoryEPKcm'/>
+<use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='689' u='c' c='_ZN10tensorflow22python_op_gen_internal11GenPythonOp17AddDocStringAttrsEv'/>
+<use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='689' u='c' c='_ZN10tensorflow22python_op_gen_internal11GenPythonOp17AddDocStringAttrsEv'/>
+<use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='689' u='c' c='_ZN10tensorflow22python_op_gen_internal11GenPythonOp17AddDocStringAttrsEv'/>
+<use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='689' u='c' c='_ZN10tensorflow22python_op_gen_internal11GenPythonOp17AddDocStringAttrsEv'/>
+<use f='tensorflow/tensorflow/stream_executor/lib/path.cc' l='41' u='c' c='_ZN9perftools8gputools4port8internal12JoinPathImplESt16initializer_listIN10tensorflow11StringPieceEE'/>

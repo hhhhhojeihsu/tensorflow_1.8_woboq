@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.h' l='37' type='tensorflow::Status tensorflow::PyArrayToTF_Tensor(PyObject * ndarray, Safe_TF_TensorPtr * out_tensor)'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='78' u='c' c='_ZN10tensorflow21TF_Run_wrapper_helperEP20TF_DeprecatedSessionPKcPK9TF_BufferP7_objectRKNS_3gtl13InlinedVectorIS3_Li8EEESD_P9TF_StatusPNSA_IS8_Li8EEEPS4_'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='376' u='c' c='_ZN10tensorflow28TF_SessionRun_wrapper_helperEP10TF_SessionPKcPK9TF_BufferRKSt6vectorI9TF_OutputSaIS8_EERKS7_IP7_objectSaISE_EESC_RKS7_IP12TF_Operatio9798407'/>
+<doc f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.h' l='31'>// Converts the given numpy ndarray to a (safe) TF_Tensor. The returned
+// TF_Tensor in `out_tensor` may have its own Python reference to `ndarray`s
+// data. After `out_tensor` is destroyed, this reference must (eventually) be
+// decremented via ClearDecrefCache().
+//
+// `out_tensor` must be non-null. Caller retains ownership of `ndarray`.</doc>
+<def f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='375' ll='423' type='tensorflow::Status tensorflow::PyArrayToTF_Tensor(PyObject * ndarray, Safe_TF_TensorPtr * out_tensor)'/>
+<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='431' u='c' c='_ZN10tensorflow15NdarrayToTensorEP7_objectPNS_6TensorE'/>

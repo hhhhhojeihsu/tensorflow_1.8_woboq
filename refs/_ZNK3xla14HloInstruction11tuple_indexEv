@@ -1,0 +1,34 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='712' type='int64 xla::HloInstruction::tuple_index() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='709'>// Returns the tuple index associated with this instruction.
+  //
+  // Precondition: opcode() == HloOpcode::kGetTupleElement</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1036' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='308' u='c' c='_ZN3xla3cpu9IrEmitter21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='410' u='c' c='_ZN3xla19HloDataflowAnalysis29UpdateGetTupleElementValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='410' u='c' c='_ZN3xla19HloDataflowAnalysis29UpdateGetTupleElementValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2889' u='c' c='_ZN3xla12HloEvaluator21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1079' u='c' c='_ZN3xla14HloInstruction20CloneAndFuseInternalEPS0_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1335' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1586' u='c' c='_ZNK3xla14HloInstruction28LatestNonGteAncestorAndIndexEv'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1631' ll='1634' type='int64 xla::HloInstruction::tuple_index() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1851' u='c' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1851' u='c' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2288' u='c' c='_ZNK3xla14HloInstruction23ExtraAttributesToStringERKNS_15HloPrintOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_tfgraph_builder.cc' l='186' u='c' c='_ZNK3xla16hlo_graph_dumper17HloTfGraphBuilder12SetNodeAttrsEPKNS_14HloInstructionEPN10tensorflow7NodeDefE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='154' u='c' c='_ZN3xla13ShapeVerifier21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1353' u='c' c='_ZN3xla12_GLOBAL__N_116SetFusionLayoutsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/fused_ir_emitter.cc' l='104' u='c' c='_ZN3xla14FusedIrEmitter21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='226' u='c' c='_ZN3xla21TuplePointsToAnalysis21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_simplifier.cc' l='77' u='c' c='_ZN3xla15TupleSimplifier3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_simplifier.cc' l='114' u='c' c='_ZN3xla15TupleSimplifier3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_invariant_code_motion.cc' l='129' u='c' c='_ZN3xlaL19GatherInvariantGTEsEPNS_14HloComputationEPN10tensorflow3gtl7FlatSetIPNS_14HloInstructionENS2_4hashIS6_EESt8equal_toIS6_EEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='97' u='c' c='_ZN3xlaL18GetGTEOperandIndexEPKNS_14HloInstructionES2_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='99' u='c' c='_ZN3xlaL18GetGTEOperandIndexEPKNS_14HloInstructionES2_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='103' u='c' c='_ZN3xlaL18GetGTEOperandIndexEPKNS_14HloInstructionES2_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='355' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='361' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='381' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='446' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='633' u='c' c='_ZN3xlaL20TryPropagateConstantEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='658' u='c' c='_ZN3xlaL20TryPropagateConstantEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='660' u='c' c='_ZN3xlaL20TryPropagateConstantEPNS_14HloInstructionE'/>

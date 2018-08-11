@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_slice_reader.h' l='84' type='bool tensorflow::checkpoint::TensorSliceReader::HasTensor(const string &amp; name, tensorflow::TensorShape * shape, tensorflow::DataType * type) const'/>
+<use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='67' u='c' c='_ZNK10tensorflow10checkpoint16CheckpointReader9HasTensorERKSs'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_slice_reader.h' l='80'>// Checks if the reader contains any slice of a tensor. In case the reader
+  // does contain the tensor, if &quot;shape&quot; is not nullptr, fill &quot;shape&quot; with the
+  // shape of the tensor; if &quot;type&quot; is not nullptr, fill &quot;type&quot; with the type
+  // of the tensor.</doc>
+<use f='tensorflow/tensorflow/core/kernels/save_restore_tensor.cc' l='176' u='c' c='_ZN10tensorflow13RestoreTensorEPNS_15OpKernelContextESt8functionIFNS_6StatusERKSsPPNS_10checkpoint17TensorSliceReader5TableEEEibi'/>
+<def f='tensorflow/tensorflow/core/util/tensor_slice_reader.cc' l='201' ll='222' type='bool tensorflow::checkpoint::TensorSliceReader::HasTensor(const string &amp; name, tensorflow::TensorShape * shape, tensorflow::DataType * type) const'/>

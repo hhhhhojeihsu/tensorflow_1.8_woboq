@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/grappler/graph_view.h' l='73' type='std::unordered_set&lt;InputPort, HashPort&gt; tensorflow::grappler::GraphView::GetFanouts(const tensorflow::NodeDef &amp; node, bool include_controlled_nodes) const'/>
+<def f='tensorflow/tensorflow/core/grappler/graph_view.cc' l='123' ll='141' type='std::unordered_set&lt;GraphView::InputPort, GraphView::HashPort&gt; tensorflow::grappler::GraphView::GetFanouts(const tensorflow::NodeDef &amp; node, bool include_controlled_nodes) const'/>
+<doc f='tensorflow/tensorflow/core/grappler/graph_view.h' l='70'>// Get all the input (resp. output) ports in the immediate fanout (resp fanin)
+  // of a node. Include the controlling nodes iff include_controlling_nodes is
+  // true.</doc>

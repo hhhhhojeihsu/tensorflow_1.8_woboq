@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/debug/debug_io_utils.h' l='365' type='static std::unordered_map&lt;string, std::unique_ptr&lt;DebugGrpcChannel&gt; &gt; * tensorflow::DebugGrpcIO::GetStreamChannels()'/>
+<def f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='746' ll='752' type='static std::unordered_map&lt;string, std::unique_ptr&lt;DebugGrpcChannel&gt; &gt; * tensorflow::DebugGrpcIO::GetStreamChannels()'/>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='805' u='c' c='_ZN10tensorflow11DebugGrpcIO27GetOrCreateDebugGrpcChannelERKSsPPNS_16DebugGrpcChannelE'/>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='861' u='c' c='_ZN10tensorflow11DebugGrpcIO15CloseGrpcStreamERKSs'/>
+<doc f='tensorflow/tensorflow/core/debug/debug_io_utils.h' l='362'>// Returns a global map from grpc debug URLs to the corresponding
+  // DebugGrpcChannels.</doc>

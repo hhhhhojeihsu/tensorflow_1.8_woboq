@@ -1,0 +1,264 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='162' ll='1509'/>
+<size>784</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='161'>// HLO instructions are the IR used by the high-level compiler.</doc>
+<fun r='_ZN3xla14HloInstructionD1Ev'/>
+<fun r='_ZN3xla14HloInstruction15CreateFromProtoEPNS_9HloModuleERKNS_19HloInstructionProtoERKN10tensorflow3gtl7FlatMapIxPS0_NS6_4hashIxEESt8equal_toIxEEERKNS816766634'/>
+<fun r='_ZN3xla14HloInstruction15CreateParameterExRKNS_5ShapeERKSs'/>
+<fun r='_ZN3xla14HloInstruction14CreateConstantESt10unique_ptrINS_7LiteralESt14default_deleteIS2_EE'/>
+<fun r='_ZN3xla14HloInstruction21CreateGetTupleElementERKNS_5ShapeEPS0_x'/>
+<fun r='_ZN3xla14HloInstruction11CreateTraceERKSsPS0_'/>
+<fun r='_ZN3xla14HloInstruction9CreateRngERKNS_5ShapeENS_18RandomDistributionEN10tensorflow3gtl10ArraySliceIPS0_EE'/>
+<fun r='_ZN3xla14HloInstruction11CreateUnaryERKNS_5ShapeENS_9HloOpcodeEPS0_'/>
+<fun r='_ZN3xla14HloInstruction12CreateBinaryERKNS_5ShapeENS_9HloOpcodeEPS0_S5_'/>
+<fun r='_ZN3xla14HloInstruction13CreateTernaryERKNS_5ShapeENS_9HloOpcodeEPS0_S5_S5_'/>
+<fun r='_ZN3xla14HloInstruction14CreateVariadicERKNS_5ShapeENS_9HloOpcodeEN10tensorflow3gtl10ArraySliceIPS0_EE'/>
+<fun r='_ZN3xla14HloInstruction9CreateMapERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_14HloComputationES8_'/>
+<fun r='_ZN3xla14HloInstruction14CreateConvolveERKNS_5ShapeEPS0_S4_RKNS_6WindowERKNS_27ConvolutionDimensionNumbersE'/>
+<fun r='_ZN3xla14HloInstruction9CreateFftERKNS_5ShapeEPS0_NS_7FftTypeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla14HloInstruction9CreateDotERKNS_5ShapeEPS0_S4_RKNS_19DotDimensionNumbersE'/>
+<fun r='_ZN3xla14HloInstruction18CreateCanonicalDotERKNS_5ShapeEPS0_S4_'/>
+<fun r='_ZN3xla14HloInstruction21CreateReducePrecisionERKNS_5ShapeEPS0_ii'/>
+<fun r='_ZN3xla14HloInstruction21CreateCrossReplicaSumERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EE'/>
+<fun r='_ZN3xla14HloInstruction13CreateConvertERKNS_5ShapeEPS0_'/>
+<fun r='_ZN3xla14HloInstruction20CreateBitcastConvertERKNS_5ShapeEPS0_'/>
+<fun r='_ZN3xla14HloInstruction12CreateInfeedERKNS_5ShapeERKSs'/>
+<fun r='_ZN3xla14HloInstruction13CreateOutfeedERKNS_5ShapeEPS0_N10tensorflow11StringPieceE'/>
+<fun r='_ZN3xla14HloInstruction10CreateSendEPS0_x'/>
+<fun r='_ZN3xla14HloInstruction14CreateSendDoneEPS0_'/>
+<fun r='_ZN3xla14HloInstruction10CreateRecvERKNS_5ShapeEx'/>
+<fun r='_ZN3xla14HloInstruction14CreateRecvDoneEPS0_'/>
+<fun r='_ZN3xla14HloInstruction11CreateSliceERKNS_5ShapeEPS0_N10tensorflow3gtl10ArraySliceIxEES8_S8_'/>
+<fun r='_ZN3xla14HloInstruction18CreateDynamicSliceERKNS_5ShapeEPS0_S4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla14HloInstruction24CreateDynamicUpdateSliceERKNS_5ShapeEPS0_S4_S4_'/>
+<fun r='_ZN3xla14HloInstruction17CreateConcatenateERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEx'/>
+<fun r='_ZN3xla14HloInstruction12CreateReduceERKNS_5ShapeEPS0_S4_N10tensorflow3gtl10ArraySliceIxEEPNS_14HloComputationE'/>
+<fun r='_ZN3xla14HloInstruction18CreateReduceWindowERKNS_5ShapeEPS0_S4_RKNS_6WindowEPNS_14HloComputationE'/>
+<fun r='_ZN3xla14HloInstruction23CreateBatchNormTrainingERKNS_5ShapeEPS0_S4_S4_fx'/>
+<fun r='_ZN3xla14HloInstruction24CreateBatchNormInferenceERKNS_5ShapeEPS0_S4_S4_S4_S4_fx'/>
+<fun r='_ZN3xla14HloInstruction19CreateBatchNormGradERKNS_5ShapeEPS0_S4_S4_S4_S4_fx'/>
+<fun r='_ZN3xla14HloInstruction22CreateSelectAndScatterERKNS_5ShapeEPS0_PNS_14HloComputationERKNS_6WindowES4_S4_S6_'/>
+<fun r='_ZN3xla14HloInstruction15CreateBroadcastERKNS_5ShapeEPS0_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla14HloInstruction21CreateBroadcastDimOneERKNS_5ShapeEPS0_'/>
+<fun r='_ZN3xla14HloInstruction23CreateBroadcastSequenceERKNS_5ShapeEPS0_RKSt8functionIFS4_St10unique_ptrIS0_St14default_deleteIS0_EEEE'/>
+<fun r='_ZN3xla14HloInstruction9CreatePadERKNS_5ShapeEPS0_S4_RKNS_13PaddingConfigE'/>
+<fun r='_ZN3xla14HloInstruction13CreateReshapeERKNS_5ShapeEPS0_'/>
+<fun r='_ZN3xla14HloInstruction15CreateTransposeERKNS_5ShapeEPS0_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla14HloInstruction11CreateWhileERKNS_5ShapeEPNS_14HloComputationES5_PS0_'/>
+<fun r='_ZN3xla14HloInstruction17CreateConditionalERKNS_5ShapeEPS0_S4_PNS_14HloComputationES4_S6_'/>
+<fun r='_ZN3xla14HloInstruction12CreateGatherERKNS_5ShapeEPS0_S4_RKNS_22GatherDimensionNumbersEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla14HloInstruction12CreateFusionERKNS_5ShapeENS0_10FusionKindEPS0_'/>
+<fun r='_ZN3xla14HloInstruction12CreateFusionERKNS_5ShapeENS0_10FusionKindEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_14HloComputationE'/>
+<fun r='_ZN3xla14HloInstruction10CreateCallERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_14HloComputationE'/>
+<fun r='_ZN3xla14HloInstruction16CreateCustomCallERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EENS4_11StringPieceE'/>
+<fun r='_ZN3xla14HloInstruction17CreateHostComputeERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EENS4_11StringPieceEx'/>
+<fun r='_ZN3xla14HloInstruction11CreateTupleEN10tensorflow3gtl10ArraySliceIPS0_EE'/>
+<fun r='_ZN3xla14HloInstruction13CreateReverseERKNS_5ShapeEPS0_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla14HloInstruction20MakeGatherDimNumbersEN10tensorflow3gtl10ArraySliceIxEES4_S4_x'/>
+<fun r='_ZNK3xla14HloInstruction6opcodeEv'/>
+<fun r='_ZNK3xla14HloInstruction13HasSideEffectEv'/>
+<fun r='_ZNK3xla14HloInstruction5shapeEv'/>
+<fun r='_ZN3xla14HloInstruction13mutable_shapeEv'/>
+<fun r='_ZNK3xla14HloInstruction7operandEx'/>
+<fun r='_ZN3xla14HloInstruction15mutable_operandEx'/>
+<fun r='_ZNK3xla14HloInstruction13operand_countEv'/>
+<fun r='_ZNK3xla14HloInstruction8operandsEv'/>
+<fun r='_ZNK3xla14HloInstruction13operand_indexEPKS0_'/>
+<fun r='_ZNK3xla14HloInstruction10user_countEv'/>
+<fun r='_ZNK3xla14HloInstruction5usersEv'/>
+<fun r='_ZNK3xla14HloInstruction8IsUserOfEPKS0_'/>
+<fun r='_ZN3xla14HloInstruction22AddControlDependencyToEPS0_'/>
+<fun r='_ZN3xla14HloInstruction25RemoveControlDependencyToEPS0_'/>
+<fun r='_ZNK3xla14HloInstruction20control_predecessorsEv'/>
+<fun r='_ZNK3xla14HloInstruction18control_successorsEv'/>
+<fun r='_ZNK3xla14HloInstruction9IdenticalERKS0_RKSt8functionIFbPS1_S4_EERKS3_IFbPKNS_14HloComputationESB_EEb'/>
+<fun r='_ZNK3xla14HloInstruction18HasConstantOperandEv'/>
+<fun r='_ZNK3xla14HloInstruction16IsRank2TransposeEv'/>
+<fun r='_ZN3xla14HloInstruction14ReplaceUseWithEPS0_S1_'/>
+<fun r='_ZN3xla14HloInstruction18ReplaceOperandWithExPS0_'/>
+<fun r='_ZN3xla14HloInstruction18ReplaceAllUsesWithEPS0_'/>
+<fun r='_ZN3xla14HloInstruction18DetachFromOperandsEv'/>
+<fun r='_ZN3xla14HloInstruction6AcceptEPNS_17DfsHloVisitorBaseIT_EEbb'/>
+<fun r='_ZNK3xla14HloInstruction6AcceptEPNS_17DfsHloVisitorBaseIPKS0_EEbb'/>
+<fun r='_ZN3xla14HloInstruction22AcceptWithOperandOrderEPNS_17DfsHloVisitorBaseIPS0_EERKSt8functionIFbPKS0_S7_EEb'/>
+<fun r='_ZN3xla14HloInstruction6AcceptERKSt8functionIFN10tensorflow6StatusEPS0_EE'/>
+<fun r='_ZNK3xla14HloInstruction6AcceptERKSt8functionIFN10tensorflow6StatusEPKS0_EE'/>
+<fun r='_ZN3xla14HloInstruction13AcceptOrderedEPNS_17DfsHloVisitorBaseIPS0_EERKSt6vectorIPKS0_SaIS7_EE'/>
+<fun r='_ZN3xla14HloInstruction5VisitEPNS_17DfsHloVisitorBaseIT_EE'/>
+<fun r='_ZNK3xla14HloInstruction7literalEv'/>
+<fun r='_ZNK3xla14HloInstruction16parameter_numberEv'/>
+<fun r='_ZNK3xla14HloInstruction10dimensionsEv'/>
+<fun r='_ZNK3xla14HloInstruction10dimensionsEx'/>
+<fun r='_ZNK3xla14HloInstruction21concatenate_dimensionEv'/>
+<fun r='_ZNK3xla14HloInstruction11tuple_indexEv'/>
+<fun r='_ZNK3xla14HloInstruction28LatestNonGteAncestorAndIndexEv'/>
+<fun r='_ZN3xla14HloInstruction28LatestNonGteAncestorAndIndexEv'/>
+<fun r='_ZNK3xla14HloInstruction20LatestNonGteAncestorEv'/>
+<fun r='_ZN3xla14HloInstruction20LatestNonGteAncestorEv'/>
+<fun r='_ZNK3xla14HloInstruction8to_applyEv'/>
+<fun r='_ZN3xla14HloInstruction12set_to_applyEPNS_14HloComputationE'/>
+<fun r='_ZNK3xla14HloInstruction18custom_call_targetEv'/>
+<fun r='_ZNK3xla14HloInstruction14outfeed_configEv'/>
+<fun r='_ZNK3xla14HloInstruction13outfeed_shapeEv'/>
+<fun r='_ZNK3xla14HloInstruction15while_conditionEv'/>
+<fun r='_ZNK3xla14HloInstruction10while_bodyEv'/>
+<fun r='_ZN3xla14HloInstruction19set_while_conditionEPNS_14HloComputationE'/>
+<fun r='_ZN3xla14HloInstruction14set_while_bodyEPNS_14HloComputationE'/>
+<fun r='_ZNK3xla14HloInstruction6selectEv'/>
+<fun r='_ZNK3xla14HloInstruction7scatterEv'/>
+<fun r='_ZN3xla14HloInstruction10set_selectEPNS_14HloComputationE'/>
+<fun r='_ZN3xla14HloInstruction11set_scatterEPNS_14HloComputationE'/>
+<fun r='_ZNK3xla14HloInstruction16true_computationEv'/>
+<fun r='_ZNK3xla14HloInstruction17false_computationEv'/>
+<fun r='_ZN3xla14HloInstruction20set_true_computationEPNS_14HloComputationE'/>
+<fun r='_ZN3xla14HloInstruction21set_false_computationEPNS_14HloComputationE'/>
+<fun r='_ZNK3xla14HloInstruction15SignatureStringEv'/>
+<fun r='_ZNK3xla14HloInstruction8ToStringEv'/>
+<fun r='_ZNK3xla14HloInstruction8ToStringERKNS_15HloPrintOptionsE'/>
+<fun r='_ZNK3xla14HloInstruction16OperandsToStringERKNS_15HloPrintOptionsE'/>
+<fun r='_ZNK3xla14HloInstruction23ExtraAttributesToStringERKNS_15HloPrintOptionsE'/>
+<fun r='_ZNK3xla14HloInstruction13ToShortStringEv'/>
+<fun r='_ZNK3xla14HloInstruction7ToProtoEv'/>
+<fun r='_ZNK3xla14HloInstruction10ToCategoryEv'/>
+<fun r='_ZNK3xla14HloInstruction7tracingEv'/>
+<fun r='_ZN3xla14HloInstruction11set_tracingEPS0_'/>
+<fun r='_ZNK3xla14HloInstruction10channel_idEv'/>
+<fun r='_ZNK3xla14HloInstruction12channel_nameEv'/>
+<fun r='_ZNK3xla14HloInstruction13feature_indexEv'/>
+<fun r='_ZNK3xla14HloInstruction7epsilonEv'/>
+<fun r='_ZNK3xla14HloInstruction13infeed_configEv'/>
+<fun r='_ZN3xla14HloInstruction17set_infeed_configERKSs'/>
+<fun r='_ZNK3xla14HloInstruction10TracingTagEv'/>
+<fun r='_ZNK3xla14HloInstruction10IsConstantEv'/>
+<fun r='_ZNK3xla14HloInstruction7IsFusedEv'/>
+<fun r='_ZNK3xla14HloInstruction30fused_instructions_computationEv'/>
+<fun r='_ZNK3xla14HloInstruction9IsFusableEv'/>
+<fun r='_ZNK3xla14HloInstruction21fused_expression_rootEv'/>
+<fun r='_ZNK3xla14HloInstruction18fused_instructionsEv'/>
+<fun r='_ZN3xla14HloInstruction18fused_instructionsEv'/>
+<fun r='_ZNK3xla14HloInstruction23fused_instruction_countEv'/>
+<fun r='_ZNK3xla14HloInstruction15fused_parameterEx'/>
+<fun r='_ZNK3xla14HloInstruction16fused_parametersEv'/>
+<fun r='_ZNK3xla14HloInstruction19IsMultiOutputFusionEv'/>
+<fun r='_ZNK3xla14HloInstruction11fusion_kindEv'/>
+<fun r='_ZN3xla14HloInstruction15set_fusion_kindENS0_10FusionKindE'/>
+<fun r='_ZNK3xla14HloInstruction8shardingEv'/>
+<fun r='_ZNK3xla14HloInstruction19sharding_or_defaultERKNS_11HloShardingE'/>
+<fun r='_ZNK3xla14HloInstruction22sharding_unique_deviceEv'/>
+<fun r='_ZN3xla14HloInstruction12set_shardingERKNS_11HloShardingE'/>
+<fun r='_ZN3xla14HloInstruction14clear_shardingEv'/>
+<fun r='_ZNK3xla14HloInstruction12has_shardingEv'/>
+<fun r='_ZN3xla14HloInstruction16AddFusionOperandEPS0_'/>
+<fun r='_ZN3xla14HloInstruction22MergeFusionInstructionEPS0_'/>
+<fun r='_ZN3xla14HloInstruction37MergeFusionInstructionIntoMultiOutputEPS0_'/>
+<fun r='_ZN3xla14HloInstruction15FuseInstructionEPS0_'/>
+<fun r='_ZN3xla14HloInstruction30FuseInstructionIntoMultiOutputEPS0_'/>
+<fun r='_ZNK3xla14HloInstruction12slice_startsEx'/>
+<fun r='_ZNK3xla14HloInstruction12slice_startsEv'/>
+<fun r='_ZNK3xla14HloInstruction12slice_limitsEx'/>
+<fun r='_ZNK3xla14HloInstruction12slice_limitsEv'/>
+<fun r='_ZNK3xla14HloInstruction13slice_stridesEx'/>
+<fun r='_ZNK3xla14HloInstruction13slice_stridesEv'/>
+<fun r='_ZNK3xla14HloInstruction14IsInPlaceSliceEv'/>
+<fun r='_ZN3xla14HloInstruction17SetIsInPlaceSliceEb'/>
+<fun r='_ZNK3xla14HloInstruction11slice_sizesEx'/>
+<fun r='_ZNK3xla14HloInstruction19dynamic_slice_sizesEv'/>
+<fun r='_ZNK3xla14HloInstruction13exponent_bitsEv'/>
+<fun r='_ZNK3xla14HloInstruction13mantissa_bitsEv'/>
+<fun r='_ZNK3xla14HloInstruction6windowEv'/>
+<fun r='_ZN3xla14HloInstruction10set_windowERKNS_6WindowE'/>
+<fun r='_ZNK3xla14HloInstruction14padding_configEv'/>
+<fun r='_ZNK3xla14HloInstruction29convolution_dimension_numbersEv'/>
+<fun r='_ZN3xla14HloInstruction33set_convolution_dimension_numbersERKNS_27ConvolutionDimensionNumbersE'/>
+<fun r='_ZNK3xla14HloInstruction8fft_typeEv'/>
+<fun r='_ZNK3xla14HloInstruction10fft_lengthEv'/>
+<fun r='_ZNK3xla14HloInstruction35ConvolutionDimensionNumbersToStringEv'/>
+<fun r='_ZNK3xla14HloInstruction21dot_dimension_numbersEv'/>
+<fun r='_ZNK3xla14HloInstruction27DotDimensionNumbersToStringEv'/>
+<fun r='_ZNK3xla14HloInstruction24gather_dimension_numbersEv'/>
+<fun r='_ZNK3xla14HloInstruction20gather_window_boundsEv'/>
+<fun r='_ZNK3xla14HloInstruction30GatherDimensionNumbersToStringEv'/>
+<fun r='_ZNK3xla14HloInstruction19random_distributionEv'/>
+<fun r='_ZNK3xla14HloInstruction5CloneERKSsPNS_9HloModuleE'/>
+<fun r='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<fun r='_ZNK3xla14HloInstruction19called_computationsEv'/>
+<fun r='_ZN3xla14HloInstruction25ReplaceCalledComputationsESt8functionIFPNS_14HloComputationES3_EE'/>
+<fun r='_ZN3xla14HloInstruction23ClearCalledComputationsEv'/>
+<fun r='_ZNK3xla14HloInstruction22IsElementwiseOnOperandEx'/>
+<fun r='_ZNK3xla14HloInstruction13IsElementwiseEv'/>
+<fun r='_ZNK3xla14HloInstruction27ImplicitlyBroadcastsOperandEx'/>
+<fun r='_ZNK3xla14HloInstruction19IsElementwiseBinaryEv'/>
+<fun r='_ZNK3xla14HloInstruction21ReusesOperandElementsEx'/>
+<fun r='_ZNK3xla14HloInstruction14OperandIndicesEPKS0_'/>
+<fun r='_ZNK3xla14HloInstruction45ReshapeMerelyInsertsOrDeletes1SizedDimensionsEv'/>
+<fun r='_ZNK3xla14HloInstruction4nameEv'/>
+<fun r='_ZN3xla14HloInstruction8set_nameEN10tensorflow11StringPieceE'/>
+<fun r='_ZN3xla14HloInstruction12UniquifyNameEPNS_11NameUniquerE'/>
+<fun r='_ZN3xla14HloInstruction11SetUniqueIdEi'/>
+<fun r='_ZNK3xla14HloInstruction9unique_idEv'/>
+<fun r='_ZN3xla14HloInstruction12set_metadataERKNS_10OpMetadataE'/>
+<fun r='_ZNK3xla14HloInstruction8metadataEv'/>
+<fun r='_ZN3xla14HloInstruction10set_parentEPNS_14HloComputationE'/>
+<fun r='_ZNK3xla14HloInstruction6parentEv'/>
+<fun r='_ZN3xla14HloInstruction6parentEv'/>
+<fun r='_ZNK3xla14HloInstruction9GetModuleEv'/>
+<fun r='_ZNK3xla14HloInstruction14CouldBeBitcastEv'/>
+<fun r='_ZNK3xla14HloInstruction26outer_dimension_partitionsEv'/>
+<fun r='_ZN3xla14HloInstruction30set_outer_dimension_partitionsERKSt6vectorIxSaIxEE'/>
+<fun r='_ZN3xla14HloInstruction16RelayoutConstantERKNS_6LayoutERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<fun r='_ZN3xla14HloInstruction10CreateNaryERKNS_5ShapeENS_9HloOpcodeEN10tensorflow3gtl10ArraySliceIPS0_EE'/>
+<fun r='_ZN3xla14HloInstruction13AppendOperandEPS0_'/>
+<fun r='_ZN3xla14HloInstruction7AddUserEPS0_'/>
+<fun r='_ZN3xla14HloInstruction10RemoveUserEPS0_'/>
+<fun r='_ZN3xla14HloInstructionC1ENS_9HloOpcodeERKNS_5ShapeE'/>
+<fun r='_ZN3xla14HloInstruction23FuseInstructionInternalEPS0_b'/>
+<fun r='_ZN3xla14HloInstruction20CloneAndFuseInternalEPS0_b'/>
+<fun r='_ZNK3xla14HloInstruction26CloneFusionWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<fun r='_ZNK3xla14HloInstruction22CanHaveDimensionsFieldEv'/>
+<fun r='_ZNK3xla14HloInstruction17OperandElementUseEx'/>
+<mbr r='xla::HloInstruction::unique_id_' o='0' t='int'/>
+<mbr r='xla::HloInstruction::opcode_' o='32' t='xla::HloOpcode'/>
+<mbr r='xla::HloInstruction::operands_' o='64' t='InstructionVector'/>
+<mbr r='xla::HloInstruction::control_predecessors_' o='320' t='std::vector&lt;HloInstruction *&gt;'/>
+<mbr r='xla::HloInstruction::users_' o='512' t='std::vector&lt;HloInstruction *&gt;'/>
+<mbr r='xla::HloInstruction::user_set_' o='704' t='std::unordered_set&lt;const HloInstruction *&gt;'/>
+<mbr r='xla::HloInstruction::control_successors_' o='1152' t='std::vector&lt;HloInstruction *&gt;'/>
+<mbr r='xla::HloInstruction::parent_' o='1344' t='xla::HloComputation *'/>
+<mbr r='xla::HloInstruction::outfeed_shape_' o='1408' t='xla::Shape'/>
+<mbr r='xla::HloInstruction::shape_' o='2048' t='xla::Shape'/>
+<mbr r='xla::HloInstruction::literal_' o='2688' t='std::unique_ptr&lt;Literal&gt;'/>
+<mbr r='xla::HloInstruction::tuple_index_' o='2752' t='int64'/>
+<mbr r='xla::HloInstruction::dimensions_' o='2816' t='std::vector&lt;int64&gt;'/>
+<mbr r='xla::HloInstruction::window_' o='3008' t='std::unique_ptr&lt;Window&gt;'/>
+<mbr r='xla::HloInstruction::convolution_dimension_numbers_' o='3072' t='std::unique_ptr&lt;ConvolutionDimensionNumbers&gt;'/>
+<mbr r='xla::HloInstruction::dot_dimension_numbers_' o='3136' t='std::unique_ptr&lt;DotDimensionNumbers&gt;'/>
+<mbr r='xla::HloInstruction::gather_dimension_numbers_' o='3200' t='std::unique_ptr&lt;GatherDimensionNumbers&gt;'/>
+<mbr r='xla::HloInstruction::gather_window_bounds_' o='3264' t='std::vector&lt;int64&gt;'/>
+<mbr r='xla::HloInstruction::fft_type_' o='3456' t='xla::FftType'/>
+<mbr r='xla::HloInstruction::fft_length_' o='3520' t='std::vector&lt;int64&gt;'/>
+<mbr r='xla::HloInstruction::slice_starts_' o='3712' t='std::vector&lt;int64&gt;'/>
+<mbr r='xla::HloInstruction::slice_limits_' o='3904' t='std::vector&lt;int64&gt;'/>
+<mbr r='xla::HloInstruction::slice_strides_' o='4096' t='std::vector&lt;int64&gt;'/>
+<mbr r='xla::HloInstruction::is_in_place_slice_' o='4288' t='bool'/>
+<mbr r='xla::HloInstruction::exponent_bits_' o='4320' t='int32'/>
+<mbr r='xla::HloInstruction::mantissa_bits_' o='4352' t='int32'/>
+<mbr r='xla::HloInstruction::dynamic_slice_sizes_' o='4416' t='std::vector&lt;int64&gt;'/>
+<mbr r='xla::HloInstruction::padding_config_' o='4608' t='std::unique_ptr&lt;PaddingConfig&gt;'/>
+<mbr r='xla::HloInstruction::fusion_kind_' o='4672' t='xla::HloInstruction::FusionKind'/>
+<mbr r='xla::HloInstruction::sharding_' o='4736' t='std::unique_ptr&lt;HloSharding&gt;'/>
+<mbr r='xla::HloInstruction::parameter_number_' o='4800' t='int64'/>
+<mbr r='xla::HloInstruction::custom_call_target_' o='4864' t='string'/>
+<mbr r='xla::HloInstruction::channel_name_' o='4928' t='string'/>
+<mbr r='xla::HloInstruction::cost_estimate_ns_' o='4992' t='int64'/>
+<mbr r='xla::HloInstruction::called_computations_' o='5056' t='std::vector&lt;HloComputation *&gt;'/>
+<mbr r='xla::HloInstruction::outfeed_config_' o='5248' t='string'/>
+<mbr r='xla::HloInstruction::trace_instruction_' o='5312' t='xla::HloInstruction *'/>
+<mbr r='xla::HloInstruction::distribution_' o='5376' t='xla::RandomDistribution'/>
+<mbr r='xla::HloInstruction::epsilon_' o='5408' t='float'/>
+<mbr r='xla::HloInstruction::feature_index_' o='5440' t='int64'/>
+<mbr r='xla::HloInstruction::channel_id_' o='5504' t='int64'/>
+<mbr r='xla::HloInstruction::infeed_config_' o='5568' t='string'/>
+<mbr r='xla::HloInstruction::name_' o='5632' t='string'/>
+<mbr r='xla::HloInstruction::metadata_' o='5696' t='xla::OpMetadata'/>
+<mbr r='xla::HloInstruction::outer_dimension_partitions_' o='6080' t='std::vector&lt;int64&gt;'/>
+<fun r='_ZN3xla14HloInstructionC1ERKS0_'/>

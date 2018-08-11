@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/util/equal_graph_def.h' l='67' type='uint64 tensorflow::NodeDefHash(const tensorflow::NodeDef &amp; ndef, const tensorflow::EqualGraphDefOptions &amp; options = {})'/>
+<doc f='tensorflow/tensorflow/core/util/equal_graph_def.h' l='60'>// Returns a hash of `ndef` that is consistent with EqualNodeDef. In other
+// words, if two node defs compare equal according to EqualNodeDef, NodeDefHash
+// will return the same value for both of them when called with the same
+// `options` that was used in the call to EqualNodeDef.
+// Similarly to protobuf deterministic serialization, hash value is
+// guaranteed to be stable only for a given binary. In particular, one should
+// probably not persist the returned value.</doc>
+<use f='tensorflow/tensorflow/core/util/equal_graph_def.cc' l='90' u='c' c='_ZN10tensorflow19RepeatedNodeDefHashERKN6google8protobuf16RepeatedPtrFieldINS_7NodeDefEEERKNS_20EqualGraphDefOptionsE'/>
+<def f='tensorflow/tensorflow/core/util/equal_graph_def.cc' l='236' ll='275' type='uint64 tensorflow::NodeDefHash(const tensorflow::NodeDef &amp; ndef, const tensorflow::EqualGraphDefOptions &amp; options = {})'/>

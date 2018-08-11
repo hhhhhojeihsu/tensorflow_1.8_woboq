@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.h' l='141' ll='147' type='tensorflow::Status tensorflow::grappler::GraphOptimizerStage::EnsureNodeIsSupported(const tensorflow::NodeDef * node) const'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='350' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_134ArithmeticNodesGroupOptimizerStage11TrySimplifyEPNS_7NodeDefEPSs'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='721' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_133HoistCommonFactorOutOfAggregation11TrySimplifyEPNS_7NodeDefEPSs'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1077' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_123RemoveIdentityTranspose11TrySimplifyEPNS_7NodeDefEPSs'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1166' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_127RemoveRedundantBitcastStage11TrySimplifyEPNS_7NodeDefEPSs'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1204' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_124RemoveRedundantCastStage11TrySimplifyEPNS_7NodeDefEPSs'/>
+<doc f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.h' l='137'>// Return InvalidArgumentError if node is not supported by the optimizer
+  // stage.
+  // TODO(ezhulenev): make this check part of non-virtual public API
+  // (TrySimplify), and make virtual implementation protected.</doc>

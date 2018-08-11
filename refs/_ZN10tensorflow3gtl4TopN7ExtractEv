@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/lib/gtl/top_n.h' l='132' type='std::vector&lt;T&gt; * tensorflow::gtl::TopN::Extract()'/>
+<def f='tensorflow/tensorflow/core/lib/gtl/top_n.h' l='270' ll='281' type='std::vector&lt;T&gt; * tensorflow::gtl::TopN::Extract()'/>
+<use f='tensorflow/tensorflow/contrib/factorization/kernels/clustering_ops.cc' l='480' u='c' c='_ZN10tensorflow18NearestNeighborsOp27FindKNearestCentersOneBlockExRKN5Eigen3RefIKNS1_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi0ENS1_11OuterStrideILin1EEEE3258301'/>
+<doc f='tensorflow/tensorflow/core/lib/gtl/top_n.h' l='128'>// Extract the elements as a vector sorted in descending order.  The caller
+  // assumes ownership of the vector and must delete it when done.  This is a
+  // destructive operation.  The only method that can be called immediately
+  // after Extract() is Reset().</doc>

@@ -1,0 +1,38 @@
+<def f='tensorflow/tensorflow/core/common_runtime/placer.h' l='56' ll='97'/>
+<size>32</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/placer.h' l='32'>// A placement algorithm that assigns the nodes of the given Graph to
+// devices the given DeviceSet, respecting the following constraints:
+//
+// 1. Existing device assignments remain unchanged.
+// 2. Requested (partial or complete) device specifications given by device name
+//    for each node are granted.
+// 3. Nodes connected by edges of a reference type are colocated on
+//    the same device.
+// 4. Given nodes &quot;A&quot; and &quot;B&quot;, if node &quot;B&quot; has a colocation group
+//    &quot;@loc:A&quot;, nodes &quot;A&quot; and &quot;B&quot; will be colocated on the same device.
+//
+// The implementation builds a constraint graph with the same set of
+// nodes, and edges that represent colocation constraints between
+// nodes.  Each connected component in the resulting constraint graph
+// is then assigned to a set of valid devices.
+//
+// Run() will finally assign the device to each node given the list of
+// possible devices.
+//
+// TODO(mrry): &quot;Soft&quot; constraints, such as &quot;place node &apos;x&apos; as close as
+// possible to node &apos;y&apos; while respecting the other constraints&quot;?
+// TODO(mrry): Create a common interface for this and the other
+// placement algorithms so that they may be injected into the graph
+// builder.</doc>
+<fun r='_ZN10tensorflow6PlacerC1EPNS_5GraphEPKNS_9DeviceSetEPKNS_14SessionOptionsE'/>
+<fun r='_ZN10tensorflow6PlacerC1EPNS_5GraphEPKNS_9DeviceSetE'/>
+<fun r='_ZN10tensorflow6PlacerD1Ev'/>
+<fun r='_ZN10tensorflow6Placer3RunEv'/>
+<fun r='_ZNK10tensorflow6Placer17CanAssignToDeviceERKSsRKSt6vectorIPNS_6DeviceESaIS5_EE'/>
+<fun r='_ZNK10tensorflow6Placer12AssignAndLogEiPNS_4NodeE'/>
+<fun r='_ZNK10tensorflow6Placer19LogDeviceAssignmentEPKNS_4NodeE'/>
+<mbr r='tensorflow::Placer::graph_' o='0' t='tensorflow::Graph *const'/>
+<mbr r='tensorflow::Placer::devices_' o='64' t='const tensorflow::DeviceSet *const'/>
+<mbr r='tensorflow::Placer::options_' o='128' t='const tensorflow::SessionOptions *'/>
+<mbr r='tensorflow::Placer::log_device_placement_' o='192' t='const bool'/>
+<fun r='_ZN10tensorflow6PlacerC1ERKS0_'/>

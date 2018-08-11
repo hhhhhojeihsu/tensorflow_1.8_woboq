@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/c/c_api.cc' l='711' type='tensorflow::Status tensorflow::LoadLibrary(const char * library_filename, void ** result, const void ** buf, size_t * len)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='936' u='c' c='TF_LoadLibrary'/>
+<doc f='tensorflow/tensorflow/c/c_api.cc' l='710'>// Helpers for loading a TensorFlow plugin (a .so file).</doc>
+<def f='tensorflow/tensorflow/core/framework/load_library.cc' l='46' ll='102' type='tensorflow::Status tensorflow::LoadLibrary(const char * library_filename, void ** result, const void ** buf, size_t * len)'/>
+<doc f='tensorflow/tensorflow/core/framework/load_library.cc' l='36'>// Load a dynamic library.
+// On success, returns the handle to library in result, copies the serialized
+// OpList of OpDefs registered in the library to *buf and the length to *len,
+// and returns OK from the function. Otherwise return nullptr in result
+// and an error status from the function, leaving buf and len untouched.
+//
+// If `library_filename` has already been loaded, we return a cached handle
+// and OpList. Ops and kernels are registered as globals when a library is
+// loaded for the first time. Without caching, every subsequent load would not
+// perform initialization again, so the OpList would be empty.</doc>

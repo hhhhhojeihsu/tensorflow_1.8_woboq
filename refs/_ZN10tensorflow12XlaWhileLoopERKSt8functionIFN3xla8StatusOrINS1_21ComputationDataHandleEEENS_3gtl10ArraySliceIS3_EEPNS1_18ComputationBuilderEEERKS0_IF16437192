@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/lib/while_loop.h' l='50' type='xla::StatusOr&lt;std::vector&lt;xla::ComputationDataHandle&gt; &gt; tensorflow::XlaWhileLoop(const LoopConditionFunction &amp; condition_function, const LoopBodyFunction &amp; body_function, gtl::ArraySlice&lt;xla::ComputationDataHandle&gt; initial_values, tensorflow::StringPiece name, xla::ComputationBuilder * builder)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/lib/while_loop.h' l='42'>// Helper function for building an XLA while loop, where the values carried by
+// the loop are a tuple of values, e.g., (a, b, c):
+// while(
+//   condition: (a, b, c) -&gt; bool,
+//   body: (a, b, c) -&gt; (a, b, c)
+//   init: (a, b, c)
+// )
+// &apos;name&apos; is a descriptive name for the loop.</doc>
+<def f='tensorflow/tensorflow/compiler/tf2xla/lib/while_loop.cc' l='23' ll='79' type='xla::StatusOr&lt;std::vector&lt;xla::ComputationDataHandle&gt; &gt; tensorflow::XlaWhileLoop(const LoopConditionFunction &amp; condition_function, const LoopBodyFunction &amp; body_function, gtl::ArraySlice&lt;xla::ComputationDataHandle&gt; initial_values, tensorflow::StringPiece name, xla::ComputationBuilder * builder)'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/while_loop.cc' l='118' u='c' c='_ZN10tensorflow15XlaForEachIndexExN3xla13PrimitiveTypeERKSt8functionIFNS0_8StatusOrISt6vectorINS0_21ComputationDataHandleESaIS5_EEEES5_NS_3gtl10ArrayS2377571'/>

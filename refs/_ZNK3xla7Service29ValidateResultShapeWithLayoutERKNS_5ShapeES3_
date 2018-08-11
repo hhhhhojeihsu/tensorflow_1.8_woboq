@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='405' type='tensorflow::Status xla::Service::ValidateResultShapeWithLayout(const xla::Shape &amp; shape_with_layout, const xla::Shape &amp; result_shape) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='402'>// Convenience function which checks whether the given shape_with_layout
+  // (presumably passed by the client to set the result layout) is valid for the
+  // given computation result shape.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/local_service.cc' l='179' u='c' c='_ZN3xla12LocalService17CompileExecutableERKNS_17ComputationHandleEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEERKNS_22ExecutableBuildOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/local_service.cc' l='239' u='c' c='_ZN3xla12LocalService17CompileExecutableERKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEERKNS_22ExecutableBuildOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='218' ll='233' type='tensorflow::Status xla::Service::ValidateResultShapeWithLayout(const xla::Shape &amp; shape_with_layout, const xla::Shape &amp; result_shape) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='311' u='c' c='_ZN3xla7Service18CreateModuleConfigERKNS_12ProgramShapeEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEEPKNS_16ExecutionOptionsEPKNS_15UserComputationE'/>

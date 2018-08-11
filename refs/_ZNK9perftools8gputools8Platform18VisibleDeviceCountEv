@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/stream_executor/platform.h' l='122' type='int perftools::gputools::Platform::VisibleDeviceCount() const'/>
+<doc f='tensorflow/tensorflow/stream_executor/platform.h' l='117'>// Returns the number of devices accessible on this platform.
+  //
+  // Note that, though these devices are visible, if there is only one userspace
+  // context allowed for the device at a time and another process is using this
+  // device, a call to ExecutorForDevice may return an error status.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='80' u='c' c='_ZN3xla12PlatformUtil21GetSupportedPlatformsEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='82' u='c' c='_ZN3xla12PlatformUtil21GetSupportedPlatformsEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='209' u='c' c='_ZN3xla12PlatformUtil18GetStreamExecutorsEPN9perftools8gputools8PlatformE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_id_utils.h' l='49' u='c' c='_ZN10tensorflow9GpuIdUtil17CheckValidTfGpuIdENS_3gtl7IntTypeINS_12TfGpuId_tag_EiEE'/>
+<ovr f='tensorflow/tensorflow/stream_executor/host/host_platform.cc' l='41' c='_ZNK9perftools8gputools4host12HostPlatform18VisibleDeviceCountEv'/>
+<use f='tensorflow/tensorflow/stream_executor/platform.cc' l='107' u='c' c='_ZN9perftools8gputools8Platform16GetPeerAccessMapEv'/>

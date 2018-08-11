@@ -1,0 +1,21 @@
+<def f='tensorflow/tensorflow/core/lib/monitoring/metric_def.h' l='78' ll='111'/>
+<ovr f='tensorflow/tensorflow/core/lib/monitoring/metric_def.h' l='126' c='tensorflow::monitoring::MetricDef'/>
+<size>48</size>
+<doc f='tensorflow/tensorflow/core/lib/monitoring/metric_def.h' l='71'>// Abstract base class for a metric definition.
+//
+// Unlike MetricDef, this class is non-templatized and allows storing and
+// accessing metric definitions without the full type information.
+//
+// Everything except the value type of a metric is stored here. Please read
+// MetricDef class comments for more details.</doc>
+<fun r='_ZNK10tensorflow10monitoring17AbstractMetricDef4kindEv'/>
+<fun r='_ZNK10tensorflow10monitoring17AbstractMetricDef10value_typeEv'/>
+<fun r='_ZNK10tensorflow10monitoring17AbstractMetricDef4nameEv'/>
+<fun r='_ZNK10tensorflow10monitoring17AbstractMetricDef11descriptionEv'/>
+<fun r='_ZNK10tensorflow10monitoring17AbstractMetricDef18label_descriptionsEv'/>
+<fun r='_ZN10tensorflow10monitoring17AbstractMetricDefC1ENS0_10MetricKindENS0_9ValueTypeENS_11StringPieceES4_RKSt6vectorISsSaISsEE'/>
+<mbr r='tensorflow::monitoring::AbstractMetricDef::kind_' o='0' t='const tensorflow::monitoring::MetricKind'/>
+<mbr r='tensorflow::monitoring::AbstractMetricDef::value_type_' o='32' t='const tensorflow::monitoring::ValueType'/>
+<mbr r='tensorflow::monitoring::AbstractMetricDef::name_' o='64' t='const string'/>
+<mbr r='tensorflow::monitoring::AbstractMetricDef::description_' o='128' t='const string'/>
+<mbr r='tensorflow::monitoring::AbstractMetricDef::label_descriptions_' o='192' t='const std::vector&lt;string&gt;'/>

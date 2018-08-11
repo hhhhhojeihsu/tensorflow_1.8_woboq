@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='157' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferSelectAndScatterShape(const xla::Shape &amp; operand_shape, const xla::ProgramShape &amp; select_shape, const xla::Window &amp; window, const xla::Shape &amp; source_shape, const xla::Shape &amp; init_value_shape, const xla::ProgramShape &amp; scatter_shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='155'>// Infers the shape produced by scattering the given source shape to the
+  // selected indices of each window on the operand shape.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='292' u='c' c='_ZN3xla13ShapeVerifier22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1903' ll='1959' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferSelectAndScatterShape(const xla::Shape &amp; operand_shape, const xla::ProgramShape &amp; select_shape, const xla::Window &amp; window, const xla::Shape &amp; source_shape, const xla::Shape &amp; init_value_shape, const xla::ProgramShape &amp; scatter_shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1903'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='704' u='c' c='_ZN3xla15UserComputation30AddSelectAndScatterInstructionERKNS_23SelectAndScatterRequestERKS0_S5_'/>

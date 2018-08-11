@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/compilation_cache.h' l='51' type='std::shared_ptr&lt;Executable&gt; xla::CompilationCache::Insert(std::unique_ptr&lt;Executable&gt; executable, const xla::HloModuleConfig &amp; module_config)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/compilation_cache.h' l='38'>// Insert the given Executable into the cache. Return a bare Executable
+  // pointer for the caller to use. Note: the returned pointer will *not* be the
+  // same as the given unique pointer if the computation already exists in the
+  // cache. See comments in the .cc implementation for details of this case.
+  //
+  // module_config is provided by the caller, instead of being taken from the
+  // executable, so that we can insert keys into the compilation cache that are
+  // devoid of layout (where XLA gets to choose what layout to compile).
+  //
+  // A shared_ptr is returned so the caller can keep the Executable from being
+  // destructed in the event that the Executable is evicted from the
+  // computation cache (and the cache&apos;s shared_ptr to the Executable is
+  // destructed).</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/compilation_cache.cc' l='27' ll='48' type='std::shared_ptr&lt;Executable&gt; xla::CompilationCache::Insert(std::unique_ptr&lt;Executable&gt; executable, const xla::HloModuleConfig &amp; module_config)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='529' u='c' c='_ZN3xla7Service23BuildAndCacheExecutableERKNS_26VersionedComputationHandleESt10unique_ptrINS_15HloModuleConfigESt14default_deleteIS5_EEPNS_7BackendEPN3530019'/>

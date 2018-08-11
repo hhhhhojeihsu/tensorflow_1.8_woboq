@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.h' l='111' type='int tensorflow::GraphCycles::FindPath(int32 source, int32 dest, int max_path_len, int32 * path) const'/>
+<def f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.cc' l='294' ll='332' type='int tensorflow::GraphCycles::FindPath(int32 x, int32 y, int max_path_len, int32 * path) const'/>
+<use f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.cc' l='335' u='c' c='_ZNK10tensorflow11GraphCycles11IsReachableEii'/>
+<doc f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.h' l='100'>// Find a path from &quot;source&quot; to &quot;dest&quot;.  If such a path exists, place the
+  // node IDs of the nodes on the path in the array path[], and return the
+  // number of nodes on the path.  If the path is longer than max_path_len
+  // nodes, only the first max_path_len nodes are placed in path[].  The client
+  // should compare the return value with max_path_len&quot; to see when this
+  // occurs.  If no path exists, return 0.  Any valid path stored in path[]
+  // will start with &quot;source&quot; and end with &quot;dest&quot;.  There is no guarantee that
+  // the path is the shortest, but no node will appear twice in the path,
+  // except the source and destination node if they are identical; therefore,
+  // the return value is at most one greater than the number of nodes in the
+  // graph.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='430' u='c' c='_ZN10tensorflow12_GLOBAL__N_113DescribeCycleERKNS_11GraphCyclesERKNS_5GraphEii'/>

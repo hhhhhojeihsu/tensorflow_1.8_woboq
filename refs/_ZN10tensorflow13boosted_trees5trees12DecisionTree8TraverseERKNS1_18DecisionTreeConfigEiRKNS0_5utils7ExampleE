@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/boosted_trees/lib/trees/decision_tree.h' l='32' type='static int tensorflow::boosted_trees::trees::DecisionTree::Traverse(const tensorflow::boosted_trees::trees::DecisionTreeConfig &amp; config, int32 sub_root_id, const utils::Example &amp; example)'/>
+<doc f='tensorflow/tensorflow/contrib/boosted_trees/lib/trees/decision_tree.h' l='29'>// Traverse given an instance, a sub-root and its set of features
+  // and return the leaf index or -1 if the tree is empty or
+  // the sub-root is invalid.</doc>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/lib/learner/common/partitioners/example_partitioner.cc' l='41' u='c' c='_ZN10tensorflow13boosted_trees7learner18ExamplePartitioner16UpdatePartitionsERKNS0_5trees18DecisionTreeConfigERKNS0_5utils13BatchFeaturesEiPNS_6thread10ThreadPoolEPi'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/lib/learner/common/partitioners/example_partitioner.cc' l='73' u='c' c='_ZN10tensorflow13boosted_trees7learner18ExamplePartitioner17PartitionExamplesERKNS0_5trees18DecisionTreeConfigERKNS0_5utils13BatchFeaturesEiPNS_6thread10ThreadPoolEPi'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/lib/models/multiple_additive_trees.cc' l='48' u='c' c='_ZN10tensorflow13boosted_trees6models21MultipleAdditiveTrees7PredictERKNS0_5trees26DecisionTreeEnsembleConfigERKSt6vectorIiSaIiEERKNS0_5utils13BatchFe2852152'/>
+<def f='tensorflow/tensorflow/contrib/boosted_trees/lib/trees/decision_tree.cc' l='25' ll='111' type='static int tensorflow::boosted_trees::trees::DecisionTree::Traverse(const tensorflow::boosted_trees::trees::DecisionTreeConfig &amp; config, const int32 sub_root_id, const utils::Example &amp; example)'/>

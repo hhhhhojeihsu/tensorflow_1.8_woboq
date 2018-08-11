@@ -1,0 +1,27 @@
+<def f='include/c++/5/sstream' l='689' ll='692' type='void std::basic_stringstream::basic_stringstream&lt;_CharT, _Traits, _Alloc&gt;(ios_base::openmode __m = ios_base::out | ios_base::in)'/>
+<use f='tensorflow/tensorflow/core/lib/core/errors.h' l='48' u='c' c='_ZN10tensorflow6errors8internal16PrepareForStrCatERKT_'/>
+<doc f='include/c++/5/sstream' l='678'>/**
+       *  @brief  Default constructor starts with an empty string buffer.
+       *  @param  __m  Whether the buffer can read, or write, or both.
+       *
+       *  Initializes @c sb using the mode from @c __m, and passes @c
+       *  &amp;sb to the base class initializer.  Does not allocate any
+       *  buffer.
+       *
+       *  That&apos;s a lie.  We initialize the base class with NULL, because the
+       *  string class does its own memory management.
+      */</doc>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='61' u='c' c='_ZN10tensorflowL8ToStringET_'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1172' u='c' c='_ZNK10tensorflow15GraphTransferer42DumpVerificationStringOfNodeTransferParamsEv'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1188' u='c' c='_ZNK10tensorflow15GraphTransferer42DumpVerificationStringOfNodeTransferParamsEv'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1203' u='c' c='_ZNK10tensorflow15GraphTransferer42DumpVerificationStringOfNodeTransferParamsEv'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1216' u='c' c='_ZNK10tensorflow15GraphTransferer42DumpVerificationStringOfNodeTransferParamsEv'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/hexagon_control_wrapper.cc' l='421' u='c' c='_ZN10tensorflow21HexagonControlWrapper13FillInputNodeERKSsRKNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/util/stat_summarizer.cc' l='220' u='c' c='_ZNK10tensorflow14StatSummarizer12ShortSummaryEv'/>
+<use f='tensorflow/tensorflow/core/util/stat_summarizer.cc' l='240' u='c' c='_ZNK10tensorflow14StatSummarizer12HeaderStringERKSs'/>
+<use f='tensorflow/tensorflow/core/util/stat_summarizer.cc' l='268' u='c' c='_ZNK10tensorflow14StatSummarizer12ColumnStringERKNS0_6DetailExRKNS_4StatIxdEE'/>
+<use f='tensorflow/tensorflow/core/util/stat_summarizer.cc' l='289' u='c' c='_ZNK10tensorflow14StatSummarizer18OrderNodesByMetricENS0_13SortingMetricEPSt6vectorIPKNS0_6DetailESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/util/stat_summarizer.cc' l='352' u='c' c='_ZNK10tensorflow14StatSummarizer18GetStatsByNodeTypeEv'/>
+<use f='tensorflow/tensorflow/core/util/stat_summarizer.cc' l='423' u='c' c='_ZNK10tensorflow14StatSummarizer16GetStatsByMetricERKSsNS0_13SortingMetricEi'/>
+<use f='tensorflow/tensorflow/core/util/stat_summarizer.cc' l='442' u='c' c='_ZNK10tensorflow14StatSummarizer15GetOutputStringEv'/>
+<use f='tensorflow/tensorflow/core/util/stat_summarizer.cc' l='485' u='c' c='_ZNK10tensorflow14StatSummarizer12PrintOutputsEv'/>

@@ -1,0 +1,16 @@
+<def f='tensorflow/tensorflow/core/graph/node_builder.h' l='50' ll='72'/>
+<size>32</size>
+<doc f='tensorflow/tensorflow/core/graph/node_builder.h' l='44'>// For specifying the output of a Node to provide to one of the Input()
+  // functions below.  It supports both regular inputs (where you are
+  // connecting to an existing Node*), and inputs from outside the graph
+  // (or haven&apos;t been added to the graph yet, like back edges, where
+  // you don&apos;t have a Node*). Both types can be mixed, e.g. in an
+  // ArraySlice.</doc>
+<fun r='_ZN10tensorflow11NodeBuilder7NodeOutC1EPNS_4NodeEi'/>
+<fun r='_ZN10tensorflow11NodeBuilder7NodeOutC1ENS_11StringPieceEiNS_8DataTypeE'/>
+<fun r='_ZN10tensorflow11NodeBuilder7NodeOutC1Ev'/>
+<mbr r='tensorflow::NodeBuilder::NodeOut::node' o='0' t='tensorflow::Node *'/>
+<mbr r='tensorflow::NodeBuilder::NodeOut::error' o='64' t='bool'/>
+<mbr r='tensorflow::NodeBuilder::NodeOut::name' o='128' t='string'/>
+<mbr r='tensorflow::NodeBuilder::NodeOut::index' o='192' t='int32'/>
+<mbr r='tensorflow::NodeBuilder::NodeOut::dt' o='224' t='tensorflow::DataType'/>

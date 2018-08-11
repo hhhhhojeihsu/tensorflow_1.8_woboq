@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/kernels/sdca_internal.h' l='372' type='static void tensorflow::sdca::Examples::ComputeSquaredNormPerExample(const DeviceBase::CpuWorkerThreads &amp; worker_threads, int num_examples, int num_sparse_features, int num_dense_features, std::vector&lt;Example&gt; *const examples)'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_internal.cc' l='371' u='c' c='_ZN10tensorflow4sdca8Examples10InitializeEPNS_15OpKernelContextERKNS0_12ModelWeightsEiii'/>
+<def f='tensorflow/tensorflow/core/kernels/sdca_internal.cc' l='489' ll='524' type='static void tensorflow::sdca::Examples::ComputeSquaredNormPerExample(const DeviceBase::CpuWorkerThreads &amp; worker_threads, const int num_examples, const int num_sparse_features, const int num_dense_features, std::vector&lt;Example&gt; *const examples)'/>
+<doc f='tensorflow/tensorflow/core/kernels/sdca_internal.h' l='370'>// Computes squared example norm per example i.e |x|^2. This function modifies
+  // the |examples| passed in and adds the squared norm per example.</doc>
