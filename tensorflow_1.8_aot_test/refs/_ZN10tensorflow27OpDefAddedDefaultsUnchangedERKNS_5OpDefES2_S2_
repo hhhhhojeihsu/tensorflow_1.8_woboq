@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/framework/op_def_util.h' l='62' type='tensorflow::Status tensorflow::OpDefAddedDefaultsUnchanged(const tensorflow::OpDef &amp; old_op, const tensorflow::OpDef &amp; penultimate_op, const tensorflow::OpDef &amp; new_op)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_def_util.h' l='59'>// Returns an error if any attr in penultimate_op that is not in old_op
+// has a different default value in new_op.  In general it is not safe
+// to change the default for an attr that has been added to an op.</doc>
+<def f='tensorflow/tensorflow/core/framework/op_def_util.cc' l='664' ll='701' type='tensorflow::Status tensorflow::OpDefAddedDefaultsUnchanged(const tensorflow::OpDef &amp; old_op, const tensorflow::OpDef &amp; penultimate_op, const tensorflow::OpDef &amp; new_op)'/>

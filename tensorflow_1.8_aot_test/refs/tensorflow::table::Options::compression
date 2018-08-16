@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/core/lib/io/table_options.h' l='62' type='tensorflow::table::CompressionType'/>
+<offset>96</offset>
+<doc f='tensorflow/tensorflow/core/lib/io/table_options.h' l='48'>// Compress blocks using the specified compression algorithm.  This
+  // parameter can be changed dynamically.
+  //
+  // Default: kSnappyCompression, which gives lightweight but fast
+  // compression.
+  //
+  // Typical speeds of kSnappyCompression on an Intel(R) Core(TM)2 2.4GHz:
+  //    ~200-500MB/s compression
+  //    ~400-800MB/s decompression
+  // Note that these speeds are significantly faster than most
+  // persistent storage speeds, and therefore it is typically never
+  // worth switching to kNoCompression.  Even if the input data is
+  // incompressible, the kSnappyCompression implementation will
+  // efficiently detect that and will switch to uncompressed mode.</doc>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='175' u='r' c='_ZN10tensorflow5table12TableBuilder10WriteBlockEPNS0_12BlockBuilderEPNS0_11BlockHandleE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='348' u='w' c='_ZN10tensorflow12_GLOBAL__N_119TableBuilderOptionsEv'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='494' u='w' c='_ZN10tensorflow12BundleWriter6FinishEv'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_writer.cc' l='40' u='w' c='_ZN10tensorflow10checkpoint12_GLOBAL__N_112TableBuilderC1ERKSsPNS_12WritableFileE'/>

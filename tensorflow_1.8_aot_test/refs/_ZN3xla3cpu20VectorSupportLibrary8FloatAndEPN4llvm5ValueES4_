@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='126' type='llvm::Value * xla::cpu::VectorSupportLibrary::FloatAnd(llvm::Value * lhs, llvm::Value * rhs)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='128' u='c' c='_ZN3xla3cpu20VectorSupportLibrary8FloatAndEPN4llvm5ValueERKNS2_7APFloatE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='136' u='c' c='_ZN3xla3cpu20VectorSupportLibrary11FloatAndNotEPN4llvm5ValueES4_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='122'>// These boolean operations operate on the bitwise values of the floating
+  // point inputs.  They return a (vector of) float(s) but like in the mask
+  // generating predicates above this type system oddity makes the kernel IR
+  // generation code less cluttered.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/llvm_ir_runtime.cc' l='264' u='c' c='_ZN3xla3cpu7runtime12_GLOBAL__N_124EmitVectorF32LogIfNeededEPN4llvm6ModuleENS3_9StringRefEib'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='162' ll='172' type='llvm::Value * xla::cpu::VectorSupportLibrary::FloatAnd(llvm::Value * lhs, llvm::Value * rhs)'/>

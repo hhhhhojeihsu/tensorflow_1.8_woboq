@@ -1,0 +1,37 @@
+<dec f='tensorflow/tensorflow/core/platform/env.h' l='91' type='tensorflow::Status tensorflow::Env::NewRandomAccessFile(const string &amp; fname, std::unique_ptr&lt;RandomAccessFile&gt; * result)'/>
+<doc f='tensorflow/tensorflow/core/platform/env.h' l='78'>/// \brief Creates a brand new random access read-only file with the
+  /// specified name.
+
+  /// On success, stores a pointer to the new file in
+  /// *result and returns OK.  On failure stores NULL in *result and
+  /// returns non-OK.  If the file does not exist, returns a non-OK
+  /// status.
+  ///
+  /// The returned file may be concurrently accessed by multiple threads.
+  ///
+  /// The ownership of the returned RandomAccessFile is passed to the caller
+  /// and the object should be deleted when is not used. The file object
+  /// shouldn&apos;t live longer than the Env object.</doc>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='304' u='c' c='_ZN10tensorflow17ReadEventFromFileERKSsPNS_5EventE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/cache_dataset_ops.cc' l='171' u='c' c='_ZN10tensorflow12_GLOBAL__N_114CacheDatasetOp11FileDataset18FileWriterIterator20EnsureLockFileExistsEv'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='216' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TextLineDatasetOp7Dataset8Iterator18SetupStreamsLockedEPNS_3EnvE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='426' u='c' c='_ZN10tensorflow12_GLOBAL__N_126FixedLengthRecordDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='469' u='c' c='_ZN10tensorflow12_GLOBAL__N_126FixedLengthRecordDatasetOp7Dataset8Iterator15RestoreInternalEPNS_15IteratorContextEPNS_19IteratorStateReaderE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='660' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TFRecordDatasetOp7Dataset8Iterator18SetupStreamsLockedEPNS_3EnvE'/>
+<use f='tensorflow/tensorflow/core/kernels/fixed_length_record_reader_op.cc' l='56' u='c' c='_ZN10tensorflow23FixedLengthRecordReader19OnWorkStartedLockedEv'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_util.cc' l='34' u='c' c='_ZN10tensorflow6lookup12_GLOBAL__N_121GetNumLinesInTextFileEPNS_3EnvERKSsPx'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_util.cc' l='87' u='c' c='_ZN10tensorflow6lookup12_GLOBAL__N_120TextFileLineIterator4InitERKSsxcNS_8DataTypeExS5_xPNS_3EnvE'/>
+<use f='tensorflow/tensorflow/core/kernels/range_sampler.cc' l='284' u='c' c='_ZN10tensorflow19FixedUnigramSampler12LoadFromFileEPNS_3EnvERKSsf'/>
+<use f='tensorflow/tensorflow/core/kernels/record_yielder.cc' l='204' u='c' c='_ZN10tensorflow13RecordYielder9ShardLoopEPNS0_5ShardE'/>
+<use f='tensorflow/tensorflow/core/kernels/text_line_reader_op.cc' l='38' u='c' c='_ZN10tensorflow14TextLineReader19OnWorkStartedLockedEv'/>
+<use f='tensorflow/tensorflow/core/kernels/tf_record_reader_op.cc' l='39' u='c' c='_ZN10tensorflow14TFRecordReader19OnWorkStartedLockedEv'/>
+<use f='tensorflow/tensorflow/core/kernels/whole_file_read_ops.cc' l='38' u='c' c='_ZN10tensorflowL14ReadEntireFileEPNS_3EnvERKSsPSs'/>
+<def f='tensorflow/tensorflow/core/platform/env.cc' l='129' ll='134' type='tensorflow::Status tensorflow::Env::NewRandomAccessFile(const string &amp; fname, std::unique_ptr&lt;RandomAccessFile&gt; * result)'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='386' u='c' c='_ZN10tensorflow16ReadFileToStringEPNS_3EnvERKSsPSs'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='493' u='c' c='_ZN10tensorflow15ReadBinaryProtoEPNS_3EnvERKSsPN6google8protobuf11MessageLiteE'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='529' u='c' c='_ZN10tensorflow13ReadTextProtoEPNS_3EnvERKSsPN6google8protobuf7MessageE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='555' u='c' c='_ZN10tensorflowL14MergeOneBundleEPNS_3EnvENS_11StringPieceEPNS_10MergeStateE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='711' u='c' c='_ZN10tensorflow12BundleReaderC1EPNS_3EnvENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='811' u='c' c='_ZN10tensorflow12BundleReader8GetValueERKNS_16BundleEntryProtoEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_reader.cc' l='75' u='c' c='_ZN10tensorflow10checkpoint26OpenTableTensorSliceReaderERKSsPPNS0_17TensorSliceReader5TableE'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_reader.cc' l='37' u='c' c='_ZN10tensorflow2io14PyRecordReader3NewERKSsyS3_P9TF_Status'/>

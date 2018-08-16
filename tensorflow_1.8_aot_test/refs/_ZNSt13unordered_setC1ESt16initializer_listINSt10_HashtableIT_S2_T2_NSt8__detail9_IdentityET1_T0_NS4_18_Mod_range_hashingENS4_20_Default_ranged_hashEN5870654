@@ -1,0 +1,22 @@
+<def f='include/c++/5/bits/unordered_set.h' l='211' ll='217' type='void std::unordered_set::unordered_set&lt;_Value, _Hash, _Pred, _Alloc&gt;(initializer_list&lt;value_type&gt; __l, size_type __n = 0, const hasher &amp; __hf = hasher(), const key_equal &amp; __eql = key_equal(), const allocator_type &amp; __a = allocator_type())'/>
+<doc f='include/c++/5/bits/unordered_set.h' l='200'>/**
+       *  @brief  Builds an %unordered_set from an initializer_list.
+       *  @param  __l  An initializer_list.
+       *  @param __n  Minimal initial number of buckets.
+       *  @param __hf  A hash functor.
+       *  @param __eql  A key equality functor.
+       *  @param  __a  An allocator object.
+       *
+       *  Create an %unordered_set consisting of copies of the elements in the
+       *  list. This is linear in N (where N is @a __l.size()).
+       */</doc>
+<use f='tensorflow/tensorflow/cc/tools/freeze_saved_model.cc' l='83' u='c' c='_ZN10tensorflow12_GLOBAL__N_129GetReachableNodesAndVariablesEPNS_8GraphDefERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEERKSt13unordered_mapI2967572'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='191' u='c' c='_ZN10tensorflow12_GLOBAL__N_112IsXlaFusableERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/const_analysis.cc' l='32' u='c' c='_ZN10tensorflow22BackwardsConstAnalysisERKNS_5GraphEPSt6vectorIbSaIbEE'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='45' u='c'/>
+<use f='tensorflow/tensorflow/core/grappler/op_types.cc' l='454' u='c' c='_ZN10tensorflow8grappler12IsInvolutionERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/op_types.cc' l='463' u='c' c='_ZN10tensorflow8grappler17IsValuePreservingERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1404' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_114FeedsInPlaceOpERKNS0_15SimpleGraphViewERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/dependency_optimizer.cc' l='144' u='c' c='_ZN10tensorflow8grappler19DependencyOptimizer19SafeToConvertToNoOpERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='441' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_126GetStackPushNodesToConvertERKNS0_15SimpleGraphViewERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEi'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='54' u='c' c='_ZN10tensorflow8grappler22GetCheapToRecomputeOpsEv'/>

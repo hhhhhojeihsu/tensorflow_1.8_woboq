@@ -1,0 +1,56 @@
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='57' ll='227'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='45'>// The context passed to the Compile() method of XlaOpKernel. An
+// XlaOpKernelContext is a variant of the standard OpKernel class, tailored for
+// implementing operators that perform symbolic execution as part of the XLA
+// compiler. The key difference is that XlaOpKernelContext produces and consumes
+// data as XLA computations, rather than as standard Tensors.
+//
+// Under the hood, symbolic execution communicates using special Tensors that
+// wrap XlaExpression objects, however this is an implementation detail that
+// this class hides. The *only* correct way to allocate a Tensor during
+// compilation is using the XlaOpKernelContext methods, since they ensure there
+// is a valid XlaExpression backing the tensor. No Op should ever call
+// allocate_output or allocate_temp directly on the underlying OpKernelContext.</doc>
+<fun r='_ZN10tensorflow18XlaOpKernelContextC1EPNS_15OpKernelContextE'/>
+<fun r='_ZNK10tensorflow18XlaOpKernelContext7builderEv'/>
+<fun r='_ZNK10tensorflow18XlaOpKernelContext10num_inputsEv'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext10input_typeEi'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext10InputShapeEi'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext5InputEi'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext26ValidateInputsAreSameShapeEPNS_8OpKernelE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext9InputListENS_11StringPieceEPSt6vectorIN3xla21ComputationDataHandleESaIS4_EEPS2_INS_11TensorShapeESaIS8_EE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext13ConstantInputEiPN3xla7LiteralE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext21ConstantInputReshapedEiNS_3gtl10ArraySliceIxEEPN3xla7LiteralE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext24ConstantInputAsIntScalarEiPx'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext26ConstantInputAsFloatScalarEiPd'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext24ConstantInputAsIntVectorEiPSt6vectorIxSaIxEE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext27ConstantInputAsInt64LiteralEiPN3xla7LiteralE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext20ConstantInputAsShapeEiPNS_11TensorShapeE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext17ConstantInputListENS_11StringPieceEPSt6vectorIN3xla7LiteralESaIS4_EE'/>
+<fun r='_ZNK10tensorflow18XlaOpKernelContext11num_outputsEv'/>
+<fun r='_ZNK10tensorflow18XlaOpKernelContext21expected_output_dtypeEi'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext9SetOutputEiRKN3xla21ComputationDataHandleE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext17SetConstantOutputEiRKNS_6TensorE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext16SetInvalidOutputEi'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext9SetStatusERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext6statusEv'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext16GetResourceInputEiPPNS_11XlaResourceE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext17SetResourceOutputEiPNS_11XlaResourceE'/>
+<fun r='_ZNK10tensorflow18XlaOpKernelContext23GetVariableTypeAndShapeEiPNS_8DataTypeEPNS_11TensorShapeE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext17ReadVariableInputEiNS_8DataTypeEPNS_11TensorShapeEPN3xla21ComputationDataHandleE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext14AssignVariableEiNS_8DataTypeEN3xla21ComputationDataHandleE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext10CtxFailureERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext21CtxFailureWithWarningERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext10CtxFailureEPKciRKNS_6StatusE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext21CtxFailureWithWarningEPKciRKNS_6StatusE'/>
+<fun r='_ZNK10tensorflow18XlaOpKernelContext10call_frameEv'/>
+<fun r='_ZNK10tensorflow18XlaOpKernelContext16function_libraryEv'/>
+<fun r='_ZNK10tensorflow18XlaOpKernelContext9op_kernelEv'/>
+<fun r='_ZNK10tensorflow18XlaOpKernelContext17op_kernel_contextEv'/>
+<fun r='_ZNK10tensorflow18XlaOpKernelContext8compilerEv'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext14GetOrCreateMaxENS_8DataTypeE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext14GetOrCreateMinENS_8DataTypeE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext14GetOrCreateAddENS_8DataTypeE'/>
+<fun r='_ZN10tensorflow18XlaOpKernelContext14GetOrCreateMulENS_8DataTypeE'/>
+<mbr r='tensorflow::XlaOpKernelContext::context_' o='0' t='tensorflow::OpKernelContext *const'/>

@@ -1,0 +1,25 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='514' type='gtl::iterator_range&lt;NodeIter&gt; tensorflow::Graph::op_nodes() const'/>
+<def f='tensorflow/tensorflow/core/graph/graph.h' l='797' ll='813' type='gtl::iterator_range&lt;NodeIter&gt; tensorflow::Graph::op_nodes() const'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='513'>// Access to the list of all nodes, excluding the Source and Sink nodes.</doc>
+<use f='tensorflow/tensorflow/c/c_api_function.cc' l='453' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ComputeBodyNodesEPK8TF_GraphPKciPKPK12TF_OperationRKSt13unordered_mapIPKNS_4NodeESt6vectorIiSaIiEESt4hashISE_ESt8equal_9161699'/>
+<use f='tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.cc' l='123' u='c' c='_ZN10tensorflow21BuildXlaLaunchOpsPass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1294' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator17CopySubgraphNodesEPSt13unordered_mapIPKNS_4NodeEPS3_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1448' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator22CopyNodesToOutputGraphEbPNS_5GraphEPSt13unordered_mapIPKNS_4NodeEPS5_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2110' u='c' c='_ZN10tensorflowL11GetArgTypesERKNS_5GraphEPNS_3gtl13InlinedVectorINS_8DataTypeELi4EEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2127' u='c' c='_ZN10tensorflowL17RenumberArgumentsEPNS_5GraphERKSt6vectorIiSaIiEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='124' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='140' u='c' c='_ZN10tensorflow12_GLOBAL__N_116IsCompilableCallERKNS_7NodeDefERKNS_10DeviceTypeEiPNS_22FunctionLibraryRuntimeE'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='355' u='c' c='_ZN10tensorflow12_GLOBAL__N_125FindCompilationCandidatesERKNS_5GraphEPNS_25FunctionLibraryDefinitionEPNS_3EnvERKSt8functionIFbPKNS_4NodeERKNS_10Device15558984'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1377' u='c' c='_ZN10tensorflow24FunctionalizeControlFlowEPNS_5GraphEPNS_25FunctionLibraryDefinitionE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/accumulate_n_optimizer.cc' l='64' u='c' c='_ZN10tensorflow12_GLOBAL__N_123AccumulateNV2RemovePass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1228' u='c' c='_ZN10tensorflow18InlineFunctionBodyERKNS_25FunctionLibraryDefinitionEPNS_5GraphEPNS_4NodeEPKNS_12FunctionBodyE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1460' u='c' c='_ZN10tensorflow12FunctionBodyC1ERKNS_11FunctionDefENS_3gtl10ArraySliceINS_8DataTypeEEES7_PNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1507' u='c' c='_ZN10tensorflow22SymbolicGradientHelper4CopyEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/parallel_concat_optimizer.cc' l='46' u='c' c='_ZN10tensorflow12_GLOBAL__N_124ParallelConcatRemovePass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='753' u='c' c='_ZN10tensorflow6Placer3RunEv'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='234' u='c' c='_ZNK10tensorflow9CostModel16CheckInitializedERKNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='1288' u='c' c='_ZN10tensorflow9CopyGraphERKNS_5GraphEPS0_'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='539' u='c' c='_ZN10tensorflow12_GLOBAL__N_121BuildMemoryDeviceInfoERKNS_5GraphEPNS0_9GraphInfoE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='971' u='c' c='_ZN10tensorflow9PartitionERKNS_16PartitionOptionsEPNS_5GraphEPSt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_toISsESaISt4pairIKSsS6_EEE'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='142' u='c' c='_ZN10tensorflow12_GLOBAL__N_110FindSaveOpEPKNS_5GraphEPPNS_4NodeEPSt6vectorIPKNS_4EdgeESaISA_EEPb'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='157' u='c' c='_ZN10tensorflow12_GLOBAL__N_116FindRestoreAllOpEPKNS_5GraphENS_11StringPieceE'/>

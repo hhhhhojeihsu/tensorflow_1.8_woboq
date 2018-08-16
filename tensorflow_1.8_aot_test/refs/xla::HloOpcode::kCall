@@ -1,0 +1,49 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.h' l='58' type='10'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='412' u='r' c='_ZN3xla10XlaBuilder4CallERKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='122' c='_ZN3xla12_GLOBAL__N_134GatherComputationsByAllocationTypeEPKNS_9HloModuleEPSt6vectorIPKNS_14HloComputationESaIS7_EESA_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1452' u='r' c='_ZN3xla14BufferAssigner24BuildColocatedBufferSetsEPKNS_9HloModuleERKNS_14BufferLivenessERKSt8functionIFxRKNS_13LogicalBufferEEEPSt6vectorIN10tensorflo5486195'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='56' c='_ZN3xla25GetInstructionCallContextENS_9HloOpcodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/call_inliner.cc' l='36' u='r' c='_ZN3xla12_GLOBAL__N_130SubcomputationInsertionVisitorC1EPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/call_inliner.cc' l='43' u='r' c='_ZN3xla12_GLOBAL__N_130SubcomputationInsertionVisitor13DefaultActionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/call_inliner.cc' l='126' u='r' c='_ZN3xla11CallInliner6InlineEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/call_inliner.cc' l='146' u='r' c='_ZN3xla11CallInliner3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='577' u='r' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.cc' l='93' u='r' c='_ZN3xla3cpu26ParallelizationPreparation3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.cc' l='184' u='r' c='_ZN3xla3cpu26ParallelizationPreparation21AssignedParallelTasksEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2560' u='r' c='_ZN3xla3cpu9IrEmitter11FinishVisitEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='187' u='r' c='_ZN3xla3cpu12_GLOBAL__N_18Executor3RunEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='302' u='r' c='_ZN3xla3cpu12_GLOBAL__N_18Executor16HasParallelTasksEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='426' u='r' c='_ZN3xla3cpu21ParallelCpuExecutable23ExecuteComputeFunctionsEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEENS714477719'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.cc' l='136' u='r' c='_ZN3xla3cpu22ParallelTaskAssignment26GetTargetParallelTaskCountEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.cc' l='191' u='r' c='_ZN3xla3cpu20ParallelTaskAssigner25AssignParallelTasksHelperEPNS_9HloModuleEPNS_14HloComputationERKSt13unordered_mapIPKNS_14HloInstructionExSt4hashIS92400153'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/flatten_call_graph.cc' l='46' c='_ZN3xla12_GLOBAL__N_124ReplaceCalledComputationEPNS_14HloInstructionEPNS_14HloComputationES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='232' u='r' c='_ZN3xla13HeapSimulator14RunComputationERKNS_14HloComputationERKSt6vectorIPKNS_14HloInstructionESaIS7_EERKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='352' u='r' c='_ZN3xla19HloDataflowAnalysis18UpdateCallValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='441' u='r' c='_ZN3xla19HloDataflowAnalysis23UpdateParameterValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='569' c='_ZN3xla19HloDataflowAnalysis25UpdateInstructionValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='661' u='r' c='_ZN3xla19HloDataflowAnalysis9PropagateEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='734' c='_ZN3xla19HloDataflowAnalysis30InitializeInstructionValueSetsEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='142' u='r' c='_ZN3xla23HloElementTypeConverter3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='1016' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper19GetInstructionColorEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1135' u='r' c='_ZN3xla14HloInstruction10CreateCallERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1291' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1862' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1993' c='_ZNK3xla14HloInstruction8to_applyEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2010' c='_ZN3xla14HloInstruction12set_to_applyEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2267' u='r' c='_ZNK3xla14HloInstruction23ExtraAttributesToStringERKNS_15HloPrintOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2694' c='_ZN3xla14HloInstruction5VisitEPNS_17DfsHloVisitorBaseIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='129' c='_ZN3xla9HloModule19ReplaceComputationsERKSt13unordered_mapIPNS_14HloComputationES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.cc' l='28' macro='1' c='_ZN3xla15HloOpcodeStringENS_9HloOpcodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.cc' l='37' macro='1' u='r'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.cc' l='37' macro='1' u='a'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.cc' l='59' macro='1' c='_ZN3xla21HloOpcodeIsComparisonENS_9HloOpcodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.cc' l='69' macro='1' c='_ZN3xla19HloOpcodeIsVariadicENS_9HloOpcodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='212' u='r' c='_ZNK3xla11HloOrdering26UseIsBeforeValueDefinitionERKNS_6HloUseERKNS_8HloValueERKNS_19HloDataflowAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_value.cc' l='137' c='_ZN3xla12_GLOBAL__N_118MayUseOperandValueExRKNS_10ShapeIndexEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='398' c='_ZN3xla12_GLOBAL__N_127CheckMixedPrecisionOperandsEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='484' c='_ZN3xla13ShapeVerifier10CheckShapeEPKNS_14HloInstructionERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='96' c='_ZN3xla17InstructionFusion11IsExpensiveERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='545' u='r' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='837' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='246' u='r' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='350' u='r' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_19HloDataflowAnalysisE'/>

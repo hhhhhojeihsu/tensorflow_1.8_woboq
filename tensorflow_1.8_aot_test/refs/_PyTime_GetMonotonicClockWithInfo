@@ -1,0 +1,9 @@
+<dec f='include/python3.5m/pytime.h' l='179' type='int _PyTime_GetMonotonicClockWithInfo(_PyTime_t * t, _Py_clock_info_t * info)'/>
+<doc f='include/python3.5m/pytime.h' l='171'>/* Get the time of a monotonic clock, i.e. a clock that cannot go backwards.
+   The clock is not affected by system clock updates. The reference point of
+   the returned value is undefined, so that only the difference between the
+   results of consecutive calls is valid.
+
+   Fill info (if set) with information of the function used to get the time.
+
+   Return 0 on success, raise an exception and return -1 on error. */</doc>

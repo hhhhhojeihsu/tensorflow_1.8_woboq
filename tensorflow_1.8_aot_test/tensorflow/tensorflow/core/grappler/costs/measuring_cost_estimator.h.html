@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>measuring_cost_estimator.h source code [tensorflow/tensorflow/core/grappler/costs/measuring_cost_estimator.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::grappler::MeasuringCostEstimator "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/grappler/costs/measuring_cost_estimator.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>grappler</a>/<a href='./'>costs</a>/<a href='measuring_cost_estimator.h.html'>measuring_cost_estimator.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_GRAPPLER_COSTS_MEASURING_COST_ESTIMATOR_H_">TENSORFLOW_GRAPPLER_COSTS_MEASURING_COST_ESTIMATOR_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_GRAPPLER_COSTS_MEASURING_COST_ESTIMATOR_H_" data-ref="_M/TENSORFLOW_GRAPPLER_COSTS_MEASURING_COST_ESTIMATOR_H_">TENSORFLOW_GRAPPLER_COSTS_MEASURING_COST_ESTIMATOR_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../../include/c++/5/utility.html">&lt;utility&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../framework/tensor.h.html">"tensorflow/core/framework/tensor.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="cost_estimator.h.html">"tensorflow/core/grappler/costs/cost_estimator.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../../lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../lib/core/threadpool.h.html">"tensorflow/core/lib/core/threadpool.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="30">30</th><td><b>class</b> <dfn class='type' title='tensorflow::CostGraphDef' data-ref="tensorflow::CostGraphDef" id="tensorflow::CostGraphDef">CostGraphDef</dfn>;</td></tr>
+<tr><th id="31">31</th><td><b>class</b> <dfn class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef" id="tensorflow::GraphDef">GraphDef</dfn>;</td></tr>
+<tr><th id="32">32</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="35">35</th><td><b>namespace</b> <span class="namespace">grappler</span> {</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><b>class</b> <a class="type" href="../clusters/cluster.h.html#tensorflow::grappler::Cluster" title='tensorflow::grappler::Cluster' data-ref="tensorflow::grappler::Cluster" id="tensorflow::grappler::Cluster">Cluster</a>;</td></tr>
+<tr><th id="38">38</th><td><b>struct</b> <a class="type" href="../grappler_item.h.html#tensorflow::grappler::GrapplerItem" title='tensorflow::grappler::GrapplerItem' data-ref="tensorflow::grappler::GrapplerItem" id="tensorflow::grappler::GrapplerItem">GrapplerItem</a>;</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><i>// Estimate the cost of running a Grappler item by actually running the</i></td></tr>
+<tr><th id="41">41</th><td><i>// corresponding TensorFlow graph on the specified cluster and measuring the</i></td></tr>
+<tr><th id="42">42</th><td><i>// runtimes.</i></td></tr>
+<tr><th id="43">43</th><td><b>class</b> <dfn class="type def" id="tensorflow::grappler::MeasuringCostEstimator" title='tensorflow::grappler::MeasuringCostEstimator' data-ref="tensorflow::grappler::MeasuringCostEstimator">MeasuringCostEstimator</dfn> : <b>public</b> <a class="type" href="cost_estimator.h.html#tensorflow::grappler::CostEstimator" title='tensorflow::grappler::CostEstimator' data-ref="tensorflow::grappler::CostEstimator">CostEstimator</a> {</td></tr>
+<tr><th id="44">44</th><td> <b>public</b>:</td></tr>
+<tr><th id="45">45</th><td>  <i>// Run the model for measurement_steps to measure its average cost.</i></td></tr>
+<tr><th id="46">46</th><td><i>  // When measurement_threads is greater than 0, use a threadpool of as many</i></td></tr>
+<tr><th id="47">47</th><td><i>  // threads to run the measurements; otherwise, run them serially. Does not</i></td></tr>
+<tr><th id="48">48</th><td><i>  // take ownership of cluster.</i></td></tr>
+<tr><th id="49">49</th><td>  <b>explicit</b> <a class="decl" href="measuring_cost_estimator.cc.html#_ZN10tensorflow8grappler22MeasuringCostEstimatorC1EPNS0_7ClusterEii" title='tensorflow::grappler::MeasuringCostEstimator::MeasuringCostEstimator' data-ref="_ZN10tensorflow8grappler22MeasuringCostEstimatorC1EPNS0_7ClusterEii" id="_ZN10tensorflow8grappler22MeasuringCostEstimatorC1EPNS0_7ClusterEii">MeasuringCostEstimator</a>(<a class="type" href="../clusters/cluster.h.html#tensorflow::grappler::Cluster" title='tensorflow::grappler::Cluster' data-ref="tensorflow::grappler::Cluster">Cluster</a>* <dfn class="local col1 decl" id="1cluster" title='cluster' data-type='tensorflow::grappler::Cluster *' data-ref="1cluster">cluster</dfn>, <em>int</em> <dfn class="local col2 decl" id="2measurement_steps" title='measurement_steps' data-type='int' data-ref="2measurement_steps">measurement_steps</dfn>,</td></tr>
+<tr><th id="50">50</th><td>                                  <em>int</em> <dfn class="local col3 decl" id="3measurement_threads" title='measurement_threads' data-type='int' data-ref="3measurement_threads">measurement_threads</dfn>);</td></tr>
+<tr><th id="51">51</th><td>  <dfn class="virtual decl def" id="_ZN10tensorflow8grappler22MeasuringCostEstimatorD1Ev" title='tensorflow::grappler::MeasuringCostEstimator::~MeasuringCostEstimator' data-ref="_ZN10tensorflow8grappler22MeasuringCostEstimatorD1Ev">~MeasuringCostEstimator</dfn>() override {}</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <i>// Initializes the estimator for the specified grappler item.</i></td></tr>
+<tr><th id="54">54</th><td><i>  // This implementation always returns OK.</i></td></tr>
+<tr><th id="55">55</th><td>  <a class="type" href="../../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="virtual decl" href="measuring_cost_estimator.cc.html#_ZN10tensorflow8grappler22MeasuringCostEstimator10InitializeERKNS0_12GrapplerItemE" title='tensorflow::grappler::MeasuringCostEstimator::Initialize' data-ref="_ZN10tensorflow8grappler22MeasuringCostEstimator10InitializeERKNS0_12GrapplerItemE" id="_ZN10tensorflow8grappler22MeasuringCostEstimator10InitializeERKNS0_12GrapplerItemE">Initialize</a>(<em>const</em> <a class="type" href="../grappler_item.h.html#tensorflow::grappler::GrapplerItem" title='tensorflow::grappler::GrapplerItem' data-ref="tensorflow::grappler::GrapplerItem">GrapplerItem</a>&amp; <dfn class="local col4 decl" id="4item" title='item' data-type='const tensorflow::grappler::GrapplerItem &amp;' data-ref="4item">item</dfn>) override;</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  <i>// Runs the optimized version of the graph on the cluster, measure</i></td></tr>
+<tr><th id="58">58</th><td><i>  // the runtimes of each operation, and annotated the CostGraphDef</i></td></tr>
+<tr><th id="59">59</th><td><i>  // with the corresponding measurements.</i></td></tr>
+<tr><th id="60">60</th><td><i>  // Returns the average latency for the whole graph.</i></td></tr>
+<tr><th id="61">61</th><td>  <a class="type" href="../../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="virtual decl" href="measuring_cost_estimator.cc.html#_ZNK10tensorflow8grappler22MeasuringCostEstimator12PredictCostsERKNS_8GraphDefEPNS_12CostGraphDefEPNS0_5CostsE" title='tensorflow::grappler::MeasuringCostEstimator::PredictCosts' data-ref="_ZNK10tensorflow8grappler22MeasuringCostEstimator12PredictCostsERKNS_8GraphDefEPNS_12CostGraphDefEPNS0_5CostsE" id="_ZNK10tensorflow8grappler22MeasuringCostEstimator12PredictCostsERKNS_8GraphDefEPNS_12CostGraphDefEPNS0_5CostsE">PredictCosts</a>(<em>const</em> <span class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</span>&amp; <dfn class="local col5 decl" id="5optimized_graph" title='optimized_graph' data-type='const tensorflow::GraphDef &amp;' data-ref="5optimized_graph">optimized_graph</dfn>, <span class='type' title='tensorflow::CostGraphDef' data-ref="tensorflow::CostGraphDef">CostGraphDef</span>* <dfn class="local col6 decl" id="6cost_graph" title='cost_graph' data-type='tensorflow::CostGraphDef *' data-ref="6cost_graph">cost_graph</dfn>,</td></tr>
+<tr><th id="62">62</th><td>                      <a class="type" href="cost_estimator.h.html#tensorflow::grappler::Costs" title='tensorflow::grappler::Costs' data-ref="tensorflow::grappler::Costs">Costs</a>* <dfn class="local col7 decl" id="7overall_cost" title='overall_cost' data-type='tensorflow::grappler::Costs *' data-ref="7overall_cost">overall_cost</dfn>) <em>const</em> override;</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td> <b>private</b>:</td></tr>
+<tr><th id="65">65</th><td>  <a class="type" href="../clusters/cluster.h.html#tensorflow::grappler::Cluster" title='tensorflow::grappler::Cluster' data-ref="tensorflow::grappler::Cluster">Cluster</a>* <dfn class="decl" id="tensorflow::grappler::MeasuringCostEstimator::cluster_" title='tensorflow::grappler::MeasuringCostEstimator::cluster_' data-ref="tensorflow::grappler::MeasuringCostEstimator::cluster_">cluster_</dfn>;  <i>// Not owned.</i></td></tr>
+<tr><th id="66">66</th><td>  <em>int</em> <dfn class="decl" id="tensorflow::grappler::MeasuringCostEstimator::measurement_steps_" title='tensorflow::grappler::MeasuringCostEstimator::measurement_steps_' data-ref="tensorflow::grappler::MeasuringCostEstimator::measurement_steps_">measurement_steps_</dfn>;</td></tr>
+<tr><th id="67">67</th><td>  <em>int</em> <dfn class="decl" id="tensorflow::grappler::MeasuringCostEstimator::measurement_threads_" title='tensorflow::grappler::MeasuringCostEstimator::measurement_threads_' data-ref="tensorflow::grappler::MeasuringCostEstimator::measurement_threads_">measurement_threads_</dfn>;</td></tr>
+<tr><th id="68">68</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <a class="type" href="../../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&gt;&gt; <dfn class="decl" id="tensorflow::grappler::MeasuringCostEstimator::feed_" title='tensorflow::grappler::MeasuringCostEstimator::feed_' data-ref="tensorflow::grappler::MeasuringCostEstimator::feed_">feed_</dfn>;</td></tr>
+<tr><th id="69">69</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt; <dfn class="decl" id="tensorflow::grappler::MeasuringCostEstimator::fetch_" title='tensorflow::grappler::MeasuringCostEstimator::fetch_' data-ref="tensorflow::grappler::MeasuringCostEstimator::fetch_">fetch_</dfn>;</td></tr>
+<tr><th id="70">70</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">thread::</span><a class="type" href="../../lib/core/threadpool.h.html#tensorflow::thread::ThreadPool" title='tensorflow::thread::ThreadPool' data-ref="tensorflow::thread::ThreadPool">ThreadPool</a>&gt; <dfn class="decl" id="tensorflow::grappler::MeasuringCostEstimator::thread_pool_" title='tensorflow::grappler::MeasuringCostEstimator::thread_pool_' data-ref="tensorflow::grappler::MeasuringCostEstimator::thread_pool_">thread_pool_</dfn>;</td></tr>
+<tr><th id="71">71</th><td>};</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>}  <i>// end namespace grappler</i></td></tr>
+<tr><th id="74">74</th><td>}  <i>// end namespace tensorflow</i></td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_GRAPPLER_COSTS_MEASURING_COST_ESTIMATOR_H_</u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='measuring_cost_estimator.cc.html'>tensorflow/tensorflow/core/grappler/costs/measuring_cost_estimator.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,24 @@
+<inh f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='274' c='toco::Operator'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='365' ll='375'/>
+<size>104</size>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='350'>// &quot;Convolutional&quot; layer, as represented in model files.
+//
+// Inputs:
+//   inputs[0]: required: the input activations array
+//   inputs[1]: required: the Conv weights
+//   inputs[2]: optional: the bias vector, specifying the biases for each output
+//   channel.
+//
+// Outputs:
+//   outputs[0]: required: the output activations array
+//   outputs[1]: optional: the intermediate array of im2col-replicated input
+//                         activations. Present when targeting implementations
+//                         of Conv layers as Im2col+GEMM.
+//
+// TensorFlow equivalent: Conv2D</doc>
+<fun r='_ZN4toco12ConvOperatorC1Ev'/>
+<mbr r='toco::ConvOperator::padding' o='576' t='toco::Padding'/>
+<mbr r='toco::ConvOperator::stride_width' o='704' t='int'/>
+<mbr r='toco::ConvOperator::stride_height' o='736' t='int'/>
+<mbr r='toco::ConvOperator::dilation_width_factor' o='768' t='int'/>
+<mbr r='toco::ConvOperator::dilation_height_factor' o='800' t='int'/>

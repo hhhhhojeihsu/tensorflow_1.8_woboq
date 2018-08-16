@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='124' type='llvm::Value * xla::llvm_ir::EmitBufferIndexingGEP(llvm::Value * array, llvm::Value * index, llvm::IRBuilder&lt;&gt; * ir_builder)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='120'>// Convenience methods for emitting a GEP instruction that indexes into a buffer
+// (1-dimensional array), equivalent to array[index]. The type is automatically
+// determined from the element type of the array.  The int64 index overload
+// wraps the index in a i64 llvm::Value.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='130' ll='146' type='llvm::Value * xla::llvm_ir::EmitBufferIndexingGEP(llvm::Value * array, llvm::Value * index, llvm::IRBuilder&lt;&gt; * ir_builder)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='150' u='c' c='_ZN3xla7llvm_ir21EmitBufferIndexingGEPEPN4llvm5ValueExPNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE'/>

@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/kernels/tensor_array.h' l='334' type='tensorflow::Status tensorflow::TensorArray::CopyShapesFrom(tensorflow::TensorArray * rhs)'/>
+<def f='tensorflow/tensorflow/core/kernels/tensor_array.cc' l='84' ll='109' type='tensorflow::Status tensorflow::TensorArray::CopyShapesFrom(tensorflow::TensorArray * rhs)'/>
+<doc f='tensorflow/tensorflow/core/kernels/tensor_array.h' l='327'>// Copy the TensorShapes from another TensorArray into this one.
+  // The sizes of the two TensorArrays must match and this one
+  // may not have any entries filled in.  This performs a &quot;soft copy&quot;,
+  // essentially filling the current TensorArray with virtual
+  // zero-tensors, which will be replaced by future aggregate writes,
+  // or instantiated by future reads.  Requires a non-const pointer
+  // to the rhs to access its mutex.</doc>
+<use f='tensorflow/tensorflow/core/kernels/tensor_array_ops.cc' l='339' u='c' c='_ZN10tensorflow17TensorArrayGradOp17CreateTensorArrayEPNS_15OpKernelContextEPNS_11ResourceMgrEPNS_6TensorEPPNS_11TensorArrayE'/>

@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/xla/util.h' l='49' type='tensorflow::Status xla::WithLogBacktrace(const tensorflow::Status &amp; status)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/util.h' l='44'>// Logs the provided status message with a backtrace.
+//
+// For use by Status-factories, logs a backtrace at the point where the status
+// is created, such that we can use --vmodule=util=1 to see all status
+// creation backtraces.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/util.cc' l='33' ll='38' type='tensorflow::Status xla::WithLogBacktrace(const tensorflow::Status &amp; status)'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='75' u='c' c='_ZN3xla16InvalidArgumentVEPKcP13__va_list_tag'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='92' u='c' c='_ZN3xla13UnimplementedEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='101' u='c' c='_ZN3xla13InternalErrorEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='110' u='c' c='_ZN3xla18FailedPreconditionEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='119' u='c' c='_ZN3xla9CancelledEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='128' u='c' c='_ZN3xla17ResourceExhaustedEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='137' u='c' c='_ZN3xla8NotFoundEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='146' u='c' c='_ZN3xla11UnavailableEPKcz'/>

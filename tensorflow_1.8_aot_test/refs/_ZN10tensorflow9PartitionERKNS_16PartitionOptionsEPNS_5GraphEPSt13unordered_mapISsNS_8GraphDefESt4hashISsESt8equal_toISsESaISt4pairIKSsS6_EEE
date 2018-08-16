@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/graph/graph_partition.h' l='87' type='tensorflow::Status tensorflow::Partition(const tensorflow::PartitionOptions &amp; opts, tensorflow::Graph * input, std::unordered_map&lt;string, GraphDef&gt; * partitions)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1425' u='c' c='_ZN10tensorflow13DirectSession12CreateGraphsERKNS_17BuildGraphOptionsEPSt13unordered_mapISsSt10unique_ptrINS_5GraphESt14default_deleteIS6_EESt4hashISs10698560'/>
+<doc f='tensorflow/tensorflow/core/graph/graph_partition.h' l='81'>// Partition &quot;input&quot; graph into a set of graphs, one per location.
+// The location for node n is derived by calling opts.node_to_loc(n).
+// New nodes added by Partition use &quot;opts.new_name(old_name)&quot; to
+// generate node names.
+//
+// Stores the partitions in *partitions.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='167' u='c' c='_ZN10tensorflow8GraphMgr8InitItemERKSsRKNS_8GraphDefERKNS_12GraphOptionsERKNS_12DebugOptionsEPNS_33DistributedFunctionLibraryRuntimeEPNS0_4ItemE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='397' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph17DoBuildPartitionsENS_16PartitionOptionsEPSt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_toISs342710'/>
+<def f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='938' ll='1201' type='tensorflow::Status tensorflow::Partition(const tensorflow::PartitionOptions &amp; opts, tensorflow::Graph * g, std::unordered_map&lt;string, GraphDef&gt; * partitions)'/>

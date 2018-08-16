@@ -1,0 +1,13 @@
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.h' l='135' ll='138' type='const std::map&lt;string, std::unique_ptr&lt;XlaResource&gt; &gt; &amp; tensorflow::XlaResource::tensor_array_gradients() const'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.h' l='129'>// &apos;tensor_array_gradient&apos; is a map from TensorArrayGradV3 &apos;source&apos; attributes
+  // to an XlaResource containing the gradient TensorArrays. We store a pointer
+  // here since there should only be one gradient TensorArray per &apos;source&apos;
+  // string, irrespective of the number of calls to TensorArrayGrad. The map
+  // is ordered since values are packed into tuples by Pack() sorted by name
+  // order.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='70' u='c' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='121' u='c' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='66' u='c' c='_ZN10tensorflow12_GLOBAL__N_134MakeXlaCompilerArgumentsFromInputsEPNS_18XlaOpKernelContextEPSt6vectorINS_11XlaCompiler8ArgumentESaIS5_EEPbS9_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='177' u='c' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='383' u='c' c='_ZN10tensorflow12_GLOBAL__N_116BuildComputationERKSt6vectorINS_11XlaCompiler8ArgumentESaIS3_EERKS1_IiSaIiEERKS1_INS_13XlaExpressionESaISC_EERKS1_ISt107037535'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='396' u='c' c='_ZN10tensorflow12_GLOBAL__N_116BuildComputationERKSt6vectorINS_11XlaCompiler8ArgumentESaIS3_EERKS1_IiSaIiEERKS1_INS_13XlaExpressionESaISC_EERKS1_ISt107037535'/>

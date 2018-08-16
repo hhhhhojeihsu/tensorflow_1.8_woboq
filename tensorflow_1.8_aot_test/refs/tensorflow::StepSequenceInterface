@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/core/framework/collective.h' l='166' ll='190'/>
+<ovr f='tensorflow/tensorflow/core/framework/collective.h' l='194' c='tensorflow::CollectiveExecutorMgrInterface'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/framework/collective.h' l='162'>// Graphs which utilize Collective Ops in a common instance must
+// execute with identical step_ids even if they are disjoint graphs
+// run by otherwise independent tasks.  This interface supplies
+// coordinated step_ids to use in such cases.</doc>
+<fun r='_ZN10tensorflow21StepSequenceInterfaceD1Ev'/>
+<fun r='_ZN10tensorflow21StepSequenceInterface20GetStepSequenceAsyncEPKNS_22GetStepSequenceRequestEPNS_23GetStepSequenceResponseERKSt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow21StepSequenceInterface26RefreshStepIdSequenceAsyncExRKSt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow21StepSequenceInterface10NextStepIdEx'/>
+<fun r='_ZN10tensorflow21StepSequenceInterface12RetireStepIdExx'/>

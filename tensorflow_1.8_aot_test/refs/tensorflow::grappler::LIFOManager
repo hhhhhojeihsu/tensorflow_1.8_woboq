@@ -1,0 +1,16 @@
+<inh f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='126' c='tensorflow::grappler::ReadyNodeManager'/>
+<def f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='160' ll='178'/>
+<size>32</size>
+<doc f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='156'>// The LIFOManager schedules nodes by returning the last one added to the
+// scheduler. A node is executed and then its ready outputs are newly added to
+// the scheduler, so the LIFOManager will return outputs to a node following
+// that node&apos;s execution.</doc>
+<fun r='_ZN10tensorflow8grappler11LIFOManagerC1Ev'/>
+<fun r='_ZN10tensorflow8grappler11LIFOManagerD1Ev'/>
+<fun r='_ZN10tensorflow8grappler11LIFOManager4InitEPKSt13unordered_mapIPKNS_7NodeDefENS0_9NodeStateESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEE'/>
+<fun r='_ZN10tensorflow8grappler11LIFOManager7AddNodeEPKNS_7NodeDefE'/>
+<fun r='_ZN10tensorflow8grappler11LIFOManager11GetCurrNodeEv'/>
+<fun r='_ZN10tensorflow8grappler11LIFOManager14RemoveCurrNodeEv'/>
+<fun r='_ZNK10tensorflow8grappler11LIFOManager5EmptyEv'/>
+<mbr r='tensorflow::grappler::LIFOManager::nodes_' o='64' t='std::list&lt;const NodeDef *&gt;'/>
+<mbr r='tensorflow::grappler::LIFOManager::curr_pos_' o='192' t='std::list&lt;const NodeDef *&gt;::iterator'/>

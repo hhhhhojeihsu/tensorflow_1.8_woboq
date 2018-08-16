@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/core/framework/device_base.h' l='88' ll='92' type='void tensorflow::DeviceContext::CopyDeviceTensorToCPU(const tensorflow::Tensor * device_tensor, tensorflow::StringPiece tensor_name, tensorflow::Device * device, tensorflow::Tensor * cpu_tensor, StatusCallback done)'/>
+<doc f='tensorflow/tensorflow/core/framework/device_base.h' l='85'>// &quot;device_tensor&quot; is a tensor on a non-CPU device.  Copies
+  // device_tensor into &quot;cpu_tensor&quot;.  &quot;cpu_tensor&quot; must be allocated
+  // to be of the same size as &quot;device_tensor&quot;.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='126' u='c' c='_ZN10tensorflow20XlaCompileOnDemandOp7CompileEPNS_15OpKernelContextERKNS_9XlaDevice8MetadataEPPKNS_11XlaCompiler17CompilationResultEPPN3xla15LocalExecutableE'/>
+<ovr f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='187' c='_ZN10tensorflow16XlaDeviceContext21CopyDeviceTensorToCPUEPKNS_6TensorENS_11StringPieceEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/copy_tensor.cc' l='137' u='c' c='_ZN10tensorflow12_GLOBAL__N_116CopyDeviceToHostEPKNS_6TensorEPNS_9AllocatorES5_NS_11StringPieceEPNS_6DeviceEPS1_PNS_13DeviceContextESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/copy_tensor.cc' l='161' u='c' c='_ZN10tensorflow12_GLOBAL__N_116CopyDeviceToHostEPKNS_6TensorEPNS_9AllocatorES5_NS_11StringPieceEPNS_6DeviceEPS1_PNS_13DeviceContextESt8functionIFvRKNS_6StatusEEE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util_platform_specific.cc' l='32' c='_ZN10tensorflow16GPUDeviceContext21CopyDeviceTensorToCPUEPKNS_6TensorENS_11StringPieceEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/stack_ops.cc' l='297' u='c' c='_ZN10tensorflow11StackPushOp12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE'/>

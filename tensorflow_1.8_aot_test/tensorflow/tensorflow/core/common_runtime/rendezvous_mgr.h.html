@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>rendezvous_mgr.h source code [tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::IntraProcessRendezvous "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>common_runtime</a>/<a href='rendezvous_mgr.h.html'>rendezvous_mgr.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_COMMON_RUNTIME_RENDEZVOUS_MGR_H_">TENSORFLOW_COMMON_RUNTIME_RENDEZVOUS_MGR_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMMON_RUNTIME_RENDEZVOUS_MGR_H_" data-ref="_M/TENSORFLOW_COMMON_RUNTIME_RENDEZVOUS_MGR_H_">TENSORFLOW_COMMON_RUNTIME_RENDEZVOUS_MGR_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/unordered_map.html">&lt;unordered_map&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="device_mgr.h.html">"tensorflow/core/common_runtime/device_mgr.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../framework/rendezvous.h.html">"tensorflow/core/framework/rendezvous.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../framework/tensor.h.html">"tensorflow/core/framework/tensor.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../platform/macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../platform/mutex.h.html">"tensorflow/core/platform/mutex.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>// IntraProcessRendezvous is a Rendezvous which expects all producers</i></td></tr>
+<tr><th id="33">33</th><td><i>// and consumers to be devices immediately accessible within the</i></td></tr>
+<tr><th id="34">34</th><td><i>// process.  That is, it will never be necessary to perform an RPC to</i></td></tr>
+<tr><th id="35">35</th><td><i>// communicate with either.</i></td></tr>
+<tr><th id="36">36</th><td><i>//</i></td></tr>
+<tr><th id="37">37</th><td><i>// Buffering of Tensor values is delegated to a "local" Rendezvous</i></td></tr>
+<tr><th id="38">38</th><td><i>// obtained from NewLocalRendezvous().  This class just adds</i></td></tr>
+<tr><th id="39">39</th><td><i>// functionality to coordinate multiple process-local devices.</i></td></tr>
+<tr><th id="40">40</th><td><b>class</b> <dfn class="type def" id="tensorflow::IntraProcessRendezvous" title='tensorflow::IntraProcessRendezvous' data-ref="tensorflow::IntraProcessRendezvous">IntraProcessRendezvous</dfn> : <b>public</b> <a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous" title='tensorflow::Rendezvous' data-ref="tensorflow::Rendezvous">Rendezvous</a> {</td></tr>
+<tr><th id="41">41</th><td> <b>public</b>:</td></tr>
+<tr><th id="42">42</th><td>  <b>explicit</b> <dfn class="decl" id="_ZN10tensorflow22IntraProcessRendezvousC1EPKNS_9DeviceMgrE" title='tensorflow::IntraProcessRendezvous::IntraProcessRendezvous' data-ref="_ZN10tensorflow22IntraProcessRendezvousC1EPKNS_9DeviceMgrE">IntraProcessRendezvous</dfn>(<em>const</em> <a class="type" href="device_mgr.h.html#tensorflow::DeviceMgr" title='tensorflow::DeviceMgr' data-ref="tensorflow::DeviceMgr">DeviceMgr</a>* <dfn class="local col8 decl" id="798device_mgr" title='device_mgr' data-type='const tensorflow::DeviceMgr *' data-ref="798device_mgr">device_mgr</dfn>);</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>  <i>// Forwards to local_, where the Tensor "val" will be buffered and</i></td></tr>
+<tr><th id="45">45</th><td><i>  // any waiting callback stored.</i></td></tr>
+<tr><th id="46">46</th><td>  <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow22IntraProcessRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb" title='tensorflow::IntraProcessRendezvous::Send' data-ref="_ZN10tensorflow22IntraProcessRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb">Send</dfn>(<em>const</em> <a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous::ParsedKey" title='tensorflow::Rendezvous::ParsedKey' data-ref="tensorflow::Rendezvous::ParsedKey">ParsedKey</a>&amp; <dfn class="local col9 decl" id="799key" title='key' data-type='const tensorflow::Rendezvous::ParsedKey &amp;' data-ref="799key">key</dfn>, <em>const</em> <a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous" title='tensorflow::Rendezvous' data-ref="tensorflow::Rendezvous">Rendezvous</a>::<a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous::Args" title='tensorflow::Rendezvous::Args' data-ref="tensorflow::Rendezvous::Args">Args</a>&amp; <dfn class="local col0 decl" id="800args" title='args' data-type='const Rendezvous::Args &amp;' data-ref="800args">args</dfn>,</td></tr>
+<tr><th id="47">47</th><td>              <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col1 decl" id="801val" title='val' data-type='const tensorflow::Tensor &amp;' data-ref="801val">val</dfn>, <em>const</em> <em>bool</em> <dfn class="local col2 decl" id="802is_dead" title='is_dead' data-type='const bool' data-ref="802is_dead">is_dead</dfn>) override;</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <i>// This method is called only by the RecvOp.  It tests to see</i></td></tr>
+<tr><th id="50">50</th><td><i>  // whether the value will be produced by a local or remote device</i></td></tr>
+<tr><th id="51">51</th><td><i>  // and handles accordingly.  In the local case it forwards to</i></td></tr>
+<tr><th id="52">52</th><td><i>  // local_, in the remote case it initiates an RPC request.</i></td></tr>
+<tr><th id="53">53</th><td>  <em>void</em> <dfn class="virtual decl" id="_ZN10tensorflow22IntraProcessRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE" title='tensorflow::IntraProcessRendezvous::RecvAsync' data-ref="_ZN10tensorflow22IntraProcessRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE">RecvAsync</dfn>(<em>const</em> <a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous::ParsedKey" title='tensorflow::Rendezvous::ParsedKey' data-ref="tensorflow::Rendezvous::ParsedKey">ParsedKey</a>&amp; <dfn class="local col3 decl" id="803key" title='key' data-type='const tensorflow::Rendezvous::ParsedKey &amp;' data-ref="803key">key</dfn>, <em>const</em> <a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous" title='tensorflow::Rendezvous' data-ref="tensorflow::Rendezvous">Rendezvous</a>::<a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous::Args" title='tensorflow::Rendezvous::Args' data-ref="tensorflow::Rendezvous::Args">Args</a>&amp; <dfn class="local col4 decl" id="804args" title='args' data-type='const Rendezvous::Args &amp;' data-ref="804args">args</dfn>,</td></tr>
+<tr><th id="54">54</th><td>                 <a class="typedef" href="../framework/rendezvous.h.html#tensorflow::Rendezvous::DoneCallback" title='tensorflow::Rendezvous::DoneCallback' data-type='std::function&lt;void (const Status &amp;, const Args &amp;, const Args &amp;, const Tensor &amp;, const bool)&gt;' data-ref="tensorflow::Rendezvous::DoneCallback">DoneCallback</a> <dfn class="local col5 decl" id="805done" title='done' data-type='DoneCallback' data-ref="805done">done</dfn>) override;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>  <em>void</em> <dfn class="virtual decl" id="_ZN10tensorflow22IntraProcessRendezvous10StartAbortERKNS_6StatusE" title='tensorflow::IntraProcessRendezvous::StartAbort' data-ref="_ZN10tensorflow22IntraProcessRendezvous10StartAbortERKNS_6StatusE">StartAbort</dfn>(<em>const</em> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a>&amp; <dfn class="local col6 decl" id="806status" title='status' data-type='const tensorflow::Status &amp;' data-ref="806status">status</dfn>) override;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td> <b>private</b>:</td></tr>
+<tr><th id="59">59</th><td>  <em>const</em> <a class="type" href="device_mgr.h.html#tensorflow::DeviceMgr" title='tensorflow::DeviceMgr' data-ref="tensorflow::DeviceMgr">DeviceMgr</a>* <dfn class="decl" id="tensorflow::IntraProcessRendezvous::device_mgr_" title='tensorflow::IntraProcessRendezvous::device_mgr_' data-ref="tensorflow::IntraProcessRendezvous::device_mgr_">device_mgr_</dfn>;</td></tr>
+<tr><th id="60">60</th><td>  <a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous" title='tensorflow::Rendezvous' data-ref="tensorflow::Rendezvous">Rendezvous</a>* <dfn class="decl" id="tensorflow::IntraProcessRendezvous::local_" title='tensorflow::IntraProcessRendezvous::local_' data-ref="tensorflow::IntraProcessRendezvous::local_">local_</dfn>;  <i>// Owns a Ref on this object.</i></td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <em>mutable</em> <a class="type" href="../platform/default/mutex.h.html#tensorflow::mutex" title='tensorflow::mutex' data-ref="tensorflow::mutex">mutex</a> <dfn class="decl" id="tensorflow::IntraProcessRendezvous::mu_" title='tensorflow::IntraProcessRendezvous::mu_' data-ref="tensorflow::IntraProcessRendezvous::mu_">mu_</dfn>;</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>  <i>// Status given by StartAbort() if any.</i></td></tr>
+<tr><th id="65">65</th><td>  <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="tensorflow::IntraProcessRendezvous::status_" title='tensorflow::IntraProcessRendezvous::status_' data-ref="tensorflow::IntraProcessRendezvous::status_">status_</dfn> <a class="macro" href="../platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(mu_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::IntraProcessRendezvous::mu_" title='tensorflow::IntraProcessRendezvous::mu_' data-ref="tensorflow::IntraProcessRendezvous::mu_">mu_</a>);</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>  <dfn class="virtual decl" id="_ZN10tensorflow22IntraProcessRendezvousD1Ev" title='tensorflow::IntraProcessRendezvous::~IntraProcessRendezvous' data-ref="_ZN10tensorflow22IntraProcessRendezvousD1Ev">~IntraProcessRendezvous</dfn>() override;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>  <i>// Parses "key" into "parsed". If "is_src" is true, checks that the</i></td></tr>
+<tr><th id="70">70</th><td><i>  // rendezvous key's source is in this process. If "is_src" is false,</i></td></tr>
+<tr><th id="71">71</th><td><i>  // checks that the rendezvous key's destination is in this process.</i></td></tr>
+<tr><th id="72">72</th><td>  <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZN10tensorflow22IntraProcessRendezvous8ParseKeyERKSsbPNS_10Rendezvous9ParsedKeyE" title='tensorflow::IntraProcessRendezvous::ParseKey' data-ref="_ZN10tensorflow22IntraProcessRendezvous8ParseKeyERKSsbPNS_10Rendezvous9ParsedKeyE">ParseKey</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col7 decl" id="807key" title='key' data-type='const string &amp;' data-ref="807key">key</dfn>, <em>bool</em> <dfn class="local col8 decl" id="808is_src" title='is_src' data-type='bool' data-ref="808is_src">is_src</dfn>,</td></tr>
+<tr><th id="73">73</th><td>                  <a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous" title='tensorflow::Rendezvous' data-ref="tensorflow::Rendezvous">Rendezvous</a>::<a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous::ParsedKey" title='tensorflow::Rendezvous::ParsedKey' data-ref="tensorflow::Rendezvous::ParsedKey">ParsedKey</a>* <dfn class="local col9 decl" id="809parsed" title='parsed' data-type='Rendezvous::ParsedKey *' data-ref="809parsed">parsed</dfn>);</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>  <i>// Callback handling the case when a rendezvous has been</i></td></tr>
+<tr><th id="76">76</th><td><i>  // accomplished in local_ and the consumer is local to this process.</i></td></tr>
+<tr><th id="77">77</th><td><i>  // Tensor "in" will be copied into "out". The key "parsed" encodes</i></td></tr>
+<tr><th id="78">78</th><td><i>  // the src and dst devices.</i></td></tr>
+<tr><th id="79">79</th><td>  <b>typedef</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<em>void</em>(<em>const</em> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a>&amp;)&gt; <dfn class="typedef" id="tensorflow::IntraProcessRendezvous::StatusCallback" title='tensorflow::IntraProcessRendezvous::StatusCallback' data-type='std::function&lt;void (const Status &amp;)&gt;' data-ref="tensorflow::IntraProcessRendezvous::StatusCallback">StatusCallback</dfn>;</td></tr>
+<tr><th id="80">80</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow22IntraProcessRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE" title='tensorflow::IntraProcessRendezvous::SameWorkerRecvDone' data-ref="_ZN10tensorflow22IntraProcessRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE">SameWorkerRecvDone</dfn>(<em>const</em> <a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous" title='tensorflow::Rendezvous' data-ref="tensorflow::Rendezvous">Rendezvous</a>::<a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous::ParsedKey" title='tensorflow::Rendezvous::ParsedKey' data-ref="tensorflow::Rendezvous::ParsedKey">ParsedKey</a>&amp; <dfn class="local col0 decl" id="810parsed" title='parsed' data-type='const Rendezvous::ParsedKey &amp;' data-ref="810parsed">parsed</dfn>,</td></tr>
+<tr><th id="81">81</th><td>                          <em>const</em> <a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous" title='tensorflow::Rendezvous' data-ref="tensorflow::Rendezvous">Rendezvous</a>::<a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous::Args" title='tensorflow::Rendezvous::Args' data-ref="tensorflow::Rendezvous::Args">Args</a>&amp; <dfn class="local col1 decl" id="811send_args" title='send_args' data-type='const Rendezvous::Args &amp;' data-ref="811send_args">send_args</dfn>,</td></tr>
+<tr><th id="82">82</th><td>                          <em>const</em> <a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous" title='tensorflow::Rendezvous' data-ref="tensorflow::Rendezvous">Rendezvous</a>::<a class="type" href="../framework/rendezvous.h.html#tensorflow::Rendezvous::Args" title='tensorflow::Rendezvous::Args' data-ref="tensorflow::Rendezvous::Args">Args</a>&amp; <dfn class="local col2 decl" id="812recv_args" title='recv_args' data-type='const Rendezvous::Args &amp;' data-ref="812recv_args">recv_args</dfn>, <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col3 decl" id="813in" title='in' data-type='const tensorflow::Tensor &amp;' data-ref="813in">in</dfn>,</td></tr>
+<tr><th id="83">83</th><td>                          <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>* <dfn class="local col4 decl" id="814out" title='out' data-type='tensorflow::Tensor *' data-ref="814out">out</dfn>, <a class="typedef" href="#tensorflow::IntraProcessRendezvous::StatusCallback" title='tensorflow::IntraProcessRendezvous::StatusCallback' data-type='std::function&lt;void (const Status &amp;)&gt;' data-ref="tensorflow::IntraProcessRendezvous::StatusCallback">StatusCallback</a> <dfn class="local col5 decl" id="815done" title='done' data-type='StatusCallback' data-ref="815done">done</dfn>);</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  <a class="macro" href="../platform/macros.h.html#91" title="IntraProcessRendezvous(const IntraProcessRendezvous&amp;) = delete; void operator=(const IntraProcessRendezvous&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN10tensorflow22IntraProcessRendezvousC1ERKS0_" title='tensorflow::IntraProcessRendezvous::IntraProcessRendezvous' data-ref="_ZN10tensorflow22IntraProcessRendezvousC1ERKS0_"><a class="type" href="#tensorflow::IntraProcessRendezvous" title='tensorflow::IntraProcessRendezvous' data-ref="tensorflow::IntraProcessRendezvous"><a class="type" href="#tensorflow::IntraProcessRendezvous" title='tensorflow::IntraProcessRendezvous' data-ref="tensorflow::IntraProcessRendezvous">IntraProcessRendezvous</a></a></dfn>);</td></tr>
+<tr><th id="86">86</th><td>};</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>}  <i>// end namespace tensorflow</i></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_COMMON_RUNTIME_RENDEZVOUS_MGR_H_</u></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../c/eager/c_api.cc.html'>tensorflow/tensorflow/c/eager/c_api.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

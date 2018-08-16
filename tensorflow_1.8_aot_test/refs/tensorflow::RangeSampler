@@ -1,0 +1,21 @@
+<def f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='37' ll='105'/>
+<ovr f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='110' c='tensorflow::AllSampler'/>
+<ovr f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='135' c='tensorflow::UniformSampler'/>
+<ovr f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='149' c='tensorflow::LogUniformSampler'/>
+<ovr f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='164' c='tensorflow::ThreadUnsafeUnigramSampler'/>
+<ovr f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='181' c='tensorflow::UnigramSampler'/>
+<ovr f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='211' c='tensorflow::FixedUnigramSampler'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='35'>// Abstract subclass for sampling from the set of non-negative integers
+// [0, range)</doc>
+<fun r='_ZN10tensorflow12RangeSamplerC1Ex'/>
+<fun r='_ZN10tensorflow12RangeSamplerD1Ev'/>
+<fun r='_ZNK10tensorflow12RangeSampler6SampleEPNS_6random12SimplePhiloxE'/>
+<fun r='_ZNK10tensorflow12RangeSampler11ProbabilityEx'/>
+<fun r='_ZNK10tensorflow12RangeSampler11SampleBatchEPNS_6random12SimplePhiloxEbNS_3gtl17MutableArraySliceIxEE'/>
+<fun r='_ZNK10tensorflow12RangeSampler27SampleBatchGetExpectedCountEPNS_6random12SimplePhiloxEbNS_3gtl17MutableArraySliceIxEENS5_IfEENS4_10ArraySliceIxEES7_'/>
+<fun r='_ZNK10tensorflow12RangeSampler32SampleBatchGetExpectedCountAvoidEPNS_6random12SimplePhiloxEbNS_3gtl17MutableArraySliceIxEENS5_IfEENS4_10ArraySliceIxEES7_S9_'/>
+<fun r='_ZNK10tensorflow12RangeSampler12NeedsUpdatesEv'/>
+<fun r='_ZN10tensorflow12RangeSampler6UpdateENS_3gtl10ArraySliceIxEE'/>
+<fun r='_ZN10tensorflow12RangeSampler5rangeEv'/>
+<mbr r='tensorflow::RangeSampler::range_' o='64' t='const int64'/>

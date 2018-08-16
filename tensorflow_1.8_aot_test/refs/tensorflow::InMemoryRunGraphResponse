@@ -1,0 +1,22 @@
+<inh f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='447' c='tensorflow::MutableRunGraphResponseWrapper'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='490' ll='520'/>
+<size>312</size>
+<fun r='_ZNK10tensorflow24InMemoryRunGraphResponse9num_recvsEv'/>
+<fun r='_ZNK10tensorflow24InMemoryRunGraphResponse8recv_keyEm'/>
+<fun r='_ZN10tensorflow24InMemoryRunGraphResponse9RecvValueEmPNS_11TensorProtoE'/>
+<fun r='_ZN10tensorflow24InMemoryRunGraphResponse9RecvValueEmPNS_6TensorE'/>
+<fun r='_ZN10tensorflow24InMemoryRunGraphResponse7AddRecvERKSsRKNS_6TensorE'/>
+<fun r='_ZN10tensorflow24InMemoryRunGraphResponse18mutable_step_statsEv'/>
+<fun r='_ZN10tensorflow24InMemoryRunGraphResponse18mutable_cost_graphEv'/>
+<fun r='_ZNK10tensorflow24InMemoryRunGraphResponse20num_partition_graphsEv'/>
+<fun r='_ZN10tensorflow24InMemoryRunGraphResponse23mutable_partition_graphEm'/>
+<fun r='_ZN10tensorflow24InMemoryRunGraphResponse17AddPartitionGraphERKNS_8GraphDefE'/>
+<fun r='_ZNK10tensorflow24InMemoryRunGraphResponse11status_codeEv'/>
+<fun r='_ZNK10tensorflow24InMemoryRunGraphResponse20status_error_messageEv'/>
+<fun r='_ZN10tensorflow24InMemoryRunGraphResponse10set_statusERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow24InMemoryRunGraphResponse9get_protoEv'/>
+<mbr r='tensorflow::InMemoryRunGraphResponse::recvs_' o='64' t='gtl::InlinedVector&lt;std::pair&lt;string, Tensor&gt;, 4&gt;'/>
+<mbr r='tensorflow::InMemoryRunGraphResponse::step_stats_' o='1472' t='tensorflow::StepStats'/>
+<mbr r='tensorflow::InMemoryRunGraphResponse::cost_graph_' o='1856' t='tensorflow::CostGraphDef'/>
+<mbr r='tensorflow::InMemoryRunGraphResponse::partition_graphs_' o='2240' t='std::vector&lt;GraphDef&gt;'/>
+<mbr r='tensorflow::InMemoryRunGraphResponse::status_' o='2432' t='tensorflow::Status'/>

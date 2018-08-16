@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='200' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferWhileShape(const xla::ProgramShape &amp; condition, const xla::ProgramShape &amp; body, const xla::Shape &amp; init)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1093' u='c' c='_ZN3xla10XlaBuilder5WhileERKNS_14XlaComputationES3_RKNS_5XlaOpE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='196'>// Infers the shape produced from a while node. condition and body are the
+  // shapes of computations for the condition and the body of a while node, and
+  // init is the shape of data initially passed in to the body as an argument.
+  // The shapes must match; condition: T -&gt; PRED, body: T -&gt; T, init: T</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2198' ll='2234' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferWhileShape(const xla::ProgramShape &amp; condition, const xla::ProgramShape &amp; body, const xla::Shape &amp; init)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2198'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='770' u='c' c='_ZN3xla15UserComputation19AddWhileInstructionERKNS_12WhileRequestERKS0_S5_'/>

@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='443' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateWhile(const xla::Shape &amp; shape, xla::HloComputation * condition, xla::HloComputation * body, xla::HloInstruction * init)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='438'>// Creates a while instruction, given a condition computation, a body
+  // computation, and the initial value for the input of the computations. For
+  // example, shape: S32, condition: i -&gt; i &lt; 1000, body: i -&gt; i * 2, init: 1
+  // corresponds to the C code below.
+  // int32 i = 1; int32 result = while(i &lt; 1000) { i = i * 2 }</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='482' ll='491' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateWhile(const xla::Shape &amp; shape, xla::HloComputation * condition, xla::HloComputation * body, xla::HloInstruction * init)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1397' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='482'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3282' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='509' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='118' u='c' c='_ZN3xla9WhileUtil22MakeInstructionsLiveInEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIS2_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='235' u='c' c='_ZN3xla9WhileUtil15MakeCountedLoopEPNS_14HloComputationEiRKSt6vectorIPNS_14HloInstructionESaIS5_EERKSt8functionIFNS_8StatusOrIS7_EES5_S9_EE'/>

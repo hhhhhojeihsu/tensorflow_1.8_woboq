@@ -1,0 +1,19 @@
+<def f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1080' type='bool tensorflow::OpKernelContext::track_allocations() const'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='292' u='c' c='_ZN10tensorflow15OpKernelContext13get_allocatorENS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='717' u='c' c='_ZN10tensorflow15OpKernelContext13allocate_tempENS_8DataTypeERKNS_11TensorShapeEPNS_6TensorENS_19AllocatorAttributesERKNS_20AllocationAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='739' u='c' c='_ZN10tensorflow15OpKernelContext19allocate_persistentENS_8DataTypeERKNS_11TensorShapeEPNS_16PersistentTensorEPPNS_6TensorENS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='772' u='c' c='_ZN10tensorflow15OpKernelContext10set_outputEiRKNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/constant_op.cc' l='85' u='c' c='_ZN10tensorflow10ConstantOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_op.h' l='47' u='c' c='_ZN10tensorflow7QueueOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.h' l='66' u='c' c='_ZN10tensorflow13LookupTableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_init_op.cc' l='80' u='c' c='_ZN10tensorflow17InitializeTableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_init_op.cc' l='84' u='c' c='_ZN10tensorflow17InitializeTableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_init_op.cc' l='140' u='c' c='_ZN10tensorflow29InitializeTableFromTextFileOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_init_op.cc' l='146' u='c' c='_ZN10tensorflow29InitializeTableFromTextFileOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='705' u='c' c='_ZN10tensorflow19LookupTableInsertOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='709' u='c' c='_ZN10tensorflow19LookupTableInsertOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='782' u='c' c='_ZN10tensorflow19LookupTableImportOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='786' u='c' c='_ZN10tensorflow19LookupTableImportOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='75' u='c' c='_ZN10tensorflow10VariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='109' u='c' c='_ZN10tensorflow19TemporaryVariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='153' u='c' c='_ZN10tensorflow26DestroyTemporaryVariableOp7ComputeEPNS_15OpKernelContextE'/>

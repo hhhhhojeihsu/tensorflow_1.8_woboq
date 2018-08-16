@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1229' type='std::tuple&lt;bool, std::vector&lt;int64&gt;, std::vector&lt;int64&gt; &gt; xla::HloInstruction::ReshapeMerelyInsertsOrDeletes1SizedDimensions() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1222'>// Convenience helper for ShapeUtil::InsertedOrDeleted1SizedDimensions. If
+  // this reshape merely inserts or deletes 1-sized dimensions, return the input
+  // indices of the deleted dimensions and the output indices of the inserted
+  // dimensions.
+  //
+  // Precondition: this op must be a reshape.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1156' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3217' ll='3224' type='std::tuple&lt;bool, std::vector&lt;int64&gt;, std::vector&lt;int64&gt; &gt; xla::HloInstruction::ReshapeMerelyInsertsOrDeletes1SizedDimensions() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3420' u='c' c='_ZNK3xla14HloInstruction14CouldBeBitcastEv'/>

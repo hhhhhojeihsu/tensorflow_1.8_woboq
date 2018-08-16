@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/lib/io/path.h' l='73' type='string tensorflow::io::CleanPath(tensorflow::StringPiece path)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/path.h' l='66'>// Collapse duplicate &quot;/&quot;s, resolve &quot;..&quot; and &quot;.&quot; path elements, remove
+// trailing &quot;/&quot;.
+//
+// NOTE: This respects relative vs. absolute paths, but does not
+// invoke any system calls (getcwd(2)) in order to resolve relative
+// paths with respect to the actual working directory.  That is, this is purely
+// string manipulation, completely independent of process state.</doc>
+<def f='tensorflow/tensorflow/core/lib/io/path.cc' l='126' ll='205' type='string tensorflow::io::CleanPath(tensorflow::StringPiece unclean_path)'/>
+<use f='tensorflow/tensorflow/core/platform/file_system.cc' l='36' u='c' c='_ZNK10tensorflow10FileSystem13TranslateNameERKSs'/>

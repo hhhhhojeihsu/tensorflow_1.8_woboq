@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.h' l='129' type='bool toco::ShapesAgreeUpToExtending(const toco::Shape &amp; shape0, const toco::Shape &amp; shape1)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.h' l='120'>// A stricter constraint than ShapesAgreeUpToBroadcasting().
+//
+// Given two shapes with potentially different dimensionality and dimension
+// arrays d0 and d1. Without loss of generality, assume that shape0 may have
+// higher dimensionality (length(d0) &gt;= length(d1)). Then shape0 and shape1
+// &quot;agree up to extending&quot; if:
+// - When walking the d0 and d1 from back to front with indices i0, i1,
+//   d0[i0] == d1[i1] for each dimension until i1 == 0 (inclusive).
+// - For the remaining indices [0..i0), d0[i0] == 1.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/remove_trivial_reshape.cc' l='41' u='c' c='_ZN4toco12_GLOBAL__N_116IsReshapeTrivialERKNS_5ModelERKNS_8OperatorEPNS_20RemoveTrivialReshapeE'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='587' ll='623' type='bool toco::ShapesAgreeUpToExtending(const toco::Shape &amp; shape0, const toco::Shape &amp; shape1)'/>

@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/framework/op.h' l='125' type='void tensorflow::OpRegistry::DeferRegistrations()'/>
+<doc f='tensorflow/tensorflow/core/framework/op.h' l='121'>// Defer the registrations until a later call to a function that processes
+  // deferred registrations are made. Normally, registrations that happen after
+  // calls to Export, LookUp, ProcessRegistrations and DebugString are processed
+  // immediately. Call this to defer future registrations.</doc>
+<use f='tensorflow/tensorflow/core/framework/load_library.cc' l='78' u='c' c='_ZN10tensorflow11LoadLibraryEPKcPPvPPKvPm'/>
+<def f='tensorflow/tensorflow/core/framework/op.cc' l='152' ll='155' type='void tensorflow::OpRegistry::DeferRegistrations()'/>

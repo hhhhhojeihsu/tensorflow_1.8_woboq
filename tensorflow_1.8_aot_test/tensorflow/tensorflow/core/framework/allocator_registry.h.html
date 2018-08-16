@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>allocator_registry.h source code [tensorflow/tensorflow/core/framework/allocator_registry.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::AllocatorRegistry,tensorflow::allocator_registration::AllocatorRegistration "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/framework/allocator_registry.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>framework</a>/<a href='allocator_registry.h.html'>allocator_registry.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// Classes to maintain a static registry of memory allocators</i></td></tr>
+<tr><th id="17">17</th><td><u>#<span data-ppcond="17">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CORE_FRAMEWORK_ALLOCATOR_REGISTRY_H_">TENSORFLOW_CORE_FRAMEWORK_ALLOCATOR_REGISTRY_H_</span></u></td></tr>
+<tr><th id="18">18</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CORE_FRAMEWORK_ALLOCATOR_REGISTRY_H_" data-ref="_M/TENSORFLOW_CORE_FRAMEWORK_ALLOCATOR_REGISTRY_H_">TENSORFLOW_CORE_FRAMEWORK_ALLOCATOR_REGISTRY_H_</dfn></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="allocator.h.html">"tensorflow/core/framework/allocator.h"</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><i>// A global AllocatorRegistry is used to hold allocators for CPU backends</i></td></tr>
+<tr><th id="28">28</th><td><b>class</b> <dfn class="type def" id="tensorflow::AllocatorRegistry" title='tensorflow::AllocatorRegistry' data-ref="tensorflow::AllocatorRegistry">AllocatorRegistry</dfn> {</td></tr>
+<tr><th id="29">29</th><td> <b>public</b>:</td></tr>
+<tr><th id="30">30</th><td>  <i>// Add an allocator to the registry.  Caller releases ownership of</i></td></tr>
+<tr><th id="31">31</th><td><i>  // 'allocator'.</i></td></tr>
+<tr><th id="32">32</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow17AllocatorRegistry8RegisterERKSsiPNS_9AllocatorE" title='tensorflow::AllocatorRegistry::Register' data-ref="_ZN10tensorflow17AllocatorRegistry8RegisterERKSsiPNS_9AllocatorE">Register</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col4 decl" id="14name" title='name' data-type='const string &amp;' data-ref="14name">name</dfn>, <em>int</em> <dfn class="local col5 decl" id="15priority" title='priority' data-type='int' data-ref="15priority">priority</dfn>, <a class="type" href="allocator.h.html#tensorflow::Allocator" title='tensorflow::Allocator' data-ref="tensorflow::Allocator">Allocator</a>* <dfn class="local col6 decl" id="16allocator" title='allocator' data-type='tensorflow::Allocator *' data-ref="16allocator">allocator</dfn>);</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <i>// Return allocator with highest priority</i></td></tr>
+<tr><th id="35">35</th><td><i>  // If multiple allocators have the same high priority, return one of them</i></td></tr>
+<tr><th id="36">36</th><td>  <a class="type" href="allocator.h.html#tensorflow::Allocator" title='tensorflow::Allocator' data-ref="tensorflow::Allocator">Allocator</a>* <dfn class="decl" id="_ZN10tensorflow17AllocatorRegistry12GetAllocatorEv" title='tensorflow::AllocatorRegistry::GetAllocator' data-ref="_ZN10tensorflow17AllocatorRegistry12GetAllocatorEv">GetAllocator</dfn>();</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td>  <i>// Returns the global registry of allocators.</i></td></tr>
+<tr><th id="39">39</th><td>  <em>static</em> <a class="type" href="#tensorflow::AllocatorRegistry" title='tensorflow::AllocatorRegistry' data-ref="tensorflow::AllocatorRegistry">AllocatorRegistry</a>* <dfn class="decl" id="_ZN10tensorflow17AllocatorRegistry6GlobalEv" title='tensorflow::AllocatorRegistry::Global' data-ref="_ZN10tensorflow17AllocatorRegistry6GlobalEv">Global</dfn>();</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td> <b>private</b>:</td></tr>
+<tr><th id="42">42</th><td>  <b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="43">43</th><td>    <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="tensorflow::AllocatorRegistry::(anonymous)::name" title='tensorflow::AllocatorRegistry::(anonymous struct)::name' data-ref="tensorflow::AllocatorRegistry::(anonymous)::name">name</dfn>;</td></tr>
+<tr><th id="44">44</th><td>    <em>int</em> <dfn class="decl" id="tensorflow::AllocatorRegistry::(anonymous)::priority" title='tensorflow::AllocatorRegistry::(anonymous struct)::priority' data-ref="tensorflow::AllocatorRegistry::(anonymous)::priority">priority</dfn>;</td></tr>
+<tr><th id="45">45</th><td>    <a class="type" href="allocator.h.html#tensorflow::Allocator" title='tensorflow::Allocator' data-ref="tensorflow::Allocator">Allocator</a>* <dfn class="decl" id="tensorflow::AllocatorRegistry::(anonymous)::allocator" title='tensorflow::AllocatorRegistry::(anonymous struct)::allocator' data-ref="tensorflow::AllocatorRegistry::(anonymous)::allocator">allocator</dfn>;  <i>// not owned</i></td></tr>
+<tr><th id="46">46</th><td>  } <dfn class="typedef" id="tensorflow::AllocatorRegistry::AllocatorRegistryEntry" title='tensorflow::AllocatorRegistry::AllocatorRegistryEntry' data-type='struct AllocatorRegistryEntry' data-ref="tensorflow::AllocatorRegistry::AllocatorRegistryEntry">AllocatorRegistryEntry</dfn>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>  <i>// Returns the Allocator registered for 'name' and 'priority',</i></td></tr>
+<tr><th id="49">49</th><td><i>  // or 'nullptr' if not found.</i></td></tr>
+<tr><th id="50">50</th><td>  <a class="type" href="allocator.h.html#tensorflow::Allocator" title='tensorflow::Allocator' data-ref="tensorflow::Allocator">Allocator</a>* <dfn class="decl" id="_ZN10tensorflow17AllocatorRegistry22GetRegisteredAllocatorERKSsi" title='tensorflow::AllocatorRegistry::GetRegisteredAllocator' data-ref="_ZN10tensorflow17AllocatorRegistry22GetRegisteredAllocatorERKSsi">GetRegisteredAllocator</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col7 decl" id="17name" title='name' data-type='const string &amp;' data-ref="17name">name</dfn>, <em>int</em> <dfn class="local col8 decl" id="18priority" title='priority' data-type='int' data-ref="18priority">priority</dfn>);</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="#tensorflow::AllocatorRegistry::AllocatorRegistryEntry" title='tensorflow::AllocatorRegistry::AllocatorRegistryEntry' data-type='struct AllocatorRegistryEntry' data-ref="tensorflow::AllocatorRegistry::AllocatorRegistryEntry">AllocatorRegistryEntry</a>&gt; <dfn class="decl" id="tensorflow::AllocatorRegistry::allocators_" title='tensorflow::AllocatorRegistry::allocators_' data-ref="tensorflow::AllocatorRegistry::allocators_">allocators_</dfn>;</td></tr>
+<tr><th id="53">53</th><td>  <a class="type" href="allocator.h.html#tensorflow::Allocator" title='tensorflow::Allocator' data-ref="tensorflow::Allocator">Allocator</a>* <dfn class="decl" id="tensorflow::AllocatorRegistry::m_curr_allocator_" title='tensorflow::AllocatorRegistry::m_curr_allocator_' data-ref="tensorflow::AllocatorRegistry::m_curr_allocator_">m_curr_allocator_</dfn>;  <i>// not owned</i></td></tr>
+<tr><th id="54">54</th><td>};</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><b>namespace</b> <span class="namespace">allocator_registration</span> {</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><b>class</b> <dfn class="type def" id="tensorflow::allocator_registration::AllocatorRegistration" title='tensorflow::allocator_registration::AllocatorRegistration' data-ref="tensorflow::allocator_registration::AllocatorRegistration">AllocatorRegistration</dfn> {</td></tr>
+<tr><th id="59">59</th><td> <b>public</b>:</td></tr>
+<tr><th id="60">60</th><td>  <dfn class="decl def" id="_ZN10tensorflow22allocator_registration21AllocatorRegistrationC1ERKSsiPNS_9AllocatorE" title='tensorflow::allocator_registration::AllocatorRegistration::AllocatorRegistration' data-ref="_ZN10tensorflow22allocator_registration21AllocatorRegistrationC1ERKSsiPNS_9AllocatorE">AllocatorRegistration</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col9 decl" id="19name" title='name' data-type='const string &amp;' data-ref="19name">name</dfn>, <em>int</em> <dfn class="local col0 decl" id="20priority" title='priority' data-type='int' data-ref="20priority">priority</dfn>,</td></tr>
+<tr><th id="61">61</th><td>                        <a class="type" href="allocator.h.html#tensorflow::Allocator" title='tensorflow::Allocator' data-ref="tensorflow::Allocator">Allocator</a>* <dfn class="local col1 decl" id="21allocator" title='allocator' data-type='tensorflow::Allocator *' data-ref="21allocator">allocator</dfn>) {</td></tr>
+<tr><th id="62">62</th><td>    <a class="type" href="#tensorflow::AllocatorRegistry" title='tensorflow::AllocatorRegistry' data-ref="tensorflow::AllocatorRegistry">AllocatorRegistry</a>::<a class="ref" href="#_ZN10tensorflow17AllocatorRegistry6GlobalEv" title='tensorflow::AllocatorRegistry::Global' data-ref="_ZN10tensorflow17AllocatorRegistry6GlobalEv">Global</a>()-&gt;<a class="ref" href="#_ZN10tensorflow17AllocatorRegistry8RegisterERKSsiPNS_9AllocatorE" title='tensorflow::AllocatorRegistry::Register' data-ref="_ZN10tensorflow17AllocatorRegistry8RegisterERKSsiPNS_9AllocatorE">Register</a>(<a class="local col9 ref" href="#19name" title='name' data-ref="19name">name</a>, <a class="local col0 ref" href="#20priority" title='priority' data-ref="20priority">priority</a>, <a class="local col1 ref" href="#21allocator" title='allocator' data-ref="21allocator">allocator</a>);</td></tr>
+<tr><th id="63">63</th><td>  }</td></tr>
+<tr><th id="64">64</th><td>};</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>}  <i>// namespace allocator_registration</i></td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td><u>#define <dfn class="macro" id="_M/REGISTER_MEM_ALLOCATOR" data-ref="_M/REGISTER_MEM_ALLOCATOR">REGISTER_MEM_ALLOCATOR</dfn>(name, priority, allocator) \</u></td></tr>
+<tr><th id="69">69</th><td><u>  REGISTER_MEM_ALLOCATOR_UNIQ_HELPER(__COUNTER__, name, priority, allocator)</u></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><u>#define <dfn class="macro" id="_M/REGISTER_MEM_ALLOCATOR_UNIQ_HELPER" data-ref="_M/REGISTER_MEM_ALLOCATOR_UNIQ_HELPER">REGISTER_MEM_ALLOCATOR_UNIQ_HELPER</dfn>(ctr, name, priority, allocator) \</u></td></tr>
+<tr><th id="72">72</th><td><u>  REGISTER_MEM_ALLOCATOR_UNIQ(ctr, name, priority, allocator)</u></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td><u>#define <dfn class="macro" id="_M/REGISTER_MEM_ALLOCATOR_UNIQ" data-ref="_M/REGISTER_MEM_ALLOCATOR_UNIQ">REGISTER_MEM_ALLOCATOR_UNIQ</dfn>(ctr, name, priority, allocator) \</u></td></tr>
+<tr><th id="75">75</th><td><u>  static allocator_registration::AllocatorRegistration              \</u></td></tr>
+<tr><th id="76">76</th><td><u>      register_allocator_##ctr(name, priority, new allocator)</u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><u>#<span data-ppcond="17">endif</span>  // TENSORFLOW_CORE_FRAMEWORK_ALLOCATOR_REGISTRY_H_</u></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../common_runtime/threadpool_device.cc.html'>tensorflow/tensorflow/core/common_runtime/threadpool_device.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

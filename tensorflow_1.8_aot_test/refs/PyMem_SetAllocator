@@ -1,0 +1,12 @@
+<dec f='include/python3.5m/pymem.h' l='162' type='void PyMem_SetAllocator(PyMemAllocatorDomain domain, PyMemAllocatorEx * allocator)'/>
+<doc f='include/python3.5m/pymem.h' l='151'>/* Set the memory block allocator of the specified domain.
+
+   The new allocator must return a distinct non-NULL pointer when requesting
+   zero bytes.
+
+   For the PYMEM_DOMAIN_RAW domain, the allocator must be thread-safe: the GIL
+   is not held when the allocator is called.
+
+   If the new allocator is not a hook (don&apos;t call the previous allocator), the
+   PyMem_SetupDebugHooks() function must be called to reinstall the debug hooks
+   on top on the new allocator. */</doc>

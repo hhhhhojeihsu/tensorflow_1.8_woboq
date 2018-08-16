@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='276' type='TfLiteStatus tflite::Interpreter::ModifyGraphWithDelegate(TfLiteDelegate * delegate, bool allow_dynamic_tensors = false)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='272'>// Allow a delegate to look at the graph and modify the graph to handle
+  // parts of the graph themselves. After this is called, the graph may
+  // contain new nodes that replace 1 more nodes.
+  // WARNING: This is an experimental API and subject to change.</doc>
+<def f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='773' ll='823' type='TfLiteStatus tflite::Interpreter::ModifyGraphWithDelegate(TfLiteDelegate * delegate, bool allow_dynamic_tensors = false)'/>

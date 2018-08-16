@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor_slice.h' l='147' type='tensorflow::Status tensorflow::TensorSlice::SliceTensorShape(const tensorflow::TensorShape &amp; shape, tensorflow::TensorShape * result_shape) const'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_util.h' l='155' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L36CopyDataFromTensorSliceToTensorSliceERKNS_11TensorShapeERKNS_11TensorSliceES6_PKT_PT0_'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_util.h' l='160' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L36CopyDataFromTensorSliceToTensorSliceERKNS_11TensorShapeERKNS_11TensorSliceES6_PKT_PT0_'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor_slice.h' l='141'>// Interaction with TensorShape.
+
+  // Slices a shape and stores the result into *result_shape.
+  // Requires that the shape and *this have the same rank.
+  // For example, given a tensor shape of {3, 4, 5}, and a slice of
+  // 1,2:-:0,2, the result shape is {2, 4, 2}.</doc>
+<def f='tensorflow/tensorflow/core/framework/tensor_slice.cc' l='240' ll='269' type='tensorflow::Status tensorflow::TensorSlice::SliceTensorShape(const tensorflow::TensorShape &amp; shape, tensorflow::TensorShape * result_shape) const'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_writer.h' l='147' u='c' c='_ZN10tensorflow10checkpoint17TensorSliceWriter3AddERKSsRKNS_11TensorShapeERKNS_11TensorSliceEPKT_'/>
+<use f='tensorflow/tensorflow/core/kernels/load_and_remap_matrix_op.cc' l='207' u='c' c='_ZN10tensorflow20LoadAndRemapMatrixOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/util/saved_tensor_slice_util.cc' l='122' u='c' c='_ZN10tensorflow10checkpoint18ParseShapeAndSliceERKSsPNS_11TensorShapeEPNS_11TensorSliceES4_'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='320' u='c' c='_ZN10tensorflow12_GLOBAL__N_111IsFullSliceERKNS_11TensorSliceERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='36' u='c' c='_ZN10tensorflow10checkpoint14TensorSliceSet8RegisterERKNS_11TensorSliceERKSsPKf'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='82' u='c' c='_ZNK10tensorflow10checkpoint14TensorSliceSet5QueryERKNS_11TensorSliceEPf'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='94' u='c' c='_ZNK10tensorflow10checkpoint14TensorSliceSet5QueryERKNS_11TensorSliceEPf'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='139' u='c' c='_ZNK10tensorflow10checkpoint14TensorSliceSet9QueryMetaERKNS_11TensorSliceEPSt6vectorISt4pairIS2_SsESaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='151' u='c' c='_ZNK10tensorflow10checkpoint14TensorSliceSet9QueryMetaERKNS_11TensorSliceEPSt6vectorISt4pairIS2_SsESaIS7_EE'/>

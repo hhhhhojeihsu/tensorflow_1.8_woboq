@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='394' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateSelectAndScatter(const xla::Shape &amp; shape, xla::HloInstruction * operand, xla::HloComputation * select, const xla::Window &amp; window, xla::HloInstruction * source, xla::HloInstruction * init_value, xla::HloComputation * scatter)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='392'>// Creates a scatter computation that scatters the `source` array to the
+  // selected indices of each window.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='658' ll='673' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateSelectAndScatter(const xla::Shape &amp; shape, xla::HloInstruction * operand, xla::HloComputation * select, const xla::Window &amp; window, xla::HloInstruction * source, xla::HloInstruction * init_value, xla::HloComputation * scatter)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1358' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='658'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3093' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

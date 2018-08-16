@@ -1,0 +1,81 @@
+<def f='tensorflow/tensorflow/stream_executor/dnn.h' l='233' ll='345'/>
+<size>64</size>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='194'>// Describes the dimensions that a layer consumes/produces.
+//
+// This is a matrix (height, width), its &quot;depth&quot; (feature_map_count),
+// how many of these matrices are present (count),
+// and the maximum and minimum values expected in the matrix (value_max,
+// value_min).
+// If input is quantized, all values greater
+// than value_max will be clipped to value_max and all values less than
+// value_min will be clipped to value_min.
+// When quantized output is dequantized no value will be greater than
+// value_max or less than value_min.
+//
+// Uses the named argument construction form:
+//
+//  auto input_batch_dimensions =
+//      BatchDescriptor().set_count(42).set_feature_map_count(7)...
+//
+// Details:
+//
+// For a convolutional layer, a single inference takes a 3-dimensional matrix
+// of input and produces a 3-dimensional matrix of output. We call the three
+// dimensions height, width and feature_map_count, where for an image, the
+// height and width correspond to the Y and X pixel indices, respectively, and
+// the feature_map_count corresponds to the RGB dimension of the input data.
+// Then the count indicates how many 3D matrices are being presented to be
+// processed at once; this corresponds to the neural network concept of
+// minibatch size.
+//
+// For a fully connected layer, it&apos;s better to put the nodes of the layer in
+// the feature_map_count, and leave the height and weight as degenerate (== 1).
+// Count indicates how many input vectors (degenerate 3D matrices) are to be
+// processed.
+//
+// If unspecified, value_max and value_min default to 0.0.
+// If value_max == value_min the Stream will attempt to derive valid values -
+// for example the output of Relu6 activation will always be in the range
+// [0.0, 6.0].
+//
+// If unspecified, layout defaults to kYXDepthBatch.</doc>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptorC1Ev'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptorC1Ei'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor9CloneFromERKS2_'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor8ToStringEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor13ToShortStringEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor5countEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor17feature_map_countEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor6heightEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor5widthEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor11spatial_dimENS1_8DimIndexE'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor5ndimsEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor9value_maxEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor9value_minEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor6layoutEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor25quantized_activation_modeEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor9full_dimsERKNS1_10DataLayoutE'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor12full_stridesERKNS1_10DataLayoutE'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor9set_countEx'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor21set_feature_map_countEx'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor10set_heightEx'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor9set_widthEx'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor15set_spatial_dimENS1_8DimIndexEx'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor13set_value_maxEf'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor13set_value_minEf'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor10set_layoutENS1_10DataLayoutE'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor29set_quantized_activation_modeENS1_23QuantizedActivationModeE'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor18NodesPerFeatureMapEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor22NodesAcrossFeatureMapsEv'/>
+<fun r='_ZNK9perftools8gputools3dnn15BatchDescriptor12ElementCountEv'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor25FullyConnectedWeightCountERKS2_S4_'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor23FullyConnectedBiasCountERKS2_'/>
+<fun r='_ZN9perftools8gputools3dnn15BatchDescriptor32DepthConcatenateOutputDescriptorEN10tensorflow3gtl10ArraySliceIS2_EE'/>
+<mbr r='perftools::gputools::dnn::BatchDescriptor::count_' o='0' t='int64'/>
+<mbr r='perftools::gputools::dnn::BatchDescriptor::feature_map_count_' o='64' t='int64'/>
+<mbr r='perftools::gputools::dnn::BatchDescriptor::spatial_size_' o='128' t='std::vector&lt;int64&gt;'/>
+<mbr r='perftools::gputools::dnn::BatchDescriptor::value_max_' o='320' t='float'/>
+<mbr r='perftools::gputools::dnn::BatchDescriptor::value_min_' o='352' t='float'/>
+<mbr r='perftools::gputools::dnn::BatchDescriptor::layout_' o='384' t='perftools::gputools::dnn::DataLayout'/>
+<mbr r='perftools::gputools::dnn::BatchDescriptor::ndims_' o='448' t='int'/>
+<mbr r='perftools::gputools::dnn::BatchDescriptor::quantized_activation_mode_' o='480' t='perftools::gputools::dnn::QuantizedActivationMode'/>

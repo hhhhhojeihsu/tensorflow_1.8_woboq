@@ -1,0 +1,24 @@
+<inh f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.h' l='35' c='tensorflow::tensorforest::GrowStats'/>
+<def f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.h' l='527' ll='598'/>
+<size>208</size>
+<doc f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.h' l='526'>// Tracks regression stats using least-squares minimization.</doc>
+<fun r='_ZN10tensorflow12tensorforest31LeastSquaresRegressionGrowStatsC1ERKNS0_18TensorForestParamsEi'/>
+<fun r='_ZN10tensorflow12tensorforest31LeastSquaresRegressionGrowStats10InitializeEv'/>
+<fun r='_ZN10tensorflow12tensorforest31LeastSquaresRegressionGrowStats16ExtractFromProtoERKNS0_11FertileSlotE'/>
+<fun r='_ZNK10tensorflow12tensorforest31LeastSquaresRegressionGrowStats11PackToProtoEPNS0_11FertileSlotE'/>
+<fun r='_ZN10tensorflow12tensorforest31LeastSquaresRegressionGrowStats10AddExampleERKSt10unique_ptrINS0_13TensorDataSetESt14default_deleteIS3_EEPKNS0_11InputTargetEi'/>
+<fun r='_ZNK10tensorflow12tensorforest31LeastSquaresRegressionGrowStats9BestSplitEPNS0_14SplitCandidateE'/>
+<fun r='_ZNK10tensorflow12tensorforest31LeastSquaresRegressionGrowStats10IsFinishedEv'/>
+<fun r='_ZNK10tensorflow12tensorforest31LeastSquaresRegressionGrowStats13SplitVarianceEi'/>
+<fun r='_ZN10tensorflow12tensorforest31LeastSquaresRegressionGrowStats13AddSplitStatsEPKNS0_11InputTargetEi'/>
+<fun r='_ZN10tensorflow12tensorforest31LeastSquaresRegressionGrowStats16RemoveSplitStatsEi'/>
+<fun r='_ZN10tensorflow12tensorforest31LeastSquaresRegressionGrowStats13ClearInternalEv'/>
+<fun r='_ZNK10tensorflow12tensorforest31LeastSquaresRegressionGrowStats8left_sumEii'/>
+<fun r='_ZN10tensorflow12tensorforest31LeastSquaresRegressionGrowStats8left_sumEii'/>
+<fun r='_ZNK10tensorflow12tensorforest31LeastSquaresRegressionGrowStats11left_squareEii'/>
+<fun r='_ZN10tensorflow12tensorforest31LeastSquaresRegressionGrowStats11left_squareEii'/>
+<mbr r='tensorflow::tensorforest::LeastSquaresRegressionGrowStats::total_sum_' o='704' t='std::vector&lt;float&gt;'/>
+<mbr r='tensorflow::tensorforest::LeastSquaresRegressionGrowStats::total_sum_squares_' o='896' t='std::vector&lt;float&gt;'/>
+<mbr r='tensorflow::tensorforest::LeastSquaresRegressionGrowStats::left_sums_' o='1088' t='std::vector&lt;float&gt;'/>
+<mbr r='tensorflow::tensorforest::LeastSquaresRegressionGrowStats::left_squares_' o='1280' t='std::vector&lt;float&gt;'/>
+<mbr r='tensorflow::tensorforest::LeastSquaresRegressionGrowStats::left_counts_' o='1472' t='std::vector&lt;int64&gt;'/>

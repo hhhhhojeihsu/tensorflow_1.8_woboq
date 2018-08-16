@@ -1,0 +1,34 @@
+<dec f='include/c++/5/bits/basic_string.h' l='3204' type='void std::basic_string::reserve(size_type __res_arg = 0)'/>
+<def f='include/c++/5/bits/basic_string.tcc' l='943' ll='958' type='void std::basic_string::reserve(size_type __res = 0)'/>
+<use f='include/c++/5/bits/locale_facets.tcc' l='211' u='c' c='_ZNKSt7num_get16_M_extract_floatET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
+<use f='include/c++/5/bits/locale_facets.tcc' l='468' u='c' c='_ZNKSt7num_get14_M_extract_intET0_S0_RSt8ios_baseRSt12_Ios_IostateRT_'/>
+<use f='include/c++/5/bits/locale_facets.tcc' l='695' u='c' c='_ZNKSt7num_get6do_getET0_S0_RSt8ios_baseRSt12_Ios_IostateRf'/>
+<use f='include/c++/5/bits/locale_facets.tcc' l='710' u='c' c='_ZNKSt7num_get6do_getET0_S0_RSt8ios_baseRSt12_Ios_IostateRd'/>
+<use f='include/c++/5/bits/locale_facets.tcc' l='742' u='c' c='_ZNKSt7num_get6do_getET0_S0_RSt8ios_baseRSt12_Ios_IostateRe'/>
+<doc f='include/c++/5/bits/basic_string.h' l='3186'>/**
+       *  @brief  Attempt to preallocate enough memory for specified number of
+       *          characters.
+       *  @param  __res_arg  Number of characters required.
+       *  @throw  std::length_error  If @a __res_arg exceeds @c max_size().
+       *
+       *  This function attempts to reserve enough memory for the
+       *  %string to hold the specified number of characters.  If the
+       *  number requested is more than max_size(), length_error is
+       *  thrown.
+       *
+       *  The advantage of this function is that if optimal code is a
+       *  necessity and the user can determine the string length that will be
+       *  required, the user can reserve the memory in %advance, and thus
+       *  prevent a possible reallocation of memory and copying of %string
+       *  data.
+       */</doc>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='162' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='174' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='208' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_112BuildWavFileEiiRKSt6vectorIfSaIfEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.cc' l='127' u='c' c='_ZN10tensorflow19GrpcMaybeParseProtoERKN4grpc10ByteBufferEPSs'/>
+<use f='tensorflow/tensorflow/core/framework/op_gen_lib.cc' l='166' u='c' c='_ZN10tensorflow16PBTxtToMultilineENS_11StringPieceERKSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/core/framework/op_gen_lib.cc' l='198' u='c' c='_ZN10tensorflow18PBTxtFromMultilineENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.cc' l='29' u='c' c='_ZN10tensorflow2io19BufferedInputStreamC1EPNS0_20InputStreamInterfaceEmb'/>
+<use f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.cc' l='97' u='c' c='_ZN10tensorflow2io19BufferedInputStream10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/util/device_name_utils.cc' l='393' u='c' c='_ZN10tensorflow15DeviceNameUtils15SplitDeviceNameENS_11StringPieceEPSsS2_'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='229' u='c' c='_ZN10tensorflow12_GLOBAL__N_117WriteStringTensorERKNS_6TensorEPNS_16FileOutputBufferEPmPj'/>

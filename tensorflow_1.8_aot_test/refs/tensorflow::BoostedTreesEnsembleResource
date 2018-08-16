@@ -1,0 +1,41 @@
+<inh f='tensorflow/tensorflow/core/kernels/boosted_trees/resources.h' l='29' c='tensorflow::StampedResource'/>
+<def f='tensorflow/tensorflow/core/kernels/boosted_trees/resources.h' l='43' ll='237'/>
+<size>168</size>
+<doc f='tensorflow/tensorflow/core/kernels/boosted_trees/resources.h' l='42'>// Keep a tree ensemble in memory for efficient evaluation and mutation.</doc>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResourceC1Ev'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource11DebugStringEv'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource18InitFromSerializedERKSsx'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource17SerializeAsStringEv'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource9num_treesEv'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource9next_nodeEiiiRKSt6vectorIN5Eigen9TensorMapINS2_6TensorIKiLi1ELi1ElEELi16ENS2_11MakePointerEEESaIS8_EE'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource10node_valueEii'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource17GetNumLayersGrownEi'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource17SetNumLayersGrownEii'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource25UpdateLastLayerNodesRangeEii'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource22GetLastLayerNodesRangeEPiS1_'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource11GetNumNodesEi'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource21UpdateGrowingMetadataEv'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource21GetNumLayersAttemptedEv'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource7is_leafEii'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource10feature_idEii'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource16bucket_thresholdEii'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource7left_idEii'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource8right_idEii'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource10AddNewTreeEf'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource22AddBucketizedSplitNodeEiiiifffPiS1_'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource14GetTreeWeightsEv'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource13GetTreeWeightEi'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource15IsTreeFinalizedEi'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource16IsTreePostPrunedEi'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource14SetIsFinalizedEib'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource13SetTreeWeightEif'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource5ResetEv'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource13PostPruneTreeEi'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource22GetPostPruneCorrectionEiiPiPf'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource9get_mutexEv'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource19IsTerminalSplitNodeEii'/>
+<fun r='_ZNK10tensorflow28BoostedTreesEnsembleResource29CalculateParentAndLogitUpdateEiRKSt6vectorISt4pairIifESaIS3_EEPiPf'/>
+<fun r='_ZN10tensorflow28BoostedTreesEnsembleResource33RecursivelyDoPostPrunePreparationEiiPSt6vectorIiSaIiEEPS1_ISt4pairIifESaIS6_EE'/>
+<mbr r='tensorflow::BoostedTreesEnsembleResource::arena_' o='192' t='protobuf::Arena'/>
+<mbr r='tensorflow::BoostedTreesEnsembleResource::mu_' o='1152' t='tensorflow::mutex'/>
+<mbr r='tensorflow::BoostedTreesEnsembleResource::tree_ensemble_' o='1280' t='boosted_trees::TreeEnsemble *'/>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>jit_compilation_pass_registration.cc source code [tensorflow/tensorflow/compiler/jit/jit_compilation_pass_registration.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/compiler/jit/jit_compilation_pass_registration.cc'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>compiler</a>/<a href='./'>jit</a>/<a href='jit_compilation_pass_registration.cc.html'>jit_compilation_pass_registration.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="build_xla_launch_ops_pass.h.html">"tensorflow/compiler/jit/build_xla_launch_ops_pass.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="encapsulate_subgraphs_pass.h.html">"tensorflow/compiler/jit/encapsulate_subgraphs_pass.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="mark_for_compilation_pass.h.html">"tensorflow/compiler/jit/mark_for_compilation_pass.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../core/common_runtime/optimization_registry.h.html">"tensorflow/core/common_runtime/optimization_registry.h"</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><a class="macro" href="../../core/common_runtime/optimization_registry.h.html#116" title="static optimization_registration::OptimizationPassRegistration register_optimization_0( OptimizationPassRegistry::POST_REWRITE_FOR_EXEC, 10, std::unique_ptr&lt;GraphOptimizationPass&gt;(new MarkForCompilationPass))" data-ref="_M/REGISTER_OPTIMIZATION">REGISTER_OPTIMIZATION</a>(<a class="type" href="../../core/common_runtime/optimization_registry.h.html#tensorflow::OptimizationPassRegistry" title='tensorflow::OptimizationPassRegistry' data-ref="tensorflow::OptimizationPassRegistry">OptimizationPassRegistry</a>::<a class="enum" href="../../core/common_runtime/optimization_registry.h.html#tensorflow::OptimizationPassRegistry::Grouping::POST_REWRITE_FOR_EXEC" title='tensorflow::OptimizationPassRegistry::Grouping::POST_REWRITE_FOR_EXEC' data-ref="tensorflow::OptimizationPassRegistry::Grouping::POST_REWRITE_FOR_EXEC">POST_REWRITE_FOR_EXEC</a>, <var>10</var>,</td></tr>
+<tr><th id="24">24</th><td>                      <a class="ref fake" href="mark_for_compilation_pass.h.html#_ZN10tensorflow22MarkForCompilationPassC1Ev" title='tensorflow::MarkForCompilationPass::MarkForCompilationPass' data-ref="_ZN10tensorflow22MarkForCompilationPassC1Ev"></a><a class="type" href="mark_for_compilation_pass.h.html#tensorflow::MarkForCompilationPass" title='tensorflow::MarkForCompilationPass' data-ref="tensorflow::MarkForCompilationPass">MarkForCompilationPass</a>);</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>// The EncapsulateSubgraphs pass must run after the MarkForCompilationPass. We</i></td></tr>
+<tr><th id="27">27</th><td><i>// also need to run it after the graph been rewritten to have _Send nodes added</i></td></tr>
+<tr><th id="28">28</th><td><i>// for fetches. Before the _Send nodes are added, fetch nodes are identified by</i></td></tr>
+<tr><th id="29">29</th><td><i>// name, and encapsulation might remove that node from the graph.</i></td></tr>
+<tr><th id="30">30</th><td><a class="macro" href="../../core/common_runtime/optimization_registry.h.html#116" title="static optimization_registration::OptimizationPassRegistration register_optimization_2( OptimizationPassRegistry::POST_REWRITE_FOR_EXEC, 20, std::unique_ptr&lt;GraphOptimizationPass&gt;(new EncapsulateSubgraphsPass))" data-ref="_M/REGISTER_OPTIMIZATION">REGISTER_OPTIMIZATION</a>(<a class="type" href="../../core/common_runtime/optimization_registry.h.html#tensorflow::OptimizationPassRegistry" title='tensorflow::OptimizationPassRegistry' data-ref="tensorflow::OptimizationPassRegistry">OptimizationPassRegistry</a>::<a class="enum" href="../../core/common_runtime/optimization_registry.h.html#tensorflow::OptimizationPassRegistry::Grouping::POST_REWRITE_FOR_EXEC" title='tensorflow::OptimizationPassRegistry::Grouping::POST_REWRITE_FOR_EXEC' data-ref="tensorflow::OptimizationPassRegistry::Grouping::POST_REWRITE_FOR_EXEC">POST_REWRITE_FOR_EXEC</a>, <var>20</var>,</td></tr>
+<tr><th id="31">31</th><td>                      <a class="ref fake" href="encapsulate_subgraphs_pass.h.html#105" title='tensorflow::EncapsulateSubgraphsPass::EncapsulateSubgraphsPass' data-ref="_ZN10tensorflow24EncapsulateSubgraphsPassC1Ev"></a><a class="type" href="encapsulate_subgraphs_pass.h.html#tensorflow::EncapsulateSubgraphsPass" title='tensorflow::EncapsulateSubgraphsPass' data-ref="tensorflow::EncapsulateSubgraphsPass">EncapsulateSubgraphsPass</a>);</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>// Must run after EncapsulateSubgraphsPass.</i></td></tr>
+<tr><th id="34">34</th><td><a class="macro" href="../../core/common_runtime/optimization_registry.h.html#116" title="static optimization_registration::OptimizationPassRegistration register_optimization_4( OptimizationPassRegistry::POST_REWRITE_FOR_EXEC, 30, std::unique_ptr&lt;GraphOptimizationPass&gt;(new BuildXlaLaunchOpsPass))" data-ref="_M/REGISTER_OPTIMIZATION">REGISTER_OPTIMIZATION</a>(<a class="type" href="../../core/common_runtime/optimization_registry.h.html#tensorflow::OptimizationPassRegistry" title='tensorflow::OptimizationPassRegistry' data-ref="tensorflow::OptimizationPassRegistry">OptimizationPassRegistry</a>::<a class="enum" href="../../core/common_runtime/optimization_registry.h.html#tensorflow::OptimizationPassRegistry::Grouping::POST_REWRITE_FOR_EXEC" title='tensorflow::OptimizationPassRegistry::Grouping::POST_REWRITE_FOR_EXEC' data-ref="tensorflow::OptimizationPassRegistry::Grouping::POST_REWRITE_FOR_EXEC">POST_REWRITE_FOR_EXEC</a>, <var>30</var>,</td></tr>
+<tr><th id="35">35</th><td>                      <a class="ref fake" href="build_xla_launch_ops_pass.h.html#24" title='tensorflow::BuildXlaLaunchOpsPass::BuildXlaLaunchOpsPass' data-ref="_ZN10tensorflow21BuildXlaLaunchOpsPassC1Ev"></a><a class="type" href="build_xla_launch_ops_pass.h.html#tensorflow::BuildXlaLaunchOpsPass" title='tensorflow::BuildXlaLaunchOpsPass' data-ref="tensorflow::BuildXlaLaunchOpsPass">BuildXlaLaunchOpsPass</a>);</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,14 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_module_config.h' l='54' ll='57' type='const xla::ComputationLayout &amp; xla::HloModuleConfig::entry_computation_layout() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.h' l='107' u='c' c='_ZNK3xla9HloModule24entry_computation_layoutEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='143' u='c' c='_ZNK3xla10Executable12result_shapeEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='49' u='c' c='_ZNK3xla15LocalExecutable13result_layoutEv'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_module_config.h' l='52'>// Returns a constant reference to the layout of the entry computation.
+  // Assumes the layout was set.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='57' u='c' c='_ZN3xla15LocalExecutable24ValidateExecutionOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEERKNS_20ExecutableRunOptionsERKNS_7BackendE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='236' u='c' c='_ZN3xla9HloModule15CreateFromProtoERKNS_14HloModuleProtoERKNS_15HloModuleConfigERKNS_26VersionedComputationHandleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='239' u='c' c='_ZN3xla9HloModule15CreateFromProtoERKNS_14HloModuleProtoERKNS_15HloModuleConfigERKNS_26VersionedComputationHandleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='249' u='c' c='_ZN3xla9HloModule15CreateFromProtoERKNS_14HloModuleProtoERKNS_15HloModuleConfigERKNS_26VersionedComputationHandleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='839' u='c' c='_ZN3xla7Service15ExecuteParallelEPKNS_22ExecuteParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='942' u='c' c='_ZN3xla7Service20ExecuteGraphParallelEPKNS_27ExecuteGraphParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1092' u='c' c='_ZN3xla7Service7ExecuteEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1228' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>

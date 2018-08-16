@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='84' type='tensorflow::Status xla::TransferManager::TransferLiteralToInfeed(perftools::gputools::StreamExecutor * executor, const xla::Literal &amp; literal)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='82'>// Transfers the given literal into the Infeed interface of the device,
+  // using the given executor.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='315' u='c' c='_ZN3xla11LocalClient21TransferToInfeedLocalERKNS_7LiteralEi'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='141' c='_ZN3xla22GenericTransferManager23TransferLiteralToInfeedEPN9perftools8gputools14StreamExecutorERKNS_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1406' u='c' c='_ZN3xla7Service16TransferToInfeedEPKNS_23TransferToInfeedRequestEPNS_24TransferToInfeedResponseE'/>

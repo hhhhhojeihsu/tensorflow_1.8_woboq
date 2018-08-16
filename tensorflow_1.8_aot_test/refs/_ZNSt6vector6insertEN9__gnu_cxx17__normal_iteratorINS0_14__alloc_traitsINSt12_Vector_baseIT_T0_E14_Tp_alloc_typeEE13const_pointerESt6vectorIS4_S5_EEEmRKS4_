@@ -1,0 +1,21 @@
+<def f='include/c++/5/bits/stl_vector.h' l='1050' ll='1056' type='iterator std::vector::insert(const_iterator __position, size_type __n, const value_type &amp; __x)'/>
+<doc f='include/c++/5/bits/stl_vector.h' l='1036'>/**
+       *  @brief  Inserts a number of copies of given data into the %vector.
+       *  @param  __position  A const_iterator into the %vector.
+       *  @param  __n  Number of elements to be inserted.
+       *  @param  __x  Data to be inserted.
+       *  @return  An iterator that points to the inserted data.
+       *
+       *  This function will insert a specified number of copies of
+       *  the given data before the location specified by @a position.
+       *
+       *  Note that this kind of operation could be expensive for a
+       *  %vector and if it is frequently used the user should
+       *  consider using std::list.
+       */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1464' u='c' c='_ZN3xla3cpu9IrEmitter23CreateShardedVectorTypeENS_13PrimitiveTypeEj'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='843' u='c' c='_ZN3xla7Service15ExecuteParallelEPKNS_22ExecuteParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='846' u='c' c='_ZN3xla7Service15ExecuteParallelEPKNS_22ExecuteParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='946' u='c' c='_ZN3xla7Service20ExecuteGraphParallelEPKNS_27ExecuteGraphParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='949' u='c' c='_ZN3xla7Service20ExecuteGraphParallelEPKNS_27ExecuteGraphParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='538' u='c' c='_ZN4toco11ExtendShapeEPNS_5ShapeEi'/>

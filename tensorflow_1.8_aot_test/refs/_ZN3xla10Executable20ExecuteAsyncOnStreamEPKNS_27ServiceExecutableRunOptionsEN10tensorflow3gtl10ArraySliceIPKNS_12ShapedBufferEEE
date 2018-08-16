@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='72' type='StatusOr&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; xla::Executable::ExecuteAsyncOnStream(const xla::ServiceExecutableRunOptions * run_options, tensorflow::gtl::ArraySlice&lt;const ShapedBuffer *&gt; arguments)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='70'>// Same as ExecuteOnStream(), but this call is non-blocking and returns as
+  // soon as all of the operations are enqueued for launch on the stream.</doc>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='316' c='_ZN3xla3cpu13CpuExecutable20ExecuteAsyncOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='517' c='_ZN3xla3cpu21ParallelCpuExecutable20ExecuteAsyncOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='52' u='c' c='_ZN3xla10Executable16ExecuteOnStreamsEN10tensorflow3gtl10ArraySliceIKNS_27ServiceExecutableRunOptionsEEENS3_INS3_IPKNS_12ShapedBufferEEEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='595' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1260' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>

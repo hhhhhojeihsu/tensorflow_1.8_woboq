@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='626' type='xla::XlaOp xla::XlaBuilder::ReciprocalF32(const xla::XlaOp &amp; operand)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='620'>// Enqueues a float32 reciprocal instruction onto the computation.
+  // (float32 is specified as there is an implicit float32 -1.0f constant
+  // exponent).
+  //
+  // TODO(b/34468990) axe F32 suffix, can be determined by reflecting on the
+  // shape of the operand.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1021' ll='1024' type='xla::XlaOp xla::XlaBuilder::ReciprocalF32(const xla::XlaOp &amp; operand)'/>

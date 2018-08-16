@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/session_mgr.h' l='82' type='std::unique_ptr&lt;WorkerCacheInterface&gt;'/>
+<offset>64</offset>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/session_mgr.h' l='69'>// A note about destruction:
+  // We must delete graph_mgr before device_mgr, due to shared
+  // ownership of OpKernels in the executors. (The graph_mgr will
+  // free all stateless OpKernels, and pass over borrowed stateful
+  // OpKernels, which are also held in their respective devices&apos;
+  // OpSegments.)
+  //
+  // legacy_session_ owns the worker_env_.device_mgr, and so we must ensure
+  // that sessions_&apos;s WorkerSessions are deleted (which do not own the
+  // underlying devices, but instead own RenamedDevices) before
+  // legacy_session_ is deleted. Further, we must ensure that WorkerSession&apos;s
+  // device_mgr is deleted after WorkerSession&apos;s graph_mgr.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/session_mgr.cc' l='35' u='w' c='_ZN10tensorflow10SessionMgrC1EPNS_9WorkerEnvERKSsSt10unique_ptrINS_20WorkerCacheInterfaceESt14default_deleteIS6_EESt8functionIFNS_6StatusERKNS_9ServerDefEPPS6_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/session_mgr.cc' l='39' u='m' c='_ZN10tensorflow10SessionMgrC1EPNS_9WorkerEnvERKSsSt10unique_ptrINS_20WorkerCacheInterfaceESt14default_deleteIS6_EESt8functionIFNS_6StatusERKNS_9ServerDefEPPS6_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/session_mgr.cc' l='62' u='m' c='_ZN10tensorflow10SessionMgr13CreateSessionERKSsRKNS_9ServerDefEb'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/session_mgr.cc' l='67' u='m' c='_ZN10tensorflow10SessionMgr13CreateSessionERKSsRKNS_9ServerDefEb'/>

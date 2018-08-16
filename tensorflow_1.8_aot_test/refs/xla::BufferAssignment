@@ -1,0 +1,64 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='302' ll='480'/>
+<size>256</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='300'>// This class encapsulates an assignment of the LogicalBuffers in an XLA
+// module to a set of BufferAllocations.</doc>
+<fun r='_ZNK3xla16BufferAssignment11AllocationsEv'/>
+<fun r='_ZNK3xla16BufferAssignment26temp_allocation_total_sizeEv'/>
+<fun r='_ZNK3xla16BufferAssignment13HasAllocationERKNS_13LogicalBufferE'/>
+<fun r='_ZNK3xla16BufferAssignment21GetAssignedAllocationERKNS_13LogicalBufferE'/>
+<fun r='_ZNK3xla16BufferAssignment13GetAllocationEx'/>
+<fun r='_ZNK3xla16BufferAssignment12GetAllSlicesEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla16BufferAssignment15HasAllocationAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla16BufferAssignment21HasTopLevelAllocationEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla16BufferAssignment14GetUniqueSliceEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla16BufferAssignment22GetUniqueTopLevelSliceEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla16BufferAssignment28GetUniqueTopLevelOutputSliceEv'/>
+<fun r='_ZNK3xla16BufferAssignment16GetSourceBuffersEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla16BufferAssignment18SharesSliceAtIndexEPKNS_14HloInstructionERKNS_10ShapeIndexES3_S6_'/>
+<fun r='_ZNK3xla16BufferAssignment19SharesTopLevelSliceEPKNS_14HloInstructionES3_'/>
+<fun r='_ZNK3xla16BufferAssignment18HaveDisjointSlicesEPKNS_14HloInstructionES3_'/>
+<fun r='_ZNK3xla16BufferAssignment18points_to_analysisEv'/>
+<fun r='_ZNK3xla16BufferAssignment8livenessEv'/>
+<fun r='_ZNK3xla16BufferAssignment8ToStringEv'/>
+<fun r='_ZNK3xla16BufferAssignment7ToProtoEv'/>
+<fun r='_ZNK3xla16BufferAssignment8GetStatsEv'/>
+<fun r='_ZN3xla16BufferAssignmentC1EPKNS_9HloModuleESt10unique_ptrINS_14BufferLivenessESt14default_deleteIS5_EESt8functionIFxRKNS_13LogicalBufferEEES9_IFxN10t16600267'/>
+<fun r='_ZN3xla16BufferAssignment18NewEmptyAllocationExbbN10tensorflow3gtl7IntTypeINS_13LogicalBuffer10Color_tag_ExEE'/>
+<fun r='_ZN3xla16BufferAssignment13NewAllocationERKNS_13LogicalBufferExbb'/>
+<fun r='_ZN3xla16BufferAssignment13AddAssignmentEPNS_16BufferAllocationERKNS_13LogicalBufferExx'/>
+<fun r='_ZNK3xla16BufferAssignment6moduleEv'/>
+<fun r='_ZNK3xla16BufferAssignment14GetPointsToSetEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla16BufferAssignment28GetMutableAssignedAllocationERKNS_13LogicalBufferE'/>
+<fun r='_ZN3xla16BufferAssignment20GetMutableAllocationEx'/>
+<fun r='_ZN3xla16BufferAssignment22CombineTempAllocationsEv'/>
+<fun r='_ZN3xla16BufferAssignment19ComputeSummaryStatsEv'/>
+<mbr r='xla::BufferAssignment::allocations_' o='0' t='std::vector&lt;BufferAllocation&gt;'/>
+<mbr r='xla::BufferAssignment::temp_allocation_total_size_' o='192' t='int64'/>
+<mbr r='xla::BufferAssignment::allocation_index_for_buffer_' o='256' t='tensorflow::gtl::FlatMap&lt;const LogicalBuffer *, BufferAllocation::Index&gt;'/>
+<mbr r='xla::BufferAssignment::module_' o='768' t='const xla::HloModule *'/>
+<mbr r='xla::BufferAssignment::liveness_' o='832' t='const std::unique_ptr&lt;BufferLiveness&gt;'/>
+<mbr r='xla::BufferAssignment::buffer_size_' o='896' t='LogicalBuffer::SizeFunction'/>
+<mbr r='xla::BufferAssignment::color_alignment_' o='1152' t='LogicalBuffer::AlignmentFunction'/>
+<mbr r='xla::BufferAssignment::stats_' o='1408' t='xla::BufferAssignment::Stats'/>
+<fun r='_ZN3xla16BufferAssignmentC1ERKS0_'/>
+<fun r='_ZNK3xla16BufferAssignment14GetPointsToSetEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla16BufferAssignment13HasAllocationERKNS_13LogicalBufferE'/>
+<fun r='_ZNK3xla16BufferAssignment21GetAssignedAllocationERKNS_13LogicalBufferE'/>
+<fun r='_ZN3xla16BufferAssignment28GetMutableAssignedAllocationERKNS_13LogicalBufferE'/>
+<fun r='_ZNK3xla16BufferAssignment12GetAllSlicesEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla16BufferAssignment13GetAllocationEx'/>
+<fun r='_ZN3xla16BufferAssignment20GetMutableAllocationEx'/>
+<fun r='_ZNK3xla16BufferAssignment15HasAllocationAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla16BufferAssignment21HasTopLevelAllocationEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla16BufferAssignment14GetUniqueSliceEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla16BufferAssignment22GetUniqueTopLevelSliceEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla16BufferAssignment18SharesSliceAtIndexEPKNS_14HloInstructionERKNS_10ShapeIndexES3_S6_'/>
+<fun r='_ZNK3xla16BufferAssignment18HaveDisjointSlicesEPKNS_14HloInstructionES3_'/>
+<fun r='_ZNK3xla16BufferAssignment28GetUniqueTopLevelOutputSliceEv'/>
+<fun r='_ZN3xla16BufferAssignment18NewEmptyAllocationExbbN10tensorflow3gtl7IntTypeINS_13LogicalBuffer10Color_tag_ExEE'/>
+<fun r='_ZN3xla16BufferAssignment13NewAllocationERKNS_13LogicalBufferExbb'/>
+<fun r='_ZN3xla16BufferAssignment13AddAssignmentEPNS_16BufferAllocationERKNS_13LogicalBufferExx'/>
+<fun r='_ZN3xla16BufferAssignment22CombineTempAllocationsEv'/>
+<fun r='_ZN3xla16BufferAssignment19ComputeSummaryStatsEv'/>
+<fun r='_ZNK3xla16BufferAssignment8ToStringEv'/>
+<fun r='_ZNK3xla16BufferAssignment7ToProtoEv'/>

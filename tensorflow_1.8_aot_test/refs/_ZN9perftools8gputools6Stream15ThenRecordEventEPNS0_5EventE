@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream.h' l='214' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenRecordEvent(perftools::gputools::Event * event)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream.h' l='209'>// Inserts the specified event into the end of this stream. Once the stream
+  // has processed all events prior to the insertion point, the event will be
+  // marked as completed.
+  // The stream does not take ownership of event - meaning that event&apos;s lifetime
+  // must extend past the point at which it is marked complete!</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.cc' l='166' u='c' c='_ZN10tensorflow8EventMgr10QueueInUseEPN9perftools8gputools6StreamENS0_5InUseE'/>
+<def f='tensorflow/tensorflow/stream_executor/stream.cc' l='304' ll='315' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenRecordEvent(perftools::gputools::Event * event)'/>

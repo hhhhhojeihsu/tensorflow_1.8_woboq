@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='665' type='void xla::Literal::Literal(const xla::Shape &amp; shape, bool allocate_arrays)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='662'>// &apos;allocate_arrays&apos; indicates whether to allocate memory for the arrays in
+  // the shape. If false, buffer pointers inside of the Literal::Pieces are set
+  // to nullptr.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='87' u='c' c='_ZN3xla7LiteralC1ERKNS_5ShapeE'/>
+<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='89' ll='111' type='void xla::Literal::Literal(const xla::Shape &amp; shape, bool allocate_arrays)'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='277' u='c' c='_ZN3xla7Literal14DecomposeTupleEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='308' u='c' c='_ZN3xla7Literal13MoveIntoTupleEN10tensorflow3gtl17MutableArraySliceIS0_EE'/>

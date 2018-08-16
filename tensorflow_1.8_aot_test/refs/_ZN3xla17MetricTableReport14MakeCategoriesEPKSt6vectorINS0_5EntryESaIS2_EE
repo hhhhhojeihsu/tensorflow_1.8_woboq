@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/metric_table_report.h' l='128' type='static std::vector&lt;Category&gt; xla::MetricTableReport::MakeCategories(const std::vector&lt;Entry&gt; * entries)'/>
+<def f='tensorflow/tensorflow/compiler/xla/metric_table_report.cc' l='97' ll='122' type='static std::vector&lt;MetricTableReport::Category&gt; xla::MetricTableReport::MakeCategories(const std::vector&lt;Entry&gt; * entries)'/>
+<use f='tensorflow/tensorflow/compiler/xla/metric_table_report.cc' l='135' u='c' c='_ZN3xla17MetricTableReport19AppendCategoryTableEv'/>
+<doc f='tensorflow/tensorflow/compiler/xla/metric_table_report.h' l='121'>// Returns a vector of categories of entries with the same category_text. The
+  // vector is sorted in order of decreasing metric sum.
+  //
+  // The returned categories contain pointers into the entries parameter. The
+  // style guide requires parameters to which references/pointers are retained
+  // to be taken by pointer, even for const parameters, so that is why entries
+  // is taken by pointer.</doc>

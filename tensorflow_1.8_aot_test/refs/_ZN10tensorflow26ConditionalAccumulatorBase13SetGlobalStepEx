@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base.h' l='76' type='tensorflow::Status tensorflow::ConditionalAccumulatorBase::SetGlobalStep(int64 new_global_step)'/>
+<def f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base.cc' l='37' ll='46' type='tensorflow::Status tensorflow::ConditionalAccumulatorBase::SetGlobalStep(int64 new_global_step)'/>
+<doc f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base.cc' l='32'>/**
+ * Sets the time step of the accumulator to be in line with the global time
+ * step. Logs warning if the accumulator&apos;s time step is already larger than the
+ * provided time step.
+ */</doc>
+<doc f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base.h' l='73'>// SetGlobalStep is a modifier method for current_global_step.
+  // It returns an InvalidArgument error if the new_global_step is less than
+  // current_global_step.</doc>
+<use f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base_op.cc' l='48' u='c' c='_ZN10tensorflow26AccumulatorSetGlobalStepOp7ComputeEPNS_15OpKernelContextEPNS_26ConditionalAccumulatorBaseE'/>

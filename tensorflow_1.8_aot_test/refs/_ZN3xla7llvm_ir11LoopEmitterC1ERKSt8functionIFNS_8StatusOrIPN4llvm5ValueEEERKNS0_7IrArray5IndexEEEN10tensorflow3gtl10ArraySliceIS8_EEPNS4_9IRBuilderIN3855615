@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/loop_emitter.h' l='56' type='void xla::llvm_ir::LoopEmitter::LoopEmitter(const ElementGenerator &amp; target_element_generator, tensorflow::gtl::ArraySlice&lt;IrArray&gt; target_arrays, llvm::IRBuilder&lt;&gt; * ir_builder)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/loop_emitter.h' l='51'>// Constructs a LoopEmitter that emits one element into each of N separate
+  // arrays on each iteration of the loop.
+  //
+  // This is used for multi-output fusion.  target_element_generator must
+  // produce an LLVM struct with N elements.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2878' u='c' c='_ZN3xla3cpu9IrEmitter21EmitTargetElementLoopEPNS_14HloInstructionEN10tensorflow11StringPieceERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_ir7IrArray5IndexEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/gpu/parallel_loop_emitter.cc' l='43' u='c' c='_ZN3xla3gpu19ParallelLoopEmitterC1ERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_ir7IrArray5IndexEEEN10tensorflow3gtl10ArraySliceIS9_EERKNS0_6328673'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/loop_emitter.cc' l='75' ll='89' type='void xla::llvm_ir::LoopEmitter::LoopEmitter(const ElementGenerator &amp; target_element_generator, tensorflow::gtl::ArraySlice&lt;IrArray&gt; target_arrays, llvm::IRBuilder&lt;&gt; * ir_builder)'/>

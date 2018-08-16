@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='694' type='xla::ComputationDataHandle xla::ComputationBuilder::RngUniform(const xla::ComputationDataHandle &amp; a, const xla::ComputationDataHandle &amp; b, const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='692'>// Enqueues a U(a, b) random number generation instruction onto the
+  // computation. Returns values in the semi-open interval [a, b).</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/categorical_op.cc' l='68' u='c' c='_ZN10tensorflow12_GLOBAL__N_113CategoricalOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/random_ops.cc' l='45' u='c' c='_ZN10tensorflow12_GLOBAL__N_115RandomUniformOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/random_ops.cc' l='80' u='c' c='_ZN10tensorflow12_GLOBAL__N_118RandomUniformIntOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1208' ll='1212' type='xla::ComputationDataHandle xla::ComputationBuilder::RngUniform(const xla::ComputationDataHandle &amp; a, const xla::ComputationDataHandle &amp; b, const xla::Shape &amp; shape)'/>

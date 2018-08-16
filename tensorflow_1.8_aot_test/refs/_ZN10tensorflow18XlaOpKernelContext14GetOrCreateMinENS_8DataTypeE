@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='213' type='const xla::Computation * tensorflow::XlaOpKernelContext::GetOrCreateMin(const tensorflow::DataType type)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='210'>// Gets an XLA lambda to compute Min. This is cached in the
+  // XlaContext since it may be used by multiple Ops. There is a
+  // separate specialization of the computation for each DataType.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/quantize_and_dequantize_op.cc' l='59' u='c' c='_ZN10tensorflow12_GLOBAL__N_123QuantizeAndDequantizeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='44' u='c' c='_ZN10tensorflow12_GLOBAL__N_19ArgMinMaxEPN3xla18ComputationBuilderEPNS_18XlaOpKernelContextERKNS1_21ComputationDataHandleERKNS_11TensorShapeENS_8DataTypeESC_ibPS6_'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='465' ll='468' type='const xla::Computation * tensorflow::XlaOpKernelContext::GetOrCreateMin(const tensorflow::DataType type)'/>

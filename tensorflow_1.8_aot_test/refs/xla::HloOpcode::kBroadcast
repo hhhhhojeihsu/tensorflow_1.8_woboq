@@ -1,0 +1,30 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.h' l='56' type='8'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='228' u='r' c='_ZN3xla10XlaBuilder14InDimBroadcastERKNS_5ShapeERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='59' u='r' c='_ZN3xla12_GLOBAL__N_15IsAllEPKNS_14HloInstructionEa'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='466' u='r' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='469' u='r' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1207' u='r' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1491' u='r' c='_ZN3xla26AlgebraicSimplifierVisitor60TryToSinkReshapeOrBroadcastAfterOpWithUniqueNonScalarOperandEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1533' u='r' c='_ZN3xla26AlgebraicSimplifierVisitor13HandleReshapeEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_instruction_fusion.cc' l='33' u='r' c='_ZN3xla3cpu12_GLOBAL__N_114CanBeLoopFusedERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1522' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_constant_folding.cc' l='72' u='r' c='_ZN3xla18HloConstantFolding3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='958' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper19GetInstructionColorEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='679' u='r' c='_ZN3xla14HloInstruction15CreateBroadcastERKNS_5ShapeEPS0_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1283' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1612' u='r' c='_ZNK3xla14HloInstruction22CanHaveDimensionsFieldEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1845' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2660' c='_ZN3xla14HloInstruction5VisitEPNS_17DfsHloVisitorBaseIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.cc' l='28' macro='1' c='_ZN3xla15HloOpcodeStringENS_9HloOpcodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.cc' l='37' macro='1' u='r'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.cc' l='37' macro='1' u='a'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.cc' l='59' macro='1' c='_ZN3xla21HloOpcodeIsComparisonENS_9HloOpcodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_opcode.cc' l='69' macro='1' c='_ZN3xla19HloOpcodeIsVariadicENS_9HloOpcodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_tfgraph_builder.cc' l='177' c='_ZNK3xla16hlo_graph_dumper17HloTfGraphBuilder12SetNodeAttrsEPKNS_14HloInstructionEPN10tensorflow7NodeDefE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='779' u='r' c='_ZN3xla11HloVerifier3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='39' c='_ZN3xla17InstructionFusion11IsExpensiveERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='146' u='r' c='_ZN3xla17InstructionFusion16EffectivelyUnaryEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='252' u='r' c='_ZN3xla17InstructionFusion3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='93' u='r' c='_ZN3xla12_GLOBAL__N_123CanTriviallyChangeShapeEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='180' c='_ZN3xla12_GLOBAL__N_113UpdateOperandEPKNS_14HloInstructionERKNS_5ShapeEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_invariant_code_motion.cc' l='107' c='_ZN3xlaL28NotWorthHoistingIndividuallyERKNS_14HloInstructionE'/>

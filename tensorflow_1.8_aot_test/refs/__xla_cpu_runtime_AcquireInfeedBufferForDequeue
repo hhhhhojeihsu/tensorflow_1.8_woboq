@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.h' l='89' type='void * __xla_cpu_runtime_AcquireInfeedBufferForDequeue(xla::int32 buffer_length, const void * shape, xla::int32 shape_length)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.h' l='78'>// Note: in the runtime entry points below, the shape pointer and shape_length
+// reflect values that can be deserialized via
+// llvm_ir::DecodeSelfDescribingShapeConstant. This is the way we pass reified
+// type information from the generated program to the runtime, which helps check
+// the type safety and contract for the emitted-code/runtime communication.
+
+// Blocks until the next infeed buffer is ready to be dequeued, then
+// returns it. Fails catastrophically if the next enqueued buffer is
+// not of the correct length in bytes. Checking the shape rather than
+// the length would be more exact, but the length check is chosen as a
+// tradeoff between error checking and speed/simplicity.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='92' ll='109' type='void * __xla_cpu_runtime_AcquireInfeedBufferForDequeue(xla::int32 buffer_length, const void * shape, xla::int32 shape_length)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/simple_orc_jit.cc' l='179' macro='1' u='r'/>

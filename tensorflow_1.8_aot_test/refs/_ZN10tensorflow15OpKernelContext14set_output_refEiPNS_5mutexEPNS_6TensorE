@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1077' type='void tensorflow::OpKernelContext::set_output_ref(int index, tensorflow::mutex * mu, tensorflow::Tensor * tensor_for_ref)'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1521' u='c' c='_ZN10tensorflow12OpOutputList7set_refEiPNS_5mutexEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='412' u='c' c='_ZN10tensorflow15OpKernelContext31forward_ref_input_to_ref_outputEii'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='790' ll='797' type='void tensorflow::OpKernelContext::set_output_ref(int index, tensorflow::mutex * mu, tensorflow::Tensor * tensor_for_ref)'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='809' u='c' c='_ZN10tensorflow15OpKernelContext14set_output_refENS_11StringPieceEPNS_5mutexEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base_op.h' l='61' u='c' c='_ZN10tensorflow28ConditionalAccumulatorBaseOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_ops.cc' l='464' u='c' c='_ZN10tensorflow11FakeQueueOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/stack_ops.cc' l='212' u='c' c='_ZN10tensorflow7StackOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/tensor_array_ops.cc' l='123' u='c' c='_ZN10tensorflow21TensorArrayCreationOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='74' u='c' c='_ZN10tensorflow10VariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='108' u='c' c='_ZN10tensorflow19TemporaryVariableOp7ComputeEPNS_15OpKernelContextE'/>

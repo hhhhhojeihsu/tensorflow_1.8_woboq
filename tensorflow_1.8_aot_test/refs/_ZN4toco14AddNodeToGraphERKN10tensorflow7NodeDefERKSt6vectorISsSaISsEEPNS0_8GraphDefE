@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.h' l='42' type='void toco::AddNodeToGraph(const tensorflow::NodeDef &amp; node, const std::vector&lt;string&gt; &amp; cluster_names, tensorflow::GraphDef * graph)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.h' l='38'>// Adds a node to a given graph. The added node will be a copy of a given source
+// node, except for the inputs. If the inputs are coming from a node which
+// belongs to another cluster, then those inputs are renamed to the source
+// cluster name.</doc>
+<def f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.cc' l='35' ll='61' type='void toco::AddNodeToGraph(const tensorflow::NodeDef &amp; node, const std::vector&lt;string&gt; &amp; cluster_names, tensorflow::GraphDef * graph)'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.cc' l='117' u='c' c='_ZN4toco20MaybeResolveClustersERKN10tensorflow8GraphDefERKSt6vectorIPNS_23ClusterFactoryInterfaceESaIS6_EE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.cc' l='125' u='c' c='_ZN4toco20MaybeResolveClustersERKN10tensorflow8GraphDefERKSt6vectorIPNS_23ClusterFactoryInterfaceESaIS6_EE'/>

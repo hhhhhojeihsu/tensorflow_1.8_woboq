@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>version.h source code [tensorflow/tensorflow/core/public/version.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/public/version.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>public</a>/<a href='version.h.html'>version.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CORE_PUBLIC_VERSION_H_">TENSORFLOW_CORE_PUBLIC_VERSION_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CORE_PUBLIC_VERSION_H_" data-ref="_M/TENSORFLOW_CORE_PUBLIC_VERSION_H_">TENSORFLOW_CORE_PUBLIC_VERSION_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><i>// TensorFlow uses semantic versioning, see <a href="http://semver.org/">http://semver.org/</a>.</i></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#define <dfn class="macro" id="_M/TF_MAJOR_VERSION" data-ref="_M/TF_MAJOR_VERSION">TF_MAJOR_VERSION</dfn> 1</u></td></tr>
+<tr><th id="22">22</th><td><u>#define <dfn class="macro" id="_M/TF_MINOR_VERSION" data-ref="_M/TF_MINOR_VERSION">TF_MINOR_VERSION</dfn> 8</u></td></tr>
+<tr><th id="23">23</th><td><u>#define <dfn class="macro" id="_M/TF_PATCH_VERSION" data-ref="_M/TF_PATCH_VERSION">TF_PATCH_VERSION</dfn> 0</u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>// TF_VERSION_SUFFIX is non-empty for pre-releases (e.g. "-alpha", "-alpha.1",</i></td></tr>
+<tr><th id="26">26</th><td><i>// "-beta", "-rc", "-rc.1")</i></td></tr>
+<tr><th id="27">27</th><td><u>#define <dfn class="macro" id="_M/TF_VERSION_SUFFIX" data-ref="_M/TF_VERSION_SUFFIX">TF_VERSION_SUFFIX</dfn> ""</u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/TF_STR_HELPER" data-ref="_M/TF_STR_HELPER">TF_STR_HELPER</dfn>(x) #x</u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/TF_STR" data-ref="_M/TF_STR">TF_STR</dfn>(x) TF_STR_HELPER(x)</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>// e.g. "0.5.0" or "0.6.0-alpha".</i></td></tr>
+<tr><th id="33">33</th><td><u>#define <dfn class="macro" id="_M/TF_VERSION_STRING" data-ref="_M/TF_VERSION_STRING">TF_VERSION_STRING</dfn>                                            \</u></td></tr>
+<tr><th id="34">34</th><td><u>  (TF_STR(TF_MAJOR_VERSION) "." TF_STR(TF_MINOR_VERSION) "." TF_STR( \</u></td></tr>
+<tr><th id="35">35</th><td><u>      TF_PATCH_VERSION) TF_VERSION_SUFFIX)</u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><i>// TODO(josh11b): Public API functions for exporting the above.</i></td></tr>
+<tr><th id="38">38</th><td><i></i></td></tr>
+<tr><th id="39">39</th><td><i>// GraphDef compatibility versions (the versions field in graph.proto).</i></td></tr>
+<tr><th id="40">40</th><td><i>//</i></td></tr>
+<tr><th id="41">41</th><td><i>// Each graph has producer and min_consumer versions, and each</i></td></tr>
+<tr><th id="42">42</th><td><i>// consumer has its own version and a min_producer.  In addition, graphs can</i></td></tr>
+<tr><th id="43">43</th><td><i>// mark specific consumer versions as bad (to prevent bugs from executing).</i></td></tr>
+<tr><th id="44">44</th><td><i>// A consumer will execute a graph if the consumer's version is at least the</i></td></tr>
+<tr><th id="45">45</th><td><i>// graph's min_consumer, the graph's producer version is at least the consumer's</i></td></tr>
+<tr><th id="46">46</th><td><i>// min_producer, and the consumer version isn't specifically disallowed by the</i></td></tr>
+<tr><th id="47">47</th><td><i>// graph.</i></td></tr>
+<tr><th id="48">48</th><td><i>//</i></td></tr>
+<tr><th id="49">49</th><td><i>// By default, newly created graphs have producer version TF_GRAPH_DEF_VERSION</i></td></tr>
+<tr><th id="50">50</th><td><i>// min_consumer TF_GRAPH_DEF_MIN_CONSUMER, and no other bad consumer versions.</i></td></tr>
+<tr><th id="51">51</th><td><i>//</i></td></tr>
+<tr><th id="52">52</th><td><i>// Version history:</i></td></tr>
+<tr><th id="53">53</th><td><i>//</i></td></tr>
+<tr><th id="54">54</th><td><i>// 0. Graphs created before GraphDef versioning</i></td></tr>
+<tr><th id="55">55</th><td><i>// 1. First real version (2dec2015)</i></td></tr>
+<tr><th id="56">56</th><td><i>// 2. adjust_contrast only takes float, doesn't perform clamping (11dec2015)</i></td></tr>
+<tr><th id="57">57</th><td><i>// 3. Remove TileGrad, since it was equivalent to reduce_sum (30dec2015)</i></td></tr>
+<tr><th id="58">58</th><td><i>// 4. When support for this version is removed, we can safely make AttrValue</i></td></tr>
+<tr><th id="59">59</th><td><i>//    parsing more strict with respect to empty list values (see</i></td></tr>
+<tr><th id="60">60</th><td><i>//    111635679, 7jan2016).</i></td></tr>
+<tr><th id="61">61</th><td><i>// 5. Graphs are wholly-validated during Session::Create() (7jan2016).</i></td></tr>
+<tr><th id="62">62</th><td><i>// 6. TensorFlow is scalar strict within Google (27jan2016).</i></td></tr>
+<tr><th id="63">63</th><td><i>// 7. Remove TopK in favor of TopKV2 (5feb2016).</i></td></tr>
+<tr><th id="64">64</th><td><i>// 8. Replace RandomCrop from C++ with pure Python (5feb2016).</i></td></tr>
+<tr><th id="65">65</th><td><i>// 9. Deprecate batch_norm_with_global_normalization (16feb2016).</i></td></tr>
+<tr><th id="66">66</th><td><i>// 10. Deprecate conv3d_backprop_{filter,input} (10jun2016).</i></td></tr>
+<tr><th id="67">67</th><td><i>// 11. Deprecate {batch}_self_adjoint_eig (3aug2016).</i></td></tr>
+<tr><th id="68">68</th><td><i>// 12. Graph consumers understand the node_def field of FunctionDef (22aug2016).</i></td></tr>
+<tr><th id="69">69</th><td><i>// 13. Deprecate multiple batch linear algebra ops (9sep2016).</i></td></tr>
+<tr><th id="70">70</th><td><i>// 14. Deprecate batch_matrix_* ops. (10sep2016).</i></td></tr>
+<tr><th id="71">71</th><td><i>// 15. Deprecate batch_fft_* ops. (14sep2016).</i></td></tr>
+<tr><th id="72">72</th><td><i>// 16. Deprecate tensor_array (v1) ops in favor of v2 (10nov2016).</i></td></tr>
+<tr><th id="73">73</th><td><i>// 17. Deprecate inv (11nov2016).</i></td></tr>
+<tr><th id="74">74</th><td><i>// 17. Expose reverse_v2 (10nov2016)</i></td></tr>
+<tr><th id="75">75</th><td><i>// 18. Add VariableV2 (30nov2016)</i></td></tr>
+<tr><th id="76">76</th><td><i>// 19. Deprecated ops created by models moved out of core SkipGram, NegTrain.</i></td></tr>
+<tr><th id="77">77</th><td><i>//     (08dec2016)</i></td></tr>
+<tr><th id="78">78</th><td><i>// 20. Catch all version 1.0 changes to Python API generation. SplitV is now</i></td></tr>
+<tr><th id="79">79</th><td><i>//     used for tf.split, ReverseV2 is now used by tf.reverse, ConcatV2 is</i></td></tr>
+<tr><th id="80">80</th><td><i>//     now used by tf.concat. Graphs use flooring</i></td></tr>
+<tr><th id="81">81</th><td><i>//     division and mod semantics. TensorArrayV3. (12dec2016)</i></td></tr>
+<tr><th id="82">82</th><td><i>//     Also considered the version for when it is required for reduction</i></td></tr>
+<tr><th id="83">83</th><td><i>//     ops' indices to be scalar or vector, and not higher rank.</i></td></tr>
+<tr><th id="84">84</th><td><i>//     Some earlier graph def versions allowed this.</i></td></tr>
+<tr><th id="85">85</th><td><i>// 21. Dropped FunctionDef.Node support, switched to node_def introduced</i></td></tr>
+<tr><th id="86">86</th><td><i>//     in version 12. (11jan2017)</i></td></tr>
+<tr><th id="87">87</th><td><i>// 22. Placeholder now can specify and enforce scalar and partial</i></td></tr>
+<tr><th id="88">88</th><td><i>//     shapes, particularly when restoring a graph from GraphDef</i></td></tr>
+<tr><th id="89">89</th><td><i>//     produced at version 22 or later.  (04/10/2016)</i></td></tr>
+<tr><th id="90">90</th><td><i>// 23. Remove NonMaxSuppression in favor of NonMaxSuppressionV2.</i></td></tr>
+<tr><th id="91">91</th><td><i>// 24. Deprecate lookup ops (v1) ops in favor of v2 (30may2017)</i></td></tr>
+<tr><th id="92">92</th><td><i>// 25. Deprecate stack (v1) ops in favor of v2 (2017/6/15).</i></td></tr>
+<tr><th id="93">93</th><td><i>// 25. Deprecate RandomPoisson (v1) ops in favor of v2 (2017/10/25).</i></td></tr>
+<tr><th id="94">94</th><td><i>// 26. Add a bool 'stripped_default_attrs' to MetaInfoDef indicating</i></td></tr>
+<tr><th id="95">95</th><td><i>//     whether default-valued attrs have been stripped from the nodes in the</i></td></tr>
+<tr><th id="96">96</th><td><i>//     GraphDef. (7dec2017)</i></td></tr>
+<tr><th id="97">97</th><td><i>// 27. Deprecate TensorArray ops v2 in favor of v3 and deprecated io_ops</i></td></tr>
+<tr><th id="98">98</th><td><i>//     deprecated in favor of V2 ops. (2018/01/23)</i></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><u>#define <dfn class="macro" id="_M/TF_GRAPH_DEF_VERSION_MIN_PRODUCER" data-ref="_M/TF_GRAPH_DEF_VERSION_MIN_PRODUCER">TF_GRAPH_DEF_VERSION_MIN_PRODUCER</dfn> 0</u></td></tr>
+<tr><th id="101">101</th><td><u>#define <dfn class="macro" id="_M/TF_GRAPH_DEF_VERSION_MIN_CONSUMER" data-ref="_M/TF_GRAPH_DEF_VERSION_MIN_CONSUMER">TF_GRAPH_DEF_VERSION_MIN_CONSUMER</dfn> 0</u></td></tr>
+<tr><th id="102">102</th><td><u>#define <dfn class="macro" id="_M/TF_GRAPH_DEF_VERSION" data-ref="_M/TF_GRAPH_DEF_VERSION">TF_GRAPH_DEF_VERSION</dfn> 26</u></td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><i>// Checkpoint compatibility versions (the versions field in SavedSliceMeta).</i></td></tr>
+<tr><th id="105">105</th><td><i>//</i></td></tr>
+<tr><th id="106">106</th><td><i>// The checkpoint versions have the same semantics as GraphDef versions, but the</i></td></tr>
+<tr><th id="107">107</th><td><i>// numbering scheme is separate.  We have no plans to ever deprecate checkpoint</i></td></tr>
+<tr><th id="108">108</th><td><i>// versions, but it's good to have this in place in case we ever need to.</i></td></tr>
+<tr><th id="109">109</th><td><i>//</i></td></tr>
+<tr><th id="110">110</th><td><i>// Version history:</i></td></tr>
+<tr><th id="111">111</th><td><i>//</i></td></tr>
+<tr><th id="112">112</th><td><i>// 0. Checkpoints saved before checkpoint versioning.</i></td></tr>
+<tr><th id="113">113</th><td><i>// 1. First real version (10feb2015).</i></td></tr>
+<tr><th id="114">114</th><td><u>#define <dfn class="macro" id="_M/TF_CHECKPOINT_VERSION_MIN_PRODUCER" data-ref="_M/TF_CHECKPOINT_VERSION_MIN_PRODUCER">TF_CHECKPOINT_VERSION_MIN_PRODUCER</dfn> 0</u></td></tr>
+<tr><th id="115">115</th><td><u>#define <dfn class="macro" id="_M/TF_CHECKPOINT_VERSION_MIN_CONSUMER" data-ref="_M/TF_CHECKPOINT_VERSION_MIN_CONSUMER">TF_CHECKPOINT_VERSION_MIN_CONSUMER</dfn> 0</u></td></tr>
+<tr><th id="116">116</th><td><u>#define <dfn class="macro" id="_M/TF_CHECKPOINT_VERSION" data-ref="_M/TF_CHECKPOINT_VERSION">TF_CHECKPOINT_VERSION</dfn> 1</u></td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td><i class="doc">/// Version query functions (defined in generated version_info.cc)</i></td></tr>
+<tr><th id="119">119</th><td><i class="doc"></i></td></tr>
+<tr><th id="120">120</th><td><i class="doc">// Host compiler version (declared elsewhere to be __VERSION__)</i></td></tr>
+<tr><th id="121">121</th><td><b>extern</b> <em>const</em> <em>char</em>* <dfn class="decl" id="_Z19tf_compiler_versionv" title='tf_compiler_version' data-ref="_Z19tf_compiler_versionv">tf_compiler_version</dfn>();</td></tr>
+<tr><th id="122">122</th><td><i>// The git commit designator when tensorflow was built</i></td></tr>
+<tr><th id="123">123</th><td><i>// If no git repository, this will be "internal".</i></td></tr>
+<tr><th id="124">124</th><td><b>extern</b> <em>const</em> <em>char</em>* <dfn class="decl" id="_Z14tf_git_versionv" title='tf_git_version' data-ref="_Z14tf_git_versionv">tf_git_version</dfn>();</td></tr>
+<tr><th id="125">125</th><td><i>// Value of the _GLIBCXX_USE_CXX11_ABI flag, or 0 if it's not set.</i></td></tr>
+<tr><th id="126">126</th><td><b>extern</b> <em>const</em> <em>int</em> <dfn class="decl" id="_Z17tf_cxx11_abi_flagv" title='tf_cxx11_abi_flag' data-ref="_Z17tf_cxx11_abi_flagv">tf_cxx11_abi_flag</dfn>();</td></tr>
+<tr><th id="127">127</th><td><i>// Returns 1 if build is monolithic, or 0 otherwise.</i></td></tr>
+<tr><th id="128">128</th><td><b>extern</b> <em>const</em> <em>int</em> <dfn class="decl" id="_Z19tf_monolithic_buildv" title='tf_monolithic_build' data-ref="_Z19tf_monolithic_buildv">tf_monolithic_build</dfn>();</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CORE_PUBLIC_VERSION_H_</u></td></tr>
+<tr><th id="131">131</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../c/c_api.cc.html'>tensorflow/tensorflow/c/c_api.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

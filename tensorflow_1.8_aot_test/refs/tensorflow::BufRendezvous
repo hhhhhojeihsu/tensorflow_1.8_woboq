@@ -1,0 +1,29 @@
+<def f='tensorflow/tensorflow/core/common_runtime/buf_rendezvous.h' l='39' ll='101'/>
+<size>96</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/buf_rendezvous.h' l='31'>// EXPERIMENTAL: RDMA oriented producer/consumer rendezvous on a local
+// Tensor value for which DMAHelper::CanUseDMA() is true, i.e. dense
+// numeric types.  Similar to Rendezvous but never owns a Ref on the
+// tensor, instead it uses an explicit callback to the producer when
+// the consumer side is finished with the value.  This allows the
+// producer to perform in-place updates on the source buffer or to take
+// other actions that depend on knowing the consumer has passed a certain
+// execution point.</doc>
+<fun r='_ZN10tensorflow13BufRendezvousC1Ey'/>
+<fun r='_ZN10tensorflow13BufRendezvousD1Ev'/>
+<fun r='_ZN10tensorflow13BufRendezvous10StartAbortERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow13BufRendezvous10ProvideBufERKSsPNS_6DeviceEPNS_13DeviceContextEPKNS_6TensorERKNS_19AllocatorAttributesERKSt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow13BufRendezvous10ConsumeBufERKSsRKSt8functionIFvRKNS_6StatusEPNS0_4HookEEE'/>
+<fun r='_ZN10tensorflow13BufRendezvous12DoneWithHookEPNS0_4HookE'/>
+<fun r='_ZN10tensorflow13BufRendezvous11LogContentsEv'/>
+<mbr r='tensorflow::BufRendezvous::step_id_' o='0' t='const uint64'/>
+<mbr r='tensorflow::BufRendezvous::mu_' o='64' t='tensorflow::mutex'/>
+<mbr r='tensorflow::BufRendezvous::status_' o='192' t='tensorflow::Status'/>
+<mbr r='tensorflow::BufRendezvous::hook_table_' o='256' t='HookTable'/>
+<fun r='_ZN10tensorflow13BufRendezvous10PurgeTableERKNS_6StatusEPNS_3gtl7FlatMapISsPNS0_4HookENS_4hashISsEESt8equal_toISsEEE'/>
+<fun r='_ZN10tensorflow13BufRendezvousD1Ev'/>
+<fun r='_ZN10tensorflow13BufRendezvous10StartAbortERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow13BufRendezvous10PurgeTableERKNS_6StatusEPNS_3gtl7FlatMapISsPNS0_4HookENS_4hashISsEESt8equal_toISsEEE'/>
+<fun r='_ZN10tensorflow13BufRendezvous10ProvideBufERKSsPNS_6DeviceEPNS_13DeviceContextEPKNS_6TensorERKNS_19AllocatorAttributesERKSt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow13BufRendezvous10ConsumeBufERKSsRKSt8functionIFvRKNS_6StatusEPNS0_4HookEEE'/>
+<fun r='_ZN10tensorflow13BufRendezvous12DoneWithHookEPNS0_4HookE'/>
+<fun r='_ZN10tensorflow13BufRendezvous11LogContentsEv'/>

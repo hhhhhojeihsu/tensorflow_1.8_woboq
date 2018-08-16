@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/lib/core/arena.h' l='102' type='void tensorflow::core::Arena::FreeBlocks()'/>
+<doc f='tensorflow/tensorflow/core/lib/core/arena.h' l='102'>// Frees all except first block</doc>
+<use f='tensorflow/tensorflow/core/lib/core/arena.cc' l='62' u='c' c='_ZN10tensorflow4core5ArenaD1Ev'/>
+<use f='tensorflow/tensorflow/core/lib/core/arena.cc' l='92' u='c' c='_ZN10tensorflow4core5Arena5ResetEv'/>
+<def f='tensorflow/tensorflow/core/lib/core/arena.cc' l='234' ll='249' type='void tensorflow::core::Arena::FreeBlocks()'/>
+<doc f='tensorflow/tensorflow/core/lib/core/arena.cc' l='222'>// ----------------------------------------------------------------------
+// Arena::ReturnMemoryFallback()
+// Arena::FreeBlocks()
+//    Unlike GetMemory(), which does actual work, ReturnMemory() is a
+//    no-op: we don&apos;t &quot;free&quot; memory until Reset() is called.  We do
+//    update some stats, though.  Note we do no checking that the
+//    pointer you pass in was actually allocated by us, or that it
+//    was allocated for the size you say, so be careful here!
+//       FreeBlocks() does the work for Reset(), actually freeing all
+//    memory allocated in one fell swoop.
+// ----------------------------------------------------------------------</doc>

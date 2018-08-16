@@ -1,0 +1,11 @@
+<def f='tensorflow/tensorflow/core/public/session.h' l='218' ll='224' type='tensorflow::Status tensorflow::Session::RunCallable(CallableHandle handle, const std::vector&lt;Tensor&gt; &amp; feed_tensors, std::vector&lt;Tensor&gt; * fetch_tensors, tensorflow::RunMetadata * run_metadata)'/>
+<doc f='tensorflow/tensorflow/core/public/session.h' l='211'>/// \brief Invokes the subgraph named by `handle` with the given options and
+  /// input tensors.
+  ///
+  /// The order of tensors in `feed_tensors` must and `fetch_tensors` will
+  /// match the order of names in `CallableOptions::feed()` and
+  /// `CallableOptions::fetch()` when this subgraph was created.
+  /// NOTE: This API is still experimental and may change.</doc>
+<ovr f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1667' c='_ZN10tensorflow13DirectSession11RunCallableExRKSt6vectorINS_6TensorESaIS2_EEPS4_PNS_11RunMetadataE'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='413' c='_ZN10tensorflow11GrpcSession11RunCallableExRKSt6vectorINS_6TensorESaIS2_EEPS4_PNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='236' u='c' c='_ZN10tensorflow12_GLOBAL__N_117RunCallableHelperEPNS_7SessionElP7_objectP9TF_StatusPNS_3gtl13InlinedVectorIS4_Li8EEEP9TF_Buffer'/>

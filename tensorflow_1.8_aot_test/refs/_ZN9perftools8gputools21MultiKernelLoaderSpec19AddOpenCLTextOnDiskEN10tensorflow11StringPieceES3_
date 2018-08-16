@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='332' type='perftools::gputools::MultiKernelLoaderSpec * perftools::gputools::MultiKernelLoaderSpec::AddOpenCLTextOnDisk(port::StringPiece filename, port::StringPiece kernelname)'/>
+<doc f='tensorflow/tensorflow/stream_executor/kernel_spec.h' l='324'>// Builder-pattern-like methods for use in initializing a
+  // MultiKernelLoaderSpec. Each of these should be used at most once for a
+  // single MultiKernelLoaderSpec object. See file comment for example usage.
+  //
+  // Note that the kernelname parameter must be consistent with the kernel in
+  // the PTX or OpenCL being loaded. Also be aware that in CUDA C++ the kernel
+  // name may be mangled by the compiler if it is not declared in an
+  // extern &quot;C&quot; scope.</doc>
+<def f='tensorflow/tensorflow/stream_executor/kernel_spec.cc' l='172' ll='177' type='perftools::gputools::MultiKernelLoaderSpec * perftools::gputools::MultiKernelLoaderSpec::AddOpenCLTextOnDisk(port::StringPiece filename, port::StringPiece kernelname)'/>

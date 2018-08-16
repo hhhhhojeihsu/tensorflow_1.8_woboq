@@ -1,0 +1,21 @@
+<dec f='tensorflow/tensorflow/core/framework/rendezvous.h' l='95' type='tensorflow::Status tensorflow::Rendezvous::Send(const tensorflow::Rendezvous::ParsedKey &amp; key, const tensorflow::Rendezvous::Args &amp; args, const tensorflow::Tensor &amp; val, const bool is_dead)'/>
+<doc f='tensorflow/tensorflow/core/framework/rendezvous.h' l='84'>// The caller is a tensor producer and it sends a message (a tensor
+  // &quot;val&quot; and a bool &quot;is_dead&quot;) under the given &quot;key&quot;.
+  //
+  // {val, is_dead} is bundled as a message sent and received.
+  // Typically, is_dead is set by some control flow nodes
+  // (e.g., a not-taken branch).  args is passed by Send to the
+  // Recv function to communicate any information that the Recv
+  // function might need.  This is typically only necessary for
+  // Send/Recv on the same worker.
+  //
+  // Send() never blocks.</doc>
+<ovr f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='52' c='_ZN10tensorflow12_GLOBAL__N_116SimpleRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS2_4ArgsERKNS_6TensorEb'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.cc' l='39' c='_ZN10tensorflow22IntraProcessRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.cc' l='49' u='c' c='_ZN10tensorflow22IntraProcessRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/common_runtime/rendezvous_util.cc' l='48' u='c' c='_ZN10tensorflow23SendTensorsToRendezvousEPNS_10RendezvousEPNS_13DeviceContextERKSt6vectorINS_19AllocatorAttributesESaIS5_EERKS4_ISsSaISsEENS_3gtl10Arr2084513'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='187' c='_ZN10tensorflow20BaseRemoteRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='202' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<ovr f='tensorflow/tensorflow/core/framework/rendezvous.cc' l='153' c='_ZN10tensorflow19LocalRendezvousImpl4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/kernels/sendrecv_ops.cc' l='94' u='c' c='_ZN10tensorflow6SendOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/sendrecv_ops.cc' l='104' u='c' c='_ZN10tensorflow6SendOp7ComputeEPNS_15OpKernelContextE'/>

@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='201' type='xla::XlaOp xla::XlaBuilder::Reshape(const xla::XlaOp &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions, tensorflow::gtl::ArraySlice&lt;int64&gt; new_sizes)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='196'>// Enqueues an operation onto the computation that flattens the operand based
+  // on the dimension order (major/slowest-varying to minor/fastest-varying)
+  // given, followed by reshaping it into the shape with the given dimension
+  // sizes (also major to minor). Conceptually, this is a limited form of
+  // &quot;shape casting&quot;.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='569' ll='582' type='xla::XlaOp xla::XlaBuilder::Reshape(const xla::XlaOp &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions, tensorflow::gtl::ArraySlice&lt;int64&gt; new_sizes)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='590' u='c' c='_ZN3xla10XlaBuilder7ReshapeERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>

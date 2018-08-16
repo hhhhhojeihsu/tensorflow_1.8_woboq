@@ -1,0 +1,25 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='170' type='tensorflow::Status tensorflow::XlaOpKernelContext::ReadVariableInput(int index, tensorflow::DataType type, tensorflow::TensorShape * shape, xla::ComputationDataHandle * value)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='166'>// Reads the current value of the resouce variable referred to by input
+  // &apos;index&apos;. If `shape` is not nullptr, sets `*shape` to the shape of the
+  // variable. Returns an error if the variable has not been initialized, or if
+  // its type does not match `type`.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='259' u='c' c='_ZN10tensorflow12_GLOBAL__N_120StridedSliceAssignOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='37' u='c' c='_ZN10tensorflow12_GLOBAL__N_128ResourceApplyGradientDescent7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='72' u='c' c='_ZN10tensorflow12_GLOBAL__N_121ResourceApplyMomentum7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='73' u='c' c='_ZN10tensorflow12_GLOBAL__N_121ResourceApplyMomentum7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='130' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResourceApplyAdagrad7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='131' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResourceApplyAdagrad7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='172' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ResourceApplyAdam7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='173' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ResourceApplyAdam7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='174' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ResourceApplyAdam7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='264' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResourceApplyRMSProp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='265' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResourceApplyRMSProp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='266' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResourceApplyRMSProp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='348' u='c' c='_ZN10tensorflow12_GLOBAL__N_111CompileFtrlEPNS_18XlaOpKernelContextENS_8DataTypeEb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='349' u='c' c='_ZN10tensorflow12_GLOBAL__N_111CompileFtrlEPNS_18XlaOpKernelContextENS_8DataTypeEb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/training_ops.cc' l='350' u='c' c='_ZN10tensorflow12_GLOBAL__N_111CompileFtrlEPNS_18XlaOpKernelContextENS_8DataTypeEb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/variable_ops.cc' l='53' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ReadVariableOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/variable_ops.cc' l='79' u='c' c='_ZN10tensorflow12_GLOBAL__N_119AssignAddVariableOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/variable_ops.cc' l='95' u='c' c='_ZN10tensorflow12_GLOBAL__N_119AssignSubVariableOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/variable_ops.cc' l='114' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ResourceGatherOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='288' ll='319' type='tensorflow::Status tensorflow::XlaOpKernelContext::ReadVariableInput(int index, tensorflow::DataType type, tensorflow::TensorShape * shape, xla::ComputationDataHandle * value)'/>

@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/queue_interface.h' l='62' type='void tensorflow::QueueInterface::TryDequeueMany(int num_elements, tensorflow::OpKernelContext * ctx, bool allow_small_batch, CallbackWithTuple callback)'/>
+<doc f='tensorflow/tensorflow/core/framework/queue_interface.h' l='56'>// Same as above, but the stashed function object will attempt to dequeue
+  // num_elements items.  If allow_small_batch is true, and the Queue is
+  // closed but at least 1 element is available, there is no blocking
+  // and between 1 and num_elements items are immediately returned.
+  // If the queue does not support the allow_small_batch flag will
+  // return an Unimplemented error.</doc>
+<ovr f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='195' c='_ZN10tensorflow9FIFOQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/priority_queue.cc' l='238' c='_ZN10tensorflow13PriorityQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_ops.cc' l='260' u='c' c='_ZN10tensorflow13DequeueManyOp12ComputeAsyncEPNS_15OpKernelContextEPNS_14QueueInterfaceESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_ops.cc' l='346' u='c' c='_ZN10tensorflow13DequeueUpToOp12ComputeAsyncEPNS_15OpKernelContextEPNS_14QueueInterfaceESt8functionIFvvEE'/>
+<ovr f='tensorflow/tensorflow/core/kernels/random_shuffle_queue_op.cc' l='274' c='_ZN10tensorflow18RandomShuffleQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>

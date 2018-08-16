@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='412' type='std::map&lt;HloComputation *, ComputationLayout&gt;'/>
+<offset>128</offset>
+<doc f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='408'>// Map containing the layouts of all computations assigned so
+  // far. Computations are handled in a topological sort where computations are
+  // handled before their caller instructions so the layouts of caller
+  // instructions can be set to match the computation.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='549' u='a' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='567' u='a' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='569' u='a' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='622' u='a' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='624' u='a' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='840' u='a' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='853' u='a' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='861' u='a' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='862' u='a' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='867' u='a' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='868' u='a' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='881' u='a' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1470' u='a' c='_ZN3xla16LayoutAssignment16RunOnComputationERKNS_17ComputationLayoutERKNS_21TuplePointsToAnalysisEPNS_14HloComputationEPNS_24ChannelLayoutConstraintsE'/>

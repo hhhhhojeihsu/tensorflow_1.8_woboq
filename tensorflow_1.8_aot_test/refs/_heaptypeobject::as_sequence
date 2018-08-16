@@ -1,0 +1,7 @@
+<dec f='include/python3.5m/object.h' l='465' type='PySequenceMethods'/>
+<offset>5888</offset>
+<doc f='include/python3.5m/object.h' l='465'>/* as_sequence comes after as_mapping,
+                                      so that the mapping wins when both
+                                      the mapping and the sequence define
+                                      a given operator (e.g. __getitem__).
+                                      see add_operators() in typeobject.c . */</doc>

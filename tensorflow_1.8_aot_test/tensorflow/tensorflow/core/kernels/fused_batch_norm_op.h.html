@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>fused_batch_norm_op.h source code [tensorflow/tensorflow/core/kernels/fused_batch_norm_op.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::functor::FusedBatchNormFreezeGrad "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/kernels/fused_batch_norm_op.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>kernels</a>/<a href='fused_batch_norm_op.h.html'>fused_batch_norm_op.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_KERNELS_FUSED_BATCH_NORM_OP_H_">TENSORFLOW_KERNELS_FUSED_BATCH_NORM_OP_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_KERNELS_FUSED_BATCH_NORM_OP_H_" data-ref="_M/TENSORFLOW_KERNELS_FUSED_BATCH_NORM_OP_H_">TENSORFLOW_KERNELS_FUSED_BATCH_NORM_OP_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../third_party/eigen3/unsupported/Eigen/CXX11/Tensor.html">"third_party/eigen3/unsupported/Eigen/CXX11/Tensor"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../framework/tensor.h.html">"tensorflow/core/framework/tensor.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../framework/tensor_types.h.html">"tensorflow/core/framework/tensor_types.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">functor</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="26">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><i>// There is a behavior difference between cuDNN v4 and v5 with regard to the</i></td></tr>
+<tr><th id="29">29</th><td><i>// scaling factor for function cudnnBatchNormalizationForwardInference.</i></td></tr>
+<tr><th id="30">30</th><td><i>// This function corrects the scaling factor if cuDNN v4 is used, so that</i></td></tr>
+<tr><th id="31">31</th><td><i>// this behavior inconsistency is hidden from TensorFlow users.</i></td></tr>
+<tr><th id="32">32</th><td><i>// Details: in cuDNN v4, y = bnScale * (x - mean) * variance + bnBias;</i></td></tr>
+<tr><th id="33">33</th><td><i>// in v5, y = bnScale * (x - mean) / sqrt(variance + epsilon) + bnBias</i></td></tr>
+<tr><th id="34">34</th><td><i>// The template is instantiated with T as float in batch_norm_ops.cu.cc; for</i></td></tr>
+<tr><th id="35">35</th><td><i>// other types, the instantiation needs to be added accordingly.</i></td></tr>
+<tr><th id="36">36</th><td><b>template</b> &lt;<b>class</b> T&gt;</td></tr>
+<tr><th id="37">37</th><td><b>struct</b> VarianceToInvVariance {</td></tr>
+<tr><th id="38">38</th><td>  <em>void</em> <b>operator</b>()(<em>const</em> Eigen::GpuDevice&amp; d, <em>const</em> T* variance, <em>double</em> epsilon,</td></tr>
+<tr><th id="39">39</th><td>                  <em>int</em> channels, T* inv_variance);</td></tr>
+<tr><th id="40">40</th><td>};</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i>// This function converts the inverted variance of the cuDNN forward training</i></td></tr>
+<tr><th id="43">43</th><td><i>// output to variance for TensorFlow to calculate the running variance.</i></td></tr>
+<tr><th id="44">44</th><td><i>// The template is instantiated with T as float in batch_norm_ops.cu.cc; for</i></td></tr>
+<tr><th id="45">45</th><td><i>// other types, the instantiation needs to be added accordingly.</i></td></tr>
+<tr><th id="46">46</th><td><b>template</b> &lt;<b>class</b> T&gt;</td></tr>
+<tr><th id="47">47</th><td><b>struct</b> InvVarianceToVariance {</td></tr>
+<tr><th id="48">48</th><td>  <em>void</em> <b>operator</b>()(<em>const</em> Eigen::GpuDevice&amp; d, <em>double</em> epsilon, <em>int</em> sample_size,</td></tr>
+<tr><th id="49">49</th><td>                  <em>int</em> channels, T* variance);</td></tr>
+<tr><th id="50">50</th><td>};</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><i>// This function sets a GPU tensor to NaNs.</i></td></tr>
+<tr><th id="53">53</th><td><b>template</b> &lt;<b>class</b> T&gt;</td></tr>
+<tr><th id="54">54</th><td><b>struct</b> SetNanFunctor {</td></tr>
+<tr><th id="55">55</th><td>  <em>void</em> <b>operator</b>()(<em>const</em> Eigen::GpuDevice&amp; d, <b>typename</b> TTypes&lt;T&gt;::Flat out);</td></tr>
+<tr><th id="56">56</th><td>};</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><u>#<span data-ppcond="26">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><i>// Functor used by FusedBatchNormGradOp to do the computations when</i></td></tr>
+<tr><th id="61">61</th><td><i>// is_training=False. Both CPU and GPU will use this functor.</i></td></tr>
+<tr><th id="62">62</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T, <b>typename</b> U&gt;</td></tr>
+<tr><th id="63">63</th><td><b>struct</b> <dfn class="type def" id="tensorflow::functor::FusedBatchNormFreezeGrad" title='tensorflow::functor::FusedBatchNormFreezeGrad' data-ref="tensorflow::functor::FusedBatchNormFreezeGrad">FusedBatchNormFreezeGrad</dfn> {</td></tr>
+<tr><th id="64">64</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow7functor24FusedBatchNormFreezeGradclERKT_RKNS_6TensorES7_S7_S7_S7_T1_PS5_S9_S9_NS_6TTypesIS8_Li1ElE3VecESC_" title='tensorflow::functor::FusedBatchNormFreezeGrad::operator()' data-ref="_ZN10tensorflow7functor24FusedBatchNormFreezeGradclERKT_RKNS_6TensorES7_S7_S7_S7_T1_PS5_S9_S9_NS_6TTypesIS8_Li1ElE3VecESC_"><b>operator</b>()</dfn>(<em>const</em> Device&amp; <dfn class="local col1 decl" id="1d" title='d' data-type='const Device &amp;' data-ref="1d">d</dfn>, <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col2 decl" id="2y_backprop_input" title='y_backprop_input' data-type='const tensorflow::Tensor &amp;' data-ref="2y_backprop_input">y_backprop_input</dfn>,</td></tr>
+<tr><th id="65">65</th><td>                  <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col3 decl" id="3x_input" title='x_input' data-type='const tensorflow::Tensor &amp;' data-ref="3x_input">x_input</dfn>, <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col4 decl" id="4scale_input" title='scale_input' data-type='const tensorflow::Tensor &amp;' data-ref="4scale_input">scale_input</dfn>,</td></tr>
+<tr><th id="66">66</th><td>                  <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col5 decl" id="5pop_mean_input" title='pop_mean_input' data-type='const tensorflow::Tensor &amp;' data-ref="5pop_mean_input">pop_mean_input</dfn>,</td></tr>
+<tr><th id="67">67</th><td>                  <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col6 decl" id="6pop_variance_input" title='pop_variance_input' data-type='const tensorflow::Tensor &amp;' data-ref="6pop_variance_input">pop_variance_input</dfn>, U <dfn class="local col7 decl" id="7epsilon" title='epsilon' data-type='U' data-ref="7epsilon">epsilon</dfn>,</td></tr>
+<tr><th id="68">68</th><td>                  <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>* <dfn class="local col8 decl" id="8x_backprop_output" title='x_backprop_output' data-type='tensorflow::Tensor *' data-ref="8x_backprop_output">x_backprop_output</dfn>, <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>* <dfn class="local col9 decl" id="9scale_backprop_output" title='scale_backprop_output' data-type='tensorflow::Tensor *' data-ref="9scale_backprop_output">scale_backprop_output</dfn>,</td></tr>
+<tr><th id="69">69</th><td>                  <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>* <dfn class="local col0 decl" id="10offset_backprop_output" title='offset_backprop_output' data-type='tensorflow::Tensor *' data-ref="10offset_backprop_output">offset_backprop_output</dfn>,</td></tr>
+<tr><th id="70">70</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;U&gt;::Vec <dfn class="local col1 decl" id="11scratch1" title='scratch1' data-type='typename TTypes&lt;U&gt;::Vec' data-ref="11scratch1">scratch1</dfn>,</td></tr>
+<tr><th id="71">71</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;U&gt;::Vec <dfn class="local col2 decl" id="12scratch2" title='scratch2' data-type='typename TTypes&lt;U&gt;::Vec' data-ref="12scratch2">scratch2</dfn>) {</td></tr>
+<tr><th id="72">72</th><td>    <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>4</var>&gt;::ConstTensor <dfn class="local col3 decl" id="13y_backprop" title='y_backprop' data-type='typename TTypes&lt;T, 4&gt;::ConstTensor' data-ref="13y_backprop">y_backprop</dfn>(</td></tr>
+<tr><th id="73">73</th><td>        <a class="local col2 ref" href="#2y_backprop_input" title='y_backprop_input' data-ref="2y_backprop_input">y_backprop_input</a>.tensor&lt;T, <var>4</var>&gt;());</td></tr>
+<tr><th id="74">74</th><td>    <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>4</var>&gt;::ConstTensor <dfn class="local col4 decl" id="14input" title='input' data-type='typename TTypes&lt;T, 4&gt;::ConstTensor' data-ref="14input">input</dfn>(<a class="local col3 ref" href="#3x_input" title='x_input' data-ref="3x_input">x_input</a>.tensor&lt;T, <var>4</var>&gt;());</td></tr>
+<tr><th id="75">75</th><td>    <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;U&gt;::ConstVec <dfn class="local col5 decl" id="15scale" title='scale' data-type='typename TTypes&lt;U&gt;::ConstVec' data-ref="15scale">scale</dfn>(<a class="local col4 ref" href="#4scale_input" title='scale_input' data-ref="4scale_input">scale_input</a>.vec&lt;U&gt;());</td></tr>
+<tr><th id="76">76</th><td>    <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;U&gt;::ConstVec <dfn class="local col6 decl" id="16pop_mean" title='pop_mean' data-type='typename TTypes&lt;U&gt;::ConstVec' data-ref="16pop_mean">pop_mean</dfn>(<a class="local col5 ref" href="#5pop_mean_input" title='pop_mean_input' data-ref="5pop_mean_input">pop_mean_input</a>.vec&lt;U&gt;());</td></tr>
+<tr><th id="77">77</th><td>    <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;U&gt;::ConstVec <dfn class="local col7 decl" id="17pop_var" title='pop_var' data-type='typename TTypes&lt;U&gt;::ConstVec' data-ref="17pop_var">pop_var</dfn>(<a class="local col6 ref" href="#6pop_variance_input" title='pop_variance_input' data-ref="6pop_variance_input">pop_variance_input</a>.vec&lt;U&gt;());</td></tr>
+<tr><th id="78">78</th><td>    <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>4</var>&gt;::Tensor <dfn class="local col8 decl" id="18x_backprop" title='x_backprop' data-type='typename TTypes&lt;T, 4&gt;::Tensor' data-ref="18x_backprop">x_backprop</dfn>(<a class="local col8 ref" href="#8x_backprop_output" title='x_backprop_output' data-ref="8x_backprop_output">x_backprop_output</a>-&gt;tensor&lt;T, <var>4</var>&gt;());</td></tr>
+<tr><th id="79">79</th><td>    <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;U&gt;::Vec <dfn class="local col9 decl" id="19scale_backprop" title='scale_backprop' data-type='typename TTypes&lt;U&gt;::Vec' data-ref="19scale_backprop">scale_backprop</dfn>(<a class="local col9 ref" href="#9scale_backprop_output" title='scale_backprop_output' data-ref="9scale_backprop_output">scale_backprop_output</a>-&gt;vec&lt;U&gt;());</td></tr>
+<tr><th id="80">80</th><td>    <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;U&gt;::Vec <dfn class="local col0 decl" id="20offset_backprop" title='offset_backprop' data-type='typename TTypes&lt;U&gt;::Vec' data-ref="20offset_backprop">offset_backprop</dfn>(<a class="local col0 ref" href="#10offset_backprop_output" title='offset_backprop_output' data-ref="10offset_backprop_output">offset_backprop_output</a>-&gt;vec&lt;U&gt;());</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>    <em>const</em> <em>int</em> <dfn class="local col1 decl" id="21depth" title='depth' data-type='const int' data-ref="21depth">depth</dfn> = <a class="local col6 ref" href="#16pop_mean" title='pop_mean' data-ref="16pop_mean">pop_mean</a>.dimension(<var>0</var>);</td></tr>
+<tr><th id="83">83</th><td>    <em>const</em> <em>int</em> <dfn class="local col2 decl" id="22rest_size" title='rest_size' data-type='const int' data-ref="22rest_size">rest_size</dfn> = <a class="local col4 ref" href="#14input" title='input' data-ref="14input">input</a>.size() / <a class="local col1 ref" href="#21depth" title='depth' data-ref="21depth">depth</a>;</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>    <span class="namespace">Eigen::</span><span class='type' title='Eigen::DSizes' data-ref="Eigen::DSizes">DSizes</span>&lt;<span class="namespace">Eigen::</span><span class='typedef' title='Eigen::Index' data-type='std::ptrdiff_t' data-ref="Eigen::Index">Index</span>, <var>2</var>&gt; <dfn class="local col3 decl" id="23rest_by_depth" title='rest_by_depth' data-type='Eigen::DSizes&lt;Eigen::Index, 2&gt;' data-ref="23rest_by_depth">rest_by_depth</dfn><span class='ref' title='Eigen::DSizes::DSizes&lt;DenseIndex, NumDims&gt;' data-ref="_ZN5Eigen6DSizesC1ET_S1_DpT_">(</span><a class="local col2 ref" href="#22rest_size" title='rest_size' data-ref="22rest_size">rest_size</a>, <a class="local col1 ref" href="#21depth" title='depth' data-ref="21depth">depth</a>);</td></tr>
+<tr><th id="86">86</th><td><u>#<span data-ppcond="86">if</span> !defined(<span class="macro" data-ref="_M/EIGEN_HAS_INDEX_LIST">EIGEN_HAS_INDEX_LIST</span>)</u></td></tr>
+<tr><th id="87">87</th><td>    Eigen::DSizes&lt;Eigen::Index, <var>2</var>&gt; one_by_depth(<var>1</var>, depth);</td></tr>
+<tr><th id="88">88</th><td>    Eigen::array&lt;<em>int</em>, <var>1</var>&gt; reduction_axis{<var>0</var>};</td></tr>
+<tr><th id="89">89</th><td>    Eigen::array&lt;<em>int</em>, <var>2</var>&gt; rest_by_one({rest_size, <var>1</var>});</td></tr>
+<tr><th id="90">90</th><td><u>#<span data-ppcond="86">else</span></u></td></tr>
+<tr><th id="91">91</th><td>    <span class="namespace">Eigen::</span><span class='type' title='Eigen::IndexList' data-ref="Eigen::IndexList">IndexList</span>&lt;<span class="namespace">Eigen::</span><span class='type' title='Eigen::type2index' data-ref="Eigen::type2index">type2index</span>&lt;<var>1</var>&gt;, <span class="namespace">Eigen::</span><span class='typedef' title='Eigen::Index' data-type='std::ptrdiff_t' data-ref="Eigen::Index">Index</span>&gt; <span class='ref fake' title='Eigen::IndexList::IndexList&lt;FirstType, OtherTypes...&gt;' data-ref="_ZN5Eigen9IndexListC1Ev"></span><dfn class="local col4 decl" id="24one_by_depth" title='one_by_depth' data-type='Eigen::IndexList&lt;Eigen::type2index&lt;1&gt;, Eigen::Index&gt;' data-ref="24one_by_depth">one_by_depth</dfn>;</td></tr>
+<tr><th id="92">92</th><td>    <a class="local col4 ref" href="#24one_by_depth" title='one_by_depth' data-ref="24one_by_depth">one_by_depth</a>.<span class='ref' title='Eigen::IndexList::set' data-ref="_ZN5Eigen9IndexList3setEll">set</span>(<var>1</var>, <a class="local col1 ref" href="#21depth" title='depth' data-ref="21depth">depth</a>);</td></tr>
+<tr><th id="93">93</th><td>    <span class="namespace">Eigen::</span><span class='type' title='Eigen::IndexList' data-ref="Eigen::IndexList">IndexList</span>&lt;<span class="namespace">Eigen::</span><span class='type' title='Eigen::type2index' data-ref="Eigen::type2index">type2index</span>&lt;<var>0</var>&gt; &gt; <span class='ref fake' title='Eigen::IndexList::IndexList&lt;FirstType, OtherTypes...&gt;' data-ref="_ZN5Eigen9IndexListC1Ev"></span><dfn class="local col5 decl" id="25reduction_axis" title='reduction_axis' data-type='Eigen::IndexList&lt;Eigen::type2index&lt;0&gt; &gt;' data-ref="25reduction_axis">reduction_axis</dfn>;</td></tr>
+<tr><th id="94">94</th><td>    <span class="namespace">Eigen::</span><span class='type' title='Eigen::IndexList' data-ref="Eigen::IndexList">IndexList</span>&lt;<span class="namespace">Eigen::</span><span class='typedef' title='Eigen::Index' data-type='std::ptrdiff_t' data-ref="Eigen::Index">Index</span>, <span class="namespace">Eigen::</span><span class='type' title='Eigen::type2index' data-ref="Eigen::type2index">type2index</span>&lt;<var>1</var>&gt; &gt; <span class='ref fake' title='Eigen::IndexList::IndexList&lt;FirstType, OtherTypes...&gt;' data-ref="_ZN5Eigen9IndexListC1Ev"></span><dfn class="local col6 decl" id="26rest_by_one" title='rest_by_one' data-type='Eigen::IndexList&lt;Eigen::Index, Eigen::type2index&lt;1&gt; &gt;' data-ref="26rest_by_one">rest_by_one</dfn>;</td></tr>
+<tr><th id="95">95</th><td>    <a class="local col6 ref" href="#26rest_by_one" title='rest_by_one' data-ref="26rest_by_one">rest_by_one</a>.<span class='ref' title='Eigen::IndexList::set' data-ref="_ZN5Eigen9IndexList3setEll">set</span>(<var>0</var>, <a class="local col2 ref" href="#22rest_size" title='rest_size' data-ref="22rest_size">rest_size</a>);</td></tr>
+<tr><th id="96">96</th><td><u>#<span data-ppcond="86">endif</span></u></td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>    <i>// offset_backprop  = sum(y_backprop)</i></td></tr>
+<tr><th id="99">99</th><td><i>    // scale_backprop = y_backprop * ((x - pop_mean) * rsqrt(pop_var + epsilon))</i></td></tr>
+<tr><th id="100">100</th><td><i>    // x_backprop = y_backprop * (scale * rsqrt(pop_var + epsilon))</i></td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>    <em>auto</em> <dfn class="local col7 decl" id="27y_backprop_rest_by_depth" title='y_backprop_rest_by_depth' data-type='auto' data-ref="27y_backprop_rest_by_depth">y_backprop_rest_by_depth</dfn> =</td></tr>
+<tr><th id="103">103</th><td>        <a class="local col3 ref" href="#13y_backprop" title='y_backprop' data-ref="13y_backprop">y_backprop</a>.reshape(<a class="local col3 ref" href="#23rest_by_depth" title='rest_by_depth' data-ref="23rest_by_depth">rest_by_depth</a>).<b>template</b> cast&lt;U&gt;();</td></tr>
+<tr><th id="104">104</th><td>    <em>auto</em> <dfn class="local col8 decl" id="28input_rest_by_depth" title='input_rest_by_depth' data-type='auto' data-ref="28input_rest_by_depth">input_rest_by_depth</dfn> = <a class="local col4 ref" href="#14input" title='input' data-ref="14input">input</a>.reshape(<a class="local col3 ref" href="#23rest_by_depth" title='rest_by_depth' data-ref="23rest_by_depth">rest_by_depth</a>).<b>template</b> cast&lt;U&gt;();</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>    <a class="local col0 ref" href="#20offset_backprop" title='offset_backprop' data-ref="20offset_backprop">offset_backprop</a>.device(<a class="local col1 ref" href="#1d" title='d' data-ref="1d">d</a>) = <a class="local col7 ref" href="#27y_backprop_rest_by_depth" title='y_backprop_rest_by_depth' data-ref="27y_backprop_rest_by_depth">y_backprop_rest_by_depth</a>.sum(<a class="local col5 ref" href="#25reduction_axis" title='reduction_axis' data-ref="25reduction_axis">reduction_axis</a>);</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>    <i>// scratch1 = rsqrt(pop_var + epsilon)</i></td></tr>
+<tr><th id="109">109</th><td>    <a class="local col1 ref" href="#11scratch1" title='scratch1' data-ref="11scratch1">scratch1</a>.device(<a class="local col1 ref" href="#1d" title='d' data-ref="1d">d</a>) = (<a class="local col7 ref" href="#17pop_var" title='pop_var' data-ref="17pop_var">pop_var</a> + <a class="local col7 ref" href="#17pop_var" title='pop_var' data-ref="17pop_var">pop_var</a>.constant(<a class="local col7 ref" href="#7epsilon" title='epsilon' data-ref="7epsilon">epsilon</a>)).rsqrt();</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>    <i>// scratch2 = sum(y_backprop * (x - mean))</i></td></tr>
+<tr><th id="112">112</th><td>    <a class="local col2 ref" href="#12scratch2" title='scratch2' data-ref="12scratch2">scratch2</a>.device(<a class="local col1 ref" href="#1d" title='d' data-ref="1d">d</a>) =</td></tr>
+<tr><th id="113">113</th><td>        (<a class="local col7 ref" href="#27y_backprop_rest_by_depth" title='y_backprop_rest_by_depth' data-ref="27y_backprop_rest_by_depth">y_backprop_rest_by_depth</a> *</td></tr>
+<tr><th id="114">114</th><td>         (<a class="local col8 ref" href="#28input_rest_by_depth" title='input_rest_by_depth' data-ref="28input_rest_by_depth">input_rest_by_depth</a> -</td></tr>
+<tr><th id="115">115</th><td>          <a class="local col6 ref" href="#16pop_mean" title='pop_mean' data-ref="16pop_mean">pop_mean</a>.reshape(<a class="local col4 ref" href="#24one_by_depth" title='one_by_depth' data-ref="24one_by_depth">one_by_depth</a>).broadcast(<a class="local col6 ref" href="#26rest_by_one" title='rest_by_one' data-ref="26rest_by_one">rest_by_one</a>)))</td></tr>
+<tr><th id="116">116</th><td>            .sum(<a class="local col5 ref" href="#25reduction_axis" title='reduction_axis' data-ref="25reduction_axis">reduction_axis</a>);</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td>    <a class="local col8 ref" href="#18x_backprop" title='x_backprop' data-ref="18x_backprop">x_backprop</a>.reshape(<a class="local col3 ref" href="#23rest_by_depth" title='rest_by_depth' data-ref="23rest_by_depth">rest_by_depth</a>).device(<a class="local col1 ref" href="#1d" title='d' data-ref="1d">d</a>) =</td></tr>
+<tr><th id="119">119</th><td>        (<a class="local col7 ref" href="#27y_backprop_rest_by_depth" title='y_backprop_rest_by_depth' data-ref="27y_backprop_rest_by_depth">y_backprop_rest_by_depth</a> * ((<a class="local col1 ref" href="#11scratch1" title='scratch1' data-ref="11scratch1">scratch1</a> * <a class="local col5 ref" href="#15scale" title='scale' data-ref="15scale">scale</a>)</td></tr>
+<tr><th id="120">120</th><td>                                         .eval()</td></tr>
+<tr><th id="121">121</th><td>                                         .reshape(<a class="local col4 ref" href="#24one_by_depth" title='one_by_depth' data-ref="24one_by_depth">one_by_depth</a>)</td></tr>
+<tr><th id="122">122</th><td>                                         .broadcast(<a class="local col6 ref" href="#26rest_by_one" title='rest_by_one' data-ref="26rest_by_one">rest_by_one</a>)))</td></tr>
+<tr><th id="123">123</th><td>            .<b>template</b> cast&lt;T&gt;();</td></tr>
+<tr><th id="124">124</th><td>    <a class="local col9 ref" href="#19scale_backprop" title='scale_backprop' data-ref="19scale_backprop">scale_backprop</a>.device(<a class="local col1 ref" href="#1d" title='d' data-ref="1d">d</a>) = <a class="local col2 ref" href="#12scratch2" title='scratch2' data-ref="12scratch2">scratch2</a> * <a class="local col1 ref" href="#11scratch1" title='scratch1' data-ref="11scratch1">scratch1</a>;</td></tr>
+<tr><th id="125">125</th><td>  }</td></tr>
+<tr><th id="126">126</th><td>};</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>}  <i>// namespace functor</i></td></tr>
+<tr><th id="129">129</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_KERNELS_FUSED_BATCH_NORM_OP_H_</u></td></tr>
+<tr><th id="132">132</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='fused_batch_norm_op.cc.html'>tensorflow/tensorflow/core/kernels/fused_batch_norm_op.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

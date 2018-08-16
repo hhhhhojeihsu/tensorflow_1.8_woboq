@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.h' l='86' type='void xla::cpu::runtime::XfeedQueueManager::ReleaseCurrentBuffer(int32 length, void * data, StatusOr&lt;xla::Shape&gt; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.h' l='76'>// Releases the current buffer, which is the last buffer returned by
+  // BlockingDequeuBuffer and not yet released. length and data must
+  // match the buffer-&gt;length() and buffer-&gt;data() for the current
+  // buffer.
+  //
+  // &apos;shape&apos; communicates the shape of the buffer being released. If the program
+  // passed a value that could not be decoded as a shape, &apos;shape&apos; will be an
+  // error status. In the case of outfeed, this indicates the layout of the
+  // shape that has been outfed. In the case of infeed, this can be used for
+  // sanity checking purposes.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='121' u='c' c='__xla_cpu_runtime_ReleaseInfeedBufferAfterDequeue'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='153' u='c' c='__xla_cpu_runtime_ReleaseOutfeedBufferAfterPopulation'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.cc' l='70' ll='81' type='void xla::cpu::runtime::XfeedQueueManager::ReleaseCurrentBuffer(int32 length, void * data, StatusOr&lt;xla::Shape&gt; shape)'/>

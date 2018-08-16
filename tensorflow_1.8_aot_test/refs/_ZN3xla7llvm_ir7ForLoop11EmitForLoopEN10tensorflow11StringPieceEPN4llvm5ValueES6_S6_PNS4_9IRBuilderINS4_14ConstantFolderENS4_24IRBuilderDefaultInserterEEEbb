@@ -1,0 +1,39 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.h' l='74' type='static std::unique_ptr&lt;ForLoop&gt; xla::llvm_ir::ForLoop::EmitForLoop(tensorflow::StringPiece prefix, llvm::Value * start_index, llvm::Value * end_index, llvm::Value * step, llvm::IRBuilder&lt;&gt; * ir_builder, bool prevent_unrolling = false, bool prevent_vectorization = false)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.h' l='40'>// Emit a for-loop at the current insert point of the given IRBuilder.
+  //
+  // start_index and end_index are the loop bounds (end_index is not inclusive).
+  // `step` is the increment of the loop index after each iteration.
+  //
+  // The current insert basic block of the builder is the preheader to the loop
+  // (see below for definition of basic block names). All instructions (if any)
+  // at or after the insert point in the insert basic block are moved to a newly
+  // created exit basic block. Instructions before the insert point remain in
+  // the insert BB:
+  //
+  //                   +--------------+         +----------------+
+  //                   |  insert BB   |         |   insert BB    |
+  //                   |     ...      |         | (preheader BB) |
+  //                   | %foo = ...   |         |      ...       |
+  //    insert point -&gt;| %bar = ...   |  ===&gt;   | %foo = ...     |
+  //                   |     ...      |         +----------------+
+  //                   +--------------+                 |
+  //                                                    V
+  //                                              [[ LOOP BBs ]]
+  //                                                    |
+  //                                                    V
+  //                                             +--------------+
+  //                                             |   exit BB    |
+  //                                             | %bar = ...   |
+  //                                             |     ...      |
+  //                                             +--------------+
+  //
+  // `prefix` is used to disambiguate variable and basic block names emitted in
+  // LLVM IR. If non-empty, it is prepended to the name of the induction
+  // variable value and each basic block created for the loop.
+  //
+  // If `prevent_unrolling` is true then emit metadata that directs LLVM to not
+  // unroll the generated loop.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1822' u='c' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/kernel_support_library.cc' l='43' u='c' c='_ZN3xla20KernelSupportLibrary3ForEN10tensorflow11StringPieceEPN4llvm5ValueES5_S5_bRKSt8functionIFvS5_S5_EE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.cc' l='48' ll='57' type='static std::unique_ptr&lt;ForLoop&gt; xla::llvm_ir::ForLoop::EmitForLoop(tensorflow::StringPiece prefix, llvm::Value * start_index, llvm::Value * end_index, llvm::Value * step, llvm::IRBuilder&lt;&gt; * ir_builder, bool prevent_unrolling = false, bool prevent_vectorization = false)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.cc' l='48'>/* static */</doc>

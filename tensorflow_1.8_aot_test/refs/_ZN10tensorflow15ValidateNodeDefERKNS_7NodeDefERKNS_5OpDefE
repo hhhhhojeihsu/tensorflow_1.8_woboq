@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/framework/node_def_util.h' l='260' type='tensorflow::Status tensorflow::ValidateNodeDef(const tensorflow::NodeDef &amp; node_def, const tensorflow::OpDef &amp; op_def)'/>
+<doc f='tensorflow/tensorflow/core/framework/node_def_util.h' l='255'>// Validates that the NodeDef:
+// * Defines all expected attrs from the OpDef.
+// * All attrs satisfies constraints from the OpDef.
+// * Has a signature matching SignatureForNode().
+// etc.</doc>
+<def f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='392' ll='480' type='tensorflow::Status tensorflow::ValidateNodeDef(const tensorflow::NodeDef &amp; node_def, const tensorflow::OpDef &amp; op_def)'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='1165' u='c' c='_ZN10tensorflow14CreateOpKernelENS_10DeviceTypeEPNS_10DeviceBaseEPNS_9AllocatorEPNS_22FunctionLibraryRuntimeERKNS_7NodeDefEiPPNS_8OpKernelE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='659' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor22ModifyNodeDefForImportEPNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/graph/node_builder.cc' l='111' u='c' c='_ZNK10tensorflow11NodeBuilder8FinalizeEPNS_5GraphEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/validate.cc' l='37' u='c' c='_ZN10tensorflow5graph16ValidateGraphDefERKNS_8GraphDefERKNS_19OpRegistryInterfaceE'/>

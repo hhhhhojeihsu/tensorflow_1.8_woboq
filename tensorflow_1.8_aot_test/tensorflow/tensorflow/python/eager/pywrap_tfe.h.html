@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>pywrap_tfe.h source code [tensorflow/tensorflow/python/eager/pywrap_tfe.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/python/eager/pywrap_tfe.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>python</a>/<a href='./'>eager</a>/<a href='pywrap_tfe.h.html'>pywrap_tfe.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_PYTHON_EAGER_PYWRAP_TFE_H_">TENSORFLOW_PYTHON_EAGER_PYWRAP_TFE_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_PYTHON_EAGER_PYWRAP_TFE_H_" data-ref="_M/TENSORFLOW_PYTHON_EAGER_PYWRAP_TFE_H_">TENSORFLOW_PYTHON_EAGER_PYWRAP_TFE_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../c/eager/c_api.h.html">"tensorflow/c/eager/c_api.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../core/lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../core/lib/gtl/inlined_vector.h.html">"tensorflow/core/lib/gtl/inlined_vector.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../include/python3.5m/Python.h.html">&lt;Python.h&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>typedef</b> <span class="namespace">tensorflow::gtl::</span><a class="type" href="../../core/lib/gtl/inlined_vector.h.html#tensorflow::gtl::InlinedVector" title='tensorflow::gtl::InlinedVector' data-ref="tensorflow::gtl::InlinedVector">InlinedVector</a>&lt;<a class="typedef" href="../../c/eager/c_api.h.html#TFE_TensorHandle" title='TFE_TensorHandle' data-type='struct TFE_TensorHandle' data-ref="TFE_TensorHandle">TFE_TensorHandle</a>*, <var>4</var>&gt;</td></tr>
+<tr><th id="25">25</th><td>    <dfn class="typedef" id="TFE_InputTensorHandles" title='TFE_InputTensorHandles' data-type='tensorflow::gtl::InlinedVector&lt;TFE_TensorHandle *, 4&gt;' data-ref="TFE_InputTensorHandles">TFE_InputTensorHandles</dfn>;</td></tr>
+<tr><th id="26">26</th><td><b>typedef</b> <span class="namespace">tensorflow::gtl::</span><a class="type" href="../../core/lib/gtl/inlined_vector.h.html#tensorflow::gtl::InlinedVector" title='tensorflow::gtl::InlinedVector' data-ref="tensorflow::gtl::InlinedVector">InlinedVector</a>&lt;<a class="typedef" href="../../c/eager/c_api.h.html#TFE_TensorHandle" title='TFE_TensorHandle' data-type='struct TFE_TensorHandle' data-ref="TFE_TensorHandle">TFE_TensorHandle</a>*, <var>2</var>&gt;</td></tr>
+<tr><th id="27">27</th><td>    <dfn class="typedef" id="TFE_OutputTensorHandles" title='TFE_OutputTensorHandles' data-type='tensorflow::gtl::InlinedVector&lt;TFE_TensorHandle *, 2&gt;' data-ref="TFE_OutputTensorHandles">TFE_OutputTensorHandles</dfn>;</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i>// Execute a TensorFlow operation.</i></td></tr>
+<tr><th id="30">30</th><td><i>//</i></td></tr>
+<tr><th id="31">31</th><td><i>// 'device_name': Name of the device on which to execute the operation, or NULL</i></td></tr>
+<tr><th id="32">32</th><td><i>//                for automatic selection.</i></td></tr>
+<tr><th id="33">33</th><td><i>// 'op_name': Name of the TensorFlow op to execute.</i></td></tr>
+<tr><th id="34">34</th><td><i>// 'inputs': An array of TFE_TensorHandle*'s of size 'num_inputs'. These tensors</i></td></tr>
+<tr><th id="35">35</th><td><i>//           will be provided as input to the operation.</i></td></tr>
+<tr><th id="36">36</th><td><i>// 'attrs': A Python tuple alternating names and attr values.</i></td></tr>
+<tr><th id="37">37</th><td><i>// 'outputs': A pointer to a TFE_OutputTensorHandles in which outputs will</i></td></tr>
+<tr><th id="38">38</th><td><i>//            placed. On success, its elements will be filled in and the</i></td></tr>
+<tr><th id="39">39</th><td><i>//            caller takes ownership of each returned TFE_TensorHandle.</i></td></tr>
+<tr><th id="40">40</th><td><i>//            'outputs' MUST be sized to be at least as large as the number</i></td></tr>
+<tr><th id="41">41</th><td><i>//            of tensors produced by the operation and will be resized to</i></td></tr>
+<tr><th id="42">42</th><td><i>//            the actual number of tensors produced.</i></td></tr>
+<tr><th id="43">43</th><td><em>void</em> <dfn class="decl" id="_Z14TFE_Py_ExecuteP11TFE_ContextPKcS2_PN10tensorflow3gtl13InlinedVectorIP16TFE_TensorHandleLi4EEEP7_objectPNS5_IS7_Li2EEEP9TF_Status" title='TFE_Py_Execute' data-ref="_Z14TFE_Py_ExecuteP11TFE_ContextPKcS2_PN10tensorflow3gtl13InlinedVectorIP16TFE_TensorHandleLi4EEEP7_objectPNS5_IS7_Li2EEEP9TF_Status">TFE_Py_Execute</dfn>(<a class="typedef" href="../../c/eager/c_api.h.html#TFE_Context" title='TFE_Context' data-type='struct TFE_Context' data-ref="TFE_Context">TFE_Context</a>* <dfn class="local col6 decl" id="6ctx" title='ctx' data-type='TFE_Context *' data-ref="6ctx">ctx</dfn>, <em>const</em> <em>char</em>* <dfn class="local col7 decl" id="7device_name" title='device_name' data-type='const char *' data-ref="7device_name">device_name</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                    <em>const</em> <em>char</em>* <dfn class="local col8 decl" id="8op_name" title='op_name' data-type='const char *' data-ref="8op_name">op_name</dfn>, <a class="typedef" href="#TFE_InputTensorHandles" title='TFE_InputTensorHandles' data-type='tensorflow::gtl::InlinedVector&lt;TFE_TensorHandle *, 4&gt;' data-ref="TFE_InputTensorHandles">TFE_InputTensorHandles</a>* <dfn class="local col9 decl" id="9inputs" title='inputs' data-type='TFE_InputTensorHandles *' data-ref="9inputs">inputs</dfn>,</td></tr>
+<tr><th id="45">45</th><td>                    <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col0 decl" id="10attrs" title='attrs' data-type='PyObject *' data-ref="10attrs">attrs</dfn>, <a class="typedef" href="#TFE_OutputTensorHandles" title='TFE_OutputTensorHandles' data-type='tensorflow::gtl::InlinedVector&lt;TFE_TensorHandle *, 2&gt;' data-ref="TFE_OutputTensorHandles">TFE_OutputTensorHandles</a>* <dfn class="local col1 decl" id="11outputs" title='outputs' data-type='TFE_OutputTensorHandles *' data-ref="11outputs">outputs</dfn>,</td></tr>
+<tr><th id="46">46</th><td>                    <a class="typedef" href="../../c/c_api.h.html#TF_Status" title='TF_Status' data-type='struct TF_Status' data-ref="TF_Status">TF_Status</a>* <dfn class="local col2 decl" id="12out_status" title='out_status' data-type='TF_Status *' data-ref="12out_status">out_status</dfn>);</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><i>// Registers e as the Exception class for handling not ok Status. Returns</i></td></tr>
+<tr><th id="49">49</th><td><i>// Py_None if registration succeeds, else throws a TypeError and returns NULL.</i></td></tr>
+<tr><th id="50">50</th><td><i>//</i></td></tr>
+<tr><th id="51">51</th><td><i>// This function is not thread-safe.</i></td></tr>
+<tr><th id="52">52</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z29TFE_Py_RegisterExceptionClassP7_object" title='TFE_Py_RegisterExceptionClass' data-ref="_Z29TFE_Py_RegisterExceptionClassP7_object">TFE_Py_RegisterExceptionClass</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col3 decl" id="13e" title='e' data-type='PyObject *' data-ref="13e">e</dfn>);</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><i>// Registers e as the type of the ResourceVariable class.</i></td></tr>
+<tr><th id="55">55</th><td><i>// Returns Py_None if registration succeeds, else throws a TypeError and returns</i></td></tr>
+<tr><th id="56">56</th><td><i>// NULL.</i></td></tr>
+<tr><th id="57">57</th><td><i>//</i></td></tr>
+<tr><th id="58">58</th><td><i>// This function is not thread-safe.</i></td></tr>
+<tr><th id="59">59</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z35TFE_Py_RegisterResourceVariableTypeP7_object" title='TFE_Py_RegisterResourceVariableType' data-ref="_Z35TFE_Py_RegisterResourceVariableTypeP7_object">TFE_Py_RegisterResourceVariableType</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col4 decl" id="14e" title='e' data-type='PyObject *' data-ref="14e">e</dfn>);</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><i>// Registers e as the Exception to be raised when the conditions of</i></td></tr>
+<tr><th id="62">62</th><td><i>// TFE_Py_FastPathExecute_C have not been met. When this exception is set, it</i></td></tr>
+<tr><th id="63">63</th><td><i>// is a signal to the calling code that it should fall back to the safer (and</i></td></tr>
+<tr><th id="64">64</th><td><i>// more complete) code path.</i></td></tr>
+<tr><th id="65">65</th><td><i>//</i></td></tr>
+<tr><th id="66">66</th><td><i>// This function is not thread-safe.</i></td></tr>
+<tr><th id="67">67</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z37TFE_Py_RegisterFallbackExceptionClassP7_object" title='TFE_Py_RegisterFallbackExceptionClass' data-ref="_Z37TFE_Py_RegisterFallbackExceptionClassP7_object">TFE_Py_RegisterFallbackExceptionClass</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col5 decl" id="15e" title='e' data-type='PyObject *' data-ref="15e">e</dfn>);</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i>// Registers e as the backward_function_getter.</i></td></tr>
+<tr><th id="70">70</th><td><i>// The registered function creates a backward function (a function that can</i></td></tr>
+<tr><th id="71">71</th><td><i>// return the gradient of the inputs an op given the gradient of it's outputs).</i></td></tr>
+<tr><th id="72">72</th><td><i>// The registered function will be passed the following arguments:</i></td></tr>
+<tr><th id="73">73</th><td><i>//    op_name, attrs, num_inputs, op_inputs, op_outputs</i></td></tr>
+<tr><th id="74">74</th><td><i>//</i></td></tr>
+<tr><th id="75">75</th><td><i>// This function is not thread-safe.</i></td></tr>
+<tr><th id="76">76</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z37TFE_Py_RegisterBackwardFunctionGetterP7_object" title='TFE_Py_RegisterBackwardFunctionGetter' data-ref="_Z37TFE_Py_RegisterBackwardFunctionGetterP7_object">TFE_Py_RegisterBackwardFunctionGetter</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col6 decl" id="16e" title='e' data-type='PyObject *' data-ref="16e">e</dfn>);</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><i>// Returns 0 if 'status' is TF_OK. Otherwise, raises an exception (using</i></td></tr>
+<tr><th id="79">79</th><td><i>// `exception` if not nullptr, else using the class registered via</i></td></tr>
+<tr><th id="80">80</th><td><i>// TFE_Py_RegisterExceptionClass), and returns -1.</i></td></tr>
+<tr><th id="81">81</th><td><em>int</em> <dfn class="decl" id="_Z31MaybeRaiseExceptionFromTFStatusP9TF_StatusP7_object" title='MaybeRaiseExceptionFromTFStatus' data-ref="_Z31MaybeRaiseExceptionFromTFStatusP9TF_StatusP7_object">MaybeRaiseExceptionFromTFStatus</dfn>(<a class="typedef" href="../../c/c_api.h.html#TF_Status" title='TF_Status' data-type='struct TF_Status' data-ref="TF_Status">TF_Status</a>* <dfn class="local col7 decl" id="17status" title='status' data-type='TF_Status *' data-ref="17status">status</dfn>, <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col8 decl" id="18exception" title='exception' data-type='PyObject *' data-ref="18exception">exception</dfn>);</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><i>// Returns 0 if 'status' is ok. Otherwise, raises an exception (using</i></td></tr>
+<tr><th id="84">84</th><td><i>// `exception` if not nullptr, else using the class registered via</i></td></tr>
+<tr><th id="85">85</th><td><i>// TFE_Py_RegisterExceptionClass), and returns -1.</i></td></tr>
+<tr><th id="86">86</th><td><em>int</em> <dfn class="decl" id="_Z29MaybeRaiseExceptionFromStatusRKN10tensorflow6StatusEP7_object" title='MaybeRaiseExceptionFromStatus' data-ref="_Z29MaybeRaiseExceptionFromStatusRKN10tensorflow6StatusEP7_object">MaybeRaiseExceptionFromStatus</dfn>(<em>const</em> <span class="namespace">tensorflow::</span><a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a>&amp; <dfn class="local col9 decl" id="19status" title='status' data-type='const tensorflow::Status &amp;' data-ref="19status">status</dfn>,</td></tr>
+<tr><th id="87">87</th><td>                                  <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col0 decl" id="20exception" title='exception' data-type='PyObject *' data-ref="20exception">exception</dfn>);</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td><i>// Returns the string associated with the passed-in python object.</i></td></tr>
+<tr><th id="90">90</th><td><em>char</em>* <dfn class="decl" id="_Z19TFE_GetPythonStringP7_object" title='TFE_GetPythonString' data-ref="_Z19TFE_GetPythonStringP7_object">TFE_GetPythonString</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col1 decl" id="21o" title='o' data-type='PyObject *' data-ref="21o">o</dfn>);</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><i>// Returns a unique id on each call.</i></td></tr>
+<tr><th id="93">93</th><td><a class="typedef" href="../../../../include/x86_64-linux-gnu/sys/types.h.html#197" title='int64_t' data-type='long' data-ref="int64_t">int64_t</a> <dfn class="decl" id="_Z7get_uidv" title='get_uid' data-ref="_Z7get_uidv">get_uid</dfn>();</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><i>// Wraps the output of get_uid as a Python Long object. Ownership is passed to</i></td></tr>
+<tr><th id="96">96</th><td><i>// the caller.</i></td></tr>
+<tr><th id="97">97</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z10TFE_Py_UIDv" title='TFE_Py_UID' data-ref="_Z10TFE_Py_UIDv">TFE_Py_UID</dfn>();</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><i>// Deleter for Context objects, called from the Capsule that owns it.</i></td></tr>
+<tr><th id="100">100</th><td><em>void</em> <dfn class="decl" id="_Z24TFE_DeleteContextCapsuleP7_object" title='TFE_DeleteContextCapsule' data-ref="_Z24TFE_DeleteContextCapsuleP7_object">TFE_DeleteContextCapsule</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col2 decl" id="22context" title='context' data-type='PyObject *' data-ref="22context">context</dfn>);</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td><i>// Returns true if o is an instance of EagerTensor, but not a subclass. Else</i></td></tr>
+<tr><th id="103">103</th><td><i>// returns false.</i></td></tr>
+<tr><th id="104">104</th><td><em>bool</em> <a class="decl" href="pywrap_tensor.cc.html#_Z22EagerTensor_CheckExactPK7_object" title='EagerTensor_CheckExact' data-ref="_Z22EagerTensor_CheckExactPK7_object" id="_Z22EagerTensor_CheckExactPK7_object">EagerTensor_CheckExact</a>(<em>const</em> <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col3 decl" id="23o" title='o' data-type='const PyObject *' data-ref="23o">o</dfn>);</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><i>// Helper function to construct a new EagerTensor from a TFE_TensorHandle.</i></td></tr>
+<tr><th id="107">107</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <a class="decl" href="pywrap_tensor.cc.html#_Z21EagerTensorFromHandleP16TFE_TensorHandle" title='EagerTensorFromHandle' data-ref="_Z21EagerTensorFromHandleP16TFE_TensorHandle" id="_Z21EagerTensorFromHandleP16TFE_TensorHandle">EagerTensorFromHandle</a>(<a class="typedef" href="../../c/eager/c_api.h.html#TFE_TensorHandle" title='TFE_TensorHandle' data-type='struct TFE_TensorHandle' data-ref="TFE_TensorHandle">TFE_TensorHandle</a>* <dfn class="local col4 decl" id="24handle" title='handle' data-type='TFE_TensorHandle *' data-ref="24handle">handle</dfn>);</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><i>// Extracts the handle inside EagerTensor object `o`. Returns nullptr on error.</i></td></tr>
+<tr><th id="110">110</th><td><a class="typedef" href="../../c/eager/c_api.h.html#TFE_TensorHandle" title='TFE_TensorHandle' data-type='struct TFE_TensorHandle' data-ref="TFE_TensorHandle">TFE_TensorHandle</a>* <a class="decl" href="pywrap_tensor.cc.html#_Z18EagerTensor_HandlePK7_object" title='EagerTensor_Handle' data-ref="_Z18EagerTensor_HandlePK7_object" id="_Z18EagerTensor_HandlePK7_object">EagerTensor_Handle</a>(<em>const</em> <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col5 decl" id="25o" title='o' data-type='const PyObject *' data-ref="25o">o</dfn>);</td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><i>// Creates the `EagerTensor` class by subclassing `base_class` and returns the</i></td></tr>
+<tr><th id="113">113</th><td><i>// newly created type, or nullptr on error.</i></td></tr>
+<tr><th id="114">114</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <a class="decl" href="pywrap_tensor.cc.html#_Z22TFE_Py_InitEagerTensorP7_object" title='TFE_Py_InitEagerTensor' data-ref="_Z22TFE_Py_InitEagerTensorP7_object" id="_Z22TFE_Py_InitEagerTensorP7_object">TFE_Py_InitEagerTensor</a>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col6 decl" id="26base_class" title='base_class' data-type='PyObject *' data-ref="26base_class">base_class</dfn>);</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><i>// Creates a new tape and adds it to the active set. `persistent` must be a</i></td></tr>
+<tr><th id="117">117</th><td><i>// PyBool_Type, i.e either Py_True or Py_False</i></td></tr>
+<tr><th id="118">118</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z17TFE_Py_TapeSetNewP7_object" title='TFE_Py_TapeSetNew' data-ref="_Z17TFE_Py_TapeSetNewP7_object">TFE_Py_TapeSetNew</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col7 decl" id="27persistent" title='persistent' data-type='PyObject *' data-ref="27persistent">persistent</dfn>);</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td><i>// Removes the passed tape from the set of active tapes.</i></td></tr>
+<tr><th id="121">121</th><td><em>void</em> <dfn class="decl" id="_Z20TFE_Py_TapeSetRemoveP7_object" title='TFE_Py_TapeSetRemove' data-ref="_Z20TFE_Py_TapeSetRemoveP7_object">TFE_Py_TapeSetRemove</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col8 decl" id="28tape" title='tape' data-type='PyObject *' data-ref="28tape">tape</dfn>);</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td><i>// Returns true if the tape stack is empty.</i></td></tr>
+<tr><th id="124">124</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z21TFE_Py_TapeSetIsEmptyv" title='TFE_Py_TapeSetIsEmpty' data-ref="_Z21TFE_Py_TapeSetIsEmptyv">TFE_Py_TapeSetIsEmpty</dfn>();</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z26TFE_Py_TapeSetShouldRecordP7_object" title='TFE_Py_TapeSetShouldRecord' data-ref="_Z26TFE_Py_TapeSetShouldRecordP7_object">TFE_Py_TapeSetShouldRecord</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col9 decl" id="29tensors" title='tensors' data-type='PyObject *' data-ref="29tensors">tensors</dfn>);</td></tr>
+<tr><th id="127">127</th><td><em>void</em> <dfn class="decl" id="_Z19TFE_Py_TapeSetWatchP7_object" title='TFE_Py_TapeSetWatch' data-ref="_Z19TFE_Py_TapeSetWatchP7_object">TFE_Py_TapeSetWatch</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col0 decl" id="30tensor" title='tensor' data-type='PyObject *' data-ref="30tensor">tensor</dfn>);</td></tr>
+<tr><th id="128">128</th><td><em>void</em> <dfn class="decl" id="_Z25TFE_Py_TapeSetDeleteTracex" title='TFE_Py_TapeSetDeleteTrace' data-ref="_Z25TFE_Py_TapeSetDeleteTracex">TFE_Py_TapeSetDeleteTrace</dfn>(<span class="namespace">tensorflow::</span><a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col1 decl" id="31tensor_id" title='tensor_id' data-type='tensorflow::int64' data-ref="31tensor_id">tensor_id</dfn>);</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><i>// Stops any gradient recording on the current thread.</i></td></tr>
+<tr><th id="131">131</th><td><em>void</em> <dfn class="decl" id="_Z26TFE_Py_TapeSetStopOnThreadv" title='TFE_Py_TapeSetStopOnThread' data-ref="_Z26TFE_Py_TapeSetStopOnThreadv">TFE_Py_TapeSetStopOnThread</dfn>();</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><i>// Restarts gradient recording on the current thread.</i></td></tr>
+<tr><th id="134">134</th><td><em>void</em> <dfn class="decl" id="_Z29TFE_Py_TapeSetRestartOnThreadv" title='TFE_Py_TapeSetRestartOnThread' data-ref="_Z29TFE_Py_TapeSetRestartOnThreadv">TFE_Py_TapeSetRestartOnThread</dfn>();</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><i>// Records an operation in the gradient tape stack.type is a string for the</i></td></tr>
+<tr><th id="137">137</th><td><i>// operation type, used in the backprop code. output_tensors should be a list of</i></td></tr>
+<tr><th id="138">138</th><td><i>// python ops.Tensor objects. input_tensor_ids should be a list of python</i></td></tr>
+<tr><th id="139">139</th><td><i>// integers with the ids of the input tensors of the recorded</i></td></tr>
+<tr><th id="140">140</th><td><i>// operation. backward_function should be the function to be called during</i></td></tr>
+<tr><th id="141">141</th><td><i>// backprop to, given the gradients of the output tensors, produce the gradients</i></td></tr>
+<tr><th id="142">142</th><td><i>// of the input tensors.</i></td></tr>
+<tr><th id="143">143</th><td><em>void</em> <dfn class="decl" id="_Z29TFE_Py_TapeSetRecordOperationP7_objectS0_S0_S0_" title='TFE_Py_TapeSetRecordOperation' data-ref="_Z29TFE_Py_TapeSetRecordOperationP7_objectS0_S0_S0_">TFE_Py_TapeSetRecordOperation</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col2 decl" id="32op_type" title='op_type' data-type='PyObject *' data-ref="32op_type">op_type</dfn>, <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col3 decl" id="33output_tensors" title='output_tensors' data-type='PyObject *' data-ref="33output_tensors">output_tensors</dfn>,</td></tr>
+<tr><th id="144">144</th><td>                                   <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col4 decl" id="34input_tensor_ids" title='input_tensor_ids' data-type='PyObject *' data-ref="34input_tensor_ids">input_tensor_ids</dfn>,</td></tr>
+<tr><th id="145">145</th><td>                                   <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col5 decl" id="35backward_function" title='backward_function' data-type='PyObject *' data-ref="35backward_function">backward_function</dfn>);</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td><i>// Watches the given variable object on the given tape.</i></td></tr>
+<tr><th id="148">148</th><td><em>void</em> <dfn class="decl" id="_Z27TFE_Py_TapeSetWatchVariableP7_object" title='TFE_Py_TapeSetWatchVariable' data-ref="_Z27TFE_Py_TapeSetWatchVariableP7_object">TFE_Py_TapeSetWatchVariable</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col6 decl" id="36variable" title='variable' data-type='PyObject *' data-ref="36variable">variable</dfn>);</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td><i>// Computes a gradient based on information recorded on the tape.`tape` must</i></td></tr>
+<tr><th id="151">151</th><td><i>// have been produced by TFE_Py_NewTape. `vspace` must be a</i></td></tr>
+<tr><th id="152">152</th><td><i>// imperative_grad.py:VSpace named tuple. `target` and `sources` must be python</i></td></tr>
+<tr><th id="153">153</th><td><i>// lists of Tensor objects. `output_gradients` is either None or a python list</i></td></tr>
+<tr><th id="154">154</th><td><i>// of either Tensor or None, and if not None should have the same length as</i></td></tr>
+<tr><th id="155">155</th><td><i>// target.</i></td></tr>
+<tr><th id="156">156</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z19TFE_Py_TapeGradientP7_objectS0_S0_S0_S0_P9TF_Status" title='TFE_Py_TapeGradient' data-ref="_Z19TFE_Py_TapeGradientP7_objectS0_S0_S0_S0_P9TF_Status">TFE_Py_TapeGradient</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col7 decl" id="37tape" title='tape' data-type='PyObject *' data-ref="37tape">tape</dfn>, <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col8 decl" id="38vspace" title='vspace' data-type='PyObject *' data-ref="38vspace">vspace</dfn>,</td></tr>
+<tr><th id="157">157</th><td>                              <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col9 decl" id="39target" title='target' data-type='PyObject *' data-ref="39target">target</dfn>, <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col0 decl" id="40sources" title='sources' data-type='PyObject *' data-ref="40sources">sources</dfn>,</td></tr>
+<tr><th id="158">158</th><td>                              <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col1 decl" id="41output_gradients" title='output_gradients' data-type='PyObject *' data-ref="41output_gradients">output_gradients</dfn>, <a class="typedef" href="../../c/c_api.h.html#TF_Status" title='TF_Status' data-type='struct TF_Status' data-ref="TF_Status">TF_Status</a>* <dfn class="local col2 decl" id="42status" title='status' data-type='TF_Status *' data-ref="42status">status</dfn>);</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><i>// Execute a tensorflow operation assuming that all provided inputs are</i></td></tr>
+<tr><th id="161">161</th><td><i>// correctly formatted (i.e. EagerTensors). If it doesn't find EagerTensors,</i></td></tr>
+<tr><th id="162">162</th><td><i>// it will simply fail with a NotImplementedError.</i></td></tr>
+<tr><th id="163">163</th><td><i>//</i></td></tr>
+<tr><th id="164">164</th><td><i>// The first PyObject* is unused.</i></td></tr>
+<tr><th id="165">165</th><td><i>// The "args" PyObject* is meant to be a tuple with the following structure:</i></td></tr>
+<tr><th id="166">166</th><td><i>//  Item 1: The TFE Context</i></td></tr>
+<tr><th id="167">167</th><td><i>//  Item 2: device_name: Name of the device on which to execute the operation,</i></td></tr>
+<tr><th id="168">168</th><td><i>//          or NULL for automatic selection.</i></td></tr>
+<tr><th id="169">169</th><td><i>//  Item 3: op_name: Name of the TensorFlow op to execute.</i></td></tr>
+<tr><th id="170">170</th><td><i>//  Item 4: name: An optional name for the operation.</i></td></tr>
+<tr><th id="171">171</th><td><i>//  Item 5: List representing all callbacks to execute after successful</i></td></tr>
+<tr><th id="172">172</th><td><i>//  op execute.</i></td></tr>
+<tr><th id="173">173</th><td><i>//  Item 6 onwards: inputs - This is a list of inputs followed by a list of</i></td></tr>
+<tr><th id="174">174</th><td><i>//        attrs. It is not necessary for type attrs to be present.</i></td></tr>
+<tr><th id="175">175</th><td><i>//</i></td></tr>
+<tr><th id="176">176</th><td><i>// This is named _C since there doesn't seem to be any way to make it visible</i></td></tr>
+<tr><th id="177">177</th><td><i>// in the SWIG interface without renaming due to the use of the %native</i></td></tr>
+<tr><th id="178">178</th><td><i>// directive.</i></td></tr>
+<tr><th id="179">179</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z24TFE_Py_FastPathExecute_CP7_objectS0_" title='TFE_Py_FastPathExecute_C' data-ref="_Z24TFE_Py_FastPathExecute_CP7_objectS0_">TFE_Py_FastPathExecute_C</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>*, <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col3 decl" id="43args" title='args' data-type='PyObject *' data-ref="43args">args</dfn>);</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td><i>// Record the gradient for a given op.</i></td></tr>
+<tr><th id="182">182</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z21TFE_Py_RecordGradientP7_objectS0_S0_S0_S0_" title='TFE_Py_RecordGradient' data-ref="_Z21TFE_Py_RecordGradientP7_objectS0_S0_S0_S0_">TFE_Py_RecordGradient</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col4 decl" id="44op_name" title='op_name' data-type='PyObject *' data-ref="44op_name">op_name</dfn>, <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col5 decl" id="45inputs" title='inputs' data-type='PyObject *' data-ref="45inputs">inputs</dfn>,</td></tr>
+<tr><th id="183">183</th><td>                                <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col6 decl" id="46attrs" title='attrs' data-type='PyObject *' data-ref="46attrs">attrs</dfn>, <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col7 decl" id="47results" title='results' data-type='PyObject *' data-ref="47results">results</dfn>,</td></tr>
+<tr><th id="184">184</th><td>                                <a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col8 decl" id="48name" title='name' data-type='PyObject *' data-ref="48name">name</dfn>);</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td><i>// Returns the set of variables watched by the given tape.</i></td></tr>
+<tr><th id="187">187</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="decl" id="_Z27TFE_Py_TapeWatchedVariablesP7_object" title='TFE_Py_TapeWatchedVariables' data-ref="_Z27TFE_Py_TapeWatchedVariablesP7_object">TFE_Py_TapeWatchedVariables</dfn>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col9 decl" id="49tape" title='tape' data-type='PyObject *' data-ref="49tape">tape</dfn>);</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td><i>// Returns an EagerTensor of dimension [len(`tensor_list`)] containing</i></td></tr>
+<tr><th id="190">190</th><td><i>// the `slice_dim`'th dimension of each tensor in `tensor_list`. In other words,</i></td></tr>
+<tr><th id="191">191</th><td><i>// TFE_Py_TensorShapeSlice takes a slice of dimensions of tensors in</i></td></tr>
+<tr><th id="192">192</th><td><i>// `tensor_list`. For example, if `tensor_list` contains tensors of with shapes</i></td></tr>
+<tr><th id="193">193</th><td><i>// [1, 2, 3], [4, 5], [6, 7, 8, 9], TFE_Py_TensorShapeSlice called with</i></td></tr>
+<tr><th id="194">194</th><td><i>// `slice_dim` equal to 1 will return [2, 5, 7].</i></td></tr>
+<tr><th id="195">195</th><td><i>// On error, returns nullptr and sets python exception.</i></td></tr>
+<tr><th id="196">196</th><td><i>// REQUIRES: `tensor_list` is a python list of EagerTensors</i></td></tr>
+<tr><th id="197">197</th><td><i>// REQUIRES: `slice_dim` is non-negative and smaller than the rank of all</i></td></tr>
+<tr><th id="198">198</th><td><i>//   tensors in `tensor_list`.</i></td></tr>
+<tr><th id="199">199</th><td><a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <a class="decl" href="pywrap_tensor.cc.html#_Z23TFE_Py_TensorShapeSliceP7_objecti" title='TFE_Py_TensorShapeSlice' data-ref="_Z23TFE_Py_TensorShapeSliceP7_objecti" id="_Z23TFE_Py_TensorShapeSliceP7_objecti">TFE_Py_TensorShapeSlice</a>(<a class="typedef" href="../../../../include/python3.5m/object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>* <dfn class="local col0 decl" id="50tensor_list" title='tensor_list' data-type='PyObject *' data-ref="50tensor_list">tensor_list</dfn>, <em>int</em> <dfn class="local col1 decl" id="51slice_dim" title='slice_dim' data-type='int' data-ref="51slice_dim">slice_dim</dfn>);</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_PYTHON_EAGER_PYWRAP_TFE_H_</u></td></tr>
+<tr><th id="202">202</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='pywrap_tensor.cc.html'>tensorflow/tensorflow/python/eager/pywrap_tensor.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

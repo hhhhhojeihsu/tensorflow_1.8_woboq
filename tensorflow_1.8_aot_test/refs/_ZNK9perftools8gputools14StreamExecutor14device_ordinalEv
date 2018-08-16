@@ -1,0 +1,26 @@
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='397' type='int perftools::gputools::StreamExecutor::device_ordinal() const'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='395'>// Returns the device ordinal that this StreamExecutor was initialized with.
+  // Meaningless before initialization.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='104' u='c' c='_ZNK10tensorflow18XlaTransferManager21CopyCPUTensorToDeviceEPKNS_6TensorEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='197' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext15PopulateOutputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultESt10unique_ptrIN3xla18Scoped494850'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='159' u='c' c='_ZNK3xla7Backend22default_device_ordinalEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='184' u='c' c='_ZNK3xla7Backend15stream_executorEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='187' u='c' c='_ZNK3xla7Backend15stream_executorEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='190' u='c' c='_ZNK3xla7Backend15stream_executorEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='241' u='c' c='_ZN3xla3cpuL21DeallocateTempBuffersEPNS_21DeviceMemoryAllocatorEPN9perftools8gputools6StreamEN10tensorflow3gtl10ArraySliceINS4_16DeviceMemoryBaseEEERKSt6vectorIbSaIbEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='256' u='c' c='_ZN3xla3cpu13CpuExecutable24CreateResultShapedBufferEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIN9perftools8gputools16DeviceMemo12922924'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='300' u='c' c='_ZN3xla3cpu13CpuExecutable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='332' u='c' c='_ZN3xla3cpu13CpuExecutable20ExecuteAsyncOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='466' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='469' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='509' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='65' u='c' c='_ZN3xla22GenericTransferManager25TransferLiteralFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='66' u='c' c='_ZN3xla22GenericTransferManager25TransferLiteralFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='108' u='c' c='_ZN3xla22GenericTransferManager23TransferLiteralToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='195' u='c' c='_ZN3xlaL17IsDeviceSupportedEPN9perftools8gputools14StreamExecutorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='254' u='c' c='_ZN3xla7Service27ResolveAndValidateArgumentsEN10tensorflow3gtl10ArraySliceIPKNS_16GlobalDataHandleEEENS3_IPN9perftools8gputools14StreamExecutorEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='698' u='c' c='_ZN3xla7Service24ExecuteAndRegisterResultEPNS_10ExecutableEN10tensorflow3gtl10ArraySliceISt6vectorIPKNS_12ShapedBufferESaIS9_EEEEPNS_7BackendERKSsPNS_16ExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1365' u='c' c='_ZN3xla7Service16TransferToServerEPKNS_23TransferToServerRequestEPNS_24TransferToServerResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='58' u='c' c='_ZN3xla15TransferManager21TransferArrayToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='77' u='c' c='_ZN3xla15TransferManager23TransferArrayFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_5ShapeERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='119' u='c' c='_ZN3xla15TransferManager21WriteTupleIndexTablesEPN9perftools8gputools14StreamExecutorERKNS_12ShapedBufferE'/>

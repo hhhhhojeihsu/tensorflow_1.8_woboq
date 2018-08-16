@@ -1,0 +1,36 @@
+<def f='tensorflow/tensorflow/core/framework/op_kernel.h' l='480' ll='579'/>
+<size>208</size>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='477'>// TODO(zhifengc): Do some cleanup of Params.
+  // The Params struct is passed in to initialize an OpKernelContext,
+  // and must outlive the OpKernelContext.</doc>
+<fun r='_ZN10tensorflow15OpKernelContext6ParamsD1Ev'/>
+<mbr r='tensorflow::OpKernelContext::Params::step_id' o='0' t='int64'/>
+<mbr r='tensorflow::OpKernelContext::Params::op_kernel' o='64' t='tensorflow::OpKernel *'/>
+<mbr r='tensorflow::OpKernelContext::Params::device' o='128' t='tensorflow::DeviceBase *'/>
+<mbr r='tensorflow::OpKernelContext::Params::eigen_gpu_device' o='192' t='tensorflow::PerOpGpuDevice *'/>
+<fun r='_ZN10tensorflow15OpKernelContext6Params23ensure_eigen_gpu_deviceEv'/>
+<mbr r='tensorflow::OpKernelContext::Params::track_allocations' o='256' t='bool'/>
+<mbr r='tensorflow::OpKernelContext::Params::log_memory' o='264' t='bool'/>
+<mbr r='tensorflow::OpKernelContext::Params::record_tensor_accesses' o='272' t='bool'/>
+<mbr r='tensorflow::OpKernelContext::Params::output_attr_array' o='320' t='const tensorflow::AllocatorAttributes *'/>
+<mbr r='tensorflow::OpKernelContext::Params::resource_manager' o='384' t='tensorflow::ResourceMgr *'/>
+<mbr r='tensorflow::OpKernelContext::Params::step_container' o='448' t='tensorflow::ScopedStepContainer *'/>
+<mbr r='tensorflow::OpKernelContext::Params::rendezvous' o='512' t='tensorflow::Rendezvous *'/>
+<mbr r='tensorflow::OpKernelContext::Params::collective_executor' o='576' t='tensorflow::CollectiveExecutor *'/>
+<mbr r='tensorflow::OpKernelContext::Params::session_state' o='640' t='tensorflow::SessionState *'/>
+<mbr r='tensorflow::OpKernelContext::Params::tensor_store' o='704' t='tensorflow::TensorStore *'/>
+<mbr r='tensorflow::OpKernelContext::Params::cancellation_manager' o='768' t='tensorflow::CancellationManager *'/>
+<mbr r='tensorflow::OpKernelContext::Params::inputs' o='832' t='const gtl::InlinedVector&lt;TensorValue, 4&gt; *'/>
+<mbr r='tensorflow::OpKernelContext::Params::is_input_dead' o='896' t='bool'/>
+<mbr r='tensorflow::OpKernelContext::Params::input_alloc_attrs' o='960' t='const gtl::InlinedVector&lt;AllocatorAttributes, 4&gt; *'/>
+<mbr r='tensorflow::OpKernelContext::Params::input_device_contexts' o='1024' t='const gtl::InlinedVector&lt;DeviceContext *, 4&gt; *'/>
+<mbr r='tensorflow::OpKernelContext::Params::op_device_context' o='1088' t='tensorflow::DeviceContext *'/>
+<mbr r='tensorflow::OpKernelContext::Params::frame_iter' o='1152' t='tensorflow::FrameAndIter'/>
+<mbr r='tensorflow::OpKernelContext::Params::call_frame' o='1280' t='tensorflow::CallFrameInterface *'/>
+<mbr r='tensorflow::OpKernelContext::Params::function_library' o='1344' t='tensorflow::FunctionLibraryRuntime *'/>
+<mbr r='tensorflow::OpKernelContext::Params::runner' o='1408' t='std::function&lt;void (std::function&lt;void ()&gt;)&gt; *'/>
+<mbr r='tensorflow::OpKernelContext::Params::stats_collector' o='1472' t='tensorflow::StepStatsCollector *'/>
+<mbr r='tensorflow::OpKernelContext::Params::slice_reader_cache' o='1536' t='checkpoint::TensorSliceReaderCacheWrapper *'/>
+<smbr r='tensorflow::OpKernelContext::Params::kNeverForward' t='const int'/>
+<smbr r='tensorflow::OpKernelContext::Params::kNoReservation' t='const int'/>
+<mbr r='tensorflow::OpKernelContext::Params::forward_from_array' o='1600' t='const int *'/>

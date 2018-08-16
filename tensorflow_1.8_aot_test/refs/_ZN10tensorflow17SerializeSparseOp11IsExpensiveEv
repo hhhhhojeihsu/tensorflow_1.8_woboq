@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/kernels/serialize_sparse_op.cc' l='47' type='bool tensorflow::SerializeSparseOp::IsExpensive()'/>
+<inh f='tensorflow/tensorflow/core/framework/op_kernel.h' l='119' c='_ZN10tensorflow8OpKernel11IsExpensiveEv'/>
+<def f='tensorflow/tensorflow/core/kernels/serialize_sparse_op.cc' l='93' ll='96' type='bool tensorflow::SerializeSparseOp&lt;std::basic_string&lt;char&gt; &gt;::IsExpensive()'/>
+<inh f='tensorflow/tensorflow/core/framework/op_kernel.h' l='119' c='_ZN10tensorflow8OpKernel11IsExpensiveEv'/>
+<def f='tensorflow/tensorflow/core/kernels/serialize_sparse_op.cc' l='97' ll='100' type='bool tensorflow::SerializeSparseOp&lt;tensorflow::Variant&gt;::IsExpensive()'/>
+<doc f='tensorflow/tensorflow/core/kernels/serialize_sparse_op.cc' l='87'>// NOTE(mrry): We specialize the IsExpensive() method differently for
+// the string and variant cases, because (i) the string version
+// actually performs memory copies as part of its serialization (and
+// is hence potentially expensive), and (ii) the variant version
+// performs O(1) shallow copies (and hence is much cheaper than
+// dispatching to another thread would be).</doc>

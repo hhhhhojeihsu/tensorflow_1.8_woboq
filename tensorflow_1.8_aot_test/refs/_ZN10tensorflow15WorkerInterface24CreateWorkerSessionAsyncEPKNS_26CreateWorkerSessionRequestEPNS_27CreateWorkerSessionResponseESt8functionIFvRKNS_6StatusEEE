@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/worker_interface.h' l='43' type='void tensorflow::WorkerInterface::CreateWorkerSessionAsync(const tensorflow::CreateWorkerSessionRequest * request, tensorflow::CreateWorkerSessionResponse * response, StatusCallback done)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker_interface.h' l='122' u='a' c='_ZN10tensorflow15WorkerInterface19CreateWorkerSessionEPKNS_26CreateWorkerSessionRequestEPNS_27CreateWorkerSessionResponseE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1250' u='c' c='_ZN10tensorflow13MasterSession20CreateWorkerSessionsERKNS_25WorkerCacheFactoryOptionsE'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_remote_worker.cc' l='69' c='_ZN10tensorflow16GrpcRemoteWorker24CreateWorkerSessionAsyncEPKNS_26CreateWorkerSessionRequestEPNS_27CreateWorkerSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='43' c='_ZN10tensorflow6Worker24CreateWorkerSessionAsyncEPKNS_26CreateWorkerSessionRequestEPNS_27CreateWorkerSessionResponseESt8functionIFvRKNS_6StatusEEE'/>

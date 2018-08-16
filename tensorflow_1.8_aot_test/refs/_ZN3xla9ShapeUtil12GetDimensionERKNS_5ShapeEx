@@ -1,0 +1,53 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='290' type='static int64 xla::ShapeUtil::GetDimension(const xla::Shape &amp; shape, int64 dimension_number)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='288'>// Extracts the size of the shape&apos;s dimension at dimension number
+  // GetDimensionNumber(dimension_number).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1308' u='c' c='_ZN3xla7Literal16PopulateInternalERKT0_b'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/batchtospace_op.cc' l='43' u='c' c='_ZN10tensorflow12_GLOBAL__N_112BatchToSpaceEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS_3gtl10ArraySliceIxEERKNS3_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/batchtospace_op.cc' l='44' u='c' c='_ZN10tensorflow12_GLOBAL__N_112BatchToSpaceEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS_3gtl10ArraySliceIxEERKNS3_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/spacetobatch_op.cc' l='43' u='c' c='_ZN10tensorflow12_GLOBAL__N_112SpaceToBatchEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS_3gtl10ArraySliceIxEERKNS3_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/spacetobatch_op.cc' l='44' u='c' c='_ZN10tensorflow12_GLOBAL__N_112SpaceToBatchEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS_3gtl10ArraySliceIxEERKNS3_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/cholesky.cc' l='48' u='c' c='_ZN10tensorflow12_GLOBAL__N_117CholeskyUnblockedEPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/cholesky.cc' l='111' u='c' c='_ZN10tensorflow8CholeskyEPN3xla18ComputationBuilderENS0_21ComputationDataHandleEx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/cholesky.cc' l='112' u='c' c='_ZN10tensorflow8CholeskyEPN3xla18ComputationBuilderENS0_21ComputationDataHandleEx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/scatter.cc' l='81' u='c' c='_ZN10tensorflow10XlaScatterERKN3xla21ComputationDataHandleES3_S3_bRKSt8functionIFS1_S1_S1_PNS0_18ComputationBuilderEEES6_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/triangular_solve.cc' l='65' u='c' c='_ZN10tensorflow15TriangularSolveEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleES3_bbbbx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/triangular_solve.cc' l='66' u='c' c='_ZN10tensorflow15TriangularSolveEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleES3_bbbbx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/triangular_solve.cc' l='71' u='c' c='_ZN10tensorflow15TriangularSolveEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleES3_bbbbx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/triangular_solve.cc' l='72' u='c' c='_ZN10tensorflow15TriangularSolveEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleES3_bbbbx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/triangular_solve.cc' l='73' u='c' c='_ZN10tensorflow15TriangularSolveEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleES3_bbbbx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/triangular_solve.cc' l='373' u='c' c='_ZN10tensorflow26TriangularSolveLeftLookingEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleES5_bb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/triangular_solve.cc' l='374' u='c' c='_ZN10tensorflow26TriangularSolveLeftLookingEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleES5_bb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='587' u='c' c='_ZN3xla3cpu9IrEmitter18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='713' u='c' c='_ZN3xla3cpu9IrEmitter22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='401' u='c' c='_ZN3xla15HloCostAnalysis17HandleConvolutionEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='403' u='c' c='_ZN3xla15HloCostAnalysis17HandleConvolutionEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='404' u='c' c='_ZN3xla15HloCostAnalysis17HandleConvolutionEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1019' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1044' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2391' u='c' c='_ZN3xla12HloEvaluator17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2405' u='c' c='_ZN3xla12HloEvaluator17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='290' u='c' c='_ZN3xla12_GLOBAL__N_122InferWindowOutputShapeERKNS_5ShapeERKNS_6WindowENS_13PrimitiveTypeEb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1285' u='c' c='_ZN3xla14ShapeInference27InferBatchNormTrainingShapeERKNS_5ShapeES3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1290' u='c' c='_ZN3xla14ShapeInference27InferBatchNormTrainingShapeERKNS_5ShapeES3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1293' u='c' c='_ZN3xla14ShapeInference27InferBatchNormTrainingShapeERKNS_5ShapeES3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1298' u='c' c='_ZN3xla14ShapeInference27InferBatchNormTrainingShapeERKNS_5ShapeES3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1419' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1424' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1427' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1432' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1435' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1440' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1443' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1448' u='c' c='_ZN3xla14ShapeInference28InferBatchNormInferenceShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1572' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1577' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1580' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1585' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1588' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1593' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1598' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1599' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1604' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1605' u='c' c='_ZN3xla14ShapeInference23InferBatchNormGradShapeERKNS_5ShapeES3_S3_S3_S3_x'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='657' ll='660' type='static int64 xla::ShapeUtil::GetDimension(const xla::Shape &amp; shape, int64 dimension_number)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='657'>/* static */</doc>

@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/framework/common_shape_fns.h' l='262' type='tensorflow::Status tensorflow::shape_inference::ConcatShape(shape_inference::InferenceContext * c, int num_inputs_to_concat)'/>
+<doc f='tensorflow/tensorflow/core/framework/common_shape_fns.h' l='258'>// Shape function for concat operations.
+// &lt;num_inputs_to_concat&gt; is the number of inputs to concatenate and are taken
+// from inputs
+// [1,num_inputs_to_concat] of the op.  Input 0 is the concat_dim input.</doc>
+<def f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1201' ll='1205' type='tensorflow::Status tensorflow::shape_inference::ConcatShape(tensorflow::shape_inference::InferenceContext * c, int num_inputs_to_concat)'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='442' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2692' u='c'/>

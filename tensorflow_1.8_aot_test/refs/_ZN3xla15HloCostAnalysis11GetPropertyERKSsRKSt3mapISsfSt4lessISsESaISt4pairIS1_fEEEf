@@ -1,0 +1,13 @@
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.h' l='137' u='c' c='_ZNK3xla15HloCostAnalysis8propertyERKSs'/>
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.h' l='162' type='static float xla::HloCostAnalysis::GetProperty(const string &amp; key, const Properties &amp; properties, float default_value = 0.F)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.h' l='159'>// Returns the default value if the key is not present in the
+  // properties. Otherwise, returns the value that the key maps to from the
+  // properties parameter.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='71' u='c' c='_ZN3xla15HloCostAnalysis11PostprocessEPKNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='106' ll='111' type='static float xla::HloCostAnalysis::GetProperty(const string &amp; key, const Properties &amp; properties, const float default_value = 0.F)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='120' u='c' c='_ZN3xla15HloCostAnalysis17GetPropertyForHloERKNS_14HloInstructionERKSsRKSt13unordered_mapIPS2_St3mapISsfSt4lessISsESaISt4pairIS4_fEEESt4hashIS7_ESt8eq7953166'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='633' u='c' c='_ZNK3xla15HloCostAnalysis10flop_countEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='637' u='c' c='_ZNK3xla15HloCostAnalysis20transcendental_countEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='641' u='c' c='_ZNK3xla15HloCostAnalysis14bytes_accessedEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='645' u='c' c='_ZNK3xla15HloCostAnalysis15optimal_secondsEv'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='106'>/*static*/</doc>

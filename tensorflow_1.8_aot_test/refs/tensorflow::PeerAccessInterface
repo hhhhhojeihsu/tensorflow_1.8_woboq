@@ -1,0 +1,11 @@
+<def f='tensorflow/tensorflow/core/framework/collective.h' l='215' ll='234'/>
+<ovr f='tensorflow/tensorflow/core/framework/collective.h' l='240' c='tensorflow::CollectiveExecutor'/>
+<ovr f='tensorflow/tensorflow/core/framework/collective.h' l='289' c='tensorflow::CollectiveRemoteAccess'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/framework/collective.h' l='211'>// Interface that a Collective Op implementation uses to exchange data
+// with peers.  Note that data exchange is currently limited to types
+// for which DMAHelper::CanUseDMA() returns true, i.e.  dense numeric
+// types.</doc>
+<fun r='_ZN10tensorflow19PeerAccessInterfaceD1Ev'/>
+<fun r='_ZN10tensorflow19PeerAccessInterface12RecvFromPeerERKSsS2_bS2_PNS_6DeviceEPNS_13DeviceContextERKNS_19AllocatorAttributesEPNS_6TensorERKNS_14DeviceLoca15076392'/>
+<fun r='_ZN10tensorflow19PeerAccessInterface10PostToPeerERKSsS2_S2_PNS_6DeviceEPNS_13DeviceContextERKNS_19AllocatorAttributesEPKNS_6TensorERKNS_14DeviceLocali7972884'/>

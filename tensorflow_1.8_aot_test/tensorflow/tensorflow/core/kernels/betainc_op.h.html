@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>betainc_op.h source code [tensorflow/tensorflow/core/kernels/betainc_op.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::functor::Betainc "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/kernels/betainc_op.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>kernels</a>/<a href='betainc_op.h.html'>betainc_op.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_KERNELS_BETAINC_OP_H_">TENSORFLOW_KERNELS_BETAINC_OP_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_KERNELS_BETAINC_OP_H_" data-ref="_M/TENSORFLOW_KERNELS_BETAINC_OP_H_">TENSORFLOW_KERNELS_BETAINC_OP_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td><i>// Functor definition for BetaincOp, must be compilable by nvcc.</i></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../third_party/eigen3/unsupported/Eigen/CXX11/Tensor.html">"third_party/eigen3/unsupported/Eigen/CXX11/Tensor"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../framework/tensor_types.h.html">"tensorflow/core/framework/tensor_types.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">functor</span> {</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><i>// Functor used by BetaincOp to do the computations.</i></td></tr>
+<tr><th id="27">27</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T, <em>int</em> NDIM&gt;</td></tr>
+<tr><th id="28">28</th><td><b>struct</b> <dfn class="type def" id="tensorflow::functor::Betainc" title='tensorflow::functor::Betainc' data-ref="tensorflow::functor::Betainc">Betainc</dfn> {</td></tr>
+<tr><th id="29">29</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow7functor7BetaincclERKT_NS_6TTypesIT0_XT1_ElE11ConstTensorES8_S8_NS7_6TensorE" title='tensorflow::functor::Betainc::operator()' data-ref="_ZN10tensorflow7functor7BetaincclERKT_NS_6TTypesIT0_XT1_ElE11ConstTensorES8_S8_NS7_6TensorE"><b>operator</b>()</dfn>(<em>const</em> Device&amp; <dfn class="local col1 decl" id="1d" title='d' data-type='const Device &amp;' data-ref="1d">d</dfn>, <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;::ConstTensor <dfn class="local col2 decl" id="2a" title='a' data-type='typename TTypes&lt;T, NDIM&gt;::ConstTensor' data-ref="2a">a</dfn>,</td></tr>
+<tr><th id="30">30</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;::ConstTensor <dfn class="local col3 decl" id="3b" title='b' data-type='typename TTypes&lt;T, NDIM&gt;::ConstTensor' data-ref="3b">b</dfn>,</td></tr>
+<tr><th id="31">31</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;::ConstTensor <dfn class="local col4 decl" id="4x" title='x' data-type='typename TTypes&lt;T, NDIM&gt;::ConstTensor' data-ref="4x">x</dfn>,</td></tr>
+<tr><th id="32">32</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;::Tensor <dfn class="local col5 decl" id="5output" title='output' data-type='typename TTypes&lt;T, NDIM&gt;::Tensor' data-ref="5output">output</dfn>) {</td></tr>
+<tr><th id="33">33</th><td>    <a class="local col5 ref" href="#5output" title='output' data-ref="5output">output</a>.device(<a class="local col1 ref" href="#1d" title='d' data-ref="1d">d</a>) = <span class="namespace">Eigen::</span>betainc(<a class="local col2 ref" href="#2a" title='a' data-ref="2a">a</a>, <a class="local col3 ref" href="#3b" title='b' data-ref="3b">b</a>, <a class="local col4 ref" href="#4x" title='x' data-ref="4x">x</a>);</td></tr>
+<tr><th id="34">34</th><td>  }</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow7functor7Betainc5BCastERKT_NS_6TTypesIT0_XT1_ElE11ConstTensorERKN5Eigen5arrayIlXT1_EEES8_SD_S8_SD_NS7_6TensorE" title='tensorflow::functor::Betainc::BCast' data-ref="_ZN10tensorflow7functor7Betainc5BCastERKT_NS_6TTypesIT0_XT1_ElE11ConstTensorERKN5Eigen5arrayIlXT1_EEES8_SD_S8_SD_NS7_6TensorE">BCast</dfn>(<em>const</em> Device&amp; <dfn class="local col6 decl" id="6d" title='d' data-type='const Device &amp;' data-ref="6d">d</dfn>, <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;::ConstTensor <dfn class="local col7 decl" id="7a" title='a' data-type='typename TTypes&lt;T, NDIM&gt;::ConstTensor' data-ref="7a">a</dfn>,</td></tr>
+<tr><th id="37">37</th><td>             <em>const</em> <b>typename</b> <span class="namespace">Eigen::</span><span class='type' title='Eigen::array' data-ref="Eigen::array">array</span>&lt;<span class="namespace">Eigen::</span><span class='typedef' title='Eigen::DenseIndex' data-type='std::ptrdiff_t' data-ref="Eigen::DenseIndex">DenseIndex</span>, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;&amp; <dfn class="local col8 decl" id="8bcast_a" title='bcast_a' data-type='const typename Eigen::array&lt;Eigen::DenseIndex, NDIM&gt; &amp;' data-ref="8bcast_a">bcast_a</dfn>,</td></tr>
+<tr><th id="38">38</th><td>             <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;::ConstTensor <dfn class="local col9 decl" id="9b" title='b' data-type='typename TTypes&lt;T, NDIM&gt;::ConstTensor' data-ref="9b">b</dfn>,</td></tr>
+<tr><th id="39">39</th><td>             <em>const</em> <b>typename</b> <span class="namespace">Eigen::</span><span class='type' title='Eigen::array' data-ref="Eigen::array">array</span>&lt;<span class="namespace">Eigen::</span><span class='typedef' title='Eigen::DenseIndex' data-type='std::ptrdiff_t' data-ref="Eigen::DenseIndex">DenseIndex</span>, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;&amp; <dfn class="local col0 decl" id="10bcast_b" title='bcast_b' data-type='const typename Eigen::array&lt;Eigen::DenseIndex, NDIM&gt; &amp;' data-ref="10bcast_b">bcast_b</dfn>,</td></tr>
+<tr><th id="40">40</th><td>             <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;::ConstTensor <dfn class="local col1 decl" id="11x" title='x' data-type='typename TTypes&lt;T, NDIM&gt;::ConstTensor' data-ref="11x">x</dfn>,</td></tr>
+<tr><th id="41">41</th><td>             <em>const</em> <b>typename</b> <span class="namespace">Eigen::</span><span class='type' title='Eigen::array' data-ref="Eigen::array">array</span>&lt;<span class="namespace">Eigen::</span><span class='typedef' title='Eigen::DenseIndex' data-type='std::ptrdiff_t' data-ref="Eigen::DenseIndex">DenseIndex</span>, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;&amp; <dfn class="local col2 decl" id="12bcast_x" title='bcast_x' data-type='const typename Eigen::array&lt;Eigen::DenseIndex, NDIM&gt; &amp;' data-ref="12bcast_x">bcast_x</dfn>,</td></tr>
+<tr><th id="42">42</th><td>             <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <a class="tu member" href="#tensorflow::functor::Betainc::NDIM" title='tensorflow::functor::Betainc::NDIM' data-ref="tensorflow::functor::Betainc::NDIM">NDIM</a>&gt;::Tensor <dfn class="local col3 decl" id="13output" title='output' data-type='typename TTypes&lt;T, NDIM&gt;::Tensor' data-ref="13output">output</dfn>) {</td></tr>
+<tr><th id="43">43</th><td>    <a class="local col3 ref" href="#13output" title='output' data-ref="13output">output</a>.device(<a class="local col6 ref" href="#6d" title='d' data-ref="6d">d</a>) = <span class="namespace">Eigen::</span>betainc(</td></tr>
+<tr><th id="44">44</th><td>        <a class="local col7 ref" href="#7a" title='a' data-ref="7a">a</a>.broadcast(<a class="local col8 ref" href="#8bcast_a" title='bcast_a' data-ref="8bcast_a">bcast_a</a>), <a class="local col9 ref" href="#9b" title='b' data-ref="9b">b</a>.broadcast(<a class="local col0 ref" href="#10bcast_b" title='bcast_b' data-ref="10bcast_b">bcast_b</a>), <a class="local col1 ref" href="#11x" title='x' data-ref="11x">x</a>.broadcast(<a class="local col2 ref" href="#12bcast_x" title='bcast_x' data-ref="12bcast_x">bcast_x</a>));</td></tr>
+<tr><th id="45">45</th><td>  }</td></tr>
+<tr><th id="46">46</th><td>};</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td>}  <i>// namespace functor</i></td></tr>
+<tr><th id="49">49</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_KERNELS_BETAINC_OP_H_</u></td></tr>
+<tr><th id="52">52</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='betainc_op.cc.html'>tensorflow/tensorflow/core/kernels/betainc_op.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

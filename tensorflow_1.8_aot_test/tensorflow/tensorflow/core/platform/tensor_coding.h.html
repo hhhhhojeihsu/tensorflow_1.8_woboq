@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>tensor_coding.h source code [tensorflow/tensorflow/core/platform/tensor_coding.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/platform/tensor_coding.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>platform</a>/<a href='tensor_coding.h.html'>tensor_coding.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// Helper routines for encoding/decoding tensor contents.</i></td></tr>
+<tr><th id="17">17</th><td><u>#<span data-ppcond="17">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_PLATFORM_TENSOR_CODING_H_">TENSORFLOW_PLATFORM_TENSOR_CODING_H_</span></u></td></tr>
+<tr><th id="18">18</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_PLATFORM_TENSOR_CODING_H_" data-ref="_M/TENSORFLOW_PLATFORM_TENSOR_CODING_H_">TENSORFLOW_PLATFORM_TENSOR_CODING_H_</dfn></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../framework/resource_handle.h.html">"tensorflow/core/framework/resource_handle.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../lib/core/refcount.h.html">"tensorflow/core/lib/core/refcount.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../lib/core/stringpiece.h.html">"tensorflow/core/lib/core/stringpiece.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="platform.h.html">"tensorflow/core/platform/platform.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><u>#<span data-ppcond="27">ifdef</span> <span class="macro" data-ref="_M/PLATFORM_GOOGLE">PLATFORM_GOOGLE</span></u></td></tr>
+<tr><th id="28">28</th><td><u>#include "tensorflow/core/platform/google/cord_coding.h"</u></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="27">endif</span></u></td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="32">32</th><td><b>namespace</b> <span class="namespace">port</span> {</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><i>// Store src contents in *out.  If backing memory for src is shared with *out,</i></td></tr>
+<tr><th id="35">35</th><td><i>// will ref obj during the call and will arrange to unref obj when no</i></td></tr>
+<tr><th id="36">36</th><td><i>// longer needed.</i></td></tr>
+<tr><th id="37">37</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4port16AssignRefCountedENS_11StringPieceEPNS_4core10RefCountedEPSs" title='tensorflow::port::AssignRefCounted' data-ref="_ZN10tensorflow4port16AssignRefCountedENS_11StringPieceEPNS_4core10RefCountedEPSs">AssignRefCounted</dfn>(<a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col3 decl" id="63src" title='src' data-type='tensorflow::StringPiece' data-ref="63src">src</dfn>, <span class="namespace">core::</span><a class="type" href="../lib/core/refcount.h.html#tensorflow::core::RefCounted" title='tensorflow::core::RefCounted' data-ref="tensorflow::core::RefCounted">RefCounted</a>* <dfn class="local col4 decl" id="64obj" title='obj' data-type='core::RefCounted *' data-ref="64obj">obj</dfn>, <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>* <dfn class="local col5 decl" id="65out" title='out' data-type='string *' data-ref="65out">out</dfn>);</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><i>// Copy contents of src to dst[0,src.size()-1].</i></td></tr>
+<tr><th id="40">40</th><td><b>inline</b> <em>void</em> <dfn class="decl def" id="_ZN10tensorflow4port11CopyToArrayERKSsPc" title='tensorflow::port::CopyToArray' data-ref="_ZN10tensorflow4port11CopyToArrayERKSsPc">CopyToArray</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col6 decl" id="66src" title='src' data-type='const string &amp;' data-ref="66src">src</dfn>, <em>char</em>* <dfn class="local col7 decl" id="67dst" title='dst' data-type='char *' data-ref="67dst">dst</dfn>) {</td></tr>
+<tr><th id="41">41</th><td>  <a class="ref" href="../../../../include/string.h.html#memcpy" title='memcpy' data-ref="memcpy">memcpy</a>(<a class="local col7 ref" href="#67dst" title='dst' data-ref="67dst">dst</a>, <a class="local col6 ref" href="#66src" title='src' data-ref="66src">src</a>.<a class="ref" href="../../../../include/c++/5/bits/basic_string.h.html#_ZNKSt12basic_string4dataEv" title='std::basic_string::data' data-ref="_ZNKSt12basic_string4dataEv">data</a>(), <a class="local col6 ref" href="#66src" title='src' data-ref="66src">src</a>.<a class="ref" href="../../../../include/c++/5/bits/basic_string.h.html#_ZNKSt12basic_string4sizeEv" title='std::basic_string::size' data-ref="_ZNKSt12basic_string4sizeEv">size</a>());</td></tr>
+<tr><th id="42">42</th><td>}</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><i>// Store encoding of strings[0..n-1] in *out.</i></td></tr>
+<tr><th id="45">45</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4port16EncodeStringListEPKSsxPSs" title='tensorflow::port::EncodeStringList' data-ref="_ZN10tensorflow4port16EncodeStringListEPKSsxPSs">EncodeStringList</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>* <dfn class="local col8 decl" id="68strings" title='strings' data-type='const string *' data-ref="68strings">strings</dfn>, <a class="typedef" href="default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col9 decl" id="69n" title='n' data-type='int64' data-ref="69n">n</dfn>, <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>* <dfn class="local col0 decl" id="70out" title='out' data-type='string *' data-ref="70out">out</dfn>);</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td><i>// Decode n strings from src and store in strings[0..n-1].</i></td></tr>
+<tr><th id="48">48</th><td><i>// Returns true if successful, false on parse error.</i></td></tr>
+<tr><th id="49">49</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow4port16DecodeStringListERKSsPSsx" title='tensorflow::port::DecodeStringList' data-ref="_ZN10tensorflow4port16DecodeStringListERKSsPSsx">DecodeStringList</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="71src" title='src' data-type='const string &amp;' data-ref="71src">src</dfn>, <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>* <dfn class="local col2 decl" id="72strings" title='strings' data-type='string *' data-ref="72strings">strings</dfn>, <a class="typedef" href="default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col3 decl" id="73n" title='n' data-type='int64' data-ref="73n">n</dfn>);</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i>// Assigns base[0..bytes-1] to *s</i></td></tr>
+<tr><th id="52">52</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4port13CopyFromArrayEPSsPKcm" title='tensorflow::port::CopyFromArray' data-ref="_ZN10tensorflow4port13CopyFromArrayEPSsPKcm">CopyFromArray</dfn>(<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>* <dfn class="local col4 decl" id="74s" title='s' data-type='string *' data-ref="74s">s</dfn>, <em>const</em> <em>char</em>* <dfn class="local col5 decl" id="75base" title='base' data-type='const char *' data-ref="75base">base</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col6 decl" id="76bytes" title='bytes' data-type='size_t' data-ref="76bytes">bytes</dfn>);</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><i>// Encodes a list of ResourceHandle protos in the given string.</i></td></tr>
+<tr><th id="55">55</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4port24EncodeResourceHandleListEPKNS_14ResourceHandleExPSs" title='tensorflow::port::EncodeResourceHandleList' data-ref="_ZN10tensorflow4port24EncodeResourceHandleListEPKNS_14ResourceHandleExPSs">EncodeResourceHandleList</dfn>(<em>const</em> <a class="type" href="../framework/resource_handle.h.html#tensorflow::ResourceHandle" title='tensorflow::ResourceHandle' data-ref="tensorflow::ResourceHandle">ResourceHandle</a>* <dfn class="local col7 decl" id="77handles" title='handles' data-type='const tensorflow::ResourceHandle *' data-ref="77handles">handles</dfn>, <a class="typedef" href="default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col8 decl" id="78n" title='n' data-type='int64' data-ref="78n">n</dfn>,</td></tr>
+<tr><th id="56">56</th><td>                              <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>* <dfn class="local col9 decl" id="79out" title='out' data-type='string *' data-ref="79out">out</dfn>);</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><i>// Decodes a list of ResourceHandle protos from the given string.</i></td></tr>
+<tr><th id="59">59</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow4port24DecodeResourceHandleListERKSsPNS_14ResourceHandleEx" title='tensorflow::port::DecodeResourceHandleList' data-ref="_ZN10tensorflow4port24DecodeResourceHandleListERKSsPNS_14ResourceHandleEx">DecodeResourceHandleList</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col0 decl" id="80in" title='in' data-type='const string &amp;' data-ref="80in">in</dfn>, <a class="type" href="../framework/resource_handle.h.html#tensorflow::ResourceHandle" title='tensorflow::ResourceHandle' data-ref="tensorflow::ResourceHandle">ResourceHandle</a>* <dfn class="local col1 decl" id="81ps" title='ps' data-type='tensorflow::ResourceHandle *' data-ref="81ps">ps</dfn>, <a class="typedef" href="default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col2 decl" id="82n" title='n' data-type='int64' data-ref="82n">n</dfn>);</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>}  <i>// namespace port</i></td></tr>
+<tr><th id="62">62</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><u>#<span data-ppcond="17">endif</span>  // TENSORFLOW_PLATFORM_TENSOR_CODING_H_</u></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../common_runtime/gpu/gpu_util.cc.html'>tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

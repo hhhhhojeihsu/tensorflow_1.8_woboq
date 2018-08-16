@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='554' type='void xla::Literal::EachCellAsString(const std::function&lt;void (tensorflow::gtl::ArraySlice&lt;int64&gt;, const string &amp;)&gt; &amp; per_cell) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='545'>// Invokes the &quot;per cell&quot; callback for each element in the provided
+  // literal with the element&apos;s indices and a string representation of
+  // the element&apos;s value.
+  //
+  // This function is useful if you want a polymorphic representation
+  // of the tensor&apos;s elements (turning it to a string for something
+  // like representation in a protobuf).
+  //
+  // This literal must have a dense layout.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1324' u='c' c='_ZN3xla12_GLOBAL__N_114ToStringHelperERKNS_7LiteralERKNS_10ShapeIndexEbPSt6vectorISsSaISsEE'/>
+<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1374' ll='1385' type='void xla::Literal::EachCellAsString(const std::function&lt;void (tensorflow::gtl::ArraySlice&lt;int64&gt;, const string &amp;)&gt; &amp; per_cell) const'/>

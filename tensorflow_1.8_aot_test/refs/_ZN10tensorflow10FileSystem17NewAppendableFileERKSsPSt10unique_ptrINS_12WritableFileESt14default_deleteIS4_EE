@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/platform/file_system.h' l='88' type='tensorflow::Status tensorflow::FileSystem::NewAppendableFile(const string &amp; fname, std::unique_ptr&lt;WritableFile&gt; * result)'/>
+<doc f='tensorflow/tensorflow/core/platform/file_system.h' l='77'>/// \brief Creates an object that either appends to an existing file, or
+  /// writes to a new file (if the file does not exist to begin with).
+  ///
+  /// On success, stores a pointer to the new file in *result and
+  /// returns OK.  On failure stores NULL in *result and returns
+  /// non-OK.
+  ///
+  /// The returned file will only be accessed by one thread at a time.
+  ///
+  /// The ownership of the returned WritableFile is passed to the caller
+  /// and the object should be deleted when is not used.</doc>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='154' u='c' c='_ZN10tensorflow3Env17NewAppendableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE'/>
+<ovr f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='168' c='_ZN10tensorflow15PosixFileSystem17NewAppendableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE'/>
+<ovr f='tensorflow/tensorflow/core/util/memmapped_file_system.cc' l='151' c='_ZN10tensorflow19MemmappedFileSystem17NewAppendableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE'/>

@@ -1,0 +1,44 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='67' ll='192'/>
+<size>144</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='61'>// Class which encapsulates an XLA backend. It includes everything necessary
+// to compile and execute computations on a particular platform.
+//
+// It also offers a pooling API for creation/use of initialized streams:
+//
+//    StreamPtr stream = backend-&gt;BorrowStream().ConsumeValueOrDie();</doc>
+<fun r='_ZN3xla7Backend13CreateBackendERKNS_14BackendOptionsE'/>
+<fun r='_ZN3xla7Backend20CreateDefaultBackendEv'/>
+<fun r='_ZN3xla7BackendD1Ev'/>
+<fun r='_ZNK3xla7Backend8platformEv'/>
+<fun r='_ZNK3xla7Backend8compilerEv'/>
+<fun r='_ZNK3xla7Backend16memory_allocatorEv'/>
+<fun r='_ZNK3xla7Backend16transfer_managerEv'/>
+<fun r='_ZNK3xla7Backend18computation_placerEv'/>
+<fun r='_ZNK3xla7Backend12device_countEv'/>
+<fun r='_ZNK3xla7Backend22default_device_ordinalEv'/>
+<fun r='_ZNK3xla7Backend16stream_executorsEv'/>
+<fun r='_ZNK3xla7Backend15stream_executorEi'/>
+<fun r='_ZNK3xla7Backend23default_stream_executorEv'/>
+<fun r='_ZN3xla7Backend12BorrowStreamEi'/>
+<fun r='_ZN3xla7Backend12BorrowStreamEPN9perftools8gputools14StreamExecutorE'/>
+<fun r='_ZN3xla7Backend14StreamBorrowerEv'/>
+<fun r='_ZNK3xla7Backend24device_ordinal_supportedEi'/>
+<fun r='_ZNK3xla7Backend11device_nameEi'/>
+<fun r='_ZN3xla7Backend18devices_equivalentEii'/>
+<fun r='_ZNK3xla7Backend20inter_op_thread_poolEv'/>
+<fun r='_ZNK3xla7Backend33eigen_intra_op_thread_pool_deviceEv'/>
+<fun r='_ZNK3xla7Backend26eigen_intra_op_thread_poolEv'/>
+<fun r='_ZN3xla7Backend12ResetDevicesEv'/>
+<fun r='_ZN3xla7BackendC1EPN9perftools8gputools8PlatformEPNS_8CompilerEN10tensorflow3gtl10ArraySliceIPNS2_14StreamExecutorEEEPNS_15TransferManagerEPNS_17ComputationPlacerEi'/>
+<fun r='_ZN3xla7BackendC1ERKS0_'/>
+<fun r='_ZN3xla7BackendaSERKS0_'/>
+<mbr r='xla::Backend::platform_' o='0' t='perftools::gputools::Platform *'/>
+<mbr r='xla::Backend::compiler_' o='64' t='xla::Compiler *'/>
+<mbr r='xla::Backend::transfer_manager_' o='128' t='xla::TransferManager *'/>
+<mbr r='xla::Backend::computation_placer_' o='192' t='xla::ComputationPlacer *'/>
+<mbr r='xla::Backend::stream_executors_' o='256' t='std::vector&lt;perftools::gputools::StreamExecutor *&gt;'/>
+<mbr r='xla::Backend::mu_' o='448' t='tensorflow::mutex'/>
+<mbr r='xla::Backend::stream_pools_' o='576' t='std::map&lt;perftools::gputools::StreamExecutor *, Pool&lt;perftools::gputools::Stream&gt; &gt;'/>
+<mbr r='xla::Backend::memory_allocator_' o='960' t='std::unique_ptr&lt;StreamExecutorMemoryAllocator&gt;'/>
+<mbr r='xla::Backend::inter_op_thread_pool_' o='1024' t='std::unique_ptr&lt;tensorflow::thread::ThreadPool&gt;'/>
+<mbr r='xla::Backend::intra_op_thread_pool_wrapper_' o='1088' t='std::unique_ptr&lt;EigenThreadPoolWrapper&gt;'/>

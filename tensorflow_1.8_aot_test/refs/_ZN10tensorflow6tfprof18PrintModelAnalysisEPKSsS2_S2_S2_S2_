@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/profiler/internal/print_model_analysis.h' l='59' type='string tensorflow::tfprof::PrintModelAnalysis(const string * graph, const string * run_meta, const string * op_log, const string * command, const string * options)'/>
+<def f='tensorflow/tensorflow/core/profiler/internal/print_model_analysis.cc' l='172' ll='201' type='string tensorflow::tfprof::PrintModelAnalysis(const string * graph, const string * run_meta, const string * op_log, const string * command, const string * options)'/>
+<doc f='tensorflow/tensorflow/core/profiler/internal/print_model_analysis.h' l='52'>// Single-step Profiler.
+//
+// Interface defined for Python API swig. Calls the tfprof core API.
+// &apos;graph&apos;, &apos;run_meta&apos;, &apos;op_log&apos; are serialized GraphDef, RunMetadata,
+// OpLogProto strings, respectively.
+// &apos;graph&apos;, &apos;command&apos; and &apos;options&apos; are required. Others can be nullptr
+// if not available.</doc>

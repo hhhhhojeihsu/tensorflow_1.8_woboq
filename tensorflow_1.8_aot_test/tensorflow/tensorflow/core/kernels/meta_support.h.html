@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>meta_support.h source code [tensorflow/tensorflow/core/kernels/meta_support.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/kernels/meta_support.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>kernels</a>/<a href='meta_support.h.html'>meta_support.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CONTRIB_QUANTIZATION_KERNELS_META_SUPPORT_H_">TENSORFLOW_CONTRIB_QUANTIZATION_KERNELS_META_SUPPORT_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CONTRIB_QUANTIZATION_KERNELS_META_SUPPORT_H_" data-ref="_M/TENSORFLOW_CONTRIB_QUANTIZATION_KERNELS_META_SUPPORT_H_">TENSORFLOW_CONTRIB_QUANTIZATION_KERNELS_META_SUPPORT_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include "meta/multi_thread_gemm.h"</u></td></tr>
+<tr><th id="20">20</th><td><u>#include "meta/multi_thread_transform.h"</u></td></tr>
+<tr><th id="21">21</th><td><u>#include "meta/quantized_mul_kernels.h"</u></td></tr>
+<tr><th id="22">22</th><td><u>#include "meta/streams.h"</u></td></tr>
+<tr><th id="23">23</th><td><u>#include "meta/transform_kernels.h"</u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../framework/numeric_types.h.html">"tensorflow/core/framework/numeric_types.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>class</b> <a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext" id="tensorflow::OpKernelContext">OpKernelContext</a>;</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>namespace</b> <span class="namespace">meta</span> {</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>// Gemmlowp/meta is a small library of optimized Arm32/64 kernels for quantized</i></td></tr>
+<tr><th id="34">34</th><td><i>// matrix multiplication and other quantized computations.</i></td></tr>
+<tr><th id="35">35</th><td><i></i></td></tr>
+<tr><th id="36">36</th><td><i>// Set the maximum number of threads of computation that the internal workers</i></td></tr>
+<tr><th id="37">37</th><td><i>// pool can use. If num_threads is 0, then use intra_op_parallelism_threads.</i></td></tr>
+<tr><th id="38">38</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4meta13SetNumThreadsEi" title='tensorflow::meta::SetNumThreads' data-ref="_ZN10tensorflow4meta13SetNumThreadsEi">SetNumThreads</dfn>(<em>int</em> <dfn class="local col1 decl" id="1num_threads" title='num_threads' data-type='int' data-ref="1num_threads">num_threads</dfn>);</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><em>int</em> <dfn class="decl" id="_ZN10tensorflow4meta13GetNumThreadsEv" title='tensorflow::meta::GetNumThreads' data-ref="_ZN10tensorflow4meta13GetNumThreadsEv">GetNumThreads</dfn>();</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i>// Toggle the internal workers pool. If set to false, the computations will</i></td></tr>
+<tr><th id="43">43</th><td><i>// use the worker pool passed each time in the OpKernelContext. If set to true</i></td></tr>
+<tr><th id="44">44</th><td><i>// then the OpKernelContext will be ignored, and the internal optimized workers</i></td></tr>
+<tr><th id="45">45</th><td><i>// pool will be used.</i></td></tr>
+<tr><th id="46">46</th><td><i>//</i></td></tr>
+<tr><th id="47">47</th><td><i>// The internal workers pool is disabled by default (false).</i></td></tr>
+<tr><th id="48">48</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4meta18SetUseLocalContextEb" title='tensorflow::meta::SetUseLocalContext' data-ref="_ZN10tensorflow4meta18SetUseLocalContextEb">SetUseLocalContext</dfn>(<em>bool</em> <dfn class="local col2 decl" id="2use_local_context" title='use_local_context' data-type='bool' data-ref="2use_local_context">use_local_context</dfn>);</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow4meta18GetUseLocalContextEv" title='tensorflow::meta::GetUseLocalContext' data-ref="_ZN10tensorflow4meta18GetUseLocalContextEv">GetUseLocalContext</dfn>();</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><i>// Toggles the codepath. Enabled by default (true) on supported platforms.</i></td></tr>
+<tr><th id="53">53</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4meta10SetEnabledEb" title='tensorflow::meta::SetEnabled' data-ref="_ZN10tensorflow4meta10SetEnabledEb">SetEnabled</dfn>(<em>bool</em> <dfn class="local col3 decl" id="3enabled" title='enabled' data-type='bool' data-ref="3enabled">enabled</dfn>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><i>// Returns true if the codepath is supported and is enabled. Use this call</i></td></tr>
+<tr><th id="56">56</th><td><i>// before calling the compute functions. If the codepath is not supported, and</i></td></tr>
+<tr><th id="57">57</th><td><i>// any of the compute function is called, the library will log a FATAL error.</i></td></tr>
+<tr><th id="58">58</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow4meta21IsSupportedAndEnabledEv" title='tensorflow::meta::IsSupportedAndEnabled' data-ref="_ZN10tensorflow4meta21IsSupportedAndEnabledEv">IsSupportedAndEnabled</dfn>();</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><i>// Calculate the quantized matrix multiplication:</i></td></tr>
+<tr><th id="61">61</th><td><i>//</i></td></tr>
+<tr><th id="62">62</th><td><i>// for (i, j) in [0, m) x [0, n) do</i></td></tr>
+<tr><th id="63">63</th><td><i>//   c_data[i, j] :=</i></td></tr>
+<tr><th id="64">64</th><td><i>//     sum((a_data[i, l] + offset_a) * (b_data[l, j] + offset_b)) : l in [0, k)</i></td></tr>
+<tr><th id="65">65</th><td><i>//</i></td></tr>
+<tr><th id="66">66</th><td><i>// If transpose_a is false the lhs operand has row major layout, otherwise</i></td></tr>
+<tr><th id="67">67</th><td><i>// column major. Similarly transpose_b describes the layout of the rhs operand.</i></td></tr>
+<tr><th id="68">68</th><td><i>// lda, ldb, and ldc are the strides of the lhs operand, rhs operand and the</i></td></tr>
+<tr><th id="69">69</th><td><i>// result arrays.</i></td></tr>
+<tr><th id="70">70</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4meta13QuantizedGemmEPNS_15OpKernelContextEbbPKN5Eigen6QUInt8ES6_PNS3_6QInt32Eiiiiiiii" title='tensorflow::meta::QuantizedGemm' data-ref="_ZN10tensorflow4meta13QuantizedGemmEPNS_15OpKernelContextEbbPKN5Eigen6QUInt8ES6_PNS3_6QInt32Eiiiiiiii">QuantizedGemm</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col4 decl" id="4context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="4context">context</dfn>, <em>bool</em> <dfn class="local col5 decl" id="5transpose_a" title='transpose_a' data-type='bool' data-ref="5transpose_a">transpose_a</dfn>, <em>bool</em> <dfn class="local col6 decl" id="6transpose_b" title='transpose_b' data-type='bool' data-ref="6transpose_b">transpose_b</dfn>,</td></tr>
+<tr><th id="71">71</th><td>                   <em>const</em> <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a>* <dfn class="local col7 decl" id="7a_data" title='a_data' data-type='const quint8 *' data-ref="7a_data">a_data</dfn>, <em>const</em> <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a>* <dfn class="local col8 decl" id="8b_data" title='b_data' data-type='const quint8 *' data-ref="8b_data">b_data</dfn>, <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::qint32" title='tensorflow::qint32' data-type='Eigen::QInt32' data-ref="tensorflow::qint32">qint32</a>* <dfn class="local col9 decl" id="9c_data" title='c_data' data-type='qint32 *' data-ref="9c_data">c_data</dfn>,</td></tr>
+<tr><th id="72">72</th><td>                   <em>int</em> <dfn class="local col0 decl" id="10m" title='m' data-type='int' data-ref="10m">m</dfn>, <em>int</em> <dfn class="local col1 decl" id="11n" title='n' data-type='int' data-ref="11n">n</dfn>, <em>int</em> <dfn class="local col2 decl" id="12k" title='k' data-type='int' data-ref="12k">k</dfn>, <em>int</em> <dfn class="local col3 decl" id="13offset_a" title='offset_a' data-type='int' data-ref="13offset_a">offset_a</dfn>, <em>int</em> <dfn class="local col4 decl" id="14offset_b" title='offset_b' data-type='int' data-ref="14offset_b">offset_b</dfn>, <em>int</em> <dfn class="local col5 decl" id="15lda" title='lda' data-type='int' data-ref="15lda">lda</dfn>,</td></tr>
+<tr><th id="73">73</th><td>                   <em>int</em> <dfn class="local col6 decl" id="16ldb" title='ldb' data-type='int' data-ref="16ldb">ldb</dfn>, <em>int</em> <dfn class="local col7 decl" id="17ldc" title='ldc' data-type='int' data-ref="17ldc">ldc</dfn>);</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td><i>// Take an array of numbers from the range [input_min, input_max] quantized</i></td></tr>
+<tr><th id="76">76</th><td><i>// uniformly to int32 values, recover their float values, and then quantize</i></td></tr>
+<tr><th id="77">77</th><td><i>// them back uniformly to the range [output_min, output_max] as uint8.</i></td></tr>
+<tr><th id="78">78</th><td><i>// Saturate the uint8 values.</i></td></tr>
+<tr><th id="79">79</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4meta10RequantizeEPNS_15OpKernelContextEPKN5Eigen6QInt32EiffffPNS3_6QUInt8E" title='tensorflow::meta::Requantize' data-ref="_ZN10tensorflow4meta10RequantizeEPNS_15OpKernelContextEPKN5Eigen6QInt32EiffffPNS3_6QUInt8E">Requantize</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col8 decl" id="18context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="18context">context</dfn>, <em>const</em> <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::qint32" title='tensorflow::qint32' data-type='Eigen::QInt32' data-ref="tensorflow::qint32">qint32</a>* <dfn class="local col9 decl" id="19input" title='input' data-type='const qint32 *' data-ref="19input">input</dfn>, <em>int</em> <dfn class="local col0 decl" id="20count" title='count' data-type='int' data-ref="20count">count</dfn>,</td></tr>
+<tr><th id="80">80</th><td>                <em>float</em> <dfn class="local col1 decl" id="21input_min" title='input_min' data-type='float' data-ref="21input_min">input_min</dfn>, <em>float</em> <dfn class="local col2 decl" id="22input_max" title='input_max' data-type='float' data-ref="22input_max">input_max</dfn>, <em>float</em> <dfn class="local col3 decl" id="23output_min" title='output_min' data-type='float' data-ref="23output_min">output_min</dfn>,</td></tr>
+<tr><th id="81">81</th><td>                <em>float</em> <dfn class="local col4 decl" id="24output_max" title='output_max' data-type='float' data-ref="24output_max">output_max</dfn>, <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a>* <dfn class="local col5 decl" id="25output" title='output' data-type='quint8 *' data-ref="25output">output</dfn>);</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td><i>// Take an array of numbers from the range [range_min, range_max] quantized</i></td></tr>
+<tr><th id="84">84</th><td><i>// uniformly to uint8 values and recover their float values.</i></td></tr>
+<tr><th id="85">85</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4meta10DequantizeEPNS_15OpKernelContextEPKN5Eigen6QUInt8EiffPf" title='tensorflow::meta::Dequantize' data-ref="_ZN10tensorflow4meta10DequantizeEPNS_15OpKernelContextEPKN5Eigen6QUInt8EiffPf">Dequantize</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col6 decl" id="26context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="26context">context</dfn>, <em>const</em> <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a>* <dfn class="local col7 decl" id="27input" title='input' data-type='const quint8 *' data-ref="27input">input</dfn>, <em>int</em> <dfn class="local col8 decl" id="28count" title='count' data-type='int' data-ref="28count">count</dfn>,</td></tr>
+<tr><th id="86">86</th><td>                <em>float</em> <dfn class="local col9 decl" id="29range_min" title='range_min' data-type='float' data-ref="29range_min">range_min</dfn>, <em>float</em> <dfn class="local col0 decl" id="30range_max" title='range_max' data-type='float' data-ref="30range_max">range_max</dfn>, <em>float</em>* <dfn class="local col1 decl" id="31output" title='output' data-type='float *' data-ref="31output">output</dfn>);</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><i>// Take an array of float values and quantize them uniformly to the range</i></td></tr>
+<tr><th id="89">89</th><td><i>// [range_min, range_max] expressed as uint8. Saturate the uint8 values.</i></td></tr>
+<tr><th id="90">90</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4meta8QuantizeEPNS_15OpKernelContextEPKfiffPN5Eigen6QUInt8E" title='tensorflow::meta::Quantize' data-ref="_ZN10tensorflow4meta8QuantizeEPNS_15OpKernelContextEPKfiffPN5Eigen6QUInt8E">Quantize</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>*, <em>const</em> <em>float</em>* <dfn class="local col2 decl" id="32input" title='input' data-type='const float *' data-ref="32input">input</dfn>, <em>int</em> <dfn class="local col3 decl" id="33count" title='count' data-type='int' data-ref="33count">count</dfn>, <em>float</em> <dfn class="local col4 decl" id="34range_min" title='range_min' data-type='float' data-ref="34range_min">range_min</dfn>,</td></tr>
+<tr><th id="91">91</th><td>              <em>float</em> <dfn class="local col5 decl" id="35range_max" title='range_max' data-type='float' data-ref="35range_max">range_max</dfn>, <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a>* <dfn class="local col6 decl" id="36output" title='output' data-type='quint8 *' data-ref="36output">output</dfn>);</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><i>// Take two arrays: the inputs and the bias quantized uniformly in the ranges</i></td></tr>
+<tr><th id="94">94</th><td><i>// [input_min, input_max], and [bias_min, bias_max] accordingly, as uint8</i></td></tr>
+<tr><th id="95">95</th><td><i>// values. Recover their float values. Add the values. Quantize them back</i></td></tr>
+<tr><th id="96">96</th><td><i>// uniformly to the range [output_min, output_max] as int32. Saturate the</i></td></tr>
+<tr><th id="97">97</th><td><i>// int32 values.</i></td></tr>
+<tr><th id="98">98</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4meta16QuantizedBiasAddEPNS_15OpKernelContextEPKN5Eigen6QUInt8EiS6_iffffffPNS3_6QInt32E" title='tensorflow::meta::QuantizedBiasAdd' data-ref="_ZN10tensorflow4meta16QuantizedBiasAddEPNS_15OpKernelContextEPKN5Eigen6QUInt8EiS6_iffffffPNS3_6QInt32E">QuantizedBiasAdd</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col7 decl" id="37context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="37context">context</dfn>, <em>const</em> <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a>* <dfn class="local col8 decl" id="38input" title='input' data-type='const quint8 *' data-ref="38input">input</dfn>,</td></tr>
+<tr><th id="99">99</th><td>                      <em>int</em> <dfn class="local col9 decl" id="39input_count" title='input_count' data-type='int' data-ref="39input_count">input_count</dfn>, <em>const</em> <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a>* <dfn class="local col0 decl" id="40bias" title='bias' data-type='const quint8 *' data-ref="40bias">bias</dfn>, <em>int</em> <dfn class="local col1 decl" id="41bias_count" title='bias_count' data-type='int' data-ref="41bias_count">bias_count</dfn>,</td></tr>
+<tr><th id="100">100</th><td>                      <em>float</em> <dfn class="local col2 decl" id="42input_min" title='input_min' data-type='float' data-ref="42input_min">input_min</dfn>, <em>float</em> <dfn class="local col3 decl" id="43input_max" title='input_max' data-type='float' data-ref="43input_max">input_max</dfn>, <em>float</em> <dfn class="local col4 decl" id="44bias_min" title='bias_min' data-type='float' data-ref="44bias_min">bias_min</dfn>,</td></tr>
+<tr><th id="101">101</th><td>                      <em>float</em> <dfn class="local col5 decl" id="45bias_max" title='bias_max' data-type='float' data-ref="45bias_max">bias_max</dfn>, <em>float</em> <dfn class="local col6 decl" id="46output_min" title='output_min' data-type='float' data-ref="46output_min">output_min</dfn>, <em>float</em> <dfn class="local col7 decl" id="47output_max" title='output_max' data-type='float' data-ref="47output_max">output_max</dfn>,</td></tr>
+<tr><th id="102">102</th><td>                      <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::qint32" title='tensorflow::qint32' data-type='Eigen::QInt32' data-ref="tensorflow::qint32">qint32</a>* <dfn class="local col8 decl" id="48output" title='output' data-type='qint32 *' data-ref="48output">output</dfn>);</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td><i>// Take an array of uint8 values and clamp them to the range [clamp_min,</i></td></tr>
+<tr><th id="105">105</th><td><i>// clamp_max].</i></td></tr>
+<tr><th id="106">106</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow4meta5ClampEPNS_15OpKernelContextEPKN5Eigen6QUInt8EiS4_S4_PS4_" title='tensorflow::meta::Clamp' data-ref="_ZN10tensorflow4meta5ClampEPNS_15OpKernelContextEPKN5Eigen6QUInt8EiS4_S4_PS4_">Clamp</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col9 decl" id="49context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="49context">context</dfn>, <em>const</em> <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a>* <dfn class="local col0 decl" id="50input" title='input' data-type='const quint8 *' data-ref="50input">input</dfn>, <em>int</em> <dfn class="local col1 decl" id="51input_count" title='input_count' data-type='int' data-ref="51input_count">input_count</dfn>,</td></tr>
+<tr><th id="107">107</th><td>           <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a> <dfn class="local col2 decl" id="52clamp_min" title='clamp_min' data-type='quint8' data-ref="52clamp_min">clamp_min</dfn>, <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a> <dfn class="local col3 decl" id="53clamp_max" title='clamp_max' data-type='quint8' data-ref="53clamp_max">clamp_max</dfn>, <a class="typedef" href="../framework/numeric_types.h.html#tensorflow::quint8" title='tensorflow::quint8' data-type='Eigen::QUInt8' data-ref="tensorflow::quint8">quint8</a>* <dfn class="local col4 decl" id="54output" title='output' data-type='quint8 *' data-ref="54output">output</dfn>);</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>}  <i>// namespace meta</i></td></tr>
+<tr><th id="110">110</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="111">111</th><td></td></tr>
+<tr><th id="112">112</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CONTRIB_QUANTIZATION_KERNELS_META_SUPPORT_H_</u></td></tr>
+<tr><th id="113">113</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='dequantize_op.cc.html'>tensorflow/tensorflow/core/kernels/dequantize_op.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,23 @@
+<dec f='tensorflow/tensorflow/core/platform/file_system.h' l='197' type='string tensorflow::FileSystem::TranslateName(const string &amp; name) const'/>
+<doc f='tensorflow/tensorflow/core/platform/file_system.h' l='192'>/// \brief Translate an URI to a filename for the FileSystem implementation.
+  ///
+  /// The implementation in this class cleans up the path, removing
+  /// duplicate /&apos;s, resolving .. and . (more details in
+  /// tensorflow::lib::io::CleanPath).</doc>
+<def f='tensorflow/tensorflow/core/platform/file_system.cc' l='32' ll='37' type='string tensorflow::FileSystem::TranslateName(const string &amp; name) const'/>
+<ovr f='tensorflow/tensorflow/core/platform/posix/posix_file_system.h' l='70' c='_ZNK10tensorflow20LocalPosixFileSystem13TranslateNameERKSs'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='144' u='c' c='_ZN10tensorflow15PosixFileSystem19NewRandomAccessFileERKSsPSt10unique_ptrINS_16RandomAccessFileESt14default_deleteIS4_EE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='157' u='c' c='_ZN10tensorflow15PosixFileSystem15NewWritableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='170' u='c' c='_ZN10tensorflow15PosixFileSystem17NewAppendableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='183' u='c' c='_ZN10tensorflow15PosixFileSystem31NewReadOnlyMemoryRegionFromFileERKSsPSt10unique_ptrINS_20ReadOnlyMemoryRegionESt14default_deleteIS4_EE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='204' u='c' c='_ZN10tensorflow15PosixFileSystem10FileExistsERKSs'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='212' u='c' c='_ZN10tensorflow15PosixFileSystem11GetChildrenERKSsPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='236' u='c' c='_ZN10tensorflow15PosixFileSystem10DeleteFileERKSs'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='244' u='c' c='_ZN10tensorflow15PosixFileSystem9CreateDirERKSs'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='252' u='c' c='_ZN10tensorflow15PosixFileSystem9DeleteDirERKSs'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='261' u='c' c='_ZN10tensorflow15PosixFileSystem11GetFileSizeERKSsPy'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='273' u='c' c='_ZN10tensorflow15PosixFileSystem4StatERKSsPNS_14FileStatisticsE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='285' u='c' c='_ZN10tensorflow15PosixFileSystem10RenameFileERKSsS2_'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='285' u='c' c='_ZN10tensorflow15PosixFileSystem10RenameFileERKSsS2_'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='292' u='c' c='_ZN10tensorflow15PosixFileSystem8CopyFileERKSsS2_'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='301' u='c' c='_ZN10tensorflow15PosixFileSystem8CopyFileERKSsS2_'/>

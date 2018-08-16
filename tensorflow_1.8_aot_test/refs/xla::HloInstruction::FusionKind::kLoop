@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='165' type='0'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='165'>// Fused into a loop.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_instruction_fusion.cc' l='136' u='r' c='_ZN3xla3cpu20CpuInstructionFusion10ShouldFuseEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_instruction_fusion.cc' l='154' u='r' c='_ZN3xla3cpu20CpuInstructionFusion10ChooseKindEPKNS_14HloInstructionES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.h' l='45' u='r' c='_ZN3xla7llvm_ir37CanEmitFusedDynamicUpdateSliceInPlaceEPNS_14HloInstructionERKNS_16BufferAssignmentE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2113' u='r' c='_ZN3xla3cpu9IrEmitter12HandleFusionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.cc' l='145' u='r' c='_ZN3xla3cpu22ParallelTaskAssignment26GetTargetParallelTaskCountEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2446' c='_ZNK3xla14HloInstruction10ToCategoryEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3040' u='r' c='_ZNK3xla14HloInstruction13IsElementwiseEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3081' u='r' c='_ZNK3xla14HloInstruction22IsElementwiseOnOperandEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3228' c='_ZN3xla8ToStringENS_14HloInstruction10FusionKindE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3244' u='a' c='_ZN3xla18StringToFusionKindERKSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='434' u='r' c='_ZN3xla17InstructionFusion10ShouldFuseEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='453' u='r' c='_ZN3xla17InstructionFusion10ChooseKindEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='42' u='r' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='79' u='r' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_19HloDataflowAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='198' u='r' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='303' u='r' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_19HloDataflowAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reduce_precision_insertion.cc' l='125' u='r' c='_ZN3xla24ReducePrecisionInsertion16insert_on_inputsERKSt6vectorIPNS_14HloInstructionESaIS3_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reduce_precision_insertion.cc' l='176' u='r' c='_ZN3xla24ReducePrecisionInsertion17insert_on_outputsERKSt6vectorIPNS_14HloInstructionESaIS3_EE'/>

@@ -1,0 +1,24 @@
+<dec f='tensorflow/tensorflow/core/platform/file_system.h' l='264' type='tensorflow::Status tensorflow::WritableFile::Close()'/>
+<doc f='tensorflow/tensorflow/core/platform/file_system.h' l='257'>/// \brief Close the file.
+  ///
+  /// Flush() and de-allocate resources associated with this file
+  ///
+  /// Typical return codes (not guaranteed to be exhaustive):
+  ///  * OK
+  ///  * Other codes, as returned from Flush()</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='701' u='c' c='_ZN3xla7llvm_irL26CreateAndWriteStringToFileERKSsS2_S2_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='311' u='c' c='_ZN10tensorflow6ffmpeg9WriteFileERKSsNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='623' u='c' c='_ZN10tensorflow11DebugFileIO20DumpEventProtoToFileERKNS_5EventERKSsS5_'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_writer.cc' l='116' u='c' c='_ZN10tensorflow2io12RecordWriter5CloseEv'/>
+<ovr f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.cc' l='205' c='_ZN10tensorflow2io16ZlibOutputBuffer5CloseEv'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='417' u='c' c='_ZN10tensorflow17WriteStringToFileEPNS_3EnvERKSsRKNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='442' u='c' c='_ZN10tensorflow18FileSystemCopyFileEPNS_10FileSystemERKSsS1_S3_'/>
+<ovr f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='102' c='_ZN10tensorflow17PosixWritableFile5CloseEv'/>
+<use f='tensorflow/tensorflow/core/util/events_writer.cc' l='150' u='c' c='_ZN10tensorflow12EventsWriter5CloseEv'/>
+<use f='tensorflow/tensorflow/core/util/memmapped_file_system_writer.cc' l='107' u='c' c='_ZN10tensorflow25MemmappedFileSystemWriter13FlushAndCloseEv'/>
+<use f='tensorflow/tensorflow/core/util/reporter.cc' l='37' u='c' c='_ZN10tensorflow12TestReporter5CloseEv'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='513' u='c' c='_ZN10tensorflow12BundleWriter6FinishEv'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='685' u='c' c='_ZN10tensorflow12MergeBundlesEPNS_3EnvENS_3gtl10ArraySliceISsEENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='1097' u='c' c='_ZN10tensorflow16FileOutputBuffer5CloseEv'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_writer.cc' l='50' u='c' c='_ZN10tensorflow10checkpoint12_GLOBAL__N_112TableBuilder6FinishEPx'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_writer.cc' l='73' u='c' c='_ZN10tensorflow2io14PyRecordWriter5CloseEP9TF_Status'/>

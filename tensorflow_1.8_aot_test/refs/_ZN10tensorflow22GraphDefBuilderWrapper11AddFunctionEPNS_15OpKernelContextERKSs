@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/core/framework/dataset.h' l='159' type='tensorflow::Status tensorflow::GraphDefBuilderWrapper::AddFunction(tensorflow::OpKernelContext * ctx, const string &amp; function_name)'/>
+<use f='tensorflow/tensorflow/core/framework/dataset.h' l='224' u='c' c='_ZN10tensorflow22GraphDefBuilderWrapper16AddAttrFunctionsERKNS_9AttrValueEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/framework/dataset.h' l='227' u='c' c='_ZN10tensorflow22GraphDefBuilderWrapper16AddAttrFunctionsERKNS_9AttrValueEPNS_15OpKernelContextE'/>
+<doc f='tensorflow/tensorflow/core/framework/dataset.h' l='153'>// Adds a user-defined function with name `function_name` to the graph and
+  // recursively adds all functions it references. If a function with a matching
+  // name has already been added, returns with OK status. If a user-defined with
+  // name `function_name` is not found in the FunctionLibraryDefinition, returns
+  // an InvalidArgumentError. If the function with name `function_name` or any
+  // of its dependent functions are stateful, returns an InvalidArgument error.</doc>
+<def f='tensorflow/tensorflow/core/framework/dataset.cc' l='136' ll='179' type='tensorflow::Status tensorflow::GraphDefBuilderWrapper::AddFunction(tensorflow::OpKernelContext * ctx, const string &amp; function_name)'/>
+<use f='tensorflow/tensorflow/core/framework/dataset.cc' l='166' u='c' c='_ZN10tensorflow22GraphDefBuilderWrapper11AddFunctionEPNS_15OpKernelContextERKSs'/>
+<use f='tensorflow/tensorflow/core/kernels/data/filter_dataset_op.cc' l='114' u='c' c='_ZNK10tensorflow12_GLOBAL__N_115FilterDatasetOp17FilterDatasetBase18AsGraphDefInternalEPNS_15OpKernelContextEPNS_11DatasetBase22DatasetGraphDefBuilderEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/flat_map_dataset_op.cc' l='96' u='c' c='_ZNK10tensorflow12_GLOBAL__N_116FlatMapDatasetOp7Dataset18AsGraphDefInternalEPNS_15OpKernelContextEPNS_11DatasetBase22DatasetGraphDefBuilderEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='139' u='c' c='_ZNK10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset18AsGraphDefInternalEPNS_15OpKernelContextEPNS_11DatasetBase22DatasetGraphDefBuilderEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='140' u='c' c='_ZNK10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset18AsGraphDefInternalEPNS_15OpKernelContextEPNS_11DatasetBase22DatasetGraphDefBuilderEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='141' u='c' c='_ZNK10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset18AsGraphDefInternalEPNS_15OpKernelContextEPNS_11DatasetBase22DatasetGraphDefBuilderEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/interleave_dataset_op.cc' l='117' u='c' c='_ZNK10tensorflow12_GLOBAL__N_119InterleaveDatasetOp7Dataset18AsGraphDefInternalEPNS_15OpKernelContextEPNS_11DatasetBase22DatasetGraphDefBuilderEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/map_dataset_op.cc' l='94' u='c' c='_ZNK10tensorflow12_GLOBAL__N_112MapDatasetOp7Dataset18AsGraphDefInternalEPNS_15OpKernelContextEPNS_11DatasetBase22DatasetGraphDefBuilderEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/parallel_map_dataset_op.cc' l='129' u='c' c='_ZNK10tensorflow12_GLOBAL__N_120ParallelMapDatasetOp7Dataset18AsGraphDefInternalEPNS_15OpKernelContextEPNS_11DatasetBase22DatasetGraphDefBuilderEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/scan_dataset_op.cc' l='111' u='c' c='_ZNK10tensorflow12_GLOBAL__N_113ScanDatasetOp7Dataset18AsGraphDefInternalEPNS_15OpKernelContextEPNS_11DatasetBase22DatasetGraphDefBuilderEPPNS_4NodeE'/>

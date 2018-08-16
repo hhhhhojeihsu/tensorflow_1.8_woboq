@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/scoped_allocator_mgr.h' l='92' type='static void tensorflow::ScopedAllocatorMgr::PopulateFields(int32 scope_id, const gtl::ArraySlice&lt;TensorShape&gt; &amp; shapes, const tensorflow::DataType dtype, std::vector&lt;ScopedAllocator::Field&gt; * fields)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/scoped_allocator_mgr.h' l='90'>// Populate the bytes and offset members of Field.  Instance allocaters get
+  // consecutive scope_id values following that of the base ScopedAllocator.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/scoped_allocator_mgr.cc' l='163' ll='183' type='static void tensorflow::ScopedAllocatorMgr::PopulateFields(int32 scope_id, const gtl::ArraySlice&lt;TensorShape&gt; &amp; shapes, const tensorflow::DataType dtype, std::vector&lt;ScopedAllocator::Field&gt; * fields)'/>
+<use f='tensorflow/tensorflow/core/kernels/scoped_allocator_ops.cc' l='41' u='c' c='_ZN10tensorflow17ScopedAllocatorOpC1EPNS_20OpKernelConstructionE'/>

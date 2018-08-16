@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/framework/tracking_allocator.h' l='82' type='std::tuple&lt;size_t, size_t, size_t&gt; tensorflow::TrackingAllocator::GetSizes()'/>
+<doc f='tensorflow/tensorflow/core/framework/tracking_allocator.h' l='73'>// If the underlying allocator tracks allocation sizes, this returns
+  // a tuple where the first value is the total number of bytes
+  // allocated through this wrapper, the second value is the high
+  // watermark of bytes allocated through this wrapper and the third value is
+  // the allocated bytes through this wrapper that are still alive. If the
+  // underlying allocator does not track allocation sizes the first
+  // value is the total number of bytes requested through this wrapper
+  // and the second and the third are 0.
+  //</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/kernel_and_device.cc' l='111' u='c' c='_ZN10tensorflow15KernelAndDevice3RunEPSt6vectorINS_6TensorESaIS2_EES5_PNS_13NodeExecStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='48' u='c' c='_ZN10tensorflow20NodeExecStatsWrapper13AddAllocationEPNS_9AllocatorEPNS_17TrackingAllocatorE'/>
+<def f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='161' ll='172' type='std::tuple&lt;size_t, size_t, size_t&gt; tensorflow::TrackingAllocator::GetSizes()'/>

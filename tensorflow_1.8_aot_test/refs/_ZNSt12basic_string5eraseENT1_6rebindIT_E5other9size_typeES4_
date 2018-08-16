@@ -1,0 +1,18 @@
+<def f='include/c++/5/bits/basic_string.h' l='3777' ll='3783' type='basic_string&lt;_CharT, _Traits, _Alloc&gt; &amp; std::basic_string::erase(size_type __pos = 0, size_type __n = npos)'/>
+<doc f='include/c++/5/bits/basic_string.h' l='3762'>/**
+       *  @brief  Remove characters.
+       *  @param __pos  Index of first character to remove (default 0).
+       *  @param __n  Number of characters to remove (default remainder).
+       *  @return  Reference to this string.
+       *  @throw  std::out_of_range  If @a pos is beyond the end of this
+       *  string.
+       *
+       *  Removes @a __n characters from this string starting at @a
+       *  __pos.  The length of the string is reduced by @a __n.  If
+       *  there are &lt; @a __n characters to remove, the remainder of
+       *  the string is truncated.  If @a __p is beyond end of string,
+       *  out_of_range is thrown.  The value of the string doesn&apos;t
+       *  change if an error is thrown.
+      */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_port.cc' l='219' u='c' c='_ZN4toco4port4file8JoinPathERKSsS3_'/>
+<use f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='240' u='c' c='_ZN10tensorflow8str_util9CUnescapeENS_11StringPieceEPSsS2_'/>

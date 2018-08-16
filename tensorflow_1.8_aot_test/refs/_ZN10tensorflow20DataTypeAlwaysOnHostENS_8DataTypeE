@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/framework/types.h' l='476' type='bool tensorflow::DataTypeAlwaysOnHost(tensorflow::DataType dt)'/>
+<doc f='tensorflow/tensorflow/core/framework/types.h' l='473'>// Types that always sit on host: DT_STRING, DT_STRING_REF, DT_RESOURCE.
+// For DT_RESOURCE, the handle always sits on host (even if the underlying
+// object has device-allocated resources).</doc>
+<use f='tensorflow/tensorflow/core/framework/memory_types.cc' l='64' u='c' c='_ZN10tensorflow12_GLOBAL__N_114MTypeFromDTypeENS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/core/framework/memory_types.cc' l='127' u='c' c='_ZN10tensorflow18MemoryTypesForNodeEPKNS_19OpRegistryInterfaceERKNS_10DeviceTypeERKNS_7NodeDefEPNS_3gtl13InlinedVectorINS_10MemoryTypeELi4EEESD_'/>
+<use f='tensorflow/tensorflow/core/framework/memory_types.cc' l='132' u='c' c='_ZN10tensorflow18MemoryTypesForNodeEPKNS_19OpRegistryInterfaceERKNS_10DeviceTypeERKNS_7NodeDefEPNS_3gtl13InlinedVectorINS_10MemoryTypeELi4EEESD_'/>
+<def f='tensorflow/tensorflow/core/framework/types.cc' l='214' ll='224' type='bool tensorflow::DataTypeAlwaysOnHost(tensorflow::DataType dt)'/>

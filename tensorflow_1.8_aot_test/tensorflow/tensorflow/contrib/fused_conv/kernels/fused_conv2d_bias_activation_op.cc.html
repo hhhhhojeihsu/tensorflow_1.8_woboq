@@ -1,0 +1,677 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>fused_conv2d_bias_activation_op.cc source code [tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::FusedConv2DBiasActivationOp "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>contrib</a>/<a href='..'>fused_conv</a>/<a href='./'>kernels</a>/<a href='fused_conv2d_bias_activation_op.cc.html'>fused_conv2d_bias_activation_op.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="17">17</th><td><u>#define EIGEN_USE_GPU</u></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="16">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="fused_conv2d_bias_activation_op.h.html">"tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.h"</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../core/framework/numeric_op.h.html">"tensorflow/core/framework/numeric_op.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../core/framework/op_kernel.h.html">"tensorflow/core/framework/op_kernel.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../../../core/framework/register_types.h.html">"tensorflow/core/framework/register_types.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../../../core/framework/tensor.h.html">"tensorflow/core/framework/tensor.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../../core/framework/tensor_shape.h.html">"tensorflow/core/framework/tensor_shape.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../../core/framework/tensor_slice.h.html">"tensorflow/core/framework/tensor_slice.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../../core/kernels/bounds_check.h.html">"tensorflow/core/kernels/bounds_check.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../core/kernels/conv_2d.h.html">"tensorflow/core/kernels/conv_2d.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../../../core/kernels/ops_util.h.html">"tensorflow/core/kernels/ops_util.h"</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../../../core/lib/core/errors.h.html">"tensorflow/core/lib/core/errors.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../core/lib/strings/strcat.h.html">"tensorflow/core/lib/strings/strcat.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../../../core/util/padding.h.html">"tensorflow/core/util/padding.h"</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../../../core/util/use_cudnn.h.html">"tensorflow/core/util/use_cudnn.h"</a></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="36">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="37">37</th><td><u>#include "cuda/include/cudnn.h"</u></td></tr>
+<tr><th id="38">38</th><td><u>#include "tensorflow/core/kernels/conv_ops_gpu.h"</u></td></tr>
+<tr><th id="39">39</th><td><u>#include "tensorflow/core/platform/stream_executor.h"</u></td></tr>
+<tr><th id="40">40</th><td><u>#include "tensorflow/core/util/activation_mode.h"</u></td></tr>
+<tr><th id="41">41</th><td><u>#<span data-ppcond="36">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>namespace</b> {</td></tr>
+<tr><th id="46">46</th><td><b>typedef</b> <span class="namespace">Eigen::</span><span class='type' title='Eigen::GpuDevice' data-ref="Eigen::GpuDevice">GpuDevice</span> <dfn class="tu typedef" id="tensorflow::(anonymousnamespace)::GPUDevice" title='tensorflow::(anonymous namespace)::GPUDevice' data-type='Eigen::GpuDevice' data-ref="tensorflow::(anonymousnamespace)::GPUDevice">GPUDevice</dfn>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="49">49</th><td><b>struct</b> <dfn class="tu type def" id="tensorflow::(anonymousnamespace)::RawType" title='tensorflow::(anonymous namespace)::RawType' data-ref="tensorflow::(anonymousnamespace)::RawType">RawType</dfn> {</td></tr>
+<tr><th id="50">50</th><td>  <b>using</b> <dfn class="tu typedef" id="tensorflow::(anonymousnamespace)::RawType::type" title='tensorflow::(anonymous namespace)::RawType::type' data-type='T' data-ref="tensorflow::(anonymousnamespace)::RawType::type">type</dfn> = T;</td></tr>
+<tr><th id="51">51</th><td>};</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="54">54</th><td><b>struct</b> <dfn class="tu type def" id="tensorflow::(anonymousnamespace)::RawType" title='tensorflow::(anonymous namespace)::RawType' data-ref="tensorflow::(anonymousnamespace)::RawType"><a class="tu type" href="#tensorflow::(anonymousnamespace)::RawType" title='tensorflow::(anonymous namespace)::RawType' data-ref="tensorflow::(anonymousnamespace)::RawType">RawType</a></dfn>&lt;<a class="typedef" href="../../../core/framework/numeric_types.h.html#tensorflow::qint8" title='tensorflow::qint8' data-type='Eigen::QInt8' data-ref="tensorflow::qint8">qint8</a>&gt; {</td></tr>
+<tr><th id="55">55</th><td>  <b>using</b> <dfn class="tu typedef" id="tensorflow::(anonymousnamespace)::RawType{Eigen::QInt8}::type" title='tensorflow::(anonymous namespace)::RawType&lt;Eigen::QInt8&gt;::type' data-type='int8' data-ref="tensorflow::(anonymousnamespace)::RawType{Eigen::QInt8}::type">type</dfn> = <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int8" title='tensorflow::int8' data-type='signed char' data-ref="tensorflow::int8">int8</a>;</td></tr>
+<tr><th id="56">56</th><td>};</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td><i>// Template struct to convert int8x4 to int32.</i></td></tr>
+<tr><th id="59">59</th><td><i>// (for NCHW_VECT_C with element type int8, we can consider it to be</i></td></tr>
+<tr><th id="60">60</th><td><i>// an NCHW layout with element type int32 for operations like padding).</i></td></tr>
+<tr><th id="61">61</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="62">62</th><td><b>struct</b> <dfn class="tu type def" id="tensorflow::(anonymousnamespace)::Int8x4ToInt32" title='tensorflow::(anonymous namespace)::Int8x4ToInt32' data-ref="tensorflow::(anonymousnamespace)::Int8x4ToInt32">Int8x4ToInt32</dfn> {</td></tr>
+<tr><th id="63">63</th><td>  <i  data-doc="tensorflow::(anonymousnamespace)::Int8x4ToInt32::type">// By default, do not change T.</i></td></tr>
+<tr><th id="64">64</th><td>  <b>using</b> <dfn class="tu typedef" id="tensorflow::(anonymousnamespace)::Int8x4ToInt32::type" title='tensorflow::(anonymous namespace)::Int8x4ToInt32::type' data-type='T' data-ref="tensorflow::(anonymousnamespace)::Int8x4ToInt32::type">type</dfn> = T;</td></tr>
+<tr><th id="65">65</th><td>};</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="68">68</th><td><b>struct</b> <dfn class="tu type def" id="tensorflow::(anonymousnamespace)::Int8x4ToInt32" title='tensorflow::(anonymous namespace)::Int8x4ToInt32' data-ref="tensorflow::(anonymousnamespace)::Int8x4ToInt32"><a class="tu type" href="#tensorflow::(anonymousnamespace)::Int8x4ToInt32" title='tensorflow::(anonymous namespace)::Int8x4ToInt32' data-ref="tensorflow::(anonymousnamespace)::Int8x4ToInt32">Int8x4ToInt32</a></dfn>&lt;<a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int8" title='tensorflow::int8' data-type='signed char' data-ref="tensorflow::int8">int8</a>&gt; {</td></tr>
+<tr><th id="69">69</th><td>  <b>using</b> <dfn class="tu typedef" id="tensorflow::(anonymousnamespace)::Int8x4ToInt32{signedchar}::type" title='tensorflow::(anonymous namespace)::Int8x4ToInt32&lt;signed char&gt;::type' data-type='int32' data-ref="tensorflow::(anonymousnamespace)::Int8x4ToInt32{signedchar}::type">type</dfn> = <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>;</td></tr>
+<tr><th id="70">70</th><td>};</td></tr>
+<tr><th id="71">71</th><td>}  <i>// namespace</i></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><i>// T is the element type of the conv_input, filter and side_input tensors.</i></td></tr>
+<tr><th id="74">74</th><td><i>// BiasType is the element type of the bias tensor, which can be different.</i></td></tr>
+<tr><th id="75">75</th><td><i>// ScaleType is the type used for conv_input_scale, side_input_scale.</i></td></tr>
+<tr><th id="76">76</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T, <b>typename</b> BiasType, <b>typename</b> ScaleType&gt;</td></tr>
+<tr><th id="77">77</th><td><b>class</b> <dfn class="type def" id="tensorflow::FusedConv2DBiasActivationOp" title='tensorflow::FusedConv2DBiasActivationOp' data-ref="tensorflow::FusedConv2DBiasActivationOp">FusedConv2DBiasActivationOp</dfn> : <b>public</b> <a class="type" href="../../../core/framework/op_kernel.h.html#tensorflow::OpKernel" title='tensorflow::OpKernel' data-ref="tensorflow::OpKernel">OpKernel</a> {</td></tr>
+<tr><th id="78">78</th><td> <b>public</b>:</td></tr>
+<tr><th id="79">79</th><td>  <b>enum</b> <dfn class="type def" id="tensorflow::FusedConv2DBiasActivationOp::InputIndexes" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes">InputIndexes</dfn> {</td></tr>
+<tr><th id="80">80</th><td>    <dfn class="enum" id="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInput" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInput' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInput">kConvInput</dfn> = <var>0</var>,</td></tr>
+<tr><th id="81">81</th><td>    <dfn class="enum" id="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kFilter" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kFilter' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kFilter">kFilter</dfn>,</td></tr>
+<tr><th id="82">82</th><td>    <dfn class="enum" id="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kBias" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kBias' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kBias">kBias</dfn>,</td></tr>
+<tr><th id="83">83</th><td>    <dfn class="enum" id="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInput" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInput' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInput">kSideInput</dfn>,</td></tr>
+<tr><th id="84">84</th><td>    <dfn class="enum" id="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInputScale" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInputScale' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInputScale">kConvInputScale</dfn>,</td></tr>
+<tr><th id="85">85</th><td>    <dfn class="enum" id="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInputScale" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInputScale' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInputScale">kSideInputScale</dfn>,</td></tr>
+<tr><th id="86">86</th><td>    <dfn class="enum" id="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kNumInputs" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kNumInputs' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kNumInputs">kNumInputs</dfn></td></tr>
+<tr><th id="87">87</th><td>  };</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>  <b>explicit</b> <dfn class="tu decl def" id="_ZN10tensorflow27FusedConv2DBiasActivationOpC1EPNS_20OpKernelConstructionE" title='tensorflow::FusedConv2DBiasActivationOp::FusedConv2DBiasActivationOp&lt;Device, T, BiasType, ScaleType&gt;' data-type='void tensorflow::FusedConv2DBiasActivationOp::FusedConv2DBiasActivationOp&lt;Device, T, BiasType, ScaleType&gt;(tensorflow::OpKernelConstruction * context)' data-ref="_ZN10tensorflow27FusedConv2DBiasActivationOpC1EPNS_20OpKernelConstructionE">FusedConv2DBiasActivationOp</dfn>(<a class="type" href="../../../core/framework/op_kernel.h.html#tensorflow::OpKernelConstruction" title='tensorflow::OpKernelConstruction' data-ref="tensorflow::OpKernelConstruction">OpKernelConstruction</a>* <dfn class="local col2 decl" id="192context" title='context' data-type='tensorflow::OpKernelConstruction *' data-ref="192context">context</dfn>)</td></tr>
+<tr><th id="90">90</th><td>      : <a class="type" href="../../../core/framework/op_kernel.h.html#tensorflow::OpKernel" title='tensorflow::OpKernel' data-ref="tensorflow::OpKernel">OpKernel</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>) {</td></tr>
+<tr><th id="91">91</th><td>    <a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <a class="ref fake" href="../../../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1Ev" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1Ev"></a><dfn class="local col3 decl" id="193data_format_str" title='data_format_str' data-type='string' data-ref="193data_format_str">data_format_str</dfn>, <a class="ref fake" href="../../../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1Ev" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1Ev"></a><dfn class="local col4 decl" id="194filter_format_str" title='filter_format_str' data-type='string' data-ref="194filter_format_str">filter_format_str</dfn>;</td></tr>
+<tr><th id="92">92</th><td>    <a class="macro" href="../../../core/platform/default/logging.h.html#251" title="while (::tensorflow::internal::CheckOpString _result = ::tensorflow::internal::Check_EQImpl( ::tensorflow::internal::GetReferenceableValue(kNumInputs), ::tensorflow::internal::GetReferenceableValue(context-&gt;num_inputs()), &quot;kNumInputs&quot; &quot; &quot; &quot;==&quot; &quot; &quot; &quot;context-&gt;num_inputs()&quot;)) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 92) &lt;&lt; *(_result.str_)" data-ref="_M/CHECK_EQ">CHECK_EQ</a>(<a class="enum" href="#tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kNumInputs" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kNumInputs' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kNumInputs">kNumInputs</a>, <a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>-&gt;<a class="ref" href="../../../core/framework/op_kernel.h.html#_ZNK10tensorflow20OpKernelConstruction10num_inputsEv" title='tensorflow::OpKernelConstruction::num_inputs' data-ref="_ZNK10tensorflow20OpKernelConstruction10num_inputsEv">num_inputs</a>());</td></tr>
+<tr><th id="93">93</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;GetAttr(&quot;data_format&quot;, &amp;data_format_str)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 93, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>, <a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>-&gt;<a class="ref" href="../../../core/framework/op_kernel.h.html#_ZNK10tensorflow20OpKernelConstruction7GetAttrENS_11StringPieceEPT_" title='tensorflow::OpKernelConstruction::GetAttr' data-ref="_ZNK10tensorflow20OpKernelConstruction7GetAttrENS_11StringPieceEPT_">GetAttr</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"data_format"</q>, &amp;<a class="local col3 ref" href="#193data_format_str" title='data_format_str' data-ref="193data_format_str">data_format_str</a>));</td></tr>
+<tr><th id="94">94</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(FormatFromString(data_format_str, &amp;data_format_)), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 95, (errors::InvalidArgument(&quot;Invalid data format&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>, FormatFromString(<a class="local col3 ref" href="#193data_format_str" title='data_format_str' data-ref="193data_format_str">data_format_str</a>, &amp;<a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-use='a' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a>),</td></tr>
+<tr><th id="95">95</th><td>                errors::<a class="ref" href="../../../core/lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"Invalid data format"</q>));</td></tr>
+<tr><th id="96">96</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;GetAttr(&quot;filter_format&quot;, &amp;filter_format_str)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 97, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>,</td></tr>
+<tr><th id="97">97</th><td>                   <a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>-&gt;<a class="ref" href="../../../core/framework/op_kernel.h.html#_ZNK10tensorflow20OpKernelConstruction7GetAttrENS_11StringPieceEPT_" title='tensorflow::OpKernelConstruction::GetAttr' data-ref="_ZNK10tensorflow20OpKernelConstruction7GetAttrENS_11StringPieceEPT_">GetAttr</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"filter_format"</q>, &amp;<a class="local col4 ref" href="#194filter_format_str" title='filter_format_str' data-ref="194filter_format_str">filter_format_str</a>));</td></tr>
+<tr><th id="98">98</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(FilterFormatFromString(filter_format_str, &amp;filter_format_)), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 100, (errors::InvalidArgument(&quot;Invalid filter format&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>,</td></tr>
+<tr><th id="99">99</th><td>                FilterFormatFromString(<a class="local col4 ref" href="#194filter_format_str" title='filter_format_str' data-ref="194filter_format_str">filter_format_str</a>, &amp;<a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::filter_format_" title='tensorflow::FusedConv2DBiasActivationOp::filter_format_' data-use='a' data-ref="tensorflow::FusedConv2DBiasActivationOp::filter_format_">filter_format_</a>),</td></tr>
+<tr><th id="100">100</th><td>                errors::<a class="ref" href="../../../core/lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"Invalid filter format"</q>));</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>&gt; <a class="ref fake" href="../../../../../include/c++/5/bits/stl_vector.h.html#_ZNSt6vectorC1Ev" title='std::vector::vector&lt;_Tp, _Alloc&gt;' data-ref="_ZNSt6vectorC1Ev"></a><dfn class="local col5 decl" id="195strides" title='strides' data-type='std::vector&lt;int32&gt;' data-ref="195strides">strides</dfn>;</td></tr>
+<tr><th id="103">103</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;GetAttr(&quot;strides&quot;, &amp;strides)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 103, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>, <a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>-&gt;<a class="ref" href="../../../core/framework/op_kernel.h.html#_ZNK10tensorflow20OpKernelConstruction7GetAttrENS_11StringPieceEPT_" title='tensorflow::OpKernelConstruction::GetAttr' data-ref="_ZNK10tensorflow20OpKernelConstruction7GetAttrENS_11StringPieceEPT_">GetAttr</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"strides"</q>, &amp;<a class="local col5 ref" href="#195strides" title='strides' data-ref="195strides">strides</a>));</td></tr>
+<tr><th id="104">104</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(strides.size() == 4), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 106, (errors::InvalidArgument(&quot;Sliding window strides field must &quot; &quot;specify 4 dimensions&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>, <a class="local col5 ref" href="#195strides" title='strides' data-ref="195strides">strides</a>.<a class="ref" href="../../../../../include/c++/5/bits/stl_vector.h.html#_ZNKSt6vector4sizeEv" title='std::vector::size' data-ref="_ZNKSt6vector4sizeEv">size</a>() == <var>4</var>,</td></tr>
+<tr><th id="105">105</th><td>                errors::<a class="ref" href="../../../core/lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"Sliding window strides field must "</q></td></tr>
+<tr><th id="106">106</th><td>                                        <q>"specify 4 dimensions"</q>));</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>    <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::stride_rows_" title='tensorflow::FusedConv2DBiasActivationOp::stride_rows_' data-use='w' data-ref="tensorflow::FusedConv2DBiasActivationOp::stride_rows_">stride_rows_</a> = GetTensorDim(<a class="local col5 ref" href="#195strides" title='strides' data-ref="195strides">strides</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a>, <kbd>'H'</kbd>);</td></tr>
+<tr><th id="109">109</th><td>    <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::stride_cols_" title='tensorflow::FusedConv2DBiasActivationOp::stride_cols_' data-use='w' data-ref="tensorflow::FusedConv2DBiasActivationOp::stride_cols_">stride_cols_</a> = GetTensorDim(<a class="local col5 ref" href="#195strides" title='strides' data-ref="195strides">strides</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a>, <kbd>'W'</kbd>);</td></tr>
+<tr><th id="110">110</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!((GetTensorDim(strides, data_format_, &apos;N&apos;) == 1 &amp;&amp; GetTensorDim(strides, data_format_, &apos;C&apos;) == 1)), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 115, (errors::InvalidArgument(&quot;Convolutional strides are not supported in &quot; &quot;the batch or depth dimensions.&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(</td></tr>
+<tr><th id="111">111</th><td>        <a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>,</td></tr>
+<tr><th id="112">112</th><td>        (GetTensorDim(<a class="local col5 ref" href="#195strides" title='strides' data-ref="195strides">strides</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a>, <kbd>'N'</kbd>) == <var>1</var> &amp;&amp;</td></tr>
+<tr><th id="113">113</th><td>         GetTensorDim(<a class="local col5 ref" href="#195strides" title='strides' data-ref="195strides">strides</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a>, <kbd>'C'</kbd>) == <var>1</var>),</td></tr>
+<tr><th id="114">114</th><td>        errors::<a class="ref" href="../../../core/lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"Convolutional strides are not supported in "</q></td></tr>
+<tr><th id="115">115</th><td>                                <q>"the batch or depth dimensions."</q>));</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>    <i>// Assuming qint8 &lt;--&gt; NCHW_VECT_C, OIHW_VECT_I (int8x4) here.</i></td></tr>
+<tr><th id="118">118</th><td>    <b>constexpr</b> <em>bool</em> <dfn class="local col6 decl" id="196is_int8x4" title='is_int8x4' data-type='const bool' data-ref="196is_int8x4">is_int8x4</dfn> = <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/type_traits.html#std::is_same" title='std::is_same' data-ref="std::is_same">is_same</a>&lt;T, <a class="typedef" href="../../../core/framework/numeric_types.h.html#tensorflow::qint8" title='tensorflow::qint8' data-type='Eigen::QInt8' data-ref="tensorflow::qint8">qint8</a>&gt;::value;</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td>    <i>// Note: Only NCHW_VECT_C format is supported for int8.</i></td></tr>
+<tr><th id="121">121</th><td><i>    // This is because it is expected to be the fastest, and our previous tests</i></td></tr>
+<tr><th id="122">122</th><td><i>    // found cudnn 6 does not fully support the other formats for int8 mode.</i></td></tr>
+<tr><th id="123">123</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!((is_int8x4 == (data_format_ == FORMAT_NCHW_VECT_C))), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 125, (errors::InvalidArgument( &quot;qint8 should be used with data_format NCHW_VECT_C.&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>, (<a class="local col6 ref" href="#196is_int8x4" title='is_int8x4' data-ref="196is_int8x4">is_int8x4</a> == (<a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a> == <a class="enum" href="../../../core/util/tensor_format.h.html#tensorflow::TensorFormat::FORMAT_NCHW_VECT_C" title='tensorflow::TensorFormat::FORMAT_NCHW_VECT_C' data-ref="tensorflow::TensorFormat::FORMAT_NCHW_VECT_C">FORMAT_NCHW_VECT_C</a>)),</td></tr>
+<tr><th id="124">124</th><td>                errors::<a class="ref" href="../../../core/lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(</td></tr>
+<tr><th id="125">125</th><td>                    <q>"qint8 should be used with data_format NCHW_VECT_C."</q>));</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!((is_int8x4 == (filter_format_ == FORMAT_OIHW_VECT_I))), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 129, (errors::InvalidArgument( &quot;qint8 should be used with filter_format OIHW_VECT_I.&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>, (<a class="local col6 ref" href="#196is_int8x4" title='is_int8x4' data-ref="196is_int8x4">is_int8x4</a> == (<a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::filter_format_" title='tensorflow::FusedConv2DBiasActivationOp::filter_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::filter_format_">filter_format_</a> == <a class="enum" href="../../../core/util/tensor_format.h.html#tensorflow::FilterTensorFormat::FORMAT_OIHW_VECT_I" title='tensorflow::FilterTensorFormat::FORMAT_OIHW_VECT_I' data-ref="tensorflow::FilterTensorFormat::FORMAT_OIHW_VECT_I">FORMAT_OIHW_VECT_I</a>)),</td></tr>
+<tr><th id="128">128</th><td>                errors::<a class="ref" href="../../../core/lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(</td></tr>
+<tr><th id="129">129</th><td>                    <q>"qint8 should be used with filter_format OIHW_VECT_I."</q>));</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;GetAttr(&quot;padding&quot;, &amp;padding_type_)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 131, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>, <a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>-&gt;GetAttr(<q>"padding"</q>, &amp;<a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::padding_type_" title='tensorflow::FusedConv2DBiasActivationOp::padding_type_' data-use='a' data-ref="tensorflow::FusedConv2DBiasActivationOp::padding_type_">padding_type_</a>));</td></tr>
+<tr><th id="132">132</th><td>    <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::eigen_padding_type_" title='tensorflow::FusedConv2DBiasActivationOp::eigen_padding_type_' data-use='w' data-ref="tensorflow::FusedConv2DBiasActivationOp::eigen_padding_type_">eigen_padding_type_</a> = BrainPadding2EigenPadding(<a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::padding_type_" title='tensorflow::FusedConv2DBiasActivationOp::padding_type_' data-ref="tensorflow::FusedConv2DBiasActivationOp::padding_type_">padding_type_</a>);</td></tr>
+<tr><th id="133">133</th><td>    <a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <a class="ref fake" href="../../../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1Ev" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1Ev"></a><dfn class="local col7 decl" id="197activation_mode_str" title='activation_mode_str' data-type='string' data-ref="197activation_mode_str">activation_mode_str</dfn>;</td></tr>
+<tr><th id="134">134</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;GetAttr(&quot;activation_mode&quot;, &amp;activation_mode_str)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 135, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>,</td></tr>
+<tr><th id="135">135</th><td>                   <a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>-&gt;<a class="ref" href="../../../core/framework/op_kernel.h.html#_ZNK10tensorflow20OpKernelConstruction7GetAttrENS_11StringPieceEPT_" title='tensorflow::OpKernelConstruction::GetAttr' data-ref="_ZNK10tensorflow20OpKernelConstruction7GetAttrENS_11StringPieceEPT_">GetAttr</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"activation_mode"</q>, &amp;<a class="local col7 ref" href="#197activation_mode_str" title='activation_mode_str' data-ref="197activation_mode_str">activation_mode_str</a>));</td></tr>
+<tr><th id="136">136</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(GetActivationModeFromString(activation_mode_str, &amp;activation_mode_)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 137, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>, GetActivationModeFromString(<a class="local col7 ref" href="#197activation_mode_str" title='activation_mode_str' data-ref="197activation_mode_str">activation_mode_str</a>,</td></tr>
+<tr><th id="137">137</th><td>                                                        &amp;<a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::activation_mode_" title='tensorflow::FusedConv2DBiasActivationOp::activation_mode_' data-use='a' data-ref="tensorflow::FusedConv2DBiasActivationOp::activation_mode_">activation_mode_</a>));</td></tr>
+<tr><th id="138">138</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(activation_mode_ == ActivationMode::RELU), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 140, (errors::InvalidArgument(&quot;Current implementation only supports &quot; &quot;RELU as the activation function.&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col2 ref" href="#192context" title='context' data-ref="192context">context</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::activation_mode_" title='tensorflow::FusedConv2DBiasActivationOp::activation_mode_' data-ref="tensorflow::FusedConv2DBiasActivationOp::activation_mode_">activation_mode_</a> == <a class="type" href="../../../core/util/activation_mode.h.html#tensorflow::ActivationMode" title='tensorflow::ActivationMode' data-ref="tensorflow::ActivationMode">ActivationMode</a>::<a class="enum" href="../../../core/util/activation_mode.h.html#tensorflow::ActivationMode::RELU" title='tensorflow::ActivationMode::RELU' data-ref="tensorflow::ActivationMode::RELU">RELU</a>,</td></tr>
+<tr><th id="139">139</th><td>                errors::<a class="ref" href="../../../core/lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"Current implementation only supports "</q></td></tr>
+<tr><th id="140">140</th><td>                                        <q>"RELU as the activation function."</q>));</td></tr>
+<tr><th id="141">141</th><td>    <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::cudnn_use_autotune_" title='tensorflow::FusedConv2DBiasActivationOp::cudnn_use_autotune_' data-use='w' data-ref="tensorflow::FusedConv2DBiasActivationOp::cudnn_use_autotune_">cudnn_use_autotune_</a> = <a class="ref" href="../../../core/util/use_cudnn.h.html#_ZN10tensorflow16CudnnUseAutotuneEv" title='tensorflow::CudnnUseAutotune' data-ref="_ZN10tensorflow16CudnnUseAutotuneEv">CudnnUseAutotune</a>();</td></tr>
+<tr><th id="142">142</th><td>  }</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>  <a class="type" href="../../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="tu decl def" id="_ZN10tensorflow27FusedConv2DBiasActivationOp10CheckShapeERKNS_6TensorERKSs" title='tensorflow::FusedConv2DBiasActivationOp::CheckShape' data-type='tensorflow::Status tensorflow::FusedConv2DBiasActivationOp::CheckShape(const tensorflow::Tensor &amp; tensor, const string &amp; tensor_name)' data-ref="_ZN10tensorflow27FusedConv2DBiasActivationOp10CheckShapeERKNS_6TensorERKSs">CheckShape</dfn>(<em>const</em> <a class="type" href="../../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col8 decl" id="198tensor" title='tensor' data-type='const tensorflow::Tensor &amp;' data-ref="198tensor">tensor</dfn>, <em>const</em> <a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col9 decl" id="199tensor_name" title='tensor_name' data-type='const string &amp;' data-ref="199tensor_name">tensor_name</dfn>) {</td></tr>
+<tr><th id="145">145</th><td>    <em>const</em> <em>int</em> <dfn class="local col0 decl" id="200num_dims" title='num_dims' data-type='const int' data-ref="200num_dims">num_dims</dfn> = <a class="local col8 ref" href="#198tensor" title='tensor' data-ref="198tensor">tensor</a>.<a class="ref" href="../../../core/framework/tensor.h.html#_ZNK10tensorflow6Tensor4dimsEv" title='tensorflow::Tensor::dims' data-ref="_ZNK10tensorflow6Tensor4dimsEv">dims</a>();</td></tr>
+<tr><th id="146">146</th><td>    <b>for</b> (<em>int</em> <dfn class="local col1 decl" id="201i" title='i' data-type='int' data-ref="201i">i</dfn> = <var>0</var>; <a class="local col1 ref" href="#201i" title='i' data-ref="201i">i</a> &lt; <a class="local col0 ref" href="#200num_dims" title='num_dims' data-ref="200num_dims">num_dims</a>; <a class="local col1 ref" href="#201i" title='i' data-ref="201i">i</a>++) {</td></tr>
+<tr><th id="147">147</th><td>      <b>if</b> (!<a class="ref" href="../../../core/kernels/bounds_check.h.html#_ZN10tensorflow15FastBoundsCheckET_T0_" title='tensorflow::FastBoundsCheck' data-ref="_ZN10tensorflow15FastBoundsCheckET_T0_">FastBoundsCheck</a>(<a class="local col8 ref" href="#198tensor" title='tensor' data-ref="198tensor">tensor</a>.<a class="ref" href="../../../core/framework/tensor.h.html#_ZNK10tensorflow6Tensor8dim_sizeEi" title='tensorflow::Tensor::dim_size' data-ref="_ZNK10tensorflow6Tensor8dim_sizeEi">dim_size</a>(<a class="local col1 ref" href="#201i" title='i' data-ref="201i">i</a>),</td></tr>
+<tr><th id="148">148</th><td>                           <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;<a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>&gt;::<a class="ref" href="../../../../../include/c++/5/limits.html#_ZNSt14numeric_limitsIiE3maxEv" title='std::numeric_limits&lt;int&gt;::max' data-ref="_ZNSt14numeric_limitsIiE3maxEv">max</a>())) {</td></tr>
+<tr><th id="149">149</th><td>        <b>return</b> <span class="namespace">errors::</span><a class="ref" href="../../../core/lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<a class="ref fake" href="../../../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1ERKSbIT_T0_T1_E" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1ERKSbIT_T0_T1_E"></a><a class="local col9 ref" href="#199tensor_name" title='tensor_name' data-ref="199tensor_name">tensor_name</a>, <q>" dimension "</q>, <a class="local col1 ref" href="#201i" title='i' data-ref="201i">i</a>,</td></tr>
+<tr><th id="150">150</th><td>                                       <q>" too large"</q>);</td></tr>
+<tr><th id="151">151</th><td>      }</td></tr>
+<tr><th id="152">152</th><td>    }</td></tr>
+<tr><th id="153">153</th><td>    <i>// If there is a 5th dimension it is the VECT_C or VECT_I dimension.</i></td></tr>
+<tr><th id="154">154</th><td>    <b>if</b> (<a class="local col0 ref" href="#200num_dims" title='num_dims' data-ref="200num_dims">num_dims</a> == <var>5</var> &amp;&amp; <a class="local col8 ref" href="#198tensor" title='tensor' data-ref="198tensor">tensor</a>.<a class="ref" href="../../../core/framework/tensor.h.html#_ZNK10tensorflow6Tensor8dim_sizeEi" title='tensorflow::Tensor::dim_size' data-ref="_ZNK10tensorflow6Tensor8dim_sizeEi">dim_size</a>(<var>4</var>) != <var>4</var>) {</td></tr>
+<tr><th id="155">155</th><td>      <b>return</b> <span class="namespace">errors::</span><a class="ref" href="../../../core/lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"The last dimension of "</q>, <a class="ref fake" href="../../../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1ERKSbIT_T0_T1_E" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1ERKSbIT_T0_T1_E"></a><a class="local col9 ref" href="#199tensor_name" title='tensor_name' data-ref="199tensor_name">tensor_name</a>,</td></tr>
+<tr><th id="156">156</th><td>                                     <q>" must be of size 4 for qint8."</q>);</td></tr>
+<tr><th id="157">157</th><td>    }</td></tr>
+<tr><th id="158">158</th><td>    <b>return</b> <a class="type" href="../../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a>::<a class="ref" href="../../../core/lib/core/status.h.html#_ZN10tensorflow6Status2OKEv" title='tensorflow::Status::OK' data-ref="_ZN10tensorflow6Status2OKEv">OK</a>();</td></tr>
+<tr><th id="159">159</th><td>  }</td></tr>
+<tr><th id="160">160</th><td></td></tr>
+<tr><th id="161">161</th><td>  <em>void</em> <dfn class="virtual decl def" id="_ZN10tensorflow27FusedConv2DBiasActivationOp7ComputeEPNS_15OpKernelContextE" title='tensorflow::FusedConv2DBiasActivationOp::Compute' data-ref="_ZN10tensorflow27FusedConv2DBiasActivationOp7ComputeEPNS_15OpKernelContextE">Compute</dfn>(<a class="type" href="../../../core/framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col2 decl" id="202context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="202context">context</dfn>) override {</td></tr>
+<tr><th id="162">162</th><td>    <i>// The conv_input tensor is one of the following formats:</i></td></tr>
+<tr><th id="163">163</th><td><i>    // NHWC, NCHW, NCHW_VECT_C.</i></td></tr>
+<tr><th id="164">164</th><td>    <em>const</em> <a class="type" href="../../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col3 decl" id="203conv_input" title='conv_input' data-type='const tensorflow::Tensor &amp;' data-ref="203conv_input">conv_input</dfn> = <a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>-&gt;input(<a class="enum" href="#tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInput" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInput' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInput">kConvInput</a>);</td></tr>
+<tr><th id="165">165</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(CheckShape(conv_input, &quot;conv_input&quot;)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 165, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>, <a class="tu member" href="#_ZN10tensorflow27FusedConv2DBiasActivationOp10CheckShapeERKNS_6TensorERKSs" title='tensorflow::FusedConv2DBiasActivationOp::CheckShape' data-use='c' data-ref="_ZN10tensorflow27FusedConv2DBiasActivationOp10CheckShapeERKNS_6TensorERKSs">CheckShape</a>(<a class="local col3 ref" href="#203conv_input" title='conv_input' data-ref="203conv_input">conv_input</a>, <q>"conv_input"</q>));</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>    <i>// The filter tensor is one of the following formats:</i></td></tr>
+<tr><th id="168">168</th><td><i>    // HWIO, OIHW, OIHW_VECT_I.</i></td></tr>
+<tr><th id="169">169</th><td>    <em>const</em> <a class="type" href="../../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col4 decl" id="204filter" title='filter' data-type='const tensorflow::Tensor &amp;' data-ref="204filter">filter</dfn> = <a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>-&gt;input(<a class="enum" href="#tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kFilter" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kFilter' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kFilter">kFilter</a>);</td></tr>
+<tr><th id="170">170</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(CheckShape(filter, &quot;filter&quot;)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 170, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>, <a class="tu member" href="#_ZN10tensorflow27FusedConv2DBiasActivationOp10CheckShapeERKNS_6TensorERKSs" title='tensorflow::FusedConv2DBiasActivationOp::CheckShape' data-use='c' data-ref="_ZN10tensorflow27FusedConv2DBiasActivationOp10CheckShapeERKNS_6TensorERKSs">CheckShape</a>(<a class="local col4 ref" href="#204filter" title='filter' data-ref="204filter">filter</a>, <q>"filter"</q>));</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td>    <i>// Input bias is a 1-D tensor, with size matching output depth.</i></td></tr>
+<tr><th id="173">173</th><td>    <em>const</em> <a class="type" href="../../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col5 decl" id="205bias" title='bias' data-type='const tensorflow::Tensor &amp;' data-ref="205bias">bias</dfn> = <a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>-&gt;input(<a class="enum" href="#tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kBias" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kBias' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kBias">kBias</a>);</td></tr>
+<tr><th id="174">174</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(CheckShape(bias, &quot;conv_input&quot;)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 174, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>, <a class="tu member" href="#_ZN10tensorflow27FusedConv2DBiasActivationOp10CheckShapeERKNS_6TensorERKSs" title='tensorflow::FusedConv2DBiasActivationOp::CheckShape' data-use='c' data-ref="_ZN10tensorflow27FusedConv2DBiasActivationOp10CheckShapeERKNS_6TensorERKSs">CheckShape</a>(<a class="local col5 ref" href="#205bias" title='bias' data-ref="205bias">bias</a>, <q>"conv_input"</q>));</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>    <em>const</em> <a class="type" href="../../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col6 decl" id="206conv_input_scale_tensor" title='conv_input_scale_tensor' data-type='const tensorflow::Tensor &amp;' data-ref="206conv_input_scale_tensor">conv_input_scale_tensor</dfn> = <a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>-&gt;input(<a class="enum" href="#tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInputScale" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInputScale' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kConvInputScale">kConvInputScale</a>);</td></tr>
+<tr><th id="177">177</th><td>    <em>const</em> <a class="type" href="../../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col7 decl" id="207side_input_scale_tensor" title='side_input_scale_tensor' data-type='const tensorflow::Tensor &amp;' data-ref="207side_input_scale_tensor">side_input_scale_tensor</dfn> = <a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>-&gt;input(<a class="enum" href="#tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInputScale" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInputScale' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInputScale">kSideInputScale</a>);</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td>    <em>auto</em> <dfn class="local col8 decl" id="208conv_input_scale" title='conv_input_scale' data-type='auto' data-ref="208conv_input_scale">conv_input_scale</dfn> = *<b>reinterpret_cast</b>&lt;<em>const</em> ScaleType*&gt;(</td></tr>
+<tr><th id="180">180</th><td>        <a class="local col6 ref" href="#206conv_input_scale_tensor" title='conv_input_scale_tensor' data-ref="206conv_input_scale_tensor">conv_input_scale_tensor</a>.<a class="ref" href="../../../core/framework/tensor.h.html#_ZNK10tensorflow6Tensor11tensor_dataEv" title='tensorflow::Tensor::tensor_data' data-ref="_ZNK10tensorflow6Tensor11tensor_dataEv">tensor_data</a>().<a class="ref" href="../../../core/lib/core/stringpiece.h.html#_ZNK10tensorflow11StringPiece4dataEv" title='tensorflow::StringPiece::data' data-ref="_ZNK10tensorflow11StringPiece4dataEv">data</a>());</td></tr>
+<tr><th id="181">181</th><td>    <em>auto</em> <dfn class="local col9 decl" id="209side_input_scale" title='side_input_scale' data-type='auto' data-ref="209side_input_scale">side_input_scale</dfn> = *<b>reinterpret_cast</b>&lt;<em>const</em> ScaleType*&gt;(</td></tr>
+<tr><th id="182">182</th><td>        <a class="local col7 ref" href="#207side_input_scale_tensor" title='side_input_scale_tensor' data-ref="207side_input_scale_tensor">side_input_scale_tensor</a>.<a class="ref" href="../../../core/framework/tensor.h.html#_ZNK10tensorflow6Tensor11tensor_dataEv" title='tensorflow::Tensor::tensor_data' data-ref="_ZNK10tensorflow6Tensor11tensor_dataEv">tensor_data</a>().<a class="ref" href="../../../core/lib/core/stringpiece.h.html#_ZNK10tensorflow11StringPiece4dataEv" title='tensorflow::StringPiece::data' data-ref="_ZNK10tensorflow11StringPiece4dataEv">data</a>());</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>    <i>// If side_input_scale != 0, then side_input is not ignored and</i></td></tr>
+<tr><th id="185">185</th><td><i>    // has the same type and dimensions as the output.</i></td></tr>
+<tr><th id="186">186</th><td>    <em>const</em> <a class="type" href="../../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col0 decl" id="210side_input" title='side_input' data-type='const tensorflow::Tensor &amp;' data-ref="210side_input">side_input</dfn> = <a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>-&gt;input(<a class="enum" href="#tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInput" title='tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInput' data-ref="tensorflow::FusedConv2DBiasActivationOp::InputIndexes::kSideInput">kSideInput</a>);</td></tr>
+<tr><th id="187">187</th><td>    <b>if</b> (<a class="local col9 ref" href="#209side_input_scale" title='side_input_scale' data-ref="209side_input_scale">side_input_scale</a> != <var>0</var>) {</td></tr>
+<tr><th id="188">188</th><td>      <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(CheckShape(side_input, &quot;side_input&quot;)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 188, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>, <a class="tu member" href="#_ZN10tensorflow27FusedConv2DBiasActivationOp10CheckShapeERKNS_6TensorERKSs" title='tensorflow::FusedConv2DBiasActivationOp::CheckShape' data-use='c' data-ref="_ZN10tensorflow27FusedConv2DBiasActivationOp10CheckShapeERKNS_6TensorERKSs">CheckShape</a>(<a class="local col0 ref" href="#210side_input" title='side_input' data-ref="210side_input">side_input</a>, <q>"side_input"</q>));</td></tr>
+<tr><th id="189">189</th><td>    }</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>    <i>// TODO(pauldonnelly): Switch to a more efficient mechanism to access</i></td></tr>
+<tr><th id="192">192</th><td><i>    // dimension indexes and per-dimension attributes.</i></td></tr>
+<tr><th id="193">193</th><td>    <em>const</em> <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a> <dfn class="local col1 decl" id="211filter_rows" title='filter_rows' data-type='const int32' data-ref="211filter_rows">filter_rows</dfn> = GetFilterDim(<a class="local col4 ref" href="#204filter" title='filter' data-ref="204filter">filter</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::filter_format_" title='tensorflow::FusedConv2DBiasActivationOp::filter_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::filter_format_">filter_format_</a>, <kbd>'H'</kbd>);</td></tr>
+<tr><th id="194">194</th><td>    <em>const</em> <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a> <dfn class="local col2 decl" id="212filter_cols" title='filter_cols' data-type='const int32' data-ref="212filter_cols">filter_cols</dfn> = GetFilterDim(<a class="local col4 ref" href="#204filter" title='filter' data-ref="204filter">filter</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::filter_format_" title='tensorflow::FusedConv2DBiasActivationOp::filter_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::filter_format_">filter_format_</a>, <kbd>'W'</kbd>);</td></tr>
+<tr><th id="195">195</th><td>    <em>const</em> <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a> <dfn class="local col3 decl" id="213output_depth" title='output_depth' data-type='const int32' data-ref="213output_depth">output_depth</dfn> = GetFilterDim(<a class="local col4 ref" href="#204filter" title='filter' data-ref="204filter">filter</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::filter_format_" title='tensorflow::FusedConv2DBiasActivationOp::filter_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::filter_format_">filter_format_</a>, <kbd>'O'</kbd>);</td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td>    <em>const</em> <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a> <dfn class="local col4 decl" id="214batch_size" title='batch_size' data-type='const int32' data-ref="214batch_size">batch_size</dfn> = GetTensorDim(<a class="local col3 ref" href="#203conv_input" title='conv_input' data-ref="203conv_input">conv_input</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a>, <kbd>'N'</kbd>);</td></tr>
+<tr><th id="198">198</th><td>    <em>const</em> <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a> <dfn class="local col5 decl" id="215conv_input_rows" title='conv_input_rows' data-type='const int32' data-ref="215conv_input_rows">conv_input_rows</dfn> = GetTensorDim(<a class="local col3 ref" href="#203conv_input" title='conv_input' data-ref="203conv_input">conv_input</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a>, <kbd>'H'</kbd>);</td></tr>
+<tr><th id="199">199</th><td>    <em>const</em> <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a> <dfn class="local col6 decl" id="216conv_input_cols" title='conv_input_cols' data-type='const int32' data-ref="216conv_input_cols">conv_input_cols</dfn> = GetTensorDim(<a class="local col3 ref" href="#203conv_input" title='conv_input' data-ref="203conv_input">conv_input</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a>, <kbd>'W'</kbd>);</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td>    <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col7 decl" id="217output_rows" title='output_rows' data-type='int64' data-ref="217output_rows">output_rows</dfn> = <var>0</var>, <dfn class="local col8 decl" id="218output_cols" title='output_cols' data-type='int64' data-ref="218output_cols">output_cols</dfn> = <var>0</var>, <dfn class="local col9 decl" id="219pad_rows" title='pad_rows' data-type='int64' data-ref="219pad_rows">pad_rows</dfn> = <var>0</var>, <dfn class="local col0 decl" id="220pad_cols" title='pad_cols' data-type='int64' data-ref="220pad_cols">pad_cols</dfn> = <var>0</var>;</td></tr>
+<tr><th id="202">202</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(GetWindowedOutputSize(conv_input_rows, filter_rows, stride_rows_, padding_type_, &amp;output_rows, &amp;pad_rows)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 204, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>, GetWindowedOutputSize(<a class="local col5 ref" href="#215conv_input_rows" title='conv_input_rows' data-ref="215conv_input_rows">conv_input_rows</a>, <a class="local col1 ref" href="#211filter_rows" title='filter_rows' data-ref="211filter_rows">filter_rows</a>,</td></tr>
+<tr><th id="203">203</th><td>                                                  <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::stride_rows_" title='tensorflow::FusedConv2DBiasActivationOp::stride_rows_' data-ref="tensorflow::FusedConv2DBiasActivationOp::stride_rows_">stride_rows_</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::padding_type_" title='tensorflow::FusedConv2DBiasActivationOp::padding_type_' data-ref="tensorflow::FusedConv2DBiasActivationOp::padding_type_">padding_type_</a>,</td></tr>
+<tr><th id="204">204</th><td>                                                  &amp;<a class="local col7 ref" href="#217output_rows" title='output_rows' data-ref="217output_rows">output_rows</a>, &amp;<a class="local col9 ref" href="#219pad_rows" title='pad_rows' data-ref="219pad_rows">pad_rows</a>));</td></tr>
+<tr><th id="205">205</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(GetWindowedOutputSize(conv_input_cols, filter_cols, stride_cols_, padding_type_, &amp;output_cols, &amp;pad_cols)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 207, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>, GetWindowedOutputSize(<a class="local col6 ref" href="#216conv_input_cols" title='conv_input_cols' data-ref="216conv_input_cols">conv_input_cols</a>, <a class="local col2 ref" href="#212filter_cols" title='filter_cols' data-ref="212filter_cols">filter_cols</a>,</td></tr>
+<tr><th id="206">206</th><td>                                                  <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::stride_cols_" title='tensorflow::FusedConv2DBiasActivationOp::stride_cols_' data-ref="tensorflow::FusedConv2DBiasActivationOp::stride_cols_">stride_cols_</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::padding_type_" title='tensorflow::FusedConv2DBiasActivationOp::padding_type_' data-ref="tensorflow::FusedConv2DBiasActivationOp::padding_type_">padding_type_</a>,</td></tr>
+<tr><th id="207">207</th><td>                                                  &amp;<a class="local col8 ref" href="#218output_cols" title='output_cols' data-ref="218output_cols">output_cols</a>, &amp;<a class="local col0 ref" href="#220pad_cols" title='pad_cols' data-ref="220pad_cols">pad_cols</a>));</td></tr>
+<tr><th id="208">208</th><td>    <i>// Initialize the output tensor shape according to data_format_</i></td></tr>
+<tr><th id="209">209</th><td>    <a class="type" href="../../../core/framework/tensor_shape.h.html#tensorflow::TensorShape" title='tensorflow::TensorShape' data-ref="tensorflow::TensorShape">TensorShape</a> <dfn class="local col1 decl" id="221output_shape" title='output_shape' data-type='tensorflow::TensorShape' data-ref="221output_shape">output_shape</dfn> = ShapeFromFormat(</td></tr>
+<tr><th id="210">210</th><td>        <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a>, <a class="local col4 ref" href="#214batch_size" title='batch_size' data-ref="214batch_size">batch_size</a>, <a class="local col7 ref" href="#217output_rows" title='output_rows' data-ref="217output_rows">output_rows</a>, <a class="local col8 ref" href="#218output_cols" title='output_cols' data-ref="218output_cols">output_cols</a>, <a class="local col3 ref" href="#213output_depth" title='output_depth' data-ref="213output_depth">output_depth</a>);</td></tr>
+<tr><th id="211">211</th><td>    <a class="type" href="../../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>* <dfn class="local col2 decl" id="222output" title='output' data-type='tensorflow::Tensor *' data-ref="222output">output</dfn> = <b>nullptr</b>;</td></tr>
+<tr><th id="212">212</th><td>    <a class="macro" href="../../../core/framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;allocate_output(0, output_shape, &amp;output)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 212, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>, <a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>-&gt;<a class="ref" href="../../../core/framework/op_kernel.h.html#_ZN10tensorflow15OpKernelContext15allocate_outputEiRKNS_11TensorShapeEPPNS_6TensorE" title='tensorflow::OpKernelContext::allocate_output' data-ref="_ZN10tensorflow15OpKernelContext15allocate_outputEiRKNS_11TensorShapeEPPNS_6TensorE">allocate_output</a>(<var>0</var>, <a class="local col1 ref" href="#221output_shape" title='output_shape' data-ref="221output_shape">output_shape</a>, &amp;<a class="local col2 ref" href="#222output" title='output' data-ref="222output">output</a>));</td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td>    <a class="macro" href="../../../core/platform/default/logging.h.html#89" title="if ((__builtin_expect(((2) &lt;= ::tensorflow::internal::LogMessage::MinVLogLevel()), 0))) ::tensorflow::internal::LogMessage(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc&quot;, 214, tensorflow::INFO)" data-ref="_M/VLOG">VLOG</a>(<var>2</var>) <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsOSt13basic_ostreamIT_T0_ERKT1_" title='std::operator&lt;&lt;' data-ref="_ZStlsOSt13basic_ostreamIT_T0_ERKT1_">&lt;&lt;</a> <q>"FusedConv2DBiasActivation: conv_input_cols = "</q></td></tr>
+<tr><th id="215">215</th><td>            <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZNSt13basic_ostreamlsEi" title='std::basic_ostream::operator&lt;&lt;' data-ref="_ZNSt13basic_ostreamlsEi">&lt;&lt;</a> <a class="local col6 ref" href="#216conv_input_cols" title='conv_input_cols' data-ref="216conv_input_cols">conv_input_cols</a> <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsRSt13basic_ostreamIcT_EPKc" title='std::operator&lt;&lt;' data-ref="_ZStlsRSt13basic_ostreamIcT_EPKc">&lt;&lt;</a> <q>", conv_input_rows = "</q> <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZNSt13basic_ostreamlsEi" title='std::basic_ostream::operator&lt;&lt;' data-ref="_ZNSt13basic_ostreamlsEi">&lt;&lt;</a> <a class="local col5 ref" href="#215conv_input_rows" title='conv_input_rows' data-ref="215conv_input_rows">conv_input_rows</a></td></tr>
+<tr><th id="216">216</th><td>            <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsRSt13basic_ostreamIcT_EPKc" title='std::operator&lt;&lt;' data-ref="_ZStlsRSt13basic_ostreamIcT_EPKc">&lt;&lt;</a> <q>", filter_cols = "</q> <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZNSt13basic_ostreamlsEi" title='std::basic_ostream::operator&lt;&lt;' data-ref="_ZNSt13basic_ostreamlsEi">&lt;&lt;</a> <a class="local col2 ref" href="#212filter_cols" title='filter_cols' data-ref="212filter_cols">filter_cols</a></td></tr>
+<tr><th id="217">217</th><td>            <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsRSt13basic_ostreamIcT_EPKc" title='std::operator&lt;&lt;' data-ref="_ZStlsRSt13basic_ostreamIcT_EPKc">&lt;&lt;</a> <q>", filter_rows = "</q> <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZNSt13basic_ostreamlsEi" title='std::basic_ostream::operator&lt;&lt;' data-ref="_ZNSt13basic_ostreamlsEi">&lt;&lt;</a> <a class="local col1 ref" href="#211filter_rows" title='filter_rows' data-ref="211filter_rows">filter_rows</a></td></tr>
+<tr><th id="218">218</th><td>            <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsRSt13basic_ostreamIcT_EPKc" title='std::operator&lt;&lt;' data-ref="_ZStlsRSt13basic_ostreamIcT_EPKc">&lt;&lt;</a> <q>", stride_cols = "</q> &lt;&lt; <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::stride_cols_" title='tensorflow::FusedConv2DBiasActivationOp::stride_cols_' data-ref="tensorflow::FusedConv2DBiasActivationOp::stride_cols_">stride_cols_</a></td></tr>
+<tr><th id="219">219</th><td>            &lt;&lt; <q>", stride_rows = "</q> &lt;&lt; <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::stride_rows_" title='tensorflow::FusedConv2DBiasActivationOp::stride_rows_' data-ref="tensorflow::FusedConv2DBiasActivationOp::stride_rows_">stride_rows_</a></td></tr>
+<tr><th id="220">220</th><td>            &lt;&lt; <q>", output_depth = "</q> &lt;&lt; <a class="local col3 ref" href="#213output_depth" title='output_depth' data-ref="213output_depth">output_depth</a></td></tr>
+<tr><th id="221">221</th><td>            &lt;&lt; <q>", output_cols = "</q> &lt;&lt; <a class="local col8 ref" href="#218output_cols" title='output_cols' data-ref="218output_cols">output_cols</a></td></tr>
+<tr><th id="222">222</th><td>            &lt;&lt; <q>", output_rows = "</q> &lt;&lt; <a class="local col7 ref" href="#217output_rows" title='output_rows' data-ref="217output_rows">output_rows</a></td></tr>
+<tr><th id="223">223</th><td>            &lt;&lt; <q>", output_shape.num_elements = "</q> &lt;&lt; <a class="local col1 ref" href="#221output_shape" title='output_shape' data-ref="221output_shape">output_shape</a>.<a class="ref" href="../../../core/framework/tensor_shape.h.html#_ZNK10tensorflow14TensorShapeRep12num_elementsEv" title='tensorflow::TensorShapeRep::num_elements' data-ref="_ZNK10tensorflow14TensorShapeRep12num_elementsEv">num_elements</a>();</td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td>    <i>// If there is nothing to compute, return.</i></td></tr>
+<tr><th id="226">226</th><td>    <b>if</b> (<a class="local col1 ref" href="#221output_shape" title='output_shape' data-ref="221output_shape">output_shape</a>.<a class="ref" href="../../../core/framework/tensor_shape.h.html#_ZNK10tensorflow14TensorShapeRep12num_elementsEv" title='tensorflow::TensorShapeRep::num_elements' data-ref="_ZNK10tensorflow14TensorShapeRep12num_elementsEv">num_elements</a>() == <var>0</var>) {</td></tr>
+<tr><th id="227">227</th><td>      <b>return</b>;</td></tr>
+<tr><th id="228">228</th><td>    }</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td>    <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::launcher_" title='tensorflow::FusedConv2DBiasActivationOp::launcher_' data-use='c' data-ref="tensorflow::FusedConv2DBiasActivationOp::launcher_">launcher_</a>.launch(<a class="local col2 ref" href="#202context" title='context' data-ref="202context">context</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::cudnn_use_autotune_" title='tensorflow::FusedConv2DBiasActivationOp::cudnn_use_autotune_' data-ref="tensorflow::FusedConv2DBiasActivationOp::cudnn_use_autotune_">cudnn_use_autotune_</a>, <a class="local col3 ref" href="#203conv_input" title='conv_input' data-ref="203conv_input">conv_input</a>, <a class="local col8 ref" href="#208conv_input_scale" title='conv_input_scale' data-ref="208conv_input_scale">conv_input_scale</a>,</td></tr>
+<tr><th id="231">231</th><td>                     <a class="local col4 ref" href="#204filter" title='filter' data-ref="204filter">filter</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::stride_rows_" title='tensorflow::FusedConv2DBiasActivationOp::stride_rows_' data-ref="tensorflow::FusedConv2DBiasActivationOp::stride_rows_">stride_rows_</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::stride_cols_" title='tensorflow::FusedConv2DBiasActivationOp::stride_cols_' data-ref="tensorflow::FusedConv2DBiasActivationOp::stride_cols_">stride_cols_</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::eigen_padding_type_" title='tensorflow::FusedConv2DBiasActivationOp::eigen_padding_type_' data-ref="tensorflow::FusedConv2DBiasActivationOp::eigen_padding_type_">eigen_padding_type_</a>,</td></tr>
+<tr><th id="232">232</th><td>                     <a class="local col0 ref" href="#210side_input" title='side_input' data-ref="210side_input">side_input</a>, <a class="local col9 ref" href="#209side_input_scale" title='side_input_scale' data-ref="209side_input_scale">side_input_scale</a>, <a class="local col5 ref" href="#205bias" title='bias' data-ref="205bias">bias</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::activation_mode_" title='tensorflow::FusedConv2DBiasActivationOp::activation_mode_' data-ref="tensorflow::FusedConv2DBiasActivationOp::activation_mode_">activation_mode_</a>,</td></tr>
+<tr><th id="233">233</th><td>                     <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</a>, <a class="tu member" href="#tensorflow::FusedConv2DBiasActivationOp::filter_format_" title='tensorflow::FusedConv2DBiasActivationOp::filter_format_' data-ref="tensorflow::FusedConv2DBiasActivationOp::filter_format_">filter_format_</a>, <a class="local col2 ref" href="#222output" title='output' data-ref="222output">output</a>);</td></tr>
+<tr><th id="234">234</th><td>  }</td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td> <b>private</b>:</td></tr>
+<tr><th id="237">237</th><td>  <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a> <dfn class="tu decl" id="tensorflow::FusedConv2DBiasActivationOp::stride_rows_" title='tensorflow::FusedConv2DBiasActivationOp::stride_rows_' data-type='int32' data-ref="tensorflow::FusedConv2DBiasActivationOp::stride_rows_">stride_rows_</dfn>, <dfn class="tu decl" id="tensorflow::FusedConv2DBiasActivationOp::stride_cols_" title='tensorflow::FusedConv2DBiasActivationOp::stride_cols_' data-type='int32' data-ref="tensorflow::FusedConv2DBiasActivationOp::stride_cols_">stride_cols_</dfn>;</td></tr>
+<tr><th id="238">238</th><td>  <a class="type" href="../../../core/util/padding.h.html#tensorflow::Padding" title='tensorflow::Padding' data-ref="tensorflow::Padding">Padding</a> <dfn class="tu decl" id="tensorflow::FusedConv2DBiasActivationOp::padding_type_" title='tensorflow::FusedConv2DBiasActivationOp::padding_type_' data-type='tensorflow::Padding' data-ref="tensorflow::FusedConv2DBiasActivationOp::padding_type_">padding_type_</dfn>;</td></tr>
+<tr><th id="239">239</th><td>  <span class="namespace">Eigen::</span><span class='typedef' title='Eigen::PaddingType' data-type='enum PaddingType' data-ref="Eigen::PaddingType">PaddingType</span> <dfn class="tu decl" id="tensorflow::FusedConv2DBiasActivationOp::eigen_padding_type_" title='tensorflow::FusedConv2DBiasActivationOp::eigen_padding_type_' data-type='Eigen::PaddingType' data-ref="tensorflow::FusedConv2DBiasActivationOp::eigen_padding_type_">eigen_padding_type_</dfn>;</td></tr>
+<tr><th id="240">240</th><td>  <a class="type" href="../../../core/util/activation_mode.h.html#tensorflow::ActivationMode" title='tensorflow::ActivationMode' data-ref="tensorflow::ActivationMode">ActivationMode</a> <dfn class="tu decl" id="tensorflow::FusedConv2DBiasActivationOp::activation_mode_" title='tensorflow::FusedConv2DBiasActivationOp::activation_mode_' data-type='tensorflow::ActivationMode' data-ref="tensorflow::FusedConv2DBiasActivationOp::activation_mode_">activation_mode_</dfn>;</td></tr>
+<tr><th id="241">241</th><td>  <a class="type" href="../../../core/util/tensor_format.h.html#tensorflow::TensorFormat" title='tensorflow::TensorFormat' data-ref="tensorflow::TensorFormat">TensorFormat</a> <dfn class="tu decl" id="tensorflow::FusedConv2DBiasActivationOp::data_format_" title='tensorflow::FusedConv2DBiasActivationOp::data_format_' data-type='tensorflow::TensorFormat' data-ref="tensorflow::FusedConv2DBiasActivationOp::data_format_">data_format_</dfn>;</td></tr>
+<tr><th id="242">242</th><td>  <a class="type" href="../../../core/util/tensor_format.h.html#tensorflow::FilterTensorFormat" title='tensorflow::FilterTensorFormat' data-ref="tensorflow::FilterTensorFormat">FilterTensorFormat</a> <dfn class="tu decl" id="tensorflow::FusedConv2DBiasActivationOp::filter_format_" title='tensorflow::FusedConv2DBiasActivationOp::filter_format_' data-type='tensorflow::FilterTensorFormat' data-ref="tensorflow::FusedConv2DBiasActivationOp::filter_format_">filter_format_</dfn>;</td></tr>
+<tr><th id="243">243</th><td>  <a class="type" href="fused_conv2d_bias_activation_op.h.html#tensorflow::LaunchFusedConv2DBiasActivationOp" title='tensorflow::LaunchFusedConv2DBiasActivationOp' data-ref="tensorflow::LaunchFusedConv2DBiasActivationOp">LaunchFusedConv2DBiasActivationOp</a>&lt;Device, T, BiasType, ScaleType&gt; <dfn class="tu decl" id="tensorflow::FusedConv2DBiasActivationOp::launcher_" title='tensorflow::FusedConv2DBiasActivationOp::launcher_' data-type='LaunchFusedConv2DBiasActivationOp&lt;Device, T, BiasType, ScaleType&gt;' data-ref="tensorflow::FusedConv2DBiasActivationOp::launcher_">launcher_</dfn>;</td></tr>
+<tr><th id="244">244</th><td>  <em>bool</em> <dfn class="tu decl" id="tensorflow::FusedConv2DBiasActivationOp::cudnn_use_autotune_" title='tensorflow::FusedConv2DBiasActivationOp::cudnn_use_autotune_' data-type='bool' data-ref="tensorflow::FusedConv2DBiasActivationOp::cudnn_use_autotune_">cudnn_use_autotune_</dfn>;</td></tr>
+<tr><th id="245">245</th><td></td></tr>
+<tr><th id="246">246</th><td>  <a class="macro" href="../../../core/platform/macros.h.html#91" title="FusedConv2DBiasActivationOp(const FusedConv2DBiasActivationOp&amp;) = delete; void operator=(const FusedConv2DBiasActivationOp&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="tu decl def" id="_ZN10tensorflow27FusedConv2DBiasActivationOpC1ERKNS_27FusedConv2DBiasActivationOpIT_T0_T1_T2_EE" title='tensorflow::FusedConv2DBiasActivationOp::FusedConv2DBiasActivationOp&lt;Device, T, BiasType, ScaleType&gt;' data-type='void tensorflow::FusedConv2DBiasActivationOp::FusedConv2DBiasActivationOp&lt;Device, T, BiasType, ScaleType&gt;(const FusedConv2DBiasActivationOp&lt;Device, T, BiasType, ScaleType&gt; &amp; )' data-ref="_ZN10tensorflow27FusedConv2DBiasActivationOpC1ERKNS_27FusedConv2DBiasActivationOpIT_T0_T1_T2_EE">FusedConv2DBiasActivationOp</dfn>);</td></tr>
+<tr><th id="247">247</th><td>};</td></tr>
+<tr><th id="248">248</th><td></td></tr>
+<tr><th id="249">249</th><td><u>#<span data-ppcond="249">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="250">250</th><td><b>namespace</b> dnn = ::perftools::gputools::dnn;</td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td><i>// A dummy type to group forward convolution autotune results together.</i></td></tr>
+<tr><th id="253">253</th><td><b>struct</b> ConvBiasActivationAutoTuneGroup {</td></tr>
+<tr><th id="254">254</th><td>  <em>static</em> string name() { <b>return</b> <q>"ConvBiasActivation"</q>; }</td></tr>
+<tr><th id="255">255</th><td>};</td></tr>
+<tr><th id="256">256</th><td><b>typedef</b> AutoTuneSingleton&lt;ConvBiasActivationAutoTuneGroup, FusedConvParameters,</td></tr>
+<tr><th id="257">257</th><td>                          dnn::AlgorithmConfig&gt;</td></tr>
+<tr><th id="258">258</th><td>    AutoTuneConvBiasActivation;</td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td><i>// Allocates 'transformed_tensor' and transforms 'nhwc_tensor' into it</i></td></tr>
+<tr><th id="261">261</th><td><i>// using the specified 'batch_size', 'rows', 'cols', and 'depth' dimensions.</i></td></tr>
+<tr><th id="262">262</th><td><b>template</b> &lt;<b>typename</b> T, size_t NDIMS&gt;</td></tr>
+<tr><th id="263">263</th><td>Status TransformNHWCToNCHW(OpKernelContext* ctx, <em>const</em> Tensor&amp; nhwc_tensor,</td></tr>
+<tr><th id="264">264</th><td>                           <em>int</em> batch_size, <em>int</em> rows, <em>int</em> cols, <em>int</em> depth,</td></tr>
+<tr><th id="265">265</th><td>                           Tensor* transformed_tensor, <em>const</em> Tensor** result) {</td></tr>
+<tr><th id="266">266</th><td>  TensorShape nchw_shape =</td></tr>
+<tr><th id="267">267</th><td>      ShapeFromFormat(FORMAT_NCHW, batch_size, rows, cols, depth);</td></tr>
+<tr><th id="268">268</th><td>  <b>if</b> (depth &gt; <var>1</var>) {</td></tr>
+<tr><th id="269">269</th><td>    TF_RETURN_IF_ERROR(ctx-&gt;allocate_temp(DataTypeToEnum&lt;T&gt;::value, nchw_shape,</td></tr>
+<tr><th id="270">270</th><td>                                          transformed_tensor));</td></tr>
+<tr><th id="271">271</th><td>    functor::NHWCToNCHW&lt;GPUDevice, T, NDIMS&gt;()(</td></tr>
+<tr><th id="272">272</th><td>        ctx-&gt;eigen_device&lt;GPUDevice&gt;(), nhwc_tensor.tensor&lt;T, NDIMS&gt;(),</td></tr>
+<tr><th id="273">273</th><td>        transformed_tensor-&gt;tensor&lt;T, NDIMS&gt;());</td></tr>
+<tr><th id="274">274</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="275">275</th><td>    <i>// If depth &lt;= 1, then just reshape.</i></td></tr>
+<tr><th id="276">276</th><td>    CHECK(transformed_tensor-&gt;CopyFrom(nhwc_tensor, nchw_shape));</td></tr>
+<tr><th id="277">277</th><td>  }</td></tr>
+<tr><th id="278">278</th><td>  *result = transformed_tensor;</td></tr>
+<tr><th id="279">279</th><td>  <b>return</b> Status::OK();</td></tr>
+<tr><th id="280">280</th><td>}</td></tr>
+<tr><th id="281">281</th><td></td></tr>
+<tr><th id="282">282</th><td><i>// Adjusts padding so cudnn supports it. Sets `adjusted_padding` to be the</i></td></tr>
+<tr><th id="283">283</th><td><i>// adjusted padding, and `extra_padding_before` and `extra_padding_after` to be</i></td></tr>
+<tr><th id="284">284</th><td><i>// the extra padding that FusedConv needs to apply before calling cudnn.</i></td></tr>
+<tr><th id="285">285</th><td><em>void</em> AdjustPaddingForCudnn(<em>int</em> padding, <em>bool</em> is_int8x4, <em>int</em> filter_size,</td></tr>
+<tr><th id="286">286</th><td>                           <em>int</em>* adjusted_padding, <em>int</em>* extra_padding_before,</td></tr>
+<tr><th id="287">287</th><td>                           <em>int</em>* extra_padding_after) {</td></tr>
+<tr><th id="288">288</th><td><u>#if CUDNN_VERSION &lt; 7000</u></td></tr>
+<tr><th id="289">289</th><td>  <b>if</b> (is_int8x4 &amp;&amp; filter_size &gt;= <var>6</var>) {</td></tr>
+<tr><th id="290">290</th><td>    <i>// TODO(b/70795525): Remove after NVIDIA fixes this bug with int8 fused</i></td></tr>
+<tr><th id="291">291</th><td><i>    // convolution. I don't know cuDNN7 still has the bug, so enable this</i></td></tr>
+<tr><th id="292">292</th><td><i>    // workaround for cuDNN6 or older.</i></td></tr>
+<tr><th id="293">293</th><td>    *adjusted_padding = <var>0</var>;</td></tr>
+<tr><th id="294">294</th><td>    *extra_padding_before = padding / <var>2</var>;</td></tr>
+<tr><th id="295">295</th><td>    *extra_padding_after = padding - *extra_padding_before;</td></tr>
+<tr><th id="296">296</th><td>    <b>return</b>;</td></tr>
+<tr><th id="297">297</th><td>  }</td></tr>
+<tr><th id="298">298</th><td><u>#endif</u></td></tr>
+<tr><th id="299">299</th><td>  *adjusted_padding = padding / <var>2</var> * <var>2</var>;</td></tr>
+<tr><th id="300">300</th><td>  *extra_padding_before = <var>0</var>;</td></tr>
+<tr><th id="301">301</th><td>  *extra_padding_after = padding % <var>2</var>;</td></tr>
+<tr><th id="302">302</th><td>}</td></tr>
+<tr><th id="303">303</th><td></td></tr>
+<tr><th id="304">304</th><td><b>template</b> &lt;<b>typename</b> T, <b>typename</b> BiasType, <b>typename</b> ScaleType&gt;</td></tr>
+<tr><th id="305">305</th><td><em>void</em> LaunchFusedConv2DBiasActivationOp&lt;GPUDevice, T, BiasType, ScaleType&gt;::</td></tr>
+<tr><th id="306">306</th><td>    launch(OpKernelContext* ctx, <em>bool</em> cudnn_use_autotune,</td></tr>
+<tr><th id="307">307</th><td>           <em>const</em> Tensor&amp; conv_input_param, ScaleType conv_input_scale,</td></tr>
+<tr><th id="308">308</th><td>           <em>const</em> Tensor&amp; filter_param, int32 row_stride, int32 col_stride,</td></tr>
+<tr><th id="309">309</th><td>           <em>const</em> Eigen::PaddingType&amp; padding, <em>const</em> Tensor&amp; side_input_param,</td></tr>
+<tr><th id="310">310</th><td>           ScaleType side_input_scale, <em>const</em> Tensor&amp; bias,</td></tr>
+<tr><th id="311">311</th><td>           ActivationMode activation_mode, TensorFormat data_format,</td></tr>
+<tr><th id="312">312</th><td>           FilterTensorFormat filter_format, Tensor* output_param) {</td></tr>
+<tr><th id="313">313</th><td>  <em>auto</em>* stream = ctx-&gt;op_device_context()-&gt;stream();</td></tr>
+<tr><th id="314">314</th><td>  OP_REQUIRES(ctx, stream, errors::Internal(<q>"No GPU stream available."</q>));</td></tr>
+<tr><th id="315">315</th><td></td></tr>
+<tr><th id="316">316</th><td>  <i>// TODO(yangzihao): refactor all the complicated/duplicated code in regular</i></td></tr>
+<tr><th id="317">317</th><td><i>  // conv ops to a shared conv utility.</i></td></tr>
+<tr><th id="318">318</th><td><i></i></td></tr>
+<tr><th id="319">319</th><td><i>  // Assuming qint8 &lt;--&gt; NCHW_VECT_C, OIHW_VECT_I (int8x4) here.</i></td></tr>
+<tr><th id="320">320</th><td>  <b>constexpr</b> <em>bool</em> is_int8x4 = std::is_same&lt;T, qint8&gt;::value;</td></tr>
+<tr><th id="321">321</th><td>  <b>constexpr</b> <em>int</em> rank = is_int8x4 ? <var>5</var> : <var>4</var>;</td></tr>
+<tr><th id="322">322</th><td>  <b>constexpr</b> <em>int</em> vect = is_int8x4 ? <var>4</var> : <var>1</var>;</td></tr>
+<tr><th id="323">323</th><td></td></tr>
+<tr><th id="324">324</th><td>  <b>if</b> (is_int8x4) {</td></tr>
+<tr><th id="325">325</th><td>    <em>int</em> cc_major, cc_minor;</td></tr>
+<tr><th id="326">326</th><td>    stream-&gt;parent()-&gt;GetDeviceDescription().cuda_compute_capability(&amp;cc_major,</td></tr>
+<tr><th id="327">327</th><td>                                                                     &amp;cc_minor);</td></tr>
+<tr><th id="328">328</th><td>    OP_REQUIRES(</td></tr>
+<tr><th id="329">329</th><td>        ctx, ((cc_major == <var>6</var> &amp;&amp; cc_minor &gt;= <var>1</var>) || cc_major &gt; <var>6</var>),</td></tr>
+<tr><th id="330">330</th><td>        errors::Unimplemented(</td></tr>
+<tr><th id="331">331</th><td>            <q>"FusedConv2DBiasActivation for int8 is only supported on GPUs with "</q></td></tr>
+<tr><th id="332">332</th><td>            <q>"compute capability 6.1 or later."</q>));</td></tr>
+<tr><th id="333">333</th><td>  }</td></tr>
+<tr><th id="334">334</th><td></td></tr>
+<tr><th id="335">335</th><td>  <em>const</em> <em>int</em> batch_size = GetTensorDim(conv_input_param, data_format, <kbd>'N'</kbd>);</td></tr>
+<tr><th id="336">336</th><td>  <em>int</em> conv_input_rows = GetTensorDim(conv_input_param, data_format, <kbd>'H'</kbd>);</td></tr>
+<tr><th id="337">337</th><td>  <em>int</em> conv_input_cols = GetTensorDim(conv_input_param, data_format, <kbd>'W'</kbd>);</td></tr>
+<tr><th id="338">338</th><td></td></tr>
+<tr><th id="339">339</th><td>  <em>const</em> <em>int</em> conv_input_depth =</td></tr>
+<tr><th id="340">340</th><td>      GetTensorDim(conv_input_param, data_format, <kbd>'C'</kbd>) * vect;</td></tr>
+<tr><th id="341">341</th><td>  <em>const</em> <em>int</em> output_rows = GetTensorDim(*output_param, data_format, <kbd>'H'</kbd>);</td></tr>
+<tr><th id="342">342</th><td>  <em>const</em> <em>int</em> output_cols = GetTensorDim(*output_param, data_format, <kbd>'W'</kbd>);</td></tr>
+<tr><th id="343">343</th><td>  <em>const</em> <em>int</em> output_depth = GetFilterDim(filter_param, filter_format, <kbd>'O'</kbd>);</td></tr>
+<tr><th id="344">344</th><td>  <em>const</em> <em>int</em> filter_rows = GetFilterDim(filter_param, filter_format, <kbd>'H'</kbd>);</td></tr>
+<tr><th id="345">345</th><td>  <em>const</em> <em>int</em> filter_cols = GetFilterDim(filter_param, filter_format, <kbd>'W'</kbd>);</td></tr>
+<tr><th id="346">346</th><td>  <em>int</em> padding_rows = <var>0</var>;</td></tr>
+<tr><th id="347">347</th><td>  <em>int</em> padding_cols = <var>0</var>;</td></tr>
+<tr><th id="348">348</th><td>  <em>const</em> Tensor* conv_input = &amp;conv_input_param;</td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td>  Tensor maybe_padded_conv_input;</td></tr>
+<tr><th id="351">351</th><td>  <b>if</b> (padding == Eigen::PADDING_SAME) {</td></tr>
+<tr><th id="352">352</th><td>    <i>// Total padding on rows and cols is</i></td></tr>
+<tr><th id="353">353</th><td><i>    // Pr = (R' - 1) * S + Kr - R</i></td></tr>
+<tr><th id="354">354</th><td><i>    // Pc = (C' - 1) * S + Kc - C</i></td></tr>
+<tr><th id="355">355</th><td><i>    // where (R', C') are output dimensions, (R, C) are input dimensions, S</i></td></tr>
+<tr><th id="356">356</th><td><i>    // is stride, (Kr, Kc) are filter dimensions.</i></td></tr>
+<tr><th id="357">357</th><td><i>    // We pad Pr/2 on the left and Pr - Pr/2 on the right, Pc/2 on the top</i></td></tr>
+<tr><th id="358">358</th><td><i>    // and Pc - Pc/2 on the bottom.  When Pr or Pc is odd, this means</i></td></tr>
+<tr><th id="359">359</th><td><i>    // we pad more on the right and bottom than on the top and left.</i></td></tr>
+<tr><th id="360">360</th><td>    padding_rows = std::max&lt;<em>int</em>&gt;(</td></tr>
+<tr><th id="361">361</th><td>        <var>0</var>, (output_rows - <var>1</var>) * row_stride + filter_rows - conv_input_rows);</td></tr>
+<tr><th id="362">362</th><td>    padding_cols = std::max&lt;<em>int</em>&gt;(</td></tr>
+<tr><th id="363">363</th><td>        <var>0</var>, (output_cols - <var>1</var>) * col_stride + filter_cols - conv_input_cols);</td></tr>
+<tr><th id="364">364</th><td>    <em>int</em> extra_top_padding = <var>0</var>;</td></tr>
+<tr><th id="365">365</th><td>    <em>int</em> extra_bottom_padding = <var>0</var>;</td></tr>
+<tr><th id="366">366</th><td>    <em>int</em> extra_left_padding = <var>0</var>;</td></tr>
+<tr><th id="367">367</th><td>    <em>int</em> extra_right_padding = <var>0</var>;</td></tr>
+<tr><th id="368">368</th><td>    AdjustPaddingForCudnn(padding_rows, is_int8x4, filter_rows, &amp;padding_rows,</td></tr>
+<tr><th id="369">369</th><td>                          &amp;extra_top_padding, &amp;extra_bottom_padding);</td></tr>
+<tr><th id="370">370</th><td>    AdjustPaddingForCudnn(padding_cols, is_int8x4, filter_cols, &amp;padding_cols,</td></tr>
+<tr><th id="371">371</th><td>                          &amp;extra_left_padding, &amp;extra_right_padding);</td></tr>
+<tr><th id="372">372</th><td>    <b>if</b> (extra_top_padding != <var>0</var> || extra_bottom_padding != <var>0</var> ||</td></tr>
+<tr><th id="373">373</th><td>        extra_left_padding != <var>0</var> || extra_right_padding != <var>0</var>) {</td></tr>
+<tr><th id="374">374</th><td>      Tensor transformed_input;</td></tr>
+<tr><th id="375">375</th><td>      <em>const</em> <em>int</em> new_conv_input_rows =</td></tr>
+<tr><th id="376">376</th><td>          conv_input_rows + extra_top_padding + extra_bottom_padding;</td></tr>
+<tr><th id="377">377</th><td>      <em>const</em> <em>int</em> new_conv_input_cols =</td></tr>
+<tr><th id="378">378</th><td>          conv_input_cols + extra_left_padding + extra_right_padding;</td></tr>
+<tr><th id="379">379</th><td></td></tr>
+<tr><th id="380">380</th><td>      <b>using</b> VectT = <b>typename</b> Int8x4ToInt32&lt;<b>typename</b> RawType&lt;T&gt;::type&gt;::type;</td></tr>
+<tr><th id="381">381</th><td>      <em>auto</em> pad_data_format = is_int8x4 ? FORMAT_NCHW : data_format;</td></tr>
+<tr><th id="382">382</th><td></td></tr>
+<tr><th id="383">383</th><td>      OP_REQUIRES_OK(</td></tr>
+<tr><th id="384">384</th><td>          ctx, ctx-&gt;allocate_temp(</td></tr>
+<tr><th id="385">385</th><td>                   DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="386">386</th><td>                   ShapeFromFormat(data_format, batch_size, new_conv_input_rows,</td></tr>
+<tr><th id="387">387</th><td>                                   new_conv_input_cols, conv_input_depth),</td></tr>
+<tr><th id="388">388</th><td>                   &amp;maybe_padded_conv_input));</td></tr>
+<tr><th id="389">389</th><td></td></tr>
+<tr><th id="390">390</th><td>      <em>auto</em> conv_input_eigen_tensor =</td></tr>
+<tr><th id="391">391</th><td>          To32Bit(conv_input_param.reinterpret_last_dimension&lt;VectT, <var>4</var>&gt;());</td></tr>
+<tr><th id="392">392</th><td>      <em>auto</em> padded_conv_input_eigen_tensor = To32Bit(</td></tr>
+<tr><th id="393">393</th><td>          maybe_padded_conv_input.reinterpret_last_dimension&lt;VectT, <var>4</var>&gt;());</td></tr>
+<tr><th id="394">394</th><td></td></tr>
+<tr><th id="395">395</th><td>      functor::PadInput&lt;GPUDevice, VectT, <em>int</em>, <var>4</var>&gt;()(</td></tr>
+<tr><th id="396">396</th><td>          ctx-&gt;eigen_device&lt;GPUDevice&gt;(), conv_input_eigen_tensor,</td></tr>
+<tr><th id="397">397</th><td>          {{extra_top_padding, extra_left_padding}},</td></tr>
+<tr><th id="398">398</th><td>          {{extra_bottom_padding, extra_right_padding}},</td></tr>
+<tr><th id="399">399</th><td>          padded_conv_input_eigen_tensor, pad_data_format);</td></tr>
+<tr><th id="400">400</th><td></td></tr>
+<tr><th id="401">401</th><td>      conv_input = &amp;maybe_padded_conv_input;</td></tr>
+<tr><th id="402">402</th><td>      conv_input_rows = new_conv_input_rows;</td></tr>
+<tr><th id="403">403</th><td>      conv_input_cols = new_conv_input_cols;</td></tr>
+<tr><th id="404">404</th><td>    }</td></tr>
+<tr><th id="405">405</th><td>  }</td></tr>
+<tr><th id="406">406</th><td></td></tr>
+<tr><th id="407">407</th><td>  Tensor maybe_transformed_conv_input, maybe_transformed_side_input;</td></tr>
+<tr><th id="408">408</th><td>  Tensor maybe_transformed_output;</td></tr>
+<tr><th id="409">409</th><td>  <em>const</em> Tensor* side_input = &amp;side_input_param;</td></tr>
+<tr><th id="410">410</th><td>  Tensor* output = output_param;</td></tr>
+<tr><th id="411">411</th><td></td></tr>
+<tr><th id="412">412</th><td>  <i>// NOTE: Here and elsewhere, checking 'is_int8x4' may look unnecessary</i></td></tr>
+<tr><th id="413">413</th><td><i>  // and inefficient, but it is actually both a time and code size optimization,</i></td></tr>
+<tr><th id="414">414</th><td><i>  // since 'is_int8x4' is a constexpr determined by the template parameter.</i></td></tr>
+<tr><th id="415">415</th><td>  <b>if</b> (!is_int8x4 &amp;&amp; data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="416">416</th><td>    OP_REQUIRES_OK(ctx, (TransformNHWCToNCHW&lt;T, rank&gt;(</td></tr>
+<tr><th id="417">417</th><td>                            ctx, *conv_input, batch_size, conv_input_rows,</td></tr>
+<tr><th id="418">418</th><td>                            conv_input_cols, conv_input_depth,</td></tr>
+<tr><th id="419">419</th><td>                            &amp;maybe_transformed_conv_input, &amp;conv_input)));</td></tr>
+<tr><th id="420">420</th><td>    <b>if</b> (side_input_scale != <var>0</var>) {</td></tr>
+<tr><th id="421">421</th><td>      OP_REQUIRES_OK(</td></tr>
+<tr><th id="422">422</th><td>          ctx, (TransformNHWCToNCHW&lt;T, rank&gt;(</td></tr>
+<tr><th id="423">423</th><td>                   ctx, side_input_param, batch_size, output_rows, output_cols,</td></tr>
+<tr><th id="424">424</th><td>                   output_depth, &amp;maybe_transformed_side_input, &amp;side_input)));</td></tr>
+<tr><th id="425">425</th><td>    }</td></tr>
+<tr><th id="426">426</th><td>    <b>if</b> (output_depth &gt; <var>1</var>) {</td></tr>
+<tr><th id="427">427</th><td>      <i>// Allocate a tensor for the NCHW output of the kernel and point output</i></td></tr>
+<tr><th id="428">428</th><td><i>      // to it. Afterwards, we will transform it to NHWC while copying back to</i></td></tr>
+<tr><th id="429">429</th><td><i>      // 'output_param'.</i></td></tr>
+<tr><th id="430">430</th><td>      TensorShape nchw_shape = ShapeFromFormat(</td></tr>
+<tr><th id="431">431</th><td>          FORMAT_NCHW, batch_size, output_rows, output_cols, output_depth);</td></tr>
+<tr><th id="432">432</th><td>      OP_REQUIRES_OK(ctx,</td></tr>
+<tr><th id="433">433</th><td>                     ctx-&gt;allocate_temp(DataTypeToEnum&lt;T&gt;::value, nchw_shape,</td></tr>
+<tr><th id="434">434</th><td>                                        &amp;maybe_transformed_output));</td></tr>
+<tr><th id="435">435</th><td>      output = &amp;maybe_transformed_output;</td></tr>
+<tr><th id="436">436</th><td>    }</td></tr>
+<tr><th id="437">437</th><td>  }</td></tr>
+<tr><th id="438">438</th><td></td></tr>
+<tr><th id="439">439</th><td>  <b>constexpr</b> <em>auto</em> data_layout = is_int8x4 ? dnn::DataLayout::kBatchDepthYX4</td></tr>
+<tr><th id="440">440</th><td>                                         : dnn::DataLayout::kBatchDepthYX;</td></tr>
+<tr><th id="441">441</th><td>  <b>constexpr</b> <em>auto</em> filter_layout = is_int8x4 ? dnn::FilterLayout::kOutputInputYX4</td></tr>
+<tr><th id="442">442</th><td>                                           : dnn::FilterLayout::kOutputInputYX;</td></tr>
+<tr><th id="443">443</th><td></td></tr>
+<tr><th id="444">444</th><td>  dnn::BatchDescriptor conv_input_desc;</td></tr>
+<tr><th id="445">445</th><td>  conv_input_desc.set_count(batch_size)</td></tr>
+<tr><th id="446">446</th><td>      .set_feature_map_count(conv_input_depth)</td></tr>
+<tr><th id="447">447</th><td>      .set_height(conv_input_rows)</td></tr>
+<tr><th id="448">448</th><td>      .set_width(conv_input_cols)</td></tr>
+<tr><th id="449">449</th><td>      .set_layout(data_layout);</td></tr>
+<tr><th id="450">450</th><td>  dnn::FilterDescriptor filter_desc;</td></tr>
+<tr><th id="451">451</th><td>  filter_desc.set_input_filter_height(filter_rows)</td></tr>
+<tr><th id="452">452</th><td>      .set_input_filter_width(filter_cols)</td></tr>
+<tr><th id="453">453</th><td>      .set_input_feature_map_count(conv_input_depth)</td></tr>
+<tr><th id="454">454</th><td>      .set_output_feature_map_count(output_depth)</td></tr>
+<tr><th id="455">455</th><td>      .set_layout(filter_layout);</td></tr>
+<tr><th id="456">456</th><td>  dnn::BatchDescriptor side_input_desc;</td></tr>
+<tr><th id="457">457</th><td>  side_input_desc.set_count(batch_size)</td></tr>
+<tr><th id="458">458</th><td>      .set_height(output_rows)</td></tr>
+<tr><th id="459">459</th><td>      .set_width(output_cols)</td></tr>
+<tr><th id="460">460</th><td>      .set_feature_map_count(output_depth)</td></tr>
+<tr><th id="461">461</th><td>      .set_layout(data_layout);</td></tr>
+<tr><th id="462">462</th><td>  dnn::BatchDescriptor bias_desc;</td></tr>
+<tr><th id="463">463</th><td>  bias_desc.set_count(<var>1</var>)</td></tr>
+<tr><th id="464">464</th><td>      .set_height(<var>1</var>)</td></tr>
+<tr><th id="465">465</th><td>      .set_width(<var>1</var>)</td></tr>
+<tr><th id="466">466</th><td>      .set_feature_map_count(output_depth)</td></tr>
+<tr><th id="467">467</th><td>      .set_layout(dnn::DataLayout::kBatchDepthYX);</td></tr>
+<tr><th id="468">468</th><td>  dnn::BatchDescriptor output_desc;</td></tr>
+<tr><th id="469">469</th><td>  output_desc.set_count(batch_size)</td></tr>
+<tr><th id="470">470</th><td>      .set_height(output_rows)</td></tr>
+<tr><th id="471">471</th><td>      .set_width(output_cols)</td></tr>
+<tr><th id="472">472</th><td>      .set_feature_map_count(output_depth)</td></tr>
+<tr><th id="473">473</th><td>      .set_layout(data_layout);</td></tr>
+<tr><th id="474">474</th><td>  dnn::ConvolutionDescriptor conv_desc;</td></tr>
+<tr><th id="475">475</th><td>  CHECK_EQ(<var>0</var>, padding_rows % <var>2</var>);</td></tr>
+<tr><th id="476">476</th><td>  CHECK_EQ(<var>0</var>, padding_cols % <var>2</var>);</td></tr>
+<tr><th id="477">477</th><td>  conv_desc.set_vertical_filter_stride(row_stride)</td></tr>
+<tr><th id="478">478</th><td>      .set_horizontal_filter_stride(col_stride)</td></tr>
+<tr><th id="479">479</th><td>      .set_zero_padding_height(padding_rows / <var>2</var>)</td></tr>
+<tr><th id="480">480</th><td>      .set_zero_padding_width(padding_cols / <var>2</var>);</td></tr>
+<tr><th id="481">481</th><td></td></tr>
+<tr><th id="482">482</th><td>  Tensor maybe_transformed_filter;</td></tr>
+<tr><th id="483">483</th><td>  <em>const</em> Tensor* filter = &amp;filter_param;</td></tr>
+<tr><th id="484">484</th><td>  <i>// For qint8, we have already checked filter is OIHW_VECT_I in the</i></td></tr>
+<tr><th id="485">485</th><td><i>  // constructor, but we need to test for is_int8x4 so the if block doesn't</i></td></tr>
+<tr><th id="486">486</th><td><i>  // generate code for qint8.</i></td></tr>
+<tr><th id="487">487</th><td>  <b>if</b> (!is_int8x4 &amp;&amp; filter_format == FORMAT_HWIO) {</td></tr>
+<tr><th id="488">488</th><td>    <i>// Shuffle filter tensor from HWIO to OIHW:</i></td></tr>
+<tr><th id="489">489</th><td>    OP_REQUIRES_OK(ctx, ctx-&gt;allocate_temp(</td></tr>
+<tr><th id="490">490</th><td>                            DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="491">491</th><td>                            ShapeFromFilterFormat(</td></tr>
+<tr><th id="492">492</th><td>                                FORMAT_OIHW, filter_param.shape(), FORMAT_HWIO),</td></tr>
+<tr><th id="493">493</th><td>                            &amp;maybe_transformed_filter));</td></tr>
+<tr><th id="494">494</th><td>    functor::TransformFilter&lt;GPUDevice, T, <em>int</em>, <var>4</var>&gt;()(</td></tr>
+<tr><th id="495">495</th><td>        ctx-&gt;eigen_device&lt;GPUDevice&gt;(), To32Bit(filter_param.tensor&lt;T, <var>4</var>&gt;()),</td></tr>
+<tr><th id="496">496</th><td>        To32Bit(maybe_transformed_filter.tensor&lt;T, <var>4</var>&gt;()));</td></tr>
+<tr><th id="497">497</th><td>    filter = &amp;maybe_transformed_filter;</td></tr>
+<tr><th id="498">498</th><td>  }</td></tr>
+<tr><th id="499">499</th><td></td></tr>
+<tr><th id="500">500</th><td>  <em>auto</em> conv_input_ptr =</td></tr>
+<tr><th id="501">501</th><td>      AsDeviceMemory(<b>reinterpret_cast</b>&lt;<em>const</em> <b>typename</b> RawType&lt;T&gt;::type*&gt;(</td></tr>
+<tr><th id="502">502</th><td>                         conv_input-&gt;<b>template</b> flat&lt;T&gt;().data()),</td></tr>
+<tr><th id="503">503</th><td>                     conv_input-&gt;<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="504">504</th><td>  <em>auto</em> filter_ptr =</td></tr>
+<tr><th id="505">505</th><td>      AsDeviceMemory(<b>reinterpret_cast</b>&lt;<em>const</em> <b>typename</b> RawType&lt;T&gt;::type*&gt;(</td></tr>
+<tr><th id="506">506</th><td>                         filter-&gt;<b>template</b> flat&lt;T&gt;().data()),</td></tr>
+<tr><th id="507">507</th><td>                     filter-&gt;<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="508">508</th><td>  <em>auto</em> side_input_ptr =</td></tr>
+<tr><th id="509">509</th><td>      AsDeviceMemory(<b>reinterpret_cast</b>&lt;<em>const</em> <b>typename</b> RawType&lt;T&gt;::type*&gt;(</td></tr>
+<tr><th id="510">510</th><td>                         side_input-&gt;<b>template</b> flat&lt;T&gt;().data()),</td></tr>
+<tr><th id="511">511</th><td>                     side_input-&gt;<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="512">512</th><td>  <em>auto</em> output_ptr =</td></tr>
+<tr><th id="513">513</th><td>      AsDeviceMemory(<b>reinterpret_cast</b>&lt;<em>const</em> <b>typename</b> RawType&lt;T&gt;::type*&gt;(</td></tr>
+<tr><th id="514">514</th><td>                         output-&gt;<b>template</b> flat&lt;T&gt;().data()),</td></tr>
+<tr><th id="515">515</th><td>                     output-&gt;<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="516">516</th><td>  <em>auto</em> bias_ptr = AsDeviceMemory(bias.<b>template</b> flat&lt;BiasType&gt;().data(),</td></tr>
+<tr><th id="517">517</th><td>                                 bias.<b>template</b> flat&lt;BiasType&gt;().size());</td></tr>
+<tr><th id="518">518</th><td></td></tr>
+<tr><th id="519">519</th><td>  <em>static</em> int64 ConvolveScratchSize = GetCudnnWorkspaceLimit(</td></tr>
+<tr><th id="520">520</th><td>      <i>// default value is in bytes despite the name of the environment variable</i></td></tr>
+<tr><th id="521">521</th><td>      <q>"TF_CUDNN_WORKSPACE_LIMIT_IN_MB"</q>, <var>1LL</var> &lt;&lt; <var>32</var>  <i>// 4GB</i></td></tr>
+<tr><th id="522">522</th><td>  );</td></tr>
+<tr><th id="523">523</th><td></td></tr>
+<tr><th id="524">524</th><td>  <em>int</em> device_id = stream-&gt;parent()-&gt;device_ordinal();</td></tr>
+<tr><th id="525">525</th><td>  FusedConvParameters fused_conv_parameters = {</td></tr>
+<tr><th id="526">526</th><td>      batch_size,</td></tr>
+<tr><th id="527">527</th><td>      conv_input_depth,</td></tr>
+<tr><th id="528">528</th><td>      {{conv_input_rows, conv_input_cols}},</td></tr>
+<tr><th id="529">529</th><td>      output_depth,</td></tr>
+<tr><th id="530">530</th><td>      {{filter_rows, filter_cols}},</td></tr>
+<tr><th id="531">531</th><td>      <i>// TODO(yangzihao): Add support for arbitrary dilations for fused conv.</i></td></tr>
+<tr><th id="532">532</th><td>      {{<var>1</var>, <var>1</var>}},  <i>// dilation_rows, dilation_cols</i></td></tr>
+<tr><th id="533">533</th><td>      {{row_stride, col_stride}},</td></tr>
+<tr><th id="534">534</th><td>      {{padding_rows, padding_cols}},</td></tr>
+<tr><th id="535">535</th><td>      conv_input-&gt;dtype(),</td></tr>
+<tr><th id="536">536</th><td>      device_id,</td></tr>
+<tr><th id="537">537</th><td>      (side_input_scale != <var>0</var>),</td></tr>
+<tr><th id="538">538</th><td>      activation_mode,</td></tr>
+<tr><th id="539">539</th><td>  };</td></tr>
+<tr><th id="540">540</th><td></td></tr>
+<tr><th id="541">541</th><td>  dnn::AlgorithmConfig algorithm_config;</td></tr>
+<tr><th id="542">542</th><td>  <b>if</b> (cudnn_use_autotune &amp;&amp; !AutoTuneConvBiasActivation::GetInstance()-&gt;Find(</td></tr>
+<tr><th id="543">543</th><td>                                fused_conv_parameters, &amp;algorithm_config)) {</td></tr>
+<tr><th id="544">544</th><td>    std::vector&lt;dnn::AlgorithmDesc&gt; algorithms;</td></tr>
+<tr><th id="545">545</th><td>    CHECK(stream-&gt;parent()-&gt;GetConvolveAlgorithms(</td></tr>
+<tr><th id="546">546</th><td>        fused_conv_parameters.ShouldIncludeWinogradNonfusedAlgo&lt;T&gt;(),</td></tr>
+<tr><th id="547">547</th><td>        &amp;algorithms));</td></tr>
+<tr><th id="548">548</th><td>    dnn::ProfileResult best_result;</td></tr>
+<tr><th id="549">549</th><td>    dnn::ProfileResult best_result_no_scratch;</td></tr>
+<tr><th id="550">550</th><td>    <b>for</b> (<em>auto</em> profile_algorithm : algorithms) {</td></tr>
+<tr><th id="551">551</th><td>      <i>// TODO(zhengxq): profile each algorithm multiple times to better</i></td></tr>
+<tr><th id="552">552</th><td><i>      // accuracy.</i></td></tr>
+<tr><th id="553">553</th><td>      CudnnScratchAllocator scratch_allocator(ConvolveScratchSize, ctx);</td></tr>
+<tr><th id="554">554</th><td>      dnn::ProfileResult profile_result;</td></tr>
+<tr><th id="555">555</th><td>      <em>bool</em> cudnn_launch_status =</td></tr>
+<tr><th id="556">556</th><td>          stream</td></tr>
+<tr><th id="557">557</th><td>              -&gt;ThenFusedConvolveWithAlgorithm(</td></tr>
+<tr><th id="558">558</th><td>                  conv_input_desc, conv_input_ptr, conv_input_scale,</td></tr>
+<tr><th id="559">559</th><td>                  filter_desc, filter_ptr, conv_desc, side_input_ptr,</td></tr>
+<tr><th id="560">560</th><td>                  side_input_scale, bias_desc, bias_ptr,</td></tr>
+<tr><th id="561">561</th><td>                  dnn::ActivationMode::kRelu, output_desc, &amp;output_ptr,</td></tr>
+<tr><th id="562">562</th><td>                  &amp;scratch_allocator, dnn::AlgorithmConfig(profile_algorithm),</td></tr>
+<tr><th id="563">563</th><td>                  &amp;profile_result)</td></tr>
+<tr><th id="564">564</th><td>              .ok();</td></tr>
+<tr><th id="565">565</th><td>      <b>if</b> (cudnn_launch_status) {</td></tr>
+<tr><th id="566">566</th><td>        <b>if</b> (profile_result.is_valid()) {</td></tr>
+<tr><th id="567">567</th><td>          <b>if</b> (profile_result.elapsed_time_in_ms() &lt;</td></tr>
+<tr><th id="568">568</th><td>              best_result.elapsed_time_in_ms()) {</td></tr>
+<tr><th id="569">569</th><td>            best_result = profile_result;</td></tr>
+<tr><th id="570">570</th><td>          }</td></tr>
+<tr><th id="571">571</th><td>          <b>if</b> (scratch_allocator.TotalByteSize() == <var>0</var> &amp;&amp;</td></tr>
+<tr><th id="572">572</th><td>              profile_result.elapsed_time_in_ms() &lt;</td></tr>
+<tr><th id="573">573</th><td>                  best_result_no_scratch.elapsed_time_in_ms()) {</td></tr>
+<tr><th id="574">574</th><td>            best_result_no_scratch = profile_result;</td></tr>
+<tr><th id="575">575</th><td>          }</td></tr>
+<tr><th id="576">576</th><td>        }</td></tr>
+<tr><th id="577">577</th><td>      }</td></tr>
+<tr><th id="578">578</th><td>    }</td></tr>
+<tr><th id="579">579</th><td>    OP_REQUIRES(ctx,</td></tr>
+<tr><th id="580">580</th><td>                best_result.is_valid() || best_result_no_scratch.is_valid(),</td></tr>
+<tr><th id="581">581</th><td>                errors::NotFound(<q>"No algorithm worked!"</q>));</td></tr>
+<tr><th id="582">582</th><td>    <b>if</b> (best_result.is_valid()) {</td></tr>
+<tr><th id="583">583</th><td>      algorithm_config.set_algorithm(best_result.algorithm());</td></tr>
+<tr><th id="584">584</th><td>    }</td></tr>
+<tr><th id="585">585</th><td>    <b>if</b> (best_result_no_scratch.is_valid()) {</td></tr>
+<tr><th id="586">586</th><td>      algorithm_config.set_algorithm_no_scratch(</td></tr>
+<tr><th id="587">587</th><td>          best_result_no_scratch.algorithm());</td></tr>
+<tr><th id="588">588</th><td>    }</td></tr>
+<tr><th id="589">589</th><td>    AutoTuneConvBiasActivation::GetInstance()-&gt;Insert(fused_conv_parameters,</td></tr>
+<tr><th id="590">590</th><td>                                                      algorithm_config);</td></tr>
+<tr><th id="591">591</th><td>  }</td></tr>
+<tr><th id="592">592</th><td></td></tr>
+<tr><th id="593">593</th><td>  CudnnScratchAllocator scratch_allocator(ConvolveScratchSize, ctx);</td></tr>
+<tr><th id="594">594</th><td>  <em>bool</em> cudnn_launch_status =</td></tr>
+<tr><th id="595">595</th><td>      stream</td></tr>
+<tr><th id="596">596</th><td>          -&gt;ThenFusedConvolveWithAlgorithm(</td></tr>
+<tr><th id="597">597</th><td>              conv_input_desc, conv_input_ptr, conv_input_scale, filter_desc,</td></tr>
+<tr><th id="598">598</th><td>              filter_ptr, conv_desc, side_input_ptr, side_input_scale,</td></tr>
+<tr><th id="599">599</th><td>              bias_desc, bias_ptr, dnn::ActivationMode::kRelu, output_desc,</td></tr>
+<tr><th id="600">600</th><td>              &amp;output_ptr, &amp;scratch_allocator, algorithm_config,</td></tr>
+<tr><th id="601">601</th><td>              <i>/*output_profile_result=*/</i><b>nullptr</b>)</td></tr>
+<tr><th id="602">602</th><td>          .ok();</td></tr>
+<tr><th id="603">603</th><td></td></tr>
+<tr><th id="604">604</th><td>  <b>if</b> (!cudnn_launch_status) {</td></tr>
+<tr><th id="605">605</th><td>    ctx-&gt;SetStatus(errors::Internal(<q>"cuDNN launch failure : conv_input shape("</q>,</td></tr>
+<tr><th id="606">606</th><td>                                    conv_input-&gt;shape().DebugString(),</td></tr>
+<tr><th id="607">607</th><td>                                    <q>") filter shape("</q>,</td></tr>
+<tr><th id="608">608</th><td>                                    filter-&gt;shape().DebugString(), <q>")"</q>));</td></tr>
+<tr><th id="609">609</th><td>  }</td></tr>
+<tr><th id="610">610</th><td></td></tr>
+<tr><th id="611">611</th><td>  <i>// Convert the output tensor back from NCHW to NHWC if necessary.</i></td></tr>
+<tr><th id="612">612</th><td>  <b>if</b> (!is_int8x4 &amp;&amp; (data_format == FORMAT_NHWC) &amp;&amp; (output_depth &gt; <var>1</var>)) {</td></tr>
+<tr><th id="613">613</th><td>    functor::NCHWToNHWC&lt;GPUDevice, T, <var>4</var>&gt;()(</td></tr>
+<tr><th id="614">614</th><td>        ctx-&gt;eigen_device&lt;GPUDevice&gt;(),</td></tr>
+<tr><th id="615">615</th><td>        <b>const_cast</b>&lt;<em>const</em> Tensor*&gt;(output)-&gt;tensor&lt;T, <var>4</var>&gt;(),</td></tr>
+<tr><th id="616">616</th><td>        output_param-&gt;tensor&lt;T, <var>4</var>&gt;());</td></tr>
+<tr><th id="617">617</th><td>  }</td></tr>
+<tr><th id="618">618</th><td>}</td></tr>
+<tr><th id="619">619</th><td></td></tr>
+<tr><th id="620">620</th><td><i>// Forward declarations of the functor specializations for GPU used above.</i></td></tr>
+<tr><th id="621">621</th><td><b>namespace</b> functor {</td></tr>
+<tr><th id="622">622</th><td><u>#define DECLARE_GPU_SPEC(T)                                              \</u></td></tr>
+<tr><th id="623">623</th><td><u>  template &lt;&gt;                                                            \</u></td></tr>
+<tr><th id="624">624</th><td><u>  void PadInput&lt;GPUDevice, T, int, 4&gt;::operator()(                       \</u></td></tr>
+<tr><th id="625">625</th><td><u>      const GPUDevice&amp; d, typename TTypes&lt;T, 4, int&gt;::ConstTensor in,    \</u></td></tr>
+<tr><th id="626">626</th><td><u>      const std::array&lt;int, 2&gt;&amp; padding_left,                            \</u></td></tr>
+<tr><th id="627">627</th><td><u>      const std::array&lt;int, 2&gt;&amp; padding_right,                           \</u></td></tr>
+<tr><th id="628">628</th><td><u>      typename TTypes&lt;T, 4, int&gt;::Tensor out, TensorFormat data_format); \</u></td></tr>
+<tr><th id="629">629</th><td><u>  extern template struct PadInput&lt;GPUDevice, T, int, 4&gt;;</u></td></tr>
+<tr><th id="630">630</th><td></td></tr>
+<tr><th id="631">631</th><td>DECLARE_GPU_SPEC(<em>float</em>);</td></tr>
+<tr><th id="632">632</th><td>DECLARE_GPU_SPEC(int32);</td></tr>
+<tr><th id="633">633</th><td><u>#undef DECLARE_GPU_SPEC</u></td></tr>
+<tr><th id="634">634</th><td>}  <i>// namespace functor</i></td></tr>
+<tr><th id="635">635</th><td></td></tr>
+<tr><th id="636">636</th><td><i>// Registration of the GPU implementations.</i></td></tr>
+<tr><th id="637">637</th><td></td></tr>
+<tr><th id="638">638</th><td>REGISTER_KERNEL_BUILDER(</td></tr>
+<tr><th id="639">639</th><td>    Name(<q>"FusedConv2DBiasActivation"</q>)</td></tr>
+<tr><th id="640">640</th><td>        .Device(DEVICE_GPU)</td></tr>
+<tr><th id="641">641</th><td>        .TypeConstraint&lt;<em>float</em>&gt;(<q>"T"</q>)</td></tr>
+<tr><th id="642">642</th><td>        .TypeConstraint&lt;<em>float</em>&gt;(<q>"Tbias"</q>)</td></tr>
+<tr><th id="643">643</th><td>        .HostMemory(<q>"conv_input_scale"</q>)</td></tr>
+<tr><th id="644">644</th><td>        .HostMemory(<q>"side_input_scale"</q>),</td></tr>
+<tr><th id="645">645</th><td>    FusedConv2DBiasActivationOp&lt;GPUDevice, <em>float</em>, <em>float</em>, <em>float</em>&gt;);</td></tr>
+<tr><th id="646">646</th><td></td></tr>
+<tr><th id="647">647</th><td>REGISTER_KERNEL_BUILDER(</td></tr>
+<tr><th id="648">648</th><td>    Name(<q>"FusedConv2DBiasActivation"</q>)</td></tr>
+<tr><th id="649">649</th><td>        .Device(DEVICE_GPU)</td></tr>
+<tr><th id="650">650</th><td>        .TypeConstraint&lt;qint8&gt;(<q>"T"</q>)</td></tr>
+<tr><th id="651">651</th><td>        .TypeConstraint&lt;<em>float</em>&gt;(<q>"Tbias"</q>)</td></tr>
+<tr><th id="652">652</th><td>        .HostMemory(<q>"conv_input_scale"</q>)</td></tr>
+<tr><th id="653">653</th><td>        .HostMemory(<q>"side_input_scale"</q>),</td></tr>
+<tr><th id="654">654</th><td>    FusedConv2DBiasActivationOp&lt;GPUDevice, qint8, <em>float</em>, <em>float</em>&gt;);</td></tr>
+<tr><th id="655">655</th><td></td></tr>
+<tr><th id="656">656</th><td><u>#<span data-ppcond="249">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="657">657</th><td></td></tr>
+<tr><th id="658">658</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="659">659</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

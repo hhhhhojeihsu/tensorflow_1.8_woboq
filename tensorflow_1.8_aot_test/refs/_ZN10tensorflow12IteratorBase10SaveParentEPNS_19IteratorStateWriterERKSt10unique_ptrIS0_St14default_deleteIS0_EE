@@ -1,0 +1,30 @@
+<def f='tensorflow/tensorflow/core/framework/dataset.h' l='368' ll='371' type='tensorflow::Status tensorflow::IteratorBase::SaveParent(tensorflow::IteratorStateWriter * writer, const std::unique_ptr&lt;IteratorBase&gt; &amp; parent)'/>
+<use f='tensorflow/tensorflow/contrib/data/kernels/ignore_errors_dataset_op.cc' l='104' u='c' c='_ZN10tensorflow12_GLOBAL__N_121IgnoreErrorsDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<doc f='tensorflow/tensorflow/core/framework/dataset.h' l='365'>// This is needed so that sub-classes of IteratorBase can call
+  // `SaveInternal` on their parent iterators, e.g., in
+  // `RepeatDataasetOp::Dataset`.</doc>
+<use f='tensorflow/tensorflow/contrib/data/kernels/unique_dataset_op.cc' l='116' u='c' c='_ZN10tensorflow12_GLOBAL__N_115UniqueDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/batch_dataset_op.cc' l='179' u='c' c='_ZN10tensorflow12_GLOBAL__N_114BatchDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/concatenate_dataset_op.cc' l='131' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ConcatenateDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/filter_dataset_op.cc' l='190' u='c' c='_ZN10tensorflow12_GLOBAL__N_115FilterDatasetOp17FilterDatasetBase8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/flat_map_dataset_op.cc' l='174' u='c' c='_ZN10tensorflow12_GLOBAL__N_116FlatMapDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/flat_map_dataset_op.cc' l='186' u='c' c='_ZN10tensorflow12_GLOBAL__N_116FlatMapDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='305' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='346' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/interleave_dataset_op.cc' l='215' u='c' c='_ZN10tensorflow12_GLOBAL__N_119InterleaveDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/interleave_dataset_op.cc' l='254' u='c' c='_ZN10tensorflow12_GLOBAL__N_119InterleaveDatasetOp7Dataset8Iterator19SaveCurrentElementsEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/map_dataset_op.cc' l='159' u='c' c='_ZN10tensorflow12_GLOBAL__N_112MapDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/padded_batch_dataset_op.cc' l='316' u='c' c='_ZN10tensorflow12_GLOBAL__N_120PaddedBatchDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/parallel_map_dataset_op.cc' l='216' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ParallelMapDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/prefetch_dataset_op.cc' l='160' u='c' c='_ZN10tensorflow12_GLOBAL__N_117PrefetchDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/repeat_dataset_op.cc' l='145' u='c' c='_ZN10tensorflow12_GLOBAL__N_115RepeatDatasetOp7Dataset14FiniteIterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/repeat_dataset_op.cc' l='204' u='c' c='_ZN10tensorflow12_GLOBAL__N_115RepeatDatasetOp7Dataset15ForeverIterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/scan_dataset_op.cc' l='222' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ScanDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/shuffle_dataset_op.cc' l='172' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ShuffleDatasetOpBase18ShuffleDatasetBase8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/skip_dataset_op.cc' l='156' u='c' c='_ZN10tensorflow12_GLOBAL__N_113SkipDatasetOp7Dataset14FiniteIterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/slide_dataset_op.cc' l='192' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SlideDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/stats_dataset_ops.cc' l='110' u='c' c='_ZN10tensorflow12_GLOBAL__N_121LatencyStatsDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/stats_dataset_ops.cc' l='208' u='c' c='_ZN10tensorflow12_GLOBAL__N_127BytesProducedStatsDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/take_dataset_op.cc' l='143' u='c' c='_ZN10tensorflow12_GLOBAL__N_113TakeDatasetOp7Dataset14FiniteIterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='351' u='c' c='_ZN10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset8Iterator11TensorQueue4SaveEPS2_PNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/zip_dataset_op.cc' l='142' u='c' c='_ZN10tensorflow12_GLOBAL__N_112ZipDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>

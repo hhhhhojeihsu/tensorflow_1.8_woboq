@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='633' type='tensorflow::Status tensorflow::OpKernelContext::input_ref_mutex(tensorflow::StringPiece name, tensorflow::mutex ** out_mutex)'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='421' u='c' c='_ZN10tensorflow22GetResourceFromContextEPNS_15OpKernelContextERKSsPPT_'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='625'>// For mutable inputs, use the following together to make sure there
+  // is no concurrent access to mutable_input(), e.g.:
+  // {
+  //   Tensor&amp; t = context-&gt;mutable_input(index);
+  //   mutex_lock lock(*context-&gt;input_ref_mutex(index));
+  //   // modify the values in t
+  // }
+  // REQUIRES: IsRefType(input_dtype(index))</doc>
+<use f='tensorflow/tensorflow/contrib/input_pipeline/kernels/input_pipeline_kernels.cc' l='42' u='c' c='_ZN10tensorflow12ObtainNextOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='354' ll='364' type='tensorflow::Status tensorflow::OpKernelContext::input_ref_mutex(tensorflow::StringPiece name, tensorflow::mutex ** out_mutex)'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_util.cc' l='257' u='c' c='_ZN10tensorflow6lookup12_GLOBAL__N_114GetTableHandleERKSsPNS_15OpKernelContextEPSsS6_'/>

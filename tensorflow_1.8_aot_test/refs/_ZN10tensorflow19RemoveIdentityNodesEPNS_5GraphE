@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/function.h' l='111' type='bool tensorflow::RemoveIdentityNodes(tensorflow::Graph * g)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/function.h' l='102'>// Find a pattern:
+//   src -(in)-&gt; node -(out)-&gt; dst, where
+// 1) node is an identity node;
+// 2) in is the only incoming data edge;
+// 3) out is the only outgoing data edge;
+//
+// Rewrites the above pattern with src-&gt;dst and relevant data
+// dependencies updated. Repeat the process until no such pattern
+// left.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1046' ll='1077' type='bool tensorflow::RemoveIdentityNodes(tensorflow::Graph * g)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_optimizer.cc' l='57' u='c' c='_ZN10tensorflow14GraphOptimizer8OptimizeEPNS_22FunctionLibraryRuntimeEPNS_3EnvEPNS_6DeviceEPSt10unique_ptrINS_5GraphESt14default_deleteIS8_EEPKSt13uno8191696'/>

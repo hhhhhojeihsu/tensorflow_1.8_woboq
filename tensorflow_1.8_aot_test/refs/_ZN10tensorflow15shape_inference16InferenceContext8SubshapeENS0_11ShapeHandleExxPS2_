@@ -1,0 +1,38 @@
+<dec f='tensorflow/tensorflow/core/framework/shape_inference.h' l='428' type='tensorflow::Status tensorflow::shape_inference::InferenceContext::Subshape(tensorflow::shape_inference::ShapeHandle s, int64 start, int64 end, tensorflow::shape_inference::ShapeHandle * out)'/>
+<doc f='tensorflow/tensorflow/core/framework/shape_inference.h' l='425'>// Returns in &lt;*out&gt; a sub-shape of &lt;s&gt;, with dimensions [start:end].
+  // &lt;start&gt; and &lt;end&gt; can be negative, to index from the end of the shape.
+  // &lt;start&gt; and &lt;end&gt; are set to the rank of &lt;s&gt; if &gt; rank of &lt;s&gt;.</doc>
+<use f='tensorflow/tensorflow/contrib/resampler/ops/resampler_ops.cc' l='36' u='c'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='231' u='c' c='_ZN10tensorflow15shape_inference12BiasAddShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='246' u='c' c='_ZN10tensorflow15shape_inference12BiasAddShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1167' u='c' c='_ZN10tensorflow15shape_inference17ConcatShapeHelperEPNS0_16InferenceContextEiii'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1180' u='c' c='_ZN10tensorflow15shape_inference17ConcatShapeHelperEPNS0_16InferenceContextEiii'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1355' u='c' c='_ZN10tensorflow15shape_inference20ScatterNdUpdateShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1358' u='c' c='_ZN10tensorflow15shape_inference20ScatterNdUpdateShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='599' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext8SubshapeENS0_11ShapeHandleExPS2_'/>
+<def f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='602' ll='648' type='tensorflow::Status tensorflow::shape_inference::InferenceContext::Subshape(tensorflow::shape_inference::ShapeHandle s, int64 start_in, int64 end_in, tensorflow::shape_inference::ShapeHandle * out)'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='766' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1062' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1111' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1955' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2541' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2586' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2778' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ScatterNdShapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2781' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ScatterNdShapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/encode_proto_ops.cc' l='41' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/linalg_ops.cc' l='38' u='c' c='_ZN10tensorflow12_GLOBAL__N_121MakeBatchSquareMatrixEPNS_15shape_inference16InferenceContextENS1_11ShapeHandleEPS4_'/>
+<use f='tensorflow/tensorflow/core/ops/linalg_ops.cc' l='65' u='c' c='_ZN10tensorflow12_GLOBAL__N_118MatrixSolveShapeFnEPNS_15shape_inference16InferenceContextEb'/>
+<use f='tensorflow/tensorflow/core/ops/linalg_ops.cc' l='66' u='c' c='_ZN10tensorflow12_GLOBAL__N_118MatrixSolveShapeFnEPNS_15shape_inference16InferenceContextEb'/>
+<use f='tensorflow/tensorflow/core/ops/linalg_ops.cc' l='96' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SelfAdjointEigV2ShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/linalg_ops.cc' l='125' u='c' c='_ZN10tensorflow12_GLOBAL__N_19QrShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/linalg_ops.cc' l='156' u='c' c='_ZN10tensorflow12_GLOBAL__N_110SvdShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/linalg_ops.cc' l='202' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/linalg_ops.cc' l='221' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/linalg_ops.cc' l='225' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/linalg_ops.cc' l='276' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_ops.cc' l='89' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_ops.cc' l='90' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='1180' u='c' c='_ZN10tensorflow12_GLOBAL__N_111TopKShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='1236' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/set_ops.cc' l='66' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/set_ops.cc' l='69' u='c'/>

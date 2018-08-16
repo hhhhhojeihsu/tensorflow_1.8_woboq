@@ -1,0 +1,29 @@
+<dec f='include/python3.5m/unicodeobject.h' l='331' type='unsigned int'/>
+<offset>2</offset>
+<doc f='include/python3.5m/unicodeobject.h' l='304'>/* Character size:
+
+           - PyUnicode_WCHAR_KIND (0):
+
+             * character type = wchar_t (16 or 32 bits, depending on the
+               platform)
+
+           - PyUnicode_1BYTE_KIND (1):
+
+             * character type = Py_UCS1 (8 bits, unsigned)
+             * all characters are in the range U+0000-U+00FF (latin1)
+             * if ascii is set, all characters are in the range U+0000-U+007F
+               (ASCII), otherwise at least one character is in the range
+               U+0080-U+00FF
+
+           - PyUnicode_2BYTE_KIND (2):
+
+             * character type = Py_UCS2 (16 bits, unsigned)
+             * all characters are in the range U+0000-U+FFFF (BMP)
+             * at least one character is in the range U+0100-U+FFFF
+
+           - PyUnicode_4BYTE_KIND (4):
+
+             * character type = Py_UCS4 (32 bits, unsigned)
+             * all characters are in the range U+0000-U+10FFFF
+             * at least one character is in the range U+10000-U+10FFFF
+         */</doc>

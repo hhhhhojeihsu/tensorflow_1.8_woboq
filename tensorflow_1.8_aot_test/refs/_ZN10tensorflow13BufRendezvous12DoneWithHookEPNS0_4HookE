@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/buf_rendezvous.h' l='88' type='static void tensorflow::BufRendezvous::DoneWithHook(tensorflow::BufRendezvous::Hook * h)'/>
+<def f='tensorflow/tensorflow/core/common_runtime/buf_rendezvous.cc' l='151' ll='154' type='static void tensorflow::BufRendezvous::DoneWithHook(tensorflow::BufRendezvous::Hook * h)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/buf_rendezvous.cc' l='150'>/*static*/</doc>
+<doc f='tensorflow/tensorflow/core/common_runtime/buf_rendezvous.h' l='85'>// Consumer must call this function when it&apos;s done reading the Hook provided
+  // by the ConsumerCallback.  This function will invoke the producer callback
+  // and then delete h.</doc>

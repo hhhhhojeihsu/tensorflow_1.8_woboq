@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='110' type='bool toco::MergeReshapeIntoPrecedingTranspose::Run(toco::Model * model, std::size_t op_index)'/>
+<inh f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='30' c='_ZN4toco19GraphTransformation3RunEPNS_5ModelEm'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/merge_reshape_into_preceding_transpose.cc' l='105' ll='188' type='bool toco::MergeReshapeIntoPrecedingTranspose::Run(toco::Model * model, std::size_t op_index)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/merge_reshape_into_preceding_transpose.cc' l='101'>// When a transpose is fed into a reshape, it is possible for the two operators
+// to be merged if the reshape does not affect memory ordering and does not
+// affects the number of dimensions. This only occurs when only unary dimensions
+// are shifting position.</doc>

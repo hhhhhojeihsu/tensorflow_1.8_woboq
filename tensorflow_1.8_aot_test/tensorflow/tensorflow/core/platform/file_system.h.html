@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>file_system.h source code [tensorflow/tensorflow/core/platform/file_system.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::FileSystem,tensorflow::FileSystemRegistry,tensorflow::RandomAccessFile,tensorflow::ReadOnlyMemoryRegion,tensorflow::WritableFile "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/platform/file_system.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>platform</a>/<a href='file_system.h.html'>file_system.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CORE_PLATFORM_FILE_SYSTEM_H_">TENSORFLOW_CORE_PLATFORM_FILE_SYSTEM_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CORE_PLATFORM_FILE_SYSTEM_H_" data-ref="_M/TENSORFLOW_CORE_PLATFORM_FILE_SYSTEM_H_">TENSORFLOW_CORE_PLATFORM_FILE_SYSTEM_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include &lt;stdint.h&gt;</u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/functional.html">&lt;functional&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../include/c++/5/unordered_map.html">&lt;unordered_map&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../lib/core/errors.h.html">"tensorflow/core/lib/core/errors.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../lib/core/stringpiece.h.html">"tensorflow/core/lib/core/stringpiece.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="file_statistics.h.html">"tensorflow/core/platform/file_statistics.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="platform.h.html">"tensorflow/core/platform/platform.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="32">ifdef</span> <span class="macro" data-ref="_M/PLATFORM_WINDOWS">PLATFORM_WINDOWS</span></u></td></tr>
+<tr><th id="33">33</th><td><u>#undef DeleteFile</u></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="32">endif</span></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><b>class</b> <a class="type" href="#tensorflow::RandomAccessFile" title='tensorflow::RandomAccessFile' data-ref="tensorflow::RandomAccessFile">RandomAccessFile</a>;</td></tr>
+<tr><th id="39">39</th><td><b>class</b> <a class="type" href="#tensorflow::ReadOnlyMemoryRegion" title='tensorflow::ReadOnlyMemoryRegion' data-ref="tensorflow::ReadOnlyMemoryRegion">ReadOnlyMemoryRegion</a>;</td></tr>
+<tr><th id="40">40</th><td><b>class</b> <a class="type" href="#tensorflow::WritableFile" title='tensorflow::WritableFile' data-ref="tensorflow::WritableFile">WritableFile</a>;</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i class="doc">/// A generic interface for accessing a file system.  Implementations</i></td></tr>
+<tr><th id="43">43</th><td><i class="doc">/// of custom filesystem adapters must implement this interface,</i></td></tr>
+<tr><th id="44">44</th><td><i class="doc">/// RandomAccessFile, WritableFile, and ReadOnlyMemoryRegion classes.</i></td></tr>
+<tr><th id="45">45</th><td><b>class</b> <dfn class="type def" id="tensorflow::FileSystem" title='tensorflow::FileSystem' data-ref="tensorflow::FileSystem">FileSystem</dfn> {</td></tr>
+<tr><th id="46">46</th><td> <b>public</b>:</td></tr>
+<tr><th id="47">47</th><td>  <i class="doc">/// <span class="command">\brief</span> Creates a brand new random access read-only file with the</i></td></tr>
+<tr><th id="48">48</th><td><i class="doc">  /// specified name.</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">  /// On success, stores a pointer to the new file in</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">  /// *result and returns OK.  On failure stores NULL in *result and</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">  /// returns non-OK.  If the file does not exist, returns a non-OK</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">  /// status.</i></td></tr>
+<tr><th id="54">54</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="55">55</th><td><i class="doc">  /// The returned file may be concurrently accessed by multiple threads.</i></td></tr>
+<tr><th id="56">56</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">  /// The ownership of the returned RandomAccessFile is passed to the caller</i></td></tr>
+<tr><th id="58">58</th><td><i class="doc">  /// and the object should be deleted when is not used.</i></td></tr>
+<tr><th id="59">59</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem19NewRandomAccessFileERKSsPSt10unique_ptrINS_16RandomAccessFileESt14default_deleteIS4_EE" title='tensorflow::FileSystem::NewRandomAccessFile' data-ref="_ZN10tensorflow10FileSystem19NewRandomAccessFileERKSsPSt10unique_ptrINS_16RandomAccessFileESt14default_deleteIS4_EE">NewRandomAccessFile</dfn>(</td></tr>
+<tr><th id="60">60</th><td>      <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col9 decl" id="15779fname" title='fname' data-type='const string &amp;' data-ref="15779fname">fname</dfn>, <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#tensorflow::RandomAccessFile" title='tensorflow::RandomAccessFile' data-ref="tensorflow::RandomAccessFile">RandomAccessFile</a>&gt;* <dfn class="local col0 decl" id="15780result" title='result' data-type='std::unique_ptr&lt;RandomAccessFile&gt; *' data-ref="15780result">result</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <i class="doc">/// <span class="command">\brief</span> Creates an object that writes to a new file with the specified</i></td></tr>
+<tr><th id="63">63</th><td><i class="doc">  /// name.</i></td></tr>
+<tr><th id="64">64</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">  /// Deletes any existing file with the same name and creates a</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">  /// new file.  On success, stores a pointer to the new file in</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">  /// *result and returns OK.  On failure stores NULL in *result and</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">  /// returns non-OK.</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="70">70</th><td><i class="doc">  /// The returned file will only be accessed by one thread at a time.</i></td></tr>
+<tr><th id="71">71</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="72">72</th><td><i class="doc">  /// The ownership of the returned WritableFile is passed to the caller</i></td></tr>
+<tr><th id="73">73</th><td><i class="doc">  /// and the object should be deleted when is not used.</i></td></tr>
+<tr><th id="74">74</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem15NewWritableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE" title='tensorflow::FileSystem::NewWritableFile' data-ref="_ZN10tensorflow10FileSystem15NewWritableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE">NewWritableFile</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="15781fname" title='fname' data-type='const string &amp;' data-ref="15781fname">fname</dfn>,</td></tr>
+<tr><th id="75">75</th><td>                                 <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#tensorflow::WritableFile" title='tensorflow::WritableFile' data-ref="tensorflow::WritableFile">WritableFile</a>&gt;* <dfn class="local col2 decl" id="15782result" title='result' data-type='std::unique_ptr&lt;WritableFile&gt; *' data-ref="15782result">result</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>  <i class="doc">/// <span class="command">\brief</span> Creates an object that either appends to an existing file, or</i></td></tr>
+<tr><th id="78">78</th><td><i class="doc">  /// writes to a new file (if the file does not exist to begin with).</i></td></tr>
+<tr><th id="79">79</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="80">80</th><td><i class="doc">  /// On success, stores a pointer to the new file in *result and</i></td></tr>
+<tr><th id="81">81</th><td><i class="doc">  /// returns OK.  On failure stores NULL in *result and returns</i></td></tr>
+<tr><th id="82">82</th><td><i class="doc">  /// non-OK.</i></td></tr>
+<tr><th id="83">83</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">  /// The returned file will only be accessed by one thread at a time.</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">  /// The ownership of the returned WritableFile is passed to the caller</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc">  /// and the object should be deleted when is not used.</i></td></tr>
+<tr><th id="88">88</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem17NewAppendableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE" title='tensorflow::FileSystem::NewAppendableFile' data-ref="_ZN10tensorflow10FileSystem17NewAppendableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE">NewAppendableFile</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col3 decl" id="15783fname" title='fname' data-type='const string &amp;' data-ref="15783fname">fname</dfn>,</td></tr>
+<tr><th id="89">89</th><td>                                   <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#tensorflow::WritableFile" title='tensorflow::WritableFile' data-ref="tensorflow::WritableFile">WritableFile</a>&gt;* <dfn class="local col4 decl" id="15784result" title='result' data-type='std::unique_ptr&lt;WritableFile&gt; *' data-ref="15784result">result</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>  <i class="doc">/// <span class="command">\brief</span> Creates a readonly region of memory with the file context.</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="93">93</th><td><i class="doc">  /// On success, it returns a pointer to read-only memory region</i></td></tr>
+<tr><th id="94">94</th><td><i class="doc">  /// from the content of file fname. The ownership of the region is passed to</i></td></tr>
+<tr><th id="95">95</th><td><i class="doc">  /// the caller. On failure stores nullptr in *result and returns non-OK.</i></td></tr>
+<tr><th id="96">96</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="97">97</th><td><i class="doc">  /// The returned memory region can be accessed from many threads in parallel.</i></td></tr>
+<tr><th id="98">98</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="99">99</th><td><i class="doc">  /// The ownership of the returned ReadOnlyMemoryRegion is passed to the caller</i></td></tr>
+<tr><th id="100">100</th><td><i class="doc">  /// and the object should be deleted when is not used.</i></td></tr>
+<tr><th id="101">101</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem31NewReadOnlyMemoryRegionFromFileERKSsPSt10unique_ptrINS_20ReadOnlyMemoryRegionESt14default_deleteIS4_EE" title='tensorflow::FileSystem::NewReadOnlyMemoryRegionFromFile' data-ref="_ZN10tensorflow10FileSystem31NewReadOnlyMemoryRegionFromFileERKSsPSt10unique_ptrINS_20ReadOnlyMemoryRegionESt14default_deleteIS4_EE">NewReadOnlyMemoryRegionFromFile</dfn>(</td></tr>
+<tr><th id="102">102</th><td>      <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col5 decl" id="15785fname" title='fname' data-type='const string &amp;' data-ref="15785fname">fname</dfn>, <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#tensorflow::ReadOnlyMemoryRegion" title='tensorflow::ReadOnlyMemoryRegion' data-ref="tensorflow::ReadOnlyMemoryRegion">ReadOnlyMemoryRegion</a>&gt;* <dfn class="local col6 decl" id="15786result" title='result' data-type='std::unique_ptr&lt;ReadOnlyMemoryRegion&gt; *' data-ref="15786result">result</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>  <i class="doc">/// Returns OK if the named path exists and NOT_FOUND otherwise.</i></td></tr>
+<tr><th id="105">105</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem10FileExistsERKSs" title='tensorflow::FileSystem::FileExists' data-ref="_ZN10tensorflow10FileSystem10FileExistsERKSs">FileExists</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col7 decl" id="15787fname" title='fname' data-type='const string &amp;' data-ref="15787fname">fname</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>  <i class="doc">/// Returns true if all the listed files exist, false otherwise.</i></td></tr>
+<tr><th id="108">108</th><td><i class="doc">  /// if status is not null, populate the vector with a detailed status</i></td></tr>
+<tr><th id="109">109</th><td><i class="doc">  /// for each file.</i></td></tr>
+<tr><th id="110">110</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem10FilesExistERKSt6vectorISsSaISsEEPS1_INS_6StatusESaIS6_EE" title='tensorflow::FileSystem::FilesExist' data-ref="_ZN10tensorflow10FileSystem10FilesExistERKSt6vectorISsSaISsEEPS1_INS_6StatusESaIS6_EE">FilesExist</dfn>(<em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt;&amp; <dfn class="local col8 decl" id="15788files" title='files' data-type='const std::vector&lt;string&gt; &amp;' data-ref="15788files">files</dfn>,</td></tr>
+<tr><th id="111">111</th><td>                          <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a>&gt;* <dfn class="local col9 decl" id="15789status" title='status' data-type='std::vector&lt;Status&gt; *' data-ref="15789status">status</dfn>);</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>  <i class="doc">/// <span class="command">\brief</span> Returns the immediate children in the given directory.</i></td></tr>
+<tr><th id="114">114</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="115">115</th><td><i class="doc">  /// The returned paths are relative to 'dir'.</i></td></tr>
+<tr><th id="116">116</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem11GetChildrenERKSsPSt6vectorISsSaISsEE" title='tensorflow::FileSystem::GetChildren' data-ref="_ZN10tensorflow10FileSystem11GetChildrenERKSsPSt6vectorISsSaISsEE">GetChildren</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col0 decl" id="15790dir" title='dir' data-type='const string &amp;' data-ref="15790dir">dir</dfn>,</td></tr>
+<tr><th id="117">117</th><td>                             <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt;* <dfn class="local col1 decl" id="15791result" title='result' data-type='std::vector&lt;string&gt; *' data-ref="15791result">result</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>  <i class="doc">/// <span class="command">\brief</span> Given a pattern, stores in *results the set of paths that matches</i></td></tr>
+<tr><th id="120">120</th><td><i class="doc">  /// that pattern. *results is cleared.</i></td></tr>
+<tr><th id="121">121</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="122">122</th><td><i class="doc">  /// pattern must match all of a name, not just a substring.</i></td></tr>
+<tr><th id="123">123</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="124">124</th><td><i class="doc">  /// pattern: { term }</i></td></tr>
+<tr><th id="125">125</th><td><i class="doc">  /// term:</i></td></tr>
+<tr><th id="126">126</th><td><i class="doc">  ///   '*': matches any sequence of non-'/' characters</i></td></tr>
+<tr><th id="127">127</th><td><i class="doc">  ///   '?': matches a single non-'/' character</i></td></tr>
+<tr><th id="128">128</th><td><i class="doc">  ///   '[' [ '^' ] { match-list } ']':</i></td></tr>
+<tr><th id="129">129</th><td><i class="doc">  ///        matches any single character (not) on the list</i></td></tr>
+<tr><th id="130">130</th><td><i class="doc">  ///   c: matches character c (c != '*', '?', '\\', '[')</i></td></tr>
+<tr><th id="131">131</th><td><i class="doc">  ///   '\\' c: matches character c</i></td></tr>
+<tr><th id="132">132</th><td><i class="doc">  /// character-range:</i></td></tr>
+<tr><th id="133">133</th><td><i class="doc">  ///   c: matches character c (c != '\\', '-', ']')</i></td></tr>
+<tr><th id="134">134</th><td><i class="doc">  ///   '\\' c: matches character c</i></td></tr>
+<tr><th id="135">135</th><td><i class="doc">  ///   lo '-' hi: matches character c for lo &lt;= c &lt;= hi</i></td></tr>
+<tr><th id="136">136</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="137">137</th><td><i class="doc">  /// Typical return codes:</i></td></tr>
+<tr><th id="138">138</th><td><i class="doc">  ///  * OK - no errors</i></td></tr>
+<tr><th id="139">139</th><td><i class="doc">  ///  * UNIMPLEMENTED - Some underlying functions (like GetChildren) are not</i></td></tr>
+<tr><th id="140">140</th><td><i class="doc">  ///                    implemented</i></td></tr>
+<tr><th id="141">141</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem16GetMatchingPathsERKSsPSt6vectorISsSaISsEE" title='tensorflow::FileSystem::GetMatchingPaths' data-ref="_ZN10tensorflow10FileSystem16GetMatchingPathsERKSsPSt6vectorISsSaISsEE">GetMatchingPaths</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col2 decl" id="15792pattern" title='pattern' data-type='const string &amp;' data-ref="15792pattern">pattern</dfn>,</td></tr>
+<tr><th id="142">142</th><td>                                  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt;* <dfn class="local col3 decl" id="15793results" title='results' data-type='std::vector&lt;string&gt; *' data-ref="15793results">results</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>  <i class="doc">/// <span class="command">\brief</span> Obtains statistics for the given path.</i></td></tr>
+<tr><th id="145">145</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem4StatERKSsPNS_14FileStatisticsE" title='tensorflow::FileSystem::Stat' data-ref="_ZN10tensorflow10FileSystem4StatERKSsPNS_14FileStatisticsE">Stat</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col4 decl" id="15794fname" title='fname' data-type='const string &amp;' data-ref="15794fname">fname</dfn>, <a class="type" href="file_statistics.h.html#tensorflow::FileStatistics" title='tensorflow::FileStatistics' data-ref="tensorflow::FileStatistics">FileStatistics</a>* <dfn class="local col5 decl" id="15795stat" title='stat' data-type='tensorflow::FileStatistics *' data-ref="15795stat">stat</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>  <i class="doc">/// <span class="command">\brief</span> Deletes the named file.</i></td></tr>
+<tr><th id="148">148</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem10DeleteFileERKSs" title='tensorflow::FileSystem::DeleteFile' data-ref="_ZN10tensorflow10FileSystem10DeleteFileERKSs">DeleteFile</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col6 decl" id="15796fname" title='fname' data-type='const string &amp;' data-ref="15796fname">fname</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>  <i class="doc">/// <span class="command">\brief</span> Creates the specified directory.</i></td></tr>
+<tr><th id="151">151</th><td><i class="doc">  /// Typical return codes:</i></td></tr>
+<tr><th id="152">152</th><td><i class="doc">  ///  * OK - successfully created the directory.</i></td></tr>
+<tr><th id="153">153</th><td><i class="doc">  ///  * ALREADY_EXISTS - directory with name dirname already exists.</i></td></tr>
+<tr><th id="154">154</th><td><i class="doc">  ///  * PERMISSION_DENIED - dirname is not writable.</i></td></tr>
+<tr><th id="155">155</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem9CreateDirERKSs" title='tensorflow::FileSystem::CreateDir' data-ref="_ZN10tensorflow10FileSystem9CreateDirERKSs">CreateDir</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col7 decl" id="15797dirname" title='dirname' data-type='const string &amp;' data-ref="15797dirname">dirname</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td>  <i class="doc">/// <span class="command">\brief</span> Creates the specified directory and all the necessary</i></td></tr>
+<tr><th id="158">158</th><td><i class="doc">  /// subdirectories.</i></td></tr>
+<tr><th id="159">159</th><td><i class="doc">  /// Typical return codes:</i></td></tr>
+<tr><th id="160">160</th><td><i class="doc">  ///  * OK - successfully created the directory and sub directories, even if</i></td></tr>
+<tr><th id="161">161</th><td><i class="doc">  ///         they were already created.</i></td></tr>
+<tr><th id="162">162</th><td><i class="doc">  ///  * PERMISSION_DENIED - dirname or some subdirectory is not writable.</i></td></tr>
+<tr><th id="163">163</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem20RecursivelyCreateDirERKSs" title='tensorflow::FileSystem::RecursivelyCreateDir' data-ref="_ZN10tensorflow10FileSystem20RecursivelyCreateDirERKSs">RecursivelyCreateDir</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col8 decl" id="15798dirname" title='dirname' data-type='const string &amp;' data-ref="15798dirname">dirname</dfn>);</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>  <i class="doc">/// <span class="command">\brief</span> Deletes the specified directory.</i></td></tr>
+<tr><th id="166">166</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem9DeleteDirERKSs" title='tensorflow::FileSystem::DeleteDir' data-ref="_ZN10tensorflow10FileSystem9DeleteDirERKSs">DeleteDir</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col9 decl" id="15799dirname" title='dirname' data-type='const string &amp;' data-ref="15799dirname">dirname</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td>  <i class="doc">/// <span class="command">\brief</span> Deletes the specified directory and all subdirectories and files</i></td></tr>
+<tr><th id="169">169</th><td><i class="doc">  /// underneath it. undeleted_files and undeleted_dirs stores the number of</i></td></tr>
+<tr><th id="170">170</th><td><i class="doc">  /// files and directories that weren't deleted (unspecified if the return</i></td></tr>
+<tr><th id="171">171</th><td><i class="doc">  /// status is not OK).</i></td></tr>
+<tr><th id="172">172</th><td><i class="doc">  /// REQUIRES: undeleted_files, undeleted_dirs to be not null.</i></td></tr>
+<tr><th id="173">173</th><td><i class="doc">  /// Typical return codes:</i></td></tr>
+<tr><th id="174">174</th><td><i class="doc">  ///  * OK - dirname exists and we were able to delete everything underneath.</i></td></tr>
+<tr><th id="175">175</th><td><i class="doc">  ///  * NOT_FOUND - dirname doesn't exist</i></td></tr>
+<tr><th id="176">176</th><td><i class="doc">  ///  * PERMISSION_DENIED - dirname or some descendant is not writable</i></td></tr>
+<tr><th id="177">177</th><td><i class="doc">  ///  * UNIMPLEMENTED - Some underlying functions (like Delete) are not</i></td></tr>
+<tr><th id="178">178</th><td><i class="doc">  ///                    implemented</i></td></tr>
+<tr><th id="179">179</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem17DeleteRecursivelyERKSsPxS3_" title='tensorflow::FileSystem::DeleteRecursively' data-ref="_ZN10tensorflow10FileSystem17DeleteRecursivelyERKSsPxS3_">DeleteRecursively</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col0 decl" id="15800dirname" title='dirname' data-type='const string &amp;' data-ref="15800dirname">dirname</dfn>,</td></tr>
+<tr><th id="180">180</th><td>                                   <a class="typedef" href="default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>* <dfn class="local col1 decl" id="15801undeleted_files" title='undeleted_files' data-type='int64 *' data-ref="15801undeleted_files">undeleted_files</dfn>,</td></tr>
+<tr><th id="181">181</th><td>                                   <a class="typedef" href="default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>* <dfn class="local col2 decl" id="15802undeleted_dirs" title='undeleted_dirs' data-type='int64 *' data-ref="15802undeleted_dirs">undeleted_dirs</dfn>);</td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td>  <i class="doc">/// <span class="command">\brief</span> Stores the size of `fname` in `*file_size`.</i></td></tr>
+<tr><th id="184">184</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem11GetFileSizeERKSsPy" title='tensorflow::FileSystem::GetFileSize' data-ref="_ZN10tensorflow10FileSystem11GetFileSizeERKSsPy">GetFileSize</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col3 decl" id="15803fname" title='fname' data-type='const string &amp;' data-ref="15803fname">fname</dfn>, <a class="typedef" href="default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a>* <dfn class="local col4 decl" id="15804file_size" title='file_size' data-type='uint64 *' data-ref="15804file_size">file_size</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>  <i class="doc">/// <span class="command">\brief</span> Overwrites the target if it exists.</i></td></tr>
+<tr><th id="187">187</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem10RenameFileERKSsS2_" title='tensorflow::FileSystem::RenameFile' data-ref="_ZN10tensorflow10FileSystem10RenameFileERKSsS2_">RenameFile</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col5 decl" id="15805src" title='src' data-type='const string &amp;' data-ref="15805src">src</dfn>, <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col6 decl" id="15806target" title='target' data-type='const string &amp;' data-ref="15806target">target</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="188">188</th><td></td></tr>
+<tr><th id="189">189</th><td>  <i class="doc">/// <span class="command">\brief</span> Copy the src to target.</i></td></tr>
+<tr><th id="190">190</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem8CopyFileERKSsS2_" title='tensorflow::FileSystem::CopyFile' data-ref="_ZN10tensorflow10FileSystem8CopyFileERKSsS2_">CopyFile</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col7 decl" id="15807src" title='src' data-type='const string &amp;' data-ref="15807src">src</dfn>, <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col8 decl" id="15808target" title='target' data-type='const string &amp;' data-ref="15808target">target</dfn>);</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td>  <i class="doc">/// <span class="command">\brief</span> Translate an URI to a filename for the FileSystem implementation.</i></td></tr>
+<tr><th id="193">193</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="194">194</th><td><i class="doc">  /// The implementation in this class cleans up the path, removing</i></td></tr>
+<tr><th id="195">195</th><td><i class="doc">  /// duplicate /'s, resolving .. and . (more details in</i></td></tr>
+<tr><th id="196">196</th><td><i class="doc">  /// tensorflow::lib::io::CleanPath).</i></td></tr>
+<tr><th id="197">197</th><td>  <b>virtual</b> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="virtual decl" id="_ZNK10tensorflow10FileSystem13TranslateNameERKSs" title='tensorflow::FileSystem::TranslateName' data-ref="_ZNK10tensorflow10FileSystem13TranslateNameERKSs">TranslateName</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col9 decl" id="15809name" title='name' data-type='const string &amp;' data-ref="15809name">name</dfn>) <em>const</em>;</td></tr>
+<tr><th id="198">198</th><td></td></tr>
+<tr><th id="199">199</th><td>  <i class="doc">/// <span class="command">\brief</span> Returns whether the given path is a directory or not.</i></td></tr>
+<tr><th id="200">200</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="201">201</th><td><i class="doc">  /// Typical return codes (not guaranteed exhaustive):</i></td></tr>
+<tr><th id="202">202</th><td><i class="doc">  ///  * OK - The path exists and is a directory.</i></td></tr>
+<tr><th id="203">203</th><td><i class="doc">  ///  * FAILED_PRECONDITION - The path exists and is not a directory.</i></td></tr>
+<tr><th id="204">204</th><td><i class="doc">  ///  * NOT_FOUND - The path entry does not exist.</i></td></tr>
+<tr><th id="205">205</th><td><i class="doc">  ///  * PERMISSION_DENIED - Insufficient permissions.</i></td></tr>
+<tr><th id="206">206</th><td><i class="doc">  ///  * UNIMPLEMENTED - The file factory doesn't support directories.</i></td></tr>
+<tr><th id="207">207</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem11IsDirectoryERKSs" title='tensorflow::FileSystem::IsDirectory' data-ref="_ZN10tensorflow10FileSystem11IsDirectoryERKSs">IsDirectory</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col0 decl" id="15810fname" title='fname' data-type='const string &amp;' data-ref="15810fname">fname</dfn>);</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td>  <i class="doc">/// <span class="command">\brief</span> Flushes any cached filesystem objects from memory.</i></td></tr>
+<tr><th id="210">210</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystem11FlushCachesEv" title='tensorflow::FileSystem::FlushCaches' data-ref="_ZN10tensorflow10FileSystem11FlushCachesEv">FlushCaches</dfn>();</td></tr>
+<tr><th id="211">211</th><td></td></tr>
+<tr><th id="212">212</th><td>  <dfn class="decl def" id="_ZN10tensorflow10FileSystemC1Ev" title='tensorflow::FileSystem::FileSystem' data-ref="_ZN10tensorflow10FileSystemC1Ev">FileSystem</dfn>() {}</td></tr>
+<tr><th id="213">213</th><td></td></tr>
+<tr><th id="214">214</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN10tensorflow10FileSystemD1Ev" title='tensorflow::FileSystem::~FileSystem' data-ref="_ZN10tensorflow10FileSystemD1Ev">~FileSystem</dfn>();</td></tr>
+<tr><th id="215">215</th><td>};</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td><i class="doc">/// A file abstraction for randomly reading the contents of a file.</i></td></tr>
+<tr><th id="218">218</th><td><b>class</b> <dfn class="type def" id="tensorflow::RandomAccessFile" title='tensorflow::RandomAccessFile' data-ref="tensorflow::RandomAccessFile">RandomAccessFile</dfn> {</td></tr>
+<tr><th id="219">219</th><td> <b>public</b>:</td></tr>
+<tr><th id="220">220</th><td>  <dfn class="decl def" id="_ZN10tensorflow16RandomAccessFileC1Ev" title='tensorflow::RandomAccessFile::RandomAccessFile' data-ref="_ZN10tensorflow16RandomAccessFileC1Ev">RandomAccessFile</dfn>() {}</td></tr>
+<tr><th id="221">221</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN10tensorflow16RandomAccessFileD1Ev" title='tensorflow::RandomAccessFile::~RandomAccessFile' data-ref="_ZN10tensorflow16RandomAccessFileD1Ev">~RandomAccessFile</dfn>();</td></tr>
+<tr><th id="222">222</th><td></td></tr>
+<tr><th id="223">223</th><td>  <i class="doc">/// <span class="command">\brief</span> Reads up to `n` bytes from the file starting at `offset`.</i></td></tr>
+<tr><th id="224">224</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="225">225</th><td><i class="doc">  /// `scratch[0..n-1]` may be written by this routine.  Sets `*result`</i></td></tr>
+<tr><th id="226">226</th><td><i class="doc">  /// to the data that was read (including if fewer than `n` bytes were</i></td></tr>
+<tr><th id="227">227</th><td><i class="doc">  /// successfully read).  May set `*result` to point at data in</i></td></tr>
+<tr><th id="228">228</th><td><i class="doc">  /// `scratch[0..n-1]`, so `scratch[0..n-1]` must be live when</i></td></tr>
+<tr><th id="229">229</th><td><i class="doc">  /// `*result` is used.</i></td></tr>
+<tr><th id="230">230</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="231">231</th><td><i class="doc">  /// On OK returned status: `n` bytes have been stored in `*result`.</i></td></tr>
+<tr><th id="232">232</th><td><i class="doc">  /// On non-OK returned status: `[0..n]` bytes have been stored in `*result`.</i></td></tr>
+<tr><th id="233">233</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="234">234</th><td><i class="doc">  /// Returns `OUT_OF_RANGE` if fewer than n bytes were stored in `*result`</i></td></tr>
+<tr><th id="235">235</th><td><i class="doc">  /// because of EOF.</i></td></tr>
+<tr><th id="236">236</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="237">237</th><td><i class="doc">  /// Safe for concurrent use by multiple threads.</i></td></tr>
+<tr><th id="238">238</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZNK10tensorflow16RandomAccessFile4ReadEymPNS_11StringPieceEPc" title='tensorflow::RandomAccessFile::Read' data-ref="_ZNK10tensorflow16RandomAccessFile4ReadEymPNS_11StringPieceEPc">Read</dfn>(<a class="typedef" href="default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="local col1 decl" id="15811offset" title='offset' data-type='uint64' data-ref="15811offset">offset</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="15812n" title='n' data-type='size_t' data-ref="15812n">n</dfn>, <a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a>* <dfn class="local col3 decl" id="15813result" title='result' data-type='tensorflow::StringPiece *' data-ref="15813result">result</dfn>,</td></tr>
+<tr><th id="239">239</th><td>                      <em>char</em>* <dfn class="local col4 decl" id="15814scratch" title='scratch' data-type='char *' data-ref="15814scratch">scratch</dfn>) <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td> <b>private</b>:</td></tr>
+<tr><th id="242">242</th><td>  <a class="macro" href="macros.h.html#91" title="RandomAccessFile(const RandomAccessFile&amp;) = delete; void operator=(const RandomAccessFile&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN10tensorflow16RandomAccessFileC1ERKS0_" title='tensorflow::RandomAccessFile::RandomAccessFile' data-ref="_ZN10tensorflow16RandomAccessFileC1ERKS0_"><a class="type" href="#tensorflow::RandomAccessFile" title='tensorflow::RandomAccessFile' data-ref="tensorflow::RandomAccessFile"><a class="type" href="#tensorflow::RandomAccessFile" title='tensorflow::RandomAccessFile' data-ref="tensorflow::RandomAccessFile">RandomAccessFile</a></a></dfn>);</td></tr>
+<tr><th id="243">243</th><td>};</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td><i class="doc">/// <span class="command">\brief</span> A file abstraction for sequential writing.</i></td></tr>
+<tr><th id="246">246</th><td><i class="doc">///</i></td></tr>
+<tr><th id="247">247</th><td><i class="doc">/// The implementation must provide buffering since callers may append</i></td></tr>
+<tr><th id="248">248</th><td><i class="doc">/// small fragments at a time to the file.</i></td></tr>
+<tr><th id="249">249</th><td><b>class</b> <dfn class="type def" id="tensorflow::WritableFile" title='tensorflow::WritableFile' data-ref="tensorflow::WritableFile">WritableFile</dfn> {</td></tr>
+<tr><th id="250">250</th><td> <b>public</b>:</td></tr>
+<tr><th id="251">251</th><td>  <dfn class="decl def" id="_ZN10tensorflow12WritableFileC1Ev" title='tensorflow::WritableFile::WritableFile' data-ref="_ZN10tensorflow12WritableFileC1Ev">WritableFile</dfn>() {}</td></tr>
+<tr><th id="252">252</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN10tensorflow12WritableFileD1Ev" title='tensorflow::WritableFile::~WritableFile' data-ref="_ZN10tensorflow12WritableFileD1Ev">~WritableFile</dfn>();</td></tr>
+<tr><th id="253">253</th><td></td></tr>
+<tr><th id="254">254</th><td>  <i class="doc">/// <span class="command">\brief</span> Append 'data' to the file.</i></td></tr>
+<tr><th id="255">255</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow12WritableFile6AppendERKNS_11StringPieceE" title='tensorflow::WritableFile::Append' data-ref="_ZN10tensorflow12WritableFile6AppendERKNS_11StringPieceE">Append</dfn>(<em>const</em> <a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a>&amp; <dfn class="local col5 decl" id="15815data" title='data' data-type='const tensorflow::StringPiece &amp;' data-ref="15815data">data</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td>  <i class="doc">/// <span class="command">\brief</span> Close the file.</i></td></tr>
+<tr><th id="258">258</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="259">259</th><td><i class="doc">  /// Flush() and de-allocate resources associated with this file</i></td></tr>
+<tr><th id="260">260</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="261">261</th><td><i class="doc">  /// Typical return codes (not guaranteed to be exhaustive):</i></td></tr>
+<tr><th id="262">262</th><td><i class="doc">  ///  * OK</i></td></tr>
+<tr><th id="263">263</th><td><i class="doc">  ///  * Other codes, as returned from Flush()</i></td></tr>
+<tr><th id="264">264</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow12WritableFile5CloseEv" title='tensorflow::WritableFile::Close' data-ref="_ZN10tensorflow12WritableFile5CloseEv">Close</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td>  <i class="doc">/// <span class="command">\brief</span> Flushes the file and optionally syncs contents to filesystem.</i></td></tr>
+<tr><th id="267">267</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="268">268</th><td><i class="doc">  /// This should flush any local buffers whose contents have not been</i></td></tr>
+<tr><th id="269">269</th><td><i class="doc">  /// delivered to the filesystem.</i></td></tr>
+<tr><th id="270">270</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="271">271</th><td><i class="doc">  /// If the process terminates after a successful flush, the contents</i></td></tr>
+<tr><th id="272">272</th><td><i class="doc">  /// may still be persisted, since the underlying filesystem may</i></td></tr>
+<tr><th id="273">273</th><td><i class="doc">  /// eventually flush the contents.  If the OS or machine crashes</i></td></tr>
+<tr><th id="274">274</th><td><i class="doc">  /// after a successful flush, the contents may or may not be</i></td></tr>
+<tr><th id="275">275</th><td><i class="doc">  /// persisted, depending on the implementation.</i></td></tr>
+<tr><th id="276">276</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow12WritableFile5FlushEv" title='tensorflow::WritableFile::Flush' data-ref="_ZN10tensorflow12WritableFile5FlushEv">Flush</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="277">277</th><td></td></tr>
+<tr><th id="278">278</th><td>  <i class="doc">/// <span class="command">\brief</span> Syncs contents of file to filesystem.</i></td></tr>
+<tr><th id="279">279</th><td><i class="doc">  ///</i></td></tr>
+<tr><th id="280">280</th><td><i class="doc">  /// This waits for confirmation from the filesystem that the contents</i></td></tr>
+<tr><th id="281">281</th><td><i class="doc">  /// of the file have been persisted to the filesystem; if the OS</i></td></tr>
+<tr><th id="282">282</th><td><i class="doc">  /// or machine crashes after a successful Sync, the contents should</i></td></tr>
+<tr><th id="283">283</th><td><i class="doc">  /// be properly saved.</i></td></tr>
+<tr><th id="284">284</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow12WritableFile4SyncEv" title='tensorflow::WritableFile::Sync' data-ref="_ZN10tensorflow12WritableFile4SyncEv">Sync</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="285">285</th><td></td></tr>
+<tr><th id="286">286</th><td> <b>private</b>:</td></tr>
+<tr><th id="287">287</th><td>  <a class="macro" href="macros.h.html#91" title="WritableFile(const WritableFile&amp;) = delete; void operator=(const WritableFile&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN10tensorflow12WritableFileC1ERKS0_" title='tensorflow::WritableFile::WritableFile' data-ref="_ZN10tensorflow12WritableFileC1ERKS0_"><a class="type" href="#tensorflow::WritableFile" title='tensorflow::WritableFile' data-ref="tensorflow::WritableFile"><a class="type" href="#tensorflow::WritableFile" title='tensorflow::WritableFile' data-ref="tensorflow::WritableFile">WritableFile</a></a></dfn>);</td></tr>
+<tr><th id="288">288</th><td>};</td></tr>
+<tr><th id="289">289</th><td></td></tr>
+<tr><th id="290">290</th><td><i class="doc">/// <span class="command">\brief</span> A readonly memmapped file abstraction.</i></td></tr>
+<tr><th id="291">291</th><td><i class="doc">///</i></td></tr>
+<tr><th id="292">292</th><td><i class="doc">/// The implementation must guarantee that all memory is accessible when the</i></td></tr>
+<tr><th id="293">293</th><td><i class="doc">/// object exists, independently from the Env that created it.</i></td></tr>
+<tr><th id="294">294</th><td><b>class</b> <dfn class="type def" id="tensorflow::ReadOnlyMemoryRegion" title='tensorflow::ReadOnlyMemoryRegion' data-ref="tensorflow::ReadOnlyMemoryRegion">ReadOnlyMemoryRegion</dfn> {</td></tr>
+<tr><th id="295">295</th><td> <b>public</b>:</td></tr>
+<tr><th id="296">296</th><td>  <dfn class="decl def" id="_ZN10tensorflow20ReadOnlyMemoryRegionC1Ev" title='tensorflow::ReadOnlyMemoryRegion::ReadOnlyMemoryRegion' data-ref="_ZN10tensorflow20ReadOnlyMemoryRegionC1Ev">ReadOnlyMemoryRegion</dfn>() {}</td></tr>
+<tr><th id="297">297</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN10tensorflow20ReadOnlyMemoryRegionD1Ev" title='tensorflow::ReadOnlyMemoryRegion::~ReadOnlyMemoryRegion' data-ref="_ZN10tensorflow20ReadOnlyMemoryRegionD1Ev">~ReadOnlyMemoryRegion</dfn>() = <b>default</b>;</td></tr>
+<tr><th id="298">298</th><td></td></tr>
+<tr><th id="299">299</th><td>  <i class="doc">/// <span class="command">\brief</span> Returns a pointer to the memory region.</i></td></tr>
+<tr><th id="300">300</th><td>  <b>virtual</b> <em>const</em> <em>void</em>* <dfn class="virtual decl" id="_ZN10tensorflow20ReadOnlyMemoryRegion4dataEv" title='tensorflow::ReadOnlyMemoryRegion::data' data-ref="_ZN10tensorflow20ReadOnlyMemoryRegion4dataEv">data</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="301">301</th><td></td></tr>
+<tr><th id="302">302</th><td>  <i class="doc">/// <span class="command">\brief</span> Returns the length of the memory region in bytes.</i></td></tr>
+<tr><th id="303">303</th><td>  <b>virtual</b> <a class="typedef" href="default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="virtual decl" id="_ZN10tensorflow20ReadOnlyMemoryRegion6lengthEv" title='tensorflow::ReadOnlyMemoryRegion::length' data-ref="_ZN10tensorflow20ReadOnlyMemoryRegion6lengthEv">length</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="304">304</th><td>};</td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td><i class="doc">/// <span class="command">\brief</span> A registry for file system implementations.</i></td></tr>
+<tr><th id="307">307</th><td><i class="doc">///</i></td></tr>
+<tr><th id="308">308</th><td><i class="doc">/// Filenames are specified as an URI, which is of the form</i></td></tr>
+<tr><th id="309">309</th><td><i class="doc">/// [scheme://]&lt;filename&gt;.</i></td></tr>
+<tr><th id="310">310</th><td><i class="doc">/// File system implementations are registered using the REGISTER_FILE_SYSTEM</i></td></tr>
+<tr><th id="311">311</th><td><i class="doc">/// macro, providing the 'scheme' as the key.</i></td></tr>
+<tr><th id="312">312</th><td><b>class</b> <dfn class="type def" id="tensorflow::FileSystemRegistry" title='tensorflow::FileSystemRegistry' data-ref="tensorflow::FileSystemRegistry">FileSystemRegistry</dfn> {</td></tr>
+<tr><th id="313">313</th><td> <b>public</b>:</td></tr>
+<tr><th id="314">314</th><td>  <b>typedef</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<a class="type" href="#tensorflow::FileSystem" title='tensorflow::FileSystem' data-ref="tensorflow::FileSystem">FileSystem</a>*()&gt; <dfn class="typedef" id="tensorflow::FileSystemRegistry::Factory" title='tensorflow::FileSystemRegistry::Factory' data-type='std::function&lt;FileSystem *()&gt;' data-ref="tensorflow::FileSystemRegistry::Factory">Factory</dfn>;</td></tr>
+<tr><th id="315">315</th><td></td></tr>
+<tr><th id="316">316</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN10tensorflow18FileSystemRegistryD1Ev" title='tensorflow::FileSystemRegistry::~FileSystemRegistry' data-ref="_ZN10tensorflow18FileSystemRegistryD1Ev">~FileSystemRegistry</dfn>();</td></tr>
+<tr><th id="317">317</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow18FileSystemRegistry8RegisterERKSsSt8functionIFPNS_10FileSystemEvEE" title='tensorflow::FileSystemRegistry::Register' data-ref="_ZN10tensorflow18FileSystemRegistry8RegisterERKSsSt8functionIFPNS_10FileSystemEvEE">Register</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col6 decl" id="15816scheme" title='scheme' data-type='const string &amp;' data-ref="15816scheme">scheme</dfn>, <a class="typedef" href="#tensorflow::FileSystemRegistry::Factory" title='tensorflow::FileSystemRegistry::Factory' data-type='std::function&lt;FileSystem *()&gt;' data-ref="tensorflow::FileSystemRegistry::Factory">Factory</a> <dfn class="local col7 decl" id="15817factory" title='factory' data-type='Factory' data-ref="15817factory">factory</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="318">318</th><td>  <b>virtual</b> <a class="type" href="#tensorflow::FileSystem" title='tensorflow::FileSystem' data-ref="tensorflow::FileSystem">FileSystem</a>* <dfn class="virtual decl" id="_ZN10tensorflow18FileSystemRegistry6LookupERKSs" title='tensorflow::FileSystemRegistry::Lookup' data-ref="_ZN10tensorflow18FileSystemRegistry6LookupERKSs">Lookup</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col8 decl" id="15818scheme" title='scheme' data-type='const string &amp;' data-ref="15818scheme">scheme</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="319">319</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow18FileSystemRegistry30GetRegisteredFileSystemSchemesEPSt6vectorISsSaISsEE" title='tensorflow::FileSystemRegistry::GetRegisteredFileSystemSchemes' data-ref="_ZN10tensorflow18FileSystemRegistry30GetRegisteredFileSystemSchemesEPSt6vectorISsSaISsEE">GetRegisteredFileSystemSchemes</dfn>(</td></tr>
+<tr><th id="320">320</th><td>      <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt;* <dfn class="local col9 decl" id="15819schemes" title='schemes' data-type='std::vector&lt;string&gt; *' data-ref="15819schemes">schemes</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="321">321</th><td>};</td></tr>
+<tr><th id="322">322</th><td></td></tr>
+<tr><th id="323">323</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="324">324</th><td></td></tr>
+<tr><th id="325">325</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CORE_PLATFORM_FILE_SYSTEM_H_</u></td></tr>
+<tr><th id="326">326</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../c/c_api.cc.html'>tensorflow/tensorflow/c/c_api.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

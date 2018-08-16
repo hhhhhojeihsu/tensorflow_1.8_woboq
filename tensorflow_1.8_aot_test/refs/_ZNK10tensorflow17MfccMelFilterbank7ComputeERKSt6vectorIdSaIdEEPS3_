@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/kernels/mfcc_mel_filterbank.h' l='36' type='void tensorflow::MfccMelFilterbank::Compute(const std::vector&lt;double&gt; &amp; input, std::vector&lt;double&gt; * output) const'/>
+<use f='tensorflow/tensorflow/core/kernels/mfcc.cc' l='54' u='c' c='_ZNK10tensorflow4Mfcc7ComputeERKSt6vectorIdSaIdEEPS3_'/>
+<doc f='tensorflow/tensorflow/core/kernels/mfcc_mel_filterbank.h' l='33'>// Takes a squared-magnitude spectrogram slice as input, computes a
+  // triangular-mel-weighted linear-magnitude filterbank, and places the result
+  // in output.</doc>
+<def f='tensorflow/tensorflow/core/kernels/mfcc_mel_filterbank.cc' l='171' ll='196' type='void tensorflow::MfccMelFilterbank::Compute(const std::vector&lt;double&gt; &amp; input, std::vector&lt;double&gt; * output) const'/>
+<doc f='tensorflow/tensorflow/core/kernels/mfcc_mel_filterbank.cc' l='168'>// Compute the mel spectrum from the squared-magnitude FFT input by taking the
+// square root, then summing FFT magnitudes under triangular integration windows
+// whose widths increase with frequency.</doc>

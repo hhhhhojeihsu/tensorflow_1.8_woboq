@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/function.h' l='100' type='bool tensorflow::RemoveDeadNodes(tensorflow::Graph * g)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/function.h' l='92'>// A few hand-crafted optimization on the instantiated function body
+// (a Graph*).
+
+// Removes nodes that are
+//   1. not stateful; and
+//   2. not _Arg; and
+//   3. not reachable from _Retval.
+// Returns true iff any node is removed from &quot;g&quot;.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1003' ll='1013' type='bool tensorflow::RemoveDeadNodes(tensorflow::Graph * g)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_optimizer.cc' l='53' u='c' c='_ZN10tensorflow14GraphOptimizer8OptimizeEPNS_22FunctionLibraryRuntimeEPNS_3EnvEPNS_6DeviceEPSt10unique_ptrINS_5GraphESt14default_deleteIS8_EEPKSt13uno8191696'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_optimizer.cc' l='73' u='c' c='_ZN10tensorflow14GraphOptimizer8OptimizeEPNS_22FunctionLibraryRuntimeEPNS_3EnvEPNS_6DeviceEPSt10unique_ptrINS_5GraphESt14default_deleteIS8_EEPKSt13uno8191696'/>

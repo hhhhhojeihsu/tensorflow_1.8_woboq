@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/python/lib/core/py_seq_tensor.h' l='33' type='tensorflow::Status tensorflow::PySeqToTensor(PyObject * obj, PyObject * dtype, tensorflow::Tensor * ret)'/>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tensor.cc' l='271' u='c' c='EagerTensor_init'/>
+<doc f='tensorflow/tensorflow/python/lib/core/py_seq_tensor.h' l='26'>// Converts Python object `obj` representing a rectangular array of
+// Python values (a scalar, a sequence of scalars, a sequence of
+// sequences, etc.) into a C++ TensorFlow Tensor and stores it in
+// *ret.  If dtype is not None it should by a Python integer
+// representing the desired dtype of the resulting Tensor.
+// This is used only as a hint, *ret may not have that dtype on
+// success and may require a cast.</doc>
+<def f='tensorflow/tensorflow/python/lib/core/py_seq_tensor.cc' l='388' ll='490' type='tensorflow::Status tensorflow::PySeqToTensor(PyObject * obj, PyObject * dtype, tensorflow::Tensor * ret)'/>

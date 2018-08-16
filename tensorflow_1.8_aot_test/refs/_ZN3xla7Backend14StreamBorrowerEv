@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='126' ll='128' type='std::function&lt;StatusOr&lt;StreamPtr&gt; (int)&gt; xla::Backend::StreamBorrower()'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='123'>// Returns a function to borrow a stream, as `BorrowStream` above does.
+  // Purely for convenience, the caller could rather make this anonymous
+  // function itself.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='165' u='c' c='_ZN3xla15LocalExecutable3RunEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEENS_20ExecutableRunOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='591' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='704' u='c' c='_ZN3xla7Service24ExecuteAndRegisterResultEPNS_10ExecutableEN10tensorflow3gtl10ArraySliceISt6vectorIPKNS_12ShapedBufferESaIS9_EEEEPNS_7BackendERKSsPNS_16ExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1257' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>

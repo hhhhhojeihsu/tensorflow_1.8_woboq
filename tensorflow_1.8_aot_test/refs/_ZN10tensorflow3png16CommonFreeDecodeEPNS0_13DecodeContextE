@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/lib/png/png_io.h' l='83' type='void tensorflow::png::CommonFreeDecode(tensorflow::png::DecodeContext * context)'/>
+<doc f='tensorflow/tensorflow/core/lib/png/png_io.h' l='80'>// Normally called automatically from CommonFinishDecode.  If CommonInitDecode
+// is called but not CommonFinishDecode, call this to clean up.  Safe to call
+// extra times.</doc>
+<use f='tensorflow/tensorflow/core/kernels/decode_image_op.cc' l='255' u='c' c='_ZN10tensorflow12_GLOBAL__N_113DecodeImageOp9DecodePngEPNS_15OpKernelContextENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_image_op.cc' l='268' u='c' c='_ZN10tensorflow12_GLOBAL__N_113DecodeImageOp9DecodePngEPNS_15OpKernelContextENS_11StringPieceE'/>
+<def f='tensorflow/tensorflow/core/lib/png/png_io.cc' l='122' ll='130' type='void tensorflow::png::CommonFreeDecode(tensorflow::png::DecodeContext * context)'/>
+<use f='tensorflow/tensorflow/core/lib/png/png_io.cc' l='189' u='c' c='_ZN10tensorflow3png12DecodeHeaderENS_11StringPieceEPiS2_S2_S2_PSt6vectorISt4pairISsSsESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/lib/png/png_io.cc' l='209' u='c' c='_ZN10tensorflow3png16CommonInitDecodeENS_11StringPieceEiiPNS0_13DecodeContextE'/>
+<use f='tensorflow/tensorflow/core/lib/png/png_io.cc' l='215' u='c' c='_ZN10tensorflow3png16CommonInitDecodeENS_11StringPieceEiiPNS0_13DecodeContextE'/>
+<use f='tensorflow/tensorflow/core/lib/png/png_io.cc' l='227' u='c' c='_ZN10tensorflow3png16CommonInitDecodeENS_11StringPieceEiiPNS0_13DecodeContextE'/>
+<use f='tensorflow/tensorflow/core/lib/png/png_io.cc' l='232' u='c' c='_ZN10tensorflow3png16CommonInitDecodeENS_11StringPieceEiiPNS0_13DecodeContextE'/>
+<use f='tensorflow/tensorflow/core/lib/png/png_io.cc' l='301' u='c' c='_ZN10tensorflow3png18CommonFinishDecodeEPhiPNS0_13DecodeContextE'/>
+<use f='tensorflow/tensorflow/core/lib/png/png_io.cc' l='319' u='c' c='_ZN10tensorflow3png18CommonFinishDecodeEPhiPNS0_13DecodeContextE'/>
+<doc f='tensorflow/tensorflow/core/lib/png/png_io.cc' l='120'>// We move CommonInitDecode() and CommonFinishDecode()
+// out of the CommonDecode() template to save code space.</doc>

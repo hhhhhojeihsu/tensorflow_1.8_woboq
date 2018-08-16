@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.h' l='166' type='bool xla::HloDataflowAnalysis::Phi(xla::HloInstruction * instruction, tensorflow::gtl::ArraySlice&lt;const InstructionValueSet *&gt; inputs)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.h' l='163'>// Return the result of the SSA Phi function applied to the given inputs at
+  // the given instruction. If skip_top_level is true, then the top level of the
+  // value set of &apos;instruction&apos; is not modified.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='152' ll='248' type='bool xla::HloDataflowAnalysis::Phi(xla::HloInstruction * instruction, tensorflow::gtl::ArraySlice&lt;const InstructionValueSet *&gt; inputs)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='372' u='c' c='_ZN3xla19HloDataflowAnalysis25UpdateConditionalValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='487' u='c' c='_ZN3xla19HloDataflowAnalysis23UpdateParameterValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='545' u='c' c='_ZN3xla19HloDataflowAnalysis19UpdateWhileValueSetEPNS_14HloInstructionE'/>

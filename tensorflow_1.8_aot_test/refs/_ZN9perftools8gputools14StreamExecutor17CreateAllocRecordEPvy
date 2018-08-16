@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='574' type='void perftools::gputools::StreamExecutor::CreateAllocRecord(void * opaque, uint64 size)'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='776' u='c' c='_ZN9perftools8gputools14StreamExecutor17AllocateSubBufferEPNS0_12DeviceMemoryIT_EEyy'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='571'>// Adds an AllocRecord for &apos;opaque&apos; of size &apos;bytes&apos; to the record map, for
+  // leak checking. NULL buffer pointers and buffer sizes of 0 will not be
+  // tracked.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='457' u='c' c='_ZN9perftools8gputools14StreamExecutor8AllocateEy'/>
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='724' ll='730' type='void perftools::gputools::StreamExecutor::CreateAllocRecord(void * opaque, uint64 bytes)'/>

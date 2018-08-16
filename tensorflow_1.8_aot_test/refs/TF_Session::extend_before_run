@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/c/c_api_internal.h' l='137' type='std::atomic&lt;bool&gt;'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2469' u='w' c='_ZN10TF_SessionC1EPN10tensorflow7SessionEP8TF_Graph'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2578' u='m' c='TF_SessionRun'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2616' u='m' c='TF_SessionPRunSetup'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2660' u='m' c='TF_SessionPRun'/>
+<offset>288</offset>
+<doc f='tensorflow/tensorflow/c/c_api_internal.h' l='133'>// If true, TF_SessionRun and similar methods will call
+  // ExtendSessionGraphHelper before running the graph (this is the default
+  // public behavior). Can be set to false if the caller needs to call
+  // ExtendSessionGraphHelper manually.</doc>
+<use f='tensorflow/tensorflow/c/python_api.cc' l='110' u='w' c='_ZN10tensorflow13ExtendSessionEP10TF_SessionP9TF_Status'/>

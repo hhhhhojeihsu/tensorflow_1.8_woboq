@@ -1,0 +1,11 @@
+<def f='tensorflow/tensorflow/core/platform/setround.h' l='31' ll='40'/>
+<size>4</size>
+<doc f='tensorflow/tensorflow/core/platform/setround.h' l='26'>// While this class is active, floating point rounding mode is set to the given
+// mode. The mode can be one of the modes defined in &lt;cfenv&gt;, i.e. FE_DOWNWARD,
+// FE_TONEAREST, FE_TOWARDZERO, or FE_UPWARD. The destructor restores the
+// original rounding mode if it could be determined. If the original rounding
+// mode could not be determined, the destructor sets it to FE_TONEAREST.</doc>
+<fun r='_ZN10tensorflow4port14ScopedSetRoundC1Ei'/>
+<fun r='_ZN10tensorflow4port14ScopedSetRoundD1Ev'/>
+<mbr r='tensorflow::port::ScopedSetRound::original_mode_' o='0' t='int'/>
+<fun r='_ZN10tensorflow4port14ScopedSetRoundC1ERKS1_'/>

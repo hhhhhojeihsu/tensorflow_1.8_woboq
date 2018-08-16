@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/core/lib/gtl/manual_constructor.h' l='129' ll='131' type='static void * tensorflow::ManualConstructor::operator new[](size_t size)'/>
+<doc f='tensorflow/tensorflow/core/lib/gtl/manual_constructor.h' l='122'>// No constructor or destructor because one of the most useful uses of
+  // this class is as part of a union, and members of a union cannot have
+  // constructors or destructors.  And, anyway, the whole point of this
+  // class is to bypass these.
+
+  // Support users creating arrays of ManualConstructor&lt;&gt;s.  This ensures that
+  // the array itself has the correct alignment.</doc>

@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='338' type='static xla::Shape xla::ShapeUtil::MakeShapeWithLayout(xla::PrimitiveType element_type, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions, tensorflow::gtl::ArraySlice&lt;int64&gt; minor_to_major)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='336'>// Constructs a new shape with the given minor_to_major order in its Layout.
+  // Returns a value shape such that shape.has_layout().</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='947' u='c' c='_ZN3xla7Literal18CreateR2WithLayoutESt16initializer_listIS1_IT_EERKNS_6LayoutE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1051' u='c' c='_ZN3xla7Literal25CreateFromArrayWithLayoutERKNS_5ArrayIT_EERKNS_6LayoutE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/shape_util.cc' l='56' u='c' c='_ZN10tensorflow21TensorShapeToXLAShapeENS_8DataTypeERKNS_11TensorShapeEPN3xla5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='843' u='c' c='_ZNK3xla7Literal5SliceEN10tensorflow3gtl10ArraySliceIxEES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1475' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor60TryToSinkReshapeOrBroadcastAfterOpWithUniqueNonScalarOperandEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1485' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor60TryToSinkReshapeOrBroadcastAfterOpWithUniqueNonScalarOperandEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1494' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor60TryToSinkReshapeOrBroadcastAfterOpWithUniqueNonScalarOperandEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='941' u='c' c='_ZN3xla16LayoutAssignment35ChooseOperandLayoutFromOutputLayoutERKNS_6LayoutEPKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1012' u='c' c='_ZN3xla16LayoutAssignment35ChooseOutputLayoutFromOperandLayoutERKNS_6LayoutEPKNS_14HloInstructionEx'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='191' ll='196' type='static xla::Shape xla::ShapeUtil::MakeShapeWithLayout(xla::PrimitiveType element_type, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions, tensorflow::gtl::ArraySlice&lt;int64&gt; minor_to_major)'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='202' u='c' c='_ZN3xla9ShapeUtil29MakeShapeWithDescendingLayoutENS_13PrimitiveTypeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='897' u='c' c='_ZN3xla9ShapeUtil25StripDegenerateDimensionsERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1409' u='c' c='_ZN3xla9ShapeUtil12AlignLayoutsERKNS_5ShapeES3_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='191'>/* static */</doc>

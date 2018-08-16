@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/client.h' l='144' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::Client::Transfer(const xla::GlobalData &amp; data, const xla::Shape * shape_with_layout = nullptr)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/client.h' l='138'>// Transfer the global data provided to this client process, which is
+  // returned in the provided literal. Use sparingly to avoid transfer
+  // overheads.
+  //
+  // If shape_with_layout is not nullptr, it points to a shape whose layout will
+  // be the layout of the returned literal.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/client.cc' l='39' ll='64' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::Client::Transfer(const xla::GlobalData &amp; data, const xla::Shape * shape_with_layout = nullptr)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/client.cc' l='177' u='c' c='_ZN3xla6Client18ExecuteAndTransferERKNS_11ComputationEN10tensorflow3gtl10ArraySliceIPNS_10GlobalDataEEEPKNS_16ExecutionOptionsEPNS_16ExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/client.cc' l='193' u='c' c='_ZN3xla6Client18ExecuteAndTransferERKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIPNS_10GlobalDataEEEPKNS_16ExecutionOptionsEPNS_16ExecutionProfileE'/>

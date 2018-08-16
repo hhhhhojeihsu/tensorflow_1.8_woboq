@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/cc/framework/scope.h' l='141' type='tensorflow::Scope tensorflow::Scope::ColocateWith(const tensorflow::Operation &amp; op) const'/>
+<use f='tensorflow/tensorflow/cc/framework/scope.h' l='143' u='c' c='_ZNK10tensorflow5Scope12ColocateWithERKNS_6OutputE'/>
+<doc f='tensorflow/tensorflow/cc/framework/scope.h' l='136'>/// Return a new scope. All ops created within the returned scope will be
+  /// co-located on the device where op is placed.
+  /// NOTE: This function is intended to be use internal libraries only for
+  /// controlling placement of ops on to devices. Public use is not encouraged
+  /// because the implementation of device placement is subject to change.</doc>
+<def f='tensorflow/tensorflow/cc/framework/scope.cc' l='387' ll='390' type='tensorflow::Scope tensorflow::Scope::ColocateWith(const tensorflow::Operation &amp; op) const'/>

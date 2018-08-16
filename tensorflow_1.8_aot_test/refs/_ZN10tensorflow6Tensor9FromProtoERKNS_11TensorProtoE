@@ -1,0 +1,34 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor.h' l='209' type='bool tensorflow::Tensor::FromProto(const tensorflow::TensorProto &amp; other)'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor.h' l='205'>/// \brief Parse `other` and construct the tensor.
+
+  /// Returns `true` iff the parsing succeeds. If the parsing fails,
+  /// the state of `*this` is unchanged.</doc>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='1153' u='c' c='_ZN10tensorflow12_GLOBAL__N_115SummaryDbWriter13MigrateTensorEPKNS_5EventEPNS_13Summary_ValueEy'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eval_const_tensor.cc' l='302' u='c' c='_ZN10tensorflow22EvaluateConstantTensorENS_12OutputTensorERKNS_12ShapeRefinerERKNS_19OpRegistryInterfaceEiPbPNS_6TensorEPNS_11GraphRunnerEPSt13unorder9679894'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/cluster_function_library_runtime.cc' l='228' u='c' c='_ZN10tensorflow29ClusterFunctionLibraryRuntime3RunERKNS_22FunctionLibraryRuntime7OptionsEyNS_3gtl10ArraySliceINS_6TensorEEEPSt6vectorIS7_SaIS7_EESt8fu4773367'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='85' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ReEncodeConstsEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/example/example_parser_configuration.cc' l='177' u='c' c='_ZN10tensorflow47ExampleParserConfigurationProtoToFeatureVectorsERKNS_26ExampleParserConfigurationEPSt6vectorINS_15FixedLenFeatureESaIS4_EEPS3_INS_13V659721'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='54' u='c' c='_ZN10tensorflow12_GLOBAL__N_115SummarizeTensorERKNS_11TensorProtoE'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='422' u='c' c='_ZN10tensorflow18AreAttrValuesEqualERKNS_9AttrValueES2_'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='426' u='c' c='_ZN10tensorflow18AreAttrValuesEqualERKNS_9AttrValueES2_'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='475' u='c' c='_ZN10tensorflow13AttrValueHashERKNS_9AttrValueE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='238' u='c' c='_ZN10tensorflow11GetNodeAttrERKNS_9AttrSliceENS_11StringPieceEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='238' u='c' c='_ZN10tensorflow11GetNodeAttrERKNS_9AttrSliceENS_11StringPieceEPSt6vectorINS_6TensorESaIS5_EE'/>
+<def f='tensorflow/tensorflow/core/framework/tensor.cc' l='804' ll='806' type='bool tensorflow::Tensor::FromProto(const tensorflow::TensorProto &amp; proto)'/>
+<use f='tensorflow/tensorflow/core/framework/variant_tensor_data.cc' l='60' u='c' c='_ZN10tensorflow17VariantTensorData9FromProtoERKNS_22VariantTensorDataProtoE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='747' u='c' c='_ZN10tensorflow8grappler34GetTensorShapeProtoFromTensorProtoERKNS_11TensorProtoEPNS_16TensorShapeProtoE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/utils.cc' l='132' u='c' c='_ZN10tensorflow8grapplerL22ExtractExtraPropertiesERKNS_7NodeDefERKSt13unordered_mapISsPS2_St4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEEPNS_6OpInfoE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='114' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_112AllValuesAreERKNS_11TensorProtoERKT_'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='368' u='c' c='_ZN10tensorflow8grappler15ConstantFolding17MaterializeShapesERKNS0_15GraphPropertiesE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='491' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_112ExtractShapeERKNS_7NodeDefERKNS0_15GraphPropertiesEPNS_3gtl13InlinedVectorIxLi4EEEPx'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1020' u='c' c='_ZN10tensorflow8grappler15ConstantFolding19EvaluateOneFoldableERKNS_7NodeDefEPSt6vectorIS2_SaIS2_EE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1603' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1608' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1642' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1671' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='759' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_113NodeProcessor15UpdateAttrValueEPNS_7NodeDefEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='1873' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_115ReduceProcessor11IsAlongAxisERKSt6vectorIiSaIiEE'/>
+<use f='tensorflow/tensorflow/core/kernels/serialize_sparse_op.cc' l='545' u='c' c='_ZN10tensorflow19DeserializeSparseOp11DeserializeERKT_PNS_6TensorE'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_weights.cc' l='58' u='c' c='_ZN10tensorflow16graph_transforms15QuantizeWeightsERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/round_weights.cc' l='55' u='c' c='_ZN10tensorflow16graph_transforms12RoundWeightsERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='154' u='c' c='_ZN10tensorflow16graph_transforms17GetNodeTensorAttrERKNS_7NodeDefERKSs'/>

@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/cluster.h' l='94' type='std::unique_ptr&lt;Cluster&gt; toco::ClusterFactoryInterface::CreateCluster(const tensorflow::NodeDef &amp; node, const tensorflow::GraphDef &amp; graph_def) const'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/cluster.h' l='91'>// Creates a cluster of nodes using a name-based pattern matching approach. It
+  // uses a node as a seed and if its name matches a certain pattern, then it
+  // builds the cluster around that node.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.cc' l='73' u='c' c='_ZN4toco11FindClusterERKNS_23ClusterFactoryInterfaceERKN10tensorflow8GraphDefEPSt13unordered_mapISsbSt4hashISsESt8equal_toISsESaISt4pairIKSsbEEEPSt6ve14038988'/>
+<ovr f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='253' c='_ZNK4toco18SvdfClusterFactory13CreateClusterERKN10tensorflow7NodeDefERKNS1_8GraphDefE'/>

@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/python/client/tf_session_helper.h' l='146' type='void tensorflow::TF_SessionRun_wrapper(TF_Session * session, const TF_Buffer * run_options, const std::vector&lt;TF_Output&gt; &amp; inputs, const std::vector&lt;PyObject *&gt; &amp; input_ndarrays, const std::vector&lt;TF_Output&gt; &amp; outputs, const std::vector&lt;TF_Operation *&gt; &amp; targets, TF_Buffer * run_metadata, TF_Status * status, std::vector&lt;PyObject *&gt; * py_outputs)'/>
+<def f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='429' ll='442' type='void tensorflow::TF_SessionRun_wrapper(TF_Session * session, const TF_Buffer * run_options, const std::vector&lt;TF_Output&gt; &amp; inputs, const std::vector&lt;PyObject *&gt; &amp; input_ndarrays, const std::vector&lt;TF_Output&gt; &amp; outputs, const std::vector&lt;TF_Operation *&gt; &amp; targets, TF_Buffer * run_metadata, TF_Status * out_status, std::vector&lt;PyObject *&gt; * py_outputs)'/>
+<doc f='tensorflow/tensorflow/python/client/tf_session_helper.h' l='141'>// Runs the graph associated with the session starting with the supplied inputs.
+// On success, `py_outputs` is populated with a numpy ndarray for each output
+// (the caller must decref these ndarrays, although this will likely be handled
+// by the Python gc). `session`, `out_status`, and `py_outputs` must be
+// non-null. `py_outputs` should be empty.</doc>

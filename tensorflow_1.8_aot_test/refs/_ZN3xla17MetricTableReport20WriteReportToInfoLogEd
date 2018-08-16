@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/metric_table_report.h' l='101' type='void xla::MetricTableReport::WriteReportToInfoLog(double expected_metric_sum)'/>
+<def f='tensorflow/tensorflow/compiler/xla/metric_table_report.cc' l='76' ll='95' type='void xla::MetricTableReport::WriteReportToInfoLog(double expected_metric_sum)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/metric_table_report.h' l='97'>// As MakeReport(), but writes the report to the INFO log in a way that avoids
+  // cutting the report off if it is longer than the maximum line length for a
+  // logged line. Individual lines in the report may still be cut off, but they
+  // would have to be very long for that to happen.</doc>

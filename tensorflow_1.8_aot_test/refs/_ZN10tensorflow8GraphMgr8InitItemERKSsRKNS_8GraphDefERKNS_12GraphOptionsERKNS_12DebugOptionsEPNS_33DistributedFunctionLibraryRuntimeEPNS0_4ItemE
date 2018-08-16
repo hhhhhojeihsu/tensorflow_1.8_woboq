@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.h' l='176' type='tensorflow::Status tensorflow::GraphMgr::InitItem(const string &amp; session, const tensorflow::GraphDef &amp; gdef, const tensorflow::GraphOptions &amp; graph_options, const tensorflow::DebugOptions &amp; debug_options, tensorflow::DistributedFunctionLibraryRuntime * cluster_flr, tensorflow::GraphMgr::Item * item)'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='118' ll='278' type='tensorflow::Status tensorflow::GraphMgr::InitItem(const string &amp; session, const tensorflow::GraphDef &amp; gdef, const tensorflow::GraphOptions &amp; graph_options, const tensorflow::DebugOptions &amp; debug_options, tensorflow::DistributedFunctionLibraryRuntime * cluster_flr, tensorflow::GraphMgr::Item * item)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='287' u='c' c='_ZN10tensorflow8GraphMgr8RegisterERKSsRKNS_8GraphDefERKNS_12GraphOptionsERKNS_12DebugOptionsEPNS_33DistributedFunctionLibraryRuntimeEPSs'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='107'>// Creates executors given a graph definition &quot;gdef&quot; of a &quot;session&quot;.
+// If a node in &quot;gdef&quot; is shared by other graphs in &quot;session&quot;, the
+// same op kernel is reused. E.g., typically a params node is shared
+// by multiple graphs in a session.
+//
+// If &quot;gdef&quot; is assigned to multiple devices, extra nodes (e.g.,
+// send/recv nodes) maybe added. The extra nodes&apos; name are generated
+// by calling &quot;new_name(old_name)&quot;.
+//
+// &quot;executors&quot; are filled with one executor per device if success and
+// the caller takes the ownership of returned executors.</doc>

@@ -1,0 +1,13 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/execution_tracker.h' l='41' ll='65'/>
+<size>120</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/execution_tracker.h' l='38'>// Represents an asynchronously launched execution. Owns the stream (from the
+// passed run_options-&gt;stream()) on which the execution is launched and releases
+// the stream when destructed.</doc>
+<fun r='_ZN3xla14AsyncExecutionC1EPNS_7BackendESt6vectorISt10unique_ptrIN9perftools8gputools6StreamENS_4PoolIS7_E7DeleterEESaISB_EERKNS_16ExecutionProfileENS_16GlobalDataHandleE'/>
+<fun r='_ZNK3xla14AsyncExecution14BlockUntilDoneEv'/>
+<fun r='_ZNK3xla14AsyncExecution6resultEv'/>
+<fun r='_ZNK3xla14AsyncExecution7profileEv'/>
+<mbr r='xla::AsyncExecution::backend_' o='0' t='xla::Backend *'/>
+<mbr r='xla::AsyncExecution::streams_' o='64' t='std::vector&lt;Backend::StreamPtr&gt;'/>
+<mbr r='xla::AsyncExecution::profile_' o='256' t='xla::ExecutionProfile'/>
+<mbr r='xla::AsyncExecution::result_' o='704' t='xla::GlobalDataHandle'/>

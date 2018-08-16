@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='65' type='StatusOr&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; xla::Executable::ExecuteOnStream(const xla::ServiceExecutableRunOptions * run_options, tensorflow::gtl::ArraySlice&lt;const ShapedBuffer *&gt; arguments, xla::HloExecutionProfile * hlo_execution_profile)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='58'>// Enqueues the compilation result on the provided stream, passing the given
+  // arguments. This call is blocking and returns after the execution is done.
+  //
+  // If the hlo_execution_profile is provided as non-nullptr, profiling will be
+  // enabled.
+  //
+  // Returns a shaped buffer containing the result of the computation.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='188' u='c' c='_ZN3xla15LocalExecutable14ExecuteAndDumpEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='287' c='_ZN3xla3cpu13CpuExecutable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='452' c='_ZN3xla3cpu21ParallelCpuExecutable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='42' u='c' c='_ZN3xla10Executable16ExecuteOnStreamsEN10tensorflow3gtl10ArraySliceIKNS_27ServiceExecutableRunOptionsEEENS3_INS3_IPKNS_12ShapedBufferEEEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='82' u='c' c='_ZN3xla10Executable22ExecuteOnStreamWrapperEPKNS_27ServiceExecutableRunOptionsEPNS_16ExecutionProfileEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>

@@ -1,0 +1,42 @@
+<dec f='tensorflow/tensorflow/cc/framework/gradients.h' l='48' type='tensorflow::Output tensorflow::NoGradient()'/>
+<doc f='tensorflow/tensorflow/cc/framework/gradients.h' l='43'>/// Returns a sentinel Output that represents &apos;no gradient&apos; (i.e. no gradient
+/// flows along some graph edge during backpropagation).
+/// Can be returned in &apos;grad_outputs&apos; by an invocation of &apos;AddSymbolicGradients&apos;
+/// (note that gradient flow through an Output can be stopped through the use of
+/// the StopGradient node).</doc>
+<def f='tensorflow/tensorflow/cc/framework/gradients.cc' l='580' type='tensorflow::Output tensorflow::NoGradient()'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='97' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_127QuantizeAndDequantizeV2GradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='98' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_127QuantizeAndDequantizeV2GradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='107' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_127QuantizeAndDequantizeV3GradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='108' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_127QuantizeAndDequantizeV3GradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='109' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_127QuantizeAndDequantizeV3GradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='117' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_19SplitGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='154' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_118MatrixBandPartGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='155' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_118MatrixBandPartGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='167' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_112GatherNdGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='190' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_111ReshapeGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='200' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_114ExpandDimsGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='219' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_113TransposeGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='235' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119ReverseSequenceGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='245' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_111ReverseGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='254' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_113ScatterNdGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='256' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_113ScatterNdGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='266' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_127ScatterNdNonAliasingAddGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='284' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_17PadGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='287' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_17PadGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='302' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_116SpaceToBatchGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='312' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_118SpaceToBatchNDGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='313' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_118SpaceToBatchNDGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='326' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_116BatchToSpaceGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='336' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_118BatchToSpaceNDGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='337' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_118BatchToSpaceNDGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='371' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_113MirrorPadGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='383' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117MirrorPadGradGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/data_flow_grad.cc' l='104' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_120DynamicPartitionGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/data_flow_grad.cc' l='125' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117DynamicStitchGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/math_grad.cc' l='705' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_17SumGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/math_grad.cc' l='732' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_18MeanGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/math_grad.cc' l='826' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_112MinOrMaxGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/math_grad.cc' l='1004' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_18ProdGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='179' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119MaxPoolGradV2HelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='180' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119MaxPoolGradV2HelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>

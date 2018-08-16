@@ -1,0 +1,45 @@
+<dec f='tensorflow/tensorflow/core/debug/debug_graph_utils.h' l='74' type='static tensorflow::Status tensorflow::DebugNodeInserter::InsertNodes(const protobuf::RepeatedPtrField&lt;DebugTensorWatch&gt; &amp; watches, tensorflow::Graph * graph, tensorflow::Device * device)'/>
+<def f='tensorflow/tensorflow/core/debug/debug_graph_utils.cc' l='48' ll='221' type='static tensorflow::Status tensorflow::DebugNodeInserter::InsertNodes(const protobuf::RepeatedPtrField&lt;DebugTensorWatch&gt; &amp; watches, tensorflow::Graph * graph, tensorflow::Device * device)'/>
+<doc f='tensorflow/tensorflow/core/debug/debug_graph_utils.cc' l='47'>// static</doc>
+<doc f='tensorflow/tensorflow/core/debug/debug_graph_utils.h' l='33'>// EXPERIMENTAL: Insert special debug ops (e.g., DebugIdentity) to graph for
+  // debugging. Currently, such ops need to take exactly one input and has the
+  // string attribute &quot;tensor_name&quot; to indicate what tensor it watches.
+  // For example, before the node insertion, the graph may look like:
+  //
+  // A:0 -----------1----------&gt; B
+  //      |
+  //      ---------2-----------&gt; C
+  //
+  // wherein the output slot 0 of node A feeds as the input to nodes B through
+  // edge 1 and to node C through edge 2.
+  // After the node insertion, assuming both B and C have non-Ref input, the
+  // graph becomes:
+  // A:0 ---3---&gt; Copy -----------4----------&gt; B
+  //                       |
+  //                       ---------5--------&gt; C
+  //                       |
+  //                       ---------6--------&gt; X
+  //
+  // If a node (e.g., B) has Ref input, the graph becomes:
+  //
+  //           --------------------------------&gt; B
+  //           |
+  // A:0 ---3-----&gt; Copy -----------4----------&gt; C
+  //                       |
+  //                       -----------5--------&gt; X
+  //
+  // In other words, we do not feed Refs to deep-copies to downstream nodes.
+  //
+  // Copy is the inserted deep-copy node that copies the input tensor on-device
+  // (e.g., CPU-to-CPU or GPU-to-GPU deep copy) that reduces the likelihood of
+  // racy updates during the debug watches. X is the newly created debug node
+  // that transforms the input (copy of the watched tensor) into a debug signal.
+  //
+  // DebugIdentity is the simplest debugging paradigm, in which the debug signal
+  // (i.e., X:0) equals the tensor itself. More sophisticated debug ops can be
+  // used to transform the tensor into other debug signals. An example is the
+  // DebugNanCounter op.
+  //
+  // If the nodes (A, B and C) are located on GPU and the edges from A to B or C
+  // is HOST_MEMORY, then the CopyHost op will be used instead of the Copy op.</doc>
+<use f='tensorflow/tensorflow/core/debug/debugger_state_impl.cc' l='50' u='c' c='_ZN10tensorflow19DebugGraphDecorator13DecorateGraphEPNS_5GraphEPNS_6DeviceE'/>

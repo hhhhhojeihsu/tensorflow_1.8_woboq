@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='78' type='void perftools::gputools::internal::TemporaryMemoryManager::MarkFinalized(const perftools::gputools::DeviceMemoryBase &amp; device_memory, uint64 generation, bool must_exist)'/>
+<doc f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='74'>// Marks the given memory region as finalized.
+  //
+  // If must_exist is set, this will check-fail if the temporary memory record
+  // is not found.</doc>
+<use f='tensorflow/tensorflow/stream_executor/temporary_device_memory.cc' l='24' u='c' c='_ZN9perftools8gputools25TemporaryDeviceMemoryBaseD1Ev'/>
+<use f='tensorflow/tensorflow/stream_executor/temporary_device_memory.cc' l='43' u='c' c='_ZN9perftools8gputools25TemporaryDeviceMemoryBase8FinalizeEv'/>
+<def f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.cc' l='37' ll='49' type='void perftools::gputools::internal::TemporaryMemoryManager::MarkFinalized(const perftools::gputools::DeviceMemoryBase &amp; device_memory, uint64 generation, bool must_exist)'/>

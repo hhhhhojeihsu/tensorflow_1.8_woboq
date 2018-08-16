@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/framework/log_memory.h' l='104' type='static void tensorflow::LogMemory::RecordRawDeallocation(const string &amp; operation, int64 step_id, void * ptr, tensorflow::Allocator * allocator, bool deferred)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='170' u='c' c='(anonymousnamespace)::deallocate_buffer'/>
+<doc f='tensorflow/tensorflow/core/framework/log_memory.h' l='99'>// Log a &quot;raw&quot; deallocation of a buffer. When deferred is true, the
+  // buffer won&apos;t be used again, but a GPU kernel may still be
+  // enqueued using the buffer. A deferred deallocation should always
+  // be followed by a matching non-deferred deallocation when the
+  // buffer is actually returned and can be reused.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.h' l='121' u='c' c='_ZN10tensorflow8EventMgr10FreeMemoryERKNS_3gtl13InlinedVectorINS0_5InUseELi4EEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.cc' l='64' u='c' c='_ZN10tensorflow8EventMgrD1Ev'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='179' u='c' c='_ZN10tensorflow7GPUUtil15SetProtoFromGPUERKNS_6TensorEPNS_6DeviceEPKNS_13DeviceContextEPNS_11TensorProtoEbSt8functionIFvRKNS_6StatusEEE'/>
+<def f='tensorflow/tensorflow/core/framework/log_memory.cc' l='90' ll='100' type='static void tensorflow::LogMemory::RecordRawDeallocation(const string &amp; operation, const int64 step_id, void * ptr, tensorflow::Allocator * allocator, bool deferred)'/>

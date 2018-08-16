@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.h' l='38' type='xla::LogicalBuffer &amp; xla::LogicalBufferAnalysis::GetBuffer(xla::HloInstruction * instruction, const xla::ShapeIndex &amp; index) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.h' l='36'>// Returns the logical buffer that represents the output of a given HLO
+  // at a given index.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.cc' l='83' ll='86' type='xla::LogicalBuffer &amp; xla::LogicalBufferAnalysis::GetBuffer(xla::HloInstruction * instruction, const xla::ShapeIndex &amp; index) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='210' u='c' c='_ZN3xla21TuplePointsToAnalysis13DefaultActionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='262' u='c' c='_ZN3xla21TuplePointsToAnalysis10HandleCopyEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='316' u='c' c='_ZN3xla21TuplePointsToAnalysis10HandleSendEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='321' u='c' c='_ZN3xla21TuplePointsToAnalysis10HandleSendEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='348' u='c' c='_ZN3xla21TuplePointsToAnalysis11HandleTupleEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='411' u='c' c='_ZN3xla21TuplePointsToAnalysis12HandleSelectEPNS_14HloInstructionE'/>

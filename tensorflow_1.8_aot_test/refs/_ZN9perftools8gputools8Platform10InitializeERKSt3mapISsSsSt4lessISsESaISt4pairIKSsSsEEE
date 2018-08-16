@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/stream_executor/platform.h' l='133' type='port::Status perftools::gputools::Platform::Initialize(const std::map&lt;string, string&gt; &amp; platform_options)'/>
+<doc f='tensorflow/tensorflow/stream_executor/platform.h' l='127'>// Initializes the platform with a custom set of options. The platform must be
+  // initialized before obtaining StreamExecutor objects.  The interpretation of
+  // the platform_options argument is implementation specific.  This method may
+  // return an error if unrecognized options are provided.  If using
+  // MultiPlatformManager, this method will be called automatically by
+  // InitializePlatformWithId/InitializePlatformWithName.</doc>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='78' u='c' c='_ZN9perftools8gputools20MultiPlatformManager16PlatformWithNameERKSs'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='90' u='c' c='_ZN9perftools8gputools20MultiPlatformManager14PlatformWithIdERKPv'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='107' u='c' c='_ZN9perftools8gputools20MultiPlatformManager26InitializePlatformWithNameERKSsRKSt3mapISsSsSt4lessISsESaISt4pairIS2_SsEEE'/>
+<use f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='124' u='c' c='_ZN9perftools8gputools20MultiPlatformManager24InitializePlatformWithIdERKPvRKSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEE'/>
+<def f='tensorflow/tensorflow/stream_executor/platform.cc' l='90' ll='97' type='port::Status perftools::gputools::Platform::Initialize(const std::map&lt;string, string&gt; &amp; platform_options)'/>

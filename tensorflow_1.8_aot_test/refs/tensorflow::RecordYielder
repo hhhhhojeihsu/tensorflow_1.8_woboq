@@ -1,0 +1,55 @@
+<def f='tensorflow/tensorflow/core/kernels/record_yielder.h' l='58' ll='156'/>
+<size>2736</size>
+<doc f='tensorflow/tensorflow/core/kernels/record_yielder.h' l='33'>// RecordYielder produces value records from a set of tfrecord files
+// in a random order.
+//
+// It guarantees that:
+//   1) all records in tfrecords are yielded within every epoch;
+//   2) each record is yielded only once within every epoch;
+//   3) the order in which records are yielded is highly randomized.
+//   4) the peak memory usage is roughly avg record size *
+//      (opts.bufsize + opts.parellelism * 16).
+//
+// Usage example:
+//   RecordYielder::Options opts;
+//   opts.file_pattern = &quot;input-*&quot;;
+//   opts.seed = 301;
+//   opts.bufsize = 1000000;    // A randomized buffer with 1M records.
+//   opts.parallelism = 8;      // Uses 8 tfrecord iterators to iterate
+//                              // through all files.
+//   RecordYielder yielder(opts);
+//   string val;
+//   while (true) {
+//     yielder.YieldOne(&amp;val);
+//     // process val
+//   }
+//
+// RecordYielder can be accessed by multiple threads concurrently.</doc>
+<fun r='_ZN10tensorflow13RecordYielderC1EPNS_20OpKernelConstructionERKNS0_7OptionsE'/>
+<fun r='_ZN10tensorflow13RecordYielderD1Ev'/>
+<fun r='_ZN10tensorflow13RecordYielderC1ERKS0_'/>
+<fun r='_ZN10tensorflow13RecordYielderaSERKS0_'/>
+<fun r='_ZN10tensorflow13RecordYielder8YieldOneEPSs'/>
+<fun r='_ZNK10tensorflow13RecordYielder13current_epochEv'/>
+<mbr r='tensorflow::RecordYielder::opts_' o='0' t='tensorflow::RecordYielder::Options'/>
+<mbr r='tensorflow::RecordYielder::thread_' o='384' t='thread::ThreadPool *'/>
+<mbr r='tensorflow::RecordYielder::epoch_' o='448' t='std::atomic&lt;int64&gt;'/>
+<mbr r='tensorflow::RecordYielder::mu_' o='512' t='tensorflow::mutex'/>
+<mbr r='tensorflow::RecordYielder::stop_' o='640' t='bool'/>
+<mbr r='tensorflow::RecordYielder::status_' o='704' t='tensorflow::Status'/>
+<mbr r='tensorflow::RecordYielder::rnd_' o='768' t='std::mt19937_64'/>
+<mbr r='tensorflow::RecordYielder::buf_' o='20800' t='std::vector&lt;string&gt;'/>
+<mbr r='tensorflow::RecordYielder::epoch_end_' o='20992' t='bool'/>
+<mbr r='tensorflow::RecordYielder::num_records_added_in_epoch_' o='21056' t='int64'/>
+<mbr r='tensorflow::RecordYielder::num_records_yielded_in_epoch_' o='21120' t='int64'/>
+<mbr r='tensorflow::RecordYielder::main_loop_done_' o='21184' t='tensorflow::Notification'/>
+<mbr r='tensorflow::RecordYielder::buf_empty_' o='21504' t='tensorflow::condition_variable'/>
+<fun r='_ZNK10tensorflow13RecordYielder8BufEmptyEv'/>
+<mbr r='tensorflow::RecordYielder::buf_not_full_' o='21632' t='tensorflow::condition_variable'/>
+<fun r='_ZNK10tensorflow13RecordYielder10BufNotFullEv'/>
+<mbr r='tensorflow::RecordYielder::buf_enough_' o='21760' t='tensorflow::condition_variable'/>
+<fun r='_ZNK10tensorflow13RecordYielder9BufEnoughEv'/>
+<fun r='_ZN10tensorflow13RecordYielder8MainLoopEv'/>
+<fun r='_ZN10tensorflow13RecordYielder9ShardLoopEPNS0_5ShardE'/>
+<fun r='_ZN10tensorflow13RecordYielder12ShouldFinishERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow13RecordYielder3AddEPSt6vectorISsSaISsEE'/>

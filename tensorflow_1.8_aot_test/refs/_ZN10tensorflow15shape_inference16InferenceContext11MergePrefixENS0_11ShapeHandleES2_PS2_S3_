@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/framework/shape_inference.h' l='409' type='tensorflow::Status tensorflow::shape_inference::InferenceContext::MergePrefix(tensorflow::shape_inference::ShapeHandle s, tensorflow::shape_inference::ShapeHandle prefix, tensorflow::shape_inference::ShapeHandle * s_out, tensorflow::shape_inference::ShapeHandle * prefix_out)'/>
+<doc f='tensorflow/tensorflow/core/framework/shape_inference.h' l='405'>// Asserts that &lt;s&gt;&apos;s rank &gt;= &lt;prefix&gt;&apos;s rank, and the first
+  // &lt;prefix.rank&gt; dimensions of &lt;s&gt; are compatible with the dimensions of
+  // &lt;prefix&gt;.
+  // Returns the merged results in &lt;*s_out&gt; and &lt;*prefix_out&gt;.</doc>
+<use f='tensorflow/tensorflow/contrib/seq2seq/ops/beam_search_ops.cc' l='47' u='c'/>
+<def f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='459' ll='481' type='tensorflow::Status tensorflow::shape_inference::InferenceContext::MergePrefix(tensorflow::shape_inference::ShapeHandle s, tensorflow::shape_inference::ShapeHandle prefix, tensorflow::shape_inference::ShapeHandle * s_out, tensorflow::shape_inference::ShapeHandle * prefix_out)'/>
+<use f='tensorflow/tensorflow/core/ops/data_flow_ops.cc' l='70' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/data_flow_ops.cc' l='114' u='c' c='_ZN10tensorflow12_GLOBAL__N_126DynamicStitchShapeFunctionEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/data_flow_ops.cc' l='717' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_ops.cc' l='988' u='c' c='_ZN10tensorflow12_GLOBAL__N_131UnsortedSegmentReductionShapeFnEPNS_15shape_inference16InferenceContextE'/>

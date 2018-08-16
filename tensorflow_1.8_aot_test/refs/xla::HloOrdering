@@ -1,0 +1,20 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='36' ll='92'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='96' c='xla::PredecessorHloOrdering'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='184' c='xla::SequentialHloOrdering'/>
+<size>24</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='34'>// Base class for describing a partial ordering of HLO instructions. Used to
+// determine live range overlap of HLO instruction output buffers.</doc>
+<fun r='_ZN3xla11HloOrderingC1EPKNS_9HloModuleE'/>
+<fun r='_ZN3xla11HloOrderingD1Ev'/>
+<fun r='_ZNK3xla11HloOrdering14ExecutesBeforeEPKNS_14HloInstructionES3_'/>
+<fun r='_ZNK3xla11HloOrdering15IsDefinedBeforeERKNS_8HloValueES3_'/>
+<fun r='_ZNK3xla11HloOrdering26UseIsBeforeValueDefinitionERKNS_6HloUseERKNS_8HloValueERKNS_19HloDataflowAnalysisE'/>
+<fun r='_ZNK3xla11HloOrdering12MayInterfereERKNS_8HloValueES3_RKNS_19HloDataflowAnalysisE'/>
+<fun r='_ZNK3xla11HloOrdering23LiveRangeStrictlyBeforeERKNS_8HloValueES3_RKNS_19HloDataflowAnalysisE'/>
+<fun r='_ZNK3xla11HloOrdering15SequentialOrderERKNS_14HloComputationE'/>
+<fun r='_ZNK3xla11HloOrdering10call_graphEv'/>
+<fun r='_ZNK3xla11HloOrdering8ToStringEv'/>
+<fun r='_ZNK3xla11HloOrdering7ToProtoEv'/>
+<fun r='_ZNK3xla11HloOrdering31ExecutesBeforeInSameComputationEPKNS_14HloInstructionES3_'/>
+<mbr r='xla::HloOrdering::module_' o='64' t='const xla::HloModule *'/>
+<mbr r='xla::HloOrdering::call_graph_' o='128' t='std::unique_ptr&lt;CallGraph&gt;'/>

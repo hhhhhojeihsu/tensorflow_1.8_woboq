@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.h' l='200' type='std::vector&lt;HloValue::Id&gt;'/>
+<offset>1088</offset>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.h' l='197'>// Values marked for deletion during construction. We don&apos;t delete them
+  // immediately because references to them may remain in ValueSets temporarily
+  // during propagation. After construction, these values are deleted.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='87' u='m' c='_ZN3xla19HloDataflowAnalysis20MarkValueForDeletionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='111' c='_ZN3xla19HloDataflowAnalysis18DeleteMarkedValuesEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='114' u='m' c='_ZN3xla19HloDataflowAnalysis18DeleteMarkedValuesEv'/>

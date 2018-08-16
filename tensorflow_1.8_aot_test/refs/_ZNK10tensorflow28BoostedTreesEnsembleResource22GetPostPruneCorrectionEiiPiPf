@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/kernels/boosted_trees/resources.h' l='209' type='void tensorflow::BoostedTreesEnsembleResource::GetPostPruneCorrection(const int32 tree_id, const int32 initial_node_id, int32 * current_node_id, float * logit_update) const'/>
+<use f='tensorflow/tensorflow/core/kernels/boosted_trees/prediction_ops.cc' l='125' u='c' c='_ZN10tensorflow29BoostedTreesTrainingPredictOp7ComputeEPNS_15OpKernelContextE'/>
+<doc f='tensorflow/tensorflow/core/kernels/boosted_trees/resources.h' l='205'>// For a given node, returns the id in a pruned tree, as well as correction
+  // to the cached prediction that should be applied. If tree was not
+  // post-pruned, current_node_id will be equal to initial_node_id and logit
+  // update will be equal to zero.</doc>
+<def f='tensorflow/tensorflow/core/kernels/boosted_trees/resources.cc' l='211' ll='225' type='void tensorflow::BoostedTreesEnsembleResource::GetPostPruneCorrection(const int32 tree_id, const int32 initial_node_id, int32 * current_node_id, float * logit_update) const'/>

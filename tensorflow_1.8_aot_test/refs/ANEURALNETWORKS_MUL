@@ -1,0 +1,29 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='774' type='18'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='746'>/** Multiplies two tensors, element-wise.
+   *
+   * Takes two input tensors of identical type and compatible dimensions. The
+   * output is the product of both input tensors, optionally modified by an
+   * activation function.
+   *
+   * Two dimensions are compatible when:
+   *     1. they are equal, or
+   *     2. one of them is 1
+   *
+   * The size of the resulting output is the maximum size along each dimension
+   * of the input operands. It starts with the trailing dimensions, and works
+   * its way forward.
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   *
+   * Supported tensor rank: up to 4
+   *
+   * Inputs:
+   * * 0: A tensor.
+   * * 1: A tensor of the same type, and compatible dimensions as input0.
+   * * 2: An INT32 value, and has to be one of the {@link FuseCode} values.
+   *      Specifies the activation to invoke on the result of each addition.
+   *
+   * Outputs:
+   * * 0: The product, a tensor of the same type as input0.
+   */</doc>

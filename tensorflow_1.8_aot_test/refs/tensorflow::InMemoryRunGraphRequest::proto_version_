@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='366' type='std::unique_ptr&lt;RunGraphRequest&gt;'/>
+<offset>2304</offset>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='359'>// Holds a cached and owned representation of the proto
+  // representation of this request, if needed, so that `ToProto()`
+  // can return a const RunGraphRequest&amp;.
+  // NOTE(mrry): Although calls to `ToProto()` on this class are
+  // expected to be rare, retaining ownership of the returned message
+  // makes it easier to return a reference from the proto-backed
+  // representations.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='378' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='379' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='380' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='381' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='382' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='383' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='385' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='390' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='392' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='393' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='395' u='m' c='_ZNK10tensorflow23InMemoryRunGraphRequest7ToProtoEv'/>

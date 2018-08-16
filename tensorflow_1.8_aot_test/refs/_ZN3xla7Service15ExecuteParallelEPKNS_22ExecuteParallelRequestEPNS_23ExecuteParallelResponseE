@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='126' type='tensorflow::Status xla::Service::ExecuteParallel(const xla::ExecuteParallelRequest * arg, xla::ExecuteParallelResponse * result)'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/compile_only_service.h' l='63' c='_ZN3xla18CompileOnlyService15ExecuteParallelEPKNS_22ExecuteParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='123'>// Executes one or more computations in parallel with the provided global data
+  // passed as immutable arguments. Returns global data output for each
+  // computation.</doc>
+<inh f='tensorflow/tensorflow/compiler/xla/service_interface.h' l='60' c='_ZN3xla16ServiceInterface15ExecuteParallelEPKNS_22ExecuteParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='778' ll='887' type='tensorflow::Status xla::Service::ExecuteParallel(const xla::ExecuteParallelRequest * arg, xla::ExecuteParallelResponse * result)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1019' u='c' c='_ZN3xla7Service13ExecuteOneToNEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>

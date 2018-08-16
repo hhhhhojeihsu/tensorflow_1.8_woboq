@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.h' l='92' type='bool tensorflow::grappler::ConstantFolding::IsSimplifiableReduction(const tensorflow::NodeDef &amp; node) const'/>
+<def f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1312' ll='1331' type='bool tensorflow::grappler::ConstantFolding::IsSimplifiableReduction(const tensorflow::NodeDef &amp; node) const'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1889' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<doc f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1309'>// Returns true iff this reduction can be reduced to an identity (i.e if the set
+// of dimensions to reduce along is empty). This happens often in the gradient
+// graphs.</doc>

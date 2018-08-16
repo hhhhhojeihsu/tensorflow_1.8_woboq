@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/function.h' l='470' type='const tensorflow::FunctionBody * tensorflow::FunctionLibraryRuntime::GetFunctionBody(Handle h)'/>
+<doc f='tensorflow/tensorflow/core/framework/function.h' l='465'>// Returns the function body for the instantiated function given its
+  // handle &apos;h&apos;. Returns nullptr if &quot;h&quot; is not found.
+  //
+  // *this keeps the ownership of the returned object, which remains alive
+  // as long as *this.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='125' u='c' c='_ZN10tensorflow12_GLOBAL__N_116IsCompilableCallERKNS_7NodeDefERKNS_10DeviceTypeEiPNS_22FunctionLibraryRuntimeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='136' u='c' c='_ZN10tensorflowL15GetFunctionBodyERKNS_12NameAttrListEPNS_22FunctionLibraryRuntimeEPPKNS_12FunctionBodyE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/function.cc' l='347' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl15GetFunctionBodyEy'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1368' u='c' c='_ZN10tensorflow21ExpandInlineFunctionsEPNS_22FunctionLibraryRuntimeEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='173' u='c' c='_ZN10tensorflow16CapturedFunction16MaybeInstantiateEPNS_15IteratorContextEPy'/>
+<use f='tensorflow/tensorflow/core/kernels/data/filter_dataset_op.cc' l='57' u='c' c='_ZN10tensorflow12_GLOBAL__N_115FilterDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>

@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='144' type='StatusOr&lt;bool&gt; xla::Backend::devices_equivalent(int device_ordinal_a, int device_ordinal_b)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='141'>// Returns true if the devices with the given ordinals are equivalent from
+  // XLA&apos;s perspective. That is, an executable compiled for one device would
+  // be equivalent to an executable compiled for the other.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='109' u='c' c='_ZN3xla15LocalExecutable24ValidateExecutionOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEERKNS_20ExecutableRunOptionsERKNS_7BackendE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='198' ll='210' type='StatusOr&lt;bool&gt; xla::Backend::devices_equivalent(int device_ordinal_a, int device_ordinal_b)'/>

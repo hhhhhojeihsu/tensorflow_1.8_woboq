@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>variant.cc source code [tensorflow/tensorflow/core/framework/variant.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/framework/variant.cc'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>framework</a>/<a href='variant.cc.html'>variant.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="variant.h.html">"tensorflow/core/framework/variant.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include "tensorflow/core/framework/tensor.pb.h"</u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="variant_encode_decode.h.html">"tensorflow/core/framework/variant_encode_decode.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="variant_tensor_data.h.html">"tensorflow/core/framework/variant_tensor_data.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../lib/core/errors.h.html">"tensorflow/core/lib/core/errors.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../lib/gtl/map_util.h.html">"tensorflow/core/lib/gtl/map_util.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><em>bool</em> <a class="type" href="variant.h.html#tensorflow::Variant" title='tensorflow::Variant' data-ref="tensorflow::Variant">Variant</a>::<dfn class="decl def" id="_ZNK10tensorflow7Variant9TryDecodeEPS0_" title='tensorflow::Variant::TryDecode' data-ref="_ZNK10tensorflow7Variant9TryDecodeEPS0_">TryDecode</dfn>(<a class="type" href="variant.h.html#tensorflow::Variant" title='tensorflow::Variant' data-ref="tensorflow::Variant">Variant</a>* <dfn class="local col1 decl" id="1out" title='out' data-type='tensorflow::Variant *' data-ref="1out">out</dfn>) <em>const</em> {</td></tr>
+<tr><th id="26">26</th><td>  <em>const</em> <span class='type' title='tensorflow::VariantTensorDataProto' data-ref="tensorflow::VariantTensorDataProto">VariantTensorDataProto</span>* <dfn class="local col2 decl" id="2p" title='p' data-type='const tensorflow::VariantTensorDataProto *' data-ref="2p">p</dfn> = <a class="member" href="variant.h.html#_ZNK10tensorflow7Variant3getEv" title='tensorflow::Variant::get' data-ref="_ZNK10tensorflow7Variant3getEv">get</a>&lt;<span class='type' title='tensorflow::VariantTensorDataProto' data-ref="tensorflow::VariantTensorDataProto">VariantTensorDataProto</span>&gt;();</td></tr>
+<tr><th id="27">27</th><td>  <b>if</b> (<a class="local col2 ref" href="#2p" title='p' data-ref="2p">p</a> == <b>nullptr</b>) <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="28">28</th><td>  <a class="type" href="variant_tensor_data.h.html#tensorflow::VariantTensorData" title='tensorflow::VariantTensorData' data-ref="tensorflow::VariantTensorData">VariantTensorData</a> <dfn class="local col3 decl" id="3data" title='data' data-type='tensorflow::VariantTensorData' data-ref="3data">data</dfn><a class="ref" href="variant_tensor_data.h.html#_ZN10tensorflow17VariantTensorDataC1ERKNS_22VariantTensorDataProtoE" title='tensorflow::VariantTensorData::VariantTensorData' data-ref="_ZN10tensorflow17VariantTensorDataC1ERKNS_22VariantTensorDataProtoE">(</a>*<a class="local col2 ref" href="#2p" title='p' data-ref="2p">p</a>);</td></tr>
+<tr><th id="29">29</th><td>  <b>return</b> <a class="local col1 ref" href="#1out" title='out' data-ref="1out">out</a>-&gt;<a class="member" href="variant.h.html#_ZN10tensorflow7Variant6DecodeERKNS_17VariantTensorDataE" title='tensorflow::Variant::Decode' data-ref="_ZN10tensorflow7Variant6DecodeERKNS_17VariantTensorDataE">Decode</a>(<a class="local col3 ref" href="#3data" title='data' data-ref="3data">data</a>);</td></tr>
+<tr><th id="30">30</th><td>}</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="33">33</th><td><em>void</em>* <a class="type" href="variant.h.html#tensorflow::Variant" title='tensorflow::Variant' data-ref="tensorflow::Variant">Variant</a>::<dfn class="decl def" id="_ZN10tensorflow7Variant3getEv" title='tensorflow::Variant::get' data-ref="_ZN10tensorflow7Variant3getEv">get</dfn>() {</td></tr>
+<tr><th id="34">34</th><td>  <b>if</b> (<a class="member" href="variant.h.html#_ZNK10tensorflow7Variant8is_emptyEv" title='tensorflow::Variant::is_empty' data-ref="_ZNK10tensorflow7Variant8is_emptyEv">is_empty</a>()) {</td></tr>
+<tr><th id="35">35</th><td>    <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="36">36</th><td>  }</td></tr>
+<tr><th id="37">37</th><td>  <b>return</b> <a class="member" href="variant.h.html#tensorflow::Variant::value_" title='tensorflow::Variant::value_' data-ref="tensorflow::Variant::value_">value_</a><a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZNKSt10unique_ptrptEv" title='std::unique_ptr::operator-&gt;' data-ref="_ZNKSt10unique_ptrptEv">-&gt;</a><a class="virtual ref" href="variant.h.html#_ZN10tensorflow7Variant14ValueInterface6RawPtrEv" title='tensorflow::Variant::ValueInterface::RawPtr' data-ref="_ZN10tensorflow7Variant14ValueInterface6RawPtrEv">RawPtr</a>();</td></tr>
+<tr><th id="38">38</th><td>}</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="41">41</th><td><em>const</em> <em>void</em>* <a class="type" href="variant.h.html#tensorflow::Variant" title='tensorflow::Variant' data-ref="tensorflow::Variant">Variant</a>::<dfn class="decl def" id="_ZNK10tensorflow7Variant3getEv" title='tensorflow::Variant::get' data-ref="_ZNK10tensorflow7Variant3getEv">get</dfn>() <em>const</em> {</td></tr>
+<tr><th id="42">42</th><td>  <b>if</b> (<a class="member" href="variant.h.html#_ZNK10tensorflow7Variant8is_emptyEv" title='tensorflow::Variant::is_empty' data-ref="_ZNK10tensorflow7Variant8is_emptyEv">is_empty</a>()) {</td></tr>
+<tr><th id="43">43</th><td>    <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="44">44</th><td>  }</td></tr>
+<tr><th id="45">45</th><td>  <b>return</b> <a class="member" href="variant.h.html#tensorflow::Variant::value_" title='tensorflow::Variant::value_' data-ref="tensorflow::Variant::value_">value_</a><a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZNKSt10unique_ptrptEv" title='std::unique_ptr::operator-&gt;' data-ref="_ZNKSt10unique_ptrptEv">-&gt;</a><a class="virtual ref" href="variant.h.html#_ZN10tensorflow7Variant14ValueInterface6RawPtrEv" title='tensorflow::Variant::ValueInterface::RawPtr' data-ref="_ZN10tensorflow7Variant14ValueInterface6RawPtrEv">RawPtr</a>();</td></tr>
+<tr><th id="46">46</th><td>}</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="49">49</th><td><a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl def" id="_ZN10tensorflow15TypeNameVariantERKT_" title='tensorflow::TypeNameVariant' data-ref="_ZN10tensorflow15TypeNameVariantERKT_">TypeNameVariant</dfn>(<em>const</em> <span class='type' title='tensorflow::VariantTensorDataProto' data-ref="tensorflow::VariantTensorDataProto">VariantTensorDataProto</span>&amp; <dfn class="local col4 decl" id="4value" title='value' data-type='const tensorflow::VariantTensorDataProto &amp;' data-ref="4value">value</dfn>) {</td></tr>
+<tr><th id="50">50</th><td>  <b>return</b> <a class="ref fake" href="../../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1ERKSbIT_T0_T1_E" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1ERKSbIT_T0_T1_E"></a><a class="local col4 ref" href="#4value" title='value' data-ref="4value">value</a>.<span class='ref' title='tensorflow::VariantTensorDataProto::type_name' data-ref="_ZNK10tensorflow22VariantTensorDataProto9type_nameEv">type_name</span>();</td></tr>
+<tr><th id="51">51</th><td>}</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="54">54</th><td><em>void</em> <dfn class="decl def" id="_ZN10tensorflow13EncodeVariantERKT_PNS_17VariantTensorDataE" title='tensorflow::EncodeVariant' data-ref="_ZN10tensorflow13EncodeVariantERKT_PNS_17VariantTensorDataE">EncodeVariant</dfn>(<em>const</em> <span class='type' title='tensorflow::VariantTensorDataProto' data-ref="tensorflow::VariantTensorDataProto">VariantTensorDataProto</span>&amp; <dfn class="local col5 decl" id="5value" title='value' data-type='const tensorflow::VariantTensorDataProto &amp;' data-ref="5value">value</dfn>,</td></tr>
+<tr><th id="55">55</th><td>                   <a class="type" href="variant_tensor_data.h.html#tensorflow::VariantTensorData" title='tensorflow::VariantTensorData' data-ref="tensorflow::VariantTensorData">VariantTensorData</a>* <dfn class="local col6 decl" id="6data" title='data' data-type='tensorflow::VariantTensorData *' data-ref="6data">data</dfn>) {</td></tr>
+<tr><th id="56">56</th><td>  <a class="local col6 ref" href="#6data" title='data' data-ref="6data">data</a>-&gt;<a class="ref" href="variant_tensor_data.h.html#_ZN10tensorflow17VariantTensorData9FromProtoERKNS_22VariantTensorDataProtoE" title='tensorflow::VariantTensorData::FromProto' data-ref="_ZN10tensorflow17VariantTensorData9FromProtoERKNS_22VariantTensorDataProtoE">FromProto</a>(<a class="local col5 ref" href="#5value" title='value' data-ref="5value">value</a>);</td></tr>
+<tr><th id="57">57</th><td>}</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="60">60</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow13DecodeVariantERKNS_17VariantTensorDataEPT_" title='tensorflow::DecodeVariant' data-ref="_ZN10tensorflow13DecodeVariantERKNS_17VariantTensorDataEPT_">DecodeVariant</dfn>(<em>const</em> <a class="type" href="variant_tensor_data.h.html#tensorflow::VariantTensorData" title='tensorflow::VariantTensorData' data-ref="tensorflow::VariantTensorData">VariantTensorData</a>&amp; <dfn class="local col7 decl" id="7data" title='data' data-type='const tensorflow::VariantTensorData &amp;' data-ref="7data">data</dfn>,</td></tr>
+<tr><th id="61">61</th><td>                   <span class='type' title='tensorflow::VariantTensorDataProto' data-ref="tensorflow::VariantTensorDataProto">VariantTensorDataProto</span>* <dfn class="local col8 decl" id="8value" title='value' data-type='tensorflow::VariantTensorDataProto *' data-ref="8value">value</dfn>) {</td></tr>
+<tr><th id="62">62</th><td>  <a class="local col7 ref" href="#7data" title='data' data-ref="7data">data</a>.<a class="ref" href="variant_tensor_data.h.html#_ZNK10tensorflow17VariantTensorData7ToProtoEPNS_22VariantTensorDataProtoE" title='tensorflow::VariantTensorData::ToProto' data-ref="_ZNK10tensorflow17VariantTensorData7ToProtoEPNS_22VariantTensorDataProtoE">ToProto</a>(<a class="local col8 ref" href="#8value" title='value' data-ref="8value">value</a>);</td></tr>
+<tr><th id="63">63</th><td>  <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="64">64</th><td>}</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="67">67</th><td><em>void</em> <dfn class="decl def" id="_ZN10tensorflow13EncodeVariantERKT_PSs" title='tensorflow::EncodeVariant' data-ref="_ZN10tensorflow13EncodeVariantERKT_PSs">EncodeVariant</dfn>(<em>const</em> <span class='type' title='tensorflow::VariantTensorDataProto' data-ref="tensorflow::VariantTensorDataProto">VariantTensorDataProto</span>&amp; <dfn class="local col9 decl" id="9value" title='value' data-type='const tensorflow::VariantTensorDataProto &amp;' data-ref="9value">value</dfn>, <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>* <dfn class="local col0 decl" id="10buf" title='buf' data-type='string *' data-ref="10buf">buf</dfn>) {</td></tr>
+<tr><th id="68">68</th><td>  <a class="local col9 ref" href="#9value" title='value' data-ref="9value">value</a>.<span class='ref' title='google::protobuf::MessageLite::SerializeToString' data-ref="_ZNK6google8protobuf11MessageLite17SerializeToStringEPSs">SerializeToString</span>(<a class="local col0 ref" href="#10buf" title='buf' data-ref="10buf">buf</a>);</td></tr>
+<tr><th id="69">69</th><td>}</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="72">72</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow13DecodeVariantERKSsPT_" title='tensorflow::DecodeVariant' data-ref="_ZN10tensorflow13DecodeVariantERKSsPT_">DecodeVariant</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="11buf" title='buf' data-type='const string &amp;' data-ref="11buf">buf</dfn>, <span class='type' title='tensorflow::VariantTensorDataProto' data-ref="tensorflow::VariantTensorDataProto">VariantTensorDataProto</span>* <dfn class="local col2 decl" id="12value" title='value' data-type='tensorflow::VariantTensorDataProto *' data-ref="12value">value</dfn>) {</td></tr>
+<tr><th id="73">73</th><td>  <b>return</b> <a class="local col2 ref" href="#12value" title='value' data-ref="12value">value</a>-&gt;<span class='ref' title='google::protobuf::MessageLite::ParseFromString' data-ref="_ZN6google8protobuf11MessageLite15ParseFromStringERKSs">ParseFromString</span>(<a class="local col1 ref" href="#11buf" title='buf' data-ref="11buf">buf</a>);</td></tr>
+<tr><th id="74">74</th><td>}</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>}  <i>// end namespace tensorflow</i></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

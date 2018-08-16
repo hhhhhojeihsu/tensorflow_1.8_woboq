@@ -1,0 +1,34 @@
+<def f='tensorflow/tensorflow/core/profiler/internal/tfprof_stats.h' l='52' ll='123'/>
+<size>816</size>
+<fun r='_ZN10tensorflow6tfprof7TFStatsC1ESt10unique_ptrINS_8GraphDefESt14default_deleteIS3_EES2_INS_11RunMetadataES4_IS7_EES2_INS0_10OpLogProtoES4_ISA_EES2_IN5261400'/>
+<fun r='_ZN10tensorflow6tfprof7TFStatsC1ERKSsSt10unique_ptrINS_10checkpoint16CheckpointReaderESt14default_deleteIS6_EE'/>
+<fun r='_ZN10tensorflow6tfprof7TFStatsD1Ev'/>
+<fun r='_ZNK10tensorflow6tfprof7TFStats5nodesEv'/>
+<fun r='_ZNK10tensorflow6tfprof7TFStats5stepsEv'/>
+<fun r='_ZNK10tensorflow6tfprof7TFStats15has_code_tracesEv'/>
+<fun r='_ZNK10tensorflow6tfprof7TFStats12run_coverageEv'/>
+<fun r='_ZN10tensorflow6tfprof7TFStats9BuildViewERKSs'/>
+<fun r='_ZN10tensorflow6tfprof7TFStats13BuildAllViewsEv'/>
+<fun r='_ZNK10tensorflow6tfprof7TFStats13ShowGraphNodeERKSsRKNS0_7OptionsE'/>
+<fun r='_ZNK10tensorflow6tfprof7TFStats18ShowMultiGraphNodeERKSsRKNS0_7OptionsE'/>
+<fun r='_ZN10tensorflow6tfprof7TFStats8AddGraphESt10unique_ptrINS_8GraphDefESt14default_deleteIS3_EE'/>
+<fun r='_ZN10tensorflow6tfprof7TFStats10AddRunMetaExSt10unique_ptrINS_11RunMetadataESt14default_deleteIS3_EE'/>
+<fun r='_ZN10tensorflow6tfprof7TFStats13AddOpLogProtoESt10unique_ptrINS0_10OpLogProtoESt14default_deleteIS3_EE'/>
+<fun r='_ZN10tensorflow6tfprof7TFStats17SerializeToStringEPSs'/>
+<fun r='_ZN10tensorflow6tfprof7TFStats12WriteProfileERKSs'/>
+<fun r='_ZN10tensorflow6tfprof7TFStats14AddNodeForTestExSt10unique_ptrINS0_11TFGraphNodeESt14default_deleteIS3_EE'/>
+<fun r='_ZNK10tensorflow6tfprof7TFStats8ValidateERKNS0_7OptionsE'/>
+<fun r='_ZNK10tensorflow6tfprof7TFStats23MaybeReportMissingTraceEv'/>
+<mbr r='tensorflow::tfprof::TFStats::steps_' o='0' t='std::set&lt;int64&gt;'/>
+<mbr r='tensorflow::tfprof::TFStats::has_code_traces_' o='384' t='bool'/>
+<mbr r='tensorflow::tfprof::TFStats::miss_accelerator_stream_' o='392' t='bool'/>
+<mbr r='tensorflow::tfprof::TFStats::scope_view_' o='448' t='std::unique_ptr&lt;TFScope&gt;'/>
+<mbr r='tensorflow::tfprof::TFStats::graph_view_' o='512' t='std::unique_ptr&lt;TFGraph&gt;'/>
+<mbr r='tensorflow::tfprof::TFStats::code_view_' o='576' t='std::unique_ptr&lt;TFCode&gt;'/>
+<mbr r='tensorflow::tfprof::TFStats::op_view_' o='640' t='std::unique_ptr&lt;TFOp&gt;'/>
+<mbr r='tensorflow::tfprof::TFStats::ckpt_reader_' o='704' t='std::unique_ptr&lt;checkpoint::CheckpointReader&gt;'/>
+<mbr r='tensorflow::tfprof::TFStats::nodes_map_' o='768' t='std::map&lt;string, std::unique_ptr&lt;TFGraphNode&gt; &gt;'/>
+<mbr r='tensorflow::tfprof::TFStats::empty_graph_node_' o='1152' t='tensorflow::tfprof::GraphNodeProto'/>
+<mbr r='tensorflow::tfprof::TFStats::empty_multi_graph_node_' o='3968' t='tensorflow::tfprof::MultiGraphNodeProto'/>
+<mbr r='tensorflow::tfprof::TFStats::id_to_string_' o='5760' t='std::map&lt;int64, string&gt;'/>
+<mbr r='tensorflow::tfprof::TFStats::covered_nodes_' o='6144' t='std::set&lt;int64&gt;'/>

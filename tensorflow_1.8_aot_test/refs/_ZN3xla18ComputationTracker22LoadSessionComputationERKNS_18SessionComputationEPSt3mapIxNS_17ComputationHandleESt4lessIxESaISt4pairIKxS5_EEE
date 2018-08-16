@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.h' l='102' type='StatusOr&lt;xla::ComputationHandle&gt; xla::ComputationTracker::LoadSessionComputation(const xla::SessionComputation &amp; session_computation, std::map&lt;int64, ComputationHandle&gt; * old_to_new)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.h' l='95'>// Loads a session computation into a UserComputation, registers it, and
+  // returns the computation handle of the registered computation. If old_to_new
+  // is provided, it is used for remapping references to computations present in
+  // session_computation.
+  //
+  // old_to_new will be updated with the mapping from session_computation&apos;s old
+  // handle to the returned handle value, and may not be null.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.cc' l='85' u='c' c='_ZN3xla18ComputationTracker17LoadSessionModuleERKNS_13SessionModuleE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.cc' l='125' ll='135' type='StatusOr&lt;xla::ComputationHandle&gt; xla::ComputationTracker::LoadSessionComputation(const xla::SessionComputation &amp; session_computation, std::map&lt;int64, ComputationHandle&gt; * old_to_new)'/>

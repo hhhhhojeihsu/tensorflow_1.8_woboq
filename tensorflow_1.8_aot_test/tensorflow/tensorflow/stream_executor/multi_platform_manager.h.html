@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>multi_platform_manager.h source code [tensorflow/tensorflow/stream_executor/multi_platform_manager.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="perftools::gputools::MultiPlatformManager "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/stream_executor/multi_platform_manager.h'; var root_path = '../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>tensorflow</a>/<a href='..'>tensorflow</a>/<a href='./'>stream_executor</a>/<a href='multi_platform_manager.h.html'>multi_platform_manager.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// This is a registration-oriented interface for multiple platforms. It will</i></td></tr>
+<tr><th id="17">17</th><td><i>// replace the MachineManager singleton interface, as MachineManager does not</i></td></tr>
+<tr><th id="18">18</th><td><i>// currently support simultaneous use of multiple platforms.</i></td></tr>
+<tr><th id="19">19</th><td><i>//</i></td></tr>
+<tr><th id="20">20</th><td><i>// Usage:</i></td></tr>
+<tr><th id="21">21</th><td><i>//</i></td></tr>
+<tr><th id="22">22</th><td><i>// In your BUILD rule, add a dependency on a platform plugin that you'd like</i></td></tr>
+<tr><th id="23">23</th><td><i>// to use, such as:</i></td></tr>
+<tr><th id="24">24</th><td><i>//</i></td></tr>
+<tr><th id="25">25</th><td><i>//   //perftools/gputools/executor/cuda:cuda_platform</i></td></tr>
+<tr><th id="26">26</th><td><i>//   //perftools/gputools/executor/opencl:opencl_platform</i></td></tr>
+<tr><th id="27">27</th><td><i>//</i></td></tr>
+<tr><th id="28">28</th><td><i>// This will register platform plugins that can be discovered via this</i></td></tr>
+<tr><th id="29">29</th><td><i>// interface. Sample API usage:</i></td></tr>
+<tr><th id="30">30</th><td><i>//</i></td></tr>
+<tr><th id="31">31</th><td><i>//   port::StatusOr&lt;Platform*&gt; platform_status =</i></td></tr>
+<tr><th id="32">32</th><td><i>//      gpu::MultiPlatformManager::PlatformWithName("OpenCL");</i></td></tr>
+<tr><th id="33">33</th><td><i>//   if (!platform_status.ok()) { ... }</i></td></tr>
+<tr><th id="34">34</th><td><i>//   Platform* platform = platform_status.ValueOrDie();</i></td></tr>
+<tr><th id="35">35</th><td><i>//   LOG(INFO) &lt;&lt; platform-&gt;VisibleDeviceCount() &lt;&lt; " devices visible";</i></td></tr>
+<tr><th id="36">36</th><td><i>//   if (platform-&gt;VisibleDeviceCount() &lt;= 0) { return; }</i></td></tr>
+<tr><th id="37">37</th><td><i>//</i></td></tr>
+<tr><th id="38">38</th><td><i>//   for (int i = 0; i &lt; platform-&gt;VisibleDeviceCount(); ++i) {</i></td></tr>
+<tr><th id="39">39</th><td><i>//     port::StatusOr&lt;StreamExecutor*&gt; executor_status =</i></td></tr>
+<tr><th id="40">40</th><td><i>//        platform-&gt;ExecutorForDevice(i);</i></td></tr>
+<tr><th id="41">41</th><td><i>//     if (!executor_status.ok()) {</i></td></tr>
+<tr><th id="42">42</th><td><i>//       LOG(INFO) &lt;&lt; "could not retrieve executor for device ordinal " &lt;&lt; i</i></td></tr>
+<tr><th id="43">43</th><td><i>//                 &lt;&lt; ": " &lt;&lt; executor_status.status();</i></td></tr>
+<tr><th id="44">44</th><td><i>//       continue;</i></td></tr>
+<tr><th id="45">45</th><td><i>//     }</i></td></tr>
+<tr><th id="46">46</th><td><i>//     LOG(INFO) &lt;&lt; "found usable executor: " &lt;&lt; executor_status.ValueOrDie();</i></td></tr>
+<tr><th id="47">47</th><td><i>//   }</i></td></tr>
+<tr><th id="48">48</th><td><i>//</i></td></tr>
+<tr><th id="49">49</th><td><i>// A few things to note:</i></td></tr>
+<tr><th id="50">50</th><td><i>//  - There is no standard formatting/practice for identifying the name of a</i></td></tr>
+<tr><th id="51">51</th><td><i>//    platform. Ideally, a platform will list its registered name in its header</i></td></tr>
+<tr><th id="52">52</th><td><i>//    or in other associated documentation.</i></td></tr>
+<tr><th id="53">53</th><td><i>//  - Platform name lookup is case-insensitive. "OpenCL" or "opencl" (or even</i></td></tr>
+<tr><th id="54">54</th><td><i>//    ("OpEnCl") would work correctly in the above example.</i></td></tr>
+<tr><th id="55">55</th><td><i>//</i></td></tr>
+<tr><th id="56">56</th><td><i>// And similarly, for standard interfaces (BLAS, RNG, etc.) you can add</i></td></tr>
+<tr><th id="57">57</th><td><i>// dependencies on support libraries, e.g.:</i></td></tr>
+<tr><th id="58">58</th><td><i>//</i></td></tr>
+<tr><th id="59">59</th><td><i>//    //perftools/gputools/executor/cuda:pluton_blas_plugin</i></td></tr>
+<tr><th id="60">60</th><td><i>//    //perftools/gputools/executor/cuda:cudnn_plugin</i></td></tr>
+<tr><th id="61">61</th><td><i>//    //perftools/gputools/executor/cuda:cublas_plugin</i></td></tr>
+<tr><th id="62">62</th><td><i>//    //perftools/gputools/executor/cuda:curand_plugin</i></td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td><u>#<span data-ppcond="64">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_MULTI_PLATFORM_MANAGER_H_">TENSORFLOW_STREAM_EXECUTOR_MULTI_PLATFORM_MANAGER_H_</span></u></td></tr>
+<tr><th id="65">65</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_STREAM_EXECUTOR_MULTI_PLATFORM_MANAGER_H_" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_MULTI_PLATFORM_MANAGER_H_">TENSORFLOW_STREAM_EXECUTOR_MULTI_PLATFORM_MANAGER_H_</dfn></u></td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><u>#include <a href="../../../include/c++/5/functional.html">&lt;functional&gt;</a></u></td></tr>
+<tr><th id="68">68</th><td><u>#include <a href="../../../include/c++/5/map.html">&lt;map&gt;</a></u></td></tr>
+<tr><th id="69">69</th><td><u>#include <a href="../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><u>#include <a href="lib/status.h.html">"tensorflow/stream_executor/lib/status.h"</a></u></td></tr>
+<tr><th id="72">72</th><td><u>#include <a href="lib/statusor.h.html">"tensorflow/stream_executor/lib/statusor.h"</a></u></td></tr>
+<tr><th id="73">73</th><td><u>#include <a href="platform.h.html">"tensorflow/stream_executor/platform.h"</a></u></td></tr>
+<tr><th id="74">74</th><td><u>#include <a href="platform/mutex.h.html">"tensorflow/stream_executor/platform/mutex.h"</a></u></td></tr>
+<tr><th id="75">75</th><td><u>#include <a href="platform/port.h.html">"tensorflow/stream_executor/platform/port.h"</a></u></td></tr>
+<tr><th id="76">76</th><td><u>#include <a href="platform/thread_annotations.h.html">"tensorflow/stream_executor/platform/thread_annotations.h"</a></u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><b>namespace</b> <span class="namespace">perftools</span> {</td></tr>
+<tr><th id="79">79</th><td><b>namespace</b> <span class="namespace">gputools</span> {</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td><i>// Manages multiple platforms that may be present on the current machine.</i></td></tr>
+<tr><th id="82">82</th><td><b>class</b> <dfn class="type def" id="perftools::gputools::MultiPlatformManager" title='perftools::gputools::MultiPlatformManager' data-ref="perftools::gputools::MultiPlatformManager">MultiPlatformManager</dfn> {</td></tr>
+<tr><th id="83">83</th><td> <b>public</b>:</td></tr>
+<tr><th id="84">84</th><td>  <i>// Registers a platform object, returns an error status if the platform is</i></td></tr>
+<tr><th id="85">85</th><td><i>  // already registered. The associated listener, if not null, will be used to</i></td></tr>
+<tr><th id="86">86</th><td><i>  // trace events for ALL executors for that platform.</i></td></tr>
+<tr><th id="87">87</th><td><i>  // Takes ownership of listener.</i></td></tr>
+<tr><th id="88">88</th><td>  <em>static</em> <span class="namespace">port::</span><a class="typedef" href="lib/status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a> <dfn class="decl" id="_ZN9perftools8gputools20MultiPlatformManager16RegisterPlatformESt10unique_ptrINS0_8PlatformESt14default_deleteIS3_EE" title='perftools::gputools::MultiPlatformManager::RegisterPlatform' data-ref="_ZN9perftools8gputools20MultiPlatformManager16RegisterPlatformESt10unique_ptrINS0_8PlatformESt14default_deleteIS3_EE">RegisterPlatform</dfn>(<span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>&gt; <dfn class="local col8 decl" id="2268platform" title='platform' data-type='std::unique_ptr&lt;Platform&gt;' data-ref="2268platform">platform</dfn>)</td></tr>
+<tr><th id="89">89</th><td>      <a class="macro" href="../core/platform/default/thread_annotations.h.html#97" title="__attribute__((locks_excluded(platforms_mutex_)))" data-ref="_M/LOCKS_EXCLUDED">LOCKS_EXCLUDED</a>(<a class="member" href="#perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</a>);</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td>  <i>// Retrieves the platform registered with the given platform name (e.g.</i></td></tr>
+<tr><th id="92">92</th><td><i>  // "CUDA", "OpenCL", ...) or id (an opaque, comparable value provided by the</i></td></tr>
+<tr><th id="93">93</th><td><i>  // Platform's Id() method).</i></td></tr>
+<tr><th id="94">94</th><td><i>  //</i></td></tr>
+<tr><th id="95">95</th><td><i>  // If the platform has not already been initialized, it will be initialized</i></td></tr>
+<tr><th id="96">96</th><td><i>  // with a default set of parameters.</i></td></tr>
+<tr><th id="97">97</th><td><i>  //</i></td></tr>
+<tr><th id="98">98</th><td><i>  // If the requested platform is not registered, an error status is returned.</i></td></tr>
+<tr><th id="99">99</th><td><i>  // Ownership of the platform is NOT transferred to the caller --</i></td></tr>
+<tr><th id="100">100</th><td><i>  // the MultiPlatformManager owns the platforms in a singleton-like fashion.</i></td></tr>
+<tr><th id="101">101</th><td>  <em>static</em> <span class="namespace">port::</span><a class="type" href="lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>*&gt; <dfn class="decl" id="_ZN9perftools8gputools20MultiPlatformManager16PlatformWithNameERKSs" title='perftools::gputools::MultiPlatformManager::PlatformWithName' data-ref="_ZN9perftools8gputools20MultiPlatformManager16PlatformWithNameERKSs">PlatformWithName</dfn>(<em>const</em> <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col9 decl" id="2269target" title='target' data-type='const string &amp;' data-ref="2269target">target</dfn>)</td></tr>
+<tr><th id="102">102</th><td>      <a class="macro" href="../core/platform/default/thread_annotations.h.html#97" title="__attribute__((locks_excluded(platforms_mutex_)))" data-ref="_M/LOCKS_EXCLUDED">LOCKS_EXCLUDED</a>(<a class="member" href="#perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</a>);</td></tr>
+<tr><th id="103">103</th><td>  <em>static</em> <span class="namespace">port::</span><a class="type" href="lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>*&gt; <dfn class="decl" id="_ZN9perftools8gputools20MultiPlatformManager14PlatformWithIdERKPv" title='perftools::gputools::MultiPlatformManager::PlatformWithId' data-ref="_ZN9perftools8gputools20MultiPlatformManager14PlatformWithIdERKPv">PlatformWithId</dfn>(<em>const</em> <a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>::<a class="typedef" href="platform.h.html#perftools::gputools::Platform::Id" title='perftools::gputools::Platform::Id' data-type='void *' data-ref="perftools::gputools::Platform::Id">Id</a>&amp; <dfn class="local col0 decl" id="2270id" title='id' data-type='const Platform::Id &amp;' data-ref="2270id">id</dfn>)</td></tr>
+<tr><th id="104">104</th><td>      <a class="macro" href="../core/platform/default/thread_annotations.h.html#97" title="__attribute__((locks_excluded(platforms_mutex_)))" data-ref="_M/LOCKS_EXCLUDED">LOCKS_EXCLUDED</a>(<a class="member" href="#perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</a>);</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>  <i>// Retrieves the platform registered with the given platform name (e.g.</i></td></tr>
+<tr><th id="107">107</th><td><i>  // "CUDA", "OpenCL", ...) or id (an opaque, comparable value provided by the</i></td></tr>
+<tr><th id="108">108</th><td><i>  // Platform's Id() method).</i></td></tr>
+<tr><th id="109">109</th><td><i>  //</i></td></tr>
+<tr><th id="110">110</th><td><i>  // The platform will be initialized with the given options. If the platform</i></td></tr>
+<tr><th id="111">111</th><td><i>  // was already initialized, an error will be returned.</i></td></tr>
+<tr><th id="112">112</th><td><i>  //</i></td></tr>
+<tr><th id="113">113</th><td><i>  // If the requested platform is not registered, an error status is returned.</i></td></tr>
+<tr><th id="114">114</th><td><i>  // Ownership of the platform is NOT transferred to the caller --</i></td></tr>
+<tr><th id="115">115</th><td><i>  // the MultiPlatformManager owns the platforms in a singleton-like fashion.</i></td></tr>
+<tr><th id="116">116</th><td>  <em>static</em> <span class="namespace">port::</span><a class="type" href="lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>*&gt; <dfn class="decl" id="_ZN9perftools8gputools20MultiPlatformManager26InitializePlatformWithNameERKSsRKSt3mapISsSsSt4lessISsESaISt4pairIS2_SsEEE" title='perftools::gputools::MultiPlatformManager::InitializePlatformWithName' data-ref="_ZN9perftools8gputools20MultiPlatformManager26InitializePlatformWithNameERKSsRKSt3mapISsSsSt4lessISsESaISt4pairIS2_SsEEE">InitializePlatformWithName</dfn>(</td></tr>
+<tr><th id="117">117</th><td>      <em>const</em> <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="2271target" title='target' data-type='const string &amp;' data-ref="2271target">target</dfn>, <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/stl_map.h.html#std::map" title='std::map' data-ref="std::map">map</a>&lt;<a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt;&amp; <dfn class="local col2 decl" id="2272options" title='options' data-type='const std::map&lt;string, string&gt; &amp;' data-ref="2272options">options</dfn>)</td></tr>
+<tr><th id="118">118</th><td>      <a class="macro" href="../core/platform/default/thread_annotations.h.html#97" title="__attribute__((locks_excluded(platforms_mutex_)))" data-ref="_M/LOCKS_EXCLUDED">LOCKS_EXCLUDED</a>(<a class="member" href="#perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</a>);</td></tr>
+<tr><th id="119">119</th><td>  <em>static</em> <span class="namespace">port::</span><a class="type" href="lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>*&gt; <dfn class="decl" id="_ZN9perftools8gputools20MultiPlatformManager24InitializePlatformWithIdERKPvRKSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEE" title='perftools::gputools::MultiPlatformManager::InitializePlatformWithId' data-ref="_ZN9perftools8gputools20MultiPlatformManager24InitializePlatformWithIdERKPvRKSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEE">InitializePlatformWithId</dfn>(</td></tr>
+<tr><th id="120">120</th><td>      <em>const</em> <a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>::<a class="typedef" href="platform.h.html#perftools::gputools::Platform::Id" title='perftools::gputools::Platform::Id' data-type='void *' data-ref="perftools::gputools::Platform::Id">Id</a>&amp; <dfn class="local col3 decl" id="2273id" title='id' data-type='const Platform::Id &amp;' data-ref="2273id">id</dfn>, <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/stl_map.h.html#std::map" title='std::map' data-ref="std::map">map</a>&lt;<a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt;&amp; <dfn class="local col4 decl" id="2274options" title='options' data-type='const std::map&lt;string, string&gt; &amp;' data-ref="2274options">options</dfn>)</td></tr>
+<tr><th id="121">121</th><td>      <a class="macro" href="../core/platform/default/thread_annotations.h.html#97" title="__attribute__((locks_excluded(platforms_mutex_)))" data-ref="_M/LOCKS_EXCLUDED">LOCKS_EXCLUDED</a>(<a class="member" href="#perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</a>);</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>  <i>// Clears the set of registered platforms, primarily used for testing.</i></td></tr>
+<tr><th id="124">124</th><td>  <em>static</em> <em>void</em> <dfn class="decl" id="_ZN9perftools8gputools20MultiPlatformManager21ClearPlatformRegistryEv" title='perftools::gputools::MultiPlatformManager::ClearPlatformRegistry' data-ref="_ZN9perftools8gputools20MultiPlatformManager21ClearPlatformRegistryEv">ClearPlatformRegistry</dfn>() <a class="macro" href="../core/platform/default/thread_annotations.h.html#97" title="__attribute__((locks_excluded(platforms_mutex_)))" data-ref="_M/LOCKS_EXCLUDED">LOCKS_EXCLUDED</a>(<a class="member" href="#perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</a>);</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>  <i>// Although the MultiPlatformManager "owns" its platforms, it holds them as</i></td></tr>
+<tr><th id="127">127</th><td><i>  // undecorated pointers to prevent races during program exit (between this</i></td></tr>
+<tr><th id="128">128</th><td><i>  // object's data and the underlying platforms (e.g., CUDA, OpenCL).</i></td></tr>
+<tr><th id="129">129</th><td><i>  // Because certain platforms have unpredictable deinitialization</i></td></tr>
+<tr><th id="130">130</th><td><i>  // times/sequences, it is not possible to strucure a safe deinitialization</i></td></tr>
+<tr><th id="131">131</th><td><i>  // sequence. Thus, we intentionally "leak" allocated platforms to defer</i></td></tr>
+<tr><th id="132">132</th><td><i>  // cleanup to the OS. This should be acceptable, as these are one-time</i></td></tr>
+<tr><th id="133">133</th><td><i>  // allocations per program invocation.</i></td></tr>
+<tr><th id="134">134</th><td><i>  // The MultiPlatformManager should be considered the owner</i></td></tr>
+<tr><th id="135">135</th><td><i>  // of any platforms registered with it, and leak checking should be disabled</i></td></tr>
+<tr><th id="136">136</th><td><i>  // during allocation of such Platforms, to avoid spurious reporting at program</i></td></tr>
+<tr><th id="137">137</th><td><i>  // exit.</i></td></tr>
+<tr><th id="138">138</th><td>  <b>using</b> <dfn class="typedef" id="perftools::gputools::MultiPlatformManager::PlatformMap" title='perftools::gputools::MultiPlatformManager::PlatformMap' data-type='std::map&lt;string, Platform *&gt;' data-ref="perftools::gputools::MultiPlatformManager::PlatformMap">PlatformMap</dfn> = <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/stl_map.h.html#std::map" title='std::map' data-ref="std::map">map</a>&lt;<a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>*&gt;;</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>  <i>// Provides access to the available set of platforms under a lock.</i></td></tr>
+<tr><th id="141">141</th><td>  <em>static</em> <span class="namespace">port::</span><a class="typedef" href="lib/status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a> <dfn class="decl def" id="_ZN9perftools8gputools20MultiPlatformManager13WithPlatformsESt8functionIFN10tensorflow6StatusEPSt3mapISsPNS0_8PlatformESt4lessISsESaISt4pairIKSsS7_EEEEE" title='perftools::gputools::MultiPlatformManager::WithPlatforms' data-ref="_ZN9perftools8gputools20MultiPlatformManager13WithPlatformsESt8functionIFN10tensorflow6StatusEPSt3mapISsPNS0_8PlatformESt4lessISsESaISt4pairIKSsS7_EEEEE">WithPlatforms</dfn>(</td></tr>
+<tr><th id="142">142</th><td>      <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<span class="namespace">port::</span><a class="typedef" href="lib/status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a>(<a class="typedef" href="#perftools::gputools::MultiPlatformManager::PlatformMap" title='perftools::gputools::MultiPlatformManager::PlatformMap' data-type='std::map&lt;string, Platform *&gt;' data-ref="perftools::gputools::MultiPlatformManager::PlatformMap">PlatformMap</a>*)&gt; <dfn class="local col5 decl" id="2275callback" title='callback' data-type='std::function&lt;port::Status (PlatformMap *)&gt;' data-ref="2275callback">callback</dfn>)</td></tr>
+<tr><th id="143">143</th><td>      <a class="macro" href="../core/platform/default/thread_annotations.h.html#97" title="__attribute__((locks_excluded(platforms_mutex_)))" data-ref="_M/LOCKS_EXCLUDED">LOCKS_EXCLUDED</a>(<a class="member" href="#perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</a>) {</td></tr>
+<tr><th id="144">144</th><td>    <a class="type" href="../core/platform/default/mutex.h.html#tensorflow::mutex_lock" title='tensorflow::mutex_lock' data-ref="tensorflow::mutex_lock">mutex_lock</a> <dfn class="local col6 decl" id="2276lock" title='lock' data-type='tensorflow::mutex_lock' data-ref="2276lock">lock</dfn><a class="ref" href="../core/platform/default/mutex.h.html#_ZN10tensorflow10mutex_lockC1ERNS_5mutexE" title='tensorflow::mutex_lock::mutex_lock' data-ref="_ZN10tensorflow10mutex_lockC1ERNS_5mutexE">(</a><a class="member" href="#perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</a>);</td></tr>
+<tr><th id="145">145</th><td>    <b>return</b> <a class="local col5 ref" href="#2275callback" title='callback' data-ref="2275callback">callback</a><a class="ref" href="../../../include/c++/5/functional.html#_ZNKSt8functionIFT_DpT0_EEclES2_" title='std::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::operator()' data-ref="_ZNKSt8functionIFT_DpT0_EEclES2_">(<a class="member" href="#_ZN9perftools8gputools20MultiPlatformManager14GetPlatformMapEv" title='perftools::gputools::MultiPlatformManager::GetPlatformMap' data-ref="_ZN9perftools8gputools20MultiPlatformManager14GetPlatformMapEv">GetPlatformMap</a>())</a>;</td></tr>
+<tr><th id="146">146</th><td>  }</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td> <b>private</b>:</td></tr>
+<tr><th id="149">149</th><td>  <b>using</b> <dfn class="typedef" id="perftools::gputools::MultiPlatformManager::PlatformIdMap" title='perftools::gputools::MultiPlatformManager::PlatformIdMap' data-type='std::map&lt;Platform::Id, Platform *&gt;' data-ref="perftools::gputools::MultiPlatformManager::PlatformIdMap">PlatformIdMap</dfn> = <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/stl_map.h.html#std::map" title='std::map' data-ref="std::map">map</a>&lt;<a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>::<a class="typedef" href="platform.h.html#perftools::gputools::Platform::Id" title='perftools::gputools::Platform::Id' data-type='void *' data-ref="perftools::gputools::Platform::Id">Id</a>, <a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>*&gt;;</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>  <em>static</em> <a class="type" href="../core/platform/default/mutex.h.html#tensorflow::mutex" title='tensorflow::mutex' data-ref="tensorflow::mutex">mutex</a> <dfn class="decl" id="perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</dfn>;</td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td>  <i>// TODO(b/22689637): Clean up these two maps; make sure they coexist nicely.</i></td></tr>
+<tr><th id="154">154</th><td><i>  // TODO(b/22689637): Move this (whatever the final/"official" map is) to</i></td></tr>
+<tr><th id="155">155</th><td><i>  // plugin_regstry.h, along with the associated functionality.</i></td></tr>
+<tr><th id="156">156</th><td><i>  // Platform-name-to-object mapping. These platforms are registered via module</i></td></tr>
+<tr><th id="157">157</th><td><i>  // initializers, and linkage determines which platforms are available to a</i></td></tr>
+<tr><th id="158">158</th><td><i>  // given target.</i></td></tr>
+<tr><th id="159">159</th><td>  <em>static</em> <a class="typedef" href="#perftools::gputools::MultiPlatformManager::PlatformMap" title='perftools::gputools::MultiPlatformManager::PlatformMap' data-type='std::map&lt;string, Platform *&gt;' data-ref="perftools::gputools::MultiPlatformManager::PlatformMap">PlatformMap</a>* <dfn class="decl def" id="_ZN9perftools8gputools20MultiPlatformManager14GetPlatformMapEv" title='perftools::gputools::MultiPlatformManager::GetPlatformMap' data-ref="_ZN9perftools8gputools20MultiPlatformManager14GetPlatformMapEv">GetPlatformMap</dfn>() {</td></tr>
+<tr><th id="160">160</th><td>    <em>static</em> <a class="typedef" href="#perftools::gputools::MultiPlatformManager::PlatformMap" title='perftools::gputools::MultiPlatformManager::PlatformMap' data-type='std::map&lt;string, Platform *&gt;' data-ref="perftools::gputools::MultiPlatformManager::PlatformMap">PlatformMap</a>* <dfn class="local col7 decl" id="2277instance" title='instance' data-type='PlatformMap *' data-ref="2277instance">instance</dfn> = <b>new</b> <a class="ref fake" href="../../../include/c++/5/bits/stl_map.h.html#_ZNSt3mapC1Ev" title='std::map::map&lt;_Key, _Tp, _Compare, _Alloc&gt;' data-ref="_ZNSt3mapC1Ev"></a><a class="typedef" href="#perftools::gputools::MultiPlatformManager::PlatformMap" title='perftools::gputools::MultiPlatformManager::PlatformMap' data-type='std::map&lt;string, Platform *&gt;' data-ref="perftools::gputools::MultiPlatformManager::PlatformMap">PlatformMap</a>;</td></tr>
+<tr><th id="161">161</th><td>    <b>return</b> <a class="local col7 ref" href="#2277instance" title='instance' data-ref="2277instance">instance</a>;</td></tr>
+<tr><th id="162">162</th><td>  }</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>  <i>// Holds a Platform::Id-to-object mapping.</i></td></tr>
+<tr><th id="165">165</th><td><i>  // Unlike platforms_ above, this map does not own its contents.</i></td></tr>
+<tr><th id="166">166</th><td>  <em>static</em> <a class="typedef" href="#perftools::gputools::MultiPlatformManager::PlatformIdMap" title='perftools::gputools::MultiPlatformManager::PlatformIdMap' data-type='std::map&lt;Platform::Id, Platform *&gt;' data-ref="perftools::gputools::MultiPlatformManager::PlatformIdMap">PlatformIdMap</a>* <dfn class="decl def" id="_ZN9perftools8gputools20MultiPlatformManager18GetPlatformByIdMapEv" title='perftools::gputools::MultiPlatformManager::GetPlatformByIdMap' data-ref="_ZN9perftools8gputools20MultiPlatformManager18GetPlatformByIdMapEv">GetPlatformByIdMap</dfn>() {</td></tr>
+<tr><th id="167">167</th><td>    <em>static</em> <a class="typedef" href="#perftools::gputools::MultiPlatformManager::PlatformIdMap" title='perftools::gputools::MultiPlatformManager::PlatformIdMap' data-type='std::map&lt;Platform::Id, Platform *&gt;' data-ref="perftools::gputools::MultiPlatformManager::PlatformIdMap">PlatformIdMap</a>* <dfn class="local col8 decl" id="2278instance" title='instance' data-type='PlatformIdMap *' data-ref="2278instance">instance</dfn> = <b>new</b> <a class="ref fake" href="../../../include/c++/5/bits/stl_map.h.html#_ZNSt3mapC1Ev" title='std::map::map&lt;_Key, _Tp, _Compare, _Alloc&gt;' data-ref="_ZNSt3mapC1Ev"></a><a class="typedef" href="#perftools::gputools::MultiPlatformManager::PlatformIdMap" title='perftools::gputools::MultiPlatformManager::PlatformIdMap' data-type='std::map&lt;Platform::Id, Platform *&gt;' data-ref="perftools::gputools::MultiPlatformManager::PlatformIdMap">PlatformIdMap</a>;</td></tr>
+<tr><th id="168">168</th><td>    <b>return</b> <a class="local col8 ref" href="#2278instance" title='instance' data-ref="2278instance">instance</a>;</td></tr>
+<tr><th id="169">169</th><td>  }</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>  <i>// Looks up the platform object with the given name.  Assumes the Platforms</i></td></tr>
+<tr><th id="172">172</th><td><i>  // mutex is held.</i></td></tr>
+<tr><th id="173">173</th><td>  <em>static</em> <span class="namespace">port::</span><a class="type" href="lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>*&gt; <dfn class="decl" id="_ZN9perftools8gputools20MultiPlatformManager18LookupByNameLockedERKSs" title='perftools::gputools::MultiPlatformManager::LookupByNameLocked' data-ref="_ZN9perftools8gputools20MultiPlatformManager18LookupByNameLockedERKSs">LookupByNameLocked</dfn>(<em>const</em> <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col9 decl" id="2279target" title='target' data-type='const string &amp;' data-ref="2279target">target</dfn>)</td></tr>
+<tr><th id="174">174</th><td>      <a class="macro" href="../core/platform/default/thread_annotations.h.html#88" title="__attribute__((exclusive_locks_required(platforms_mutex_)))" data-ref="_M/EXCLUSIVE_LOCKS_REQUIRED">EXCLUSIVE_LOCKS_REQUIRED</a>(<a class="member" href="#perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</a>);</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>  <i>// Looks up the platform object with the given id.  Assumes the Platforms</i></td></tr>
+<tr><th id="177">177</th><td><i>  // mutex is held.</i></td></tr>
+<tr><th id="178">178</th><td>  <em>static</em> <span class="namespace">port::</span><a class="type" href="lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>*&gt; <dfn class="decl" id="_ZN9perftools8gputools20MultiPlatformManager16LookupByIdLockedERKPv" title='perftools::gputools::MultiPlatformManager::LookupByIdLocked' data-ref="_ZN9perftools8gputools20MultiPlatformManager16LookupByIdLockedERKPv">LookupByIdLocked</dfn>(<em>const</em> <a class="type" href="platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>::<a class="typedef" href="platform.h.html#perftools::gputools::Platform::Id" title='perftools::gputools::Platform::Id' data-type='void *' data-ref="perftools::gputools::Platform::Id">Id</a>&amp; <dfn class="local col0 decl" id="2280id" title='id' data-type='const Platform::Id &amp;' data-ref="2280id">id</dfn>)</td></tr>
+<tr><th id="179">179</th><td>      <a class="macro" href="../core/platform/default/thread_annotations.h.html#88" title="__attribute__((exclusive_locks_required(platforms_mutex_)))" data-ref="_M/EXCLUSIVE_LOCKS_REQUIRED">EXCLUSIVE_LOCKS_REQUIRED</a>(<a class="member" href="#perftools::gputools::MultiPlatformManager::platforms_mutex_" title='perftools::gputools::MultiPlatformManager::platforms_mutex_' data-ref="perftools::gputools::MultiPlatformManager::platforms_mutex_">platforms_mutex_</a>);</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td>  <a class="macro" href="platform/port.h.html#56" title="TF_DISALLOW_COPY_AND_ASSIGN" data-ref="_M/SE_DISALLOW_COPY_AND_ASSIGN">SE_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN9perftools8gputools20MultiPlatformManagerC1ERKS1_" title='perftools::gputools::MultiPlatformManager::MultiPlatformManager' data-ref="_ZN9perftools8gputools20MultiPlatformManagerC1ERKS1_"><a class="type" href="#perftools::gputools::MultiPlatformManager" title='perftools::gputools::MultiPlatformManager' data-ref="perftools::gputools::MultiPlatformManager"><a class="type" href="#perftools::gputools::MultiPlatformManager" title='perftools::gputools::MultiPlatformManager' data-ref="perftools::gputools::MultiPlatformManager">MultiPlatformManager</a></a></dfn>);</td></tr>
+<tr><th id="182">182</th><td>};</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>}  <i>// namespace gputools</i></td></tr>
+<tr><th id="185">185</th><td>}  <i>// namespace perftools</i></td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td><u>#<span data-ppcond="64">endif</span>  // TENSORFLOW_STREAM_EXECUTOR_MULTI_PLATFORM_MANAGER_H_</u></td></tr>
+<tr><th id="188">188</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../compiler/jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

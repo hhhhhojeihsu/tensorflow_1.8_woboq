@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/liveness_util.h' l='36' type='bool xla::DoesNotUseOperandBuffer(const xla::HloInstruction * operand, const xla::ShapeIndex &amp; index, const xla::HloInstruction * user, const xla::TuplePointsToAnalysis &amp; points_to_analysis)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_liveness.cc' l='108' u='c' c='_ZNK3xla14BufferLiveness26live_range_strictly_beforeERKNS_13LogicalBufferES3_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/liveness_util.h' l='29'>// Returns true if &apos;user&apos; cannot possibly use the buffer at &apos;index&apos; in
+// &apos;operand&apos;. Returns false otherwise.
+//
+// REQUIRES: &apos;operand&apos; is an operand of &apos;user&apos;.
+//
+// TODO(b/65835246): Remove TuplePointsToAnalysis overload when all users have
+// moved over to the dataflow overload.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='31' ll='70' type='bool xla::DoesNotUseOperandBuffer(const xla::HloInstruction * operand, const xla::ShapeIndex &amp; index, const xla::HloInstruction * user, const xla::TuplePointsToAnalysis &amp; points_to_analysis)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='58' u='c' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='119' u='c' c='_ZN3xla12_GLOBAL__N_130GetAllUsesOfInstructionAtIndexEPNS_14HloInstructionERKNS_10ShapeIndexERKNS_21TuplePointsToAnalysisE'/>

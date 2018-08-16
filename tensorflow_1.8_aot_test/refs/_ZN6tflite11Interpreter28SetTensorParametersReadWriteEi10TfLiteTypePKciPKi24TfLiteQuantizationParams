@@ -1,0 +1,7 @@
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='158' u='c' c='_ZN6tflite11Interpreter28SetTensorParametersReadWriteEi10TfLiteTypePKcRKSt6vectorIiSaIiEE24TfLiteQuantizationParams'/>
+<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='161' type='TfLiteStatus tflite::Interpreter::SetTensorParametersReadWrite(int tensor_index, TfLiteType type, const char * name, const int rank, const int * dims, TfLiteQuantizationParams quantization)'/>
+<def f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='682' ll='708' type='TfLiteStatus tflite::Interpreter::SetTensorParametersReadWrite(int tensor_index, TfLiteType type, const char * name, const int rank, const int * dims, TfLiteQuantizationParams quantization)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='678'>// Set description of inputs/outputs/data/fptrs for node `node_index`.
+// This variant assumes an external buffer has been allocated of size
+// bytes. The lifetime of buffer must be ensured to be greater or equal
+// to Interpreter.</doc>

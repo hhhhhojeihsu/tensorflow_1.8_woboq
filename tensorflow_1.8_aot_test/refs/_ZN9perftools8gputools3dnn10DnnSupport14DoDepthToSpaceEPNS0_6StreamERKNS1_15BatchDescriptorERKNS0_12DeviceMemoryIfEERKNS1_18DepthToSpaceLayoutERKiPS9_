@@ -1,0 +1,22 @@
+<def f='tensorflow/tensorflow/stream_executor/dnn.h' l='1761' ll='1768' type='bool perftools::gputools::dnn::DnnSupport::DoDepthToSpace(perftools::gputools::Stream * stream, const dnn::BatchDescriptor &amp; input_dimensions, const DeviceMemory&lt;float&gt; &amp; input_data, const perftools::gputools::dnn::DepthToSpaceLayout &amp; depth_to_space_layout, const int &amp; sqrt_depth_reduction, DeviceMemory&lt;float&gt; * output_data)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1741'>// Depth to space takes an X by Y image with depth D*M² and changes it to an
+  // MX x MY image with depth D. Each input location (x,y) with depth D*M² in
+  // the input image is changed to an MxM contiguous area in the output image,
+  // with the values being laid out in the raster order by DepthToSpaceLayout,
+  // and will have a new depth of D.
+  //
+  // Example.
+  // M=2, Din =8, Xin=2, Yin=2. Xout=4, Yout=4,  Dout=2
+  // DepthHeightWidth layout
+  // Values within a &apos;cell&apos; are at different depths and same x &amp; y.
+  // Input:
+  // abcdefgh  ijklmnop
+  // qrstuvwx  yz012345
+  // Output:
+  // ae bf im jn
+  // cg dh ko lp
+  // qu rv y2 z3
+  // sw tx 04 15
+  //
+  // sqrt_depth_reduction: &apos;M&apos; in the comment above</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='1696' u='c' c='_ZN9perftools8gputools6Stream16ThenDepthToSpaceERKNS0_3dnn15BatchDescriptorERKNS0_12DeviceMemoryIfEERKNS2_18DepthToSpaceLayoutEiPS7_'/>

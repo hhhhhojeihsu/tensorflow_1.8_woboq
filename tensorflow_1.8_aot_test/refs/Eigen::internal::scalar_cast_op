@@ -1,0 +1,19 @@
+<def f='tensorflow/tensorflow/core/kernels/cast_op.h' l='78' ll='85'/>
+<def f='tensorflow/tensorflow/core/kernels/cast_op.h' l='87' ll='94'/>
+<def f='tensorflow/tensorflow/core/kernels/cast_op.h' l='96' ll='103'/>
+<def f='tensorflow/tensorflow/core/kernels/cast_op.h' l='122' ll='141'/>
+<def f='tensorflow/tensorflow/core/kernels/cast_op.h' l='148' ll='156'/>
+<size>1</size>
+<doc f='tensorflow/tensorflow/core/kernels/cast_op.h' l='75'>// Eigen can&apos;t convert to/from complex numbers, because it is limited to cases
+// that can be static_casted. But numpy is able to cast to/from complex, which
+// we want to replicate. So we add specializations for complex here.</doc>
+<doc f='tensorflow/tensorflow/core/kernels/cast_op.h' l='121'>// Specialized cast op impls for bfloat16.</doc>
+<fun r='_ZNK5Eigen8internal14scalar_cast_opISt7complexIT_ET0_EclERKS4_'/>
+<fun r='_ZNK5Eigen8internal14scalar_cast_opIT_St7complexIT0_EEclERKS2_'/>
+<fun r='_ZNK5Eigen8internal14scalar_cast_opISt7complexIT_ES2_IT0_EEclERKS4_'/>
+<fun r='_ZN5Eigen8internal14scalar_cast_opIN10tensorflow8bfloat16EfEC1Ev'/>
+<fun r='_ZN5Eigen8internal14scalar_cast_opIN10tensorflow8bfloat16EfEC1ERKS4_'/>
+<fun r='_ZNK5Eigen8internal14scalar_cast_opIN10tensorflow8bfloat16EfEclERKS3_'/>
+<fun r='_ZN5Eigen8internal14scalar_cast_opIfN10tensorflow8bfloat16EEC1Ev'/>
+<fun r='_ZN5Eigen8internal14scalar_cast_opIfN10tensorflow8bfloat16EEC1ERKS4_'/>
+<fun r='_ZNK5Eigen8internal14scalar_cast_opIfN10tensorflow8bfloat16EEclEf'/>

@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='558' type='void xla::BufferAssigner::BuildColocatedBufferSets(const xla::HloModule * module, const xla::BufferLiveness &amp; buffer_liveness, const LogicalBuffer::SizeFunction &amp; buffer_size, std::vector&lt;ColocatedBufferSet&gt; * colocated_buffer_sets)'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1411' ll='1546' type='void xla::BufferAssigner::BuildColocatedBufferSets(const xla::HloModule * module, const xla::BufferLiveness &amp; buffer_liveness, const LogicalBuffer::SizeFunction &amp; buffer_size, std::vector&lt;ColocatedBufferSet&gt; * colocated_buffer_sets)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1628' u='c' c='_ZN3xla14BufferAssigner16CreateAssignmentEPKNS_9HloModuleESt10unique_ptrINS_11HloOrderingESt14default_deleteIS5_EESt8functionIFxRKNS_13LogicalBufferEE7316938'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1408'>// Builds sets of buffers in &apos;colocated_buffer_sets&apos; which should be colocated
+// in the same allocation (currently just supports kWhile, kCall, and
+// kConditional).</doc>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='555'>// Returns a vector of ColocatedBufferSet objects, where each
+  // ColocatedBufferSet aggregates a set of related LogicalBuffers from &apos;module&apos;
+  // which should be colocated in the same buffer allocation.</doc>

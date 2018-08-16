@@ -1,0 +1,9 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_interface.h' l='29' c='xla::HloPassInterface'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.h' l='27' ll='32'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.h' l='23'>// A pass which moves Reshapes and Transposes to let later passes combine them.
+// This now only moves them outputward across elementwise ops all whose operands
+// are equivalent Reshapes or Transposes, but in future could potentially move
+// them inputward also.</doc>
+<fun r='_ZNK3xla12ReshapeMover4nameEv'/>
+<fun r='_ZN3xla12ReshapeMover3RunEPNS_9HloModuleE'/>

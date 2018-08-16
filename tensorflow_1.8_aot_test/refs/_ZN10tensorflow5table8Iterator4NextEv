@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/lib/io/iterator.h' l='56' type='void tensorflow::table::Iterator::Next()'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='251' u='c' c='_ZNK10tensorflow12BundleReader4NextEv'/>
+<doc f='tensorflow/tensorflow/core/lib/io/iterator.h' l='53'>// Moves to the next entry in the source.  After this call, Valid() is
+  // true iff the iterator was not positioned at the last entry in the source.
+  // REQUIRES: Valid()</doc>
+<ovr f='tensorflow/tensorflow/core/lib/io/block.cc' l='146' c='_ZN10tensorflow5table5Block4Iter4NextEv'/>
+<ovr f='tensorflow/tensorflow/core/lib/io/iterator.cc' l='60' c='_ZN10tensorflow5table12_GLOBAL__N_113EmptyIterator4NextEv'/>
+<ovr f='tensorflow/tensorflow/core/lib/io/two_level_iterator.cc' l='108' c='_ZN10tensorflow5table12_GLOBAL__N_116TwoLevelIterator4NextEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/two_level_iterator.cc' l='110' u='c' c='_ZN10tensorflow5table12_GLOBAL__N_116TwoLevelIterator4NextEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/two_level_iterator.cc' l='121' u='c' c='_ZN10tensorflow5table12_GLOBAL__N_116TwoLevelIterator26SkipEmptyDataBlocksForwardEv'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='597' u='c' c='_ZN10tensorflowL14MergeOneBundleEPNS_3EnvENS_11StringPieceEPNS_10MergeStateE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='602' u='c' c='_ZN10tensorflowL14MergeOneBundleEPNS_3EnvENS_11StringPieceEPNS_10MergeStateE'/>

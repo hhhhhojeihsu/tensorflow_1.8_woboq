@@ -1,0 +1,36 @@
+<def f='tensorflow/tensorflow/core/kernels/data/captured_function.h' l='41' ll='120'/>
+<size>208</size>
+<doc f='tensorflow/tensorflow/core/kernels/data/captured_function.h' l='35'>// A `CapturedFunction` encapsulates a TensorFlow function and all of
+// the runtime support required to execute it.
+//
+// The `Dataset`-related classes use `CapturedFunction` to execute
+// TensorFlow functions outside a the normal `OpKernel::Compute()`
+// context.</doc>
+<fun r='_ZN10tensorflow16CapturedFunction6CreateERKNS_12NameAttrListESt6vectorINS_6TensorESaIS5_EEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<fun r='_ZN10tensorflow16CapturedFunctionD1Ev'/>
+<fun r='_ZN10tensorflow16CapturedFunction3RunEPNS_15IteratorContextEOSt6vectorINS_6TensorESaIS4_EEPS6_'/>
+<fun r='_ZN10tensorflow16CapturedFunction19RunWithBorrowedArgsEPNS_15IteratorContextERKSt6vectorINS_6TensorESaIS4_EEPS6_'/>
+<fun r='_ZN10tensorflow16CapturedFunction11InstantiateEPNS_15IteratorContextE'/>
+<fun r='_ZN10tensorflow16CapturedFunction15RunInstantiatedERKSt6vectorINS_6TensorESaIS2_EEPS4_'/>
+<fun r='_ZN10tensorflow16CapturedFunction8RunAsyncEPNS_15IteratorContextEOSt6vectorINS_6TensorESaIS4_EEPS6_St8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow16CapturedFunction15captured_inputsEv'/>
+<fun r='_ZN10tensorflow16CapturedFunction16generate_step_idEv'/>
+<fun r='_ZN10tensorflow16CapturedFunctionC1ERKNS_12NameAttrListESt6vectorINS_6TensorESaIS5_EE'/>
+<fun r='_ZN10tensorflow16CapturedFunction16MaybeInstantiateEPNS_15IteratorContextEPy'/>
+<mbr r='tensorflow::CapturedFunction::mu_' o='0' t='tensorflow::mutex'/>
+<mbr r='tensorflow::CapturedFunction::func_' o='128' t='const tensorflow::NameAttrList'/>
+<mbr r='tensorflow::CapturedFunction::lib_' o='960' t='tensorflow::FunctionLibraryRuntime *'/>
+<mbr r='tensorflow::CapturedFunction::f_handle_' o='1024' t='FunctionLibraryRuntime::Handle'/>
+<mbr r='tensorflow::CapturedFunction::captured_inputs_' o='1088' t='const std::vector&lt;Tensor&gt;'/>
+<mbr r='tensorflow::CapturedFunction::ret_types_' o='1280' t='DataTypeSlice'/>
+<mbr r='tensorflow::CapturedFunction::captured_runner_' o='1408' t='std::function&lt;void (std::function&lt;void ()&gt;)&gt;'/>
+<fun r='_ZN10tensorflow16CapturedFunctionC1ERKS0_'/>
+<fun r='_ZN10tensorflow16CapturedFunction6CreateERKNS_12NameAttrListESt6vectorINS_6TensorESaIS5_EEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<fun r='_ZN10tensorflow16CapturedFunctionD1Ev'/>
+<fun r='_ZN10tensorflow16CapturedFunction16MaybeInstantiateEPNS_15IteratorContextEPy'/>
+<fun r='_ZN10tensorflow16CapturedFunction3RunEPNS_15IteratorContextEOSt6vectorINS_6TensorESaIS4_EEPS6_'/>
+<fun r='_ZN10tensorflow16CapturedFunction19RunWithBorrowedArgsEPNS_15IteratorContextERKSt6vectorINS_6TensorESaIS4_EEPS6_'/>
+<fun r='_ZN10tensorflow16CapturedFunction11InstantiateEPNS_15IteratorContextE'/>
+<fun r='_ZN10tensorflow16CapturedFunction15RunInstantiatedERKSt6vectorINS_6TensorESaIS2_EEPS4_'/>
+<fun r='_ZN10tensorflow16CapturedFunction8RunAsyncEPNS_15IteratorContextEOSt6vectorINS_6TensorESaIS4_EEPS6_St8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow16CapturedFunctionC1ERKNS_12NameAttrListESt6vectorINS_6TensorESaIS5_EE'/>

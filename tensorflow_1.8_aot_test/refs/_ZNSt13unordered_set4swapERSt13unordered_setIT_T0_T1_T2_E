@@ -1,0 +1,11 @@
+<def f='include/c++/5/bits/unordered_set.h' l='551' ll='554' type='void std::unordered_set::swap(unordered_set&lt;_Value, _Hash, _Pred, _Alloc&gt; &amp; __x)'/>
+<doc f='include/c++/5/bits/unordered_set.h' l='542'>/**
+       *  @brief  Swaps data with another %unordered_set.
+       *  @param  __x  An %unordered_set of the same element and allocator
+       *  types.
+       *
+       *  This exchanges the elements between two sets in constant time.
+       *  Note that the global std::swap() function is specialized such that
+       *  std::swap(s1,s2) will feed to this function.
+       */</doc>
+<use f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='159' u='c' c='_ZN10tensorflow16graph_transforms17RemoveUnusedNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>

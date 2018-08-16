@@ -1,0 +1,22 @@
+<def f='tensorflow/tensorflow/core/common_runtime/eager/kernel_and_device.h' l='41' ll='81'/>
+<size>88</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/eager/kernel_and_device.h' l='35'>// KernelAndDevice encapsulates an instantiated kernel and the device it is on.
+//
+// Also see:
+// https://www.tensorflow.org/code/tensorflow/core/common_runtime/kernel_benchmark_testlib.h
+// and
+// https://www.tensorflow.org/code/tensorflow/core/kernels/ops_testutil.h</doc>
+<fun r='_ZN10tensorflow15KernelAndDevice4InitERKNS_7NodeDefEPNS_22FunctionLibraryRuntimeEPS0_'/>
+<fun r='_ZN10tensorflow15KernelAndDevice6InitOpEPNS_6DeviceERKNS_7NodeDefEPS0_'/>
+<fun r='_ZN10tensorflow15KernelAndDeviceC1EPNS_10RendezvousE'/>
+<fun r='_ZN10tensorflow15KernelAndDevice3RunEPSt6vectorINS_6TensorESaIS2_EES5_PNS_13NodeExecStatsE'/>
+<fun r='_ZNK10tensorflow15KernelAndDevice6kernelEv'/>
+<fun r='_ZNK10tensorflow15KernelAndDevice6deviceEv'/>
+<fun r='_ZN10tensorflow15KernelAndDevice21mutable_output_dtypesEv'/>
+<fun r='_ZN10tensorflow15KernelAndDevice13output_dtypesEv'/>
+<mbr r='tensorflow::KernelAndDevice::kernel_' o='0' t='std::unique_ptr&lt;OpKernel&gt;'/>
+<mbr r='tensorflow::KernelAndDevice::device_' o='64' t='tensorflow::Device *'/>
+<mbr r='tensorflow::KernelAndDevice::flib_' o='128' t='tensorflow::FunctionLibraryRuntime *'/>
+<mbr r='tensorflow::KernelAndDevice::slice_reader_cache_' o='192' t='checkpoint::TensorSliceReaderCacheWrapper'/>
+<mbr r='tensorflow::KernelAndDevice::rendez_' o='384' t='tensorflow::Rendezvous *'/>
+<mbr r='tensorflow::KernelAndDevice::output_dtypes_' o='448' t='DataTypeVector'/>

@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/kernels/winograd_transform.h' l='42' type='void tensorflow::WinogradTransform::GetOutputTransformMatrix(const int64 rows, const int64 cols, T * transform_matrix) const'/>
+<def f='tensorflow/tensorflow/core/kernels/winograd_transform.h' l='312' ll='373' type='void tensorflow::WinogradTransform::GetOutputTransformMatrix(const int64 rows, const int64 cols, T * transform_matrix) const'/>
+<doc f='tensorflow/tensorflow/core/kernels/winograd_transform.h' l='303'>// The output transform matrix is the kronecker product &apos;M * M&apos; of the
+// following matrix &apos;M&apos;:
+//
+//   [1  1  1  0]
+//   [0  1 -1 -1]
+//
+// Data layout of &apos;transform_matrix&apos;:
+//   [out_tile_spatial_size, tile_spatial_size]
+//</doc>

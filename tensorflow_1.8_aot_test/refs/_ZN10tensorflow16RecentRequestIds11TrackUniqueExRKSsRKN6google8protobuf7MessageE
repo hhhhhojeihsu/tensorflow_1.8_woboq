@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/recent_request_ids.h' l='59' type='tensorflow::Status tensorflow::RecentRequestIds::TrackUnique(int64 request_id, const string &amp; method_name, const protobuf::Message &amp; request)'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/recent_request_ids.cc' l='31' ll='58' type='tensorflow::Status tensorflow::RecentRequestIds::TrackUnique(int64 request_id, const string &amp; method_name, const protobuf::Message &amp; request)'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/recent_request_ids.h' l='55'>// Returns OK iff request_id has not been seen in the last
+  // num_tracked_request_ids insertions. For backwards compatibility, this
+  // always returns OK for request_id 0. The method_name and the request&apos;s
+  // ShortDebugString are added to returned errors.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.cc' l='367' u='c' c='_ZN10tensorflow10GrpcWorker19GrpcRecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPN4grpc10ByteBufferESt8functionIFvRKNS_6StatusEEE'/>

@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='317' type='std::vector&lt;VersionedComputationHandle&gt; xla::UserComputation::GetEmbeddedComputations(VersionedComputationHandle::Version version) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='313'>// Return a vector containing the embedded computations used by this
+  // UserComputation. Only embedded computations which are called directly by
+  // this UserComputation are included. That is, the transitive closure of
+  // embedded computations is not included.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.cc' l='159' u='c' c='_ZNK3xla18ComputationTracker27ComputeComputationPostOrderERKNS_26VersionedComputationHandleEPSt3setIS1_St4lessIS1_ESaIS1_EEPSt4listIS1_S7_E'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2094' ll='2216' type='std::vector&lt;VersionedComputationHandle&gt; xla::UserComputation::GetEmbeddedComputations(VersionedComputationHandle::Version version) const'/>

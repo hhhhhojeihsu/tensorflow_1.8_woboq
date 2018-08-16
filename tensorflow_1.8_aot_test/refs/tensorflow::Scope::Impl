@@ -1,0 +1,31 @@
+<def f='tensorflow/tensorflow/cc/framework/scope_internal.h' l='31' ll='116'/>
+<size>208</size>
+<fun r='_ZN10tensorflow5Scope4ImplC1ERKSt10shared_ptrINS_5GraphEERKS2_INS_6StatusEERKS2_ISt13unordered_mapISsiSt4hashISsESt8equal_toISsESaISt4pairIKSsiEEEERKS12982688'/>
+<fun r='_ZNK10tensorflow5Scope4Impl4nameEv'/>
+<fun r='_ZNK10tensorflow5Scope4Impl12control_depsEv'/>
+<fun r='_ZN10tensorflow5Scope4ImplC1EPNS_5GraphEPNS_6StatusEPSt13unordered_mapISsiSt4hashISsESt8equal_toISsESaISt4pairIKSsiEEEPNS_12ShapeRefinerEb'/>
+<fun r='_ZN10tensorflow5Scope4ImplC1ERKS0_NS1_4Tags9ScopeNameERKSsb'/>
+<fun r='_ZN10tensorflow5Scope4ImplC1ERKS0_NS1_4Tags6OpNameERKSsS7_'/>
+<fun r='_ZN10tensorflow5Scope4ImplC1ERKS0_NS1_4Tags11ControlDepsESt6vectorINS_9OperationESaIS7_EEb'/>
+<fun r='_ZN10tensorflow5Scope4ImplC1ERKS0_NS1_4Tags6DeviceERKSs'/>
+<fun r='_ZN10tensorflow5Scope4ImplC1ERKS0_NS1_4Tags14SingleUseScopeERKSs'/>
+<fun r='_ZN10tensorflow5Scope4ImplC1ERKS0_NS1_4Tags11ExitOnErrorE'/>
+<fun r='_ZN10tensorflow5Scope4ImplC1ERKS0_NS1_4Tags11KernelLabelERKSs'/>
+<fun r='_ZN10tensorflow5Scope4ImplC1ERKS0_NS1_4Tags8ColocateERKNS_9OperationEb'/>
+<fun r='_ZNK10tensorflow5Scope4Impl24GetColocationConstraintsERKNS_9OperationE'/>
+<fun r='_ZNK10tensorflow5Scope4Impl13GetUniqueNameERKSsb'/>
+<fun r='_ZNK10tensorflow5Scope4Impl12GetNameForOpERKSs'/>
+<fun r='_ZNK10tensorflow5Scope4Impl16single_use_scopeEv'/>
+<mbr r='tensorflow::Scope::Impl::graph_' o='0' t='std::shared_ptr&lt;Graph&gt;'/>
+<mbr r='tensorflow::Scope::Impl::status_' o='128' t='std::shared_ptr&lt;Status&gt;'/>
+<mbr r='tensorflow::Scope::Impl::name_map_' o='256' t='std::shared_ptr&lt;NameMap&gt;'/>
+<mbr r='tensorflow::Scope::Impl::refiner_' o='384' t='std::shared_ptr&lt;ShapeRefiner&gt;'/>
+<mbr r='tensorflow::Scope::Impl::scope_used_' o='512' t='std::shared_ptr&lt;bool&gt;'/>
+<mbr r='tensorflow::Scope::Impl::control_deps_' o='640' t='const std::vector&lt;Operation&gt;'/>
+<mbr r='tensorflow::Scope::Impl::name_' o='832' t='const string'/>
+<mbr r='tensorflow::Scope::Impl::op_name_' o='896' t='const string'/>
+<mbr r='tensorflow::Scope::Impl::exit_on_error_' o='960' t='const bool'/>
+<mbr r='tensorflow::Scope::Impl::kernel_label_' o='1024' t='const string'/>
+<mbr r='tensorflow::Scope::Impl::device_' o='1088' t='const string'/>
+<mbr r='tensorflow::Scope::Impl::colocation_constraints_' o='1152' t='const std::unordered_set&lt;string&gt;'/>
+<mbr r='tensorflow::Scope::Impl::disable_shape_inference_' o='1600' t='const bool'/>

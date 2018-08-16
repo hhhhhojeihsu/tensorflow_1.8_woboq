@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/framework/shape_inference.h' l='212' type='void tensorflow::shape_inference::InferenceContext::InferenceContext(int graph_def_version, const tensorflow::NodeDef * node_def, const tensorflow::OpDef &amp; op_def, const std::vector&lt;PartialTensorShape&gt; &amp; input_shapes, const std::vector&lt;const Tensor *&gt; &amp; input_tensors, const std::vector&lt;PartialTensorShape&gt; &amp; input_tensors_as_shapes, const std::vector&lt;std::unique_ptr&lt;std::vector&lt;std::pair&lt;PartialTensorShape, DataType&gt; &gt; &gt; &gt; &amp; input_handle_shapes_and_types)'/>
+<doc f='tensorflow/tensorflow/core/framework/shape_inference.h' l='201'>// &lt;input_tensors&gt; is NULL-padded to be the same size as &lt;input_shapes&gt;.
+  //
+  // Elements of &lt;input_tensors_as_shapes&gt; are used for when a shape
+  // function makes a call to MakeShapeFromShapeTensor; in particular, when
+  // the input_tensors[i] is nullptr but the shape represented by it is
+  // partially known from analysis of the graph. &lt;input_tensors_as_shapes&gt;
+  // can have fewer elements than &lt;input_shapes&gt;. Values of
+  // &lt;input_tensors_as_shapes&gt; do not need to outlive the context.
+  //
+  // REQUIRES: &lt;node_def&gt; is not NULL, and must outlive the
+  // InferenceContext.</doc>
+<def f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='85' ll='134' type='void tensorflow::shape_inference::InferenceContext::InferenceContext(int graph_def_version, const tensorflow::NodeDef * node_def, const tensorflow::OpDef &amp; op_def, const std::vector&lt;PartialTensorShape&gt; &amp; input_shapes, const std::vector&lt;const Tensor *&gt; &amp; input_tensors, const std::vector&lt;PartialTensorShape&gt; &amp; input_tensors_as_shapes, const std::vector&lt;std::unique_ptr&lt;std::vector&lt;std::pair&lt;PartialTensorShape, DataType&gt; &gt; &gt; &gt; &amp; input_handle_shapes_and_types)'/>
+<doc f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='84'>// Same as above, but with PartialTensorShape instead of TensorShapeProto</doc>

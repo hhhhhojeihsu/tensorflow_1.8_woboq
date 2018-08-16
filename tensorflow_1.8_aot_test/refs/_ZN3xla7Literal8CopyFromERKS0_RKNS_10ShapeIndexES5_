@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='237' type='tensorflow::Status xla::Literal::CopyFrom(const xla::Literal &amp; src_literal, const xla::ShapeIndex &amp; dest_shape_index = {}, const xla::ShapeIndex &amp; src_shape_index = {})'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='233'>// Copy values from &apos;src_literal&apos; rooted at &apos;src_shape_index&apos; into this
+  // literal rooted at &apos;dest_shape_index&apos;. The subshape of this literal rooted
+  // at &apos;dest_shape_index&apos; must be compatible with the subshape of &apos;src_literal&apos;
+  // rooted at &apos;src_shape_index&apos;, but need not be arrays.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='375' ll='418' type='tensorflow::Status xla::Literal::CopyFrom(const xla::Literal &amp; src_literal, const xla::ShapeIndex &amp; dest_shape_index = {}, const xla::ShapeIndex &amp; src_shape_index = {})'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='738' u='c' c='_ZNK3xla7Literal8RelayoutERKNS_6LayoutERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='753' u='c' c='_ZNK3xla7Literal8RelayoutERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='898' u='c' c='_ZNK3xla7Literal5CloneEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='904' u='c' c='_ZNK3xla7Literal13CloneToUniqueEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1354' u='c' c='_ZN3xla7Literal9MakeTupleEN10tensorflow3gtl10ArraySliceIPKS0_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2904' u='c' c='_ZN3xla12HloEvaluator21HandleGetTupleElementEPNS_14HloInstructionE'/>

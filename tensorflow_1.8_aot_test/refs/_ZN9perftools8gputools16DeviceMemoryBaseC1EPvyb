@@ -1,0 +1,26 @@
+<def f='tensorflow/tensorflow/stream_executor/device_memory.h' l='52' ll='54' type='void perftools::gputools::DeviceMemoryBase::DeviceMemoryBase(void * opaque = nullptr, uint64 size = 0, bool is_sub_buffer = false)'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='698' u='c' c='_ZN9perftools8gputools18ScopedDeviceMemoryC1Ev'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='777' u='c' c='_ZN9perftools8gputools14StreamExecutor17AllocateSubBufferEPNS0_12DeviceMemoryIT_EEyy'/>
+<doc f='tensorflow/tensorflow/stream_executor/device_memory.h' l='49'>// Default constructor instantiates a null-pointed, zero-sized device memory
+  // region. An opaque pointer may be provided -- see header for details on the
+  // opacity of that pointer.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='69' u='c' c='_ZN10tensorflow12XlaAllocator8AllocateEiyb'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='102' u='c' c='_ZN10tensorflow12_GLOBAL__N_122ExtractSubShapedBufferEPN3xla12ShapedBufferEiPNS1_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='240' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext15PopulateOutputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultESt10unique_ptrIN3xla18Scoped494850'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='290' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext15PopulateOutputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultESt10unique_ptrIN3xla18Scoped494850'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='41' u='c' c='_ZN10tensorflow9XlaTensor22DeviceMemoryFromTensorERKNS_6TensorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='48' u='c' c='_ZN3xla12_GLOBAL__N_115CpuInfeedBufferC1Ei'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shaped_buffer.cc' l='74' u='c' c='_ZN3xla12ShapedBuffer5clearEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.h' l='71' u='c' c='_ZN10tensorflow15GPUMemAllocator4FreeEPvm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.cc' l='45' u='c' c='_ZN10tensorflow12_GLOBAL__N_19CheckMaskEPN9perftools8gputools14StreamExecutorEPvPx'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.cc' l='67' u='c' c='_ZN10tensorflow12_GLOBAL__N_18InitMaskEPN9perftools8gputools14StreamExecutorEPvPx'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.cc' l='180' u='c' c='_ZN10tensorflow20GPUNanResetAllocator11AllocateRawEmm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_debug_allocator.cc' l='195' u='c' c='_ZN10tensorflow20GPUNanResetAllocator13DeallocateRawEPv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='163' u='c' c='_ZN10tensorflow7GPUUtil15SetProtoFromGPUERKNS_6TensorEPNS_6DeviceEPKNS_13DeviceContextEPNS_11TensorProtoEbSt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='219' u='c' c='_ZN10tensorflow7GPUUtil18DeviceToDeviceCopyEPNS_13DeviceContextES2_PNS_6DeviceES4_NS_19AllocatorAttributesES5_PKNS_6TensorEPS6_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='221' u='c' c='_ZN10tensorflow7GPUUtil18DeviceToDeviceCopyEPNS_13DeviceContextES2_PNS_6DeviceES4_NS_19AllocatorAttributesES5_PKNS_6TensorEPS6_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='286' u='c' c='_ZN10tensorflow7GPUUtil18CopyGPUTensorToCPUEPNS_6DeviceEPKNS_13DeviceContextEPKNS_6TensorEPS6_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='333' u='c' c='_ZN10tensorflow7GPUUtil18CopyCPUTensorToGPUEPKNS_6TensorEPKNS_13DeviceContextEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='386' u='c' c='_ZN10tensorflow7GPUUtil17MemoryDebugStringEPKNS_6DeviceEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='444' u='c' c='_ZN10tensorflow7GPUUtil22CopyGPUTensorToSameGPUEPNS_6DeviceEPKNS_13DeviceContextEPKNS_6TensorEPS6_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='446' u='c' c='_ZN10tensorflow7GPUUtil22CopyGPUTensorToSameGPUEPNS_6DeviceEPKNS_13DeviceContextEPKNS_6TensorEPS6_St8functionIFvRKNS_6StatusEEE'/>

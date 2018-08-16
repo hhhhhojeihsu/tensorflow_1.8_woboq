@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.h' l='160' type='std::unordered_map&lt;string, Item *&gt;'/>
+<offset>960</offset>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.h' l='155'>// Table mapping graph handles to registered graphs.
+  //
+  // TODO(zhifengc): If the client does not call Deregister, we&apos;ll
+  // lose memory over time. We should implement a timeout-based
+  // mechanism to gc these graphs.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='53' u='w' c='_ZN10tensorflow8GraphMgrC1EPKNS_9WorkerEnvEPNS_9DeviceMgrE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='64' c='_ZN10tensorflow8GraphMgrD1Ev'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='298' u='m' c='_ZN10tensorflow8GraphMgr8RegisterERKSsRKNS_8GraphDefERKNS_12GraphOptionsERKNS_12DebugOptionsEPNS_33DistributedFunctionLibraryRuntimeEPSs'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='308' u='m' c='_ZN10tensorflow8GraphMgr10DeregisterERKSs'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='309' u='m' c='_ZN10tensorflow8GraphMgr10DeregisterERKSs'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='314' u='m' c='_ZN10tensorflow8GraphMgr10DeregisterERKSs'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='325' c='_ZN10tensorflow8GraphMgr13DeregisterAllEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='328' u='m' c='_ZN10tensorflow8GraphMgr13DeregisterAllEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='392' u='m' c='_ZN10tensorflow8GraphMgr12ExecuteAsyncERKSsxPNS_13WorkerSessionERKNS_12ExecutorOptsEPNS_18StepStatsCollectorEPNS_30MutableRunGraphResponseWrapperEPNS_14949072'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='393' u='m' c='_ZN10tensorflow8GraphMgr12ExecuteAsyncERKSsxPNS_13WorkerSessionERKNS_12ExecutorOptsEPNS_18StepStatsCollectorEPNS_30MutableRunGraphResponseWrapperEPNS_14949072'/>

@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/computation_layout.h' l='38' type='void xla::ComputationLayout::ComputationLayout(const xla::ProgramShape &amp; program_shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/computation_layout.h' l='35'>// Constructs a ComputationLayout from a ProgramShape. The layouts of the
+  // parameters and results are set to the default layout. Layouts in the
+  // ProgramShape are ignored.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/computation_layout.cc' l='26' ll='32' type='void xla::ComputationLayout::ComputationLayout(const xla::ProgramShape &amp; program_shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module_config.cc' l='38' u='c' c='_ZN3xla15HloModuleConfig27SetDefaultComputationLayoutERKNS_12ProgramShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1580' u='c' c='_ZN3xla16LayoutAssignment3RunEPNS_9HloModuleE'/>

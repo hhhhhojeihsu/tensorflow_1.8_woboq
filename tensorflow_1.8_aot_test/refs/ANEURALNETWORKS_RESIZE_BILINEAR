@@ -1,0 +1,21 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='873' type='23'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='853'>/** Resizes images to given size using the bilinear interpretation.
+   *
+   * Resized images will be distorted if their original aspect ratio is not the
+   * same as input.
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   *
+   * Supported tensor rank: 4, with &quot;NHWC&quot; data layout.
+   *
+   * Inputs:
+   * * 0: A 4-D tensor, of shape [batches, height, width, depth], specifying the
+   * input.
+   * * 1: An INT32 value, specifying the output width of the output tensor.
+   * * 2: An INT32 value, specifying the output height of the output tensor.
+   *
+   * Outputs:
+   * * 0: The output 4-D tensor, of shape [batches, new_height, new_width,
+   * depth].
+   */</doc>

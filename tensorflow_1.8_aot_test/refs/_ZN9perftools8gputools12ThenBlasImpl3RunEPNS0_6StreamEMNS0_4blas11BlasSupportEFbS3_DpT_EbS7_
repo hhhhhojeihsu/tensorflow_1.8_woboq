@@ -1,0 +1,5 @@
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='1982' u='c' c='_ZN9perftools8gputools12ThenBlasImplclEPNS0_6StreamEMNS0_4blas11BlasSupportEFbS3_DpT_ES7_'/>
+<dec f='tensorflow/tensorflow/stream_executor/stream.cc' l='1987' type='perftools::gputools::Stream &amp; perftools::gputools::ThenBlasImpl::Run(perftools::gputools::Stream * stream, bool (perftools::gputools::blas::BlasSupport::*)(perftools::gputools::Stream *, Args...) blas_func, bool record_error, Args... args)'/>
+<def f='tensorflow/tensorflow/stream_executor/stream.cc' l='1992' ll='2011' type='perftools::gputools::Stream &amp; perftools::gputools::ThenBlasImpl::Run(perftools::gputools::Stream * stream, bool (perftools::gputools::blas::BlasSupport::*)(perftools::gputools::Stream *, Args...) blas_func, bool record_error, Args... args)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream.cc' l='1985'>// Like operator(), but only calls stream-&gt;CheckError() if record_error is
+  // true.</doc>

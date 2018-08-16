@@ -1,0 +1,86 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='49' ll='409'/>
+<size>248</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='39'>// A UserComputation is the built-up computation that users create via the
+// XLA Service interface.
+//
+// The XLA service adds instructions to a user computation via this
+// interface. The state of the computation is stored as a SessionComputation
+// proto which holds a record of all operation-building requests received by the
+// XLA service.
+//
+// UserComputations are lowered to HloComputations which are passed to the high
+// level compiler interface.</doc>
+<fun r='_ZN3xla15UserComputation17MakeWithRemappingERKNS_18SessionComputationERKNS_17ComputationHandleERKSt3mapIxS4_St4lessIxESaISt4pairIKxS4_EEE'/>
+<fun r='_ZN3xla15UserComputationC1ERKSsRKNS_17ComputationHandleE'/>
+<fun r='_ZN3xla15UserComputation23AddParameterInstructionERKNS_16ParameterRequestE'/>
+<fun r='_ZN3xla15UserComputation17AddPadInstructionERKNS_10PadRequestE'/>
+<fun r='_ZN3xla15UserComputation19AddTraceInstructionERKNS_12TraceRequestE'/>
+<fun r='_ZN3xla15UserComputation17AddRngInstructionERKNS_10RngRequestE'/>
+<fun r='_ZN3xla15UserComputation19AddUnaryInstructionERKNS_14UnaryOpRequestE'/>
+<fun r='_ZN3xla15UserComputation31AddBatchNormTrainingInstructionERKNS_24BatchNormTrainingRequestE'/>
+<fun r='_ZN3xla15UserComputation32AddBatchNormInferenceInstructionERKNS_25BatchNormInferenceRequestE'/>
+<fun r='_ZN3xla15UserComputation27AddBatchNormGradInstructionERKNS_20BatchNormGradRequestE'/>
+<fun r='_ZN3xla15UserComputation20AddBinaryInstructionERKNS_15BinaryOpRequestE'/>
+<fun r='_ZN3xla15UserComputation21AddTernaryInstructionERKNS_16TernaryOpRequestE'/>
+<fun r='_ZN3xla15UserComputation22AddVariadicInstructionERKNS_17VariadicOpRequestE'/>
+<fun r='_ZN3xla15UserComputation22AddConstantInstructionERKNS_15ConstantRequestE'/>
+<fun r='_ZN3xla15UserComputation29AddGetTupleElementInstructionERKNS_22GetTupleElementRequestE'/>
+<fun r='_ZN3xla15UserComputation17AddMapInstructionERKNS_10MapRequestERKS0_'/>
+<fun r='_ZN3xla15UserComputation29AddReducePrecisionInstructionERKNS_22ReducePrecisionRequestE'/>
+<fun r='_ZN3xla15UserComputation22AddConvolveInstructionERKNS_15ConvolveRequestE'/>
+<fun r='_ZN3xla15UserComputation17AddFftInstructionERKNS_10FftRequestE'/>
+<fun r='_ZN3xla15UserComputation29AddCrossReplicaSumInstructionERKNS_22CrossReplicaSumRequestE'/>
+<fun r='_ZN3xla15UserComputation20AddInfeedInstructionERKNS_13InfeedRequestE'/>
+<fun r='_ZN3xla15UserComputation21AddOutfeedInstructionERKNS_14OutfeedRequestE'/>
+<fun r='_ZN3xla15UserComputation25AddHostComputeInstructionERKNS_18HostComputeRequestE'/>
+<fun r='_ZN3xla15UserComputation18AddCallInstructionERKNS_11CallRequestERKS0_'/>
+<fun r='_ZN3xla15UserComputation24AddCustomCallInstructionERKNS_17CustomCallRequestE'/>
+<fun r='_ZN3xla15UserComputation17AddDotInstructionERKNS_10DotRequestE'/>
+<fun r='_ZN3xla15UserComputation23AddBroadcastInstructionERKNS_16BroadcastRequestE'/>
+<fun r='_ZN3xla15UserComputation21AddReshapeInstructionERKNS_14ReshapeRequestE'/>
+<fun r='_ZN3xla15UserComputation23AddTransposeInstructionERKNS_16TransposeRequestE'/>
+<fun r='_ZN3xla15UserComputation19AddSliceInstructionERKNS_12SliceRequestE'/>
+<fun r='_ZN3xla15UserComputation26AddDynamicSliceInstructionERKNS_19DynamicSliceRequestE'/>
+<fun r='_ZN3xla15UserComputation32AddDynamicUpdateSliceInstructionERKNS_25DynamicUpdateSliceRequestE'/>
+<fun r='_ZN3xla15UserComputation25AddConcatenateInstructionERKNS_18ConcatenateRequestE'/>
+<fun r='_ZN3xla15UserComputation21AddConvertInstructionERKNS_14ConvertRequestE'/>
+<fun r='_ZN3xla15UserComputation28AddBitcastConvertInstructionERKNS_14ConvertRequestE'/>
+<fun r='_ZN3xla15UserComputation20AddReduceInstructionERKNS_13ReduceRequestERKS0_'/>
+<fun r='_ZN3xla15UserComputation26AddReduceWindowInstructionERKNS_19ReduceWindowRequestERKS0_'/>
+<fun r='_ZN3xla15UserComputation30AddSelectAndScatterInstructionERKNS_23SelectAndScatterRequestERKS0_S5_'/>
+<fun r='_ZN3xla15UserComputation21AddReverseInstructionERKNS_14ReverseRequestE'/>
+<fun r='_ZN3xla15UserComputation19AddWhileInstructionERKNS_12WhileRequestERKS0_S5_'/>
+<fun r='_ZN3xla15UserComputation25AddConditionalInstructionERKNS_18ConditionalRequestERKS0_S5_'/>
+<fun r='_ZN3xla15UserComputation18AddSendInstructionERKNS_11SendRequestE'/>
+<fun r='_ZN3xla15UserComputation18AddRecvInstructionERKNS_11RecvRequestE'/>
+<fun r='_ZN3xla15UserComputation20AddGatherInstructionERKNS_13GatherRequestE'/>
+<fun r='_ZNK3xla15UserComputation4nameEv'/>
+<fun r='_ZN3xla15UserComputation14SetReturnValueERKNS_21ComputationDataHandleE'/>
+<fun r='_ZNK3xla15UserComputation18GetVersionedHandleEv'/>
+<fun r='_ZNK3xla15UserComputation29GetVersionedHandleAtOperationERKNS_21ComputationDataHandleE'/>
+<fun r='_ZNK3xla15UserComputation7versionEv'/>
+<fun r='_ZNK3xla15UserComputation19ComputeProgramShapeEx'/>
+<fun r='_ZN3xla15UserComputation10IsConstantERKNS_21ComputationDataHandleEx'/>
+<fun r='_ZN3xla15UserComputation8GetShapeERKNS_21ComputationDataHandleE'/>
+<fun r='_ZN3xla15UserComputation13SetOpMetadataERKNS_21ComputationDataHandleERKNS_10OpMetadataE'/>
+<fun r='_ZN3xla15UserComputation13SetOpShardingERKNS_21ComputationDataHandleERKNS_10OpShardingE'/>
+<fun r='_ZNK3xla15UserComputation19BuildHloComputationExSt8functionIFPNS_14HloComputationERKNS_26VersionedComputationHandleEEERKNS_12DebugOptionsEb'/>
+<fun r='_ZNK3xla15UserComputation23GetEmbeddedComputationsEx'/>
+<fun r='_ZNK3xla15UserComputation13request_countEx'/>
+<fun r='_ZNK3xla15UserComputation23CloneSessionComputationEx'/>
+<fun r='_ZNK3xla15UserComputation30LookUpRequestForErrorReportingERKNS_21ComputationDataHandleE'/>
+<fun r='_ZNK3xla15UserComputation17ParameterMetadataEi'/>
+<fun r='_ZN3xla15UserComputation25RemapEmbeddedComputationsERKSt3mapIxNS_17ComputationHandleESt4lessIxESaISt4pairIKxS2_EEE'/>
+<fun r='_ZNK3xla15UserComputation13LookUpRequestERKNS_21ComputationDataHandleE'/>
+<fun r='_ZN3xla15UserComputation27CreateComputationDataHandleEv'/>
+<fun r='_ZNK3xla15UserComputation28CheckParametersAreContiguousEx'/>
+<fun r='_ZNK3xla15UserComputation26GetVersionedHandleInternalEv'/>
+<mbr r='xla::UserComputation::name_' o='0' t='string'/>
+<mbr r='xla::UserComputation::mutex_' o='64' t='tensorflow::mutex'/>
+<mbr r='xla::UserComputation::session_computation_' o='192' t='xla::SessionComputation'/>
+<mbr r='xla::UserComputation::parameters_' o='1088' t='std::map&lt;int64, OperationRequest *&gt;'/>
+<mbr r='xla::UserComputation::next_handle_value_' o='1472' t='int64'/>
+<mbr r='xla::UserComputation::handle_to_return_' o='1536' t='xla::ComputationDataHandle'/>
+<mbr r='xla::UserComputation::program_shape_version_' o='1792' t='int64'/>
+<mbr r='xla::UserComputation::program_shape_' o='1856' t='std::shared_ptr&lt;const ProgramShape&gt;'/>
+<fun r='_ZN3xla15UserComputationC1ERKS0_'/>

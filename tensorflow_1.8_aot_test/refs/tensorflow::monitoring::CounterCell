@@ -1,0 +1,19 @@
+<def f='tensorflow/tensorflow/core/lib/monitoring/counter.h' l='49' ll='65'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/lib/monitoring/counter.h' l='40'>// CounterCell stores each value of an Counter.
+//
+// A cell can be passed off to a module which may repeatedly update it without
+// needing further map-indexing computations. This improves both encapsulation
+// (separate modules can own a cell each, without needing to know about the map
+// to which both cells belong) and performance (since map indexing and
+// associated locking are both avoided).
+//
+// This class is thread-safe.</doc>
+<fun r='_ZN10tensorflow10monitoring11CounterCellC1Ex'/>
+<fun r='_ZN10tensorflow10monitoring11CounterCellD1Ev'/>
+<fun r='_ZN10tensorflow10monitoring11CounterCell11IncrementByEx'/>
+<fun r='_ZNK10tensorflow10monitoring11CounterCell5valueEv'/>
+<mbr r='tensorflow::monitoring::CounterCell::value_' o='0' t='std::atomic&lt;int64&gt;'/>
+<fun r='_ZN10tensorflow10monitoring11CounterCellC1ERKS1_'/>
+<fun r='_ZN10tensorflow10monitoring11CounterCell11IncrementByEx'/>
+<fun r='_ZNK10tensorflow10monitoring11CounterCell5valueEv'/>

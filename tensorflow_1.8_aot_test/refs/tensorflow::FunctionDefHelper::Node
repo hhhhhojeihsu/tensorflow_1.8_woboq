@@ -1,0 +1,11 @@
+<def f='tensorflow/tensorflow/core/framework/function.h' l='107' ll='117'/>
+<size>104</size>
+<doc f='tensorflow/tensorflow/core/framework/function.h' l='104'>// Node is used to construct FunctionDef.Node using initialization
+  // lists. E.g.,
+  //  Node n = {{&quot;z&quot;}, &quot;Mul&quot;, {&quot;x&quot;, &quot;y&quot;}, {{&quot;T&quot;, &quot;$T&quot;}}};  // z = x * y</doc>
+<mbr r='tensorflow::FunctionDefHelper::Node::ret' o='0' t='std::vector&lt;string&gt;'/>
+<mbr r='tensorflow::FunctionDefHelper::Node::op' o='192' t='string'/>
+<mbr r='tensorflow::FunctionDefHelper::Node::arg' o='256' t='std::vector&lt;string&gt;'/>
+<mbr r='tensorflow::FunctionDefHelper::Node::attr' o='448' t='std::vector&lt;std::pair&lt;string, AttrValueWrapper&gt; &gt;'/>
+<mbr r='tensorflow::FunctionDefHelper::Node::dep' o='640' t='std::vector&lt;string&gt;'/>
+<fun r='_ZNK10tensorflow17FunctionDefHelper4Node9ToNodeDefEv'/>

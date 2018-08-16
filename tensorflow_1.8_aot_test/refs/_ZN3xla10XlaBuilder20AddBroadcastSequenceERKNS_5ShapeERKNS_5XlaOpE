@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='845' type='StatusOr&lt;xla::XlaOp&gt; xla::XlaBuilder::AddBroadcastSequence(const xla::Shape &amp; output_shape, const xla::XlaOp &amp; operand)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='843'>// Internal helper method that creates a sequence of instructions that
+  // performs an explicit broadcast of the operand to the target shape.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='231' ll='269' type='StatusOr&lt;xla::XlaOp&gt; xla::XlaBuilder::AddBroadcastSequence(const xla::Shape &amp; output_shape, const xla::XlaOp &amp; operand)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='326' u='c' c='_ZN3xla10XlaBuilder8BinaryOpENS_9HloOpcodeERKNS_5XlaOpES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='331' u='c' c='_ZN3xla10XlaBuilder8BinaryOpENS_9HloOpcodeERKNS_5XlaOpES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='356' u='c' c='_ZN3xla10XlaBuilder9TernaryOpENS_9HloOpcodeERKNS_5XlaOpES4_S4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='362' u='c' c='_ZN3xla10XlaBuilder9TernaryOpENS_9HloOpcodeERKNS_5XlaOpES4_S4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='368' u='c' c='_ZN3xla10XlaBuilder9TernaryOpENS_9HloOpcodeERKNS_5XlaOpES4_S4_'/>

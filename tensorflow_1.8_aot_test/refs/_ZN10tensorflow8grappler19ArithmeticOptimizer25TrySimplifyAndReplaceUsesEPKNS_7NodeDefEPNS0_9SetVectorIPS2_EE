@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.h' l='125' type='string tensorflow::grappler::ArithmeticOptimizer::TrySimplifyAndReplaceUses(const tensorflow::NodeDef * node, SetVector&lt;tensorflow::NodeDef *&gt; * nodes_to_simplify)'/>
+<def f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1523' ll='1890' type='string tensorflow::grappler::ArithmeticOptimizer::TrySimplifyAndReplaceUses(const tensorflow::NodeDef * node, SetVector&lt;tensorflow::NodeDef *&gt; * nodes_to_simplify)'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1931' u='c' c='_ZN10tensorflow8grappler19ArithmeticOptimizer21SimplifyArithmeticOpsEb'/>
+<doc f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1521'>// TODO(ezhulenev): extract each individual simplify rewrite into separate
+// ArithmeticOptimizerStage</doc>
+<doc f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.h' l='110'>// Tries to simplify the expression that roots at `node` and replaces the uses
+  // of `node` to the simplified expression. Returns the name of the simplified
+  // tensor (e.g. &quot;split:1&quot;) or an emtpy string if no simplification is
+  // performed.
+  //
+  // `node_map` stores the mapping from node names to NodeDef*, and will be
+  // updated according to the rewrite.
+  //
+  // `new_nodes` will be populated with the new nodes this function creates and
+  // updates. The caller can push these nodes into the simplification queue to
+  // optimize them further.
+  //
+  // TODO(jingyue): This interface is not suitable for optimizing nodes with
+  // multiple output tensors. We should pass in a tensor name instead of a
+  // NodeDef.</doc>

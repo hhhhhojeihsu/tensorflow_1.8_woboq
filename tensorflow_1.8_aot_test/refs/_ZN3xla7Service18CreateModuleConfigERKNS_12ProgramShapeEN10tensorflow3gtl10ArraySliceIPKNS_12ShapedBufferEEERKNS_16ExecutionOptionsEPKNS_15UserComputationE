@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='275' type='StatusOr&lt;std::unique_ptr&lt;HloModuleConfig&gt; &gt; xla::Service::CreateModuleConfig(const xla::ProgramShape &amp; program_shape, tensorflow::gtl::ArraySlice&lt;const ShapedBuffer *&gt; arguments, const xla::ExecutionOptions &amp; execution_options, const xla::UserComputation * user_computation = nullptr)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='273'>// A private overload for Service itself, used by other methods within this
+  // class.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='336' ll='347' type='StatusOr&lt;std::unique_ptr&lt;HloModuleConfig&gt; &gt; xla::Service::CreateModuleConfig(const xla::ProgramShape &amp; program_shape, tensorflow::gtl::ArraySlice&lt;const ShapedBuffer *&gt; arguments, const xla::ExecutionOptions &amp; execution_options, const xla::UserComputation * user_computation = nullptr)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='836' u='c' c='_ZN3xla7Service15ExecuteParallelEPKNS_22ExecuteParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='936' u='c' c='_ZN3xla7Service20ExecuteGraphParallelEPKNS_27ExecuteGraphParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1088' u='c' c='_ZN3xla7Service7ExecuteEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1177' u='c' c='_ZN3xla7Service12ExecuteGraphEPKNS_19ExecuteGraphRequestEPNS_15ExecuteResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1224' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1525' u='c' c='_ZN3xla7Service15ComputeConstantEPKNS_22ComputeConstantRequestEPNS_23ComputeConstantResponseE'/>

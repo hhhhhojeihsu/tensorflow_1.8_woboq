@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>device.h source code [tensorflow/tensorflow/core/common_runtime/device.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::Device "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/common_runtime/device.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>common_runtime</a>/<a href='device.h.html'>device.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// A Device is a something that can perform computations as part of a</i></td></tr>
+<tr><th id="17">17</th><td><i>// model.  Devices can be local (runs computation on this machine), or</i></td></tr>
+<tr><th id="18">18</th><td><i>// remote (contacts a device local to another machine using an RPC to</i></td></tr>
+<tr><th id="19">19</th><td><i>// do the work).  Devices are registered in a DeviceSet, which is also</i></td></tr>
+<tr><th id="20">20</th><td><i>// responsible for the Device &lt;-&gt; id mapping.</i></td></tr>
+<tr><th id="21">21</th><td><i>//</i></td></tr>
+<tr><th id="22">22</th><td><i>// Device names</i></td></tr>
+<tr><th id="23">23</th><td><i>// * Every Device should have a unique name with the format:</i></td></tr>
+<tr><th id="24">24</th><td><i>//     /job:___/replica:___/task:___/(gpu|cpu):___</i></td></tr>
+<tr><th id="25">25</th><td><i>//   An example name would be "/job:train/replica:0/task:3/device:GPU:2".</i></td></tr>
+<tr><th id="26">26</th><td><i>// * Task numbers are within the specified replica, so there are as</i></td></tr>
+<tr><th id="27">27</th><td><i>//   many "task zeros" as replicas.</i></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="29">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_COMMON_RUNTIME_DEVICE_H_">TENSORFLOW_COMMON_RUNTIME_DEVICE_H_</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMMON_RUNTIME_DEVICE_H_" data-ref="_M/TENSORFLOW_COMMON_RUNTIME_DEVICE_H_">TENSORFLOW_COMMON_RUNTIME_DEVICE_H_</dfn></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="../framework/allocator.h.html">"tensorflow/core/framework/allocator.h"</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="../framework/control_flow.h.html">"tensorflow/core/framework/control_flow.h"</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include "tensorflow/core/framework/device_attributes.pb_text.h"</u></td></tr>
+<tr><th id="38">38</th><td><u>#include "tensorflow/core/framework/device_attributes.pb.h"</u></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="../framework/device_base.h.html">"tensorflow/core/framework/device_base.h"</a></u></td></tr>
+<tr><th id="40">40</th><td><u>#include "tensorflow/core/framework/graph.pb.h"</u></td></tr>
+<tr><th id="41">41</th><td><u>#include <a href="../framework/op_kernel.h.html">"tensorflow/core/framework/op_kernel.h"</a></u></td></tr>
+<tr><th id="42">42</th><td><u>#include <a href="../framework/op_segment.h.html">"tensorflow/core/framework/op_segment.h"</a></u></td></tr>
+<tr><th id="43">43</th><td><u>#include <a href="../framework/resource_mgr.h.html">"tensorflow/core/framework/resource_mgr.h"</a></u></td></tr>
+<tr><th id="44">44</th><td><u>#include <a href="../framework/types.h.html">"tensorflow/core/framework/types.h"</a></u></td></tr>
+<tr><th id="45">45</th><td><u>#include <a href="../graph/graph.h.html">"tensorflow/core/graph/graph.h"</a></u></td></tr>
+<tr><th id="46">46</th><td><u>#include <a href="../graph/types.h.html">"tensorflow/core/graph/types.h"</a></u></td></tr>
+<tr><th id="47">47</th><td><u>#include <a href="../lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="48">48</th><td><u>#include <a href="../platform/macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="49">49</th><td><u>#include <a href="../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="50">50</th><td><u>#include <a href="../util/device_name_utils.h.html">"tensorflow/core/util/device_name_utils.h"</a></u></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><b>class</b> <dfn class="type def" id="tensorflow::Device" title='tensorflow::Device' data-ref="tensorflow::Device">Device</dfn> : <b>public</b> <a class="type" href="../framework/device_base.h.html#tensorflow::DeviceBase" title='tensorflow::DeviceBase' data-ref="tensorflow::DeviceBase">DeviceBase</a> {</td></tr>
+<tr><th id="55">55</th><td> <b>public</b>:</td></tr>
+<tr><th id="56">56</th><td>  <dfn class="decl" id="_ZN10tensorflow6DeviceC1EPNS_3EnvERKNS_16DeviceAttributesE" title='tensorflow::Device::Device' data-ref="_ZN10tensorflow6DeviceC1EPNS_3EnvERKNS_16DeviceAttributesE">Device</dfn>(<a class="type" href="../platform/env.h.html#tensorflow::Env" title='tensorflow::Env' data-ref="tensorflow::Env">Env</a>* <dfn class="local col9 decl" id="17739env" title='env' data-type='tensorflow::Env *' data-ref="17739env">env</dfn>, <em>const</em> <span class='type' title='tensorflow::DeviceAttributes' data-ref="tensorflow::DeviceAttributes">DeviceAttributes</span>&amp; <dfn class="local col0 decl" id="17740device_attributes" title='device_attributes' data-type='const tensorflow::DeviceAttributes &amp;' data-ref="17740device_attributes">device_attributes</dfn>);</td></tr>
+<tr><th id="57">57</th><td>  <dfn class="virtual decl" id="_ZN10tensorflow6DeviceD1Ev" title='tensorflow::Device::~Device' data-ref="_ZN10tensorflow6DeviceD1Ev">~Device</dfn>() override;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>  <i>// Full name of this device (see top comment).</i></td></tr>
+<tr><th id="60">60</th><td>  <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="virtual decl def" id="_ZNK10tensorflow6Device4nameEv" title='tensorflow::Device::name' data-ref="_ZNK10tensorflow6Device4nameEv">name</dfn>() <em>const</em> override { <b>return</b> <a class="member" href="#tensorflow::Device::device_attributes_" title='tensorflow::Device::device_attributes_' data-ref="tensorflow::Device::device_attributes_">device_attributes_</a>.<span class='ref' title='tensorflow::DeviceAttributes::name' data-ref="_ZNK10tensorflow16DeviceAttributes4nameEv">name</span>(); }</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <i>// Parsed name of this device</i></td></tr>
+<tr><th id="63">63</th><td>  <em>const</em> <a class="type" href="../util/device_name_utils.h.html#tensorflow::DeviceNameUtils" title='tensorflow::DeviceNameUtils' data-ref="tensorflow::DeviceNameUtils">DeviceNameUtils</a>::<a class="type" href="../util/device_name_utils.h.html#tensorflow::DeviceNameUtils::ParsedName" title='tensorflow::DeviceNameUtils::ParsedName' data-ref="tensorflow::DeviceNameUtils::ParsedName">ParsedName</a>&amp; <dfn class="decl def" id="_ZNK10tensorflow6Device11parsed_nameEv" title='tensorflow::Device::parsed_name' data-ref="_ZNK10tensorflow6Device11parsed_nameEv">parsed_name</dfn>() <em>const</em> {</td></tr>
+<tr><th id="64">64</th><td>    <b>return</b> <a class="member" href="#tensorflow::Device::parsed_name_" title='tensorflow::Device::parsed_name_' data-ref="tensorflow::Device::parsed_name_">parsed_name_</a>;</td></tr>
+<tr><th id="65">65</th><td>  }</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>  <i>// Describes what kind of device this is.  This is intended to be</i></td></tr>
+<tr><th id="68">68</th><td><i>  // human-readable and not computer-parsed, except that two devices</i></td></tr>
+<tr><th id="69">69</th><td><i>  // with the same device_type() are expected to perform similarly</i></td></tr>
+<tr><th id="70">70</th><td><i>  // (both from a computation and communication perspective).</i></td></tr>
+<tr><th id="71">71</th><td>  <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="decl def" id="_ZNK10tensorflow6Device11device_typeEv" title='tensorflow::Device::device_type' data-ref="_ZNK10tensorflow6Device11device_typeEv">device_type</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#tensorflow::Device::device_attributes_" title='tensorflow::Device::device_attributes_' data-ref="tensorflow::Device::device_attributes_">device_attributes_</a>.<span class='ref' title='tensorflow::DeviceAttributes::device_type' data-ref="_ZNK10tensorflow16DeviceAttributes11device_typeEv">device_type</span>(); }</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>  <i>// Returns an aggregation of device attributes.</i></td></tr>
+<tr><th id="74">74</th><td>  <em>const</em> <span class='type' title='tensorflow::DeviceAttributes' data-ref="tensorflow::DeviceAttributes">DeviceAttributes</span>&amp; <dfn class="virtual decl def" id="_ZNK10tensorflow6Device10attributesEv" title='tensorflow::Device::attributes' data-ref="_ZNK10tensorflow6Device10attributesEv">attributes</dfn>() <em>const</em> override {</td></tr>
+<tr><th id="75">75</th><td>    <b>return</b> <a class="member" href="#tensorflow::Device::device_attributes_" title='tensorflow::Device::device_attributes_' data-ref="tensorflow::Device::device_attributes_">device_attributes_</a>;</td></tr>
+<tr><th id="76">76</th><td>  }</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>  <i>// Performs the actual compute function.</i></td></tr>
+<tr><th id="79">79</th><td><i>  //</i></td></tr>
+<tr><th id="80">80</th><td><i>  // Subclasses may override this function if they wish to perform</i></td></tr>
+<tr><th id="81">81</th><td><i>  // some initialization before each compute.</i></td></tr>
+<tr><th id="82">82</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN10tensorflow6Device7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE" title='tensorflow::Device::Compute' data-ref="_ZN10tensorflow6Device7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE">Compute</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernel" title='tensorflow::OpKernel' data-ref="tensorflow::OpKernel">OpKernel</a>* <dfn class="local col1 decl" id="17741op_kernel" title='op_kernel' data-type='tensorflow::OpKernel *' data-ref="17741op_kernel">op_kernel</dfn>, <a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col2 decl" id="17742context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="17742context">context</dfn>) {</td></tr>
+<tr><th id="83">83</th><td>    <a class="local col1 ref" href="#17741op_kernel" title='op_kernel' data-ref="17741op_kernel">op_kernel</a>-&gt;<a class="virtual ref" href="../framework/op_kernel.h.html#_ZN10tensorflow8OpKernel7ComputeEPNS_15OpKernelContextE" title='tensorflow::OpKernel::Compute' data-ref="_ZN10tensorflow8OpKernel7ComputeEPNS_15OpKernelContextE">Compute</a>(<a class="local col2 ref" href="#17742context" title='context' data-ref="17742context">context</a>);</td></tr>
+<tr><th id="84">84</th><td>  }</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>  <i>// Asynchronous kernel's compute.</i></td></tr>
+<tr><th id="87">87</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN10tensorflow6Device12ComputeAsyncEPNS_13AsyncOpKernelEPNS_15OpKernelContextESt8functionIFvvEE" title='tensorflow::Device::ComputeAsync' data-ref="_ZN10tensorflow6Device12ComputeAsyncEPNS_13AsyncOpKernelEPNS_15OpKernelContextESt8functionIFvvEE">ComputeAsync</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::AsyncOpKernel" title='tensorflow::AsyncOpKernel' data-ref="tensorflow::AsyncOpKernel">AsyncOpKernel</a>* <dfn class="local col3 decl" id="17743op_kernel" title='op_kernel' data-type='tensorflow::AsyncOpKernel *' data-ref="17743op_kernel">op_kernel</dfn>, <a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col4 decl" id="17744context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="17744context">context</dfn>,</td></tr>
+<tr><th id="88">88</th><td>                            <a class="type" href="../framework/op_kernel.h.html#tensorflow::AsyncOpKernel" title='tensorflow::AsyncOpKernel' data-ref="tensorflow::AsyncOpKernel">AsyncOpKernel</a>::<a class="typedef" href="../framework/op_kernel.h.html#tensorflow::AsyncOpKernel::DoneCallback" title='tensorflow::AsyncOpKernel::DoneCallback' data-type='std::function&lt;void ()&gt;' data-ref="tensorflow::AsyncOpKernel::DoneCallback">DoneCallback</a> <dfn class="local col5 decl" id="17745done" title='done' data-type='AsyncOpKernel::DoneCallback' data-ref="17745done">done</dfn>) {</td></tr>
+<tr><th id="89">89</th><td>    <a class="local col3 ref" href="#17743op_kernel" title='op_kernel' data-ref="17743op_kernel">op_kernel</a>-&gt;<a class="virtual ref" href="../framework/op_kernel.h.html#_ZN10tensorflow13AsyncOpKernel12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE" title='tensorflow::AsyncOpKernel::ComputeAsync' data-ref="_ZN10tensorflow13AsyncOpKernel12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE">ComputeAsync</a>(<a class="local col4 ref" href="#17744context" title='context' data-ref="17744context">context</a>, <a class="ref fake" href="../../../../include/c++/5/functional.html#_ZNSt8functionIFT_DpT0_EEC1EOS_IS3_E" title='std::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;' data-ref="_ZNSt8functionIFT_DpT0_EEC1EOS_IS3_E"></a><span class="namespace">std::</span><a class="ref" href="../../../../include/c++/5/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col5 ref" href="#17745done" title='done' data-ref="17745done">done</a></span>));</td></tr>
+<tr><th id="90">90</th><td>  }</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>  <i>// Takes ownership of the references in tensors. If necessary, a</i></td></tr>
+<tr><th id="93">93</th><td><i>  // device may override this method to keep a reference to the</i></td></tr>
+<tr><th id="94">94</th><td><i>  // accessed tensors until the async computation has completed.</i></td></tr>
+<tr><th id="95">95</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl def" id="_ZN10tensorflow6Device28ConsumeListOfAccessedTensorsEPNS_13DeviceContextERKNS_3gtl13InlinedVectorINS_15TensorReferenceELi4EEE" title='tensorflow::Device::ConsumeListOfAccessedTensors' data-ref="_ZN10tensorflow6Device28ConsumeListOfAccessedTensorsEPNS_13DeviceContextERKNS_3gtl13InlinedVectorINS_15TensorReferenceELi4EEE">ConsumeListOfAccessedTensors</dfn>(</td></tr>
+<tr><th id="96">96</th><td>      <a class="type" href="../framework/device_base.h.html#tensorflow::DeviceContext" title='tensorflow::DeviceContext' data-ref="tensorflow::DeviceContext">DeviceContext</a>* <dfn class="local col6 decl" id="17746context" title='context' data-type='tensorflow::DeviceContext *' data-ref="17746context">context</dfn>, <em>const</em> <a class="typedef" href="../framework/tensor_reference.h.html#tensorflow::TensorReferenceVector" title='tensorflow::TensorReferenceVector' data-type='gtl::InlinedVector&lt;TensorReference, 4&gt;' data-ref="tensorflow::TensorReferenceVector">TensorReferenceVector</a>&amp; <dfn class="local col7 decl" id="17747tensors" title='tensors' data-type='const TensorReferenceVector &amp;' data-ref="17747tensors">tensors</dfn>) {</td></tr>
+<tr><th id="97">97</th><td>    <b>for</b> (<em>const</em> <em>auto</em>&amp; <dfn class="local col8 decl" id="17748ref" title='ref' data-type='const tensorflow::TensorReference &amp;' data-ref="17748ref">ref</dfn> : <a class="local col7 ref" href="#17747tensors" title='tensors' data-ref="17747tensors">tensors</a>) {</td></tr>
+<tr><th id="98">98</th><td>      <a class="local col8 ref" href="#17748ref" title='ref' data-ref="17748ref">ref</a>.<a class="ref" href="../framework/tensor_reference.h.html#_ZNK10tensorflow15TensorReference5UnrefEv" title='tensorflow::TensorReference::Unref' data-ref="_ZNK10tensorflow15TensorReference5UnrefEv">Unref</a>();</td></tr>
+<tr><th id="99">99</th><td>    }</td></tr>
+<tr><th id="100">100</th><td>  }</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>  <i>// Blocks until all operations queued on the device at the time of</i></td></tr>
+<tr><th id="103">103</th><td><i>  // the call have completed.  Returns any error pending on the device</i></td></tr>
+<tr><th id="104">104</th><td><i>  // at completion.</i></td></tr>
+<tr><th id="105">105</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow6Device4SyncEv" title='tensorflow::Device::Sync' data-ref="_ZN10tensorflow6Device4SyncEv">Sync</dfn>() = <var>0</var>;</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>  <i>// Optionally modify the device's GraphDef before execution.</i></td></tr>
+<tr><th id="108">108</th><td><i>  //</i></td></tr>
+<tr><th id="109">109</th><td><i>  // This method should be considered experimental and is supplied to enable</i></td></tr>
+<tr><th id="110">110</th><td><i>  // prototyping of TensorFlow device implementations that need to modify</i></td></tr>
+<tr><th id="111">111</th><td><i>  // the GraphDef before execution.</i></td></tr>
+<tr><th id="112">112</th><td><i>  //</i></td></tr>
+<tr><th id="113">113</th><td><i>  // 'graph' supplies the partition of the graph assigned to this</i></td></tr>
+<tr><th id="114">114</th><td><i>  // device.</i></td></tr>
+<tr><th id="115">115</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl def" id="_ZN10tensorflow6Device17MaybeRewriteGraphEPSt10unique_ptrINS_5GraphESt14default_deleteIS2_EE" title='tensorflow::Device::MaybeRewriteGraph' data-ref="_ZN10tensorflow6Device17MaybeRewriteGraphEPSt10unique_ptrINS_5GraphESt14default_deleteIS2_EE">MaybeRewriteGraph</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>&gt;* <i>/*graph*/</i>) {</td></tr>
+<tr><th id="116">116</th><td>    <b>return</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a>::<a class="ref" href="../lib/core/status.h.html#_ZN10tensorflow6Status2OKEv" title='tensorflow::Status::OK' data-ref="_ZN10tensorflow6Status2OKEv">OK</a>();</td></tr>
+<tr><th id="117">117</th><td>  }</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>  <i>// Fill in the context map for the graph. Default behavior is to do</i></td></tr>
+<tr><th id="120">120</th><td><i>  // nothing.</i></td></tr>
+<tr><th id="121">121</th><td><i>  //</i></td></tr>
+<tr><th id="122">122</th><td><i>  // The caller takes ownership over the DeviceContext objects given</i></td></tr>
+<tr><th id="123">123</th><td><i>  // by the device.</i></td></tr>
+<tr><th id="124">124</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl def" id="_ZN10tensorflow6Device14FillContextMapEPKNS_5GraphEPSt6vectorIPNS_13DeviceContextESaIS6_EE" title='tensorflow::Device::FillContextMap' data-ref="_ZN10tensorflow6Device14FillContextMapEPKNS_5GraphEPSt6vectorIPNS_13DeviceContextESaIS6_EE">FillContextMap</dfn>(<em>const</em> <a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col9 decl" id="17749graph" title='graph' data-type='const tensorflow::Graph *' data-ref="17749graph">graph</dfn>,</td></tr>
+<tr><th id="125">125</th><td>                                <a class="typedef" href="../framework/device_base.h.html#tensorflow::DeviceContextMap" title='tensorflow::DeviceContextMap' data-type='std::vector&lt;DeviceContext *&gt;' data-ref="tensorflow::DeviceContextMap">DeviceContextMap</a>* <dfn class="local col0 decl" id="17750device_context_map" title='device_context_map' data-type='DeviceContextMap *' data-ref="17750device_context_map">device_context_map</dfn>) {</td></tr>
+<tr><th id="126">126</th><td>    <b>return</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a>::<a class="ref" href="../lib/core/status.h.html#_ZN10tensorflow6Status2OKEv" title='tensorflow::Status::OK' data-ref="_ZN10tensorflow6Status2OKEv">OK</a>();</td></tr>
+<tr><th id="127">127</th><td>  }</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>  <i>// Returns the op segment of this device.  The caller can reuse op</i></td></tr>
+<tr><th id="130">130</th><td><i>  // kernels registered for the same session running on this device.</i></td></tr>
+<tr><th id="131">131</th><td>  <a class="type" href="../framework/op_segment.h.html#tensorflow::OpSegment" title='tensorflow::OpSegment' data-ref="tensorflow::OpSegment">OpSegment</a>* <dfn class="decl def" id="_ZN10tensorflow6Device10op_segmentEv" title='tensorflow::Device::op_segment' data-ref="_ZN10tensorflow6Device10op_segmentEv">op_segment</dfn>() { <b>return</b> &amp;<a class="member" href="#tensorflow::Device::op_seg_" title='tensorflow::Device::op_seg_' data-ref="tensorflow::Device::op_seg_">op_seg_</a>; }</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td>  <i>// Returns the resource manager associated w/ this device.</i></td></tr>
+<tr><th id="134">134</th><td>  <b>virtual</b> <a class="type" href="../framework/resource_mgr.h.html#tensorflow::ResourceMgr" title='tensorflow::ResourceMgr' data-ref="tensorflow::ResourceMgr">ResourceMgr</a>* <dfn class="virtual decl def" id="_ZN10tensorflow6Device16resource_managerEv" title='tensorflow::Device::resource_manager' data-ref="_ZN10tensorflow6Device16resource_managerEv">resource_manager</dfn>() { <b>return</b> <a class="member" href="#tensorflow::Device::rmgr_" title='tensorflow::Device::rmgr_' data-ref="tensorflow::Device::rmgr_">rmgr_</a>; }</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>  <i>// Summarizes the status of this Device, for debugging.</i></td></tr>
+<tr><th id="137">137</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl def" id="_ZNK10tensorflow6Device11DebugStringEv" title='tensorflow::Device::DebugString' data-ref="_ZNK10tensorflow6Device11DebugStringEv">DebugString</dfn>() <em>const</em> { <b>return</b> <span class='ref' title='tensorflow::ProtoDebugString' data-ref="_ZN10tensorflow16ProtoDebugStringERKNS_16DeviceAttributesE">ProtoDebugString</span>(<a class="member" href="#tensorflow::Device::device_attributes_" title='tensorflow::Device::device_attributes_' data-ref="tensorflow::Device::device_attributes_">device_attributes_</a>); }</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td>  <i>// Assembles the parameter components into a complete DeviceAttributes value.</i></td></tr>
+<tr><th id="140">140</th><td>  <em>static</em> <span class='type' title='tensorflow::DeviceAttributes' data-ref="tensorflow::DeviceAttributes">DeviceAttributes</span> <dfn class="decl" id="_ZN10tensorflow6Device21BuildDeviceAttributesERKSsNS_10DeviceTypeENS_3gtl7IntTypeINS_10Bytes_tag_ExEERKNS_14DeviceLocalityES2_" title='tensorflow::Device::BuildDeviceAttributes' data-ref="_ZN10tensorflow6Device21BuildDeviceAttributesERKSsNS_10DeviceTypeENS_3gtl7IntTypeINS_10Bytes_tag_ExEERKNS_14DeviceLocalityES2_">BuildDeviceAttributes</dfn>(</td></tr>
+<tr><th id="141">141</th><td>      <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="17751name" title='name' data-type='const string &amp;' data-ref="17751name">name</dfn>, <a class="type" href="../framework/types.h.html#tensorflow::DeviceType" title='tensorflow::DeviceType' data-ref="tensorflow::DeviceType">DeviceType</a> <dfn class="local col2 decl" id="17752device" title='device' data-type='tensorflow::DeviceType' data-ref="17752device">device</dfn>, <a class="typedef" href="../graph/types.h.html#31" title='tensorflow::Bytes' data-type='::tensorflow::gtl::IntType&lt;Bytes_tag_, int64&gt;' data-ref="tensorflow::Bytes">Bytes</a> <dfn class="local col3 decl" id="17753memory_limit" title='memory_limit' data-type='Bytes' data-ref="17753memory_limit">memory_limit</dfn>,</td></tr>
+<tr><th id="142">142</th><td>      <em>const</em> <span class='type' title='tensorflow::DeviceLocality' data-ref="tensorflow::DeviceLocality">DeviceLocality</span>&amp; <dfn class="local col4 decl" id="17754locality" title='locality' data-type='const tensorflow::DeviceLocality &amp;' data-ref="17754locality">locality</dfn>, <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col5 decl" id="17755physical_device_desc" title='physical_device_desc' data-type='const string &amp;' data-ref="17755physical_device_desc">physical_device_desc</dfn>);</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>  <em>static</em> <span class='type' title='tensorflow::DeviceAttributes' data-ref="tensorflow::DeviceAttributes">DeviceAttributes</span> <dfn class="decl def" id="_ZN10tensorflow6Device21BuildDeviceAttributesERKSsNS_10DeviceTypeENS_3gtl7IntTypeINS_10Bytes_tag_ExEERKNS_14DeviceLocalityE" title='tensorflow::Device::BuildDeviceAttributes' data-ref="_ZN10tensorflow6Device21BuildDeviceAttributesERKSsNS_10DeviceTypeENS_3gtl7IntTypeINS_10Bytes_tag_ExEERKNS_14DeviceLocalityE">BuildDeviceAttributes</dfn>(</td></tr>
+<tr><th id="145">145</th><td>      <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col6 decl" id="17756name" title='name' data-type='const string &amp;' data-ref="17756name">name</dfn>, <a class="type" href="../framework/types.h.html#tensorflow::DeviceType" title='tensorflow::DeviceType' data-ref="tensorflow::DeviceType">DeviceType</a> <dfn class="local col7 decl" id="17757device" title='device' data-type='tensorflow::DeviceType' data-ref="17757device">device</dfn>, <a class="typedef" href="../graph/types.h.html#31" title='tensorflow::Bytes' data-type='::tensorflow::gtl::IntType&lt;Bytes_tag_, int64&gt;' data-ref="tensorflow::Bytes">Bytes</a> <dfn class="local col8 decl" id="17758memory_limit" title='memory_limit' data-type='Bytes' data-ref="17758memory_limit">memory_limit</dfn>,</td></tr>
+<tr><th id="146">146</th><td>      <em>const</em> <span class='type' title='tensorflow::DeviceLocality' data-ref="tensorflow::DeviceLocality">DeviceLocality</span>&amp; <dfn class="local col9 decl" id="17759locality" title='locality' data-type='const tensorflow::DeviceLocality &amp;' data-ref="17759locality">locality</dfn>) {</td></tr>
+<tr><th id="147">147</th><td>    <i>// Pass in an empty string as physical device name.</i></td></tr>
+<tr><th id="148">148</th><td>    <b>return</b> <a class="member" href="#_ZN10tensorflow6Device21BuildDeviceAttributesERKSsNS_10DeviceTypeENS_3gtl7IntTypeINS_10Bytes_tag_ExEERKNS_14DeviceLocalityES2_" title='tensorflow::Device::BuildDeviceAttributes' data-ref="_ZN10tensorflow6Device21BuildDeviceAttributesERKSsNS_10DeviceTypeENS_3gtl7IntTypeINS_10Bytes_tag_ExEERKNS_14DeviceLocalityES2_">BuildDeviceAttributes</a>(<a class="local col6 ref" href="#17756name" title='name' data-ref="17756name">name</a>, <a class="ref fake" href="../framework/types.h.html#53" title='tensorflow::DeviceType::DeviceType' data-ref="_ZN10tensorflow10DeviceTypeC1ERKS0_"></a><a class="local col7 ref" href="#17757device" title='device' data-ref="17757device">device</a>, <a class="ref fake" href="../lib/gtl/int_type.h.html#188" title='tensorflow::gtl::IntType&lt;tensorflow::Bytes_tag_, long long&gt;::IntType' data-ref="_ZN10tensorflow3gtl7IntTypeINS_10Bytes_tag_ExEC1ERKS3_"></a><a class="local col8 ref" href="#17758memory_limit" title='memory_limit' data-ref="17758memory_limit">memory_limit</a>, <a class="local col9 ref" href="#17759locality" title='locality' data-ref="17759locality">locality</a>, <a class="ref fake" href="../../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1EPKT_RKT1_" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1EPKT_RKT1_"></a><q>""</q>);</td></tr>
+<tr><th id="149">149</th><td>  }</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>  <i>// Clears the resource manager associated with this device.</i></td></tr>
+<tr><th id="152">152</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow6Device16ClearResourceMgrEv" title='tensorflow::Device::ClearResourceMgr' data-ref="_ZN10tensorflow6Device16ClearResourceMgrEv">ClearResourceMgr</dfn>() { <a class="member" href="#tensorflow::Device::rmgr_" title='tensorflow::Device::rmgr_' data-ref="tensorflow::Device::rmgr_">rmgr_</a>-&gt;<a class="ref" href="../framework/resource_mgr.h.html#_ZN10tensorflow11ResourceMgr5ClearEv" title='tensorflow::ResourceMgr::Clear' data-ref="_ZN10tensorflow11ResourceMgr5ClearEv">Clear</a>(); }</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td> <b>protected</b>:</td></tr>
+<tr><th id="155">155</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow6Device17DeleteResourceMgrEv" title='tensorflow::Device::DeleteResourceMgr' data-ref="_ZN10tensorflow6Device17DeleteResourceMgrEv">DeleteResourceMgr</dfn>() {</td></tr>
+<tr><th id="156">156</th><td>    <b>delete</b> <a class="member" href="#tensorflow::Device::rmgr_" title='tensorflow::Device::rmgr_' data-ref="tensorflow::Device::rmgr_">rmgr_</a>;</td></tr>
+<tr><th id="157">157</th><td>    <a class="member" href="#tensorflow::Device::rmgr_" title='tensorflow::Device::rmgr_' data-ref="tensorflow::Device::rmgr_">rmgr_</a> = <b>nullptr</b>;</td></tr>
+<tr><th id="158">158</th><td>  }</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td> <b>private</b>:</td></tr>
+<tr><th id="161">161</th><td>  <em>const</em> <span class='type' title='tensorflow::DeviceAttributes' data-ref="tensorflow::DeviceAttributes">DeviceAttributes</span> <dfn class="decl" id="tensorflow::Device::device_attributes_" title='tensorflow::Device::device_attributes_' data-ref="tensorflow::Device::device_attributes_">device_attributes_</dfn>;</td></tr>
+<tr><th id="162">162</th><td>  <a class="type" href="../util/device_name_utils.h.html#tensorflow::DeviceNameUtils" title='tensorflow::DeviceNameUtils' data-ref="tensorflow::DeviceNameUtils">DeviceNameUtils</a>::<a class="type" href="../util/device_name_utils.h.html#tensorflow::DeviceNameUtils::ParsedName" title='tensorflow::DeviceNameUtils::ParsedName' data-ref="tensorflow::DeviceNameUtils::ParsedName">ParsedName</a> <dfn class="decl" id="tensorflow::Device::parsed_name_" title='tensorflow::Device::parsed_name_' data-ref="tensorflow::Device::parsed_name_">parsed_name_</dfn>;</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>  <i>// op_seg_ maps session handle and op name to OpKernel objects.</i></td></tr>
+<tr><th id="165">165</th><td>  <a class="type" href="../framework/op_segment.h.html#tensorflow::OpSegment" title='tensorflow::OpSegment' data-ref="tensorflow::OpSegment">OpSegment</a> <dfn class="decl" id="tensorflow::Device::op_seg_" title='tensorflow::Device::op_seg_' data-ref="tensorflow::Device::op_seg_">op_seg_</dfn>;</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>  <i>// Resources associated w/ this device. E.g., shared variables, etc.</i></td></tr>
+<tr><th id="168">168</th><td>  <a class="type" href="../framework/resource_mgr.h.html#tensorflow::ResourceMgr" title='tensorflow::ResourceMgr' data-ref="tensorflow::ResourceMgr">ResourceMgr</a>* <dfn class="decl" id="tensorflow::Device::rmgr_" title='tensorflow::Device::rmgr_' data-ref="tensorflow::Device::rmgr_">rmgr_</dfn> = <b>nullptr</b>;</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td>  <a class="macro" href="../platform/macros.h.html#91" title="Device(const Device&amp;) = delete; void operator=(const Device&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN10tensorflow6DeviceC1ERKS0_" title='tensorflow::Device::Device' data-ref="_ZN10tensorflow6DeviceC1ERKS0_"><a class="type" href="#tensorflow::Device" title='tensorflow::Device' data-ref="tensorflow::Device"><a class="type" href="#tensorflow::Device" title='tensorflow::Device' data-ref="tensorflow::Device">Device</a></a></dfn>);</td></tr>
+<tr><th id="171">171</th><td>};</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td><u>#<span data-ppcond="29">endif</span>  // TENSORFLOW_COMMON_RUNTIME_DEVICE_H_</u></td></tr>
+<tr><th id="176">176</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../c/c_api.cc.html'>tensorflow/tensorflow/c/c_api.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,25 @@
+<def f='tensorflow/tensorflow/core/distributed_runtime/recent_request_ids.h' l='47' ll='70'/>
+<size>104</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/recent_request_ids.h' l='32'>// RecentRequestIds tracks recent 64-bit request_ids. When maximum capacity is
+// reached, the oldest request_id is evicted. Thread safe.
+//
+// Some RPCs like RecvTensor are unsafe to retry. For example, RecvTensor pairs
+// one sender and one receiver, and the receiver waits for the sender&apos;s tensor.
+// Retried RecvTensor requests are problematic, because the original RecvTensor
+// request may have consumed the sender&apos;s tensor, so a retried request might
+// block forever. RecentRequestIds identifies retried requests, so we can fail
+// them instead of blocking forever.
+//
+// Internally, recent request_ids are stored in two data structures: a set and a
+// circular buffer. The set is used for efficient lookups, and the circular
+// buffer tracks the oldest request_id. When the buffer is full, the new
+// request_id replaces the oldest request_id in the circular buffer, and the
+// oldest request_id is removed from the set.</doc>
+<fun r='_ZN10tensorflow16RecentRequestIdsC1Ei'/>
+<fun r='_ZN10tensorflow16RecentRequestIds11TrackUniqueExRKSsRKN6google8protobuf7MessageE'/>
+<mbr r='tensorflow::RecentRequestIds::mu_' o='0' t='tensorflow::mutex'/>
+<mbr r='tensorflow::RecentRequestIds::next_index_' o='128' t='int'/>
+<mbr r='tensorflow::RecentRequestIds::circular_buffer_' o='192' t='std::vector&lt;int64&gt;'/>
+<mbr r='tensorflow::RecentRequestIds::set_' o='384' t='std::unordered_set&lt;int64&gt;'/>
+<fun r='_ZN10tensorflow16RecentRequestIdsC1Ei'/>
+<fun r='_ZN10tensorflow16RecentRequestIds11TrackUniqueExRKSsRKN6google8protobuf7MessageE'/>

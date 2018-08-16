@@ -1,0 +1,14 @@
+<inh f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='76' c='tensorflow::ResourceBase'/>
+<def f='tensorflow/tensorflow/core/kernels/data/stats_aggregator.h' l='65' ll='80'/>
+<size>32</size>
+<doc f='tensorflow/tensorflow/core/kernels/data/stats_aggregator.h' l='58'>// A `StatsAggregatorResource` wraps a shareable `StatsAggregator` as a resource
+// in the TensorFlow resource manager.
+//
+// NOTE(mrry): This class is separate from `StatsAggregator` in order to
+// simplify the memory management of the shared object. Most users of
+// `StatsAggregator` interact with a `std::shared_ptr&lt;StatsAggregator&gt;` whereas
+// the `ResourceBase` API requires explicit reference counting.</doc>
+<fun r='_ZN10tensorflow23StatsAggregatorResourceC1ESt10unique_ptrINS_15StatsAggregatorESt14default_deleteIS2_EE'/>
+<fun r='_ZNK10tensorflow23StatsAggregatorResource16stats_aggregatorEv'/>
+<fun r='_ZN10tensorflow23StatsAggregatorResource11DebugStringEv'/>
+<mbr r='tensorflow::StatsAggregatorResource::stats_aggregator_' o='128' t='const std::shared_ptr&lt;StatsAggregator&gt;'/>

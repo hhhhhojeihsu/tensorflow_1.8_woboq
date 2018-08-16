@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>grpc_call.h source code [tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_call.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::Call,tensorflow::UntypedCall "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_call.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>distributed_runtime</a>/<a href='./'>rpc</a>/<a href='grpc_call.h.html'>grpc_call.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_CALL_H_">TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_CALL_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_CALL_H_" data-ref="_M/TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_CALL_H_">TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_CALL_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../lib/core/refcount.h.html">"tensorflow/core/lib/core/refcount.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../platform/macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../platform/mutex.h.html">"tensorflow/core/platform/mutex.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include "grpc++/grpc++.h"</u></td></tr>
+<tr><th id="24">24</th><td><u>#include "grpc++/impl/codegen/service_type.h"</u></td></tr>
+<tr><th id="25">25</th><td><u>#include "grpc++/server_builder.h"</u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i>// CALL STRUCTURES</i></td></tr>
+<tr><th id="30">30</th><td><i>// ===============</i></td></tr>
+<tr><th id="31">31</th><td><i>//</i></td></tr>
+<tr><th id="32">32</th><td><i>// Each pending (incoming) request corresponds to a call object that</i></td></tr>
+<tr><th id="33">33</th><td><i>// encapsulates the state of the call. Templates and</i></td></tr>
+<tr><th id="34">34</th><td><i>// pointers-to-member functions are used to avoid boilerplate and</i></td></tr>
+<tr><th id="35">35</th><td><i>// redundant closure creation. The class hierarchy is as follows:</i></td></tr>
+<tr><th id="36">36</th><td><i>//</i></td></tr>
+<tr><th id="37">37</th><td><i>// * `UntypedCall&lt;Service&gt;`: The base class represents a call that</i></td></tr>
+<tr><th id="38">38</th><td><i>//   could be associated with any of the methods on a service of type</i></td></tr>
+<tr><th id="39">39</th><td><i>//   `Service`. Also defines a `Tag` nested class that can be used as</i></td></tr>
+<tr><th id="40">40</th><td><i>//   the tag in a `grpc::CompletionQueue`.  Each class that</i></td></tr>
+<tr><th id="41">41</th><td><i>//   instantiates `Service` should have a completion queue polling</i></td></tr>
+<tr><th id="42">42</th><td><i>//   loop that knows about `UntypedCall&lt;Service&gt;::Tag` objects, and</i></td></tr>
+<tr><th id="43">43</th><td><i>//   invokes their `OnCompleted()` method to continue processing.</i></td></tr>
+<tr><th id="44">44</th><td><i>//</i></td></tr>
+<tr><th id="45">45</th><td><i>// * `Call&lt;Service, GrpcService, Req, Resp&gt;`: This class extends</i></td></tr>
+<tr><th id="46">46</th><td><i>//   `UntypedCall&lt;Service&gt;` and is additionally parameterized by the</i></td></tr>
+<tr><th id="47">47</th><td><i>//   gRPC-generated asynchronous service class, and the request and</i></td></tr>
+<tr><th id="48">48</th><td><i>//   response message types. It defines the state associated with a</i></td></tr>
+<tr><th id="49">49</th><td><i>//   call (whose type depends on the message types), and stores a</i></td></tr>
+<tr><th id="50">50</th><td><i>//   pointer to a `Service::HandleFoo()` handler method. Each</i></td></tr>
+<tr><th id="51">51</th><td><i>//   `Service::HandleFoo()` method knows about the corresponding</i></td></tr>
+<tr><th id="52">52</th><td><i>//   `Call` type, in order to access its state, and invoke its</i></td></tr>
+<tr><th id="53">53</th><td><i>//   `SendResponse()` method.</i></td></tr>
+<tr><th id="54">54</th><td><i>//</i></td></tr>
+<tr><th id="55">55</th><td><i>// The lifecycle of a call object is as follows.</i></td></tr>
+<tr><th id="56">56</th><td><i>//</i></td></tr>
+<tr><th id="57">57</th><td><i>// 1. A `Service` creates a `Call` for a particular method and</i></td></tr>
+<tr><th id="58">58</th><td><i>//    enqueues it in its completion queue (via an</i></td></tr>
+<tr><th id="59">59</th><td><i>//    `UntypedCall&lt;Service&gt;::Tag`).</i></td></tr>
+<tr><th id="60">60</th><td><i>//</i></td></tr>
+<tr><th id="61">61</th><td><i>// 2. When the tag is returned from `cq_-&gt;Next()`, the</i></td></tr>
+<tr><th id="62">62</th><td><i>//    `UntypedCall::RequestReceived()` method is invoked and takes</i></td></tr>
+<tr><th id="63">63</th><td><i>//    ownership of the call object. This indirectly invokes the</i></td></tr>
+<tr><th id="64">64</th><td><i>//    appropriate handler method on `Service`.</i></td></tr>
+<tr><th id="65">65</th><td><i>//</i></td></tr>
+<tr><th id="66">66</th><td><i>// 3. After the response has been written (perhaps in another thread),</i></td></tr>
+<tr><th id="67">67</th><td><i>//    the `Call::SendResponse()` method is invoked. It transfers</i></td></tr>
+<tr><th id="68">68</th><td><i>//    ownership of the call object back to the completion queue (via</i></td></tr>
+<tr><th id="69">69</th><td><i>//    an `UntypedCall::Tag`).</i></td></tr>
+<tr><th id="70">70</th><td><i>//</i></td></tr>
+<tr><th id="71">71</th><td><i>// 4. When the response has been sent, the tag is returned from</i></td></tr>
+<tr><th id="72">72</th><td><i>//    `cq_-&gt;Next()`, and the call object is deleted.</i></td></tr>
+<tr><th id="73">73</th><td><i></i></td></tr>
+<tr><th id="74">74</th><td><i>// Represents a pending request with unknown message types.</i></td></tr>
+<tr><th id="75">75</th><td><b>template</b> &lt;<b>class</b> Service&gt;</td></tr>
+<tr><th id="76">76</th><td><b>class</b> <dfn class="type def" id="tensorflow::UntypedCall" title='tensorflow::UntypedCall' data-ref="tensorflow::UntypedCall">UntypedCall</dfn> : <b>public</b> <span class="namespace">core::</span><a class="type" href="../../lib/core/refcount.h.html#tensorflow::core::RefCounted" title='tensorflow::core::RefCounted' data-ref="tensorflow::core::RefCounted">RefCounted</a> {</td></tr>
+<tr><th id="77">77</th><td> <b>public</b>:</td></tr>
+<tr><th id="78">78</th><td>  <b>virtual</b> <dfn class="virtual decl def" id="_ZN10tensorflow11UntypedCallD1Ev" title='tensorflow::UntypedCall::~UntypedCall&lt;Service&gt;' data-ref="_ZN10tensorflow11UntypedCallD1Ev">~UntypedCall</dfn>() {}</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>  <i>// The implementation of this method should use `service` to handle</i></td></tr>
+<tr><th id="81">81</th><td><i>  // an incoming request, and (perhaps asynchronously) send the</i></td></tr>
+<tr><th id="82">82</th><td><i>  // response.</i></td></tr>
+<tr><th id="83">83</th><td><i>  //</i></td></tr>
+<tr><th id="84">84</th><td><i>  // One reference on `this` is transferred to the callee, and the</i></td></tr>
+<tr><th id="85">85</th><td><i>  // callee is responsible for releasing it (typically via</i></td></tr>
+<tr><th id="86">86</th><td><i>  // `Call::SendResponse()`).</i></td></tr>
+<tr><th id="87">87</th><td><i>  //</i></td></tr>
+<tr><th id="88">88</th><td><i>  // `ok` is true if the request was received in a "regular event",</i></td></tr>
+<tr><th id="89">89</th><td><i>  // otherwise false.</i></td></tr>
+<tr><th id="90">90</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN10tensorflow11UntypedCall15RequestReceivedEPT_b" title='tensorflow::UntypedCall::RequestReceived' data-ref="_ZN10tensorflow11UntypedCall15RequestReceivedEPT_b">RequestReceived</dfn>(Service* <dfn class="local col4 decl" id="4service" title='service' data-type='Service *' data-ref="4service">service</dfn>, <em>bool</em> <dfn class="local col5 decl" id="5ok" title='ok' data-type='bool' data-ref="5ok">ok</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>  <i>// This method will be called either (i) when the server is notified</i></td></tr>
+<tr><th id="93">93</th><td><i>  // that the request has been canceled, or (ii) when the request completes</i></td></tr>
+<tr><th id="94">94</th><td><i>  // normally. The implementation should distinguish these cases by querying</i></td></tr>
+<tr><th id="95">95</th><td><i>  // the `grpc::ServerContext` associated with the request.</i></td></tr>
+<tr><th id="96">96</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN10tensorflow11UntypedCall16RequestCancelledEPT_b" title='tensorflow::UntypedCall::RequestCancelled' data-ref="_ZN10tensorflow11UntypedCall16RequestCancelledEPT_b">RequestCancelled</dfn>(Service* <dfn class="local col6 decl" id="6service" title='service' data-type='Service *' data-ref="6service">service</dfn>, <em>bool</em> <dfn class="local col7 decl" id="7ok" title='ok' data-type='bool' data-ref="7ok">ok</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>  <i>// Associates a tag in a `::grpc::CompletionQueue` with a callback</i></td></tr>
+<tr><th id="99">99</th><td><i>  // for an incoming RPC.  An active Tag owns a reference on the corresponding</i></td></tr>
+<tr><th id="100">100</th><td><i>  // Call object.</i></td></tr>
+<tr><th id="101">101</th><td>  <b>class</b> <dfn class="type def" id="tensorflow::UntypedCall::Tag" title='tensorflow::UntypedCall::Tag' data-ref="tensorflow::UntypedCall::Tag">Tag</dfn> {</td></tr>
+<tr><th id="102">102</th><td>   <b>public</b>:</td></tr>
+<tr><th id="103">103</th><td>    <i>// One enum value per supported callback.</i></td></tr>
+<tr><th id="104">104</th><td>    <b>enum</b> <dfn class="type def" id="tensorflow::UntypedCall::Tag::Callback" title='tensorflow::UntypedCall::Tag::Callback' data-ref="tensorflow::UntypedCall::Tag::Callback">Callback</dfn> { <dfn class="enum" id="tensorflow::UntypedCall::Tag::Callback::kRequestReceived" title='tensorflow::UntypedCall::Tag::Callback::kRequestReceived' data-ref="tensorflow::UntypedCall::Tag::Callback::kRequestReceived">kRequestReceived</dfn>, <dfn class="enum" id="tensorflow::UntypedCall::Tag::Callback::kResponseSent" title='tensorflow::UntypedCall::Tag::Callback::kResponseSent' data-ref="tensorflow::UntypedCall::Tag::Callback::kResponseSent">kResponseSent</dfn>, <dfn class="enum" id="tensorflow::UntypedCall::Tag::Callback::kCancelled" title='tensorflow::UntypedCall::Tag::Callback::kCancelled' data-ref="tensorflow::UntypedCall::Tag::Callback::kCancelled">kCancelled</dfn> };</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>    <dfn class="decl def" id="_ZN10tensorflow11UntypedCall3TagC1EPNS_11UntypedCallIT_EENS1_8CallbackE" title='tensorflow::UntypedCall::Tag::Tag' data-ref="_ZN10tensorflow11UntypedCall3TagC1EPNS_11UntypedCallIT_EENS1_8CallbackE">Tag</dfn>(UntypedCall* <dfn class="local col8 decl" id="8call" title='call' data-type='UntypedCall&lt;Service&gt; *' data-ref="8call">call</dfn>, <a class="type" href="#tensorflow::UntypedCall::Tag::Callback" title='tensorflow::UntypedCall::Tag::Callback' data-ref="tensorflow::UntypedCall::Tag::Callback">Callback</a> <dfn class="local col9 decl" id="9cb" title='cb' data-type='tensorflow::UntypedCall::Tag::Callback' data-ref="9cb">cb</dfn>) : <a class="member" href="#tensorflow::UntypedCall::Tag::call_" title='tensorflow::UntypedCall::Tag::call_' data-ref="tensorflow::UntypedCall::Tag::call_">call_</a>(<a class="local col8 ref" href="#8call" title='call' data-ref="8call">call</a>), <a class="member" href="#tensorflow::UntypedCall::Tag::callback_" title='tensorflow::UntypedCall::Tag::callback_' data-ref="tensorflow::UntypedCall::Tag::callback_">callback_</a>(<a class="local col9 ref" href="#9cb" title='cb' data-ref="9cb">cb</a>) {}</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>    <i>// Calls the callback associated with this tag.</i></td></tr>
+<tr><th id="109">109</th><td><i>    //</i></td></tr>
+<tr><th id="110">110</th><td><i>    // The callback takes ownership of `this-&gt;call_`.</i></td></tr>
+<tr><th id="111">111</th><td>    <em>void</em> <dfn class="decl def" id="_ZN10tensorflow11UntypedCall3Tag11OnCompletedEPT_b" title='tensorflow::UntypedCall::Tag::OnCompleted' data-ref="_ZN10tensorflow11UntypedCall3Tag11OnCompletedEPT_b">OnCompleted</dfn>(Service* <dfn class="local col0 decl" id="10service" title='service' data-type='Service *' data-ref="10service">service</dfn>, <em>bool</em> <dfn class="local col1 decl" id="11ok" title='ok' data-type='bool' data-ref="11ok">ok</dfn>) {</td></tr>
+<tr><th id="112">112</th><td>      <b>switch</b> (<a class="member" href="#tensorflow::UntypedCall::Tag::callback_" title='tensorflow::UntypedCall::Tag::callback_' data-ref="tensorflow::UntypedCall::Tag::callback_">callback_</a>) {</td></tr>
+<tr><th id="113">113</th><td>        <b>case</b> <a class="enum" href="#tensorflow::UntypedCall::Tag::Callback::kRequestReceived" title='tensorflow::UntypedCall::Tag::Callback::kRequestReceived' data-ref="tensorflow::UntypedCall::Tag::Callback::kRequestReceived">kRequestReceived</a>:</td></tr>
+<tr><th id="114">114</th><td>          <a class="member" href="#tensorflow::UntypedCall::Tag::call_" title='tensorflow::UntypedCall::Tag::call_' data-ref="tensorflow::UntypedCall::Tag::call_">call_</a>-&gt;RequestReceived(<a class="local col0 ref" href="#10service" title='service' data-ref="10service">service</a>, <a class="local col1 ref" href="#11ok" title='ok' data-ref="11ok">ok</a>);</td></tr>
+<tr><th id="115">115</th><td>          <b>break</b>;</td></tr>
+<tr><th id="116">116</th><td>        <b>case</b> <a class="enum" href="#tensorflow::UntypedCall::Tag::Callback::kResponseSent" title='tensorflow::UntypedCall::Tag::Callback::kResponseSent' data-ref="tensorflow::UntypedCall::Tag::Callback::kResponseSent">kResponseSent</a>:</td></tr>
+<tr><th id="117">117</th><td>          <i>// No special handling needed apart from the Unref below.</i></td></tr>
+<tr><th id="118">118</th><td>          <b>break</b>;</td></tr>
+<tr><th id="119">119</th><td>        <b>case</b> <a class="enum" href="#tensorflow::UntypedCall::Tag::Callback::kCancelled" title='tensorflow::UntypedCall::Tag::Callback::kCancelled' data-ref="tensorflow::UntypedCall::Tag::Callback::kCancelled">kCancelled</a>:</td></tr>
+<tr><th id="120">120</th><td>          <a class="member" href="#tensorflow::UntypedCall::Tag::call_" title='tensorflow::UntypedCall::Tag::call_' data-ref="tensorflow::UntypedCall::Tag::call_">call_</a>-&gt;RequestCancelled(<a class="local col0 ref" href="#10service" title='service' data-ref="10service">service</a>, <a class="local col1 ref" href="#11ok" title='ok' data-ref="11ok">ok</a>);</td></tr>
+<tr><th id="121">121</th><td>          <b>break</b>;</td></tr>
+<tr><th id="122">122</th><td>      }</td></tr>
+<tr><th id="123">123</th><td>      <a class="member" href="#tensorflow::UntypedCall::Tag::call_" title='tensorflow::UntypedCall::Tag::call_' data-ref="tensorflow::UntypedCall::Tag::call_">call_</a>-&gt;Unref();  <i>// Ref acquired when tag handed to grpc.</i></td></tr>
+<tr><th id="124">124</th><td>    }</td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td>   <b>private</b>:</td></tr>
+<tr><th id="127">127</th><td>    UntypedCall* <em>const</em> <dfn class="decl" id="tensorflow::UntypedCall::Tag::call_" title='tensorflow::UntypedCall::Tag::call_' data-ref="tensorflow::UntypedCall::Tag::call_">call_</dfn>;  <i>// `this` owns one reference.</i></td></tr>
+<tr><th id="128">128</th><td>    <a class="type" href="#tensorflow::UntypedCall::Tag::Callback" title='tensorflow::UntypedCall::Tag::Callback' data-ref="tensorflow::UntypedCall::Tag::Callback">Callback</a> <dfn class="decl" id="tensorflow::UntypedCall::Tag::callback_" title='tensorflow::UntypedCall::Tag::callback_' data-ref="tensorflow::UntypedCall::Tag::callback_">callback_</dfn>;</td></tr>
+<tr><th id="129">129</th><td>  };</td></tr>
+<tr><th id="130">130</th><td>};</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><i>// Represents a pending call with known request and response message</i></td></tr>
+<tr><th id="133">133</th><td><i>// types, and a known request-handling method.</i></td></tr>
+<tr><th id="134">134</th><td><b>template</b> &lt;<b>class</b> Service, <b>class</b> GrpcService, <b>class</b> RequestMessage,</td></tr>
+<tr><th id="135">135</th><td>          <b>class</b> ResponseMessage&gt;</td></tr>
+<tr><th id="136">136</th><td><b>class</b> <dfn class="type def" id="tensorflow::Call" title='tensorflow::Call' data-ref="tensorflow::Call">Call</dfn> : <b>public</b> <a class="type" href="#tensorflow::UntypedCall" title='tensorflow::UntypedCall' data-ref="tensorflow::UntypedCall">UntypedCall</a>&lt;Service&gt; {</td></tr>
+<tr><th id="137">137</th><td> <b>public</b>:</td></tr>
+<tr><th id="138">138</th><td>  <i>// Represents the generic signature of a generated</i></td></tr>
+<tr><th id="139">139</th><td><i>  // `GrpcService::RequestFoo()` method, where `Foo` is the name of an</i></td></tr>
+<tr><th id="140">140</th><td><i>  // RPC method.</i></td></tr>
+<tr><th id="141">141</th><td>  <b>using</b> <dfn class="typedef" id="tensorflow::Call::EnqueueFunction" title='tensorflow::Call::EnqueueFunction' data-type='void (GrpcService::*)(::grpc::ServerContext *, RequestMessage *, ::grpc::ServerAsyncResponseWriter&lt;ResponseMessage&gt; *, ::grpc::CompletionQueue *, ::grpc::ServerCompletionQueue *, void *)' data-ref="tensorflow::Call::EnqueueFunction">EnqueueFunction</dfn> = <em>void</em> (GrpcService::*)(</td></tr>
+<tr><th id="142">142</th><td>      <span class="namespace">::grpc::</span><span class='type' title='grpc::ServerContext' data-ref="grpc::ServerContext">ServerContext</span>*, RequestMessage*,</td></tr>
+<tr><th id="143">143</th><td>      <span class="namespace">::grpc::</span><span class='type' title='grpc::ServerAsyncResponseWriter' data-ref="grpc::ServerAsyncResponseWriter">ServerAsyncResponseWriter</span>&lt;ResponseMessage&gt;*,</td></tr>
+<tr><th id="144">144</th><td>      <span class="namespace">::grpc::</span><span class='type' title='grpc::CompletionQueue' data-ref="grpc::CompletionQueue">CompletionQueue</span>*, <span class="namespace">::grpc::</span><span class='type' title='grpc::ServerCompletionQueue' data-ref="grpc::ServerCompletionQueue">ServerCompletionQueue</span>*, <em>void</em>*);</td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td>  <i>// Represents the generic signature of a `Service::HandleFoo()`</i></td></tr>
+<tr><th id="147">147</th><td><i>  // method, where `Foo` is the name of an RPC method.</i></td></tr>
+<tr><th id="148">148</th><td>  <b>using</b> <dfn class="typedef" id="tensorflow::Call::HandleRequestFunction" title='tensorflow::Call::HandleRequestFunction' data-type='void (Service::*)(Call&lt;Service, GrpcService, RequestMessage, ResponseMessage&gt; *)' data-ref="tensorflow::Call::HandleRequestFunction">HandleRequestFunction</dfn> = <em>void</em> (Service::*)(</td></tr>
+<tr><th id="149">149</th><td>      <a class="type" href="#tensorflow::Call" title='tensorflow::Call' data-ref="tensorflow::Call">Call</a>&lt;Service, GrpcService, RequestMessage, ResponseMessage&gt;*);</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>  <dfn class="decl def" id="_ZN10tensorflow4CallC1EMT_FvPNS_4CallIS1_T0_T1_T2_EEE" title='tensorflow::Call::Call&lt;Service, GrpcService, RequestMessage, ResponseMessage&gt;' data-ref="_ZN10tensorflow4CallC1EMT_FvPNS_4CallIS1_T0_T1_T2_EEE">Call</dfn>(<a class="typedef" href="#tensorflow::Call::HandleRequestFunction" title='tensorflow::Call::HandleRequestFunction' data-type='void (Service::*)(Call&lt;Service, GrpcService, RequestMessage, ResponseMessage&gt; *)' data-ref="tensorflow::Call::HandleRequestFunction">HandleRequestFunction</a> <dfn class="local col2 decl" id="12handle_request_function" title='handle_request_function' data-type='HandleRequestFunction' data-ref="12handle_request_function">handle_request_function</dfn>)</td></tr>
+<tr><th id="152">152</th><td>      : <a class="member" href="#tensorflow::Call::handle_request_function_" title='tensorflow::Call::handle_request_function_' data-ref="tensorflow::Call::handle_request_function_">handle_request_function_</a>(<a class="local col2 ref" href="#12handle_request_function" title='handle_request_function' data-ref="12handle_request_function">handle_request_function</a>), <a class="member" href="#tensorflow::Call::responder_" title='tensorflow::Call::responder_' data-ref="tensorflow::Call::responder_">responder_</a>(&amp;<a class="member" href="#tensorflow::Call::ctx_" title='tensorflow::Call::ctx_' data-ref="tensorflow::Call::ctx_">ctx_</a>) {}</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>  <b>virtual</b> <dfn class="virtual decl def" id="_ZN10tensorflow4CallD1Ev" title='tensorflow::Call::~Call&lt;Service, GrpcService, RequestMessage, ResponseMessage&gt;' data-ref="_ZN10tensorflow4CallD1Ev">~Call</dfn>() {}</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow4Call15RequestReceivedEPT_b" title='tensorflow::Call::RequestReceived' data-ref="_ZN10tensorflow4Call15RequestReceivedEPT_b">RequestReceived</dfn>(Service* <dfn class="local col3 decl" id="13service" title='service' data-type='Service *' data-ref="13service">service</dfn>, <em>bool</em> <dfn class="local col4 decl" id="14ok" title='ok' data-type='bool' data-ref="14ok">ok</dfn>) override {</td></tr>
+<tr><th id="157">157</th><td>    <b>if</b> (<a class="local col4 ref" href="#14ok" title='ok' data-ref="14ok">ok</a>) {</td></tr>
+<tr><th id="158">158</th><td>      <b>this</b>-&gt;Ref();</td></tr>
+<tr><th id="159">159</th><td>      (<a class="local col3 ref" href="#13service" title='service' data-ref="13service">service</a>-&gt;*<a class="member" href="#tensorflow::Call::handle_request_function_" title='tensorflow::Call::handle_request_function_' data-ref="tensorflow::Call::handle_request_function_">handle_request_function_</a>)(<b>this</b>);</td></tr>
+<tr><th id="160">160</th><td>    }</td></tr>
+<tr><th id="161">161</th><td>  }</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow4Call12SendResponseEN4grpc6StatusE" title='tensorflow::Call::SendResponse' data-ref="_ZN10tensorflow4Call12SendResponseEN4grpc6StatusE">SendResponse</dfn>(<span class="namespace">::grpc::</span><span class='type' title='grpc::Status' data-ref="grpc::Status">Status</span> <dfn class="local col5 decl" id="15status" title='status' data-type='::grpc::Status' data-ref="15status">status</dfn>) {</td></tr>
+<tr><th id="164">164</th><td>    <b>this</b>-&gt;Ref();  <i>// Ref for grpc; released in Tag callback.</i></td></tr>
+<tr><th id="165">165</th><td>    <a class="member" href="#tensorflow::Call::responder_" title='tensorflow::Call::responder_' data-ref="tensorflow::Call::responder_">responder_</a>.Finish(<a class="member" href="#tensorflow::Call::response" title='tensorflow::Call::response' data-ref="tensorflow::Call::response">response</a>, <a class="local col5 ref" href="#15status" title='status' data-ref="15status">status</a>, &amp;<a class="member" href="#tensorflow::Call::response_sent_tag_" title='tensorflow::Call::response_sent_tag_' data-ref="tensorflow::Call::response_sent_tag_">response_sent_tag_</a>);</td></tr>
+<tr><th id="166">166</th><td>    <b>this</b>-&gt;Unref();</td></tr>
+<tr><th id="167">167</th><td>  }</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow4Call16RequestCancelledEPT_b" title='tensorflow::Call::RequestCancelled' data-ref="_ZN10tensorflow4Call16RequestCancelledEPT_b">RequestCancelled</dfn>(Service* <dfn class="local col6 decl" id="16service" title='service' data-type='Service *' data-ref="16service">service</dfn>, <em>bool</em> <dfn class="local col7 decl" id="17ok" title='ok' data-type='bool' data-ref="17ok">ok</dfn>) override {</td></tr>
+<tr><th id="170">170</th><td>    <b>if</b> (<a class="member" href="#tensorflow::Call::ctx_" title='tensorflow::Call::ctx_' data-ref="tensorflow::Call::ctx_">ctx_</a>.<span class='ref' title='grpc::ServerContext::IsCancelled' data-ref="_ZNK4grpc13ServerContext11IsCancelledEv">IsCancelled</span>()) {</td></tr>
+<tr><th id="171">171</th><td>      <a class="type" href="../../platform/default/mutex.h.html#tensorflow::mutex_lock" title='tensorflow::mutex_lock' data-ref="tensorflow::mutex_lock">mutex_lock</a> <dfn class="local col8 decl" id="18l" title='l' data-type='tensorflow::mutex_lock' data-ref="18l">l</dfn>(<a class="member" href="#tensorflow::Call::mu_" title='tensorflow::Call::mu_' data-ref="tensorflow::Call::mu_">mu_</a>);</td></tr>
+<tr><th id="172">172</th><td>      <b>if</b> (<a class="member" href="#tensorflow::Call::cancel_callback_" title='tensorflow::Call::cancel_callback_' data-ref="tensorflow::Call::cancel_callback_">cancel_callback_</a>) {</td></tr>
+<tr><th id="173">173</th><td>        <a class="member" href="#tensorflow::Call::cancel_callback_" title='tensorflow::Call::cancel_callback_' data-ref="tensorflow::Call::cancel_callback_">cancel_callback_</a>();</td></tr>
+<tr><th id="174">174</th><td>      }</td></tr>
+<tr><th id="175">175</th><td>    }</td></tr>
+<tr><th id="176">176</th><td>  }</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>  <i>// Registers `callback` as the function that should be called if and when this</i></td></tr>
+<tr><th id="179">179</th><td><i>  // call is canceled by the client.</i></td></tr>
+<tr><th id="180">180</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow4Call17SetCancelCallbackESt8functionIFvvEE" title='tensorflow::Call::SetCancelCallback' data-ref="_ZN10tensorflow4Call17SetCancelCallbackESt8functionIFvvEE">SetCancelCallback</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<em>void</em>()&gt; <dfn class="local col9 decl" id="19callback" title='callback' data-type='std::function&lt;void ()&gt;' data-ref="19callback">callback</dfn>) {</td></tr>
+<tr><th id="181">181</th><td>    <a class="type" href="../../platform/default/mutex.h.html#tensorflow::mutex_lock" title='tensorflow::mutex_lock' data-ref="tensorflow::mutex_lock">mutex_lock</a> <dfn class="local col0 decl" id="20l" title='l' data-type='tensorflow::mutex_lock' data-ref="20l">l</dfn>(<a class="member" href="#tensorflow::Call::mu_" title='tensorflow::Call::mu_' data-ref="tensorflow::Call::mu_">mu_</a>);</td></tr>
+<tr><th id="182">182</th><td>    <a class="member" href="#tensorflow::Call::cancel_callback_" title='tensorflow::Call::cancel_callback_' data-ref="tensorflow::Call::cancel_callback_">cancel_callback_</a> = <span class="namespace">std::</span><a class="ref" href="../../../../../include/c++/5/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col9 ref" href="#19callback" title='callback' data-ref="19callback">callback</a></span>);</td></tr>
+<tr><th id="183">183</th><td>  }</td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td>  <i>// Clears any cancellation callback that has been registered for this call.</i></td></tr>
+<tr><th id="186">186</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow4Call19ClearCancelCallbackEv" title='tensorflow::Call::ClearCancelCallback' data-ref="_ZN10tensorflow4Call19ClearCancelCallbackEv">ClearCancelCallback</dfn>() {</td></tr>
+<tr><th id="187">187</th><td>    <a class="type" href="../../platform/default/mutex.h.html#tensorflow::mutex_lock" title='tensorflow::mutex_lock' data-ref="tensorflow::mutex_lock">mutex_lock</a> <dfn class="local col1 decl" id="21l" title='l' data-type='tensorflow::mutex_lock' data-ref="21l">l</dfn>(<a class="member" href="#tensorflow::Call::mu_" title='tensorflow::Call::mu_' data-ref="tensorflow::Call::mu_">mu_</a>);</td></tr>
+<tr><th id="188">188</th><td>    <a class="member" href="#tensorflow::Call::cancel_callback_" title='tensorflow::Call::cancel_callback_' data-ref="tensorflow::Call::cancel_callback_">cancel_callback_</a> = <b>nullptr</b>;</td></tr>
+<tr><th id="189">189</th><td>  }</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>  <i>// Enqueues a new request for the given service on the given</i></td></tr>
+<tr><th id="192">192</th><td><i>  // completion queue, using the given `enqueue_function`.</i></td></tr>
+<tr><th id="193">193</th><td><i>  //</i></td></tr>
+<tr><th id="194">194</th><td><i>  // The request will be handled with the given</i></td></tr>
+<tr><th id="195">195</th><td><i>  // `handle_request_function`.</i></td></tr>
+<tr><th id="196">196</th><td>  <em>static</em> <em>void</em> <dfn class="decl def" id="_ZN10tensorflow4Call14EnqueueRequestEPT0_PN4grpc21ServerCompletionQueueEMS1_FvPNS3_13ServerContextEPT1_PNS3_25ServerAsyncResponseWriterIT2_EEPNS3_15Co7181726" title='tensorflow::Call::EnqueueRequest' data-ref="_ZN10tensorflow4Call14EnqueueRequestEPT0_PN4grpc21ServerCompletionQueueEMS1_FvPNS3_13ServerContextEPT1_PNS3_25ServerAsyncResponseWriterIT2_EEPNS3_15Co7181726">EnqueueRequest</dfn>(GrpcService* <dfn class="local col2 decl" id="22grpc_service" title='grpc_service' data-type='GrpcService *' data-ref="22grpc_service">grpc_service</dfn>,</td></tr>
+<tr><th id="197">197</th><td>                             <span class="namespace">::grpc::</span><span class='type' title='grpc::ServerCompletionQueue' data-ref="grpc::ServerCompletionQueue">ServerCompletionQueue</span>* <dfn class="local col3 decl" id="23cq" title='cq' data-type='::grpc::ServerCompletionQueue *' data-ref="23cq">cq</dfn>,</td></tr>
+<tr><th id="198">198</th><td>                             <a class="typedef" href="#tensorflow::Call::EnqueueFunction" title='tensorflow::Call::EnqueueFunction' data-type='void (GrpcService::*)(::grpc::ServerContext *, RequestMessage *, ::grpc::ServerAsyncResponseWriter&lt;ResponseMessage&gt; *, ::grpc::CompletionQueue *, ::grpc::ServerCompletionQueue *, void *)' data-ref="tensorflow::Call::EnqueueFunction">EnqueueFunction</a> <dfn class="local col4 decl" id="24enqueue_function" title='enqueue_function' data-type='EnqueueFunction' data-ref="24enqueue_function">enqueue_function</dfn>,</td></tr>
+<tr><th id="199">199</th><td>                             <a class="typedef" href="#tensorflow::Call::HandleRequestFunction" title='tensorflow::Call::HandleRequestFunction' data-type='void (Service::*)(Call&lt;Service, GrpcService, RequestMessage, ResponseMessage&gt; *)' data-ref="tensorflow::Call::HandleRequestFunction">HandleRequestFunction</a> <dfn class="local col5 decl" id="25handle_request_function" title='handle_request_function' data-type='HandleRequestFunction' data-ref="25handle_request_function">handle_request_function</dfn>,</td></tr>
+<tr><th id="200">200</th><td>                             <em>bool</em> <dfn class="local col6 decl" id="26supports_cancel" title='supports_cancel' data-type='bool' data-ref="26supports_cancel">supports_cancel</dfn>) {</td></tr>
+<tr><th id="201">201</th><td>    <em>auto</em> <dfn class="local col7 decl" id="27call" title='call' data-type='auto' data-ref="27call">call</dfn> = <b>new</b> <a class="type" href="#tensorflow::Call" title='tensorflow::Call' data-ref="tensorflow::Call">Call</a>&lt;Service, GrpcService, RequestMessage, ResponseMessage&gt;(</td></tr>
+<tr><th id="202">202</th><td>        <a class="local col5 ref" href="#25handle_request_function" title='handle_request_function' data-ref="25handle_request_function">handle_request_function</a>);</td></tr>
+<tr><th id="203">203</th><td>    <b>if</b> (<a class="local col6 ref" href="#26supports_cancel" title='supports_cancel' data-ref="26supports_cancel">supports_cancel</a>) {</td></tr>
+<tr><th id="204">204</th><td>      <a class="local col7 ref" href="#27call" title='call' data-ref="27call">call</a>-&gt;RegisterCancellationHandler();</td></tr>
+<tr><th id="205">205</th><td>    }</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td>    <i>// Initial ref for call handed to grpc; released in Tag callback.</i></td></tr>
+<tr><th id="208">208</th><td>    (<a class="local col2 ref" href="#22grpc_service" title='grpc_service' data-ref="22grpc_service">grpc_service</a>-&gt;*<a class="local col4 ref" href="#24enqueue_function" title='enqueue_function' data-ref="24enqueue_function">enqueue_function</a>)(&amp;<a class="local col7 ref" href="#27call" title='call' data-ref="27call">call</a>-&gt;ctx_, &amp;<a class="local col7 ref" href="#27call" title='call' data-ref="27call">call</a>-&gt;request,</td></tr>
+<tr><th id="209">209</th><td>                                      &amp;<a class="local col7 ref" href="#27call" title='call' data-ref="27call">call</a>-&gt;responder_, <a class="local col3 ref" href="#23cq" title='cq' data-ref="23cq">cq</a>, <a class="local col3 ref" href="#23cq" title='cq' data-ref="23cq">cq</a>,</td></tr>
+<tr><th id="210">210</th><td>                                      &amp;<a class="local col7 ref" href="#27call" title='call' data-ref="27call">call</a>-&gt;request_received_tag_);</td></tr>
+<tr><th id="211">211</th><td>  }</td></tr>
+<tr><th id="212">212</th><td></td></tr>
+<tr><th id="213">213</th><td>  <i>// Enqueues a new request for the given service on the given</i></td></tr>
+<tr><th id="214">214</th><td><i>  // completion queue, using the given `method_id`.</i></td></tr>
+<tr><th id="215">215</th><td><i>  //</i></td></tr>
+<tr><th id="216">216</th><td><i>  // The request will be handled with the given</i></td></tr>
+<tr><th id="217">217</th><td><i>  // `handle_request_function`.</i></td></tr>
+<tr><th id="218">218</th><td>  <em>static</em> <em>void</em> <dfn class="decl def" id="_ZN10tensorflow4Call23EnqueueRequestForMethodEPT0_PN4grpc21ServerCompletionQueueEiMT_FvPNS_4CallIS6_S1_T1_T2_EEEb" title='tensorflow::Call::EnqueueRequestForMethod' data-ref="_ZN10tensorflow4Call23EnqueueRequestForMethodEPT0_PN4grpc21ServerCompletionQueueEiMT_FvPNS_4CallIS6_S1_T1_T2_EEEb">EnqueueRequestForMethod</dfn>(</td></tr>
+<tr><th id="219">219</th><td>      GrpcService* <dfn class="local col8 decl" id="28grpc_service" title='grpc_service' data-type='GrpcService *' data-ref="28grpc_service">grpc_service</dfn>, <span class="namespace">::grpc::</span><span class='type' title='grpc::ServerCompletionQueue' data-ref="grpc::ServerCompletionQueue">ServerCompletionQueue</span>* <dfn class="local col9 decl" id="29cq" title='cq' data-type='::grpc::ServerCompletionQueue *' data-ref="29cq">cq</dfn>,</td></tr>
+<tr><th id="220">220</th><td>      <em>int</em> <dfn class="local col0 decl" id="30method_id" title='method_id' data-type='int' data-ref="30method_id">method_id</dfn>, <a class="typedef" href="#tensorflow::Call::HandleRequestFunction" title='tensorflow::Call::HandleRequestFunction' data-type='void (Service::*)(Call&lt;Service, GrpcService, RequestMessage, ResponseMessage&gt; *)' data-ref="tensorflow::Call::HandleRequestFunction">HandleRequestFunction</a> <dfn class="local col1 decl" id="31handle_request_function" title='handle_request_function' data-type='HandleRequestFunction' data-ref="31handle_request_function">handle_request_function</dfn>,</td></tr>
+<tr><th id="221">221</th><td>      <em>bool</em> <dfn class="local col2 decl" id="32supports_cancel" title='supports_cancel' data-type='bool' data-ref="32supports_cancel">supports_cancel</dfn>) {</td></tr>
+<tr><th id="222">222</th><td>    <em>auto</em> <dfn class="local col3 decl" id="33call" title='call' data-type='auto' data-ref="33call">call</dfn> = <b>new</b> <a class="type" href="#tensorflow::Call" title='tensorflow::Call' data-ref="tensorflow::Call">Call</a>&lt;Service, GrpcService, RequestMessage, ResponseMessage&gt;(</td></tr>
+<tr><th id="223">223</th><td>        <a class="local col1 ref" href="#31handle_request_function" title='handle_request_function' data-ref="31handle_request_function">handle_request_function</a>);</td></tr>
+<tr><th id="224">224</th><td>    <b>if</b> (<a class="local col2 ref" href="#32supports_cancel" title='supports_cancel' data-ref="32supports_cancel">supports_cancel</a>) {</td></tr>
+<tr><th id="225">225</th><td>      <a class="local col3 ref" href="#33call" title='call' data-ref="33call">call</a>-&gt;RegisterCancellationHandler();</td></tr>
+<tr><th id="226">226</th><td>    }</td></tr>
+<tr><th id="227">227</th><td></td></tr>
+<tr><th id="228">228</th><td>    <i>// Initial ref for call handed to grpc; released in Tag callback.</i></td></tr>
+<tr><th id="229">229</th><td>    <a class="local col8 ref" href="#28grpc_service" title='grpc_service' data-ref="28grpc_service">grpc_service</a>-&gt;RequestAsyncUnary(<a class="local col0 ref" href="#30method_id" title='method_id' data-ref="30method_id">method_id</a>, &amp;<a class="local col3 ref" href="#33call" title='call' data-ref="33call">call</a>-&gt;ctx_, &amp;<a class="local col3 ref" href="#33call" title='call' data-ref="33call">call</a>-&gt;request,</td></tr>
+<tr><th id="230">230</th><td>                                    &amp;<a class="local col3 ref" href="#33call" title='call' data-ref="33call">call</a>-&gt;responder_, <a class="local col9 ref" href="#29cq" title='cq' data-ref="29cq">cq</a>, <a class="local col9 ref" href="#29cq" title='cq' data-ref="29cq">cq</a>,</td></tr>
+<tr><th id="231">231</th><td>                                    &amp;<a class="local col3 ref" href="#33call" title='call' data-ref="33call">call</a>-&gt;request_received_tag_);</td></tr>
+<tr><th id="232">232</th><td>  }</td></tr>
+<tr><th id="233">233</th><td></td></tr>
+<tr><th id="234">234</th><td>  RequestMessage <dfn class="decl" id="tensorflow::Call::request" title='tensorflow::Call::request' data-ref="tensorflow::Call::request">request</dfn>;</td></tr>
+<tr><th id="235">235</th><td>  ResponseMessage <dfn class="decl" id="tensorflow::Call::response" title='tensorflow::Call::response' data-ref="tensorflow::Call::response">response</dfn>;</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td>  <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_multimap.h.html#std::multimap" title='std::multimap' data-ref="std::multimap">multimap</a>&lt;<span class="namespace">::grpc::</span><span class='type' title='grpc::string_ref' data-ref="grpc::string_ref">string_ref</span>, <span class="namespace">::grpc::</span><span class='type' title='grpc::string_ref' data-ref="grpc::string_ref">string_ref</span>&gt;&amp; <dfn class="decl def" id="_ZNK10tensorflow4Call15client_metadataEv" title='tensorflow::Call::client_metadata' data-ref="_ZNK10tensorflow4Call15client_metadataEv">client_metadata</dfn>()</td></tr>
+<tr><th id="238">238</th><td>      <em>const</em> {</td></tr>
+<tr><th id="239">239</th><td>    <b>return</b> <a class="member" href="#tensorflow::Call::ctx_" title='tensorflow::Call::ctx_' data-ref="tensorflow::Call::ctx_">ctx_</a>.<span class='ref' title='grpc::ServerContext::client_metadata' data-ref="_ZNK4grpc13ServerContext15client_metadataEv">client_metadata</span>();</td></tr>
+<tr><th id="240">240</th><td>  }</td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td> <b>private</b>:</td></tr>
+<tr><th id="243">243</th><td>  <i>// Creates a completion queue tag for handling cancellation by the client.</i></td></tr>
+<tr><th id="244">244</th><td><i>  // NOTE: This method must be called before this call is enqueued on a</i></td></tr>
+<tr><th id="245">245</th><td><i>  // completion queue.</i></td></tr>
+<tr><th id="246">246</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow4Call27RegisterCancellationHandlerEv" title='tensorflow::Call::RegisterCancellationHandler' data-ref="_ZN10tensorflow4Call27RegisterCancellationHandlerEv">RegisterCancellationHandler</dfn>() {</td></tr>
+<tr><th id="247">247</th><td>    <b>this</b>-&gt;Ref();  <i>// Ref for grpc; released in Tag callback.</i></td></tr>
+<tr><th id="248">248</th><td>    <a class="member" href="#tensorflow::Call::ctx_" title='tensorflow::Call::ctx_' data-ref="tensorflow::Call::ctx_">ctx_</a>.<span class='ref' title='grpc::ServerContext::AsyncNotifyWhenDone' data-ref="_ZN4grpc13ServerContext19AsyncNotifyWhenDoneEPv">AsyncNotifyWhenDone</span>(&amp;<a class="member" href="#tensorflow::Call::cancelled_tag_" title='tensorflow::Call::cancelled_tag_' data-ref="tensorflow::Call::cancelled_tag_">cancelled_tag_</a>);</td></tr>
+<tr><th id="249">249</th><td>  }</td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td>  <a class="typedef" href="#tensorflow::Call::HandleRequestFunction" title='tensorflow::Call::HandleRequestFunction' data-type='void (Service::*)(Call&lt;Service, GrpcService, RequestMessage, ResponseMessage&gt; *)' data-ref="tensorflow::Call::HandleRequestFunction">HandleRequestFunction</a> <dfn class="decl" id="tensorflow::Call::handle_request_function_" title='tensorflow::Call::handle_request_function_' data-ref="tensorflow::Call::handle_request_function_">handle_request_function_</dfn>;</td></tr>
+<tr><th id="252">252</th><td>  <span class="namespace">::grpc::</span><span class='type' title='grpc::ServerContext' data-ref="grpc::ServerContext">ServerContext</span> <dfn class="decl" id="tensorflow::Call::ctx_" title='tensorflow::Call::ctx_' data-ref="tensorflow::Call::ctx_">ctx_</dfn>;</td></tr>
+<tr><th id="253">253</th><td>  <span class="namespace">::grpc::</span><span class='type' title='grpc::ServerAsyncResponseWriter' data-ref="grpc::ServerAsyncResponseWriter">ServerAsyncResponseWriter</span>&lt;ResponseMessage&gt; <dfn class="decl" id="tensorflow::Call::responder_" title='tensorflow::Call::responder_' data-ref="tensorflow::Call::responder_">responder_</dfn>;</td></tr>
+<tr><th id="254">254</th><td></td></tr>
+<tr><th id="255">255</th><td>  <i>// Used as void* completion markers from grpc to indicate different</i></td></tr>
+<tr><th id="256">256</th><td><i>  // events of interest for a Call.</i></td></tr>
+<tr><th id="257">257</th><td>  <b>typedef</b> <b>typename</b> <a class="type" href="#tensorflow::UntypedCall" title='tensorflow::UntypedCall' data-ref="tensorflow::UntypedCall">UntypedCall</a>&lt;Service&gt;::Tag <dfn class="typedef" id="tensorflow::Call::Tag" title='tensorflow::Call::Tag' data-type='typename UntypedCall&lt;Service&gt;::Tag' data-ref="tensorflow::Call::Tag">Tag</dfn>;</td></tr>
+<tr><th id="258">258</th><td>  <a class="typedef" href="#tensorflow::Call::Tag" title='tensorflow::Call::Tag' data-type='typename UntypedCall&lt;Service&gt;::Tag' data-ref="tensorflow::Call::Tag">Tag</a> <dfn class="decl" id="tensorflow::Call::request_received_tag_" title='tensorflow::Call::request_received_tag_' data-ref="tensorflow::Call::request_received_tag_">request_received_tag_</dfn>{<b>this</b>, <a class="typedef" href="#tensorflow::Call::Tag" title='tensorflow::Call::Tag' data-type='typename UntypedCall&lt;Service&gt;::Tag' data-ref="tensorflow::Call::Tag">Tag</a>::kRequestReceived};</td></tr>
+<tr><th id="259">259</th><td>  <a class="typedef" href="#tensorflow::Call::Tag" title='tensorflow::Call::Tag' data-type='typename UntypedCall&lt;Service&gt;::Tag' data-ref="tensorflow::Call::Tag">Tag</a> <dfn class="decl" id="tensorflow::Call::response_sent_tag_" title='tensorflow::Call::response_sent_tag_' data-ref="tensorflow::Call::response_sent_tag_">response_sent_tag_</dfn>{<b>this</b>, <a class="typedef" href="#tensorflow::Call::Tag" title='tensorflow::Call::Tag' data-type='typename UntypedCall&lt;Service&gt;::Tag' data-ref="tensorflow::Call::Tag">Tag</a>::kResponseSent};</td></tr>
+<tr><th id="260">260</th><td>  <a class="typedef" href="#tensorflow::Call::Tag" title='tensorflow::Call::Tag' data-type='typename UntypedCall&lt;Service&gt;::Tag' data-ref="tensorflow::Call::Tag">Tag</a> <dfn class="decl" id="tensorflow::Call::cancelled_tag_" title='tensorflow::Call::cancelled_tag_' data-ref="tensorflow::Call::cancelled_tag_">cancelled_tag_</dfn>{<b>this</b>, <a class="typedef" href="#tensorflow::Call::Tag" title='tensorflow::Call::Tag' data-type='typename UntypedCall&lt;Service&gt;::Tag' data-ref="tensorflow::Call::Tag">Tag</a>::kCancelled};</td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td>  <a class="type" href="../../platform/default/mutex.h.html#tensorflow::mutex" title='tensorflow::mutex' data-ref="tensorflow::mutex">mutex</a> <dfn class="decl" id="tensorflow::Call::mu_" title='tensorflow::Call::mu_' data-ref="tensorflow::Call::mu_">mu_</dfn>;</td></tr>
+<tr><th id="263">263</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<em>void</em>()&gt; <dfn class="decl" id="tensorflow::Call::cancel_callback_" title='tensorflow::Call::cancel_callback_' data-ref="tensorflow::Call::cancel_callback_">cancel_callback_</dfn> <a class="macro" href="../../platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(mu_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::Call::mu_" title='tensorflow::Call::mu_' data-ref="tensorflow::Call::mu_">mu_</a>);</td></tr>
+<tr><th id="264">264</th><td>};</td></tr>
+<tr><th id="265">265</th><td></td></tr>
+<tr><th id="266">266</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="267">267</th><td></td></tr>
+<tr><th id="268">268</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_RPC_GRPC_CALL_H_</u></td></tr>
+<tr><th id="269">269</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='grpc_master_service.cc.html'>tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

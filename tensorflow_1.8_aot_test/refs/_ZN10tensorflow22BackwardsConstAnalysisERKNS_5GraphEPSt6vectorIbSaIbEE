@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/const_analysis.h' l='28' type='tensorflow::Status tensorflow::BackwardsConstAnalysis(const tensorflow::Graph &amp; graph, std::vector&lt;bool&gt; * compile_time_const_args)'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2169' u='c' c='_ZN10tensorflow24EncapsulateSubgraphsPass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/const_analysis.h' l='26'>// Backwards dataflow analysis that finds arguments (_Arg nodes) to a graph that
+// must be compile-time constants.</doc>
+<def f='tensorflow/tensorflow/compiler/tf2xla/const_analysis.cc' l='29' ll='93' type='tensorflow::Status tensorflow::BackwardsConstAnalysis(const tensorflow::Graph &amp; g, std::vector&lt;bool&gt; * compile_time_const_args)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/const_analysis.cc' l='27'>// Backwards dataflow analysis that finds arguments to a graph that must be
+// compile-time constants.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/graph_compiler.cc' l='57' u='c' c='_ZN10tensorflow12_GLOBAL__N_116PrepareArgumentsEPNS_18XlaOpKernelContextEPNS_5GraphERKSt6vectorIPKNS_13XlaExpressionESaIS8_EEPS5_INS_11XlaCompiler8ArgumentESaISE_EE'/>

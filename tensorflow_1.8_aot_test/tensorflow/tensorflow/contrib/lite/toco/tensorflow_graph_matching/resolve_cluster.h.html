@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>resolve_cluster.h source code [tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.h'; var root_path = '../../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>tensorflow</a>/<a href='../../../..'>tensorflow</a>/<a href='../../..'>contrib</a>/<a href='../..'>lite</a>/<a href='..'>toco</a>/<a href='./'>tensorflow_graph_matching</a>/<a href='resolve_cluster.h.html'>resolve_cluster.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CONTRIB_LITE_TOCO_TENSORFLOW_GRAPH_MATCHING_RESOLVE_CLUSTER_H">TENSORFLOW_CONTRIB_LITE_TOCO_TENSORFLOW_GRAPH_MATCHING_RESOLVE_CLUSTER_H</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CONTRIB_LITE_TOCO_TENSORFLOW_GRAPH_MATCHING_RESOLVE_CLUSTER_H" data-ref="_M/TENSORFLOW_CONTRIB_LITE_TOCO_TENSORFLOW_GRAPH_MATCHING_RESOLVE_CLUSTER_H">TENSORFLOW_CONTRIB_LITE_TOCO_TENSORFLOW_GRAPH_MATCHING_RESOLVE_CLUSTER_H</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../../include/c++/5/unordered_map.html">&lt;unordered_map&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="cluster.h.html">"tensorflow/contrib/lite/toco/tensorflow_graph_matching/cluster.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="resolve_svdf.h.html">"tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include "tensorflow/core/framework/graph.pb.h"</u></td></tr>
+<tr><th id="25">25</th><td><u>#include "tensorflow/core/framework/node_def.pb.h"</u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">toco</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i>// Given a graph info and a list of cluster classes (cluster_factories), it</i></td></tr>
+<tr><th id="30">30</th><td><i>// partitions the graph to clusters, and then collapses each cluster into their</i></td></tr>
+<tr><th id="31">31</th><td><i>// corresponding composite ops. It generates a new graph using the newly</i></td></tr>
+<tr><th id="32">32</th><td><i>// generated composite ops. Each cluster factory is responsible to recognize a</i></td></tr>
+<tr><th id="33">33</th><td><i>// cluster of nodes into a cluster using a name-based pattern matching approach.</i></td></tr>
+<tr><th id="34">34</th><td><span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">tensorflow::</span><span class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</span>&gt; <dfn class="decl" id="_ZN4toco20MaybeResolveClustersERKN10tensorflow8GraphDefERKSt6vectorIPNS_23ClusterFactoryInterfaceESaIS6_EE" title='toco::MaybeResolveClusters' data-ref="_ZN4toco20MaybeResolveClustersERKN10tensorflow8GraphDefERKSt6vectorIPNS_23ClusterFactoryInterfaceESaIS6_EE">MaybeResolveClusters</dfn>(</td></tr>
+<tr><th id="35">35</th><td>    <em>const</em> <span class="namespace">tensorflow::</span><span class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</span>&amp; <dfn class="local col5 decl" id="25graph_def" title='graph_def' data-type='const tensorflow::GraphDef &amp;' data-ref="25graph_def">graph_def</dfn>,</td></tr>
+<tr><th id="36">36</th><td>    <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="cluster.h.html#toco::ClusterFactoryInterface" title='toco::ClusterFactoryInterface' data-ref="toco::ClusterFactoryInterface">ClusterFactoryInterface</a>*&gt;&amp; <dfn class="local col6 decl" id="26cluster_factories" title='cluster_factories' data-type='const std::vector&lt;ClusterFactoryInterface *&gt; &amp;' data-ref="26cluster_factories">cluster_factories</dfn>);</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><i>// Adds a node to a given graph. The added node will be a copy of a given source</i></td></tr>
+<tr><th id="39">39</th><td><i>// node, except for the inputs. If the inputs are coming from a node which</i></td></tr>
+<tr><th id="40">40</th><td><i>// belongs to another cluster, then those inputs are renamed to the source</i></td></tr>
+<tr><th id="41">41</th><td><i>// cluster name.</i></td></tr>
+<tr><th id="42">42</th><td><em>void</em> <dfn class="decl" id="_ZN4toco14AddNodeToGraphERKN10tensorflow7NodeDefERKSt6vectorISsSaISsEEPNS0_8GraphDefE" title='toco::AddNodeToGraph' data-ref="_ZN4toco14AddNodeToGraphERKN10tensorflow7NodeDefERKSt6vectorISsSaISsEEPNS0_8GraphDefE">AddNodeToGraph</dfn>(<em>const</em> <span class="namespace">tensorflow::</span><span class='type' title='tensorflow::NodeDef' data-ref="tensorflow::NodeDef">NodeDef</span>&amp; <dfn class="local col7 decl" id="27node" title='node' data-type='const tensorflow::NodeDef &amp;' data-ref="27node">node</dfn>,</td></tr>
+<tr><th id="43">43</th><td>                    <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt;&amp; <dfn class="local col8 decl" id="28cluster_names" title='cluster_names' data-type='const std::vector&lt;string&gt; &amp;' data-ref="28cluster_names">cluster_names</dfn>,</td></tr>
+<tr><th id="44">44</th><td>                    <span class="namespace">tensorflow::</span><span class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</span>* <dfn class="local col9 decl" id="29graph" title='graph' data-type='tensorflow::GraphDef *' data-ref="29graph">graph</dfn>);</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><i>// Given a graph and a cluster class, it finds all the nodes which belong to a</i></td></tr>
+<tr><th id="47">47</th><td><i>// given class factory, encapsulate them inside a cluster of the given type and</i></td></tr>
+<tr><th id="48">48</th><td><i>// returns a vector of those clusters. It also labels the nodes in that graph if</i></td></tr>
+<tr><th id="49">49</th><td><i>// they belong to the generated clusters.</i></td></tr>
+<tr><th id="50">50</th><td><em>bool</em> <dfn class="decl" id="_ZN4toco11FindClusterERKNS_23ClusterFactoryInterfaceERKN10tensorflow8GraphDefEPSt13unordered_mapISsbSt4hashISsESt8equal_toISsESaISt4pairIKSsbEEEPSt6ve14038988" title='toco::FindCluster' data-ref="_ZN4toco11FindClusterERKNS_23ClusterFactoryInterfaceERKN10tensorflow8GraphDefEPSt13unordered_mapISsbSt4hashISsESt8equal_toISsESaISt4pairIKSsbEEEPSt6ve14038988">FindCluster</dfn>(<em>const</em> <a class="type" href="cluster.h.html#toco::ClusterFactoryInterface" title='toco::ClusterFactoryInterface' data-ref="toco::ClusterFactoryInterface">ClusterFactoryInterface</a>&amp; <dfn class="local col0 decl" id="30cluster_factory" title='cluster_factory' data-type='const toco::ClusterFactoryInterface &amp;' data-ref="30cluster_factory">cluster_factory</dfn>,</td></tr>
+<tr><th id="51">51</th><td>                 <em>const</em> <span class="namespace">tensorflow::</span><span class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</span>&amp; <dfn class="local col1 decl" id="31graph_def" title='graph_def' data-type='const tensorflow::GraphDef &amp;' data-ref="31graph_def">graph_def</dfn>,</td></tr>
+<tr><th id="52">52</th><td>                 <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/unordered_map.h.html#std::unordered_map" title='std::unordered_map' data-ref="std::unordered_map">unordered_map</a>&lt;<a class="typedef" href="../../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <em>bool</em>&gt;* <dfn class="local col2 decl" id="32is_node_in_cluster" title='is_node_in_cluster' data-type='std::unordered_map&lt;string, bool&gt; *' data-ref="32is_node_in_cluster">is_node_in_cluster</dfn>,</td></tr>
+<tr><th id="53">53</th><td>                 <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="cluster.h.html#toco::Cluster" title='toco::Cluster' data-ref="toco::Cluster">Cluster</a>&gt;&gt;* <dfn class="local col3 decl" id="33clusters" title='clusters' data-type='std::vector&lt;std::unique_ptr&lt;Cluster&gt; &gt; *' data-ref="33clusters">clusters</dfn>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><i>// Receives a graph and generates another graph by replacing the cluster of</i></td></tr>
+<tr><th id="56">56</th><td><i>// nodes which matches a given composite op. Each composite op is represented</i></td></tr>
+<tr><th id="57">57</th><td><i>// using a class factory.</i></td></tr>
+<tr><th id="58">58</th><td><span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">tensorflow::</span><span class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</span>&gt; <dfn class="decl" id="_ZN4toco29MaybeReplaceCompositeSubgraphERKN10tensorflow8GraphDefE" title='toco::MaybeReplaceCompositeSubgraph' data-ref="_ZN4toco29MaybeReplaceCompositeSubgraphERKN10tensorflow8GraphDefE">MaybeReplaceCompositeSubgraph</dfn>(</td></tr>
+<tr><th id="59">59</th><td>    <em>const</em> <span class="namespace">tensorflow::</span><span class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</span>&amp; <dfn class="local col4 decl" id="34tf_graph" title='tf_graph' data-type='const tensorflow::GraphDef &amp;' data-ref="34tf_graph">tf_graph</dfn>);</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>}  <i>// end namespace toco</i></td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><u>#<span data-ppcond="15">endif</span>  // CONTRIB_LITE_TOCO_TENSORFLOW_GRAPH_MATCHING_RESOLVE_CLUSTER_H</u></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../import_tensorflow.cc.html'>tensorflow/tensorflow/contrib/lite/toco/import_tensorflow.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

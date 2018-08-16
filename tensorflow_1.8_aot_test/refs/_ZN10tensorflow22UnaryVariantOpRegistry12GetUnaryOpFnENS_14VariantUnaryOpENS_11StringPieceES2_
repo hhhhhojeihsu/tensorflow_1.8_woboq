@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='122' type='VariantUnaryOpFn * tensorflow::UnaryVariantOpRegistry::GetUnaryOpFn(tensorflow::VariantUnaryOp op, tensorflow::StringPiece device, tensorflow::StringPiece type_name)'/>
+<use f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='279' u='c' c='_ZN10tensorflow14UnaryOpVariantEPNS_15OpKernelContextENS_14VariantUnaryOpERKNS_7VariantEPS3_'/>
+<doc f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='120'>// Returns nullptr if no unary op function was found for the given
+  // op, device, and TypeName.</doc>
+<def f='tensorflow/tensorflow/core/framework/variant_op_registry.cc' l='183' ll='188' type='UnaryVariantOpRegistry::VariantUnaryOpFn * tensorflow::UnaryVariantOpRegistry::GetUnaryOpFn(tensorflow::VariantUnaryOp op, tensorflow::StringPiece device, tensorflow::StringPiece type_name)'/>
+<use f='tensorflow/tensorflow/core/framework/variant_op_registry.cc' l='194' u='c' c='_ZN10tensorflow22UnaryVariantOpRegistry17RegisterUnaryOpFnENS_14VariantUnaryOpERKSsS3_RKSt8functionIFNS_6StatusEPNS_15OpKernelContextERKNS_7VariantEPS8_EE'/>
+<doc f='tensorflow/tensorflow/core/framework/variant_op_registry.cc' l='182'>// Special casing UnaryOpFn per op and per device.</doc>

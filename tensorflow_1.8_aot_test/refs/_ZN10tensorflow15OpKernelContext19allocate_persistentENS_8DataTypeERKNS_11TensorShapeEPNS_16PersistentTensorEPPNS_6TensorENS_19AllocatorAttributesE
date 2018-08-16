@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='880' type='tensorflow::Status tensorflow::OpKernelContext::allocate_persistent(tensorflow::DataType type, const tensorflow::TensorShape &amp; shape, tensorflow::PersistentTensor * out_persistent, tensorflow::Tensor ** out_tensor, tensorflow::AllocatorAttributes attr)'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='886' u='c' c='_ZN10tensorflow15OpKernelContext19allocate_persistentENS_8DataTypeERKNS_11TensorShapeEPNS_16PersistentTensorEPPNS_6TensorE'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='872'>// Allocates a Tensor of the specified type and shape which the Op
+  // plans to maintain as persistent state. out_persistent holds the
+  // PersistentTensor which is the object the caller should store. For
+  // convenience, if out_tensor is non-null then it will be filled in
+  // with a Tensor* pointing to the newly-allocated tensor which the
+  // caller can use instead of calling
+  // out_persistent-&gt;AccessTensor. The caller does not own out_tensor
+  // and should not keep a copy of it. See comment above.</doc>
+<use f='tensorflow/tensorflow/contrib/framework/kernels/zero_initializer_op.cc' l='51' u='c' c='_ZN10tensorflow17ZeroInitializerOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='727' ll='750' type='tensorflow::Status tensorflow::OpKernelContext::allocate_persistent(tensorflow::DataType type, const tensorflow::TensorShape &amp; shape, tensorflow::PersistentTensor * out_persistent, tensorflow::Tensor ** out_tensor, tensorflow::AllocatorAttributes attr)'/>
+<use f='tensorflow/tensorflow/core/kernels/dense_update_functor.cc' l='91' u='c' c='_ZN10tensorflow13VariantCopyFnEPNS_15OpKernelContextERKNS_6TensorEPS2_'/>
+<use f='tensorflow/tensorflow/core/kernels/assign_op.h' l='111' u='c' c='_ZN10tensorflow8AssignOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/training_op_helpers.h' l='47' u='c' c='_ZN10tensorflow23PrepareToUpdateVariableEPNS_15OpKernelContextEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/training_op_helpers.h' l='59' u='c' c='_ZN10tensorflow23PrepareToUpdateVariableEPNS_15OpKernelContextEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/resource_variable_ops.cc' l='341' u='c' c='_ZN10tensorflow16AssignVariableOpIT_NS_7VariantEE7ComputeEPNS_15OpKernelContextE'/>

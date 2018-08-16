@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>scope.h source code [tensorflow/tensorflow/cc/framework/scope.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::CompositeOpScopes,tensorflow::Scope "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/cc/framework/scope.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>cc</a>/<a href='./'>framework</a>/<a href='scope.h.html'>scope.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CC_FRAMEWORK_SCOPE_H_">TENSORFLOW_CC_FRAMEWORK_SCOPE_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CC_FRAMEWORK_SCOPE_H_" data-ref="_M/TENSORFLOW_CC_FRAMEWORK_SCOPE_H_">TENSORFLOW_CC_FRAMEWORK_SCOPE_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../include/c++/5/unordered_map.html">&lt;unordered_map&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../include/c++/5/unordered_set.html">&lt;unordered_set&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="ops.h.html">"tensorflow/cc/framework/ops.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../core/lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../core/lib/gtl/array_slice.h.html">"tensorflow/core/lib/gtl/array_slice.h"</a></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>class</b> <a class="type" href="../../core/graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph" id="tensorflow::Graph">Graph</a>;</td></tr>
+<tr><th id="32">32</th><td><b>class</b> <dfn class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef" id="tensorflow::GraphDef">GraphDef</dfn>;</td></tr>
+<tr><th id="33">33</th><td><b>class</b> <a class="type" href="../../core/graph/node_builder.h.html#tensorflow::NodeBuilder" title='tensorflow::NodeBuilder' data-ref="tensorflow::NodeBuilder" id="tensorflow::NodeBuilder">NodeBuilder</a>;</td></tr>
+<tr><th id="34">34</th><td><b>struct</b> <a class="type" href="#tensorflow::CompositeOpScopes" title='tensorflow::CompositeOpScopes' data-ref="tensorflow::CompositeOpScopes">CompositeOpScopes</a>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i class="doc">/// <span class="command">@addtogroup</span> <span class="verb">core</span></i></td></tr>
+<tr><th id="37">37</th><td><i class="doc">/// @{</i></td></tr>
+<tr><th id="38">38</th><td><i class="doc"></i></td></tr>
+<tr><th id="39">39</th><td><i class="doc">/// A `Scope` object represents a set of related TensorFlow ops that have the</i></td></tr>
+<tr><th id="40">40</th><td><i class="doc">/// same properties such as a common name prefix.</i></td></tr>
+<tr><th id="41">41</th><td><i class="doc">///</i></td></tr>
+<tr><th id="42">42</th><td><i class="doc">/// A Scope object is a container for TensorFlow Op properties. Op constructors</i></td></tr>
+<tr><th id="43">43</th><td><i class="doc">/// get a Scope object as a mandatory first argument and the constructed op</i></td></tr>
+<tr><th id="44">44</th><td><i class="doc">/// acquires the properties in the object.</i></td></tr>
+<tr><th id="45">45</th><td><i class="doc">///</i></td></tr>
+<tr><th id="46">46</th><td><i class="doc">/// A simple example:</i></td></tr>
+<tr><th id="47">47</th><td><i class="doc">///</i></td></tr>
+<tr><th id="48">48</th><td><i class="doc">///     using namespace ops;</i></td></tr>
+<tr><th id="49">49</th><td><i class="doc">///     Scope root = Scope::NewRootScope();</i></td></tr>
+<tr><th id="50">50</th><td><i class="doc">///     auto c1 = Const(root, { {1, 1} });</i></td></tr>
+<tr><th id="51">51</th><td><i class="doc">///     auto m = MatMul(root, c1, { {41}, {1} });</i></td></tr>
+<tr><th id="52">52</th><td><i class="doc">///     GraphDef gdef;</i></td></tr>
+<tr><th id="53">53</th><td><i class="doc">///     Status s = root.ToGraphDef(&amp;gdef);</i></td></tr>
+<tr><th id="54">54</th><td><i class="doc">///     if (!s.ok()) { ... }</i></td></tr>
+<tr><th id="55">55</th><td><i class="doc">///</i></td></tr>
+<tr><th id="56">56</th><td><i class="doc">/// Scope hierarchy:</i></td></tr>
+<tr><th id="57">57</th><td><i class="doc">///</i></td></tr>
+<tr><th id="58">58</th><td><i class="doc">/// The Scope class provides various With&lt;&gt; functions that create a new scope.</i></td></tr>
+<tr><th id="59">59</th><td><i class="doc">/// The new scope typically has one property changed while other properties are</i></td></tr>
+<tr><th id="60">60</th><td><i class="doc">/// inherited from the parent scope.</i></td></tr>
+<tr><th id="61">61</th><td><i class="doc">/// NewSubScope(name) method appends `name` to the prefix of names for ops</i></td></tr>
+<tr><th id="62">62</th><td><i class="doc">/// created within the scope, and WithOpName() changes the suffix which</i></td></tr>
+<tr><th id="63">63</th><td><i class="doc">/// otherwise defaults to the type of the op.</i></td></tr>
+<tr><th id="64">64</th><td><i class="doc">///</i></td></tr>
+<tr><th id="65">65</th><td><i class="doc">/// Name examples:</i></td></tr>
+<tr><th id="66">66</th><td><i class="doc">///</i></td></tr>
+<tr><th id="67">67</th><td><i class="doc">///     Scope root = Scope::NewRootScope();</i></td></tr>
+<tr><th id="68">68</th><td><i class="doc">///     Scope linear = root.NewSubScope("linear");</i></td></tr>
+<tr><th id="69">69</th><td><i class="doc">///     // W will be named "linear/W"</i></td></tr>
+<tr><th id="70">70</th><td><i class="doc">///     auto W = Variable(linear.WithOpName("W"),</i></td></tr>
+<tr><th id="71">71</th><td><i class="doc">///                       {2, 2}, DT_FLOAT);</i></td></tr>
+<tr><th id="72">72</th><td><i class="doc">///     // b will be named "linear/b"</i></td></tr>
+<tr><th id="73">73</th><td><i class="doc">///     auto b = Variable(linear.WithOpName("b"),</i></td></tr>
+<tr><th id="74">74</th><td><i class="doc">///                       {2}, DT_FLOAT);</i></td></tr>
+<tr><th id="75">75</th><td><i class="doc">///     auto x = Const(linear, {...});  // name: "linear/Const"</i></td></tr>
+<tr><th id="76">76</th><td><i class="doc">///     auto m = MatMul(linear, x, W);  // name: "linear/MatMul"</i></td></tr>
+<tr><th id="77">77</th><td><i class="doc">///     auto r = BiasAdd(linear, m, b); // name: "linear/BiasAdd"</i></td></tr>
+<tr><th id="78">78</th><td><i class="doc">///</i></td></tr>
+<tr><th id="79">79</th><td><i class="doc">/// Scope lifetime:</i></td></tr>
+<tr><th id="80">80</th><td><i class="doc">///</i></td></tr>
+<tr><th id="81">81</th><td><i class="doc">/// A new scope is created by calling Scope::NewRootScope. This creates some</i></td></tr>
+<tr><th id="82">82</th><td><i class="doc">/// resources that are shared by all the child scopes that inherit from this</i></td></tr>
+<tr><th id="83">83</th><td><i class="doc">/// scope, directly or transitively. For instance, a new scope creates a new</i></td></tr>
+<tr><th id="84">84</th><td><i class="doc">/// Graph object to which operations are added when the new scope or its</i></td></tr>
+<tr><th id="85">85</th><td><i class="doc">/// children are used by an Op constructor. The new scope also has a Status</i></td></tr>
+<tr><th id="86">86</th><td><i class="doc">/// object which will be used to indicate errors by Op-constructor functions</i></td></tr>
+<tr><th id="87">87</th><td><i class="doc">/// called on any child scope. The Op-constructor functions have to check the</i></td></tr>
+<tr><th id="88">88</th><td><i class="doc">/// scope's status by calling the ok() method before proceeding to construct the</i></td></tr>
+<tr><th id="89">89</th><td><i class="doc">/// op.</i></td></tr>
+<tr><th id="90">90</th><td><i class="doc">///</i></td></tr>
+<tr><th id="91">91</th><td><i class="doc">/// Thread safety:</i></td></tr>
+<tr><th id="92">92</th><td><i class="doc">///</i></td></tr>
+<tr><th id="93">93</th><td><i class="doc">/// A `Scope` object is NOT thread-safe. Threads cannot concurrently call</i></td></tr>
+<tr><th id="94">94</th><td><i class="doc">/// op-constructor functions on the same `Scope` object.</i></td></tr>
+<tr><th id="95">95</th><td><b>class</b> <dfn class="type def" id="tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</dfn> {</td></tr>
+<tr><th id="96">96</th><td> <b>public</b>:</td></tr>
+<tr><th id="97">97</th><td>  <dfn class="decl" id="_ZN10tensorflow5ScopeC1ERKS0_" title='tensorflow::Scope::Scope' data-ref="_ZN10tensorflow5ScopeC1ERKS0_">Scope</dfn>(<em>const</em> <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a>&amp; <dfn class="local col2 decl" id="16262other" title='other' data-type='const tensorflow::Scope &amp;' data-ref="16262other">other</dfn>);</td></tr>
+<tr><th id="98">98</th><td>  <dfn class="decl" id="_ZN10tensorflow5ScopeD1Ev" title='tensorflow::Scope::~Scope' data-ref="_ZN10tensorflow5ScopeD1Ev">~Scope</dfn>();</td></tr>
+<tr><th id="99">99</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a>&amp; <dfn class="decl" id="_ZN10tensorflow5ScopeaSERKS0_" title='tensorflow::Scope::operator=' data-ref="_ZN10tensorflow5ScopeaSERKS0_"><b>operator</b>=</dfn>(<em>const</em> <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a>&amp; <dfn class="local col3 decl" id="16263other" title='other' data-type='const tensorflow::Scope &amp;' data-ref="16263other">other</dfn>);</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>  <i>// The following functions are for users making graphs. They return brand new</i></td></tr>
+<tr><th id="102">102</th><td><i>  // scopes, or scopes derived from an existing scope object.</i></td></tr>
+<tr><th id="103">103</th><td><i></i></td></tr>
+<tr><th id="104">104</th><td><i>  /// Return a new scope.</i></td></tr>
+<tr><th id="105">105</th><td><i>  /// This creates a new graph and all operations constructed in this graph</i></td></tr>
+<tr><th id="106">106</th><td><i>  /// should use the returned object as the "root" scope.</i></td></tr>
+<tr><th id="107">107</th><td>  <em>static</em> <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZN10tensorflow5Scope12NewRootScopeEv" title='tensorflow::Scope::NewRootScope' data-ref="_ZN10tensorflow5Scope12NewRootScopeEv">NewRootScope</dfn>();</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>  <i class="doc">/// Return a new scope. Ops created with this scope will have</i></td></tr>
+<tr><th id="110">110</th><td><i class="doc">  /// `name/child_scope_name` as the prefix. The actual name will be unique</i></td></tr>
+<tr><th id="111">111</th><td><i class="doc">  /// in the current scope. All other properties are inherited from the current</i></td></tr>
+<tr><th id="112">112</th><td><i class="doc">  /// scope. If `child_scope_name` is empty, the `/` is elided.</i></td></tr>
+<tr><th id="113">113</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZNK10tensorflow5Scope11NewSubScopeERKSs" title='tensorflow::Scope::NewSubScope' data-ref="_ZNK10tensorflow5Scope11NewSubScopeERKSs">NewSubScope</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col4 decl" id="16264child_scope_name" title='child_scope_name' data-type='const string &amp;' data-ref="16264child_scope_name">child_scope_name</dfn>) <em>const</em>;</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>  <i class="doc">/// Return a new scope. All ops created within the returned scope will have</i></td></tr>
+<tr><th id="116">116</th><td><i class="doc">  /// names of the form `name/op_name[_suffix]`.</i></td></tr>
+<tr><th id="117">117</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZNK10tensorflow5Scope10WithOpNameERKSs" title='tensorflow::Scope::WithOpName' data-ref="_ZNK10tensorflow5Scope10WithOpNameERKSs">WithOpName</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col5 decl" id="16265op_name" title='op_name' data-type='const string &amp;' data-ref="16265op_name">op_name</dfn>) <em>const</em>;</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>  <i class="doc">/// Return a new scope. All ops created within the returned scope will have as</i></td></tr>
+<tr><th id="120">120</th><td><i class="doc">  /// control dependencies the union of operations in the control_deps vector</i></td></tr>
+<tr><th id="121">121</th><td><i class="doc">  /// and the control dependencies of the current scope.</i></td></tr>
+<tr><th id="122">122</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZNK10tensorflow5Scope23WithControlDependenciesERKNS_3gtl10ArraySliceINS_9OperationEEE" title='tensorflow::Scope::WithControlDependencies' data-ref="_ZNK10tensorflow5Scope23WithControlDependenciesERKNS_3gtl10ArraySliceINS_9OperationEEE">WithControlDependencies</dfn>(</td></tr>
+<tr><th id="123">123</th><td>      <em>const</em> <span class="namespace">gtl::</span><a class="type" href="../../core/lib/gtl/array_slice.h.html#tensorflow::gtl::ArraySlice" title='tensorflow::gtl::ArraySlice' data-ref="tensorflow::gtl::ArraySlice">ArraySlice</a>&lt;<a class="type" href="ops.h.html#tensorflow::Operation" title='tensorflow::Operation' data-ref="tensorflow::Operation">Operation</a>&gt;&amp; <dfn class="local col6 decl" id="16266control_deps" title='control_deps' data-type='const gtl::ArraySlice&lt;Operation&gt; &amp;' data-ref="16266control_deps">control_deps</dfn>) <em>const</em>;</td></tr>
+<tr><th id="124">124</th><td>  <i class="doc">/// Same as above, but convenient to add control dependency on the operation</i></td></tr>
+<tr><th id="125">125</th><td><i class="doc">  /// producing the control_dep output.</i></td></tr>
+<tr><th id="126">126</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZNK10tensorflow5Scope23WithControlDependenciesERKNS_6OutputE" title='tensorflow::Scope::WithControlDependencies' data-ref="_ZNK10tensorflow5Scope23WithControlDependenciesERKNS_6OutputE">WithControlDependencies</dfn>(<em>const</em> <a class="type" href="ops.h.html#tensorflow::Output" title='tensorflow::Output' data-ref="tensorflow::Output">Output</a>&amp; <dfn class="local col7 decl" id="16267control_dep" title='control_dep' data-type='const tensorflow::Output &amp;' data-ref="16267control_dep">control_dep</dfn>) <em>const</em>;</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>  <i class="doc">/// Return a new scope. All ops created within the returned scope will have no</i></td></tr>
+<tr><th id="129">129</th><td><i class="doc">  /// control dependencies on other operations.</i></td></tr>
+<tr><th id="130">130</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZNK10tensorflow5Scope25WithNoControlDependenciesEv" title='tensorflow::Scope::WithNoControlDependencies' data-ref="_ZNK10tensorflow5Scope25WithNoControlDependenciesEv">WithNoControlDependencies</dfn>() <em>const</em>;</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td>  <i class="doc">/// Return a new scope. All ops created within the returned scope will have</i></td></tr>
+<tr><th id="133">133</th><td><i class="doc">  /// the device field set to 'device'.</i></td></tr>
+<tr><th id="134">134</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZNK10tensorflow5Scope10WithDeviceERKSs" title='tensorflow::Scope::WithDevice' data-ref="_ZNK10tensorflow5Scope10WithDeviceERKSs">WithDevice</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col8 decl" id="16268device" title='device' data-type='const string &amp;' data-ref="16268device">device</dfn>) <em>const</em>;</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>  <i class="doc">/// Return a new scope. All ops created within the returned scope will be</i></td></tr>
+<tr><th id="137">137</th><td><i class="doc">  /// co-located on the device where op is placed.</i></td></tr>
+<tr><th id="138">138</th><td><i class="doc">  /// NOTE: This function is intended to be use internal libraries only for</i></td></tr>
+<tr><th id="139">139</th><td><i class="doc">  /// controlling placement of ops on to devices. Public use is not encouraged</i></td></tr>
+<tr><th id="140">140</th><td><i class="doc">  /// because the implementation of device placement is subject to change.</i></td></tr>
+<tr><th id="141">141</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZNK10tensorflow5Scope12ColocateWithERKNS_9OperationE" title='tensorflow::Scope::ColocateWith' data-ref="_ZNK10tensorflow5Scope12ColocateWithERKNS_9OperationE">ColocateWith</dfn>(<em>const</em> <a class="type" href="ops.h.html#tensorflow::Operation" title='tensorflow::Operation' data-ref="tensorflow::Operation">Operation</a>&amp; <dfn class="local col9 decl" id="16269op" title='op' data-type='const tensorflow::Operation &amp;' data-ref="16269op">op</dfn>) <em>const</em>;</td></tr>
+<tr><th id="142">142</th><td>  <i class="doc">/// Convenience function for above.</i></td></tr>
+<tr><th id="143">143</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl def" id="_ZNK10tensorflow5Scope12ColocateWithERKNS_6OutputE" title='tensorflow::Scope::ColocateWith' data-ref="_ZNK10tensorflow5Scope12ColocateWithERKNS_6OutputE">ColocateWith</dfn>(<em>const</em> <a class="type" href="ops.h.html#tensorflow::Output" title='tensorflow::Output' data-ref="tensorflow::Output">Output</a>&amp; <dfn class="local col0 decl" id="16270out" title='out' data-type='const tensorflow::Output &amp;' data-ref="16270out">out</dfn>) <em>const</em> { <b>return</b> <a class="member" href="#_ZNK10tensorflow5Scope12ColocateWithERKNS_9OperationE" title='tensorflow::Scope::ColocateWith' data-ref="_ZNK10tensorflow5Scope12ColocateWithERKNS_9OperationE">ColocateWith</a>(<a class="local col0 ref" href="#16270out" title='out' data-ref="16270out">out</a>.<a class="ref" href="ops.h.html#_ZNK10tensorflow6Output2opEv" title='tensorflow::Output::op' data-ref="_ZNK10tensorflow6Output2opEv">op</a>()); }</td></tr>
+<tr><th id="144">144</th><td>  <i class="doc">/// Clear all colocation constraints.</i></td></tr>
+<tr><th id="145">145</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZNK10tensorflow5Scope15ClearColocationEv" title='tensorflow::Scope::ClearColocation' data-ref="_ZNK10tensorflow5Scope15ClearColocationEv">ClearColocation</dfn>() <em>const</em>;</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>  <i class="doc">/// Return a new scope. The op-constructor functions taking the returned scope</i></td></tr>
+<tr><th id="148">148</th><td><i class="doc">  /// as the scope argument will exit as soon as an error is detected, instead</i></td></tr>
+<tr><th id="149">149</th><td><i class="doc">  /// of setting the status on the scope.</i></td></tr>
+<tr><th id="150">150</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZNK10tensorflow5Scope11ExitOnErrorEv" title='tensorflow::Scope::ExitOnError' data-ref="_ZNK10tensorflow5Scope11ExitOnErrorEv">ExitOnError</dfn>() <em>const</em>;</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td>  <i class="doc">/// Return a new scope. All ops created with the new scope will have</i></td></tr>
+<tr><th id="153">153</th><td><i class="doc">  /// kernel_label as the value for their '_kernel' attribute;</i></td></tr>
+<tr><th id="154">154</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZNK10tensorflow5Scope15WithKernelLabelERKSs" title='tensorflow::Scope::WithKernelLabel' data-ref="_ZNK10tensorflow5Scope15WithKernelLabelERKSs">WithKernelLabel</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="16271kernel_label" title='kernel_label' data-type='const string &amp;' data-ref="16271kernel_label">kernel_label</dfn>) <em>const</em>;</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>  <i>// The following functions are for scope object consumers.</i></td></tr>
+<tr><th id="157">157</th><td><i></i></td></tr>
+<tr><th id="158">158</th><td><i>  /// Return a unique name, using default_name if an op name has not been</i></td></tr>
+<tr><th id="159">159</th><td><i>  /// specified.</i></td></tr>
+<tr><th id="160">160</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="_ZNK10tensorflow5Scope18GetUniqueNameForOpERKSs" title='tensorflow::Scope::GetUniqueNameForOp' data-ref="_ZNK10tensorflow5Scope18GetUniqueNameForOpERKSs">GetUniqueNameForOp</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col2 decl" id="16272default_name" title='default_name' data-type='const string &amp;' data-ref="16272default_name">default_name</dfn>) <em>const</em>;</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td>  <i class="doc">/// Update the status on this scope.</i></td></tr>
+<tr><th id="163">163</th><td><i class="doc">  /// Note: The status object is shared between all children of this scope.</i></td></tr>
+<tr><th id="164">164</th><td><i class="doc">  /// If the resulting status is not Status::OK() and exit_on_error_ is set on</i></td></tr>
+<tr><th id="165">165</th><td><i class="doc">  /// this scope, this function exits by calling LOG(FATAL).</i></td></tr>
+<tr><th id="166">166</th><td>  <em>void</em> <dfn class="decl" id="_ZNK10tensorflow5Scope12UpdateStatusENS_6StatusE" title='tensorflow::Scope::UpdateStatus' data-ref="_ZNK10tensorflow5Scope12UpdateStatusENS_6StatusE">UpdateStatus</dfn>(<em>const</em> <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="local col3 decl" id="16273s" title='s' data-type='const tensorflow::Status' data-ref="16273s">s</dfn>) <em>const</em>;</td></tr>
+<tr><th id="167">167</th><td></td></tr>
+<tr><th id="168">168</th><td>  <i>// START_SKIP_DOXYGEN</i></td></tr>
+<tr><th id="169">169</th><td><i></i></td></tr>
+<tr><th id="170">170</th><td><i>  /// Update the builder with properties accumulated in this scope. Does not set</i></td></tr>
+<tr><th id="171">171</th><td><i>  /// status().</i></td></tr>
+<tr><th id="172">172</th><td><i>  // TODO(skyewm): NodeBuilder is not part of public API</i></td></tr>
+<tr><th id="173">173</th><td>  <em>void</em> <dfn class="decl" id="_ZNK10tensorflow5Scope13UpdateBuilderEPNS_11NodeBuilderE" title='tensorflow::Scope::UpdateBuilder' data-ref="_ZNK10tensorflow5Scope13UpdateBuilderEPNS_11NodeBuilderE">UpdateBuilder</dfn>(<a class="type" href="../../core/graph/node_builder.h.html#tensorflow::NodeBuilder" title='tensorflow::NodeBuilder' data-ref="tensorflow::NodeBuilder">NodeBuilder</a>* <dfn class="local col4 decl" id="16274builder" title='builder' data-type='tensorflow::NodeBuilder *' data-ref="16274builder">builder</dfn>) <em>const</em>;</td></tr>
+<tr><th id="174">174</th><td>  <i>// END_SKIP_DOXYGEN</i></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td>  <a class="type" href="#tensorflow::CompositeOpScopes" title='tensorflow::CompositeOpScopes' data-ref="tensorflow::CompositeOpScopes">CompositeOpScopes</a> <dfn class="decl" id="_ZNK10tensorflow5Scope20GetCompositeOpScopesERKSs" title='tensorflow::Scope::GetCompositeOpScopes' data-ref="_ZNK10tensorflow5Scope20GetCompositeOpScopesERKSs">GetCompositeOpScopes</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col5 decl" id="16275composite_op_name" title='composite_op_name' data-type='const string &amp;' data-ref="16275composite_op_name">composite_op_name</dfn>) <em>const</em>;</td></tr>
+<tr><th id="177">177</th><td></td></tr>
+<tr><th id="178">178</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK10tensorflow5Scope2okEv" title='tensorflow::Scope::ok' data-ref="_ZNK10tensorflow5Scope2okEv">ok</dfn>() <em>const</em>;</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td>  <i>// TODO(skyewm): Graph is not part of public API</i></td></tr>
+<tr><th id="181">181</th><td>  <a class="type" href="../../core/graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="decl" id="_ZNK10tensorflow5Scope5graphEv" title='tensorflow::Scope::graph' data-ref="_ZNK10tensorflow5Scope5graphEv">graph</dfn>() <em>const</em>;</td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td>  <i>// TODO(skyewm): Graph is not part of public API</i></td></tr>
+<tr><th id="184">184</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/shared_ptr_base.h.html#std::shared_ptr" title='std::shared_ptr' data-ref="std::shared_ptr">shared_ptr</a>&lt;<a class="type" href="../../core/graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>&gt; <dfn class="decl" id="_ZNK10tensorflow5Scope19graph_as_shared_ptrEv" title='tensorflow::Scope::graph_as_shared_ptr' data-ref="_ZNK10tensorflow5Scope19graph_as_shared_ptrEv">graph_as_shared_ptr</dfn>() <em>const</em>;</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZNK10tensorflow5Scope6statusEv" title='tensorflow::Scope::status' data-ref="_ZNK10tensorflow5Scope6statusEv">status</dfn>() <em>const</em>;</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>  <i class="doc">/// If status() is Status::OK(), convert the Graph object stored in this scope</i></td></tr>
+<tr><th id="189">189</th><td><i class="doc">  /// to a GraphDef proto and return Status::OK(). Otherwise, return the error</i></td></tr>
+<tr><th id="190">190</th><td><i class="doc">  /// status as is without performing GraphDef conversion.</i></td></tr>
+<tr><th id="191">191</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZNK10tensorflow5Scope10ToGraphDefEPNS_8GraphDefE" title='tensorflow::Scope::ToGraphDef' data-ref="_ZNK10tensorflow5Scope10ToGraphDefEPNS_8GraphDefE">ToGraphDef</dfn>(<span class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</span>* <dfn class="local col6 decl" id="16276gdef" title='gdef' data-type='tensorflow::GraphDef *' data-ref="16276gdef">gdef</dfn>) <em>const</em>;</td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td>  <i>// START_SKIP_DOXYGEN</i></td></tr>
+<tr><th id="194">194</th><td><i></i></td></tr>
+<tr><th id="195">195</th><td><i>  /// If status() is Status::OK(), construct a Graph object using the default</i></td></tr>
+<tr><th id="196">196</th><td><i>  /// GraphConstructorOptions, and return Status::OK if graph construction was</i></td></tr>
+<tr><th id="197">197</th><td><i>  /// successful. Otherwise, return the error status.</i></td></tr>
+<tr><th id="198">198</th><td><i>  // TODO(josh11b, keveman): Make this faster; right now it converts</i></td></tr>
+<tr><th id="199">199</th><td><i>  // Graph-&gt;GraphDef-&gt;Graph.  This cleans up the graph (e.g. adds</i></td></tr>
+<tr><th id="200">200</th><td><i>  // edges from the source and to the sink node, resolves back edges</i></td></tr>
+<tr><th id="201">201</th><td><i>  // by name), and makes sure the resulting graph is valid.</i></td></tr>
+<tr><th id="202">202</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZNK10tensorflow5Scope7ToGraphEPNS_5GraphE" title='tensorflow::Scope::ToGraph' data-ref="_ZNK10tensorflow5Scope7ToGraphEPNS_5GraphE">ToGraph</dfn>(<a class="type" href="../../core/graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col7 decl" id="16277g" title='g' data-type='tensorflow::Graph *' data-ref="16277g">g</dfn>) <em>const</em>;</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td>  <i>// Calls AddNode() using this scope's ShapeRefiner. This exists in the public</i></td></tr>
+<tr><th id="205">205</th><td><i>  // API to prevent custom op wrappers from needing access to shape_refiner.h or</i></td></tr>
+<tr><th id="206">206</th><td><i>  // scope_internal.h.</i></td></tr>
+<tr><th id="207">207</th><td><i>  // TODO(skyewm): remove this from public API</i></td></tr>
+<tr><th id="208">208</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZNK10tensorflow5Scope16DoShapeInferenceEPNS_4NodeE" title='tensorflow::Scope::DoShapeInference' data-ref="_ZNK10tensorflow5Scope16DoShapeInferenceEPNS_4NodeE">DoShapeInference</dfn>(<a class="type" href="../../core/graph/graph.h.html#tensorflow::Node" title='tensorflow::Node' data-ref="tensorflow::Node">Node</a>* <dfn class="local col8 decl" id="16278node" title='node' data-type='tensorflow::Node *' data-ref="16278node">node</dfn>) <em>const</em>;</td></tr>
+<tr><th id="209">209</th><td></td></tr>
+<tr><th id="210">210</th><td>  <i>// Creates a new root scope that causes all DoShapeInference() calls to return</i></td></tr>
+<tr><th id="211">211</th><td><i>  // Status::OK() (on the returned scope and any subscopes). Used for testing.</i></td></tr>
+<tr><th id="212">212</th><td><i>  // TODO(skyewm): fix tests that still require this and eventually remove, or</i></td></tr>
+<tr><th id="213">213</th><td><i>  // at least remove from public API</i></td></tr>
+<tr><th id="214">214</th><td>  <em>static</em> <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="_ZN10tensorflow5Scope27DisabledShapeInferenceScopeEv" title='tensorflow::Scope::DisabledShapeInferenceScope' data-ref="_ZN10tensorflow5Scope27DisabledShapeInferenceScopeEv">DisabledShapeInferenceScope</dfn>();</td></tr>
+<tr><th id="215">215</th><td>  <i>// END_SKIP_DOXYGEN</i></td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td>  <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="ops.h.html#tensorflow::Operation" title='tensorflow::Operation' data-ref="tensorflow::Operation">Operation</a>&gt;&amp; <dfn class="decl" id="_ZNK10tensorflow5Scope12control_depsEv" title='tensorflow::Scope::control_deps' data-ref="_ZNK10tensorflow5Scope12control_depsEv">control_deps</dfn>() <em>const</em>;</td></tr>
+<tr><th id="218">218</th><td></td></tr>
+<tr><th id="219">219</th><td>  <i>// START_SKIP_DOXYGEN</i></td></tr>
+<tr><th id="220">220</th><td>  <b>class</b> <a class="type" href="scope_internal.h.html#tensorflow::Scope::Impl" title='tensorflow::Scope::Impl' data-ref="tensorflow::Scope::Impl" id="tensorflow::Scope::Impl">Impl</a>;</td></tr>
+<tr><th id="221">221</th><td>  <a class="type" href="scope_internal.h.html#tensorflow::Scope::Impl" title='tensorflow::Scope::Impl' data-ref="tensorflow::Scope::Impl">Impl</a>* <dfn class="decl def" id="_ZN10tensorflow5Scope4implEv" title='tensorflow::Scope::impl' data-ref="_ZN10tensorflow5Scope4implEv">impl</dfn>() { <b>return</b> <a class="member" href="#tensorflow::Scope::impl_" title='tensorflow::Scope::impl_' data-ref="tensorflow::Scope::impl_">impl_</a>.<a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZNKSt10unique_ptr3getEv" title='std::unique_ptr::get' data-ref="_ZNKSt10unique_ptr3getEv">get</a>(); }</td></tr>
+<tr><th id="222">222</th><td>  <em>const</em> <a class="type" href="scope_internal.h.html#tensorflow::Scope::Impl" title='tensorflow::Scope::Impl' data-ref="tensorflow::Scope::Impl">Impl</a>* <dfn class="decl def" id="_ZNK10tensorflow5Scope4implEv" title='tensorflow::Scope::impl' data-ref="_ZNK10tensorflow5Scope4implEv">impl</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#tensorflow::Scope::impl_" title='tensorflow::Scope::impl_' data-ref="tensorflow::Scope::impl_">impl_</a>.<a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZNKSt10unique_ptr3getEv" title='std::unique_ptr::get' data-ref="_ZNKSt10unique_ptr3getEv">get</a>(); }</td></tr>
+<tr><th id="223">223</th><td>  <i>// END_SKIP_DOXYGEN</i></td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td> <b>private</b>:</td></tr>
+<tr><th id="226">226</th><td>  <b>friend</b> <b>class</b> <a class="type" href="#tensorflow::InternalScope" title='tensorflow::InternalScope' data-ref="tensorflow::InternalScope">InternalScope</a>;</td></tr>
+<tr><th id="227">227</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="scope_internal.h.html#tensorflow::Scope::Impl" title='tensorflow::Scope::Impl' data-ref="tensorflow::Scope::Impl">Impl</a>&gt; <dfn class="decl" id="tensorflow::Scope::impl_" title='tensorflow::Scope::impl_' data-ref="tensorflow::Scope::impl_">impl_</dfn>;</td></tr>
+<tr><th id="228">228</th><td>  <b>explicit</b> <dfn class="decl" id="_ZN10tensorflow5ScopeC1EPNS0_4ImplE" title='tensorflow::Scope::Scope' data-ref="_ZN10tensorflow5ScopeC1EPNS0_4ImplE">Scope</dfn>(<a class="type" href="scope_internal.h.html#tensorflow::Scope::Impl" title='tensorflow::Scope::Impl' data-ref="tensorflow::Scope::Impl">Impl</a>*);</td></tr>
+<tr><th id="229">229</th><td>};</td></tr>
+<tr><th id="230">230</th><td></td></tr>
+<tr><th id="231">231</th><td><i class="doc">/// A helper struct to hold the scopes that would be used by a function</i></td></tr>
+<tr><th id="232">232</th><td><i class="doc">/// constructing a composite op.</i></td></tr>
+<tr><th id="233">233</th><td><b>struct</b> <dfn class="type def" id="tensorflow::CompositeOpScopes" title='tensorflow::CompositeOpScopes' data-ref="tensorflow::CompositeOpScopes">CompositeOpScopes</dfn> {</td></tr>
+<tr><th id="234">234</th><td>  <i class="doc">/// Scope to be used for creating the local ops (primitive or other composite</i></td></tr>
+<tr><th id="235">235</th><td><i class="doc">  /// ops).</i></td></tr>
+<tr><th id="236">236</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="tensorflow::CompositeOpScopes::child" title='tensorflow::CompositeOpScopes::child' data-ref="tensorflow::CompositeOpScopes::child">child</dfn>;</td></tr>
+<tr><th id="237">237</th><td>  <i class="doc">/// Scope to be used for creating the last op.</i></td></tr>
+<tr><th id="238">238</th><td>  <a class="type" href="#tensorflow::Scope" title='tensorflow::Scope' data-ref="tensorflow::Scope">Scope</a> <dfn class="decl" id="tensorflow::CompositeOpScopes::last" title='tensorflow::CompositeOpScopes::last' data-ref="tensorflow::CompositeOpScopes::last">last</dfn>;</td></tr>
+<tr><th id="239">239</th><td>};</td></tr>
+<tr><th id="240">240</th><td></td></tr>
+<tr><th id="241">241</th><td><i class="doc">/// @}</i></td></tr>
+<tr><th id="242">242</th><td></td></tr>
+<tr><th id="243">243</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CC_FRAMEWORK_SCOPE_H_</u></td></tr>
+<tr><th id="246">246</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../c/c_api.cc.html'>tensorflow/tensorflow/c/c_api.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

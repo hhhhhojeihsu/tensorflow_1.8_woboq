@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/framework/op.h' l='113' type='tensorflow::Status tensorflow::OpRegistry::SetWatcher(const Watcher &amp; watcher)'/>
+<doc f='tensorflow/tensorflow/core/framework/op.h' l='103'>// An OpRegistry object has only one watcher. This interface is not thread
+  // safe, as different clients are free to set the watcher any time.
+  // Clients are expected to atomically perform the following sequence of
+  // operations :
+  // SetWatcher(a_watcher);
+  // Register some ops;
+  // op_registry-&gt;ProcessRegistrations();
+  // SetWatcher(nullptr);
+  // Returns a non-OK status if a non-null watcher is over-written by another
+  // non-null watcher.</doc>
+<use f='tensorflow/tensorflow/core/framework/load_library.cc' l='62' u='c' c='_ZN10tensorflow11LoadLibraryEPKcPPvPPKvPm'/>
+<use f='tensorflow/tensorflow/core/framework/load_library.cc' l='85' u='c' c='_ZN10tensorflow11LoadLibraryEPKcPPvPPKvPm'/>
+<use f='tensorflow/tensorflow/core/framework/load_library.cc' l='88' u='c' c='_ZN10tensorflow11LoadLibraryEPKcPPvPPKvPm'/>
+<def f='tensorflow/tensorflow/core/framework/op.cc' l='123' ll='131' type='tensorflow::Status tensorflow::OpRegistry::SetWatcher(const Watcher &amp; watcher)'/>

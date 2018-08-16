@@ -1,0 +1,28 @@
+<def f='tensorflow/tensorflow/core/grappler/clusters/cluster.h' l='37' ll='125'/>
+<ovr f='tensorflow/tensorflow/core/grappler/clusters/virtual_cluster.h' l='31' c='tensorflow::grappler::VirtualCluster'/>
+<size>336</size>
+<doc f='tensorflow/tensorflow/core/grappler/clusters/cluster.h' l='34'>// A cluster represents of collection of hardware resources available to run
+// the TensorFlow model.
+// A process can only create a single cluster at a time.</doc>
+<fun r='_ZN10tensorflow8grappler7ClusterC1Ei'/>
+<fun r='_ZN10tensorflow8grappler7ClusterD1Ev'/>
+<fun r='_ZNK10tensorflow8grappler7Cluster4typeEv'/>
+<fun r='_ZN10tensorflow8grappler7Cluster9ProvisionEv'/>
+<fun r='_ZN10tensorflow8grappler7Cluster8ShutdownEv'/>
+<fun r='_ZN10tensorflow8grappler7Cluster18AllowSoftPlacementEb'/>
+<fun r='_ZN10tensorflow8grappler7Cluster17SetNumWarmupStepsEi'/>
+<fun r='_ZNK10tensorflow8grappler7Cluster14NumWarmupStepsEv'/>
+<fun r='_ZN10tensorflow8grappler7Cluster20DisableDetailedStatsEb'/>
+<fun r='_ZNK10tensorflow8grappler7Cluster20DetailedStatsEnabledEv'/>
+<fun r='_ZN10tensorflow8grappler7Cluster16DisableOptimizerEb'/>
+<fun r='_ZNK10tensorflow8grappler7Cluster10GetDevicesEv'/>
+<fun r='_ZNK10tensorflow8grappler7Cluster14GetDeviceNamesEv'/>
+<fun r='_ZN10tensorflow8grappler7Cluster21EnablePeakMemoryStatsEb'/>
+<fun r='_ZNK10tensorflow8grappler7Cluster18GetPeakMemoryUsageEPSt13unordered_mapISsySt4hashISsESt8equal_toISsESaISt4pairIKSsyEEE'/>
+<fun r='_ZN10tensorflow8grappler7Cluster10InitializeERKNS0_12GrapplerItemE'/>
+<fun r='_ZN10tensorflow8grappler7Cluster3RunERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPNS_11RunMetadataE'/>
+<mbr r='tensorflow::grappler::Cluster::devices_' o='64' t='std::unordered_map&lt;string, DeviceProperties&gt;'/>
+<mbr r='tensorflow::grappler::Cluster::timeout_s_' o='512' t='const int'/>
+<mbr r='tensorflow::grappler::Cluster::options_' o='576' t='tensorflow::SessionOptions'/>
+<mbr r='tensorflow::grappler::Cluster::run_options_' o='2304' t='tensorflow::RunOptions'/>
+<ovr f='tensorflow/tensorflow/core/grappler/clusters/single_machine.h' l='31' c='tensorflow::grappler::SingleMachine'/>

@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/cc/training/coordinator.h' l='85' type='tensorflow::Status tensorflow::Coordinator::RegisterRunner(std::unique_ptr&lt;RunnerInterface&gt; runner)'/>
+<def f='tensorflow/tensorflow/cc/training/coordinator.cc' l='38' ll='49' type='tensorflow::Status tensorflow::Coordinator::RegisterRunner(std::unique_ptr&lt;RunnerInterface&gt; runner)'/>
+<doc f='tensorflow/tensorflow/cc/training/coordinator.h' l='81'>/// Registers a runner, i.e. a unit of running threads which is usually a
+  /// QueueRunner. It takes the ownership of runner to avoid lifecycle-related
+  /// problems. Note, the coordinator would not start these threads; they are
+  /// supposed to be in running state when they are registered here.</doc>
+<use f='tensorflow/tensorflow/core/grappler/clusters/single_machine.cc' l='181' u='c' c='_ZN10tensorflow8grappler13SingleMachine3RunERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPNS_11RunMetadataE'/>

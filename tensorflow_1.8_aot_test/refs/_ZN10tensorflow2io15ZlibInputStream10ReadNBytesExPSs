@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.h' l='59' type='tensorflow::Status tensorflow::io::ZlibInputStream::ReadNBytes(int64 bytes_to_read, string * result)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.h' l='50'>// Reads bytes_to_read bytes into *result, overwriting *result.
+  //
+  // Return Status codes:
+  // OK:           If successful.
+  // OUT_OF_RANGE: If there are not enough bytes to read before
+  //               the end of the stream.
+  // ABORTED:      If inflate() fails, we return the error code with the
+  //               error message in `z_stream_-&gt;msg`.
+  // others:       If reading from stream failed.</doc>
+<use f='tensorflow/tensorflow/core/kernels/decode_compressed_op.cc' l='110' u='c' c='_ZN10tensorflow18DecodeCompressedOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='102' u='c' c='_ZN10tensorflow2io12RecordReader15ReadChecksummedEymPNS_11StringPieceEPSs'/>
+<inh f='tensorflow/tensorflow/core/lib/io/inputstream_interface.h' l='35' c='_ZN10tensorflow2io20InputStreamInterface10ReadNBytesExPSs'/>
+<def f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.cc' l='142' ll='174' type='tensorflow::Status tensorflow::io::ZlibInputStream::ReadNBytes(int64 bytes_to_read, string * result)'/>

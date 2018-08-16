@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>device_options.h source code [tensorflow/tensorflow/stream_executor/device_options.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="perftools::gputools::DeviceOptions "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/stream_executor/device_options.h'; var root_path = '../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>tensorflow</a>/<a href='..'>tensorflow</a>/<a href='./'>stream_executor</a>/<a href='device_options.h.html'>device_options.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// Contains device-level options that can be specified at a platform level.</i></td></tr>
+<tr><th id="17">17</th><td><i>// Example usage:</i></td></tr>
+<tr><th id="18">18</th><td><i>//    auto device_options = DeviceOptions::Default();</i></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#<span data-ppcond="20">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_DEVICE_OPTIONS_H_">TENSORFLOW_STREAM_EXECUTOR_DEVICE_OPTIONS_H_</span></u></td></tr>
+<tr><th id="21">21</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_STREAM_EXECUTOR_DEVICE_OPTIONS_H_" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_DEVICE_OPTIONS_H_">TENSORFLOW_STREAM_EXECUTOR_DEVICE_OPTIONS_H_</dfn></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../include/c++/5/map.html">&lt;map&gt;</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="platform/port.h.html">"tensorflow/stream_executor/platform/port.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="platform/logging.h.html">"tensorflow/stream_executor/platform/logging.h"</a></u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><b>namespace</b> <span class="namespace">perftools</span> {</td></tr>
+<tr><th id="29">29</th><td><b>namespace</b> <span class="namespace">gputools</span> {</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><i>// Indicates a set of options for a device's usage, which generally must be</i></td></tr>
+<tr><th id="32">32</th><td><i>// provided at StreamExecutor device-initialization time.</i></td></tr>
+<tr><th id="33">33</th><td><i>//</i></td></tr>
+<tr><th id="34">34</th><td><i>// These are intended to be useful-but-not-mandatorily-supported options for</i></td></tr>
+<tr><th id="35">35</th><td><i>// using devices on the underlying platform. Presently, if the option requested</i></td></tr>
+<tr><th id="36">36</th><td><i>// is not available on the target platform, a warning will be emitted.</i></td></tr>
+<tr><th id="37">37</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::DeviceOptions" title='perftools::gputools::DeviceOptions' data-ref="perftools::gputools::DeviceOptions">DeviceOptions</dfn> {</td></tr>
+<tr><th id="38">38</th><td> <b>public</b>:</td></tr>
+<tr><th id="39">39</th><td>  <i>// When it is observed that more memory has to be allocated for thread stacks,</i></td></tr>
+<tr><th id="40">40</th><td><i>  // this flag prevents it from ever being deallocated. Potentially saves</i></td></tr>
+<tr><th id="41">41</th><td><i>  // thrashing the thread stack memory allocation, but at the potential cost of</i></td></tr>
+<tr><th id="42">42</th><td><i>  // some memory space.</i></td></tr>
+<tr><th id="43">43</th><td>  <em>static</em> <em>const</em> <em>unsigned</em> <dfn class="decl" id="perftools::gputools::DeviceOptions::kDoNotReclaimStackAllocation" title='perftools::gputools::DeviceOptions::kDoNotReclaimStackAllocation' data-ref="perftools::gputools::DeviceOptions::kDoNotReclaimStackAllocation">kDoNotReclaimStackAllocation</dfn> = <var>0x1</var>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>  <i>// The following options refer to synchronization options when</i></td></tr>
+<tr><th id="46">46</th><td><i>  // using SynchronizeStream or SynchronizeContext.</i></td></tr>
+<tr><th id="47">47</th><td><i></i></td></tr>
+<tr><th id="48">48</th><td><i>  // Synchronize with spinlocks.</i></td></tr>
+<tr><th id="49">49</th><td>  <em>static</em> <em>const</em> <em>unsigned</em> <dfn class="decl" id="perftools::gputools::DeviceOptions::kScheduleSpin" title='perftools::gputools::DeviceOptions::kScheduleSpin' data-ref="perftools::gputools::DeviceOptions::kScheduleSpin">kScheduleSpin</dfn> = <var>0x02</var>;</td></tr>
+<tr><th id="50">50</th><td>  <i>// Synchronize with spinlocks that also call CPU yield instructions.</i></td></tr>
+<tr><th id="51">51</th><td>  <em>static</em> <em>const</em> <em>unsigned</em> <dfn class="decl" id="perftools::gputools::DeviceOptions::kScheduleYield" title='perftools::gputools::DeviceOptions::kScheduleYield' data-ref="perftools::gputools::DeviceOptions::kScheduleYield">kScheduleYield</dfn> = <var>0x04</var>;</td></tr>
+<tr><th id="52">52</th><td>  <i>// Synchronize with a "synchronization primitive" (e.g. mutex).</i></td></tr>
+<tr><th id="53">53</th><td>  <em>static</em> <em>const</em> <em>unsigned</em> <dfn class="decl" id="perftools::gputools::DeviceOptions::kScheduleBlockingSync" title='perftools::gputools::DeviceOptions::kScheduleBlockingSync' data-ref="perftools::gputools::DeviceOptions::kScheduleBlockingSync">kScheduleBlockingSync</dfn> = <var>0x08</var>;</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>  <em>static</em> <em>const</em> <em>unsigned</em> <dfn class="decl" id="perftools::gputools::DeviceOptions::kMask" title='perftools::gputools::DeviceOptions::kMask' data-ref="perftools::gputools::DeviceOptions::kMask">kMask</dfn> = <var>0xf</var>;  <i>// Mask of all available flags.</i></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  <i>// Constructs an or-d together set of device options.</i></td></tr>
+<tr><th id="58">58</th><td>  <b>explicit</b> <dfn class="decl def" id="_ZN9perftools8gputools13DeviceOptionsC1Ej" title='perftools::gputools::DeviceOptions::DeviceOptions' data-ref="_ZN9perftools8gputools13DeviceOptionsC1Ej">DeviceOptions</dfn>(<em>unsigned</em> <dfn class="local col4 decl" id="1424flags" title='flags' data-type='unsigned int' data-ref="1424flags">flags</dfn>) : <a class="member" href="#perftools::gputools::DeviceOptions::flags_" title='perftools::gputools::DeviceOptions::flags_' data-ref="perftools::gputools::DeviceOptions::flags_">flags_</a>(<a class="local col4 ref" href="#1424flags" title='flags' data-ref="1424flags">flags</a>) {</td></tr>
+<tr><th id="59">59</th><td>    <a class="macro" href="../core/platform/default/logging.h.html#97" title="if ((__builtin_expect(!((flags &amp; kMask) == flags), 0))) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/stream_executor/device_options.h&quot;, 59) &lt;&lt; &quot;Check failed: &quot; &quot;(flags &amp; kMask) == flags&quot; &quot; &quot;" data-ref="_M/CHECK">CHECK</a>((<a class="local col4 ref" href="#1424flags" title='flags' data-ref="1424flags">flags</a> &amp; <a class="member" href="#perftools::gputools::DeviceOptions::kMask" title='perftools::gputools::DeviceOptions::kMask' data-ref="perftools::gputools::DeviceOptions::kMask">kMask</a>) == <a class="local col4 ref" href="#1424flags" title='flags' data-ref="1424flags">flags</a>);</td></tr>
+<tr><th id="60">60</th><td>  }</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>  <i>// Factory for the default set of device options.</i></td></tr>
+<tr><th id="63">63</th><td>  <em>static</em> <a class="type" href="#perftools::gputools::DeviceOptions" title='perftools::gputools::DeviceOptions' data-ref="perftools::gputools::DeviceOptions">DeviceOptions</a> <dfn class="decl def" id="_ZN9perftools8gputools13DeviceOptions7DefaultEv" title='perftools::gputools::DeviceOptions::Default' data-ref="_ZN9perftools8gputools13DeviceOptions7DefaultEv">Default</dfn>() { <b>return</b> <a class="type" href="#perftools::gputools::DeviceOptions" title='perftools::gputools::DeviceOptions' data-ref="perftools::gputools::DeviceOptions">DeviceOptions</a><a class="ref" href="#_ZN9perftools8gputools13DeviceOptionsC1Ej" title='perftools::gputools::DeviceOptions::DeviceOptions' data-ref="_ZN9perftools8gputools13DeviceOptionsC1Ej">(</a><var>0</var>); }</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>  <em>unsigned</em> <dfn class="decl def" id="_ZNK9perftools8gputools13DeviceOptions5flagsEv" title='perftools::gputools::DeviceOptions::flags' data-ref="_ZNK9perftools8gputools13DeviceOptions5flagsEv">flags</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#perftools::gputools::DeviceOptions::flags_" title='perftools::gputools::DeviceOptions::flags_' data-ref="perftools::gputools::DeviceOptions::flags_">flags_</a>; }</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK9perftools8gputools13DeviceOptionseqERKS1_" title='perftools::gputools::DeviceOptions::operator==' data-ref="_ZNK9perftools8gputools13DeviceOptionseqERKS1_"><b>operator</b>==</dfn>(<em>const</em> <a class="type" href="#perftools::gputools::DeviceOptions" title='perftools::gputools::DeviceOptions' data-ref="perftools::gputools::DeviceOptions">DeviceOptions</a>&amp; <dfn class="local col5 decl" id="1425other" title='other' data-type='const perftools::gputools::DeviceOptions &amp;' data-ref="1425other">other</dfn>) <em>const</em> {</td></tr>
+<tr><th id="68">68</th><td>    <b>return</b> <a class="member" href="#perftools::gputools::DeviceOptions::flags_" title='perftools::gputools::DeviceOptions::flags_' data-ref="perftools::gputools::DeviceOptions::flags_">flags_</a> == <a class="local col5 ref" href="#1425other" title='other' data-ref="1425other">other</a>.<a class="member" href="#perftools::gputools::DeviceOptions::flags_" title='perftools::gputools::DeviceOptions::flags_' data-ref="perftools::gputools::DeviceOptions::flags_">flags_</a>;</td></tr>
+<tr><th id="69">69</th><td>  }</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK9perftools8gputools13DeviceOptionsneERKS1_" title='perftools::gputools::DeviceOptions::operator!=' data-ref="_ZNK9perftools8gputools13DeviceOptionsneERKS1_"><b>operator</b>!=</dfn>(<em>const</em> <a class="type" href="#perftools::gputools::DeviceOptions" title='perftools::gputools::DeviceOptions' data-ref="perftools::gputools::DeviceOptions">DeviceOptions</a>&amp; <dfn class="local col6 decl" id="1426other" title='other' data-type='const perftools::gputools::DeviceOptions &amp;' data-ref="1426other">other</dfn>) <em>const</em> {</td></tr>
+<tr><th id="72">72</th><td>    <b>return</b> !(*<b>this</b> <a class="member" href="#_ZNK9perftools8gputools13DeviceOptionseqERKS1_" title='perftools::gputools::DeviceOptions::operator==' data-ref="_ZNK9perftools8gputools13DeviceOptionseqERKS1_">==</a> <a class="local col6 ref" href="#1426other" title='other' data-ref="1426other">other</a>);</td></tr>
+<tr><th id="73">73</th><td>  }</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>  <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl def" id="_ZN9perftools8gputools13DeviceOptions8ToStringEv" title='perftools::gputools::DeviceOptions::ToString' data-ref="_ZN9perftools8gputools13DeviceOptions8ToStringEv">ToString</dfn>() {</td></tr>
+<tr><th id="76">76</th><td>    <b>return</b> <a class="ref fake" href="../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1EPKT_RKT1_" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1EPKT_RKT1_"></a><a class="member" href="#perftools::gputools::DeviceOptions::flags_" title='perftools::gputools::DeviceOptions::flags_' data-ref="perftools::gputools::DeviceOptions::flags_">flags_</a> == <var>0</var> ? <q>"none"</q> : <q>"kDoNotReclaimStackAllocation"</q>;</td></tr>
+<tr><th id="77">77</th><td>  }</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>  <i>// Platform-specific device options. Expressed as key-value pairs to avoid</i></td></tr>
+<tr><th id="80">80</th><td><i>  // DeviceOptions subclass proliferation.</i></td></tr>
+<tr><th id="81">81</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/stl_map.h.html#std::map" title='std::map' data-ref="std::map">map</a>&lt;<a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt; <dfn class="decl" id="perftools::gputools::DeviceOptions::non_portable_tags" title='perftools::gputools::DeviceOptions::non_portable_tags' data-ref="perftools::gputools::DeviceOptions::non_portable_tags">non_portable_tags</dfn>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td> <b>private</b>:</td></tr>
+<tr><th id="84">84</th><td>  <em>unsigned</em> <dfn class="decl" id="perftools::gputools::DeviceOptions::flags_" title='perftools::gputools::DeviceOptions::flags_' data-ref="perftools::gputools::DeviceOptions::flags_">flags_</dfn>;</td></tr>
+<tr><th id="85">85</th><td>};</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>}  <i>// namespace gputools</i></td></tr>
+<tr><th id="88">88</th><td>}  <i>// namespace perftools</i></td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><u>#<span data-ppcond="20">endif</span>  // TENSORFLOW_STREAM_EXECUTOR_DEVICE_OPTIONS_H_</u></td></tr>
+<tr><th id="91">91</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../compiler/jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

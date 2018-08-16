@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='627' type='bool perftools::gputools::blas::BlasSupport::DoBlasHpmv(perftools::gputools::Stream * stream, blas::UpperLower uplo, uint64 n, std::complex&lt;float&gt; alpha, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; ap, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; x, int incx, std::complex&lt;float&gt; beta, DeviceMemory&lt;std::complex&lt;float&gt; &gt; * y, int incy)'/>
+<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='621'>// Computes a matrix-vector product using a Hermitian packed matrix.
+  //
+  //     y &lt;- alpha * a * x + beta * y,
+  //
+  // alpha and beta are scalars; a is an n-by-n Hermitian matrix, supplied in
+  // packed form; x and y are n-element vectors.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='2990' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasHpmvENS0_4blas10UpperLowerEySt7complexIfERKNS0_12DeviceMemoryIS5_EES9_iS5_PS7_i'/>

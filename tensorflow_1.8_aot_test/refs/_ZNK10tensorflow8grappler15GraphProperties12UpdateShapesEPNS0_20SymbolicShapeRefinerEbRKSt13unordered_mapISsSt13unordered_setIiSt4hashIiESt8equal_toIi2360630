@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/grappler/costs/graph_properties.h' l='112' type='tensorflow::Status tensorflow::grappler::GraphProperties::UpdateShapes(tensorflow::grappler::SymbolicShapeRefiner * shape_refiner, bool relax, const std::unordered_map&lt;string, std::unordered_set&lt;int&gt; &gt; &amp; fed_ports, const tensorflow::Node * n, tensorflow::grappler::TopoQueue * new_shapes) const'/>
+<doc f='tensorflow/tensorflow/core/grappler/costs/graph_properties.h' l='110'>// Update the shapes for node &apos;n&apos;. If output shapes for n have changed,
+  // enqueue its fanout in &apos;new_shapes&apos;.</doc>
+<def f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='784' ll='810' type='tensorflow::Status tensorflow::grappler::GraphProperties::UpdateShapes(tensorflow::grappler::SymbolicShapeRefiner * shape_refiner, bool relax, const std::unordered_map&lt;string, std::unordered_set&lt;int&gt; &gt; &amp; fed_ports, const tensorflow::Node * n, tensorflow::grappler::TopoQueue * new_shapes) const'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='843' u='c' c='_ZNK10tensorflow8grappler15GraphProperties15PropagateShapesEPNS0_20SymbolicShapeRefinerEbPNS0_9TopoQueueERKSt13unordered_mapIPKNS_4NodeESt13unordered_14915696'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='987' u='c' c='_ZN10tensorflow8grappler15GraphProperties15InferStaticallyEb'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='992' u='c' c='_ZN10tensorflow8grappler15GraphProperties15InferStaticallyEb'/>

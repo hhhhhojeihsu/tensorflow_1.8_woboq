@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='181' ll='183' type='void tensorflow::ShapeRefiner::set_keep_nested_shape_inferences()'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='172'>// Call this to keep nested shapes information for user-defined functions:
+  // nested inferences will be available on the ExtendedInferenceContext for
+  // each function node, forming a tree of shape inferences corresponding to the
+  // tree of nested function calls. By default this setting is disabled, and
+  // only the shapes for the top-level function node will be reported on the
+  // InferenceContext for each function node, to reduce memory usage.
+  //
+  // This flag has no effect when the function inference is not enabled via
+  // set_function_library_for_shape_inference.</doc>

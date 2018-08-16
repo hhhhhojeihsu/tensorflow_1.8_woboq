@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/platform/mem.h' l='43' type='void tensorflow::port::MallocExtension_ReleaseToSystem(std::size_t num_bytes)'/>
+<doc f='tensorflow/tensorflow/core/platform/mem.h' l='36'>// Tries to release num_bytes of free memory back to the operating
+// system for reuse.  Use this routine with caution -- to get this
+// memory back may require faulting pages back in by the OS, and
+// that may be slow.
+//
+// Currently, if a malloc implementation does not support this
+// routine, this routine is a no-op.</doc>
+<def f='tensorflow/tensorflow/core/platform/posix/port.cc' l='126' ll='128' type='void tensorflow::port::MallocExtension_ReleaseToSystem(std::size_t num_bytes)'/>

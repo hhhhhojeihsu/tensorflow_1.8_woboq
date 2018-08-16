@@ -1,0 +1,17 @@
+<inh f='tensorflow/tensorflow/core/profiler/internal/tfprof_show_multi.h' l='42' c='tensorflow::tfprof::TFMultiShow'/>
+<def f='tensorflow/tensorflow/core/profiler/internal/tfprof_op.h' l='42' ll='73'/>
+<size>112</size>
+<doc f='tensorflow/tensorflow/core/profiler/internal/tfprof_op.h' l='40'>// Organize tensorflow ops in a graph structure, pointing from output ops
+// to input ops.</doc>
+<fun r='_ZN10tensorflow6tfprof4TFOpC1Ev'/>
+<fun r='_ZN10tensorflow6tfprof4TFOpD1Ev'/>
+<fun r='_ZN10tensorflow6tfprof4TFOp7AddNodeEPNS0_11TFGraphNodeE'/>
+<fun r='_ZN10tensorflow6tfprof4TFOp5BuildEv'/>
+<fun r='_ZN10tensorflow6tfprof4TFOp12ShowInternalERKNS0_7OptionsEPNS0_8TimelineE'/>
+<fun r='_ZN10tensorflow6tfprof4TFOp10SearchRootESt6vectorIPNS0_6OpNodeESaIS4_EERKS2_ISsSaISsEE'/>
+<fun r='_ZNK10tensorflow6tfprof4TFOp17ShouldShowIfExtraEPKNS0_13ShowMultiNodeERKNS0_7OptionsEi'/>
+<fun r='_ZNK10tensorflow6tfprof4TFOp10FormatNodeEPNS0_6OpNodeES3_RKNS0_7OptionsE'/>
+<fun r='_ZNK10tensorflow6tfprof4TFOp16FormatMemoryNodeExxx'/>
+<mbr r='tensorflow::tfprof::TFOp::root_' o='64' t='std::unique_ptr&lt;OpNode&gt;'/>
+<mbr r='tensorflow::tfprof::TFOp::cnodes_map_' o='128' t='std::map&lt;string, std::unique_ptr&lt;OpNode&gt; &gt;'/>
+<mbr r='tensorflow::tfprof::TFOp::tfcnodes_map_' o='512' t='std::map&lt;string, std::unique_ptr&lt;TFMultiGraphNode&gt; &gt;'/>

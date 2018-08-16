@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='494' type='std::unordered_map&lt;const HloInstruction *, llvm::Value *&gt;'/>
+<offset>320</offset>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='492'>// Maps HLOs to the value the cycle counter contained right before the HLO
+    // began to execute.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2636' u='m' c='_ZN3xla3cpu9IrEmitter14ProfilingState16RecordCycleStartEPN4llvm9IRBuilderINS3_14ConstantFolderENS3_24IRBuilderDefaultInserterEEEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2647' u='m' c='_ZN3xla3cpu9IrEmitter14ProfilingState16RecordCycleDeltaEPN4llvm9IRBuilderINS3_14ConstantFolderENS3_24IRBuilderDefaultInserterEEEPNS_14HloInstructionEPNS3_5ValueE'/>

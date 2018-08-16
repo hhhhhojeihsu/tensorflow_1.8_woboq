@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='266' type='xla::XlaOp xla::XlaBuilder::DynamicSlice(const xla::XlaOp &amp; operand, const xla::XlaOp &amp; start_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; slice_sizes)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='257'>// Enqueues a slice operation onto the computation that slices the &apos;operand&apos;
+  // from dynamic start indices which are passed in &apos;start_indices&apos;.
+  // The size of the slice in each dimension is passed in &apos;slice_sizes&apos;,
+  // which specify the end point of exclusive slice intervals in each
+  // dimension [start, start + size).
+  // The shape of &apos;start_indices&apos; must be rank == 1, with dimension size
+  // equal to the rank of the &apos;operand&apos;.
+  // Slice index calculations are computed modulo input dimension sizes to
+  // prevent dynamic start indices from generating out-of-bound array accesses.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='491' ll='510' type='xla::XlaOp xla::XlaBuilder::DynamicSlice(const xla::XlaOp &amp; operand, const xla::XlaOp &amp; start_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; slice_sizes)'/>

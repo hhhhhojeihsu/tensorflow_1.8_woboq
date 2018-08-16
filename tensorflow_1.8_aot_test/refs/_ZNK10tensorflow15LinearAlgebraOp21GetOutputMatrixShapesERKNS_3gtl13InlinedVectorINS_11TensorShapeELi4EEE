@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/core/kernels/linalg_ops_common.h' l='89' ll='92' type='TensorShapes tensorflow::LinearAlgebraOp::GetOutputMatrixShapes(const TensorShapes &amp; input_matrix_shapes) const'/>
+<doc f='tensorflow/tensorflow/core/kernels/linalg_ops_common.h' l='79'>// Returns the output shapes of each individual matrix operation. Output
+  // matrices shapes must be rank 0, 1, or 2. Scalar outputs are rank 0.
+  //
+  // The derived class may return a number of shapes (N) less than
+  // context-&gt;num_outputs() (M) to indicate that a only leading subset of
+  // the outputs will be populated. In this case, a dummy scalar tensor with
+  // value zero will be return for the last M-N outputs.
+  //
+  // For many ops, the output dimensions are the same as the input dimensions,
+  // so we provide that as a default implementation for convenience.</doc>
+<use f='tensorflow/tensorflow/core/kernels/linalg_ops_common.cc' l='164' u='c' c='_ZN10tensorflow15LinearAlgebraOp14PrepareOutputsEPNS_15OpKernelContextERKNS_3gtl13InlinedVectorINS_11TensorShapeELi4EEERKS5_PNS4_IPNS_6TensorELi4EEEPS6_'/>

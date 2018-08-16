@@ -1,0 +1,17 @@
+<def f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='311' ll='345'/>
+<size>56</size>
+<doc f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='308'>// A buffering wrapper for a WritableFile.  Useful if the caller wishes to issue
+// small writes to a file (e.g. writing out a list of small varints).
+// External synchronization must be used in the presence of concurrent callers.</doc>
+<fun r='_ZN10tensorflow16FileOutputBufferC1EPNS_12WritableFileEm'/>
+<fun r='_ZN10tensorflow16FileOutputBufferD1Ev'/>
+<fun r='_ZN10tensorflow16FileOutputBuffer6AppendENS_11StringPieceE'/>
+<fun r='_ZN10tensorflow16FileOutputBuffer6crc32cEv'/>
+<fun r='_ZN10tensorflow16FileOutputBuffer12clear_crc32cEv'/>
+<fun r='_ZN10tensorflow16FileOutputBuffer5CloseEv'/>
+<fun r='_ZN10tensorflow16FileOutputBuffer11FlushBufferEv'/>
+<mbr r='tensorflow::FileOutputBuffer::file_' o='0' t='tensorflow::WritableFile *'/>
+<mbr r='tensorflow::FileOutputBuffer::position_' o='64' t='size_t'/>
+<mbr r='tensorflow::FileOutputBuffer::buffer_size_' o='128' t='const size_t'/>
+<mbr r='tensorflow::FileOutputBuffer::buffer_' o='192' t='std::vector&lt;char&gt;'/>
+<mbr r='tensorflow::FileOutputBuffer::crc32c_' o='384' t='uint32'/>

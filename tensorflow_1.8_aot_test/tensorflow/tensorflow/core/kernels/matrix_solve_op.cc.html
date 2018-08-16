@@ -1,0 +1,389 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>matrix_solve_op.cc source code [tensorflow/tensorflow/core/kernels/matrix_solve_op.cc] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::MatrixSolveOp "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/kernels/matrix_solve_op.cc'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>kernels</a>/<a href='matrix_solve_op.cc.html'>matrix_solve_op.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// See docs in ../ops/linalg_ops.cc.</i></td></tr>
+<tr><th id="17">17</th><td><u>#<span data-ppcond="17">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="18">18</th><td><u>#define EIGEN_USE_GPU</u></td></tr>
+<tr><th id="19">19</th><td><u>#<span data-ppcond="17">endif</span></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../include/c++/5/numeric.html">&lt;numeric&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../third_party/eigen3/Eigen/Core.html">"third_party/eigen3/Eigen/Core"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../../../third_party/eigen3/Eigen/LU.html">"third_party/eigen3/Eigen/LU"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../framework/kernel_def_builder.h.html">"tensorflow/core/framework/kernel_def_builder.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../framework/op_kernel.h.html">"tensorflow/core/framework/op_kernel.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../framework/tensor_shape.h.html">"tensorflow/core/framework/tensor_shape.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="linalg_ops_common.h.html">"tensorflow/core/kernels/linalg_ops_common.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../lib/core/errors.h.html">"tensorflow/core/lib/core/errors.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../platform/logging.h.html">"tensorflow/core/platform/logging.h"</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../platform/macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="34">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="35">35</th><td><u>#include "third_party/eigen3/unsupported/Eigen/CXX11/Tensor"</u></td></tr>
+<tr><th id="36">36</th><td><u>#include "tensorflow/core/kernels/cuda_solvers.h"</u></td></tr>
+<tr><th id="37">37</th><td><u>#include "tensorflow/core/kernels/transpose_functor.h"</u></td></tr>
+<tr><th id="38">38</th><td><u>#<span data-ppcond="34">endif</span></u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><em>static</em> <em>const</em> <em>char</em> <dfn class="tu decl def" id="tensorflow::kErrMsg" title='tensorflow::kErrMsg' data-type='const char [32]' data-ref="tensorflow::kErrMsg">kErrMsg</dfn>[] = <q>"Input matrix is not invertible."</q>;</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><b>template</b> &lt;<b>class</b> Scalar&gt;</td></tr>
+<tr><th id="45">45</th><td><b>class</b> <dfn class="type def" id="tensorflow::MatrixSolveOp" title='tensorflow::MatrixSolveOp' data-ref="tensorflow::MatrixSolveOp">MatrixSolveOp</dfn> : <b>public</b> <a class="type" href="linalg_ops_common.h.html#tensorflow::LinearAlgebraOp" title='tensorflow::LinearAlgebraOp' data-ref="tensorflow::LinearAlgebraOp">LinearAlgebraOp</a>&lt;Scalar&gt; {</td></tr>
+<tr><th id="46">46</th><td> <b>public</b>:</td></tr>
+<tr><th id="47">47</th><td>  <a class="macro" href="linalg_ops_common.h.html#175" title="typedef LinearAlgebraOp&lt;Scalar&gt; Base; using RealScalar = typename Eigen::NumTraits&lt;Scalar&gt;::Real; using Matrix = typename Base::Matrix; using MatrixMap = typename Base::MatrixMap; using MatrixMaps = typename Base::MatrixMaps; using ConstMatrixMap = typename Base::ConstMatrixMap; using ConstMatrixMaps = typename Base::ConstMatrixMaps; using TensorShapes = typename Base::TensorShapes;" data-ref="_M/INHERIT_LINALG_TYPEDEFS">INHERIT_LINALG_TYPEDEFS</a>(Scalar);</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <b>explicit</b> <dfn class="tu decl def" id="_ZN10tensorflow13MatrixSolveOpC1EPNS_20OpKernelConstructionE" title='tensorflow::MatrixSolveOp::MatrixSolveOp&lt;Scalar&gt;' data-type='void tensorflow::MatrixSolveOp::MatrixSolveOp&lt;Scalar&gt;(tensorflow::OpKernelConstruction * context)' data-ref="_ZN10tensorflow13MatrixSolveOpC1EPNS_20OpKernelConstructionE">MatrixSolveOp</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelConstruction" title='tensorflow::OpKernelConstruction' data-ref="tensorflow::OpKernelConstruction">OpKernelConstruction</a>* <dfn class="local col1 decl" id="1context" title='context' data-type='tensorflow::OpKernelConstruction *' data-ref="1context">context</dfn>) : <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::Base' data-type='LinearAlgebraOp&lt;Scalar&gt;' data-ref="tensorflow::MatrixSolveOp::Base">Base</a>(<a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>) {</td></tr>
+<tr><th id="50">50</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;GetAttr(&quot;adjoint&quot;, &amp;adjoint_)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/matrix_solve_op.cc&quot;, 50, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>, <a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>-&gt;GetAttr(<q>"adjoint"</q>, &amp;<a class="tu member" href="#tensorflow::MatrixSolveOp::adjoint_" title='tensorflow::MatrixSolveOp::adjoint_' data-use='a' data-ref="tensorflow::MatrixSolveOp::adjoint_">adjoint_</a>));</td></tr>
+<tr><th id="51">51</th><td>  }</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <em>void</em> <dfn class="tu decl def" id="_ZNK10tensorflow13MatrixSolveOp25ValidateInputMatrixShapesEPNS_15OpKernelContextERKNS_15LinearAlgebraOpIT_E12TensorShapesE" title='tensorflow::MatrixSolveOp::ValidateInputMatrixShapes' data-type='void tensorflow::MatrixSolveOp::ValidateInputMatrixShapes(tensorflow::OpKernelContext * context, const TensorShapes &amp; input_matrix_shapes) const' data-ref="_ZNK10tensorflow13MatrixSolveOp25ValidateInputMatrixShapesEPNS_15OpKernelContextERKNS_15LinearAlgebraOpIT_E12TensorShapesE">ValidateInputMatrixShapes</dfn>(</td></tr>
+<tr><th id="54">54</th><td>      <a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col2 decl" id="2context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="2context">context</dfn>,</td></tr>
+<tr><th id="55">55</th><td>      <em>const</em> <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::TensorShapes' data-type='typename Base::TensorShapes' data-ref="tensorflow::MatrixSolveOp::TensorShapes">TensorShapes</a>&amp; <dfn class="local col3 decl" id="3input_matrix_shapes" title='input_matrix_shapes' data-type='const TensorShapes &amp;' data-ref="3input_matrix_shapes">input_matrix_shapes</dfn>) <em>const</em> final {</td></tr>
+<tr><th id="56">56</th><td>    <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::Base' data-type='LinearAlgebraOp&lt;Scalar&gt;' data-ref="tensorflow::MatrixSolveOp::Base">Base</a>::ValidateSquareSolver(<a class="local col2 ref" href="#2context" title='context' data-ref="2context">context</a>, <a class="local col3 ref" href="#3input_matrix_shapes" title='input_matrix_shapes' data-ref="3input_matrix_shapes">input_matrix_shapes</a>);</td></tr>
+<tr><th id="57">57</th><td>  }</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>  <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::TensorShapes' data-type='typename Base::TensorShapes' data-ref="tensorflow::MatrixSolveOp::TensorShapes">TensorShapes</a> <dfn class="tu decl def" id="_ZNK10tensorflow13MatrixSolveOp21GetOutputMatrixShapesERKNS_15LinearAlgebraOpIT_E12TensorShapesE" title='tensorflow::MatrixSolveOp::GetOutputMatrixShapes' data-type='TensorShapes tensorflow::MatrixSolveOp::GetOutputMatrixShapes(const TensorShapes &amp; input_matrix_shapes) const' data-ref="_ZNK10tensorflow13MatrixSolveOp21GetOutputMatrixShapesERKNS_15LinearAlgebraOpIT_E12TensorShapesE">GetOutputMatrixShapes</dfn>(</td></tr>
+<tr><th id="60">60</th><td>      <em>const</em> <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::TensorShapes' data-type='typename Base::TensorShapes' data-ref="tensorflow::MatrixSolveOp::TensorShapes">TensorShapes</a>&amp; <dfn class="local col4 decl" id="4input_matrix_shapes" title='input_matrix_shapes' data-type='const TensorShapes &amp;' data-ref="4input_matrix_shapes">input_matrix_shapes</dfn>) <em>const</em> final {</td></tr>
+<tr><th id="61">61</th><td>    <b>return</b> <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::TensorShapes' data-type='typename Base::TensorShapes' data-ref="tensorflow::MatrixSolveOp::TensorShapes">TensorShapes</a>({<a class="type" href="../framework/tensor_shape.h.html#tensorflow::TensorShape" title='tensorflow::TensorShape' data-ref="tensorflow::TensorShape">TensorShape</a>({<a class="local col4 ref" href="#4input_matrix_shapes" title='input_matrix_shapes' data-ref="4input_matrix_shapes">input_matrix_shapes</a>[<var>0</var>].dim_size(<var>1</var>),</td></tr>
+<tr><th id="62">62</th><td>                                      <a class="local col4 ref" href="#4input_matrix_shapes" title='input_matrix_shapes' data-ref="4input_matrix_shapes">input_matrix_shapes</a>[<var>1</var>].dim_size(<var>1</var>)})});</td></tr>
+<tr><th id="63">63</th><td>  }</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td>  <a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="tu decl def" id="_ZNK10tensorflow13MatrixSolveOp14GetCostPerUnitERKNS_15LinearAlgebraOpIT_E12TensorShapesE" title='tensorflow::MatrixSolveOp::GetCostPerUnit' data-type='int64 tensorflow::MatrixSolveOp::GetCostPerUnit(const TensorShapes &amp; input_matrix_shapes) const' data-ref="_ZNK10tensorflow13MatrixSolveOp14GetCostPerUnitERKNS_15LinearAlgebraOpIT_E12TensorShapesE">GetCostPerUnit</dfn>(<em>const</em> <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::TensorShapes' data-type='typename Base::TensorShapes' data-ref="tensorflow::MatrixSolveOp::TensorShapes">TensorShapes</a>&amp; <dfn class="local col5 decl" id="5input_matrix_shapes" title='input_matrix_shapes' data-type='const TensorShapes &amp;' data-ref="5input_matrix_shapes">input_matrix_shapes</dfn>) <em>const</em> final {</td></tr>
+<tr><th id="66">66</th><td>    <em>double</em> <dfn class="local col6 decl" id="6rows" title='rows' data-type='double' data-ref="6rows">rows</dfn> = <b>static_cast</b>&lt;<em>double</em>&gt;(<a class="local col5 ref" href="#5input_matrix_shapes" title='input_matrix_shapes' data-ref="5input_matrix_shapes">input_matrix_shapes</a>[<var>0</var>].dim_size(<var>0</var>));</td></tr>
+<tr><th id="67">67</th><td>    <em>double</em> <dfn class="local col7 decl" id="7num_rhss" title='num_rhss' data-type='double' data-ref="7num_rhss">num_rhss</dfn> = <b>static_cast</b>&lt;<em>double</em>&gt;(<a class="local col5 ref" href="#5input_matrix_shapes" title='input_matrix_shapes' data-ref="5input_matrix_shapes">input_matrix_shapes</a>[<var>1</var>].dim_size(<var>1</var>));</td></tr>
+<tr><th id="68">68</th><td>    <em>double</em> <dfn class="local col8 decl" id="8cost" title='cost' data-type='double' data-ref="8cost">cost</dfn> = <a class="local col6 ref" href="#6rows" title='rows' data-ref="6rows">rows</a> * <a class="local col6 ref" href="#6rows" title='rows' data-ref="6rows">rows</a> * (<a class="local col6 ref" href="#6rows" title='rows' data-ref="6rows">rows</a> + <a class="local col7 ref" href="#7num_rhss" title='num_rhss' data-ref="7num_rhss">num_rhss</a>);</td></tr>
+<tr><th id="69">69</th><td>    <b>return</b> <a class="local col8 ref" href="#8cost" title='cost' data-ref="8cost">cost</a> &gt;= <b>static_cast</b>&lt;<em>double</em>&gt;(<a class="ref" href="../platform/types.h.html#tensorflow::kint64max" title='tensorflow::kint64max' data-ref="tensorflow::kint64max">kint64max</a>) ? <a class="ref" href="../platform/types.h.html#tensorflow::kint64max" title='tensorflow::kint64max' data-ref="tensorflow::kint64max">kint64max</a></td></tr>
+<tr><th id="70">70</th><td>                                                  : <b>static_cast</b>&lt;<a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>&gt;(<a class="local col8 ref" href="#8cost" title='cost' data-ref="8cost">cost</a>);</td></tr>
+<tr><th id="71">71</th><td>  }</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>  <em>bool</em> <dfn class="tu decl def" id="_ZNK10tensorflow13MatrixSolveOp21EnableInputForwardingEv" title='tensorflow::MatrixSolveOp::EnableInputForwarding' data-type='bool tensorflow::MatrixSolveOp::EnableInputForwarding() const' data-ref="_ZNK10tensorflow13MatrixSolveOp21EnableInputForwardingEv">EnableInputForwarding</dfn>() <em>const</em> final { <b>return</b> <b>false</b>; }</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>  <em>void</em> <dfn class="tu decl def" id="_ZN10tensorflow13MatrixSolveOp13ComputeMatrixEPNS_15OpKernelContextERKNS_15LinearAlgebraOpIT_E15ConstMatrixMapsEPNS5_10MatrixMapsE" title='tensorflow::MatrixSolveOp::ComputeMatrix' data-type='void tensorflow::MatrixSolveOp::ComputeMatrix(tensorflow::OpKernelContext * context, const ConstMatrixMaps &amp; inputs, MatrixMaps * outputs)' data-ref="_ZN10tensorflow13MatrixSolveOp13ComputeMatrixEPNS_15OpKernelContextERKNS_15LinearAlgebraOpIT_E15ConstMatrixMapsEPNS5_10MatrixMapsE">ComputeMatrix</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col9 decl" id="9context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="9context">context</dfn>, <em>const</em> <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::ConstMatrixMaps' data-type='typename Base::ConstMatrixMaps' data-ref="tensorflow::MatrixSolveOp::ConstMatrixMaps">ConstMatrixMaps</a>&amp; <dfn class="local col0 decl" id="10inputs" title='inputs' data-type='const ConstMatrixMaps &amp;' data-ref="10inputs">inputs</dfn>,</td></tr>
+<tr><th id="76">76</th><td>                     <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::MatrixMaps' data-type='typename Base::MatrixMaps' data-ref="tensorflow::MatrixSolveOp::MatrixMaps">MatrixMaps</a>* <dfn class="local col1 decl" id="11outputs" title='outputs' data-type='MatrixMaps *' data-ref="11outputs">outputs</dfn>) final {</td></tr>
+<tr><th id="77">77</th><td>    <em>const</em> <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::ConstMatrixMap' data-type='typename Base::ConstMatrixMap' data-ref="tensorflow::MatrixSolveOp::ConstMatrixMap">ConstMatrixMap</a>&amp; <dfn class="local col2 decl" id="12matrix" title='matrix' data-type='const ConstMatrixMap &amp;' data-ref="12matrix">matrix</dfn> = <a class="local col0 ref" href="#10inputs" title='inputs' data-ref="10inputs">inputs</a>[<var>0</var>];</td></tr>
+<tr><th id="78">78</th><td>    <em>const</em> <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::ConstMatrixMap' data-type='typename Base::ConstMatrixMap' data-ref="tensorflow::MatrixSolveOp::ConstMatrixMap">ConstMatrixMap</a>&amp; <dfn class="local col3 decl" id="13rhs" title='rhs' data-type='const ConstMatrixMap &amp;' data-ref="13rhs">rhs</dfn> = <a class="local col0 ref" href="#10inputs" title='inputs' data-ref="10inputs">inputs</a>[<var>1</var>];</td></tr>
+<tr><th id="79">79</th><td>    <b>if</b> (<a class="local col2 ref" href="#12matrix" title='matrix' data-ref="12matrix">matrix</a>.rows() == <var>0</var> || <a class="local col3 ref" href="#13rhs" title='rhs' data-ref="13rhs">rhs</a>.cols() == <var>0</var>) {</td></tr>
+<tr><th id="80">80</th><td>      <i>// To be consistent with the MatrixInverse op, we define the solution for</i></td></tr>
+<tr><th id="81">81</th><td><i>      // an empty set of equation as the empty matrix.</i></td></tr>
+<tr><th id="82">82</th><td>      <b>return</b>;</td></tr>
+<tr><th id="83">83</th><td>    }</td></tr>
+<tr><th id="84">84</th><td>    <span class="namespace">Eigen::</span><span class='type' title='Eigen::PartialPivLU' data-ref="Eigen::PartialPivLU">PartialPivLU</span>&lt;<a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::Matrix' data-type='typename Base::Matrix' data-ref="tensorflow::MatrixSolveOp::Matrix">Matrix</a>&gt; <dfn class="local col4 decl" id="14lu_decomposition" title='lu_decomposition' data-type='Eigen::PartialPivLU&lt;Matrix&gt;' data-ref="14lu_decomposition">lu_decomposition</dfn>(<a class="local col2 ref" href="#12matrix" title='matrix' data-ref="12matrix">matrix</a>.rows());</td></tr>
+<tr><th id="85">85</th><td>    <b>if</b> (<a class="tu member" href="#tensorflow::MatrixSolveOp::adjoint_" title='tensorflow::MatrixSolveOp::adjoint_' data-use='r' data-ref="tensorflow::MatrixSolveOp::adjoint_">adjoint_</a>) {</td></tr>
+<tr><th id="86">86</th><td>      <i>// TODO(rmlarsen): For Eigen 3.2, this creates a temporary copy.</i></td></tr>
+<tr><th id="87">87</th><td><i>      // Make sure to backport: <a href="https://bitbucket.org/eigen/eigen/commits/">https://bitbucket.org/eigen/eigen/commits/</a></i></td></tr>
+<tr><th id="88">88</th><td><i>      // bd2219a74c96dfe3f6bc2c23588749e36d2d8173</i></td></tr>
+<tr><th id="89">89</th><td>      <a class="local col4 ref" href="#14lu_decomposition" title='lu_decomposition' data-ref="14lu_decomposition">lu_decomposition</a>.compute(<a class="local col2 ref" href="#12matrix" title='matrix' data-ref="12matrix">matrix</a>.adjoint());</td></tr>
+<tr><th id="90">90</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="91">91</th><td>      <a class="local col4 ref" href="#14lu_decomposition" title='lu_decomposition' data-ref="14lu_decomposition">lu_decomposition</a>.compute(<a class="local col2 ref" href="#12matrix" title='matrix' data-ref="12matrix">matrix</a>);</td></tr>
+<tr><th id="92">92</th><td>    }</td></tr>
+<tr><th id="93">93</th><td></td></tr>
+<tr><th id="94">94</th><td>    <i>// PartialPivLU cannot give strong guarantees on invertibility,</i></td></tr>
+<tr><th id="95">95</th><td><i>    // but we can at least guard against exact zero pivots. This can occur as</i></td></tr>
+<tr><th id="96">96</th><td><i>    // a result of basic user mistakes such providing integer valued</i></td></tr>
+<tr><th id="97">97</th><td><i>    // matrices that are exactly singular, or due to underflow if this</i></td></tr>
+<tr><th id="98">98</th><td><i>    // code is run with denormals being flushed to zero.</i></td></tr>
+<tr><th id="99">99</th><td>    <em>const</em> <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::RealScalar' data-type='typename Eigen::NumTraits&lt;Scalar&gt;::Real' data-ref="tensorflow::MatrixSolveOp::RealScalar">RealScalar</a> <dfn class="local col5 decl" id="15min_abs_pivot" title='min_abs_pivot' data-type='const RealScalar' data-ref="15min_abs_pivot">min_abs_pivot</dfn> =</td></tr>
+<tr><th id="100">100</th><td>        <a class="local col4 ref" href="#14lu_decomposition" title='lu_decomposition' data-ref="14lu_decomposition">lu_decomposition</a>.matrixLU().diagonal().cwiseAbs().minCoeff();</td></tr>
+<tr><th id="101">101</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(min_abs_pivot &gt; RealScalar(0)), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/matrix_solve_op.cc&quot;, 102, (errors::InvalidArgument(kErrMsg))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>, <a class="local col5 ref" href="#15min_abs_pivot" title='min_abs_pivot' data-ref="15min_abs_pivot">min_abs_pivot</a> &gt; <a class="typedef" href="#47" title='tensorflow::MatrixSolveOp::RealScalar' data-type='typename Eigen::NumTraits&lt;Scalar&gt;::Real' data-ref="tensorflow::MatrixSolveOp::RealScalar">RealScalar</a>(<var>0</var>),</td></tr>
+<tr><th id="102">102</th><td>                errors::<a class="ref" href="../lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<a class="tu ref" href="#tensorflow::kErrMsg" title='tensorflow::kErrMsg' data-use='r' data-ref="tensorflow::kErrMsg">kErrMsg</a>));</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>    <i>// TODO(rmlarsen): Add check based on condition number estimation.</i></td></tr>
+<tr><th id="105">105</th><td><i>    // The necessary changes to Eigen are in</i></td></tr>
+<tr><th id="106">106</th><td><i>    // <a href="https://bitbucket.org/eigen/eigen/pull-requests/174/">https://bitbucket.org/eigen/eigen/pull-requests/174/</a></i></td></tr>
+<tr><th id="107">107</th><td><i>    // add-matrix-condition-number-estimation/diff</i></td></tr>
+<tr><th id="108">108</th><td>    <a class="local col1 ref" href="#11outputs" title='outputs' data-ref="11outputs">outputs</a>-&gt;at(<var>0</var>) = <a class="local col4 ref" href="#14lu_decomposition" title='lu_decomposition' data-ref="14lu_decomposition">lu_decomposition</a>.solve(<a class="local col3 ref" href="#13rhs" title='rhs' data-ref="13rhs">rhs</a>);</td></tr>
+<tr><th id="109">109</th><td>  }</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td> <b>private</b>:</td></tr>
+<tr><th id="112">112</th><td>  <em>bool</em> <dfn class="tu decl" id="tensorflow::MatrixSolveOp::adjoint_" title='tensorflow::MatrixSolveOp::adjoint_' data-type='bool' data-ref="tensorflow::MatrixSolveOp::adjoint_">adjoint_</dfn>;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>  <a class="macro" href="../platform/macros.h.html#91" title="MatrixSolveOp(const MatrixSolveOp&amp;) = delete; void operator=(const MatrixSolveOp&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="tu decl def" id="_ZN10tensorflow13MatrixSolveOpC1ERKNS_13MatrixSolveOpIT_EE" title='tensorflow::MatrixSolveOp::MatrixSolveOp&lt;Scalar&gt;' data-type='void tensorflow::MatrixSolveOp::MatrixSolveOp&lt;Scalar&gt;(const MatrixSolveOp&lt;Scalar&gt; &amp; )' data-ref="_ZN10tensorflow13MatrixSolveOpC1ERKNS_13MatrixSolveOpIT_EE">MatrixSolveOp</dfn>);</td></tr>
+<tr><th id="115">115</th><td>};</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td><u>#<span data-ppcond="117">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="118">118</th><td><b>typedef</b> Eigen::GpuDevice GPUDevice;</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td><b>template</b> &lt;<b>class</b> Scalar&gt;</td></tr>
+<tr><th id="121">121</th><td><b>class</b> MatrixSolveOpGpu : <b>public</b> AsyncOpKernel {</td></tr>
+<tr><th id="122">122</th><td> <b>public</b>:</td></tr>
+<tr><th id="123">123</th><td>  <b>explicit</b> MatrixSolveOpGpu(OpKernelConstruction* context)</td></tr>
+<tr><th id="124">124</th><td>      : AsyncOpKernel(context) {</td></tr>
+<tr><th id="125">125</th><td>    OP_REQUIRES_OK(context, context-&gt;GetAttr(<q>"adjoint"</q>, &amp;adjoint_));</td></tr>
+<tr><th id="126">126</th><td>  }</td></tr>
+<tr><th id="127">127</th><td></td></tr>
+<tr><th id="128">128</th><td>  <em>void</em> ComputeAsync(OpKernelContext* context, DoneCallback done) final {</td></tr>
+<tr><th id="129">129</th><td>    <em>const</em> Tensor&amp; input = context-&gt;input(<var>0</var>);</td></tr>
+<tr><th id="130">130</th><td>    <em>const</em> Tensor&amp; rhs = context-&gt;input(<var>1</var>);</td></tr>
+<tr><th id="131">131</th><td>    <em>const</em> <em>int</em> ndims = input.dims();</td></tr>
+<tr><th id="132">132</th><td>    <em>const</em> int64 n = input.dim_size(ndims - <var>1</var>);</td></tr>
+<tr><th id="133">133</th><td>    <em>const</em> int64 nrhs = rhs.dim_size(ndims - <var>1</var>);</td></tr>
+<tr><th id="134">134</th><td>    <i>// Validate inputs.</i></td></tr>
+<tr><th id="135">135</th><td>    OP_REQUIRES_ASYNC(</td></tr>
+<tr><th id="136">136</th><td>        context, ndims &gt;= <var>2</var>,</td></tr>
+<tr><th id="137">137</th><td>        errors::InvalidArgument(<q>"Input must have rank &gt;= 2, got "</q>, ndims),</td></tr>
+<tr><th id="138">138</th><td>        done);</td></tr>
+<tr><th id="139">139</th><td>    OP_REQUIRES_ASYNC(context, rhs.dims() == ndims,</td></tr>
+<tr><th id="140">140</th><td>                      errors::InvalidArgument(</td></tr>
+<tr><th id="141">141</th><td>                          <q>"Input and right-hand side must have same rank, got "</q>,</td></tr>
+<tr><th id="142">142</th><td>                          ndims, <q>" != "</q>, rhs.dims()),</td></tr>
+<tr><th id="143">143</th><td>                      done);</td></tr>
+<tr><th id="144">144</th><td>    OP_REQUIRES_ASYNC(</td></tr>
+<tr><th id="145">145</th><td>        context, input.dim_size(ndims - <var>2</var>) == n,</td></tr>
+<tr><th id="146">146</th><td>        errors::InvalidArgument(<q>"Input matrices must be squares, got"</q>,</td></tr>
+<tr><th id="147">147</th><td>                                input.dim_size(ndims - <var>2</var>), <q>" != "</q>, n),</td></tr>
+<tr><th id="148">148</th><td>        done);</td></tr>
+<tr><th id="149">149</th><td>    OP_REQUIRES_ASYNC(context, rhs.dim_size(ndims - <var>2</var>) == n,</td></tr>
+<tr><th id="150">150</th><td>                      errors::InvalidArgument(</td></tr>
+<tr><th id="151">151</th><td>                          <q>"Input matrix and right-hand side must have the "</q></td></tr>
+<tr><th id="152">152</th><td>                          <q>"same number of rows, got"</q>,</td></tr>
+<tr><th id="153">153</th><td>                          n, <q>" != "</q>, rhs.dim_size(ndims - <var>2</var>)),</td></tr>
+<tr><th id="154">154</th><td>                      done);</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>    <i>// Allocate output.</i></td></tr>
+<tr><th id="157">157</th><td>    Tensor* output;</td></tr>
+<tr><th id="158">158</th><td>    OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="159">159</th><td>        context,</td></tr>
+<tr><th id="160">160</th><td>        context-&gt;forward_input_or_allocate_output({<var>1</var>}, <var>0</var>, rhs.shape(), &amp;output),</td></tr>
+<tr><th id="161">161</th><td>        done);</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>    <i>// To be consistent with the MatrixInverse op, we define the solution for</i></td></tr>
+<tr><th id="164">164</th><td><i>    // an empty set of equations as the empty matrix.</i></td></tr>
+<tr><th id="165">165</th><td>    <b>if</b> (rhs.NumElements() == <var>0</var>) {</td></tr>
+<tr><th id="166">166</th><td>      done();</td></tr>
+<tr><th id="167">167</th><td>      <b>return</b>;</td></tr>
+<tr><th id="168">168</th><td>    }</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td>    <i>// TODO(rmlarsen): Convert to std::make_unique when available.</i></td></tr>
+<tr><th id="171">171</th><td>    std::unique_ptr&lt;CudaSolver&gt; solver(<b>new</b> CudaSolver(context));</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>    <i>// Make a copy of the input for the factorization step, or, if adjoint_ is</i></td></tr>
+<tr><th id="174">174</th><td><i>    // false, try to reuse the input buffer if this op owns it exclusively.</i></td></tr>
+<tr><th id="175">175</th><td>    Tensor input_copy;</td></tr>
+<tr><th id="176">176</th><td>    <em>const</em> GPUDevice&amp; device = context-&gt;eigen_device&lt;GPUDevice&gt;();</td></tr>
+<tr><th id="177">177</th><td>    <b>if</b> (adjoint_) {</td></tr>
+<tr><th id="178">178</th><td>      <i>// For the adjoint case, it is simpler to always make a transposed copy up</i></td></tr>
+<tr><th id="179">179</th><td><i>      // front.</i></td></tr>
+<tr><th id="180">180</th><td>      OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="181">181</th><td>          context,</td></tr>
+<tr><th id="182">182</th><td>          solver-&gt;allocate_scoped_tensor(DataTypeToEnum&lt;Scalar&gt;::value,</td></tr>
+<tr><th id="183">183</th><td>                                         input.shape(), &amp;input_copy),</td></tr>
+<tr><th id="184">184</th><td>          done);</td></tr>
+<tr><th id="185">185</th><td>      OP_REQUIRES_OK_ASYNC(context,</td></tr>
+<tr><th id="186">186</th><td>                           DoMatrixTranspose(device, input, &amp;input_copy), done);</td></tr>
+<tr><th id="187">187</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="188">188</th><td>      OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="189">189</th><td>          context,</td></tr>
+<tr><th id="190">190</th><td>          solver-&gt;forward_input_or_allocate_scoped_tensor(</td></tr>
+<tr><th id="191">191</th><td>              {<var>0</var>}, DataTypeToEnum&lt;Scalar&gt;::value, input.shape(), &amp;input_copy),</td></tr>
+<tr><th id="192">192</th><td>          done);</td></tr>
+<tr><th id="193">193</th><td>      <b>if</b> (!input.SharesBufferWith(input_copy)) {</td></tr>
+<tr><th id="194">194</th><td>        device.memcpy(input_copy.flat&lt;Scalar&gt;().data(),</td></tr>
+<tr><th id="195">195</th><td>                      input.flat&lt;Scalar&gt;().data(),</td></tr>
+<tr><th id="196">196</th><td>                      input.NumElements() * <b>sizeof</b>(Scalar));</td></tr>
+<tr><th id="197">197</th><td>      }</td></tr>
+<tr><th id="198">198</th><td>    }</td></tr>
+<tr><th id="199">199</th><td>    <em>auto</em> input_copy_reshaped = input_copy.<b>template</b> flat_inner_dims&lt;Scalar, <var>3</var>&gt;();</td></tr>
+<tr><th id="200">200</th><td>    <em>const</em> int64 batch_size = input_copy_reshaped.dimension(<var>0</var>);</td></tr>
+<tr><th id="201">201</th><td></td></tr>
+<tr><th id="202">202</th><td>    <i>// Allocate pivots on the device.</i></td></tr>
+<tr><th id="203">203</th><td>    Tensor pivots;</td></tr>
+<tr><th id="204">204</th><td>    OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="205">205</th><td>        context,</td></tr>
+<tr><th id="206">206</th><td>        solver-&gt;allocate_scoped_tensor(DataTypeToEnum&lt;<em>int</em>&gt;::value,</td></tr>
+<tr><th id="207">207</th><td>                                       TensorShape{batch_size, n}, &amp;pivots),</td></tr>
+<tr><th id="208">208</th><td>        done);</td></tr>
+<tr><th id="209">209</th><td>    <em>auto</em> pivots_mat = pivots.<b>template</b> matrix&lt;<em>int</em>&gt;();</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td>    <i>// 1. Compute the partially pivoted LU factorization(s) of the</i></td></tr>
+<tr><th id="212">212</th><td><i>    // matrix/matrices.</i></td></tr>
+<tr><th id="213">213</th><td>    std::vector&lt;DeviceLapackInfo&gt; dev_info;</td></tr>
+<tr><th id="214">214</th><td>    <em>auto</em> input_copy_ptrs = solver-&gt;GetScratchSpace&lt;uint8&gt;(</td></tr>
+<tr><th id="215">215</th><td>        <b>sizeof</b>(Scalar*) * batch_size, <q>"input_copt_ptrs"</q>,</td></tr>
+<tr><th id="216">216</th><td>        <i>/* on_host */</i> <b>true</b>);</td></tr>
+<tr><th id="217">217</th><td>    <b>if</b> (n / batch_size &lt;= <var>128</var>) {</td></tr>
+<tr><th id="218">218</th><td>      <i>// For small matrices or large batch sizes, we use the batched</i></td></tr>
+<tr><th id="219">219</th><td><i>      // interface from cuBlas.</i></td></tr>
+<tr><th id="220">220</th><td>      <em>const</em> Scalar** input_copy_ptrs_base =</td></tr>
+<tr><th id="221">221</th><td>          <b>reinterpret_cast</b>&lt;<em>const</em> Scalar**&gt;(input_copy_ptrs.mutable_data());</td></tr>
+<tr><th id="222">222</th><td>      <b>for</b> (<em>int</em> batch = <var>0</var>; batch &lt; batch_size; ++batch) {</td></tr>
+<tr><th id="223">223</th><td>        input_copy_ptrs_base[batch] = &amp;input_copy_reshaped(batch, <var>0</var>, <var>0</var>);</td></tr>
+<tr><th id="224">224</th><td>      }</td></tr>
+<tr><th id="225">225</th><td>      dev_info.push_back(</td></tr>
+<tr><th id="226">226</th><td>          solver-&gt;GetDeviceLapackInfo(batch_size, <q>"getrfBatched"</q>));</td></tr>
+<tr><th id="227">227</th><td>      OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="228">228</th><td>          context,</td></tr>
+<tr><th id="229">229</th><td>          solver-&gt;GetrfBatched(n, input_copy_ptrs_base, n, pivots_mat.data(),</td></tr>
+<tr><th id="230">230</th><td>                               &amp;dev_info.back(), batch_size),</td></tr>
+<tr><th id="231">231</th><td>          done);</td></tr>
+<tr><th id="232">232</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="233">233</th><td>      <i>// For small batch sizes we use the non-batched interface from cuSolver,</i></td></tr>
+<tr><th id="234">234</th><td><i>      // which is much faster for large matrices.</i></td></tr>
+<tr><th id="235">235</th><td>      dev_info.push_back(solver-&gt;GetDeviceLapackInfo(batch_size, <q>"getrf"</q>));</td></tr>
+<tr><th id="236">236</th><td>      <b>for</b> (<em>int</em> batch = <var>0</var>; batch &lt; batch_size; ++batch) {</td></tr>
+<tr><th id="237">237</th><td>        OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="238">238</th><td>            context,</td></tr>
+<tr><th id="239">239</th><td>            solver-&gt;Getrf(n, n, &amp;input_copy_reshaped(batch, <var>0</var>, <var>0</var>), n,</td></tr>
+<tr><th id="240">240</th><td>                          &amp;pivots_mat(batch, <var>0</var>), &amp;dev_info.back()(batch)),</td></tr>
+<tr><th id="241">241</th><td>            done);</td></tr>
+<tr><th id="242">242</th><td>      }</td></tr>
+<tr><th id="243">243</th><td>    }</td></tr>
+<tr><th id="244">244</th><td></td></tr>
+<tr><th id="245">245</th><td>    <i>// 2. Make a transposed copy of the right-hand sides. This is necessary</i></td></tr>
+<tr><th id="246">246</th><td><i>    // because cuBLAS assumes column-major storage while TensorFlow TF uses</i></td></tr>
+<tr><th id="247">247</th><td><i>    // row-major.</i></td></tr>
+<tr><th id="248">248</th><td>    TensorShape transposed_rhs_shape(rhs.shape());</td></tr>
+<tr><th id="249">249</th><td>    transposed_rhs_shape.RemoveLastDims(<var>2</var>);</td></tr>
+<tr><th id="250">250</th><td>    transposed_rhs_shape.AddDim(nrhs);</td></tr>
+<tr><th id="251">251</th><td>    transposed_rhs_shape.AddDim(n);</td></tr>
+<tr><th id="252">252</th><td>    Tensor transposed_rhs;</td></tr>
+<tr><th id="253">253</th><td>    OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="254">254</th><td>        context,</td></tr>
+<tr><th id="255">255</th><td>        solver-&gt;allocate_scoped_tensor(DataTypeToEnum&lt;Scalar&gt;::value,</td></tr>
+<tr><th id="256">256</th><td>                                       transposed_rhs_shape, &amp;transposed_rhs),</td></tr>
+<tr><th id="257">257</th><td>        done);</td></tr>
+<tr><th id="258">258</th><td>    <b>if</b> (nrhs &gt; <var>1</var>) {</td></tr>
+<tr><th id="259">259</th><td>      OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="260">260</th><td>          context, DoMatrixTranspose(device, rhs, &amp;transposed_rhs), done);</td></tr>
+<tr><th id="261">261</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="262">262</th><td>      device.memcpy(transposed_rhs.flat&lt;Scalar&gt;().data(),</td></tr>
+<tr><th id="263">263</th><td>                    rhs.flat&lt;Scalar&gt;().data(),</td></tr>
+<tr><th id="264">264</th><td>                    rhs.NumElements() * <b>sizeof</b>(Scalar));</td></tr>
+<tr><th id="265">265</th><td>    }</td></tr>
+<tr><th id="266">266</th><td></td></tr>
+<tr><th id="267">267</th><td>    <i>// 3. Solve op(A) X = B (in column major form).</i></td></tr>
+<tr><th id="268">268</th><td><i>    // We use a trick here: If adjoint_ is true, we converted A to column major</i></td></tr>
+<tr><th id="269">269</th><td><i>    // form above. If adjoint is false then I leave A in row-major form and use</i></td></tr>
+<tr><th id="270">270</th><td><i>    // trans_a = CUBLAS_OP_T to effectively transform it to column-major on the</i></td></tr>
+<tr><th id="271">271</th><td><i>    // fly. (This means that we actually use the LU-factorization of A^T in that</i></td></tr>
+<tr><th id="272">272</th><td><i>    // case, but that is equally good for solving AX=B). This way we save an</i></td></tr>
+<tr><th id="273">273</th><td><i>    // explicit transpose in the more common case of adjoint_ == false.</i></td></tr>
+<tr><th id="274">274</th><td>    <em>auto</em> input_copy_ptr_array = solver-&gt;GetScratchSpace&lt;uint8&gt;(</td></tr>
+<tr><th id="275">275</th><td>        <b>sizeof</b>(Scalar*) * batch_size, <q>"input_copy_ptr_array"</q>,</td></tr>
+<tr><th id="276">276</th><td>        <i>/* on_host */</i> <b>true</b>);</td></tr>
+<tr><th id="277">277</th><td>    <em>auto</em> transposed_rhs_ptr_array = solver-&gt;GetScratchSpace&lt;uint8&gt;(</td></tr>
+<tr><th id="278">278</th><td>        <b>sizeof</b>(Scalar*) * batch_size, <q>"transposed_rhs_ptr_array"</q>,</td></tr>
+<tr><th id="279">279</th><td>        <i>/* on_host */</i> <b>true</b>);</td></tr>
+<tr><th id="280">280</th><td>    <em>auto</em> transposed_rhs_reshaped =</td></tr>
+<tr><th id="281">281</th><td>        transposed_rhs.<b>template</b> flat_inner_dims&lt;Scalar, <var>3</var>&gt;();</td></tr>
+<tr><th id="282">282</th><td>    <i>// TODO(rmlarsen): Enable the following branch when I figure</i></td></tr>
+<tr><th id="283">283</th><td><i>    // out why it causes a segfault.</i></td></tr>
+<tr><th id="284">284</th><td>    <b>if</b> (<b>false</b> &amp;&amp; n / batch_size &lt;= <var>128</var>) {</td></tr>
+<tr><th id="285">285</th><td>      dev_info.push_back(</td></tr>
+<tr><th id="286">286</th><td>          solver-&gt;GetDeviceLapackInfo(batch_size, <q>"GetrsBatched"</q>));</td></tr>
+<tr><th id="287">287</th><td>      <em>const</em> Scalar** input_copy_ptrs_base =</td></tr>
+<tr><th id="288">288</th><td>          <b>reinterpret_cast</b>&lt;<em>const</em> Scalar**&gt;(input_copy_ptr_array.mutable_data());</td></tr>
+<tr><th id="289">289</th><td>      <em>const</em> Scalar** transposed_rhs_ptrs_base =</td></tr>
+<tr><th id="290">290</th><td>          <b>reinterpret_cast</b>&lt;<em>const</em> Scalar**&gt;(</td></tr>
+<tr><th id="291">291</th><td>              transposed_rhs_ptr_array.mutable_data());</td></tr>
+<tr><th id="292">292</th><td>      <b>for</b> (<em>int</em> batch = <var>0</var>; batch &lt; batch_size; ++batch) {</td></tr>
+<tr><th id="293">293</th><td>        input_copy_ptrs_base[batch] = &amp;input_copy_reshaped(batch, <var>0</var>, <var>0</var>);</td></tr>
+<tr><th id="294">294</th><td>        transposed_rhs_ptrs_base[batch] = &amp;transposed_rhs_reshaped(batch, <var>0</var>, <var>0</var>);</td></tr>
+<tr><th id="295">295</th><td>      }</td></tr>
+<tr><th id="296">296</th><td>      OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="297">297</th><td>          context,</td></tr>
+<tr><th id="298">298</th><td>          solver-&gt;GetrsBatched(adjoint_ ? CUBLAS_OP_C : CUBLAS_OP_T, n, nrhs,</td></tr>
+<tr><th id="299">299</th><td>                               input_copy_ptrs_base, n, pivots_mat.data(),</td></tr>
+<tr><th id="300">300</th><td>                               transposed_rhs_ptrs_base, n, &amp;dev_info.back(),</td></tr>
+<tr><th id="301">301</th><td>                               batch_size),</td></tr>
+<tr><th id="302">302</th><td>          done);</td></tr>
+<tr><th id="303">303</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="304">304</th><td>      dev_info.push_back(solver-&gt;GetDeviceLapackInfo(batch_size, <q>"getrs"</q>));</td></tr>
+<tr><th id="305">305</th><td>      <b>for</b> (<em>int</em> batch = <var>0</var>; batch &lt; batch_size; ++batch) {</td></tr>
+<tr><th id="306">306</th><td>        OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="307">307</th><td>            context,</td></tr>
+<tr><th id="308">308</th><td>            solver-&gt;Getrs(adjoint_ ? CUBLAS_OP_C : CUBLAS_OP_T, n, nrhs,</td></tr>
+<tr><th id="309">309</th><td>                          &amp;input_copy_reshaped(batch, <var>0</var>, <var>0</var>), n,</td></tr>
+<tr><th id="310">310</th><td>                          &amp;pivots_mat(batch, <var>0</var>),</td></tr>
+<tr><th id="311">311</th><td>                          &amp;transposed_rhs_reshaped(batch, <var>0</var>, <var>0</var>), n,</td></tr>
+<tr><th id="312">312</th><td>                          &amp;dev_info.back()(batch)),</td></tr>
+<tr><th id="313">313</th><td>            done);</td></tr>
+<tr><th id="314">314</th><td>      }</td></tr>
+<tr><th id="315">315</th><td>    }</td></tr>
+<tr><th id="316">316</th><td></td></tr>
+<tr><th id="317">317</th><td>    <i>// 4. Transpose X to get the final result in row-major form.</i></td></tr>
+<tr><th id="318">318</th><td>    <b>if</b> (nrhs &gt; <var>1</var>) {</td></tr>
+<tr><th id="319">319</th><td>      OP_REQUIRES_OK_ASYNC(</td></tr>
+<tr><th id="320">320</th><td>          context, DoMatrixTranspose(device, transposed_rhs, output), done);</td></tr>
+<tr><th id="321">321</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="322">322</th><td>      device.memcpy(output-&gt;flat&lt;Scalar&gt;().data(),</td></tr>
+<tr><th id="323">323</th><td>                    transposed_rhs.flat&lt;Scalar&gt;().data(),</td></tr>
+<tr><th id="324">324</th><td>                    transposed_rhs.NumElements() * <b>sizeof</b>(Scalar));</td></tr>
+<tr><th id="325">325</th><td>    }</td></tr>
+<tr><th id="326">326</th><td></td></tr>
+<tr><th id="327">327</th><td>    <i>// Callback for checking info after kernels finish. Also capture the</i></td></tr>
+<tr><th id="328">328</th><td><i>    // temporary Tensors/ScratchSpace so they don't get deallocated before the</i></td></tr>
+<tr><th id="329">329</th><td><i>    // kernels run. TODO(rmlarsen): Use move capture once C++14 becomes</i></td></tr>
+<tr><th id="330">330</th><td><i>    // available.</i></td></tr>
+<tr><th id="331">331</th><td>    <em>auto</em> info_checker = [context, done, dev_info](</td></tr>
+<tr><th id="332">332</th><td>                            <em>const</em> Status&amp; status,</td></tr>
+<tr><th id="333">333</th><td>                            <em>const</em> std::vector&lt;HostLapackInfo&gt;&amp; host_infos) {</td></tr>
+<tr><th id="334">334</th><td>      <b>if</b> (!status.ok() &amp;&amp; errors::IsInvalidArgument(status) &amp;&amp;</td></tr>
+<tr><th id="335">335</th><td>          !host_infos.empty()) {</td></tr>
+<tr><th id="336">336</th><td>        <b>for</b> (<em>int</em> i = <var>0</var>; i &lt; host_infos[<var>0</var>].size(); ++i) {</td></tr>
+<tr><th id="337">337</th><td>          <i>// Match the CPU error message for singular matrices. Otherwise</i></td></tr>
+<tr><th id="338">338</th><td><i>          // just print the original error message from the status below.</i></td></tr>
+<tr><th id="339">339</th><td>          OP_REQUIRES_ASYNC(context, host_infos[<var>0</var>].data()[i] &lt;= <var>0</var>,</td></tr>
+<tr><th id="340">340</th><td>                            errors::InvalidArgument(kErrMsg), done);</td></tr>
+<tr><th id="341">341</th><td>        }</td></tr>
+<tr><th id="342">342</th><td>      }</td></tr>
+<tr><th id="343">343</th><td>      OP_REQUIRES_OK_ASYNC(context, status, done);</td></tr>
+<tr><th id="344">344</th><td>      done();</td></tr>
+<tr><th id="345">345</th><td>    };</td></tr>
+<tr><th id="346">346</th><td>    CudaSolver::CheckLapackInfoAndDeleteSolverAsync(std::move(solver), dev_info,</td></tr>
+<tr><th id="347">347</th><td>                                                    std::move(info_checker));</td></tr>
+<tr><th id="348">348</th><td>  }</td></tr>
+<tr><th id="349">349</th><td></td></tr>
+<tr><th id="350">350</th><td> <b>private</b>:</td></tr>
+<tr><th id="351">351</th><td>  <em>bool</em> adjoint_;</td></tr>
+<tr><th id="352">352</th><td>};</td></tr>
+<tr><th id="353">353</th><td></td></tr>
+<tr><th id="354">354</th><td>REGISTER_LINALG_OP_GPU(<q>"MatrixSolve"</q>, (MatrixSolveOpGpu&lt;<em>float</em>&gt;), <em>float</em>);</td></tr>
+<tr><th id="355">355</th><td>REGISTER_LINALG_OP_GPU(<q>"MatrixSolve"</q>, (MatrixSolveOpGpu&lt;<em>double</em>&gt;), <em>double</em>);</td></tr>
+<tr><th id="356">356</th><td>REGISTER_LINALG_OP_GPU(<q>"MatrixSolve"</q>, (MatrixSolveOpGpu&lt;complex64&gt;), complex64);</td></tr>
+<tr><th id="357">357</th><td>REGISTER_LINALG_OP_GPU(<q>"MatrixSolve"</q>, (MatrixSolveOpGpu&lt;complex128&gt;),</td></tr>
+<tr><th id="358">358</th><td>                       complex128);</td></tr>
+<tr><th id="359">359</th><td></td></tr>
+<tr><th id="360">360</th><td><u>#<span data-ppcond="117">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="361">361</th><td></td></tr>
+<tr><th id="362">362</th><td><a class="macro" href="linalg_ops_common.h.html#194" title="constexpr bool should_register_0__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__0__object( should_register_0__flag ? ::tensorflow::register_kernel::Name(&quot;MatrixSolve&quot;).Device(DEVICE_CPU).TypeConstraint&lt;float&gt;(&quot;T&quot;).Build() : nullptr, &quot;(MatrixSolveOp&lt;float&gt;)&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new (MatrixSolveOp&lt;float&gt;)(context); });" data-ref="_M/REGISTER_LINALG_OP">REGISTER_LINALG_OP</a>(<q>"MatrixSolve"</q>, (<a class="type" href="#tensorflow::MatrixSolveOp" title='tensorflow::MatrixSolveOp' data-ref="tensorflow::MatrixSolveOp">MatrixSolveOp</a>&lt;<em>float</em>&gt;), <em>float</em>);</td></tr>
+<tr><th id="363">363</th><td><a class="macro" href="linalg_ops_common.h.html#194" title="constexpr bool should_register_2__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__2__object( should_register_2__flag ? ::tensorflow::register_kernel::Name(&quot;MatrixSolve&quot;).Device(DEVICE_CPU).TypeConstraint&lt;double&gt;(&quot;T&quot;).Build() : nullptr, &quot;(MatrixSolveOp&lt;double&gt;)&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new (MatrixSolveOp&lt;double&gt;)(context); });" data-ref="_M/REGISTER_LINALG_OP">REGISTER_LINALG_OP</a>(<q>"MatrixSolve"</q>, (<a class="type" href="#tensorflow::MatrixSolveOp" title='tensorflow::MatrixSolveOp' data-ref="tensorflow::MatrixSolveOp">MatrixSolveOp</a>&lt;<em>double</em>&gt;), <em>double</em>);</td></tr>
+<tr><th id="364">364</th><td><a class="macro" href="linalg_ops_common.h.html#194" title="constexpr bool should_register_4__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__4__object( should_register_4__flag ? ::tensorflow::register_kernel::Name(&quot;MatrixSolve&quot;).Device(DEVICE_CPU).TypeConstraint&lt;complex64&gt;(&quot;T&quot;).Build() : nullptr, &quot;(MatrixSolveOp&lt;complex64&gt;)&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new (MatrixSolveOp&lt;complex64&gt;)(context); });" data-ref="_M/REGISTER_LINALG_OP">REGISTER_LINALG_OP</a>(<q>"MatrixSolve"</q>, (<a class="type" href="#tensorflow::MatrixSolveOp" title='tensorflow::MatrixSolveOp' data-ref="tensorflow::MatrixSolveOp">MatrixSolveOp</a>&lt;<a class="typedef" href="../lib/bfloat16/bfloat16.h.html#tensorflow::complex64" title='tensorflow::complex64' data-type='std::complex&lt;float&gt;' data-ref="tensorflow::complex64">complex64</a>&gt;), <a class="typedef" href="../lib/bfloat16/bfloat16.h.html#tensorflow::complex64" title='tensorflow::complex64' data-type='std::complex&lt;float&gt;' data-ref="tensorflow::complex64">complex64</a>);</td></tr>
+<tr><th id="365">365</th><td><a class="macro" href="linalg_ops_common.h.html#194" title="constexpr bool should_register_6__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__6__object( should_register_6__flag ? ::tensorflow::register_kernel::Name(&quot;MatrixSolve&quot;).Device(DEVICE_CPU).TypeConstraint&lt;complex128&gt;(&quot;T&quot;).Build() : nullptr, &quot;(MatrixSolveOp&lt;complex128&gt;)&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new (MatrixSolveOp&lt;complex128&gt;)(context); });" data-ref="_M/REGISTER_LINALG_OP">REGISTER_LINALG_OP</a>(<q>"MatrixSolve"</q>, (<a class="type" href="#tensorflow::MatrixSolveOp" title='tensorflow::MatrixSolveOp' data-ref="tensorflow::MatrixSolveOp">MatrixSolveOp</a>&lt;<a class="typedef" href="../lib/bfloat16/bfloat16.h.html#tensorflow::complex128" title='tensorflow::complex128' data-type='std::complex&lt;double&gt;' data-ref="tensorflow::complex128">complex128</a>&gt;), <a class="typedef" href="../lib/bfloat16/bfloat16.h.html#tensorflow::complex128" title='tensorflow::complex128' data-type='std::complex&lt;double&gt;' data-ref="tensorflow::complex128">complex128</a>);</td></tr>
+<tr><th id="366">366</th><td><a class="macro" href="linalg_ops_common.h.html#194" title="constexpr bool should_register_8__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__8__object( should_register_8__flag ? ::tensorflow::register_kernel::Name(&quot;BatchMatrixSolve&quot;).Device(DEVICE_CPU).TypeConstraint&lt;float&gt;(&quot;T&quot;).Build() : nullptr, &quot;(MatrixSolveOp&lt;float&gt;)&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new (MatrixSolveOp&lt;float&gt;)(context); });" data-ref="_M/REGISTER_LINALG_OP">REGISTER_LINALG_OP</a>(<q>"BatchMatrixSolve"</q>, (<a class="type" href="#tensorflow::MatrixSolveOp" title='tensorflow::MatrixSolveOp' data-ref="tensorflow::MatrixSolveOp">MatrixSolveOp</a>&lt;<em>float</em>&gt;), <em>float</em>);</td></tr>
+<tr><th id="367">367</th><td><a class="macro" href="linalg_ops_common.h.html#194" title="constexpr bool should_register_10__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__10__object( should_register_10__flag ? ::tensorflow::register_kernel::Name(&quot;BatchMatrixSolve&quot;).Device(DEVICE_CPU).TypeConstraint&lt;double&gt;(&quot;T&quot;).Build() : nullptr, &quot;(MatrixSolveOp&lt;double&gt;)&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new (MatrixSolveOp&lt;double&gt;)(context); });" data-ref="_M/REGISTER_LINALG_OP">REGISTER_LINALG_OP</a>(<q>"BatchMatrixSolve"</q>, (<a class="type" href="#tensorflow::MatrixSolveOp" title='tensorflow::MatrixSolveOp' data-ref="tensorflow::MatrixSolveOp">MatrixSolveOp</a>&lt;<em>double</em>&gt;), <em>double</em>);</td></tr>
+<tr><th id="368">368</th><td><a class="macro" href="linalg_ops_common.h.html#194" title="constexpr bool should_register_12__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__12__object( should_register_12__flag ? ::tensorflow::register_kernel::Name(&quot;BatchMatrixSolve&quot;).Device(DEVICE_CPU).TypeConstraint&lt;complex64&gt;(&quot;T&quot;).Build() : nullptr, &quot;(MatrixSolveOp&lt;complex64&gt;)&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new (MatrixSolveOp&lt;complex64&gt;)(context); });" data-ref="_M/REGISTER_LINALG_OP">REGISTER_LINALG_OP</a>(<q>"BatchMatrixSolve"</q>, (<a class="type" href="#tensorflow::MatrixSolveOp" title='tensorflow::MatrixSolveOp' data-ref="tensorflow::MatrixSolveOp">MatrixSolveOp</a>&lt;<a class="typedef" href="../lib/bfloat16/bfloat16.h.html#tensorflow::complex64" title='tensorflow::complex64' data-type='std::complex&lt;float&gt;' data-ref="tensorflow::complex64">complex64</a>&gt;), <a class="typedef" href="../lib/bfloat16/bfloat16.h.html#tensorflow::complex64" title='tensorflow::complex64' data-type='std::complex&lt;float&gt;' data-ref="tensorflow::complex64">complex64</a>);</td></tr>
+<tr><th id="369">369</th><td><a class="macro" href="linalg_ops_common.h.html#194" title="constexpr bool should_register_14__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__14__object( should_register_14__flag ? ::tensorflow::register_kernel::Name(&quot;BatchMatrixSolve&quot;).Device(DEVICE_CPU).TypeConstraint&lt;complex128&gt;(&quot;T&quot;).Build() : nullptr, &quot;(MatrixSolveOp&lt;complex128&gt;)&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new (MatrixSolveOp&lt;complex128&gt;)(context); });" data-ref="_M/REGISTER_LINALG_OP">REGISTER_LINALG_OP</a>(<q>"BatchMatrixSolve"</q>, (<a class="type" href="#tensorflow::MatrixSolveOp" title='tensorflow::MatrixSolveOp' data-ref="tensorflow::MatrixSolveOp">MatrixSolveOp</a>&lt;<a class="typedef" href="../lib/bfloat16/bfloat16.h.html#tensorflow::complex128" title='tensorflow::complex128' data-type='std::complex&lt;double&gt;' data-ref="tensorflow::complex128">complex128</a>&gt;), <a class="typedef" href="../lib/bfloat16/bfloat16.h.html#tensorflow::complex128" title='tensorflow::complex128' data-type='std::complex&lt;double&gt;' data-ref="tensorflow::complex128">complex128</a>);</td></tr>
+<tr><th id="370">370</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="371">371</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

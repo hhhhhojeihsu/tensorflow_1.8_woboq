@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.h' l='77' type='bool xla::InstructionFusion::EffectivelyUnary(xla::HloInstruction * hlo)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.h' l='73'>// An &quot;effectively unary&quot; operation is one that has one &quot;large&quot;
+  // input with the others being negligible in terms of memory usage.
+  // We use &quot;has a smaller true rank than the output&quot; as a heuristic
+  // for &quot;negligible&quot; memory usage.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='135' ll='157' type='bool xla::InstructionFusion::EffectivelyUnary(xla::HloInstruction * hlo)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='260' u='c' c='_ZN3xla17InstructionFusion3RunEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='131'>// An &quot;effectively unary&quot; operation is one that has one &quot;large&quot;
+// input with the others being negligible in terms of memory usage.
+// We use &quot;has a smaller true rank than the output&quot; as a heuristic
+// for &quot;negligible&quot; memory usage.</doc>

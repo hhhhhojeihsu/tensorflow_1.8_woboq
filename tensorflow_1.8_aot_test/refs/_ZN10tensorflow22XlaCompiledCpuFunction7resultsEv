@@ -1,0 +1,32 @@
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='162' type='void ** tensorflow::XlaCompiledCpuFunction::results()'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='178' u='c' c='_ZN10tensorflow22XlaCompiledCpuFunction11result_dataEm'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='47' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_122TFCompileTest_Add_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='55' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_122TFCompileTest_Add_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='86' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_129TFCompileTest_Add_SetArg_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='98' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_130TFCompileTest_AddWithCkpt_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='105' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_130TFCompileTest_AddWithCkpt_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='126' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_135TFCompileTest_AddWithCkptSaver_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='133' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_135TFCompileTest_AddWithCkptSaver_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='163' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_125TFCompileTest_Gather_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='181' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_125TFCompileTest_Gather_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='217' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_126TFCompileTest_MatMul2_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='232' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_126TFCompileTest_MatMul2_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='250' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_126TFCompileTest_MatMul2_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='279' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_133TFCompileTest_MatMul2_SetArg_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='306' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_132TFCompileTest_MatMulAndAdd1_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='307' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_132TFCompileTest_MatMulAndAdd1_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='327' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_132TFCompileTest_MatMulAndAdd1_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='328' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_132TFCompileTest_MatMulAndAdd1_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='346' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_132TFCompileTest_MatMulAndAdd1_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='347' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_132TFCompileTest_MatMulAndAdd1_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='368' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_132TFCompileTest_MatMulAndAdd1_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='369' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_132TFCompileTest_MatMulAndAdd1_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='385' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_127TFCompileTest_Function_Test8TestBodyEv'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='154'>// ------------------------------
+  // Result methods for managing output buffers. Buffers are in row-major order.
+  // Must only be called after a successful Run call. Unlike the arg methods,
+  // there is no set_resultN_data method. The result buffers are managed
+  // internally, and may change after each call to Run.
+
+  // Returns the underlying array of result buffers, where results()[I] is the
+  // buffer for the positional result at index I.</doc>

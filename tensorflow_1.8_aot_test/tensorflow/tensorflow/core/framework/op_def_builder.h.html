@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>op_def_builder.h source code [tensorflow/tensorflow/core/framework/op_def_builder.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::OpDefBuilder,tensorflow::OpRegistrationData "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/framework/op_def_builder.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>framework</a>/<a href='op_def_builder.h.html'>op_def_builder.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// Class and associated machinery for specifying an Op's OpDef and shape</i></td></tr>
+<tr><th id="17">17</th><td><i>// inference function for Op registration.</i></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#<span data-ppcond="19">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_FRAMEWORK_OP_DEF_BUILDER_H_">TENSORFLOW_FRAMEWORK_OP_DEF_BUILDER_H_</span></u></td></tr>
+<tr><th id="20">20</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_FRAMEWORK_OP_DEF_BUILDER_H_" data-ref="_M/TENSORFLOW_FRAMEWORK_OP_DEF_BUILDER_H_">TENSORFLOW_FRAMEWORK_OP_DEF_BUILDER_H_</dfn></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include "tensorflow/core/framework/op_def.pb.h"</u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../lib/core/stringpiece.h.html">"tensorflow/core/lib/core/stringpiece.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../platform/macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><b>namespace</b> <span class="namespace">shape_inference</span> {</td></tr>
+<tr><th id="32">32</th><td><b>class</b> <a class="type" href="shape_inference.h.html#tensorflow::shape_inference::InferenceContext" title='tensorflow::shape_inference::InferenceContext' data-ref="tensorflow::shape_inference::InferenceContext" id="tensorflow::shape_inference::InferenceContext">InferenceContext</a>;</td></tr>
+<tr><th id="33">33</th><td>}</td></tr>
+<tr><th id="34">34</th><td><b>typedef</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a>(<span class="namespace">shape_inference::</span><a class="type" href="shape_inference.h.html#tensorflow::shape_inference::InferenceContext" title='tensorflow::shape_inference::InferenceContext' data-ref="tensorflow::shape_inference::InferenceContext">InferenceContext</a>* <dfn class="local col9 decl" id="15699c" title='c' data-type='shape_inference::InferenceContext *' data-ref="15699c">c</dfn>)&gt;</td></tr>
+<tr><th id="35">35</th><td>    <dfn class="typedef" id="tensorflow::OpShapeInferenceFn" title='tensorflow::OpShapeInferenceFn' data-type='std::function&lt;Status (shape_inference::InferenceContext *)&gt;' data-ref="tensorflow::OpShapeInferenceFn">OpShapeInferenceFn</dfn>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><b>struct</b> <dfn class="type def" id="tensorflow::OpRegistrationData" title='tensorflow::OpRegistrationData' data-ref="tensorflow::OpRegistrationData">OpRegistrationData</dfn> {</td></tr>
+<tr><th id="38">38</th><td> <b>public</b>:</td></tr>
+<tr><th id="39">39</th><td>  <dfn class="decl def" id="_ZN10tensorflow18OpRegistrationDataC1Ev" title='tensorflow::OpRegistrationData::OpRegistrationData' data-ref="_ZN10tensorflow18OpRegistrationDataC1Ev">OpRegistrationData</dfn>() {}</td></tr>
+<tr><th id="40">40</th><td>  <dfn class="decl def" id="_ZN10tensorflow18OpRegistrationDataC1ERKNS_5OpDefE" title='tensorflow::OpRegistrationData::OpRegistrationData' data-ref="_ZN10tensorflow18OpRegistrationDataC1ERKNS_5OpDefE">OpRegistrationData</dfn>(<em>const</em> <span class='type' title='tensorflow::OpDef' data-ref="tensorflow::OpDef">OpDef</span>&amp; <dfn class="local col0 decl" id="15700def" title='def' data-type='const tensorflow::OpDef &amp;' data-ref="15700def">def</dfn>) : <a class="member" href="#tensorflow::OpRegistrationData::op_def" title='tensorflow::OpRegistrationData::op_def' data-ref="tensorflow::OpRegistrationData::op_def">op_def</a><span class='ref' title='tensorflow::OpDef::OpDef' data-ref="_ZN10tensorflow5OpDefC1ERKS0_">(</span><a class="local col0 ref" href="#15700def" title='def' data-ref="15700def">def</a>) {}</td></tr>
+<tr><th id="41">41</th><td>  <dfn class="decl def" id="_ZN10tensorflow18OpRegistrationDataC1ERKNS_5OpDefERKSt8functionIFNS_6StatusEPNS_15shape_inference16InferenceContextEEEb" title='tensorflow::OpRegistrationData::OpRegistrationData' data-ref="_ZN10tensorflow18OpRegistrationDataC1ERKNS_5OpDefERKSt8functionIFNS_6StatusEPNS_15shape_inference16InferenceContextEEEb">OpRegistrationData</dfn>(<em>const</em> <span class='type' title='tensorflow::OpDef' data-ref="tensorflow::OpDef">OpDef</span>&amp; <dfn class="local col1 decl" id="15701def" title='def' data-type='const tensorflow::OpDef &amp;' data-ref="15701def">def</dfn>, <em>const</em> <a class="typedef" href="#tensorflow::OpShapeInferenceFn" title='tensorflow::OpShapeInferenceFn' data-type='std::function&lt;Status (shape_inference::InferenceContext *)&gt;' data-ref="tensorflow::OpShapeInferenceFn">OpShapeInferenceFn</a>&amp; <dfn class="local col2 decl" id="15702fn" title='fn' data-type='const OpShapeInferenceFn &amp;' data-ref="15702fn">fn</dfn>,</td></tr>
+<tr><th id="42">42</th><td>                     <em>bool</em> <dfn class="local col3 decl" id="15703is_function" title='is_function' data-type='bool' data-ref="15703is_function">is_function</dfn> = <b>false</b>)</td></tr>
+<tr><th id="43">43</th><td>      : <a class="member" href="#tensorflow::OpRegistrationData::op_def" title='tensorflow::OpRegistrationData::op_def' data-ref="tensorflow::OpRegistrationData::op_def">op_def</a><span class='ref' title='tensorflow::OpDef::OpDef' data-ref="_ZN10tensorflow5OpDefC1ERKS0_">(</span><a class="local col1 ref" href="#15701def" title='def' data-ref="15701def">def</a>), <a class="member" href="#tensorflow::OpRegistrationData::shape_inference_fn" title='tensorflow::OpRegistrationData::shape_inference_fn' data-ref="tensorflow::OpRegistrationData::shape_inference_fn">shape_inference_fn</a><a class="ref" href="../../../../include/c++/5/functional.html#_ZNSt8functionIFT_DpT0_EEC1ERKS_IS3_E" title='std::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;' data-ref="_ZNSt8functionIFT_DpT0_EEC1ERKS_IS3_E">(</a><a class="local col2 ref" href="#15702fn" title='fn' data-ref="15702fn">fn</a>), <a class="member" href="#tensorflow::OpRegistrationData::is_function_op" title='tensorflow::OpRegistrationData::is_function_op' data-ref="tensorflow::OpRegistrationData::is_function_op">is_function_op</a>(<a class="local col3 ref" href="#15703is_function" title='is_function' data-ref="15703is_function">is_function</a>) {}</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>  <span class='type' title='tensorflow::OpDef' data-ref="tensorflow::OpDef">OpDef</span> <dfn class="decl" id="tensorflow::OpRegistrationData::op_def" title='tensorflow::OpRegistrationData::op_def' data-ref="tensorflow::OpRegistrationData::op_def">op_def</dfn>;</td></tr>
+<tr><th id="46">46</th><td>  <a class="typedef" href="#tensorflow::OpShapeInferenceFn" title='tensorflow::OpShapeInferenceFn' data-type='std::function&lt;Status (shape_inference::InferenceContext *)&gt;' data-ref="tensorflow::OpShapeInferenceFn">OpShapeInferenceFn</a> <dfn class="decl" id="tensorflow::OpRegistrationData::shape_inference_fn" title='tensorflow::OpRegistrationData::shape_inference_fn' data-ref="tensorflow::OpRegistrationData::shape_inference_fn">shape_inference_fn</dfn>;</td></tr>
+<tr><th id="47">47</th><td>  <em>bool</em> <dfn class="decl" id="tensorflow::OpRegistrationData::is_function_op" title='tensorflow::OpRegistrationData::is_function_op' data-ref="tensorflow::OpRegistrationData::is_function_op">is_function_op</dfn> = <b>false</b>;</td></tr>
+<tr><th id="48">48</th><td>};</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i>// Builder class passed to the REGISTER_OP() macro.</i></td></tr>
+<tr><th id="51">51</th><td><b>class</b> <dfn class="type def" id="tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</dfn> {</td></tr>
+<tr><th id="52">52</th><td> <b>public</b>:</td></tr>
+<tr><th id="53">53</th><td>  <i>// Constructs an OpDef with just the name field set.</i></td></tr>
+<tr><th id="54">54</th><td>  <b>explicit</b> <dfn class="decl" id="_ZN10tensorflow12OpDefBuilderC1ENS_11StringPieceE" title='tensorflow::OpDefBuilder::OpDefBuilder' data-ref="_ZN10tensorflow12OpDefBuilderC1ENS_11StringPieceE">OpDefBuilder</dfn>(<a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col4 decl" id="15704op_name" title='op_name' data-type='tensorflow::StringPiece' data-ref="15704op_name">op_name</dfn>);</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>  <i>// Adds an attr to this OpDefBuilder (and returns *this). The spec has</i></td></tr>
+<tr><th id="57">57</th><td><i>  // format "&lt;name&gt;:&lt;type&gt;" or "&lt;name&gt;:&lt;type&gt;=&lt;default&gt;"</i></td></tr>
+<tr><th id="58">58</th><td><i>  // where &lt;name&gt; matches regexp [a-zA-Z][a-zA-Z0-9_]*</i></td></tr>
+<tr><th id="59">59</th><td><i>  // (by convention only using capital letters for attrs that can be inferred)</i></td></tr>
+<tr><th id="60">60</th><td><i>  // &lt;type&gt; can be:</i></td></tr>
+<tr><th id="61">61</th><td><i>  //   "string", "int", "float", "bool", "type", "shape", or "tensor"</i></td></tr>
+<tr><th id="62">62</th><td><i>  //   "numbertype", "realnumbertype", "quantizedtype"</i></td></tr>
+<tr><th id="63">63</th><td><i>  //       (meaning "type" with a restriction on valid values)</i></td></tr>
+<tr><th id="64">64</th><td><i>  //   "{int32,int64}" or {realnumbertype,quantizedtype,string}"</i></td></tr>
+<tr><th id="65">65</th><td><i>  //       (meaning "type" with a restriction containing unions of value types)</i></td></tr>
+<tr><th id="66">66</th><td><i>  //   "{\"foo\", \"bar\n baz\"}", or "{'foo', 'bar\n baz'}"</i></td></tr>
+<tr><th id="67">67</th><td><i>  //       (meaning "string" with a restriction on valid values)</i></td></tr>
+<tr><th id="68">68</th><td><i>  //   "list(string)", ..., "list(tensor)", "list(numbertype)", ...</i></td></tr>
+<tr><th id="69">69</th><td><i>  //       (meaning lists of the above types)</i></td></tr>
+<tr><th id="70">70</th><td><i>  //   "int &gt;= 2" (meaning "int" with a restriction on valid values)</i></td></tr>
+<tr><th id="71">71</th><td><i>  //   "list(string) &gt;= 2", "list(int) &gt;= 2"</i></td></tr>
+<tr><th id="72">72</th><td><i>  //       (meaning "list(string)" / "list(int)" with length at least 2)</i></td></tr>
+<tr><th id="73">73</th><td><i>  // &lt;default&gt;, if included, should use the Proto text format</i></td></tr>
+<tr><th id="74">74</th><td><i>  // of &lt;type&gt;.  For lists use [a, b, c] format.</i></td></tr>
+<tr><th id="75">75</th><td><i>  //</i></td></tr>
+<tr><th id="76">76</th><td><i>  // Note that any attr specifying the length of an input or output will</i></td></tr>
+<tr><th id="77">77</th><td><i>  // get a default minimum of 1 unless the &gt;= # syntax is used.</i></td></tr>
+<tr><th id="78">78</th><td><i>  //</i></td></tr>
+<tr><th id="79">79</th><td><i>  // TODO(josh11b): Perhaps support restrictions and defaults as optional</i></td></tr>
+<tr><th id="80">80</th><td><i>  // extra arguments to Attr() instead of encoding them in the spec string.</i></td></tr>
+<tr><th id="81">81</th><td><i>  // TODO(josh11b): Would like to have better dtype handling for tensor attrs:</i></td></tr>
+<tr><th id="82">82</th><td><i>  // * Ability to say the type of an input/output matches the type of</i></td></tr>
+<tr><th id="83">83</th><td><i>  //   the tensor.</i></td></tr>
+<tr><th id="84">84</th><td><i>  // * Ability to restrict the type of the tensor like the existing</i></td></tr>
+<tr><th id="85">85</th><td><i>  //   restrictions for type attrs.</i></td></tr>
+<tr><th id="86">86</th><td><i>  // Perhaps by linking the type of the tensor to a type attr?</i></td></tr>
+<tr><th id="87">87</th><td>  <a class="type" href="#tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</a>&amp; <dfn class="decl" id="_ZN10tensorflow12OpDefBuilder4AttrENS_11StringPieceE" title='tensorflow::OpDefBuilder::Attr' data-ref="_ZN10tensorflow12OpDefBuilder4AttrENS_11StringPieceE">Attr</dfn>(<a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col5 decl" id="15705spec" title='spec' data-type='tensorflow::StringPiece' data-ref="15705spec">spec</dfn>);</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>  <i>// Adds an input or output to this OpDefBuilder (and returns *this).</i></td></tr>
+<tr><th id="90">90</th><td><i>  // The spec has form "&lt;name&gt;:&lt;type-expr&gt;" or "&lt;name&gt;:Ref(&lt;type-expr&gt;)"</i></td></tr>
+<tr><th id="91">91</th><td><i>  // where &lt;name&gt; matches regexp [a-z][a-z0-9_]* and &lt;type-expr&gt; can be:</i></td></tr>
+<tr><th id="92">92</th><td><i>  // * For a single tensor: &lt;type&gt;</i></td></tr>
+<tr><th id="93">93</th><td><i>  // * For a sequence of tensors with the same type: &lt;number&gt;*&lt;type&gt;</i></td></tr>
+<tr><th id="94">94</th><td><i>  // * For a sequence of tensors with different types: &lt;type-list&gt;</i></td></tr>
+<tr><th id="95">95</th><td><i>  // Where:</i></td></tr>
+<tr><th id="96">96</th><td><i>  //   &lt;type&gt; is either one of "float", "int32", "string", ...</i></td></tr>
+<tr><th id="97">97</th><td><i>  //                 or the name of an attr (see above) with type "type".</i></td></tr>
+<tr><th id="98">98</th><td><i>  //   &lt;number&gt; is the name of an attr with type "int".</i></td></tr>
+<tr><th id="99">99</th><td><i>  //   &lt;type-list&gt; is the name of an attr with type "list(type)".</i></td></tr>
+<tr><th id="100">100</th><td><i>  // TODO(josh11b): Indicate Ref() via an optional argument instead of</i></td></tr>
+<tr><th id="101">101</th><td><i>  // in the spec?</i></td></tr>
+<tr><th id="102">102</th><td><i>  // TODO(josh11b): SparseInput() and SparseOutput() matching the Python</i></td></tr>
+<tr><th id="103">103</th><td><i>  // handling?</i></td></tr>
+<tr><th id="104">104</th><td>  <a class="type" href="#tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</a>&amp; <dfn class="decl" id="_ZN10tensorflow12OpDefBuilder5InputENS_11StringPieceE" title='tensorflow::OpDefBuilder::Input' data-ref="_ZN10tensorflow12OpDefBuilder5InputENS_11StringPieceE">Input</dfn>(<a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col6 decl" id="15706spec" title='spec' data-type='tensorflow::StringPiece' data-ref="15706spec">spec</dfn>);</td></tr>
+<tr><th id="105">105</th><td>  <a class="type" href="#tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</a>&amp; <dfn class="decl" id="_ZN10tensorflow12OpDefBuilder6OutputENS_11StringPieceE" title='tensorflow::OpDefBuilder::Output' data-ref="_ZN10tensorflow12OpDefBuilder6OutputENS_11StringPieceE">Output</dfn>(<a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col7 decl" id="15707spec" title='spec' data-type='tensorflow::StringPiece' data-ref="15707spec">spec</dfn>);</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>  <i>// Turns on the indicated boolean flag in this OpDefBuilder (and</i></td></tr>
+<tr><th id="108">108</th><td><i>  // returns *this).</i></td></tr>
+<tr><th id="109">109</th><td>  <a class="type" href="#tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</a>&amp; <dfn class="decl" id="_ZN10tensorflow12OpDefBuilder16SetIsCommutativeEv" title='tensorflow::OpDefBuilder::SetIsCommutative' data-ref="_ZN10tensorflow12OpDefBuilder16SetIsCommutativeEv">SetIsCommutative</dfn>();</td></tr>
+<tr><th id="110">110</th><td>  <a class="type" href="#tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</a>&amp; <dfn class="decl" id="_ZN10tensorflow12OpDefBuilder14SetIsAggregateEv" title='tensorflow::OpDefBuilder::SetIsAggregate' data-ref="_ZN10tensorflow12OpDefBuilder14SetIsAggregateEv">SetIsAggregate</dfn>();</td></tr>
+<tr><th id="111">111</th><td>  <a class="type" href="#tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</a>&amp; <dfn class="decl" id="_ZN10tensorflow12OpDefBuilder13SetIsStatefulEv" title='tensorflow::OpDefBuilder::SetIsStateful' data-ref="_ZN10tensorflow12OpDefBuilder13SetIsStatefulEv">SetIsStateful</dfn>();</td></tr>
+<tr><th id="112">112</th><td>  <a class="type" href="#tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</a>&amp; <dfn class="decl" id="_ZN10tensorflow12OpDefBuilder27SetAllowsUninitializedInputEv" title='tensorflow::OpDefBuilder::SetAllowsUninitializedInput' data-ref="_ZN10tensorflow12OpDefBuilder27SetAllowsUninitializedInputEv">SetAllowsUninitializedInput</dfn>();</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>  <i>// Deprecate the op at a certain GraphDef version.</i></td></tr>
+<tr><th id="115">115</th><td>  <a class="type" href="#tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</a>&amp; <dfn class="decl" id="_ZN10tensorflow12OpDefBuilder10DeprecatedEiNS_11StringPieceE" title='tensorflow::OpDefBuilder::Deprecated' data-ref="_ZN10tensorflow12OpDefBuilder10DeprecatedEiNS_11StringPieceE">Deprecated</dfn>(<em>int</em> <dfn class="local col8 decl" id="15708version" title='version' data-type='int' data-ref="15708version">version</dfn>, <a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col9 decl" id="15709explanation" title='explanation' data-type='tensorflow::StringPiece' data-ref="15709explanation">explanation</dfn>);</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>  <i>// Adds docs to this OpDefBuilder (and returns *this).</i></td></tr>
+<tr><th id="118">118</th><td><i>  // Docs have the format:</i></td></tr>
+<tr><th id="119">119</th><td><i>  //   &lt;1-line summary&gt;</i></td></tr>
+<tr><th id="120">120</th><td><i>  //   &lt;rest of the description&gt;</i></td></tr>
+<tr><th id="121">121</th><td><i>  //   &lt;name&gt;: &lt;description of name&gt;</i></td></tr>
+<tr><th id="122">122</th><td><i>  //   &lt;name&gt;: &lt;description of name&gt;</i></td></tr>
+<tr><th id="123">123</th><td><i>  //     &lt;if long, indent the description on subsequent lines&gt;</i></td></tr>
+<tr><th id="124">124</th><td><i>  // Where &lt;name&gt; is the name of an attr, input, or output.  Please</i></td></tr>
+<tr><th id="125">125</th><td><i>  // wrap docs at 72 columns so that it may be indented in the</i></td></tr>
+<tr><th id="126">126</th><td><i>  // generated output.  For tensor inputs or outputs (not attrs), you</i></td></tr>
+<tr><th id="127">127</th><td><i>  // may start the description with an "=" (like name:= &lt;description&gt;)</i></td></tr>
+<tr><th id="128">128</th><td><i>  // to suppress the automatically-generated type documentation in</i></td></tr>
+<tr><th id="129">129</th><td><i>  // generated output.</i></td></tr>
+<tr><th id="130">130</th><td><u>#<span data-ppcond="130">ifndef</span> <span class="macro" data-ref="_M/TF_LEAN_BINARY">TF_LEAN_BINARY</span></u></td></tr>
+<tr><th id="131">131</th><td>  <a class="type" href="#tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</a>&amp; <dfn class="decl" id="_ZN10tensorflow12OpDefBuilder3DocENS_11StringPieceE" title='tensorflow::OpDefBuilder::Doc' data-ref="_ZN10tensorflow12OpDefBuilder3DocENS_11StringPieceE">Doc</dfn>(<a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col0 decl" id="15710text" title='text' data-type='tensorflow::StringPiece' data-ref="15710text">text</dfn>);</td></tr>
+<tr><th id="132">132</th><td><u>#<span data-ppcond="130">else</span></u></td></tr>
+<tr><th id="133">133</th><td>  OpDefBuilder&amp; Doc(StringPiece text) { <b>return</b> *<b>this</b>; }</td></tr>
+<tr><th id="134">134</th><td><u>#<span data-ppcond="130">endif</span></u></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>  <i>// Sets the shape function to be used for shape inference.</i></td></tr>
+<tr><th id="137">137</th><td><i>  //</i></td></tr>
+<tr><th id="138">138</th><td><i>  // Note that currently (October 2016), python code still requires a</i></td></tr>
+<tr><th id="139">139</th><td><i>  // RegisterShape call to invoke this; see call_cpp_shape_fn in</i></td></tr>
+<tr><th id="140">140</th><td><i>  // python/framework/common_shapes.py</i></td></tr>
+<tr><th id="141">141</th><td>  <a class="type" href="#tensorflow::OpDefBuilder" title='tensorflow::OpDefBuilder' data-ref="tensorflow::OpDefBuilder">OpDefBuilder</a>&amp; <dfn class="decl" id="_ZN10tensorflow12OpDefBuilder10SetShapeFnEPFNS_6StatusEPNS_15shape_inference16InferenceContextEE" title='tensorflow::OpDefBuilder::SetShapeFn' data-ref="_ZN10tensorflow12OpDefBuilder10SetShapeFnEPFNS_6StatusEPNS_15shape_inference16InferenceContextEE">SetShapeFn</dfn>(<a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> (*<dfn class="local col1 decl" id="15711fn" title='fn' data-type='tensorflow::Status (*)(shape_inference::InferenceContext *)' data-ref="15711fn">fn</dfn>)(<span class="namespace">shape_inference::</span><a class="type" href="shape_inference.h.html#tensorflow::shape_inference::InferenceContext" title='tensorflow::shape_inference::InferenceContext' data-ref="tensorflow::shape_inference::InferenceContext">InferenceContext</a>*));</td></tr>
+<tr><th id="142">142</th><td></td></tr>
+<tr><th id="143">143</th><td>  <i>// Sets op_reg_data-&gt;op_def to the requested OpDef and</i></td></tr>
+<tr><th id="144">144</th><td><i>  // op_reg_data-&gt;shape_inference_fn to the requested shape inference function,</i></td></tr>
+<tr><th id="145">145</th><td><i>  // or returns an error.</i></td></tr>
+<tr><th id="146">146</th><td><i>  // Must be called after all of the above methods.</i></td></tr>
+<tr><th id="147">147</th><td><i>  //</i></td></tr>
+<tr><th id="148">148</th><td><i>  // Note that OpDefBuilder only reports parsing errors.  You should also</i></td></tr>
+<tr><th id="149">149</th><td><i>  // call ValidateOpDef() to detect other problems.</i></td></tr>
+<tr><th id="150">150</th><td>  <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZNK10tensorflow12OpDefBuilder8FinalizeEPNS_18OpRegistrationDataE" title='tensorflow::OpDefBuilder::Finalize' data-ref="_ZNK10tensorflow12OpDefBuilder8FinalizeEPNS_18OpRegistrationDataE">Finalize</dfn>(<a class="type" href="#tensorflow::OpRegistrationData" title='tensorflow::OpRegistrationData' data-ref="tensorflow::OpRegistrationData">OpRegistrationData</a>* <dfn class="local col2 decl" id="15712op_reg_data" title='op_reg_data' data-type='tensorflow::OpRegistrationData *' data-ref="15712op_reg_data">op_reg_data</dfn>) <em>const</em>;</td></tr>
+<tr><th id="151">151</th><td></td></tr>
+<tr><th id="152">152</th><td> <b>private</b>:</td></tr>
+<tr><th id="153">153</th><td>  <span class='type' title='tensorflow::OpDef' data-ref="tensorflow::OpDef">OpDef</span>* <dfn class="decl def" id="_ZN10tensorflow12OpDefBuilder6op_defEv" title='tensorflow::OpDefBuilder::op_def' data-ref="_ZN10tensorflow12OpDefBuilder6op_defEv">op_def</dfn>() { <b>return</b> &amp;<a class="member" href="#tensorflow::OpDefBuilder::op_reg_data_" title='tensorflow::OpDefBuilder::op_reg_data_' data-ref="tensorflow::OpDefBuilder::op_reg_data_">op_reg_data_</a>.<a class="ref" href="#tensorflow::OpRegistrationData::op_def" title='tensorflow::OpRegistrationData::op_def' data-ref="tensorflow::OpRegistrationData::op_def">op_def</a>; }</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>  <a class="type" href="#tensorflow::OpRegistrationData" title='tensorflow::OpRegistrationData' data-ref="tensorflow::OpRegistrationData">OpRegistrationData</a> <dfn class="decl" id="tensorflow::OpDefBuilder::op_reg_data_" title='tensorflow::OpDefBuilder::op_reg_data_' data-ref="tensorflow::OpDefBuilder::op_reg_data_">op_reg_data_</dfn>;</td></tr>
+<tr><th id="156">156</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt; <dfn class="decl" id="tensorflow::OpDefBuilder::attrs_" title='tensorflow::OpDefBuilder::attrs_' data-ref="tensorflow::OpDefBuilder::attrs_">attrs_</dfn>;</td></tr>
+<tr><th id="157">157</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt; <dfn class="decl" id="tensorflow::OpDefBuilder::inputs_" title='tensorflow::OpDefBuilder::inputs_' data-ref="tensorflow::OpDefBuilder::inputs_">inputs_</dfn>;</td></tr>
+<tr><th id="158">158</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt; <dfn class="decl" id="tensorflow::OpDefBuilder::outputs_" title='tensorflow::OpDefBuilder::outputs_' data-ref="tensorflow::OpDefBuilder::outputs_">outputs_</dfn>;</td></tr>
+<tr><th id="159">159</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="tensorflow::OpDefBuilder::doc_" title='tensorflow::OpDefBuilder::doc_' data-ref="tensorflow::OpDefBuilder::doc_">doc_</dfn>;</td></tr>
+<tr><th id="160">160</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt; <dfn class="decl" id="tensorflow::OpDefBuilder::errors_" title='tensorflow::OpDefBuilder::errors_' data-ref="tensorflow::OpDefBuilder::errors_">errors_</dfn>;</td></tr>
+<tr><th id="161">161</th><td>};</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td><u>#<span data-ppcond="19">endif</span>  // TENSORFLOW_FRAMEWORK_OP_DEF_BUILDER_H_</u></td></tr>
+<tr><th id="166">166</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../c/c_api.cc.html'>tensorflow/tensorflow/c/c_api.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

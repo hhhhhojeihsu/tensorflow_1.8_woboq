@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='300' type='bool perftools::gputools::blas::BlasSupport::DoBlasRotg(perftools::gputools::Stream * stream, DeviceMemory&lt;float&gt; * a, DeviceMemory&lt;float&gt; * b, DeviceMemory&lt;float&gt; * c, DeviceMemory&lt;float&gt; * s)'/>
+<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='290'>// Computes the parameters for a Givens rotation.
+  // Given the Cartesian coordinates (a, b) of a point, these routines return
+  // the parameters c, s, r, and z associated with the Givens rotation. The
+  // parameters c and s define a unitary matrix such that:
+  //
+  //   |  c s |.| a | = | r |
+  //   | -s c | | b |   | 0 |
+  //
+  // The parameter z is defined such that if |a| &gt; |b|, z is s; otherwise if
+  // c is not 0 z is 1/c; otherwise z is 1.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='2337' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasRotgEPNS0_12DeviceMemoryIfEES4_S4_S4_'/>

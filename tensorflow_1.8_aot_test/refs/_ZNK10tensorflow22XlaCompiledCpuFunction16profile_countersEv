@@ -1,0 +1,9 @@
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='175' type='const int64 * tensorflow::XlaCompiledCpuFunction::profile_counters() const'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='167'>// Profile counters for this XLA computation.
+  //
+  // When Hlo profiling is enabled (`hlo_profiling_enabled()` return true in
+  // this case) these counters are non-null and are automatically populated by
+  // `Run`.  The counters can then be pretty-printed using
+  // `hlo_profile_printer()`.
+  //
+  // When Hlo profiling is disabled, this accessor returns null.</doc>

@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/kernels/deep_conv2d.h' l='100' type='bool tensorflow::CanUseDeepConv2D(int stride_rows, int stride_cols, int filter_rows, int filter_cols, int in_depth, int out_depth, int out_rows, int out_cols)'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_ops.cc' l='160' u='c' c='_ZN10tensorflow16LaunchDeepConvOpIN5Eigen16ThreadPoolDeviceEfE3RunEPNS_15OpKernelContextERKNS_6TensorES8_iiiiiiiiiiiiiiiPS6_NS_12TensorFormatE'/>
+<doc f='tensorflow/tensorflow/core/kernels/deep_conv2d.h' l='97'>// Returns true if convolution operation specified by function arguments
+// can use DeepConv2D implementation, and false otherwise.
+// May return false based on parameters, cost, or whether feature is disabled.</doc>
+<def f='tensorflow/tensorflow/core/kernels/deep_conv2d.cc' l='97' ll='128' type='bool tensorflow::CanUseDeepConv2D(int stride_rows, int stride_cols, int filter_rows, int filter_cols, int in_depth, int out_depth, int out_rows, int out_cols)'/>
+<doc f='tensorflow/tensorflow/core/kernels/deep_conv2d.cc' l='93'>// Returns true if convolution can be computed efficiently by DeepConv2D,
+// returns false otherwise.
+// TODO(andydavis) Add support for other filter sizes and strides.
+// TODO(andydavis) Add support for autotuning.</doc>

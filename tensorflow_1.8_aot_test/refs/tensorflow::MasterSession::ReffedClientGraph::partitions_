@@ -1,0 +1,27 @@
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='116' c='_ZN10tensorflow13MasterSession17ReffedClientGraph13SetRPCLoggingEb'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='143' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph12RetrieveLogsExPNS_9StepStatsE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='147' c='_ZN10tensorflow13MasterSession17ReffedClientGraph12RetrieveLogsExPNS_9StepStatsE'/>
+<dec f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='254' type='std::vector&lt;Part&gt;'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='316' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph18RegisterPartitionsERKNS_16PartitionOptionsE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='403' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20DoRegisterPartitionsERKNS_16PartitionOptionsESt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_t1729424'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='406' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20DoRegisterPartitionsERKNS_16PartitionOptionsESt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_t1729424'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='406' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20DoRegisterPartitionsERKNS_16PartitionOptionsESt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_t1729424'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='407' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20DoRegisterPartitionsERKNS_16PartitionOptionsESt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_t1729424'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='417' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20DoRegisterPartitionsERKNS_16PartitionOptionsESt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_t1729424'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='427' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20DoRegisterPartitionsERKNS_16PartitionOptionsESt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_t1729424'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='431' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20DoRegisterPartitionsERKNS_16PartitionOptionsESt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_t1729424'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='449' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20DoRegisterPartitionsERKNS_16PartitionOptionsESt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_t1729424'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='574' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph19RunPartitionsHelperERKSt13unordered_mapINS_11StringPieceEmNS_4hashIS3_EESt8equal_toIS3_ESaISt4pairI10272309'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='577' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph19RunPartitionsHelperERKSt13unordered_mapINS_11StringPieceEmNS_4hashIS3_EESt8equal_toIS3_ESaISt4pairI10272309'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='581' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph19RunPartitionsHelperERKSt13unordered_mapINS_11StringPieceEmNS_4hashIS3_EESt8equal_toIS3_ESaISt4pairI10272309'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='642' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph19RunPartitionsHelperERKSt13unordered_mapINS_11StringPieceEmNS_4hashIS3_EESt8equal_toIS3_ESaISt4pairI10272309'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='670' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph19RunPartitionsHelperERKSt13unordered_mapINS_11StringPieceEmNS_4hashIS3_EESt8equal_toIS3_ESaISt4pairI10272309'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='829' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph22CleanupPartitionsAsyncExSt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='834' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph22CleanupPartitionsAsyncExSt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='853' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph12ProcessStatsExPNS0_12PerStepStateEPNS_14ProfileHandlerERKNS_10RunOptionsEPNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='873' u='m' c='_ZN10tensorflow13MasterSession17ReffedClientGraph12ProcessStatsExPNS0_12PerStepStateEPNS_14ProfileHandlerERKNS_10RunOptionsEPNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1001' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20DeregisterPartitionsEv'/>
+<offset>3712</offset>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='251'>// partitions_ is immutable after RegisterPartitions() call
+  // finishes.  RunPartitions() can access partitions_ safely without
+  // acquiring locks.</doc>

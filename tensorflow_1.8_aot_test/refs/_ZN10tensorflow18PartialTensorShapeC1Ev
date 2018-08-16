@@ -1,0 +1,31 @@
+<def f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='399' type='void tensorflow::PartialTensorShape::PartialTensorShape()'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1282' u='c' c='TF_SetAttrShape'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1770' u='c' c='TF_OperationGetAttrShape'/>
+<use f='tensorflow/tensorflow/contrib/image/ops/single_image_random_dot_stereograms_ops.cc' l='50' u='c'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1394' u='c' c='_ZN10tensorflow15shape_inference13ExplicitShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='560' u='c' c='_ZNK10tensorflow18PartialTensorShape11ConcatenateERKS0_'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1370' u='c' c='_ZNK10tensorflow8grappler15ConstantFolding21IsSimplifiableReshapeERKNS_7NodeDefERKNS0_15GraphPropertiesE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/concatenate_dataset_op.cc' l='169' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ConcatenateDatasetOp7Dataset27MostSpecificCompatibleShapeERKNS_18PartialTensorShapeES5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/dense_to_sparse_batch_dataset_op.cc' l='52' u='c' c='_ZN10tensorflow12_GLOBAL__N_127DenseToSparseBatchDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/padded_batch_dataset_op.cc' l='57' u='c' c='_ZN10tensorflow12_GLOBAL__N_120PaddedBatchDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/random_dataset_op.cc' l='70' u='c' c='_ZNK10tensorflow12_GLOBAL__N_115RandomDatasetOp7Dataset13output_shapesEv'/>
+<use f='tensorflow/tensorflow/core/kernels/data/range_dataset_op.cc' l='64' u='c' c='_ZNK10tensorflow12_GLOBAL__N_114RangeDatasetOp7Dataset13output_shapesEv'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='105' u='c' c='_ZNK10tensorflow12_GLOBAL__N_117TextLineDatasetOp7Dataset13output_shapesEv'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='339' u='c' c='_ZNK10tensorflow12_GLOBAL__N_126FixedLengthRecordDatasetOp7Dataset13output_shapesEv'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='559' u='c' c='_ZNK10tensorflow12_GLOBAL__N_117TFRecordDatasetOp7Dataset13output_shapesEv'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='516' u='c' c='_ZN10tensorflow12_GLOBAL__N_139PrependFromQueueAndPaddedBatchDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/list_kernels.h' l='144' u='c' c='_ZN10tensorflow20TensorListFromTensor7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/list_kernels.cc' l='154' u='c' c='_ZN10tensorflow15EmptyTensorList7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/list_kernels.cc' l='357' u='c' c='_ZN10tensorflow17TensorListReserve7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/tensor_array.h' l='254' u='c' c='_ZN10tensorflow11TensorArray12SetElemShapeERKNS_18PartialTensorShapeE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='278' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1599' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1599' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1865' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1899' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/data_flow_ops.cc' l='579' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/data_flow_ops.cc' l='687' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/resource_variable_ops.cc' l='71' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/state_ops.cc' l='41' u='c'/>
+<use f='tensorflow/tensorflow/core/util/strided_slice_op.cc' l='379' u='c' c='_ZN10tensorflow22ValidateStridedSliceOpEPKNS_6TensorES2_RS1_RKNS_18PartialTensorShapeEiiiiiPNS_11TensorShapeES8_PbS9_S9_PNS_3gtl13InlinedVectorIxLi4EEESD_SD_'/>
+<use f='tensorflow/tensorflow/core/util/strided_slice_op.cc' l='379' u='c' c='_ZN10tensorflow22ValidateStridedSliceOpEPKNS_6TensorES2_RS1_RKNS_18PartialTensorShapeEiiiiiPNS_11TensorShapeES8_PbS9_S9_PNS_3gtl13InlinedVectorIxLi4EEESD_SD_'/>

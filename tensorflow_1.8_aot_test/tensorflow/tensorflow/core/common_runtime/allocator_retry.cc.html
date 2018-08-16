@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>allocator_retry.cc source code [tensorflow/tensorflow/core/common_runtime/allocator_retry.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/common_runtime/allocator_retry.cc'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>common_runtime</a>/<a href='allocator_retry.cc.html'>allocator_retry.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="allocator_retry.h.html">"tensorflow/core/common_runtime/allocator_retry.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../platform/env.h.html">"tensorflow/core/platform/env.h"</a></u></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../platform/logging.h.html">"tensorflow/core/platform/logging.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../platform/mutex.h.html">"tensorflow/core/platform/mutex.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><a class="type" href="allocator_retry.h.html#tensorflow::AllocatorRetry" title='tensorflow::AllocatorRetry' data-ref="tensorflow::AllocatorRetry">AllocatorRetry</a>::<dfn class="decl def" id="_ZN10tensorflow14AllocatorRetryC1Ev" title='tensorflow::AllocatorRetry::AllocatorRetry' data-ref="_ZN10tensorflow14AllocatorRetryC1Ev">AllocatorRetry</dfn>() : <a class="member" href="allocator_retry.h.html#tensorflow::AllocatorRetry::env_" title='tensorflow::AllocatorRetry::env_' data-ref="tensorflow::AllocatorRetry::env_">env_</a>(<a class="type" href="../platform/env.h.html#tensorflow::Env" title='tensorflow::Env' data-ref="tensorflow::Env">Env</a>::<a class="ref" href="../platform/env.h.html#_ZN10tensorflow3Env7DefaultEv" title='tensorflow::Env::Default' data-ref="_ZN10tensorflow3Env7DefaultEv">Default</a>()) {}</td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><em>void</em>* <a class="type" href="allocator_retry.h.html#tensorflow::AllocatorRetry" title='tensorflow::AllocatorRetry' data-ref="tensorflow::AllocatorRetry">AllocatorRetry</a>::<dfn class="decl def" id="_ZN10tensorflow14AllocatorRetry11AllocateRawESt8functionIFPvmmbEEimm" title='tensorflow::AllocatorRetry::AllocateRaw' data-ref="_ZN10tensorflow14AllocatorRetry11AllocateRawESt8functionIFPvmmbEEimm">AllocateRaw</dfn>(</td></tr>
+<tr><th id="27">27</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<em>void</em>*(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col0 decl" id="10alignment" title='alignment' data-type='size_t' data-ref="10alignment">alignment</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col1 decl" id="11num_bytes" title='num_bytes' data-type='size_t' data-ref="11num_bytes">num_bytes</dfn>,</td></tr>
+<tr><th id="28">28</th><td>                        <em>bool</em> <dfn class="local col2 decl" id="12verbose_failure" title='verbose_failure' data-type='bool' data-ref="12verbose_failure">verbose_failure</dfn>)&gt;</td></tr>
+<tr><th id="29">29</th><td>        <dfn class="local col9 decl" id="9alloc_func" title='alloc_func' data-type='std::function&lt;void *(size_t, size_t, bool)&gt;' data-ref="9alloc_func">alloc_func</dfn>,</td></tr>
+<tr><th id="30">30</th><td>    <em>int</em> <dfn class="local col3 decl" id="13max_millis_to_wait" title='max_millis_to_wait' data-type='int' data-ref="13max_millis_to_wait">max_millis_to_wait</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="14alignment" title='alignment' data-type='size_t' data-ref="14alignment">alignment</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="15num_bytes" title='num_bytes' data-type='size_t' data-ref="15num_bytes">num_bytes</dfn>) {</td></tr>
+<tr><th id="31">31</th><td>  <b>if</b> (<a class="local col5 ref" href="#15num_bytes" title='num_bytes' data-ref="15num_bytes">num_bytes</a> == <var>0</var>) {</td></tr>
+<tr><th id="32">32</th><td>    <a class="macro" href="../platform/default/logging.h.html#77" title="::tensorflow::internal::LogMessage(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/common_runtime/allocator_retry.cc&quot;, 32, ::tensorflow::WARNING)" data-ref="_M/LOG">LOG</a>(WARNING) <a class="ref" href="../../../../include/c++/5/ostream.html#_ZStlsOSt13basic_ostreamIT_T0_ERKT1_" title='std::operator&lt;&lt;' data-ref="_ZStlsOSt13basic_ostreamIT_T0_ERKT1_">&lt;&lt;</a> <q>"Request to allocate 0 bytes"</q>;</td></tr>
+<tr><th id="33">33</th><td>    <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="34">34</th><td>  }</td></tr>
+<tr><th id="35">35</th><td>  <a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="local col6 decl" id="16deadline_micros" title='deadline_micros' data-type='uint64' data-ref="16deadline_micros">deadline_micros</dfn> = <var>0</var>;</td></tr>
+<tr><th id="36">36</th><td>  <em>bool</em> <dfn class="local col7 decl" id="17first" title='first' data-type='bool' data-ref="17first">first</dfn> = <b>true</b>;</td></tr>
+<tr><th id="37">37</th><td>  <em>void</em>* <dfn class="local col8 decl" id="18ptr" title='ptr' data-type='void *' data-ref="18ptr">ptr</dfn> = <b>nullptr</b>;</td></tr>
+<tr><th id="38">38</th><td>  <b>while</b> (<a class="local col8 ref" href="#18ptr" title='ptr' data-ref="18ptr">ptr</a> == <b>nullptr</b>) {</td></tr>
+<tr><th id="39">39</th><td>    <a class="local col8 ref" href="#18ptr" title='ptr' data-ref="18ptr">ptr</a> = <a class="local col9 ref" href="#9alloc_func" title='alloc_func' data-ref="9alloc_func">alloc_func</a><a class="ref" href="../../../../include/c++/5/functional.html#_ZNKSt8functionIFT_DpT0_EEclES2_" title='std::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::operator()' data-ref="_ZNKSt8functionIFT_DpT0_EEclES2_">(<a class="local col4 ref" href="#14alignment" title='alignment' data-ref="14alignment">alignment</a>, <a class="local col5 ref" href="#15num_bytes" title='num_bytes' data-ref="15num_bytes">num_bytes</a>, <b>false</b>)</a>;</td></tr>
+<tr><th id="40">40</th><td>    <b>if</b> (<a class="local col8 ref" href="#18ptr" title='ptr' data-ref="18ptr">ptr</a> == <b>nullptr</b>) {</td></tr>
+<tr><th id="41">41</th><td>      <a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="local col9 decl" id="19now" title='now' data-type='uint64' data-ref="19now">now</dfn> = <a class="member" href="allocator_retry.h.html#tensorflow::AllocatorRetry::env_" title='tensorflow::AllocatorRetry::env_' data-ref="tensorflow::AllocatorRetry::env_">env_</a>-&gt;<a class="virtual ref" href="../platform/env.h.html#_ZN10tensorflow3Env9NowMicrosEv" title='tensorflow::Env::NowMicros' data-ref="_ZN10tensorflow3Env9NowMicrosEv">NowMicros</a>();</td></tr>
+<tr><th id="42">42</th><td>      <b>if</b> (<a class="local col7 ref" href="#17first" title='first' data-ref="17first">first</a>) {</td></tr>
+<tr><th id="43">43</th><td>        <a class="local col6 ref" href="#16deadline_micros" title='deadline_micros' data-ref="16deadline_micros">deadline_micros</a> = <a class="local col9 ref" href="#19now" title='now' data-ref="19now">now</a> + <a class="local col3 ref" href="#13max_millis_to_wait" title='max_millis_to_wait' data-ref="13max_millis_to_wait">max_millis_to_wait</a> * <var>1000</var>;</td></tr>
+<tr><th id="44">44</th><td>        <a class="local col7 ref" href="#17first" title='first' data-ref="17first">first</a> = <b>false</b>;</td></tr>
+<tr><th id="45">45</th><td>      }</td></tr>
+<tr><th id="46">46</th><td>      <b>if</b> (<a class="local col9 ref" href="#19now" title='now' data-ref="19now">now</a> &lt; <a class="local col6 ref" href="#16deadline_micros" title='deadline_micros' data-ref="16deadline_micros">deadline_micros</a>) {</td></tr>
+<tr><th id="47">47</th><td>        <a class="type" href="../platform/default/mutex.h.html#tensorflow::mutex_lock" title='tensorflow::mutex_lock' data-ref="tensorflow::mutex_lock">mutex_lock</a> <dfn class="local col0 decl" id="20l" title='l' data-type='tensorflow::mutex_lock' data-ref="20l">l</dfn><a class="ref" href="../platform/default/mutex.h.html#_ZN10tensorflow10mutex_lockC1ERNS_5mutexE" title='tensorflow::mutex_lock::mutex_lock' data-ref="_ZN10tensorflow10mutex_lockC1ERNS_5mutexE">(</a><a class="member" href="allocator_retry.h.html#tensorflow::AllocatorRetry::mu_" title='tensorflow::AllocatorRetry::mu_' data-ref="tensorflow::AllocatorRetry::mu_">mu_</a>);</td></tr>
+<tr><th id="48">48</th><td>        <a class="ref" href="../platform/default/mutex.h.html#_ZN10tensorflow19WaitForMillisecondsEPNS_10mutex_lockEPNS_18condition_variableEx" title='tensorflow::WaitForMilliseconds' data-ref="_ZN10tensorflow19WaitForMillisecondsEPNS_10mutex_lockEPNS_18condition_variableEx">WaitForMilliseconds</a>(&amp;<a class="local col0 ref" href="#20l" title='l' data-ref="20l">l</a>, &amp;<a class="member" href="allocator_retry.h.html#tensorflow::AllocatorRetry::memory_returned_" title='tensorflow::AllocatorRetry::memory_returned_' data-ref="tensorflow::AllocatorRetry::memory_returned_">memory_returned_</a>,</td></tr>
+<tr><th id="49">49</th><td>                            (<a class="local col6 ref" href="#16deadline_micros" title='deadline_micros' data-ref="16deadline_micros">deadline_micros</a> - <a class="local col9 ref" href="#19now" title='now' data-ref="19now">now</a>) / <var>1000</var>);</td></tr>
+<tr><th id="50">50</th><td>      } <b>else</b> {</td></tr>
+<tr><th id="51">51</th><td>        <b>return</b> <a class="local col9 ref" href="#9alloc_func" title='alloc_func' data-ref="9alloc_func">alloc_func</a><a class="ref" href="../../../../include/c++/5/functional.html#_ZNKSt8functionIFT_DpT0_EEclES2_" title='std::function&lt;type-parameter-0-0 (type-parameter-0-1...)&gt;::operator()' data-ref="_ZNKSt8functionIFT_DpT0_EEclES2_">(<a class="local col4 ref" href="#14alignment" title='alignment' data-ref="14alignment">alignment</a>, <a class="local col5 ref" href="#15num_bytes" title='num_bytes' data-ref="15num_bytes">num_bytes</a>, <b>true</b>)</a>;</td></tr>
+<tr><th id="52">52</th><td>      }</td></tr>
+<tr><th id="53">53</th><td>    }</td></tr>
+<tr><th id="54">54</th><td>  }</td></tr>
+<tr><th id="55">55</th><td>  <b>return</b> <a class="local col8 ref" href="#18ptr" title='ptr' data-ref="18ptr">ptr</a>;</td></tr>
+<tr><th id="56">56</th><td>}</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="59">59</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/contrib/boosted_trees/lib/utils/dropout_utils.h' l='42' type='static tensorflow::Status tensorflow::boosted_trees::utils::DropoutUtils::DropOutTrees(const uint64 seed, const learner::LearningRateDropoutDrivenConfig &amp; config, const std::unordered_set&lt;int32&gt; &amp; trees_not_to_drop, const std::vector&lt;float&gt; &amp; weights, std::vector&lt;int32&gt; * dropped_trees, std::vector&lt;float&gt; * original_weights)'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/prediction_ops.cc' l='250' u='c' c='_ZN10tensorflow13boosted_trees25GradientTreesPredictionOp9DoComputeEPNS_15OpKernelContextEPNS0_6models28DecisionTreeEnsembleResourceE'/>
+<doc f='tensorflow/tensorflow/contrib/boosted_trees/lib/utils/dropout_utils.h' l='32'>// This method determines what trees should be dropped and returns their
+  // indices and the weights they had when this method ran.
+  // seed: random seed to be used
+  // config: dropout config, that defines the probability of dropout etc
+  // trees_not_to_drop: indices of trees that can&apos;t be dropped, for example bias
+  // (0) and the last tree in the batch mode.
+  // number_of_trees_to_consider: how many trees are currently in the ensemble
+  // weights: weights of those trees
+  // Returns sorted vector of indices of trees to be dropped and their original
+  // weights.</doc>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/training_ops.cc' l='469' u='c' c='_ZN10tensorflow13boosted_trees18GrowTreeEnsembleOp26UpdateTreeWeightsIfDropoutEPNS0_6models28DecisionTreeEnsembleResourceEy'/>
+<def f='tensorflow/tensorflow/contrib/boosted_trees/lib/utils/dropout_utils.cc' l='35' ll='106' type='static tensorflow::Status tensorflow::boosted_trees::utils::DropoutUtils::DropOutTrees(const uint64 seed, const tensorflow::boosted_trees::learner::LearningRateDropoutDrivenConfig &amp; config, const std::unordered_set&lt;int32&gt; &amp; trees_not_to_drop, const std::vector&lt;float&gt; &amp; weights, std::vector&lt;int32&gt; * dropped_trees, std::vector&lt;float&gt; * original_weights)'/>

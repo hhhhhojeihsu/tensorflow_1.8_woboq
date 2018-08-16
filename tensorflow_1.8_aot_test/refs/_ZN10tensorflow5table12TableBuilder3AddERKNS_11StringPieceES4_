@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/lib/io/table_builder.h' l='51' type='void tensorflow::table::TableBuilder::Add(const tensorflow::StringPiece &amp; key, const tensorflow::StringPiece &amp; value)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/table_builder.h' l='48'>// Add key,value to the table being constructed.
+  // REQUIRES: key is after any previously added key in lexicographic order.
+  // REQUIRES: Finish(), Abandon() have not been called</doc>
+<def f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='118' ll='150' type='void tensorflow::table::TableBuilder::Add(const tensorflow::StringPiece &amp; key, const tensorflow::StringPiece &amp; value)'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='505' u='c' c='_ZN10tensorflow12BundleWriter6FinishEv'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='509' u='c' c='_ZN10tensorflow12BundleWriter6FinishEv'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='678' u='c' c='_ZN10tensorflow12MergeBundlesEPNS_3EnvENS_3gtl10ArraySliceISsEENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='681' u='c' c='_ZN10tensorflow12MergeBundlesEPNS_3EnvENS_3gtl10ArraySliceISsEENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_writer.cc' l='44' u='c' c='_ZN10tensorflow10checkpoint12_GLOBAL__N_112TableBuilder3AddENS_11StringPieceES3_'/>

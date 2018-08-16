@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.h' l='137' type='tensorflow::Status tensorflow::GraphExecutionState::BuildGraph(const tensorflow::BuildGraphOptions &amp; options, std::unique_ptr&lt;ClientGraph&gt; * out)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1362' u='c' c='_ZN10tensorflow13DirectSession12CreateGraphsERKNS_17BuildGraphOptionsEPSt13unordered_mapISsSt10unique_ptrINS_5GraphESt14default_deleteIS6_EESt4hashISs10698560'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.h' l='133'>// Builds a ClientGraph (a sub-graph of the full graph as induced by
+  // the Node set specified in &quot;options&quot;).  If successful, returns OK
+  // and the caller takes the ownership of &quot;*out&quot;. Otherwise, returns
+  // an error.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='117' u='c' c='_ZN10tensorflow19GraphExecutionState18MakeForPrunedGraphERKNS_18FunctionDefLibraryERKNS_26GraphExecutionStateOptionsERKNS_8GraphDefERKNS_17BuildGraphO10336068'/>
+<def f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='517' ll='578' type='tensorflow::Status tensorflow::GraphExecutionState::BuildGraph(const tensorflow::BuildGraphOptions &amp; options, std::unique_ptr&lt;ClientGraph&gt; * out)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1391' u='c' c='_ZN10tensorflow13MasterSession9StartStepERKNS_17BuildGraphOptionsEbPPNS0_17ReffedClientGraphEPx'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1821' u='c' c='_ZN10tensorflow13MasterSession12MakeCallableERKNS_19MakeCallableRequestEPNS_20MakeCallableResponseE'/>

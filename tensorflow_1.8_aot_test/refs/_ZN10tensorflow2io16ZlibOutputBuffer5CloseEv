@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.h' l='78' type='tensorflow::Status tensorflow::io::ZlibOutputBuffer::Close()'/>
+<doc f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.h' l='70'>// Compresses any cached input and writes all output to file. This must be
+  // called before the destructor to avoid any data loss.
+  //
+  // Contrary to `Flush()` this informs zlib that it should not expect any
+  // further input by using Z_FINISH flush mode. Also cleans up z_stream.
+  //
+  // After calling this, any further calls to `Write()`, `Flush()` or `Close()`
+  // will fail.</doc>
+<inh f='tensorflow/tensorflow/core/platform/file_system.h' l='264' c='_ZN10tensorflow12WritableFile5CloseEv'/>
+<def f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.cc' l='205' ll='211' type='tensorflow::Status tensorflow::io::ZlibOutputBuffer::Close()'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_code.cc' l='301' u='c' c='_ZN10tensorflow6tfprof12_GLOBAL__N_116PprofProfileImpl17WritePprofProfileERKSs'/>

@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='462' type='tensorflow::Status tensorflow::Graph::UpdateEdge(tensorflow::Node * new_src, int new_src_index, tensorflow::Node * dst, int dst_index)'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='459'>// Updates the input to a node.  The existing edge to `dst` is removed and an
+  // edge from `new_src` to `dst` is created. The NodeDef associated with `dst`
+  // is also updated.</doc>
+<use f='tensorflow/tensorflow/c/python_api.cc' l='80' u='c' c='_ZN10tensorflow10UpdateEdgeEP8TF_Graph9TF_Output8TF_InputP9TF_Status'/>
+<def f='tensorflow/tensorflow/core/graph/graph.cc' l='471' ll='486' type='tensorflow::Status tensorflow::Graph::UpdateEdge(tensorflow::Node * new_src, int new_src_index, tensorflow::Node * dst, int dst_index)'/>

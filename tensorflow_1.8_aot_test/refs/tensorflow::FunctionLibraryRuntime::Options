@@ -1,0 +1,23 @@
+<def f='tensorflow/tensorflow/core/framework/function.h' l='482' ll='505'/>
+<size>120</size>
+<doc f='tensorflow/tensorflow/core/framework/function.h' l='472'>// Asynchronously invokes the instantiated function identified by
+  // &quot;handle&quot;.
+  //
+  // If function execution succeeds, &quot;done&quot; is called with OK and
+  // &quot;*rets&quot; is filled with the function&apos;s return values. Otheriwse,
+  // &quot;done&quot; is called with an error status.
+  //
+  // Does not take ownership of &quot;rets&quot;.
+  // In the cross-process scenario, runner isn&apos;t used for making the Async
+  // RPC calls.</doc>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::step_id' o='0' t='int64'/>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::rendezvous' o='64' t='tensorflow::Rendezvous *'/>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::cancellation_manager' o='128' t='tensorflow::CancellationManager *'/>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::step_container' o='192' t='tensorflow::ScopedStepContainer *'/>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::stats_collector' o='256' t='tensorflow::StepStatsCollector *'/>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::runner' o='320' t='std::function&lt;void (std::function&lt;void ()&gt;)&gt; *'/>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::remote_execution' o='384' t='bool'/>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::source_device' o='448' t='string'/>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::args_alloc_attrs' o='512' t='std::vector&lt;AllocatorAttributes&gt;'/>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::rets_alloc_attrs' o='704' t='std::vector&lt;AllocatorAttributes&gt;'/>
+<mbr r='tensorflow::FunctionLibraryRuntime::Options::create_rendezvous' o='896' t='bool'/>

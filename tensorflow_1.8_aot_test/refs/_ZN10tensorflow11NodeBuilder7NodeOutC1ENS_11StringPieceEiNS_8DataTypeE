@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/graph/node_builder.h' l='58' type='void tensorflow::NodeBuilder::NodeOut::NodeOut(tensorflow::StringPiece name, int32 i, tensorflow::DataType t)'/>
+<doc f='tensorflow/tensorflow/core/graph/node_builder.h' l='54'>// For referencing Nodes not in the graph being built. It is
+    // useful when preparing a graph for ExtendSession or creating a
+    // back edge to a node that hasn&apos;t been added to the graph yet,
+    // but will be.</doc>
+<use f='tensorflow/tensorflow/cc/ops/const_op.cc' l='65' u='c' c='_ZN10tensorflow3ops9AsNodeOutERKNS_5ScopeERKNS_5InputE'/>
+<use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='75' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_111CreateMergeERKNS_5ScopeEiRKNS_6OutputEPS5_'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='384' u='c' c='_ZN10tensorflow12_GLOBAL__N_115AddControlEnterEPNS_5GraphERKSsS4_S4_iPNS_6StatusE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='399' u='c' c='_ZN10tensorflow12_GLOBAL__N_115AddControlMergeERKSsS2_PNS_5GraphES2_S2_PNS_6StatusE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='399' u='c' c='_ZN10tensorflow12_GLOBAL__N_115AddControlMergeERKSsS2_PNS_5GraphES2_S2_PNS_6StatusE'/>
+<def f='tensorflow/tensorflow/core/graph/node_builder.cc' l='32' ll='33' type='void tensorflow::NodeBuilder::NodeOut::NodeOut(tensorflow::StringPiece n, int32 i, tensorflow::DataType t)'/>

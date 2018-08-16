@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/contrib/lite/context.h' l='201' type='size_t'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='293' u='r' c='_ZN6tflite11Interpreter26EnsureTensorDataIsReadableEi'/>
+<offset>320</offset>
+<doc f='tensorflow/tensorflow/contrib/lite/context.h' l='197'>// The number of bytes required to store the data of this Tensor. I.e.
+  // (bytes of each element) * dims[0] * ... * dims[n-1].  For example, if
+  // type is kTfLiteFloat32 and dims = {3, 2} then
+  // bytes = sizeof(float) * 3 * 2 = 4 * 3 * 2 = 24.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/arena_planner.cc' l='211' u='r' c='_ZN6tflite12ArenaPlanner25CalculateTensorAllocationEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/arena_planner.cc' l='217' u='r' c='_ZN6tflite12ArenaPlanner25CalculateTensorAllocationEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/context.c' l='86' u='w' c='TfLiteTensorReset'/>
+<use f='tensorflow/tensorflow/contrib/lite/context.c' l='97' u='r' c='TfLiteTensorRealloc'/>
+<use f='tensorflow/tensorflow/contrib/lite/context.c' l='100' u='w' c='TfLiteTensorRealloc'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='734' u='w' c='_ZN6tflite11Interpreter16ResizeTensorImplEP12TfLiteTensorP14TfLiteIntArray'/>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='120' u='r' c='_ZN6tflite17addTensorOperandsEPNS_11InterpreterEP20ANeuralNetworksModel'/>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='123' u='r' c='_ZN6tflite17addTensorOperandsEPNS_11InterpreterEP20ANeuralNetworksModel'/>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='168' u='r' c='_ZN6tflite15AddOpsAndParamsEPNS_11InterpreterEP20ANeuralNetworksModelj'/>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='409' u='r' c='_ZN6tflite13NNAPIDelegate6InvokeEPNS_11InterpreterE'/>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='416' u='r' c='_ZN6tflite13NNAPIDelegate6InvokeEPNS_11InterpreterE'/>
+<use f='tensorflow/tensorflow/contrib/lite/optional_debug_tools.cc' l='85' u='r' c='_ZN6tflite21PrintInterpreterStateEPNS_11InterpreterE'/>
+<use f='tensorflow/tensorflow/contrib/lite/optional_debug_tools.cc' l='85' u='r' c='_ZN6tflite21PrintInterpreterStateEPNS_11InterpreterE'/>

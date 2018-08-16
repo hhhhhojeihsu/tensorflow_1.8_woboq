@@ -1,0 +1,20 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_interface.h' l='29' c='xla::HloPassInterface'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.h' l='60' ll='97'/>
+<size>48</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.h' l='52'>// ParallelTaskAssigner computes target parallel task counts for all HLOs
+// in the module, then assigns parallel task counts to HLOs in the entry
+// computation, or to HLOs in embedded computations invoked by (potentially
+// nested) kWhile or kCall instructions.
+// Each HLO which is assigned parallel task counts is outlined into its
+// own embedded computation, which is compiled as a parallel compute function,
+// and which is invoked from a kCall instruction that is lowered in codegen to
+// a runtime parallel fork/join call.</doc>
+<fun r='_ZN3xla3cpu20ParallelTaskAssignerC1ExRKSt8functionIFxRKNS_5ShapeEEE'/>
+<fun r='_ZN3xla3cpu20ParallelTaskAssignerD1Ev'/>
+<fun r='_ZNK3xla3cpu20ParallelTaskAssigner4nameEv'/>
+<fun r='_ZN3xla3cpu20ParallelTaskAssigner3RunEPNS_9HloModuleE'/>
+<fun r='_ZN3xla3cpu20ParallelTaskAssigner19AssignParallelTasksEPNS_9HloModuleERKSt13unordered_mapIPKNS_14HloInstructionExSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_xEEE'/>
+<fun r='_ZN3xla3cpu20ParallelTaskAssigner25AssignParallelTasksHelperEPNS_9HloModuleEPNS_14HloComputationERKSt13unordered_mapIPKNS_14HloInstructionExSt4hashIS92400153'/>
+<fun r='_ZN3xla3cpu20ParallelTaskAssigner26ComputeTargetParallelTasksEPNS_9HloModuleEPSt13unordered_mapIPKNS_14HloInstructionExSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_xEEE'/>
+<mbr r='xla::cpu::ParallelTaskAssigner::max_parallelism_' o='64' t='int64'/>
+<mbr r='xla::cpu::ParallelTaskAssigner::shape_size_function_' o='128' t='HloCostAnalysis::ShapeSizeFunction'/>

@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='88' type='bool tensorflow::RunStepRequestWrapper::store_errors_in_response_body() const'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='83'>// If true then some errors, e.g., execution errors that have long
+  // error messages, may return an OK RunStepResponse with the actual
+  // error saved in the status_code/status_error_message fields of the
+  // response body. This is a workaround since the RPC subsystem may
+  // truncate long metadata messages.</doc>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='96' c='_ZNK10tensorflow22InMemoryRunStepRequest29store_errors_in_response_bodyEv'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='204' c='_ZNK10tensorflow26MutableProtoRunStepRequest29store_errors_in_response_bodyEv'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='271' c='_ZNK10tensorflow19ProtoRunStepRequest29store_errors_in_response_bodyEv'/>

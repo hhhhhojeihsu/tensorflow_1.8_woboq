@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='263' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferDotOpShape(const xla::Shape &amp; lhs, const xla::Shape &amp; rhs, const xla::DotDimensionNumbers &amp; dimension_numbers)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='733' u='c' c='_ZN3xla10XlaBuilder10DotGeneralERKNS_5XlaOpES3_RKNS_19DotDimensionNumbersE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='261'>// Helper that infers the shape produced by performing a dot operation with
+  // the given LHS and RHS shapes.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='69' u='c' c='_ZN3xla13ShapeVerifier9HandleDotEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='671' ll='758' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferDotOpShape(const xla::Shape &amp; lhs, const xla::Shape &amp; rhs, const xla::DotDimensionNumbers &amp; dimension_numbers)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='671'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='1341' u='c' c='_ZN3xla15UserComputation17AddDotInstructionERKNS_10DotRequestE'/>

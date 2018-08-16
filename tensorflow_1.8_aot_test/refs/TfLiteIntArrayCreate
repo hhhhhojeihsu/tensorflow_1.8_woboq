@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/contrib/lite/context.h' l='68' type='TfLiteIntArray * TfLiteIntArrayCreate(int size)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/context.h' l='66'>// Create a array of a given `size` (uninitialized entries).
+// This returns a pointer, that you must free using TfLiteIntArrayFree().</doc>
+<def f='tensorflow/tensorflow/contrib/lite/context.c' l='25' ll='30' type='TfLiteIntArray * TfLiteIntArrayCreate(int size)'/>
+<use f='tensorflow/tensorflow/contrib/lite/context.c' l='54' u='c' c='TfLiteIntArrayCopy'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='273' u='c' c='_ZN6tflite11Interpreter16GetExecutionPlanEPP14TfLiteIntArray'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='402' u='c' c='_ZN6tflite11Interpreter21AddNodeWithParametersERKSt6vectorIiSaIiEES5_PKcmPvPK19_TfLiteRegistrationPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/string_util.cc' l='96' u='c' c='_ZN6tflite13DynamicBuffer13WriteToTensorEP12TfLiteTensor'/>
+<use f='tensorflow/tensorflow/contrib/lite/util.cc' l='24' u='c' c='_ZN6tflite28ConvertArrayToTfLiteIntArrayEiPKi'/>

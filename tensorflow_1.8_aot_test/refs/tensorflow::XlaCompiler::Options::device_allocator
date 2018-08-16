@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='273' type='xla::DeviceMemoryAllocator *'/>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='157' u='w' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<offset>576</offset>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='262'>// If not nullptr, this memory allocator can be used by the compiler for
+    // temporary allocations it might want to make during compilation.
+    //
+    // For example, the compiler may want to try out different algorithms and
+    // choose the fastest one, and it might run those algorithms over buffers
+    // created using this allocator.
+    //
+    // The compiler can function correctly without an explicit allocator given
+    // here, but on some devices (notably, GPUs), TensorFlow tends to eagerly
+    // allocate most or all available memory on the device, leaving none for the
+    // compiler to access, unless it can use TensorFlow&apos;s allocator.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='199' u='r' c='_ZN10tensorflow19XlaCompilationCache15BuildExecutableERKNS_11XlaCompiler7OptionsERKNS1_17CompilationResultEPSt10unique_ptrIN3xla15LocalExecutableESt14default_deleteISA_EE'/>

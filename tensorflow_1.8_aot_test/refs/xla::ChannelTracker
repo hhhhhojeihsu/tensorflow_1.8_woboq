@@ -1,0 +1,19 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/channel_tracker.h' l='43' ll='90'/>
+<size>72</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/channel_tracker.h' l='37'>// Tracks channels between computations in the XLA service. Channels
+// are associated with a unique handle and can be resolved from the handle for
+// later use.
+//
+// TODO(b/34027823): Destruct channels when all the associated computations that
+// communicate via each channel are destructed.</doc>
+<fun r='_ZN3xla14ChannelTrackerC1Ev'/>
+<fun r='_ZN3xla14ChannelTracker10NewChannelEv'/>
+<fun r='_ZN3xla14ChannelTracker12RegisterSendERKNS_13ChannelHandleE'/>
+<fun r='_ZN3xla14ChannelTracker12RegisterRecvERKNS_13ChannelHandleE'/>
+<fun r='_ZN3xla14ChannelTracker14AllocateHandleEv'/>
+<fun r='_ZN3xla14ChannelTracker20RegisterSendInternalERKNS_13ChannelHandleE'/>
+<fun r='_ZN3xla14ChannelTracker20RegisterRecvInternalERKNS_13ChannelHandleE'/>
+<mbr r='xla::ChannelTracker::channel_mutex_' o='0' t='tensorflow::mutex'/>
+<mbr r='xla::ChannelTracker::next_channel_' o='128' t='int64'/>
+<mbr r='xla::ChannelTracker::opaque_to_channel_' o='192' t='std::map&lt;int64, Channel&gt;'/>
+<fun r='_ZN3xla14ChannelTrackerC1ERKS0_'/>

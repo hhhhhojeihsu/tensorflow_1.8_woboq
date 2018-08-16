@@ -1,0 +1,13 @@
+<def f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='62' type='static int tensorflow::TensorShapeRep::MaxDimensions()'/>
+<use f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='471' u='c' c='_ZNK10tensorflow11TensorShape24AsEigenDSizesWithPaddingEv'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='60'>// Maximum number of dimensions in a tensor.
+  // It&apos;s 254 because 255 = kUnknownRank is used to represent unknown rank.</doc>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='322' u='c' c='TFE_OpSetAttrShape'/>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='327' u='c' c='TFE_OpSetAttrShape'/>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='394' u='c' c='TFE_OpSetAttrShapeList'/>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='399' u='c' c='TFE_OpSetAttrShapeList'/>
+<use f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='61' u='c' c='_ZN10tensorflow15TensorShapeBase7IsValidERKNS_16TensorShapeProtoE'/>
+<use f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='87' u='c' c='_ZN10tensorflow15TensorShapeBase12IsValidShapeERKNS_16TensorShapeProtoE'/>
+<use f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='243' u='c' c='_ZN10tensorflow15TensorShapeBase6AddDimEx'/>
+<use f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='309' u='c' c='_ZN10tensorflow15TensorShapeBase9InsertDimEix'/>
+<use f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='489' u='c' c='_ZN10tensorflow15MakeShapeHelperEPKT_xPT0_'/>

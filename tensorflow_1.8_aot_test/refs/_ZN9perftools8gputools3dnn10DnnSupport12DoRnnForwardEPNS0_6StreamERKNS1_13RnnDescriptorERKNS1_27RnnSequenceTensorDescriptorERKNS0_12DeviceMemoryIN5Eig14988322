@@ -1,0 +1,31 @@
+<def f='tensorflow/tensorflow/stream_executor/dnn.h' l='2074' ll='2093' type='bool perftools::gputools::dnn::DnnSupport::DoRnnForward(perftools::gputools::Stream * stream, const dnn::RnnDescriptor &amp; rnn_desc, const dnn::RnnSequenceTensorDescriptor &amp; input_desc, const DeviceMemory&lt;Eigen::half&gt; &amp; input_data, const dnn::RnnStateTensorDescriptor &amp; input_h_desc, const DeviceMemory&lt;Eigen::half&gt; &amp; input_h_data, const dnn::RnnStateTensorDescriptor &amp; input_c_desc, const DeviceMemory&lt;Eigen::half&gt; &amp; input_c_data, const DeviceMemory&lt;Eigen::half&gt; &amp; params, const dnn::RnnSequenceTensorDescriptor &amp; output_desc, DeviceMemory&lt;Eigen::half&gt; * output_data, const dnn::RnnStateTensorDescriptor &amp; output_h_desc, DeviceMemory&lt;Eigen::half&gt; * output_h_data, const dnn::RnnStateTensorDescriptor &amp; output_c_desc, DeviceMemory&lt;Eigen::half&gt; * output_c_data, bool is_training, perftools::gputools::ScratchAllocator * reserve_space_allocator, perftools::gputools::ScratchAllocator * workspace_allocator, dnn::ProfileResult * output_profile_result)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='2045'>// Enqueue a forward operation of the RNN model onto the stream.
+  //
+  // Arguments:
+  //  stream: pointer to the stream where this operation should be enqueued to.
+  //  rnn_desc: a RNN descriptor created by createRnnDescriptor.
+  //  input_desc: descriptor for the input sequence.
+  //  input_data: the device memory region that contains the input data.
+  //  input_h_desc: descriptor for the input &quot;h&quot; state.
+  //  input_h_data: the device memory region that contains the input &quot;h&quot; data.
+  //  input_c_desc: descriptor for the input &quot;c&quot; state.
+  //  input_c_data: the device memory region that contains the input &quot;c&quot; data.
+  //    This must be specified for LSTM models.
+  //  params: the device memory region that contains the parameters used in this
+  //    model.
+  //  output_desc: descriptor for the output sequence.
+  //  output_data: the memory region that stores the output sequence data.
+  //  output_h_desc: descriptor for the output &quot;h&quot; state.
+  //  output_h_data: the memory region that stores the output &quot;h&quot; data.
+  //  output_c_desc: descriptor for the output &quot;c&quot; state.
+  //  output_c_data: the memory region that stores the output &quot;c&quot; data. This
+  //    must be specified for LSTM models.
+  //  is_training: whether this is used in training or inference. That decides
+  //    whether respace_space data need to be produced.
+  //  reserve_space_allocator: if &quot;is_training&quot; is true, an memory allocator
+  //    to create memory that holds the produced reserve_space. The caller is
+  //  retains the data and feed it to the backward pass.
+  //  workspace_allocator: an allocator to create temporary workspace used in
+  //    this kernel. The caller is responsible for retaining the memory long
+  //    enough for the lifespan of this operation, and recycles afterwards.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4803' u='c' c='_ZN9perftools8gputools6Stream14ThenRnnForwardERKNS0_3dnn13RnnDescriptorERKNS2_27RnnSequenceTensorDescriptorERKNS0_12DeviceMemoryIN5Eigen4halfEEERKNS2_11476233'/>

@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/debug/debug_io_utils.h' l='125' type='static bool tensorflow::DebugIO::IsDebugNodeGateOpen(const string &amp; watch_key, const std::vector&lt;string&gt; &amp; debug_urls)'/>
+<def f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='532' ll='549' type='static bool tensorflow::DebugIO::IsDebugNodeGateOpen(const string &amp; watch_key, const std::vector&lt;string&gt; &amp; debug_urls)'/>
+<doc f='tensorflow/tensorflow/core/debug/debug_io_utils.h' l='115'>// Determines whether a debug node needs to proceed given the current gRPC
+  // gating status.
+  //
+  // Args:
+  //   watch_key: debug tensor watch key, in the format of
+  //     tensor_name:debug_op, e.g., &quot;Weights:0:DebugIdentity&quot;.
+  //   debug_urls: the debug URLs of the debug node.
+  //
+  // Returns:
+  //   Whether this debug op should proceed.</doc>
+<use f='tensorflow/tensorflow/core/kernels/debug_ops.h' l='161' u='c' c='_ZN10tensorflow11BaseDebugOp15ApplyGrpcGatingEPNS_15OpKernelContextE'/>

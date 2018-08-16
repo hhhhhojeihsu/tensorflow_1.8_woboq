@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='221' type='::tensorflow::Status tensorflow::DirectSession::CreateExecutors(const tensorflow::CallableOptions &amp; callable_options, std::unique_ptr&lt;ExecutorsAndKeys&gt; * out_executors_and_keys, std::unique_ptr&lt;FunctionInfo&gt; * out_func_info, tensorflow::DirectSession::RunStateArgs * run_state_args)'/>
+<def f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1067' ll='1226' type='tensorflow::Status tensorflow::DirectSession::CreateExecutors(const tensorflow::CallableOptions &amp; callable_options, std::unique_ptr&lt;ExecutorsAndKeys&gt; * out_executors_and_keys, std::unique_ptr&lt;FunctionInfo&gt; * out_func_info, tensorflow::DirectSession::RunStateArgs * run_state_args)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1317' u='c' c='_ZN10tensorflow13DirectSession20GetOrCreateExecutorsENS_3gtl10ArraySliceISsEES3_S3_PPNS0_16ExecutorsAndKeysEPNS0_12RunStateArgsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1613' u='c' c='_ZN10tensorflow13DirectSession12MakeCallableERKNS_15CallableOptionsEPx'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='219'>// Creates a set of executors to run the subgraph defined by
+  // `callable_options`.</doc>

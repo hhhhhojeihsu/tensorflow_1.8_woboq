@@ -1,0 +1,72 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='158' type='static int64 xla::ShapeUtil::ElementsIn(const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='152'>// Returns the number of elements are contained within the provided shape;
+  // e.g. for rank 0 (scalars) the result is always 1. Note that sparse shapes
+  // may not actually be able to store this number of elements. See
+  // LayoutUtil::MaxSparseElements(shape) to obtain the maximum number of
+  // elements that can be stored in a sparse shape.
+  // Precondition: !IsTuple(shape)</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='653' u='c' c='_ZNK3xla7Literal13element_countERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='744' u='c' c='_ZNK3xla7Literal5Piece13element_countEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='857' u='c' c='_ZNK3xla7Literal5Piece4dataEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='870' u='c' c='_ZN3xla7Literal5Piece4dataEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1211' u='c' c='_ZN3xla7Literal10PopulateR1EN10tensorflow3gtl10ArraySliceIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1377' u='c' c='_ZNK3xla7Literal9ReplicateEx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/literal_util.cc' l='46' u='c' c='_ZN10tensorflow23CopyLiteralToHostTensorERKN3xla7LiteralEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='163' u='c' c='_ZN10tensorflow10XlaHelpers14ReshapeLiteralERKN3xla7LiteralENS_3gtl10ArraySliceIxEEPS2_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='164' u='c' c='_ZN10tensorflow10XlaHelpers14ReshapeLiteralERKN3xla7LiteralENS_3gtl10ArraySliceIxEEPS2_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='205' u='c' c='_ZN10tensorflowL20LiteralToInt64VectorERKN3xla7LiteralEPSt6vectorIxSaIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/index_util.cc' l='100' u='c' c='_ZN3xla9IndexUtil34LinearIndexToMultidimensionalIndexERKNS_5ShapeEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='777' u='c' c='_ZNK3xla7Literal7ReshapeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='778' u='c' c='_ZNK3xla7Literal7ReshapeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1071' u='c' c='_ZNK3xla7Literal21GetFirstScalarLiteralEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='2130' u='c' c='_ZNK3xla7Literal15GetR1U8AsStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='210' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor7FlattenEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='210' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor7FlattenEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='332' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor18ReplaceWithBitcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='333' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor18ReplaceWithBitcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='526' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor14HandleConstantEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1128' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1129' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1140' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1141' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1703' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1704' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='167' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='440' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1886' u='c' c='_ZN3xla3cpu9IrEmitter11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1723' u='c' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1724' u='c' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1731' u='c' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1732' u='c' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/gpu/parallel_loop_emitter.cc' l='110' u='c' c='_ZN3xla3gpu19ParallelLoopEmitter29EmitIndexAndSetExitBasicBlockEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/gpu/partition_assignment.cc' l='48' u='c' c='_ZN3xla3gpu25CalculateLaunchDimensionsERKNS_5ShapeERKN9perftools8gputools17DeviceDescriptionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='90' u='c' c='_ZN3xla15HloCostAnalysis19HandleElementwiseOpEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='216' u='c' c='_ZN3xla15HloCostAnalysis9HandleDotEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='217' u='c' c='_ZN3xla15HloCostAnalysis9HandleDotEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='243' u='c' c='_ZN3xla15HloCostAnalysis9HandleMapEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='260' u='c' c='_ZN3xla15HloCostAnalysis12HandleReduceEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='261' u='c' c='_ZN3xla15HloCostAnalysis12HandleReduceEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='285' u='c' c='_ZN3xla15HloCostAnalysis18HandleReduceWindowEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='309' u='c' c='_ZN3xla15HloCostAnalysis22HandleSelectAndScatterEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='497' u='c' c='_ZN3xla15HloCostAnalysis9HandleFftEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='511' u='c' c='_ZN3xla15HloCostAnalysis21HandleCrossReplicaSumEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='523' u='c' c='_ZN3xla15HloCostAnalysis9HandleRngEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='575' u='c' c='_ZN3xla15HloCostAnalysis10HandleSortEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='759' u='c' c='_ZN3xla14HloInstruction13CreateReshapeERKNS_5ShapeEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='760' u='c' c='_ZN3xla14HloInstruction13CreateReshapeERKNS_5ShapeEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2148' u='c' c='_ZNK3xla14HloInstruction16OperandsToStringERKNS_15HloPrintOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='208' u='c' c='_ZN3xla13ShapeVerifier13HandleReshapeEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='209' u='c' c='_ZN3xla13ShapeVerifier13HandleReshapeEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='120' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index18LinearValidOnShapeERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='120' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index18LinearValidOnShapeERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2322' u='c' c='_ZN3xla14ShapeInference17InferReshapeShapeERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2322' u='c' c='_ZN3xla14ShapeInference17InferReshapeShapeERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2326' u='c' c='_ZN3xla14ShapeInference17InferReshapeShapeERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2327' u='c' c='_ZN3xla14ShapeInference17InferReshapeShapeERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='372' ll='378' type='static int64 xla::ShapeUtil::ElementsIn(const xla::Shape &amp; shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='381' u='c' c='_ZN3xla9ShapeUtil15HasZeroElementsERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='751' u='c' c='_ZN3xla9ShapeUtil18ByteSizeOfElementsERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1133' u='c' c='_ZN3xla9ShapeUtil16ReshapeIsBitcastERKNS_5ShapeES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1133' u='c' c='_ZN3xla9ShapeUtil16ReshapeIsBitcastERKNS_5ShapeES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1134' u='c' c='_ZN3xla9ShapeUtil16ReshapeIsBitcastERKNS_5ShapeES3_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='372'>/* static */</doc>

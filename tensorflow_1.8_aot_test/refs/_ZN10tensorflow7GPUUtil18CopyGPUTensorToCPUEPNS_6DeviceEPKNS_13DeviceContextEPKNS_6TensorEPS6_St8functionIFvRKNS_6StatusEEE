@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.h' l='49' type='static void tensorflow::GPUUtil::CopyGPUTensorToCPU(tensorflow::Device * gpu_device, const tensorflow::DeviceContext * device_context, const tensorflow::Tensor * gpu_tensor, tensorflow::Tensor * cpu_tensor, StatusCallback done)'/>
+<def f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='259' ll='301' type='static void tensorflow::GPUUtil::CopyGPUTensorToCPU(tensorflow::Device * gpu_device, const tensorflow::DeviceContext * device_context, const tensorflow::Tensor * gpu_tensor, tensorflow::Tensor * cpu_tensor, StatusCallback done)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='403' u='c' c='_ZN10tensorflow7GPUUtil8ChecksumEPNS_6DeviceEPKNS_13DeviceContextERKNS_6TensorE'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='258'>// static</doc>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.h' l='45'>// Copies the data in &apos;gpu_tensor&apos; into &apos;cpu_tensor&apos;.
+  // &apos;gpu_tensor&apos;&apos;s backing memory must be on &apos;gpu_device&apos; and
+  // &apos;cpu_tensor&apos; must be allocated to be of the same size as
+  // &apos;gpu_tensor&apos;. Synchronous: may block.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util_platform_specific.cc' l='36' u='c' c='_ZN10tensorflow16GPUDeviceContext21CopyDeviceTensorToCPUEPKNS_6TensorENS_11StringPieceEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>

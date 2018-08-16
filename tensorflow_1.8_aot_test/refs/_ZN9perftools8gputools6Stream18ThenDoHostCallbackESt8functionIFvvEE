@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream.h' l='1984' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenDoHostCallback(std::function&lt;void ()&gt; callback)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream.h' l='1974'>// Entrains onto the stream a callback to the host (from the device).
+  // Host callbacks block/occupy the stream just as device functions
+  // (execute one at a time, block later stream operations).
+  //
+  // Behavior is undefined when synchronizing using OpenCL user events.
+  // Behavior is undefined if host callbacks call device routines or insert
+  // them into any stream.
+  //
+  // On certain platforms, ThenDoHostCallback is expected to have significant
+  // negative effects on performance.</doc>
+<use f='tensorflow/tensorflow/stream_executor/host/host_timer.cc' l='29' u='c' c='_ZN9perftools8gputools4host9HostTimer5StartEPNS0_6StreamE'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_timer.cc' l='33' u='c' c='_ZN9perftools8gputools4host9HostTimer4StopEPNS0_6StreamE'/>
+<def f='tensorflow/tensorflow/stream_executor/stream.cc' l='5038' ll='5048' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenDoHostCallback(std::function&lt;void ()&gt; callback)'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5159' u='c' c='_ZN9perftools8gputools6Stream29ThenEnqueueOnBackgroundThreadESt8functionIFvPNS0_14StreamExecutorEEE'/>

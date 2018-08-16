@@ -1,0 +1,14 @@
+<def f='tensorflow/tensorflow/stream_executor/dnn.h' l='1650' ll='1655' type='bool perftools::gputools::dnn::DnnSupport::DoActivate(perftools::gputools::Stream * stream, perftools::gputools::dnn::ActivationMode activation_mode, const perftools::gputools::dnn::BatchDescriptor &amp; dimensions, const DeviceMemory&lt;float&gt; &amp; input_data, DeviceMemory&lt;float&gt; * output_data, uint64 options)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1638'>// Applies an activation function (see ActivationMode) to all of the values
+  // held on the device in &apos;input_data&apos;, whose dimensions are described by
+  // &apos;dimensions&apos;.
+  //
+  // Arguments (all borrowed):
+  //  stream: borrowed pointer to the stream that the &apos;activate&apos; operation
+  //    should be enqueued onto.
+  //  activation_mode: Type of activation to perform.
+  //  input_data: un-owned device memory region which contains the
+  //    activate input.
+  //  output_data: un-owned device memory region in which to place the
+  //    activate result.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='1581' u='c' c='_ZN9perftools8gputools6Stream23ThenActivateWithOptionsENS0_3dnn14ActivationModeERKNS2_15BatchDescriptorERKNS0_12DeviceMemoryIfEEPS8_y'/>

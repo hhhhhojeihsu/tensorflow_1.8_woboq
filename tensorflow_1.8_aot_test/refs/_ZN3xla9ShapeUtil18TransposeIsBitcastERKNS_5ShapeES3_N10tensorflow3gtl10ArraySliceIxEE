@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='540' type='static bool xla::ShapeUtil::TransposeIsBitcast(const xla::Shape &amp; input_shape, const xla::Shape &amp; output_shape, tensorflow::gtl::ArraySlice&lt;int64&gt; dimension_mapping)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='535'>// Returns whether a transpose from input_shape to output_shape with dimension
+  // mapping &quot;dimension_mapping&quot; produces a result which is bit-wise identical
+  // to its input and thus may be replaced with a bitcast.
+  //
+  // Precondition: Both input_shape and output_shape have explicit layouts.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='70' u='c' c='_ZN3xla12_GLOBAL__N_118TransposeIsBitcastEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='205' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index22SourceIndexOfTransposeERKNS_5ShapeES5_N10tensorflow3gtl10ArraySliceIxEEPN4llvm9IRBuilderINSA_14ConstantFolderENSA_24IR13174488'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1084' ll='1117' type='static bool xla::ShapeUtil::TransposeIsBitcast(const xla::Shape &amp; input_shape, const xla::Shape &amp; output_shape, tensorflow::gtl::ArraySlice&lt;int64&gt; dimension_mapping)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1084'>/* static */</doc>

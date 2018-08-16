@@ -1,0 +1,25 @@
+<dec f='include/python3.5m/objimpl.h' l='97' type='void * PyObject_Malloc(size_t size)'/>
+<doc f='include/python3.5m/objimpl.h' l='74'>/* Functions to call the same malloc/realloc/free as used by Python&apos;s
+   object allocator.  If WITH_PYMALLOC is enabled, these may differ from
+   the platform malloc/realloc/free.  The Python object allocator is
+   designed for fast, cache-conscious allocation of many &quot;small&quot; objects,
+   and with low hidden memory overhead.
+
+   PyObject_Malloc(0) returns a unique non-NULL pointer if possible.
+
+   PyObject_Realloc(NULL, n) acts like PyObject_Malloc(n).
+   PyObject_Realloc(p != NULL, 0) does not return  NULL, or free the memory
+   at p.
+
+   Returned pointers must be checked for NULL explicitly; no action is
+   performed on failure other than to return NULL (no warning it printed, no
+   exception is set, etc).
+
+   For allocating objects, use PyObject_{New, NewVar} instead whenever
+   possible.  The PyObject_{Malloc, Realloc, Free} family is exposed
+   so that you can exploit Python&apos;s small-block allocator for non-object
+   uses.  If you must use these routines to allocate object memory, make sure
+   the object gets initialized via PyObject_{Init, InitVar} after obtaining
+   the raw memory.
+*/</doc>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='914' macro='1' u='c'/>

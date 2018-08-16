@@ -1,0 +1,736 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>kernel.h source code [tensorflow/tensorflow/stream_executor/kernel.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="perftools::gputools::IsDeviceMemoryPointer,perftools::gputools::IsDeviceMemoryValueLike,perftools::gputools::IsSharedDeviceMemory,perftools::gputools::KernelArg,perftools::gputools::KernelArgIterator,perftools::gputools::KernelArgsArray,perftools::gputools::KernelArgsArrayBase,perftools::gputools::KernelBase,perftools::gputools::KernelInvocationChecker,perftools::gputools::KernelMetadata,perftools::gputools::KernelParamsOk,perftools::gputools::TypedKernel "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/stream_executor/kernel.h'; var root_path = '../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>tensorflow</a>/<a href='..'>tensorflow</a>/<a href='./'>stream_executor</a>/<a href='kernel.h.html'>kernel.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// Suite of datatypes to represent data-parallel kernel objects (code entities).</i></td></tr>
+<tr><th id="17">17</th><td><i>// Kernel is the untyped variant, whereas TypedKernel takes a type signature</i></td></tr>
+<tr><th id="18">18</th><td><i>// to do some template-based helper generation and give compile-time type</i></td></tr>
+<tr><th id="19">19</th><td><i>// checking for kernel launch parameters.</i></td></tr>
+<tr><th id="20">20</th><td><i>//</i></td></tr>
+<tr><th id="21">21</th><td><i>// Users typically don't see KernelBase, they see typed kernels, analogous to a</i></td></tr>
+<tr><th id="22">22</th><td><i>// typed function pointer. TypedKernels express their argument types via</i></td></tr>
+<tr><th id="23">23</th><td><i>// template parameters like so:</i></td></tr>
+<tr><th id="24">24</th><td><i>//</i></td></tr>
+<tr><th id="25">25</th><td><i>//  TypedKernel&lt;DeviceMemory&lt;int&gt;*, int&gt;</i></td></tr>
+<tr><th id="26">26</th><td><i>//</i></td></tr>
+<tr><th id="27">27</th><td><i>// Which expresses a data parallel kernel signature for:</i></td></tr>
+<tr><th id="28">28</th><td><i>//</i></td></tr>
+<tr><th id="29">29</th><td><i>//  void(int*, int);</i></td></tr>
+<tr><th id="30">30</th><td><i>//</i></td></tr>
+<tr><th id="31">31</th><td><i>// And for a const memory region:</i></td></tr>
+<tr><th id="32">32</th><td><i>//</i></td></tr>
+<tr><th id="33">33</th><td><i>//  TypedKernel&lt;const DeviceMemory&lt;int&gt;&amp;, int&gt;</i></td></tr>
+<tr><th id="34">34</th><td><i>//</i></td></tr>
+<tr><th id="35">35</th><td><i>// Corresponds to a data parallel kernel signature for:</i></td></tr>
+<tr><th id="36">36</th><td><i>//</i></td></tr>
+<tr><th id="37">37</th><td><i>//  void(const int*, int)</i></td></tr>
+<tr><th id="38">38</th><td><i>//</i></td></tr>
+<tr><th id="39">39</th><td><i>// Note that kernels always have a void return type, so results typically must</i></td></tr>
+<tr><th id="40">40</th><td><i>// be memcpy'ied from device memory to the host.</i></td></tr>
+<tr><th id="41">41</th><td><i>//</i></td></tr>
+<tr><th id="42">42</th><td><i>// Also note that a scalar integer residing in device memory and an array of</i></td></tr>
+<tr><th id="43">43</th><td><i>// integers residing in device memory have the same signature: DeviceMemory&lt;T&gt;.</i></td></tr>
+<tr><th id="44">44</th><td><i>// However, in the future, checks may be added for additional safety that arrays</i></td></tr>
+<tr><th id="45">45</th><td><i>// of minimum sizes are passed when those minimum sizes are contractually</i></td></tr>
+<tr><th id="46">46</th><td><i>// expected by the kernel.</i></td></tr>
+<tr><th id="47">47</th><td><i>//</i></td></tr>
+<tr><th id="48">48</th><td><i>// For user-defined types whose definitions are appropriately shared between the</i></td></tr>
+<tr><th id="49">49</th><td><i>// host code doing the launching and the kernel code being launched, the user</i></td></tr>
+<tr><th id="50">50</th><td><i>// defined types are similarly permitted to be expressed as residing in device</i></td></tr>
+<tr><th id="51">51</th><td><i>// memory:</i></td></tr>
+<tr><th id="52">52</th><td><i>//</i></td></tr>
+<tr><th id="53">53</th><td><i>//  TypedKernel&lt;DeviceMemory&lt;MyUserDefinedStructure&gt;&gt;</i></td></tr>
+<tr><th id="54">54</th><td><i>//</i></td></tr>
+<tr><th id="55">55</th><td><i>// And, when the alignment and padding are agreed upon, POD types will also be</i></td></tr>
+<tr><th id="56">56</th><td><i>// able to be passed by value; for example, it is a common idiom to specify a</i></td></tr>
+<tr><th id="57">57</th><td><i>// bunch of options simultaneously with a structure:</i></td></tr>
+<tr><th id="58">58</th><td><i>//</i></td></tr>
+<tr><th id="59">59</th><td><i>//  TypedKernel&lt;MyOptionsStructurePassedByValue, DeviceMemory&lt;float&gt;&gt;</i></td></tr>
+<tr><th id="60">60</th><td><i>//</i></td></tr>
+<tr><th id="61">61</th><td><i>// Which corresponds to a data parallel kernel signature like:</i></td></tr>
+<tr><th id="62">62</th><td><i>//</i></td></tr>
+<tr><th id="63">63</th><td><i>//  void(MyOptionsStructurePassedByValue value, float *result);</i></td></tr>
+<tr><th id="64">64</th><td><i>//</i></td></tr>
+<tr><th id="65">65</th><td><i>// Users typically won't need to type out the TypedKernel signature in full, it</i></td></tr>
+<tr><th id="66">66</th><td><i>// will be typedef'd by automatically generated code; for example, see</i></td></tr>
+<tr><th id="67">67</th><td><i>// perftools::gputools::executor_sample::VecReduceAddKernel.</i></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><u>#<span data-ppcond="69">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_KERNEL_H_">TENSORFLOW_STREAM_EXECUTOR_KERNEL_H_</span></u></td></tr>
+<tr><th id="70">70</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_STREAM_EXECUTOR_KERNEL_H_" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_KERNEL_H_">TENSORFLOW_STREAM_EXECUTOR_KERNEL_H_</dfn></u></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><u>#include <a href="../../../include/c++/5/array.html">&lt;array&gt;</a></u></td></tr>
+<tr><th id="73">73</th><td><u>#include <a href="../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="74">74</th><td><u>#include <a href="../../../include/c++/5/tuple.html">&lt;tuple&gt;</a></u></td></tr>
+<tr><th id="75">75</th><td><u>#include <a href="../../../include/c++/5/type_traits.html">&lt;type_traits&gt;</a></u></td></tr>
+<tr><th id="76">76</th><td><u>#include <a href="../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td><u>#include <a href="device_memory.h.html">"tensorflow/stream_executor/device_memory.h"</a></u></td></tr>
+<tr><th id="79">79</th><td><u>#include <a href="kernel_cache_config.h.html">"tensorflow/stream_executor/kernel_cache_config.h"</a></u></td></tr>
+<tr><th id="80">80</th><td><u>#include <a href="lib/array_slice.h.html">"tensorflow/stream_executor/lib/array_slice.h"</a></u></td></tr>
+<tr><th id="81">81</th><td><u>#include <a href="lib/inlined_vector.h.html">"tensorflow/stream_executor/lib/inlined_vector.h"</a></u></td></tr>
+<tr><th id="82">82</th><td><u>#include <a href="lib/stringpiece.h.html">"tensorflow/stream_executor/lib/stringpiece.h"</a></u></td></tr>
+<tr><th id="83">83</th><td><u>#include <a href="platform/port.h.html">"tensorflow/stream_executor/platform/port.h"</a></u></td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><b>namespace</b> <span class="namespace">perftools</span> {</td></tr>
+<tr><th id="86">86</th><td><b>namespace</b> <span class="namespace">gputools</span> {</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><b>class</b> <a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemoryBase" title='perftools::gputools::DeviceMemoryBase' data-ref="perftools::gputools::DeviceMemoryBase" id="perftools::gputools::DeviceMemoryBase">DeviceMemoryBase</a>;</td></tr>
+<tr><th id="89">89</th><td><b>template</b> &lt;<b>typename</b> ElemT&gt;</td></tr>
+<tr><th id="90">90</th><td><b>class</b> <a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemory" title='perftools::gputools::DeviceMemory' data-ref="perftools::gputools::DeviceMemory" id="perftools::gputools::DeviceMemory">DeviceMemory</a>;</td></tr>
+<tr><th id="91">91</th><td><b>class</b> <a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor" id="perftools::gputools::StreamExecutor">StreamExecutor</a>;</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td><b>namespace</b> <span class="namespace">internal</span> {</td></tr>
+<tr><th id="94">94</th><td><b>class</b> <a class="type" href="stream_executor_internal.h.html#perftools::gputools::internal::KernelInterface" title='perftools::gputools::internal::KernelInterface' data-ref="perftools::gputools::internal::KernelInterface" id="perftools::gputools::internal::KernelInterface">KernelInterface</a>;</td></tr>
+<tr><th id="95">95</th><td>}  <i>// namespace internal</i></td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td><i>// KernelMetadata holds runtime-queryable attributes of a loaded kernel, such as</i></td></tr>
+<tr><th id="98">98</th><td><i>// registers allocated, shared memory used, etc.</i></td></tr>
+<tr><th id="99">99</th><td><i>// Not all platforms support reporting of all information, so each accessor</i></td></tr>
+<tr><th id="100">100</th><td><i>// returns false if the associated field is not populated in the underlying</i></td></tr>
+<tr><th id="101">101</th><td><i>// platform.</i></td></tr>
+<tr><th id="102">102</th><td><b>class</b> <dfn class="type def" id="perftools::gputools::KernelMetadata" title='perftools::gputools::KernelMetadata' data-ref="perftools::gputools::KernelMetadata">KernelMetadata</dfn> {</td></tr>
+<tr><th id="103">103</th><td> <b>public</b>:</td></tr>
+<tr><th id="104">104</th><td>  <dfn class="decl def" id="_ZN9perftools8gputools14KernelMetadataC1Ev" title='perftools::gputools::KernelMetadata::KernelMetadata' data-ref="_ZN9perftools8gputools14KernelMetadataC1Ev">KernelMetadata</dfn>()</td></tr>
+<tr><th id="105">105</th><td>      : <a class="member" href="#perftools::gputools::KernelMetadata::has_registers_per_thread_" title='perftools::gputools::KernelMetadata::has_registers_per_thread_' data-ref="perftools::gputools::KernelMetadata::has_registers_per_thread_">has_registers_per_thread_</a>(<b>false</b>), <a class="member" href="#perftools::gputools::KernelMetadata::has_shared_memory_bytes_" title='perftools::gputools::KernelMetadata::has_shared_memory_bytes_' data-ref="perftools::gputools::KernelMetadata::has_shared_memory_bytes_">has_shared_memory_bytes_</a>(<b>false</b>) {}</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>  <i>// Returns the number of registers used per thread executing this kernel.</i></td></tr>
+<tr><th id="108">108</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK9perftools8gputools14KernelMetadata20registers_per_threadEPi" title='perftools::gputools::KernelMetadata::registers_per_thread' data-ref="_ZNK9perftools8gputools14KernelMetadata20registers_per_threadEPi">registers_per_thread</dfn>(<em>int</em> *<dfn class="local col1 decl" id="1461registers_per_thread" title='registers_per_thread' data-type='int *' data-ref="1461registers_per_thread">registers_per_thread</dfn>) <em>const</em>;</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>  <i>// Sets the number of registers used per thread executing this kernel.</i></td></tr>
+<tr><th id="111">111</th><td>  <em>void</em> <dfn class="decl" id="_ZN9perftools8gputools14KernelMetadata24set_registers_per_threadEi" title='perftools::gputools::KernelMetadata::set_registers_per_thread' data-ref="_ZN9perftools8gputools14KernelMetadata24set_registers_per_threadEi">set_registers_per_thread</dfn>(<em>int</em> <dfn class="local col2 decl" id="1462registers_per_thread" title='registers_per_thread' data-type='int' data-ref="1462registers_per_thread">registers_per_thread</dfn>);</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>  <i>// Returns the amount of [static] shared memory used per block executing this</i></td></tr>
+<tr><th id="114">114</th><td><i>  // kernel. Note that dynamic shared memory allocations are not (and can not)</i></td></tr>
+<tr><th id="115">115</th><td><i>  // be reported here (since they're not specified until kernel launch time).</i></td></tr>
+<tr><th id="116">116</th><td>  <em>bool</em> <dfn class="decl" id="_ZNK9perftools8gputools14KernelMetadata19shared_memory_bytesEPi" title='perftools::gputools::KernelMetadata::shared_memory_bytes' data-ref="_ZNK9perftools8gputools14KernelMetadata19shared_memory_bytesEPi">shared_memory_bytes</dfn>(<em>int</em> *<dfn class="local col3 decl" id="1463shared_memory_bytes" title='shared_memory_bytes' data-type='int *' data-ref="1463shared_memory_bytes">shared_memory_bytes</dfn>) <em>const</em>;</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td>  <i>// Sets the amount of [static] shared memory used per block executing this</i></td></tr>
+<tr><th id="119">119</th><td><i>  // kernel.</i></td></tr>
+<tr><th id="120">120</th><td>  <em>void</em> <dfn class="decl" id="_ZN9perftools8gputools14KernelMetadata23set_shared_memory_bytesEi" title='perftools::gputools::KernelMetadata::set_shared_memory_bytes' data-ref="_ZN9perftools8gputools14KernelMetadata23set_shared_memory_bytesEi">set_shared_memory_bytes</dfn>(<em>int</em> <dfn class="local col4 decl" id="1464shared_memory_bytes" title='shared_memory_bytes' data-type='int' data-ref="1464shared_memory_bytes">shared_memory_bytes</dfn>);</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td> <b>private</b>:</td></tr>
+<tr><th id="123">123</th><td>  <i>// Holds the value returned by registers_per_thread above.</i></td></tr>
+<tr><th id="124">124</th><td>  <em>bool</em> <dfn class="decl" id="perftools::gputools::KernelMetadata::has_registers_per_thread_" title='perftools::gputools::KernelMetadata::has_registers_per_thread_' data-ref="perftools::gputools::KernelMetadata::has_registers_per_thread_">has_registers_per_thread_</dfn>;</td></tr>
+<tr><th id="125">125</th><td>  <em>int</em> <dfn class="decl" id="perftools::gputools::KernelMetadata::registers_per_thread_" title='perftools::gputools::KernelMetadata::registers_per_thread_' data-ref="perftools::gputools::KernelMetadata::registers_per_thread_">registers_per_thread_</dfn>;</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>  <i>// Holds the value returned by shared_memory_bytes above.</i></td></tr>
+<tr><th id="128">128</th><td>  <em>bool</em> <dfn class="decl" id="perftools::gputools::KernelMetadata::has_shared_memory_bytes_" title='perftools::gputools::KernelMetadata::has_shared_memory_bytes_' data-ref="perftools::gputools::KernelMetadata::has_shared_memory_bytes_">has_shared_memory_bytes_</dfn>;</td></tr>
+<tr><th id="129">129</th><td>  <a class="typedef" href="../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl" id="perftools::gputools::KernelMetadata::shared_memory_bytes_" title='perftools::gputools::KernelMetadata::shared_memory_bytes_' data-ref="perftools::gputools::KernelMetadata::shared_memory_bytes_">shared_memory_bytes_</dfn>;</td></tr>
+<tr><th id="130">130</th><td>};</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><i>// A data-parallel kernel (code entity) for launching via the StreamExecutor,</i></td></tr>
+<tr><th id="133">133</th><td><i>// analogous to a void* device function pointer. See TypedKernel for the typed</i></td></tr>
+<tr><th id="134">134</th><td><i>// variant.</i></td></tr>
+<tr><th id="135">135</th><td><i>//</i></td></tr>
+<tr><th id="136">136</th><td><i>// Thread-compatible.</i></td></tr>
+<tr><th id="137">137</th><td><b>class</b> <dfn class="type def" id="perftools::gputools::KernelBase" title='perftools::gputools::KernelBase' data-ref="perftools::gputools::KernelBase">KernelBase</dfn> {</td></tr>
+<tr><th id="138">138</th><td> <b>public</b>:</td></tr>
+<tr><th id="139">139</th><td>  <dfn class="decl" id="_ZN9perftools8gputools10KernelBaseC1EOS1_" title='perftools::gputools::KernelBase::KernelBase' data-ref="_ZN9perftools8gputools10KernelBaseC1EOS1_">KernelBase</dfn>(<a class="type" href="#perftools::gputools::KernelBase" title='perftools::gputools::KernelBase' data-ref="perftools::gputools::KernelBase">KernelBase</a> &amp;&amp;<dfn class="local col5 decl" id="1465from" title='from' data-type='perftools::gputools::KernelBase &amp;&amp;' data-ref="1465from">from</dfn>);</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>  <i>// Constructs an "empty" (not-yet-loaded) kernel instance.</i></td></tr>
+<tr><th id="142">142</th><td><i>  //</i></td></tr>
+<tr><th id="143">143</th><td><i>  // parent is the StreamExecutor that will be responsible for loading the</i></td></tr>
+<tr><th id="144">144</th><td><i>  // implementation of this kernel. It must not be null.</i></td></tr>
+<tr><th id="145">145</th><td>  <b>explicit</b> <dfn class="decl" id="_ZN9perftools8gputools10KernelBaseC1EPNS0_14StreamExecutorE" title='perftools::gputools::KernelBase::KernelBase' data-ref="_ZN9perftools8gputools10KernelBaseC1EPNS0_14StreamExecutorE">KernelBase</dfn>(<a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a> *<dfn class="local col6 decl" id="1466parent" title='parent' data-type='perftools::gputools::StreamExecutor *' data-ref="1466parent">parent</dfn>);</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>  <i>// Test-only constructor that can take a mock KernelInterface implementation.</i></td></tr>
+<tr><th id="148">148</th><td>  <dfn class="decl" id="_ZN9perftools8gputools10KernelBaseC1EPNS0_14StreamExecutorEPNS0_8internal15KernelInterfaceE" title='perftools::gputools::KernelBase::KernelBase' data-ref="_ZN9perftools8gputools10KernelBaseC1EPNS0_14StreamExecutorEPNS0_8internal15KernelInterfaceE">KernelBase</dfn>(<a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a> *<dfn class="local col7 decl" id="1467parent" title='parent' data-type='perftools::gputools::StreamExecutor *' data-ref="1467parent">parent</dfn>, <span class="namespace">internal::</span><a class="type" href="stream_executor_internal.h.html#perftools::gputools::internal::KernelInterface" title='perftools::gputools::internal::KernelInterface' data-ref="perftools::gputools::internal::KernelInterface">KernelInterface</a> *<dfn class="local col8 decl" id="1468implementation" title='implementation' data-type='internal::KernelInterface *' data-ref="1468implementation">implementation</dfn>);</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>  <i>// Releases resources associated with the kernel instance (i.e.</i></td></tr>
+<tr><th id="151">151</th><td><i>  // platform-specific implementation).</i></td></tr>
+<tr><th id="152">152</th><td>  <dfn class="decl" id="_ZN9perftools8gputools10KernelBaseD1Ev" title='perftools::gputools::KernelBase::~KernelBase' data-ref="_ZN9perftools8gputools10KernelBaseD1Ev">~KernelBase</dfn>();</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>  <i>// Returns the number of parameters that this kernel accepts. (Arity refers to</i></td></tr>
+<tr><th id="155">155</th><td><i>  // nullary, unary, ...).</i></td></tr>
+<tr><th id="156">156</th><td>  <em>unsigned</em> <dfn class="decl" id="_ZNK9perftools8gputools10KernelBase5ArityEv" title='perftools::gputools::KernelBase::Arity' data-ref="_ZNK9perftools8gputools10KernelBase5ArityEv">Arity</dfn>() <em>const</em>;</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>  <i>// Returns the StreamExecutor that represents the platform this kernel</i></td></tr>
+<tr><th id="159">159</th><td><i>  // executes upon.</i></td></tr>
+<tr><th id="160">160</th><td>  <a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a> *<dfn class="decl def" id="_ZNK9perftools8gputools10KernelBase6parentEv" title='perftools::gputools::KernelBase::parent' data-ref="_ZNK9perftools8gputools10KernelBase6parentEv">parent</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#perftools::gputools::KernelBase::parent_" title='perftools::gputools::KernelBase::parent_' data-ref="perftools::gputools::KernelBase::parent_">parent_</a>; }</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td>  <i>// Returns a const pointer to the (opaque) platform-dependent implementation.</i></td></tr>
+<tr><th id="163">163</th><td>  <em>const</em> <span class="namespace">internal::</span><a class="type" href="stream_executor_internal.h.html#perftools::gputools::internal::KernelInterface" title='perftools::gputools::internal::KernelInterface' data-ref="perftools::gputools::internal::KernelInterface">KernelInterface</a> *<dfn class="decl def" id="_ZNK9perftools8gputools10KernelBase14implementationEv" title='perftools::gputools::KernelBase::implementation' data-ref="_ZNK9perftools8gputools10KernelBase14implementationEv">implementation</dfn>() <em>const</em> {</td></tr>
+<tr><th id="164">164</th><td>    <b>return</b> <a class="member" href="#perftools::gputools::KernelBase::implementation_" title='perftools::gputools::KernelBase::implementation_' data-ref="perftools::gputools::KernelBase::implementation_">implementation_</a>.<a class="ref" href="../../../include/c++/5/bits/unique_ptr.h.html#_ZNKSt10unique_ptr3getEv" title='std::unique_ptr::get' data-ref="_ZNKSt10unique_ptr3getEv">get</a>();</td></tr>
+<tr><th id="165">165</th><td>  }</td></tr>
+<tr><th id="166">166</th><td></td></tr>
+<tr><th id="167">167</th><td>  <i>// Returns a non-const pointer to the (opaque) platform-dependent</i></td></tr>
+<tr><th id="168">168</th><td><i>  // implementation.</i></td></tr>
+<tr><th id="169">169</th><td>  <span class="namespace">internal::</span><a class="type" href="stream_executor_internal.h.html#perftools::gputools::internal::KernelInterface" title='perftools::gputools::internal::KernelInterface' data-ref="perftools::gputools::internal::KernelInterface">KernelInterface</a> *<dfn class="decl def" id="_ZN9perftools8gputools10KernelBase14implementationEv" title='perftools::gputools::KernelBase::implementation' data-ref="_ZN9perftools8gputools10KernelBase14implementationEv">implementation</dfn>() { <b>return</b> <a class="member" href="#perftools::gputools::KernelBase::implementation_" title='perftools::gputools::KernelBase::implementation_' data-ref="perftools::gputools::KernelBase::implementation_">implementation_</a>.<a class="ref" href="../../../include/c++/5/bits/unique_ptr.h.html#_ZNKSt10unique_ptr3getEv" title='std::unique_ptr::get' data-ref="_ZNKSt10unique_ptr3getEv">get</a>(); }</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td>  <em>void</em> <dfn class="decl def" id="_ZN9perftools8gputools10KernelBase12set_metadataERKNS0_14KernelMetadataE" title='perftools::gputools::KernelBase::set_metadata' data-ref="_ZN9perftools8gputools10KernelBase12set_metadataERKNS0_14KernelMetadataE">set_metadata</dfn>(<em>const</em> <a class="type" href="#perftools::gputools::KernelMetadata" title='perftools::gputools::KernelMetadata' data-ref="perftools::gputools::KernelMetadata">KernelMetadata</a> &amp;<dfn class="local col9 decl" id="1469metadata" title='metadata' data-type='const perftools::gputools::KernelMetadata &amp;' data-ref="1469metadata">metadata</dfn>) { <a class="member" href="#perftools::gputools::KernelBase::metadata_" title='perftools::gputools::KernelBase::metadata_' data-ref="perftools::gputools::KernelBase::metadata_">metadata_</a> <a class="ref" href="#102" title='perftools::gputools::KernelMetadata::operator=' data-ref="_ZN9perftools8gputools14KernelMetadataaSERKS1_">=</a> <a class="local col9 ref" href="#1469metadata" title='metadata' data-ref="1469metadata">metadata</a>; }</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>  <em>const</em> <a class="type" href="#perftools::gputools::KernelMetadata" title='perftools::gputools::KernelMetadata' data-ref="perftools::gputools::KernelMetadata">KernelMetadata</a> &amp;<dfn class="decl def" id="_ZNK9perftools8gputools10KernelBase8metadataEv" title='perftools::gputools::KernelBase::metadata' data-ref="_ZNK9perftools8gputools10KernelBase8metadataEv">metadata</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#perftools::gputools::KernelBase::metadata_" title='perftools::gputools::KernelBase::metadata_' data-ref="perftools::gputools::KernelBase::metadata_">metadata_</a>; }</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>  <i>// Sets the preferred cache configuration for a kernel. This is just a</i></td></tr>
+<tr><th id="176">176</th><td><i>  // suggestion to the runtime, and may not be honored during execution.</i></td></tr>
+<tr><th id="177">177</th><td>  <em>void</em> <dfn class="decl" id="_ZN9perftools8gputools10KernelBase23SetPreferredCacheConfigENS0_17KernelCacheConfigE" title='perftools::gputools::KernelBase::SetPreferredCacheConfig' data-ref="_ZN9perftools8gputools10KernelBase23SetPreferredCacheConfigENS0_17KernelCacheConfigE">SetPreferredCacheConfig</dfn>(<a class="type" href="kernel_cache_config.h.html#perftools::gputools::KernelCacheConfig" title='perftools::gputools::KernelCacheConfig' data-ref="perftools::gputools::KernelCacheConfig">KernelCacheConfig</a> <dfn class="local col0 decl" id="1470config" title='config' data-type='perftools::gputools::KernelCacheConfig' data-ref="1470config">config</dfn>);</td></tr>
+<tr><th id="178">178</th><td></td></tr>
+<tr><th id="179">179</th><td>  <i>// Gets the preferred cache configuration for a kernel.</i></td></tr>
+<tr><th id="180">180</th><td>  <a class="type" href="kernel_cache_config.h.html#perftools::gputools::KernelCacheConfig" title='perftools::gputools::KernelCacheConfig' data-ref="perftools::gputools::KernelCacheConfig">KernelCacheConfig</a> <dfn class="decl" id="_ZNK9perftools8gputools10KernelBase23GetPreferredCacheConfigEv" title='perftools::gputools::KernelBase::GetPreferredCacheConfig' data-ref="_ZNK9perftools8gputools10KernelBase23GetPreferredCacheConfigEv">GetPreferredCacheConfig</dfn>() <em>const</em>;</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td>  <em>void</em> <dfn class="decl" id="_ZN9perftools8gputools10KernelBase8set_nameEN10tensorflow11StringPieceE" title='perftools::gputools::KernelBase::set_name' data-ref="_ZN9perftools8gputools10KernelBase8set_nameEN10tensorflow11StringPieceE">set_name</dfn>(<span class="namespace">port::</span><a class="type" href="../core/lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col1 decl" id="1471name" title='name' data-type='port::StringPiece' data-ref="1471name">name</dfn>);</td></tr>
+<tr><th id="183">183</th><td>  <em>const</em> <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> &amp;<dfn class="decl def" id="_ZNK9perftools8gputools10KernelBase4nameEv" title='perftools::gputools::KernelBase::name' data-ref="_ZNK9perftools8gputools10KernelBase4nameEv">name</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#perftools::gputools::KernelBase::name_" title='perftools::gputools::KernelBase::name_' data-ref="perftools::gputools::KernelBase::name_">name_</a>; }</td></tr>
+<tr><th id="184">184</th><td>  <em>const</em> <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> &amp;<dfn class="decl def" id="_ZNK9perftools8gputools10KernelBase14demangled_nameEv" title='perftools::gputools::KernelBase::demangled_name' data-ref="_ZNK9perftools8gputools10KernelBase14demangled_nameEv">demangled_name</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#perftools::gputools::KernelBase::demangled_name_" title='perftools::gputools::KernelBase::demangled_name_' data-ref="perftools::gputools::KernelBase::demangled_name_">demangled_name_</a>; }</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td> <b>private</b>:</td></tr>
+<tr><th id="187">187</th><td>  <i>// The StreamExecutor that loads this kernel object.</i></td></tr>
+<tr><th id="188">188</th><td>  <a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a> *<dfn class="decl" id="perftools::gputools::KernelBase::parent_" title='perftools::gputools::KernelBase::parent_' data-ref="perftools::gputools::KernelBase::parent_">parent_</dfn>;</td></tr>
+<tr><th id="189">189</th><td></td></tr>
+<tr><th id="190">190</th><td>  <i>// Implementation delegated to for platform-specific functionality.</i></td></tr>
+<tr><th id="191">191</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">internal::</span><a class="type" href="stream_executor_internal.h.html#perftools::gputools::internal::KernelInterface" title='perftools::gputools::internal::KernelInterface' data-ref="perftools::gputools::internal::KernelInterface">KernelInterface</a>&gt; <dfn class="decl" id="perftools::gputools::KernelBase::implementation_" title='perftools::gputools::KernelBase::implementation_' data-ref="perftools::gputools::KernelBase::implementation_">implementation_</dfn>;</td></tr>
+<tr><th id="192">192</th><td></td></tr>
+<tr><th id="193">193</th><td>  <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="perftools::gputools::KernelBase::name_" title='perftools::gputools::KernelBase::name_' data-ref="perftools::gputools::KernelBase::name_">name_</dfn>;</td></tr>
+<tr><th id="194">194</th><td>  <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="perftools::gputools::KernelBase::demangled_name_" title='perftools::gputools::KernelBase::demangled_name_' data-ref="perftools::gputools::KernelBase::demangled_name_">demangled_name_</dfn>;</td></tr>
+<tr><th id="195">195</th><td></td></tr>
+<tr><th id="196">196</th><td>  <a class="type" href="#perftools::gputools::KernelMetadata" title='perftools::gputools::KernelMetadata' data-ref="perftools::gputools::KernelMetadata">KernelMetadata</a> <dfn class="decl" id="perftools::gputools::KernelBase::metadata_" title='perftools::gputools::KernelBase::metadata_' data-ref="perftools::gputools::KernelBase::metadata_">metadata_</dfn>;</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td>  <a class="macro" href="platform/port.h.html#56" title="TF_DISALLOW_COPY_AND_ASSIGN" data-ref="_M/SE_DISALLOW_COPY_AND_ASSIGN">SE_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN9perftools8gputools10KernelBaseC1ERKS1_" title='perftools::gputools::KernelBase::KernelBase' data-ref="_ZN9perftools8gputools10KernelBaseC1ERKS1_"><a class="type" href="#perftools::gputools::KernelBase" title='perftools::gputools::KernelBase' data-ref="perftools::gputools::KernelBase"><a class="type" href="#perftools::gputools::KernelBase" title='perftools::gputools::KernelBase' data-ref="perftools::gputools::KernelBase">KernelBase</a></a></dfn>);</td></tr>
+<tr><th id="199">199</th><td>};</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td><i>// Whether T is a DeviceMemory-family pointer.</i></td></tr>
+<tr><th id="202">202</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="203">203</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsDeviceMemoryPointer" title='perftools::gputools::IsDeviceMemoryPointer' data-ref="perftools::gputools::IsDeviceMemoryPointer">IsDeviceMemoryPointer</dfn> {</td></tr>
+<tr><th id="204">204</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsDeviceMemoryPointer::value" title='perftools::gputools::IsDeviceMemoryPointer::value' data-ref="perftools::gputools::IsDeviceMemoryPointer::value">value</dfn> = <b>false</b>;</td></tr>
+<tr><th id="205">205</th><td>};</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td><b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="208">208</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsDeviceMemoryPointer" title='perftools::gputools::IsDeviceMemoryPointer' data-ref="perftools::gputools::IsDeviceMemoryPointer">IsDeviceMemoryPointer</dfn>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemory" title='perftools::gputools::DeviceMemory' data-ref="perftools::gputools::DeviceMemory">DeviceMemory</a>&lt;U&gt; *&gt; {</td></tr>
+<tr><th id="209">209</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsDeviceMemoryPointer{DeviceMemory{type-parameter-0-0}*}::value" title='perftools::gputools::IsDeviceMemoryPointer&lt;DeviceMemory&lt;type-parameter-0-0&gt; *&gt;::value' data-ref="perftools::gputools::IsDeviceMemoryPointer{DeviceMemory{type-parameter-0-0}*}::value">value</dfn> = <b>true</b>;</td></tr>
+<tr><th id="210">210</th><td>};</td></tr>
+<tr><th id="211">211</th><td></td></tr>
+<tr><th id="212">212</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="213">213</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsDeviceMemoryPointer" title='perftools::gputools::IsDeviceMemoryPointer' data-ref="perftools::gputools::IsDeviceMemoryPointer"><a class="type" href="#perftools::gputools::IsDeviceMemoryPointer" title='perftools::gputools::IsDeviceMemoryPointer' data-ref="perftools::gputools::IsDeviceMemoryPointer">IsDeviceMemoryPointer</a></dfn>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemoryBase" title='perftools::gputools::DeviceMemoryBase' data-ref="perftools::gputools::DeviceMemoryBase">DeviceMemoryBase</a> *&gt; {</td></tr>
+<tr><th id="214">214</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsDeviceMemoryPointer{perftools::gputools::DeviceMemoryBase*}::value" title='perftools::gputools::IsDeviceMemoryPointer&lt;perftools::gputools::DeviceMemoryBase *&gt;::value' data-ref="perftools::gputools::IsDeviceMemoryPointer{perftools::gputools::DeviceMemoryBase*}::value">value</dfn> = <b>true</b>;</td></tr>
+<tr><th id="215">215</th><td>};</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td><i>// Whether T is a DeviceMemory-family value-like thing (which includes a</i></td></tr>
+<tr><th id="218">218</th><td><i>// reference). This trait is useful because we pack values in the same manner as</i></td></tr>
+<tr><th id="219">219</th><td><i>// references.</i></td></tr>
+<tr><th id="220">220</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="221">221</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike">IsDeviceMemoryValueLike</dfn> {</td></tr>
+<tr><th id="222">222</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsDeviceMemoryValueLike::value" title='perftools::gputools::IsDeviceMemoryValueLike::value' data-ref="perftools::gputools::IsDeviceMemoryValueLike::value">value</dfn> = <b>false</b>;</td></tr>
+<tr><th id="223">223</th><td>};</td></tr>
+<tr><th id="224">224</th><td></td></tr>
+<tr><th id="225">225</th><td><b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="226">226</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike">IsDeviceMemoryValueLike</dfn>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemory" title='perftools::gputools::DeviceMemory' data-ref="perftools::gputools::DeviceMemory">DeviceMemory</a>&lt;U&gt; &amp;&gt; {</td></tr>
+<tr><th id="227">227</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsDeviceMemoryValueLike{DeviceMemory{type-parameter-0-0}&amp;}::value" title='perftools::gputools::IsDeviceMemoryValueLike&lt;DeviceMemory&lt;type-parameter-0-0&gt; &amp;&gt;::value' data-ref="perftools::gputools::IsDeviceMemoryValueLike{DeviceMemory{type-parameter-0-0}&amp;}::value">value</dfn> = <b>true</b>;</td></tr>
+<tr><th id="228">228</th><td>};</td></tr>
+<tr><th id="229">229</th><td></td></tr>
+<tr><th id="230">230</th><td><i>// We need to treat SharedDeviceMemory types differently than other DeviceMemory</i></td></tr>
+<tr><th id="231">231</th><td><i>// types (since they maintain no allocations), hence these specializations.</i></td></tr>
+<tr><th id="232">232</th><td><b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="233">233</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike">IsDeviceMemoryValueLike</dfn>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::SharedDeviceMemory" title='perftools::gputools::SharedDeviceMemory' data-ref="perftools::gputools::SharedDeviceMemory">SharedDeviceMemory</a>&lt;U&gt; &amp;&gt; {</td></tr>
+<tr><th id="234">234</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsDeviceMemoryValueLike{SharedDeviceMemory{type-parameter-0-0}&amp;}::value" title='perftools::gputools::IsDeviceMemoryValueLike&lt;SharedDeviceMemory&lt;type-parameter-0-0&gt; &amp;&gt;::value' data-ref="perftools::gputools::IsDeviceMemoryValueLike{SharedDeviceMemory{type-parameter-0-0}&amp;}::value">value</dfn> = <b>false</b>;</td></tr>
+<tr><th id="235">235</th><td>};</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="238">238</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike"><a class="type" href="#perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike">IsDeviceMemoryValueLike</a></dfn>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemoryBase" title='perftools::gputools::DeviceMemoryBase' data-ref="perftools::gputools::DeviceMemoryBase">DeviceMemoryBase</a> &amp;&gt; {</td></tr>
+<tr><th id="239">239</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsDeviceMemoryValueLike{perftools::gputools::DeviceMemoryBase&amp;}::value" title='perftools::gputools::IsDeviceMemoryValueLike&lt;perftools::gputools::DeviceMemoryBase &amp;&gt;::value' data-ref="perftools::gputools::IsDeviceMemoryValueLike{perftools::gputools::DeviceMemoryBase&amp;}::value">value</dfn> = <b>true</b>;</td></tr>
+<tr><th id="240">240</th><td>};</td></tr>
+<tr><th id="241">241</th><td></td></tr>
+<tr><th id="242">242</th><td><b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="243">243</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike">IsDeviceMemoryValueLike</dfn>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemory" title='perftools::gputools::DeviceMemory' data-ref="perftools::gputools::DeviceMemory">DeviceMemory</a>&lt;U&gt;&gt; {</td></tr>
+<tr><th id="244">244</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsDeviceMemoryValueLike{DeviceMemory{type-parameter-0-0}}::value" title='perftools::gputools::IsDeviceMemoryValueLike&lt;DeviceMemory&lt;type-parameter-0-0&gt; &gt;::value' data-ref="perftools::gputools::IsDeviceMemoryValueLike{DeviceMemory{type-parameter-0-0}}::value">value</dfn> = <b>true</b>;</td></tr>
+<tr><th id="245">245</th><td>};</td></tr>
+<tr><th id="246">246</th><td></td></tr>
+<tr><th id="247">247</th><td><b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="248">248</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike">IsDeviceMemoryValueLike</dfn>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::SharedDeviceMemory" title='perftools::gputools::SharedDeviceMemory' data-ref="perftools::gputools::SharedDeviceMemory">SharedDeviceMemory</a>&lt;U&gt;&gt; {</td></tr>
+<tr><th id="249">249</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsDeviceMemoryValueLike{SharedDeviceMemory{type-parameter-0-0}}::value" title='perftools::gputools::IsDeviceMemoryValueLike&lt;SharedDeviceMemory&lt;type-parameter-0-0&gt; &gt;::value' data-ref="perftools::gputools::IsDeviceMemoryValueLike{SharedDeviceMemory{type-parameter-0-0}}::value">value</dfn> = <b>false</b>;</td></tr>
+<tr><th id="250">250</th><td>};</td></tr>
+<tr><th id="251">251</th><td></td></tr>
+<tr><th id="252">252</th><td><b>template</b> &lt;&gt;</td></tr>
+<tr><th id="253">253</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike"><a class="type" href="#perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike">IsDeviceMemoryValueLike</a></dfn>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemoryBase" title='perftools::gputools::DeviceMemoryBase' data-ref="perftools::gputools::DeviceMemoryBase">DeviceMemoryBase</a>&gt; {</td></tr>
+<tr><th id="254">254</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsDeviceMemoryValueLike{perftools::gputools::DeviceMemoryBase}::value" title='perftools::gputools::IsDeviceMemoryValueLike&lt;perftools::gputools::DeviceMemoryBase&gt;::value' data-ref="perftools::gputools::IsDeviceMemoryValueLike{perftools::gputools::DeviceMemoryBase}::value">value</dfn> = <b>true</b>;</td></tr>
+<tr><th id="255">255</th><td>};</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td><b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="258">258</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsSharedDeviceMemory" title='perftools::gputools::IsSharedDeviceMemory' data-ref="perftools::gputools::IsSharedDeviceMemory">IsSharedDeviceMemory</dfn> {</td></tr>
+<tr><th id="259">259</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsSharedDeviceMemory::value" title='perftools::gputools::IsSharedDeviceMemory::value' data-ref="perftools::gputools::IsSharedDeviceMemory::value">value</dfn> = <b>false</b>;</td></tr>
+<tr><th id="260">260</th><td>};</td></tr>
+<tr><th id="261">261</th><td></td></tr>
+<tr><th id="262">262</th><td><b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="263">263</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsSharedDeviceMemory" title='perftools::gputools::IsSharedDeviceMemory' data-ref="perftools::gputools::IsSharedDeviceMemory">IsSharedDeviceMemory</dfn>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::SharedDeviceMemory" title='perftools::gputools::SharedDeviceMemory' data-ref="perftools::gputools::SharedDeviceMemory">SharedDeviceMemory</a>&lt;U&gt; &amp;&gt; {</td></tr>
+<tr><th id="264">264</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsSharedDeviceMemory{SharedDeviceMemory{type-parameter-0-0}&amp;}::value" title='perftools::gputools::IsSharedDeviceMemory&lt;SharedDeviceMemory&lt;type-parameter-0-0&gt; &amp;&gt;::value' data-ref="perftools::gputools::IsSharedDeviceMemory{SharedDeviceMemory{type-parameter-0-0}&amp;}::value">value</dfn> = <b>true</b>;</td></tr>
+<tr><th id="265">265</th><td>};</td></tr>
+<tr><th id="266">266</th><td></td></tr>
+<tr><th id="267">267</th><td><b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="268">268</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::IsSharedDeviceMemory" title='perftools::gputools::IsSharedDeviceMemory' data-ref="perftools::gputools::IsSharedDeviceMemory">IsSharedDeviceMemory</dfn>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::SharedDeviceMemory" title='perftools::gputools::SharedDeviceMemory' data-ref="perftools::gputools::SharedDeviceMemory">SharedDeviceMemory</a>&lt;U&gt;&gt; {</td></tr>
+<tr><th id="269">269</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::IsSharedDeviceMemory{SharedDeviceMemory{type-parameter-0-0}}::value" title='perftools::gputools::IsSharedDeviceMemory&lt;SharedDeviceMemory&lt;type-parameter-0-0&gt; &gt;::value' data-ref="perftools::gputools::IsSharedDeviceMemory{SharedDeviceMemory{type-parameter-0-0}}::value">value</dfn> = <b>true</b>;</td></tr>
+<tr><th id="270">270</th><td>};</td></tr>
+<tr><th id="271">271</th><td></td></tr>
+<tr><th id="272">272</th><td><i>// Basic data about a kernel argument.</i></td></tr>
+<tr><th id="273">273</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::KernelArg" title='perftools::gputools::KernelArg' data-ref="perftools::gputools::KernelArg">KernelArg</dfn> {</td></tr>
+<tr><th id="274">274</th><td>  <em>bool</em> <dfn class="decl" id="perftools::gputools::KernelArg::is_shared" title='perftools::gputools::KernelArg::is_shared' data-ref="perftools::gputools::KernelArg::is_shared">is_shared</dfn>;</td></tr>
+<tr><th id="275">275</th><td>  <em>const</em> <em>void</em> *<dfn class="decl" id="perftools::gputools::KernelArg::address" title='perftools::gputools::KernelArg::address' data-ref="perftools::gputools::KernelArg::address">address</dfn>;</td></tr>
+<tr><th id="276">276</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="perftools::gputools::KernelArg::size" title='perftools::gputools::KernelArg::size' data-ref="perftools::gputools::KernelArg::size">size</dfn>;</td></tr>
+<tr><th id="277">277</th><td>};</td></tr>
+<tr><th id="278">278</th><td></td></tr>
+<tr><th id="279">279</th><td><i>// An iterator for traversing all the arguments of a KernelArgsArray.</i></td></tr>
+<tr><th id="280">280</th><td><b>class</b> <dfn class="type def" id="perftools::gputools::KernelArgIterator" title='perftools::gputools::KernelArgIterator' data-ref="perftools::gputools::KernelArgIterator">KernelArgIterator</dfn> {</td></tr>
+<tr><th id="281">281</th><td> <b>public</b>:</td></tr>
+<tr><th id="282">282</th><td>  <dfn class="decl def" id="_ZN9perftools8gputools17KernelArgIteratorC1EiiPKPKvPKmS7_S7_" title='perftools::gputools::KernelArgIterator::KernelArgIterator' data-ref="_ZN9perftools8gputools17KernelArgIteratorC1EiiPKPKvPKmS7_S7_">KernelArgIterator</dfn>(<em>int</em> <dfn class="local col2 decl" id="1472number_of_argument_addresses" title='number_of_argument_addresses' data-type='int' data-ref="1472number_of_argument_addresses">number_of_argument_addresses</dfn>,</td></tr>
+<tr><th id="283">283</th><td>                    <em>int</em> <dfn class="local col3 decl" id="1473number_of_shared_memory_arguments" title='number_of_shared_memory_arguments' data-type='int' data-ref="1473number_of_shared_memory_arguments">number_of_shared_memory_arguments</dfn>,</td></tr>
+<tr><th id="284">284</th><td>                    <em>const</em> <em>void</em> *<em>const</em> *<dfn class="local col4 decl" id="1474arg_addresses_data" title='arg_addresses_data' data-type='const void *const *' data-ref="1474arg_addresses_data">arg_addresses_data</dfn>,</td></tr>
+<tr><th id="285">285</th><td>                    <em>const</em> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> *<dfn class="local col5 decl" id="1475arg_sizes_data" title='arg_sizes_data' data-type='const size_t *' data-ref="1475arg_sizes_data">arg_sizes_data</dfn>,</td></tr>
+<tr><th id="286">286</th><td>                    <em>const</em> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> *<dfn class="local col6 decl" id="1476shmem_bytes_data" title='shmem_bytes_data' data-type='const size_t *' data-ref="1476shmem_bytes_data">shmem_bytes_data</dfn>,</td></tr>
+<tr><th id="287">287</th><td>                    <em>const</em> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> *<dfn class="local col7 decl" id="1477shmem_indices_data" title='shmem_indices_data' data-type='const size_t *' data-ref="1477shmem_indices_data">shmem_indices_data</dfn>)</td></tr>
+<tr><th id="288">288</th><td>      : <a class="member" href="#perftools::gputools::KernelArgIterator::arg_index_" title='perftools::gputools::KernelArgIterator::arg_index_' data-ref="perftools::gputools::KernelArgIterator::arg_index_">arg_index_</a>(<var>0</var>),</td></tr>
+<tr><th id="289">289</th><td>        <a class="member" href="#perftools::gputools::KernelArgIterator::number_of_arguments_" title='perftools::gputools::KernelArgIterator::number_of_arguments_' data-ref="perftools::gputools::KernelArgIterator::number_of_arguments_">number_of_arguments_</a>(<a class="local col2 ref" href="#1472number_of_argument_addresses" title='number_of_argument_addresses' data-ref="1472number_of_argument_addresses">number_of_argument_addresses</a> +</td></tr>
+<tr><th id="290">290</th><td>                             <a class="local col3 ref" href="#1473number_of_shared_memory_arguments" title='number_of_shared_memory_arguments' data-ref="1473number_of_shared_memory_arguments">number_of_shared_memory_arguments</a>),</td></tr>
+<tr><th id="291">291</th><td>        <a class="member" href="#perftools::gputools::KernelArgIterator::arg_address_iter_" title='perftools::gputools::KernelArgIterator::arg_address_iter_' data-ref="perftools::gputools::KernelArgIterator::arg_address_iter_">arg_address_iter_</a>(<a class="local col4 ref" href="#1474arg_addresses_data" title='arg_addresses_data' data-ref="1474arg_addresses_data">arg_addresses_data</a>),</td></tr>
+<tr><th id="292">292</th><td>        <a class="member" href="#perftools::gputools::KernelArgIterator::arg_size_iter_" title='perftools::gputools::KernelArgIterator::arg_size_iter_' data-ref="perftools::gputools::KernelArgIterator::arg_size_iter_">arg_size_iter_</a>(<a class="local col5 ref" href="#1475arg_sizes_data" title='arg_sizes_data' data-ref="1475arg_sizes_data">arg_sizes_data</a>),</td></tr>
+<tr><th id="293">293</th><td>        <a class="member" href="#perftools::gputools::KernelArgIterator::shmem_bytes_iter_" title='perftools::gputools::KernelArgIterator::shmem_bytes_iter_' data-ref="perftools::gputools::KernelArgIterator::shmem_bytes_iter_">shmem_bytes_iter_</a>(<a class="local col6 ref" href="#1476shmem_bytes_data" title='shmem_bytes_data' data-ref="1476shmem_bytes_data">shmem_bytes_data</a>),</td></tr>
+<tr><th id="294">294</th><td>        <a class="member" href="#perftools::gputools::KernelArgIterator::shmem_indices_iter_" title='perftools::gputools::KernelArgIterator::shmem_indices_iter_' data-ref="perftools::gputools::KernelArgIterator::shmem_indices_iter_">shmem_indices_iter_</a>(<a class="local col7 ref" href="#1477shmem_indices_data" title='shmem_indices_data' data-ref="1477shmem_indices_data">shmem_indices_data</a>),</td></tr>
+<tr><th id="295">295</th><td>        <a class="member" href="#perftools::gputools::KernelArgIterator::shmem_indices_end_" title='perftools::gputools::KernelArgIterator::shmem_indices_end_' data-ref="perftools::gputools::KernelArgIterator::shmem_indices_end_">shmem_indices_end_</a>(<a class="local col7 ref" href="#1477shmem_indices_data" title='shmem_indices_data' data-ref="1477shmem_indices_data">shmem_indices_data</a> +</td></tr>
+<tr><th id="296">296</th><td>                           <a class="local col3 ref" href="#1473number_of_shared_memory_arguments" title='number_of_shared_memory_arguments' data-ref="1473number_of_shared_memory_arguments">number_of_shared_memory_arguments</a>) {}</td></tr>
+<tr><th id="297">297</th><td></td></tr>
+<tr><th id="298">298</th><td>  <i>// Returns true if another argument is present in the iterator.</i></td></tr>
+<tr><th id="299">299</th><td>  <em>bool</em> <dfn class="decl def" id="_ZN9perftools8gputools17KernelArgIterator8has_nextEv" title='perftools::gputools::KernelArgIterator::has_next' data-ref="_ZN9perftools8gputools17KernelArgIterator8has_nextEv">has_next</dfn>() { <b>return</b> <a class="member" href="#perftools::gputools::KernelArgIterator::arg_index_" title='perftools::gputools::KernelArgIterator::arg_index_' data-ref="perftools::gputools::KernelArgIterator::arg_index_">arg_index_</a> &lt; <a class="member" href="#perftools::gputools::KernelArgIterator::number_of_arguments_" title='perftools::gputools::KernelArgIterator::number_of_arguments_' data-ref="perftools::gputools::KernelArgIterator::number_of_arguments_">number_of_arguments_</a>; }</td></tr>
+<tr><th id="300">300</th><td></td></tr>
+<tr><th id="301">301</th><td>  <i>// Returns the next argument in the iterator.</i></td></tr>
+<tr><th id="302">302</th><td><i>  //</i></td></tr>
+<tr><th id="303">303</th><td><i>  // Returns a default-constructed KernelArg if there is no next argument.</i></td></tr>
+<tr><th id="304">304</th><td>  <a class="type" href="#perftools::gputools::KernelArg" title='perftools::gputools::KernelArg' data-ref="perftools::gputools::KernelArg">KernelArg</a> <dfn class="decl def" id="_ZN9perftools8gputools17KernelArgIterator4nextEv" title='perftools::gputools::KernelArgIterator::next' data-ref="_ZN9perftools8gputools17KernelArgIterator4nextEv">next</dfn>() {</td></tr>
+<tr><th id="305">305</th><td>    <a class="type" href="#perftools::gputools::KernelArg" title='perftools::gputools::KernelArg' data-ref="perftools::gputools::KernelArg">KernelArg</a> <dfn class="local col8 decl" id="1478result" title='result' data-type='perftools::gputools::KernelArg' data-ref="1478result">result</dfn> = {};</td></tr>
+<tr><th id="306">306</th><td>    <b>if</b> (!<a class="member" href="#_ZN9perftools8gputools17KernelArgIterator8has_nextEv" title='perftools::gputools::KernelArgIterator::has_next' data-ref="_ZN9perftools8gputools17KernelArgIterator8has_nextEv">has_next</a>()) {</td></tr>
+<tr><th id="307">307</th><td>      <b>return</b> <a class="local col8 ref" href="#1478result" title='result' data-ref="1478result">result</a>;</td></tr>
+<tr><th id="308">308</th><td>    } <b>else</b> <b>if</b> ((<a class="member" href="#perftools::gputools::KernelArgIterator::shmem_indices_iter_" title='perftools::gputools::KernelArgIterator::shmem_indices_iter_' data-ref="perftools::gputools::KernelArgIterator::shmem_indices_iter_">shmem_indices_iter_</a> != <a class="member" href="#perftools::gputools::KernelArgIterator::shmem_indices_end_" title='perftools::gputools::KernelArgIterator::shmem_indices_end_' data-ref="perftools::gputools::KernelArgIterator::shmem_indices_end_">shmem_indices_end_</a>) &amp;&amp;</td></tr>
+<tr><th id="309">309</th><td>               (<a class="member" href="#perftools::gputools::KernelArgIterator::arg_index_" title='perftools::gputools::KernelArgIterator::arg_index_' data-ref="perftools::gputools::KernelArgIterator::arg_index_">arg_index_</a> == *<a class="member" href="#perftools::gputools::KernelArgIterator::shmem_indices_iter_" title='perftools::gputools::KernelArgIterator::shmem_indices_iter_' data-ref="perftools::gputools::KernelArgIterator::shmem_indices_iter_">shmem_indices_iter_</a>)) {</td></tr>
+<tr><th id="310">310</th><td>      <a class="local col8 ref" href="#1478result" title='result' data-ref="1478result">result</a>.<a class="ref" href="#perftools::gputools::KernelArg::is_shared" title='perftools::gputools::KernelArg::is_shared' data-ref="perftools::gputools::KernelArg::is_shared">is_shared</a> = <b>true</b>;</td></tr>
+<tr><th id="311">311</th><td>      <a class="local col8 ref" href="#1478result" title='result' data-ref="1478result">result</a>.<a class="ref" href="#perftools::gputools::KernelArg::address" title='perftools::gputools::KernelArg::address' data-ref="perftools::gputools::KernelArg::address">address</a> = <b>nullptr</b>;</td></tr>
+<tr><th id="312">312</th><td>      <a class="local col8 ref" href="#1478result" title='result' data-ref="1478result">result</a>.<a class="ref" href="#perftools::gputools::KernelArg::size" title='perftools::gputools::KernelArg::size' data-ref="perftools::gputools::KernelArg::size">size</a> = *<a class="member" href="#perftools::gputools::KernelArgIterator::shmem_bytes_iter_" title='perftools::gputools::KernelArgIterator::shmem_bytes_iter_' data-ref="perftools::gputools::KernelArgIterator::shmem_bytes_iter_">shmem_bytes_iter_</a>;</td></tr>
+<tr><th id="313">313</th><td>      ++<a class="member" href="#perftools::gputools::KernelArgIterator::shmem_indices_iter_" title='perftools::gputools::KernelArgIterator::shmem_indices_iter_' data-ref="perftools::gputools::KernelArgIterator::shmem_indices_iter_">shmem_indices_iter_</a>;</td></tr>
+<tr><th id="314">314</th><td>      ++<a class="member" href="#perftools::gputools::KernelArgIterator::shmem_bytes_iter_" title='perftools::gputools::KernelArgIterator::shmem_bytes_iter_' data-ref="perftools::gputools::KernelArgIterator::shmem_bytes_iter_">shmem_bytes_iter_</a>;</td></tr>
+<tr><th id="315">315</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="316">316</th><td>      <a class="local col8 ref" href="#1478result" title='result' data-ref="1478result">result</a>.<a class="ref" href="#perftools::gputools::KernelArg::is_shared" title='perftools::gputools::KernelArg::is_shared' data-ref="perftools::gputools::KernelArg::is_shared">is_shared</a> = <b>false</b>;</td></tr>
+<tr><th id="317">317</th><td>      <a class="local col8 ref" href="#1478result" title='result' data-ref="1478result">result</a>.<a class="ref" href="#perftools::gputools::KernelArg::address" title='perftools::gputools::KernelArg::address' data-ref="perftools::gputools::KernelArg::address">address</a> = *<a class="member" href="#perftools::gputools::KernelArgIterator::arg_address_iter_" title='perftools::gputools::KernelArgIterator::arg_address_iter_' data-ref="perftools::gputools::KernelArgIterator::arg_address_iter_">arg_address_iter_</a>;</td></tr>
+<tr><th id="318">318</th><td>      <a class="local col8 ref" href="#1478result" title='result' data-ref="1478result">result</a>.<a class="ref" href="#perftools::gputools::KernelArg::size" title='perftools::gputools::KernelArg::size' data-ref="perftools::gputools::KernelArg::size">size</a> = *<a class="member" href="#perftools::gputools::KernelArgIterator::arg_size_iter_" title='perftools::gputools::KernelArgIterator::arg_size_iter_' data-ref="perftools::gputools::KernelArgIterator::arg_size_iter_">arg_size_iter_</a>;</td></tr>
+<tr><th id="319">319</th><td>      ++<a class="member" href="#perftools::gputools::KernelArgIterator::arg_address_iter_" title='perftools::gputools::KernelArgIterator::arg_address_iter_' data-ref="perftools::gputools::KernelArgIterator::arg_address_iter_">arg_address_iter_</a>;</td></tr>
+<tr><th id="320">320</th><td>      ++<a class="member" href="#perftools::gputools::KernelArgIterator::arg_size_iter_" title='perftools::gputools::KernelArgIterator::arg_size_iter_' data-ref="perftools::gputools::KernelArgIterator::arg_size_iter_">arg_size_iter_</a>;</td></tr>
+<tr><th id="321">321</th><td>    }</td></tr>
+<tr><th id="322">322</th><td>    ++<a class="member" href="#perftools::gputools::KernelArgIterator::arg_index_" title='perftools::gputools::KernelArgIterator::arg_index_' data-ref="perftools::gputools::KernelArgIterator::arg_index_">arg_index_</a>;</td></tr>
+<tr><th id="323">323</th><td>    <b>return</b> <a class="local col8 ref" href="#1478result" title='result' data-ref="1478result">result</a>;</td></tr>
+<tr><th id="324">324</th><td>  }</td></tr>
+<tr><th id="325">325</th><td></td></tr>
+<tr><th id="326">326</th><td> <b>private</b>:</td></tr>
+<tr><th id="327">327</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="perftools::gputools::KernelArgIterator::arg_index_" title='perftools::gputools::KernelArgIterator::arg_index_' data-ref="perftools::gputools::KernelArgIterator::arg_index_">arg_index_</dfn>;</td></tr>
+<tr><th id="328">328</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="perftools::gputools::KernelArgIterator::number_of_arguments_" title='perftools::gputools::KernelArgIterator::number_of_arguments_' data-ref="perftools::gputools::KernelArgIterator::number_of_arguments_">number_of_arguments_</dfn>;</td></tr>
+<tr><th id="329">329</th><td>  <em>const</em> <em>void</em> *<em>const</em> *<dfn class="decl" id="perftools::gputools::KernelArgIterator::arg_address_iter_" title='perftools::gputools::KernelArgIterator::arg_address_iter_' data-ref="perftools::gputools::KernelArgIterator::arg_address_iter_">arg_address_iter_</dfn>;</td></tr>
+<tr><th id="330">330</th><td>  <em>const</em> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> *<dfn class="decl" id="perftools::gputools::KernelArgIterator::arg_size_iter_" title='perftools::gputools::KernelArgIterator::arg_size_iter_' data-ref="perftools::gputools::KernelArgIterator::arg_size_iter_">arg_size_iter_</dfn>;</td></tr>
+<tr><th id="331">331</th><td>  <em>const</em> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> *<dfn class="decl" id="perftools::gputools::KernelArgIterator::shmem_bytes_iter_" title='perftools::gputools::KernelArgIterator::shmem_bytes_iter_' data-ref="perftools::gputools::KernelArgIterator::shmem_bytes_iter_">shmem_bytes_iter_</dfn>;</td></tr>
+<tr><th id="332">332</th><td>  <em>const</em> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> *<dfn class="decl" id="perftools::gputools::KernelArgIterator::shmem_indices_iter_" title='perftools::gputools::KernelArgIterator::shmem_indices_iter_' data-ref="perftools::gputools::KernelArgIterator::shmem_indices_iter_">shmem_indices_iter_</dfn>;</td></tr>
+<tr><th id="333">333</th><td>  <em>const</em> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> *<em>const</em> <dfn class="decl" id="perftools::gputools::KernelArgIterator::shmem_indices_end_" title='perftools::gputools::KernelArgIterator::shmem_indices_end_' data-ref="perftools::gputools::KernelArgIterator::shmem_indices_end_">shmem_indices_end_</dfn>;</td></tr>
+<tr><th id="334">334</th><td>};</td></tr>
+<tr><th id="335">335</th><td></td></tr>
+<tr><th id="336">336</th><td><i>// Base class for KernelArgsArray.</i></td></tr>
+<tr><th id="337">337</th><td><i>//</i></td></tr>
+<tr><th id="338">338</th><td><i>// Supports all the getter methods that do not depend on the compile-time number</i></td></tr>
+<tr><th id="339">339</th><td><i>// of arguments template parameter.</i></td></tr>
+<tr><th id="340">340</th><td><i>//</i></td></tr>
+<tr><th id="341">341</th><td><i>// This class exists as a way to pass kernel arguments to</i></td></tr>
+<tr><th id="342">342</th><td><i>// StreamExecutorInterface::Launch. That Launch method is virtual, so it can't</i></td></tr>
+<tr><th id="343">343</th><td><i>// be templated to accept any KernelArgsArray type, therefore a reference to</i></td></tr>
+<tr><th id="344">344</th><td><i>// this base type is passed instead.</i></td></tr>
+<tr><th id="345">345</th><td><i>//</i></td></tr>
+<tr><th id="346">346</th><td><i>// Performance is not a concern here because each of these methods will be</i></td></tr>
+<tr><th id="347">347</th><td><i>// called at most once per kernel launch. Past performance concerns with</i></td></tr>
+<tr><th id="348">348</th><td><i>// KernelArgsArray have been in reference to the argument packing routines which</i></td></tr>
+<tr><th id="349">349</th><td><i>// are called once per kernel argument. Those packing routines are now handled</i></td></tr>
+<tr><th id="350">350</th><td><i>// by the templated KernelArgsArray subclass of this class where they can take</i></td></tr>
+<tr><th id="351">351</th><td><i>// advantage of compile-time knowledge of the number of arguments in order to be</i></td></tr>
+<tr><th id="352">352</th><td><i>// very efficient.</i></td></tr>
+<tr><th id="353">353</th><td><b>class</b> <dfn class="type def" id="perftools::gputools::KernelArgsArrayBase" title='perftools::gputools::KernelArgsArrayBase' data-ref="perftools::gputools::KernelArgsArrayBase">KernelArgsArrayBase</dfn> {</td></tr>
+<tr><th id="354">354</th><td> <b>public</b>:</td></tr>
+<tr><th id="355">355</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN9perftools8gputools19KernelArgsArrayBaseD1Ev" title='perftools::gputools::KernelArgsArrayBase::~KernelArgsArrayBase' data-ref="_ZN9perftools8gputools19KernelArgsArrayBaseD1Ev">~KernelArgsArrayBase</dfn>() = <b>default</b>;</td></tr>
+<tr><th id="356">356</th><td></td></tr>
+<tr><th id="357">357</th><td>  <i>// Gets the number of arguments added so far, including shared memory</i></td></tr>
+<tr><th id="358">358</th><td><i>  // arguments.</i></td></tr>
+<tr><th id="359">359</th><td>  <b>virtual</b> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="virtual decl" id="_ZNK9perftools8gputools19KernelArgsArrayBase19number_of_argumentsEv" title='perftools::gputools::KernelArgsArrayBase::number_of_arguments' data-ref="_ZNK9perftools8gputools19KernelArgsArrayBase19number_of_argumentsEv">number_of_arguments</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="360">360</th><td></td></tr>
+<tr><th id="361">361</th><td>  <i>// Gets the total number of shared memory bytes added so far.</i></td></tr>
+<tr><th id="362">362</th><td>  <b>virtual</b> <a class="typedef" href="../core/platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="virtual decl" id="_ZNK9perftools8gputools19KernelArgsArrayBase22number_of_shared_bytesEv" title='perftools::gputools::KernelArgsArrayBase::number_of_shared_bytes' data-ref="_ZNK9perftools8gputools19KernelArgsArrayBase22number_of_shared_bytesEv">number_of_shared_bytes</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="363">363</th><td></td></tr>
+<tr><th id="364">364</th><td>  <i>// Gets the list of argument addresses.</i></td></tr>
+<tr><th id="365">365</th><td>  <b>virtual</b> <span class="namespace">port::</span><a class="type" href="../core/lib/gtl/array_slice.h.html#tensorflow::gtl::ArraySlice" title='tensorflow::gtl::ArraySlice' data-ref="tensorflow::gtl::ArraySlice">ArraySlice</a>&lt;<em>const</em> <em>void</em> *&gt; <dfn class="virtual decl" id="_ZNK9perftools8gputools19KernelArgsArrayBase18argument_addressesEv" title='perftools::gputools::KernelArgsArrayBase::argument_addresses' data-ref="_ZNK9perftools8gputools19KernelArgsArrayBase18argument_addressesEv">argument_addresses</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td>  <i>// Gets an iterator to the arguments in the array.</i></td></tr>
+<tr><th id="368">368</th><td>  <b>virtual</b> <a class="type" href="#perftools::gputools::KernelArgIterator" title='perftools::gputools::KernelArgIterator' data-ref="perftools::gputools::KernelArgIterator">KernelArgIterator</a> <dfn class="virtual decl" id="_ZNK9perftools8gputools19KernelArgsArrayBase12arg_iteratorEv" title='perftools::gputools::KernelArgsArrayBase::arg_iterator' data-ref="_ZNK9perftools8gputools19KernelArgsArrayBase12arg_iteratorEv">arg_iterator</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="369">369</th><td>};</td></tr>
+<tr><th id="370">370</th><td></td></tr>
+<tr><th id="371">371</th><td><i>// A list of arguments for a kernel call.</i></td></tr>
+<tr><th id="372">372</th><td><i>//</i></td></tr>
+<tr><th id="373">373</th><td><i>// The template parameter kNumArgs is the maximum number of arguments which can</i></td></tr>
+<tr><th id="374">374</th><td><i>// be stored in the list.</i></td></tr>
+<tr><th id="375">375</th><td><i>//</i></td></tr>
+<tr><th id="376">376</th><td><i>// Contains a list of addresses for non-shared-memory arguments and a list of</i></td></tr>
+<tr><th id="377">377</th><td><i>// sizes for shared-memory arguments. Since the shared-memory arguments may be</i></td></tr>
+<tr><th id="378">378</th><td><i>// interspersed with the non-shared-memory arguments, it also stores a list of</i></td></tr>
+<tr><th id="379">379</th><td><i>// the indices at which the shared-memory arguments appeared.</i></td></tr>
+<tr><th id="380">380</th><td><i>//</i></td></tr>
+<tr><th id="381">381</th><td><i>// For example, if the argument address list contains {a, b, c, d, e}, the</i></td></tr>
+<tr><th id="382">382</th><td><i>// shared-memory arguments list contains the sizes of {A, B, C}, and the</i></td></tr>
+<tr><th id="383">383</th><td><i>// shared-memory indices list contains {0, 3, 5}, then the original list of</i></td></tr>
+<tr><th id="384">384</th><td><i>// arguments was {A, a, b, B, c, C, d, e}.</i></td></tr>
+<tr><th id="385">385</th><td><i>//</i></td></tr>
+<tr><th id="386">386</th><td><i>// This way of storing the arguments makes CUDA kernel calls efficient because</i></td></tr>
+<tr><th id="387">387</th><td><i>// they only require the argument address list and the total number of shared</i></td></tr>
+<tr><th id="388">388</th><td><i>// bytes, but it also makes it possible for OpenCL kernel calls because they</i></td></tr>
+<tr><th id="389">389</th><td><i>// depend on the location of each shared-memory argument and its size.</i></td></tr>
+<tr><th id="390">390</th><td><i>//</i></td></tr>
+<tr><th id="391">391</th><td><i>// Note that the code for adding arguments has been identified as a performance</i></td></tr>
+<tr><th id="392">392</th><td><i>// hotspot in some real-world applications so this structure has been optimized</i></td></tr>
+<tr><th id="393">393</th><td><i>// for the performance of argument adding.</i></td></tr>
+<tr><th id="394">394</th><td><b>template</b> &lt;<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> kNumArgs&gt;</td></tr>
+<tr><th id="395">395</th><td><b>class</b> <dfn class="type def" id="perftools::gputools::KernelArgsArray" title='perftools::gputools::KernelArgsArray' data-ref="perftools::gputools::KernelArgsArray">KernelArgsArray</dfn> : <b>public</b> <a class="type" href="#perftools::gputools::KernelArgsArrayBase" title='perftools::gputools::KernelArgsArrayBase' data-ref="perftools::gputools::KernelArgsArrayBase">KernelArgsArrayBase</a> {</td></tr>
+<tr><th id="396">396</th><td> <b>public</b>:</td></tr>
+<tr><th id="397">397</th><td>  <b>explicit</b> <dfn class="decl def" id="_ZN9perftools8gputools15KernelArgsArrayC1Ev" title='perftools::gputools::KernelArgsArray::KernelArgsArray&lt;kNumArgs&gt;' data-ref="_ZN9perftools8gputools15KernelArgsArrayC1Ev">KernelArgsArray</dfn>()</td></tr>
+<tr><th id="398">398</th><td>      : <a class="member" href="#perftools::gputools::KernelArgsArray::total_shared_memory_bytes_" title='perftools::gputools::KernelArgsArray::total_shared_memory_bytes_' data-ref="perftools::gputools::KernelArgsArray::total_shared_memory_bytes_">total_shared_memory_bytes_</a>(<var>0</var>),</td></tr>
+<tr><th id="399">399</th><td>        <a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a>(<var>0</var>),</td></tr>
+<tr><th id="400">400</th><td>        <a class="member" href="#perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_" title='perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_' data-ref="perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_">number_of_shared_memory_arguments_</a>(<var>0</var>) {}</td></tr>
+<tr><th id="401">401</th><td></td></tr>
+<tr><th id="402">402</th><td>  <i>// Adds an argument to the list.</i></td></tr>
+<tr><th id="403">403</th><td><i>  //</i></td></tr>
+<tr><th id="404">404</th><td><i>  // Note that the address of the argument is stored, so the input must not go</i></td></tr>
+<tr><th id="405">405</th><td><i>  // out of scope before the instance of this class that calls this method does.</i></td></tr>
+<tr><th id="406">406</th><td>  <b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="407">407</th><td>  <em>void</em> <dfn class="decl def" id="_ZN9perftools8gputools15KernelArgsArray12add_argumentERKT_" title='perftools::gputools::KernelArgsArray::add_argument' data-ref="_ZN9perftools8gputools15KernelArgsArray12add_argumentERKT_">add_argument</dfn>(<em>const</em> T &amp;<dfn class="local col9 decl" id="1479arg" title='arg' data-type='const T &amp;' data-ref="1479arg">arg</dfn>) {</td></tr>
+<tr><th id="408">408</th><td>    <a class="member" href="#perftools::gputools::KernelArgsArray::argument_addresses_" title='perftools::gputools::KernelArgsArray::argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::argument_addresses_">argument_addresses_</a>[<a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a>] =</td></tr>
+<tr><th id="409">409</th><td>        <b>static_cast</b>&lt;<em>const</em> <em>void</em> *&gt;(&amp;<a class="local col9 ref" href="#1479arg" title='arg' data-ref="1479arg">arg</a>);</td></tr>
+<tr><th id="410">410</th><td>    <a class="member" href="#perftools::gputools::KernelArgsArray::argument_sizes_" title='perftools::gputools::KernelArgsArray::argument_sizes_' data-ref="perftools::gputools::KernelArgsArray::argument_sizes_">argument_sizes_</a>[<a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a>] = <b>sizeof</b>(<a class="local col9 ref" href="#1479arg" title='arg' data-ref="1479arg">arg</a>);</td></tr>
+<tr><th id="411">411</th><td>    ++<a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a>;</td></tr>
+<tr><th id="412">412</th><td>  }</td></tr>
+<tr><th id="413">413</th><td></td></tr>
+<tr><th id="414">414</th><td>  <i>// Adds a device memory argument to the list.</i></td></tr>
+<tr><th id="415">415</th><td>  <em>void</em> <dfn class="decl def" id="_ZN9perftools8gputools15KernelArgsArray26add_device_memory_argumentERKNS0_16DeviceMemoryBaseE" title='perftools::gputools::KernelArgsArray::add_device_memory_argument' data-ref="_ZN9perftools8gputools15KernelArgsArray26add_device_memory_argumentERKNS0_16DeviceMemoryBaseE">add_device_memory_argument</dfn>(<em>const</em> <a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemoryBase" title='perftools::gputools::DeviceMemoryBase' data-ref="perftools::gputools::DeviceMemoryBase">DeviceMemoryBase</a> &amp;<dfn class="local col0 decl" id="1480arg" title='arg' data-type='const perftools::gputools::DeviceMemoryBase &amp;' data-ref="1480arg">arg</dfn>) {</td></tr>
+<tr><th id="416">416</th><td>    <em>const</em> <em>void</em> **<dfn class="local col1 decl" id="1481copy_ptr" title='copy_ptr' data-type='const void **' data-ref="1481copy_ptr">copy_ptr</dfn> =</td></tr>
+<tr><th id="417">417</th><td>        &amp;<a class="member" href="#perftools::gputools::KernelArgsArray::device_memory_opaque_pointers_" title='perftools::gputools::KernelArgsArray::device_memory_opaque_pointers_' data-ref="perftools::gputools::KernelArgsArray::device_memory_opaque_pointers_">device_memory_opaque_pointers_</a>[<a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a>];</td></tr>
+<tr><th id="418">418</th><td>    *<a class="local col1 ref" href="#1481copy_ptr" title='copy_ptr' data-ref="1481copy_ptr">copy_ptr</a> = <a class="local col0 ref" href="#1480arg" title='arg' data-ref="1480arg">arg</a>.<a class="ref" href="device_memory.h.html#_ZNK9perftools8gputools16DeviceMemoryBase6opaqueEv" title='perftools::gputools::DeviceMemoryBase::opaque' data-ref="_ZNK9perftools8gputools16DeviceMemoryBase6opaqueEv">opaque</a>();</td></tr>
+<tr><th id="419">419</th><td>    <a class="member" href="#perftools::gputools::KernelArgsArray::argument_addresses_" title='perftools::gputools::KernelArgsArray::argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::argument_addresses_">argument_addresses_</a>[<a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a>] = <a class="local col1 ref" href="#1481copy_ptr" title='copy_ptr' data-ref="1481copy_ptr">copy_ptr</a>;</td></tr>
+<tr><th id="420">420</th><td>    <a class="member" href="#perftools::gputools::KernelArgsArray::argument_sizes_" title='perftools::gputools::KernelArgsArray::argument_sizes_' data-ref="perftools::gputools::KernelArgsArray::argument_sizes_">argument_sizes_</a>[<a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a>] = <b>sizeof</b>(<em>void</em> *);</td></tr>
+<tr><th id="421">421</th><td>    ++<a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a>;</td></tr>
+<tr><th id="422">422</th><td>  }</td></tr>
+<tr><th id="423">423</th><td></td></tr>
+<tr><th id="424">424</th><td>  <i>// Adds a shared memory argument to the list.</i></td></tr>
+<tr><th id="425">425</th><td><i>  //</i></td></tr>
+<tr><th id="426">426</th><td><i>  // The only significant information about a shared argument is its size, so</i></td></tr>
+<tr><th id="427">427</th><td><i>  // that is the only parameter in this function.</i></td></tr>
+<tr><th id="428">428</th><td>  <em>void</em> <dfn class="decl def" id="_ZN9perftools8gputools15KernelArgsArray16add_shared_bytesEm" title='perftools::gputools::KernelArgsArray::add_shared_bytes' data-ref="_ZN9perftools8gputools15KernelArgsArray16add_shared_bytesEm">add_shared_bytes</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col2 decl" id="1482number_of_bytes" title='number_of_bytes' data-type='size_t' data-ref="1482number_of_bytes">number_of_bytes</dfn>) {</td></tr>
+<tr><th id="429">429</th><td>    <a class="member" href="#perftools::gputools::KernelArgsArray::shared_memory_indices_" title='perftools::gputools::KernelArgsArray::shared_memory_indices_' data-ref="perftools::gputools::KernelArgsArray::shared_memory_indices_">shared_memory_indices_</a>[<a class="member" href="#perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_" title='perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_' data-ref="perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_">number_of_shared_memory_arguments_</a>] =</td></tr>
+<tr><th id="430">430</th><td>        <a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a> + <a class="member" href="#perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_" title='perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_' data-ref="perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_">number_of_shared_memory_arguments_</a>;</td></tr>
+<tr><th id="431">431</th><td>    <a class="member" href="#perftools::gputools::KernelArgsArray::shared_memory_bytes_" title='perftools::gputools::KernelArgsArray::shared_memory_bytes_' data-ref="perftools::gputools::KernelArgsArray::shared_memory_bytes_">shared_memory_bytes_</a>[<a class="member" href="#perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_" title='perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_' data-ref="perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_">number_of_shared_memory_arguments_</a>] = <a class="local col2 ref" href="#1482number_of_bytes" title='number_of_bytes' data-ref="1482number_of_bytes">number_of_bytes</a>;</td></tr>
+<tr><th id="432">432</th><td>    ++<a class="member" href="#perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_" title='perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_' data-ref="perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_">number_of_shared_memory_arguments_</a>;</td></tr>
+<tr><th id="433">433</th><td>    <a class="member" href="#perftools::gputools::KernelArgsArray::total_shared_memory_bytes_" title='perftools::gputools::KernelArgsArray::total_shared_memory_bytes_' data-ref="perftools::gputools::KernelArgsArray::total_shared_memory_bytes_">total_shared_memory_bytes_</a> += <a class="local col2 ref" href="#1482number_of_bytes" title='number_of_bytes' data-ref="1482number_of_bytes">number_of_bytes</a>;</td></tr>
+<tr><th id="434">434</th><td>  }</td></tr>
+<tr><th id="435">435</th><td></td></tr>
+<tr><th id="436">436</th><td>  <i>// Gets the number of arguments added so far, including shared memory</i></td></tr>
+<tr><th id="437">437</th><td><i>  // arguments.</i></td></tr>
+<tr><th id="438">438</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="virtual decl def" id="_ZNK9perftools8gputools15KernelArgsArray19number_of_argumentsEv" title='perftools::gputools::KernelArgsArray::number_of_arguments' data-ref="_ZNK9perftools8gputools15KernelArgsArray19number_of_argumentsEv">number_of_arguments</dfn>() <em>const</em> override {</td></tr>
+<tr><th id="439">439</th><td>    <b>return</b> <a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a> + <a class="member" href="#perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_" title='perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_' data-ref="perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_">number_of_shared_memory_arguments_</a>;</td></tr>
+<tr><th id="440">440</th><td>  }</td></tr>
+<tr><th id="441">441</th><td></td></tr>
+<tr><th id="442">442</th><td>  <i>// Gets the total number of shared memory bytes added so far.</i></td></tr>
+<tr><th id="443">443</th><td>  <a class="typedef" href="../core/platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="virtual decl def" id="_ZNK9perftools8gputools15KernelArgsArray22number_of_shared_bytesEv" title='perftools::gputools::KernelArgsArray::number_of_shared_bytes' data-ref="_ZNK9perftools8gputools15KernelArgsArray22number_of_shared_bytesEv">number_of_shared_bytes</dfn>() <em>const</em> override {</td></tr>
+<tr><th id="444">444</th><td>    <b>return</b> <a class="member" href="#perftools::gputools::KernelArgsArray::total_shared_memory_bytes_" title='perftools::gputools::KernelArgsArray::total_shared_memory_bytes_' data-ref="perftools::gputools::KernelArgsArray::total_shared_memory_bytes_">total_shared_memory_bytes_</a>;</td></tr>
+<tr><th id="445">445</th><td>  }</td></tr>
+<tr><th id="446">446</th><td></td></tr>
+<tr><th id="447">447</th><td>  <i>// Gets the list of argument addresses.</i></td></tr>
+<tr><th id="448">448</th><td>  <span class="namespace">port::</span><a class="type" href="../core/lib/gtl/array_slice.h.html#tensorflow::gtl::ArraySlice" title='tensorflow::gtl::ArraySlice' data-ref="tensorflow::gtl::ArraySlice">ArraySlice</a>&lt;<em>const</em> <em>void</em> *&gt; <dfn class="virtual decl def" id="_ZNK9perftools8gputools15KernelArgsArray18argument_addressesEv" title='perftools::gputools::KernelArgsArray::argument_addresses' data-ref="_ZNK9perftools8gputools15KernelArgsArray18argument_addressesEv">argument_addresses</dfn>() <em>const</em> override {</td></tr>
+<tr><th id="449">449</th><td>    <b>return</b> <span class="namespace">port::</span><a class="type" href="../core/lib/gtl/array_slice.h.html#tensorflow::gtl::ArraySlice" title='tensorflow::gtl::ArraySlice' data-ref="tensorflow::gtl::ArraySlice">ArraySlice</a>&lt;<em>const</em> <em>void</em> *&gt;(<a class="member" href="#perftools::gputools::KernelArgsArray::argument_addresses_" title='perftools::gputools::KernelArgsArray::argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::argument_addresses_">argument_addresses_</a>.data(),</td></tr>
+<tr><th id="450">450</th><td>                                          <a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a>);</td></tr>
+<tr><th id="451">451</th><td>  }</td></tr>
+<tr><th id="452">452</th><td></td></tr>
+<tr><th id="453">453</th><td>  <i>// Gets an iterator to the arguments in the array.</i></td></tr>
+<tr><th id="454">454</th><td>  <a class="type" href="#perftools::gputools::KernelArgIterator" title='perftools::gputools::KernelArgIterator' data-ref="perftools::gputools::KernelArgIterator">KernelArgIterator</a> <dfn class="virtual decl def" id="_ZNK9perftools8gputools15KernelArgsArray12arg_iteratorEv" title='perftools::gputools::KernelArgsArray::arg_iterator' data-ref="_ZNK9perftools8gputools15KernelArgsArray12arg_iteratorEv">arg_iterator</dfn>() <em>const</em> override {</td></tr>
+<tr><th id="455">455</th><td>    <b>return</b> <a class="type" href="#perftools::gputools::KernelArgIterator" title='perftools::gputools::KernelArgIterator' data-ref="perftools::gputools::KernelArgIterator">KernelArgIterator</a>(</td></tr>
+<tr><th id="456">456</th><td>        <a class="member" href="#perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</a>, <a class="member" href="#perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_" title='perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_' data-ref="perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_">number_of_shared_memory_arguments_</a>,</td></tr>
+<tr><th id="457">457</th><td>        <a class="member" href="#perftools::gputools::KernelArgsArray::argument_addresses_" title='perftools::gputools::KernelArgsArray::argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::argument_addresses_">argument_addresses_</a>.data(), <a class="member" href="#perftools::gputools::KernelArgsArray::argument_sizes_" title='perftools::gputools::KernelArgsArray::argument_sizes_' data-ref="perftools::gputools::KernelArgsArray::argument_sizes_">argument_sizes_</a>.data(),</td></tr>
+<tr><th id="458">458</th><td>        <a class="member" href="#perftools::gputools::KernelArgsArray::shared_memory_bytes_" title='perftools::gputools::KernelArgsArray::shared_memory_bytes_' data-ref="perftools::gputools::KernelArgsArray::shared_memory_bytes_">shared_memory_bytes_</a>.data(), <a class="member" href="#perftools::gputools::KernelArgsArray::shared_memory_indices_" title='perftools::gputools::KernelArgsArray::shared_memory_indices_' data-ref="perftools::gputools::KernelArgsArray::shared_memory_indices_">shared_memory_indices_</a>.data());</td></tr>
+<tr><th id="459">459</th><td>  }</td></tr>
+<tr><th id="460">460</th><td></td></tr>
+<tr><th id="461">461</th><td> <b>private</b>:</td></tr>
+<tr><th id="462">462</th><td>  <i>// A place to store copies of opaque pointers from device memory arguments.</i></td></tr>
+<tr><th id="463">463</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<em>const</em> <em>void</em> *, <a class="tu ref" href="#perftools::gputools::KernelArgsArray::kNumArgs" title='perftools::gputools::KernelArgsArray::kNumArgs' data-ref="perftools::gputools::KernelArgsArray::kNumArgs">kNumArgs</a>&gt; <dfn class="decl" id="perftools::gputools::KernelArgsArray::device_memory_opaque_pointers_" title='perftools::gputools::KernelArgsArray::device_memory_opaque_pointers_' data-ref="perftools::gputools::KernelArgsArray::device_memory_opaque_pointers_">device_memory_opaque_pointers_</dfn>;</td></tr>
+<tr><th id="464">464</th><td></td></tr>
+<tr><th id="465">465</th><td>  <i>// Addresses for non-shared-memory arguments.</i></td></tr>
+<tr><th id="466">466</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<em>const</em> <em>void</em> *, <a class="tu ref" href="#perftools::gputools::KernelArgsArray::kNumArgs" title='perftools::gputools::KernelArgsArray::kNumArgs' data-ref="perftools::gputools::KernelArgsArray::kNumArgs">kNumArgs</a>&gt; <dfn class="decl" id="perftools::gputools::KernelArgsArray::argument_addresses_" title='perftools::gputools::KernelArgsArray::argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::argument_addresses_">argument_addresses_</dfn>;</td></tr>
+<tr><th id="467">467</th><td></td></tr>
+<tr><th id="468">468</th><td>  <i>// Sizes for non-shared-memory arguments.</i></td></tr>
+<tr><th id="469">469</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>, <a class="tu ref" href="#perftools::gputools::KernelArgsArray::kNumArgs" title='perftools::gputools::KernelArgsArray::kNumArgs' data-ref="perftools::gputools::KernelArgsArray::kNumArgs">kNumArgs</a>&gt; <dfn class="decl" id="perftools::gputools::KernelArgsArray::argument_sizes_" title='perftools::gputools::KernelArgsArray::argument_sizes_' data-ref="perftools::gputools::KernelArgsArray::argument_sizes_">argument_sizes_</dfn>;</td></tr>
+<tr><th id="470">470</th><td></td></tr>
+<tr><th id="471">471</th><td>  <i>// Size in bytes for each shared memory argument.</i></td></tr>
+<tr><th id="472">472</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>, <a class="tu ref" href="#perftools::gputools::KernelArgsArray::kNumArgs" title='perftools::gputools::KernelArgsArray::kNumArgs' data-ref="perftools::gputools::KernelArgsArray::kNumArgs">kNumArgs</a>&gt; <dfn class="decl" id="perftools::gputools::KernelArgsArray::shared_memory_bytes_" title='perftools::gputools::KernelArgsArray::shared_memory_bytes_' data-ref="perftools::gputools::KernelArgsArray::shared_memory_bytes_">shared_memory_bytes_</dfn>;</td></tr>
+<tr><th id="473">473</th><td></td></tr>
+<tr><th id="474">474</th><td>  <i>// Indices in the arguments array for shared memory arguments.</i></td></tr>
+<tr><th id="475">475</th><td>  <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>, <a class="tu ref" href="#perftools::gputools::KernelArgsArray::kNumArgs" title='perftools::gputools::KernelArgsArray::kNumArgs' data-ref="perftools::gputools::KernelArgsArray::kNumArgs">kNumArgs</a>&gt; <dfn class="decl" id="perftools::gputools::KernelArgsArray::shared_memory_indices_" title='perftools::gputools::KernelArgsArray::shared_memory_indices_' data-ref="perftools::gputools::KernelArgsArray::shared_memory_indices_">shared_memory_indices_</dfn>;</td></tr>
+<tr><th id="476">476</th><td></td></tr>
+<tr><th id="477">477</th><td>  <i>// Total of all shared memory sizes.</i></td></tr>
+<tr><th id="478">478</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="perftools::gputools::KernelArgsArray::total_shared_memory_bytes_" title='perftools::gputools::KernelArgsArray::total_shared_memory_bytes_' data-ref="perftools::gputools::KernelArgsArray::total_shared_memory_bytes_">total_shared_memory_bytes_</dfn>;</td></tr>
+<tr><th id="479">479</th><td></td></tr>
+<tr><th id="480">480</th><td>  <i>// Number of significant entries in argument_addresses_ and argument_sizes_.</i></td></tr>
+<tr><th id="481">481</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="perftools::gputools::KernelArgsArray::number_of_argument_addresses_" title='perftools::gputools::KernelArgsArray::number_of_argument_addresses_' data-ref="perftools::gputools::KernelArgsArray::number_of_argument_addresses_">number_of_argument_addresses_</dfn>;</td></tr>
+<tr><th id="482">482</th><td></td></tr>
+<tr><th id="483">483</th><td>  <i>// Number of significant entries in shared_memory_bytes_ and</i></td></tr>
+<tr><th id="484">484</th><td><i>  // shared_memory_indices_.</i></td></tr>
+<tr><th id="485">485</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_" title='perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_' data-ref="perftools::gputools::KernelArgsArray::number_of_shared_memory_arguments_">number_of_shared_memory_arguments_</dfn>;</td></tr>
+<tr><th id="486">486</th><td>};</td></tr>
+<tr><th id="487">487</th><td></td></tr>
+<tr><th id="488">488</th><td><i>// Typed variant of KernelBase, like a typed device function pointer. See the</i></td></tr>
+<tr><th id="489">489</th><td><i>// file comment for details and example usage.</i></td></tr>
+<tr><th id="490">490</th><td><i>//</i></td></tr>
+<tr><th id="491">491</th><td><i>// This class contains template metaprogramming magic to type check the</i></td></tr>
+<tr><th id="492">492</th><td><i>// parameters passed to a kernel launch are acceptable, and subsequently pack</i></td></tr>
+<tr><th id="493">493</th><td><i>// them into a form which can be used by the StreamExecutorInterface</i></td></tr>
+<tr><th id="494">494</th><td><i>// implementation. (i.e.  CUDA and OpenCL both bind void*s with associated</i></td></tr>
+<tr><th id="495">495</th><td><i>// sizes as kernel arguments.)</i></td></tr>
+<tr><th id="496">496</th><td><i>//</i></td></tr>
+<tr><th id="497">497</th><td><i>// Thread-compatible.</i></td></tr>
+<tr><th id="498">498</th><td><b>template</b> &lt;<b>typename</b>... Params&gt;</td></tr>
+<tr><th id="499">499</th><td><b>class</b> <dfn class="type def" id="perftools::gputools::TypedKernel" title='perftools::gputools::TypedKernel' data-ref="perftools::gputools::TypedKernel">TypedKernel</dfn> : <b>public</b> <a class="type" href="#perftools::gputools::KernelBase" title='perftools::gputools::KernelBase' data-ref="perftools::gputools::KernelBase">KernelBase</a> {</td></tr>
+<tr><th id="500">500</th><td> <b>public</b>:</td></tr>
+<tr><th id="501">501</th><td>  <em>static</em> <b>constexpr</b> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="decl" id="perftools::gputools::TypedKernel::kNumberOfParameters" title='perftools::gputools::TypedKernel::kNumberOfParameters' data-ref="perftools::gputools::TypedKernel::kNumberOfParameters">kNumberOfParameters</dfn> = <b>sizeof</b>...(Params);</td></tr>
+<tr><th id="502">502</th><td></td></tr>
+<tr><th id="503">503</th><td>  <i>// Delegates to KernelBase::KernelBase(), see that constructor.</i></td></tr>
+<tr><th id="504">504</th><td>  <b>explicit</b> <dfn class="decl def" id="_ZN9perftools8gputools11TypedKernelC1EPNS0_14StreamExecutorE" title='perftools::gputools::TypedKernel::TypedKernel&lt;Params...&gt;' data-ref="_ZN9perftools8gputools11TypedKernelC1EPNS0_14StreamExecutorE">TypedKernel</dfn>(<a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a> *<dfn class="local col3 decl" id="1483parent" title='parent' data-type='perftools::gputools::StreamExecutor *' data-ref="1483parent">parent</dfn>) : <a class="type" href="#perftools::gputools::KernelBase" title='perftools::gputools::KernelBase' data-ref="perftools::gputools::KernelBase">KernelBase</a>(<a class="local col3 ref" href="#1483parent" title='parent' data-ref="1483parent">parent</a>) {}</td></tr>
+<tr><th id="505">505</th><td></td></tr>
+<tr><th id="506">506</th><td>  <i>// Test-only constructor that can take a mock KernelInterface implementation.</i></td></tr>
+<tr><th id="507">507</th><td><i>  // Takes ownership of implementation, it should not be null.</i></td></tr>
+<tr><th id="508">508</th><td>  <dfn class="decl def" id="_ZN9perftools8gputools11TypedKernelC1EPNS0_14StreamExecutorEPNS0_8internal15KernelInterfaceE" title='perftools::gputools::TypedKernel::TypedKernel&lt;Params...&gt;' data-ref="_ZN9perftools8gputools11TypedKernelC1EPNS0_14StreamExecutorEPNS0_8internal15KernelInterfaceE">TypedKernel</dfn>(<a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a> *<dfn class="local col4 decl" id="1484parent" title='parent' data-type='perftools::gputools::StreamExecutor *' data-ref="1484parent">parent</dfn>, <span class="namespace">internal::</span><a class="type" href="stream_executor_internal.h.html#perftools::gputools::internal::KernelInterface" title='perftools::gputools::internal::KernelInterface' data-ref="perftools::gputools::internal::KernelInterface">KernelInterface</a> *<dfn class="local col5 decl" id="1485implementation" title='implementation' data-type='internal::KernelInterface *' data-ref="1485implementation">implementation</dfn>)</td></tr>
+<tr><th id="509">509</th><td>      : <a class="type" href="#perftools::gputools::KernelBase" title='perftools::gputools::KernelBase' data-ref="perftools::gputools::KernelBase">KernelBase</a>(<a class="local col4 ref" href="#1484parent" title='parent' data-ref="1484parent">parent</a>, <a class="local col5 ref" href="#1485implementation" title='implementation' data-ref="1485implementation">implementation</a>) {}</td></tr>
+<tr><th id="510">510</th><td></td></tr>
+<tr><th id="511">511</th><td> <b>private</b>:</td></tr>
+<tr><th id="512">512</th><td>  <i>// Stream needs access to the specific parameter-packing functionality that</i></td></tr>
+<tr><th id="513">513</th><td><i>  // the TypedKernel provides for its corresponding type signature (and no other</i></td></tr>
+<tr><th id="514">514</th><td><i>  // type signatures).</i></td></tr>
+<tr><th id="515">515</th><td>  <b>friend</b> <b>class</b> <a class="type" href="stream.h.html#perftools::gputools::Stream" title='perftools::gputools::Stream' data-ref="perftools::gputools::Stream">Stream</a>;</td></tr>
+<tr><th id="516">516</th><td></td></tr>
+<tr><th id="517">517</th><td>  <i>// This is the main entry point into the magic. Packs the parameters (which</i></td></tr>
+<tr><th id="518">518</th><td><i>  // must type check against the class template) into the args and sizes</i></td></tr>
+<tr><th id="519">519</th><td><i>  // arrays.</i></td></tr>
+<tr><th id="520">520</th><td><i>  //</i></td></tr>
+<tr><th id="521">521</th><td><i>  // Const refs are taken as parameters on all of the handlers to avoid</i></td></tr>
+<tr><th id="522">522</th><td><i>  // implicit type promotion of integers.</i></td></tr>
+<tr><th id="523">523</th><td><i>  //</i></td></tr>
+<tr><th id="524">524</th><td><i>  // WARNING: as a performance optimization this method may store pointers to</i></td></tr>
+<tr><th id="525">525</th><td><i>  // some of the input parameters in the kernel args structure, so any params</i></td></tr>
+<tr><th id="526">526</th><td><i>  // passed into this method must live at least as long as the kernel args</i></td></tr>
+<tr><th id="527">527</th><td><i>  // structure.</i></td></tr>
+<tr><th id="528">528</th><td>  <em>void</em> <dfn class="decl def" id="_ZNK9perftools8gputools11TypedKernel10PackParamsEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEEDpRT_" title='perftools::gputools::TypedKernel::PackParams' data-ref="_ZNK9perftools8gputools11TypedKernel10PackParamsEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEEDpRT_">PackParams</dfn>(<a class="type" href="#perftools::gputools::KernelArgsArray" title='perftools::gputools::KernelArgsArray' data-ref="perftools::gputools::KernelArgsArray">KernelArgsArray</a>&lt;<a class="member" href="#perftools::gputools::TypedKernel::kNumberOfParameters" title='perftools::gputools::TypedKernel::kNumberOfParameters' data-ref="perftools::gputools::TypedKernel::kNumberOfParameters">kNumberOfParameters</a>&gt; *<dfn class="local col6 decl" id="1486args" title='args' data-type='KernelArgsArray&lt;kNumberOfParameters&gt; *' data-ref="1486args">args</dfn>,</td></tr>
+<tr><th id="529">529</th><td>                  Params &amp;... <dfn class="local col7 decl" id="1487params" title='params' data-type='Params &amp;...' data-ref="1487params">params</dfn>) <em>const</em> {</td></tr>
+<tr><th id="530">530</th><td>    PackOneParam(<a class="local col6 ref" href="#1486args" title='args' data-ref="1486args">args</a>, <a class="local col7 ref" href="#1487params" title='params' data-ref="1487params">params</a>...);</td></tr>
+<tr><th id="531">531</th><td>  }</td></tr>
+<tr><th id="532">532</th><td></td></tr>
+<tr><th id="533">533</th><td>  <b>template</b> &lt;<b>typename</b> T, <b>typename</b>... RestOfParams&gt;</td></tr>
+<tr><th id="534">534</th><td>  <em>void</em> <dfn class="decl def" id="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEERKT_DpRKT0_" title='perftools::gputools::TypedKernel::PackOneParam' data-ref="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEERKT_DpRKT0_">PackOneParam</dfn>(<a class="type" href="#perftools::gputools::KernelArgsArray" title='perftools::gputools::KernelArgsArray' data-ref="perftools::gputools::KernelArgsArray">KernelArgsArray</a>&lt;<a class="member" href="#perftools::gputools::TypedKernel::kNumberOfParameters" title='perftools::gputools::TypedKernel::kNumberOfParameters' data-ref="perftools::gputools::TypedKernel::kNumberOfParameters">kNumberOfParameters</a>&gt; *<dfn class="local col8 decl" id="1488args" title='args' data-type='KernelArgsArray&lt;kNumberOfParameters&gt; *' data-ref="1488args">args</dfn>, <em>const</em> T &amp;<dfn class="local col9 decl" id="1489arg" title='arg' data-type='const T &amp;' data-ref="1489arg">arg</dfn>,</td></tr>
+<tr><th id="535">535</th><td>                    <em>const</em> RestOfParams &amp;... <dfn class="local col0 decl" id="1490rest" title='rest' data-type='const RestOfParams &amp;...' data-ref="1490rest">rest</dfn>) <em>const</em> {</td></tr>
+<tr><th id="536">536</th><td>    PackOneParam(<a class="local col8 ref" href="#1488args" title='args' data-ref="1488args">args</a>, <a class="local col9 ref" href="#1489arg" title='arg' data-ref="1489arg">arg</a>);</td></tr>
+<tr><th id="537">537</th><td>    PackOneParam(<a class="local col8 ref" href="#1488args" title='args' data-ref="1488args">args</a>, <a class="local col0 ref" href="#1490rest" title='rest' data-ref="1490rest">rest</a>...);</td></tr>
+<tr><th id="538">538</th><td>  }</td></tr>
+<tr><th id="539">539</th><td></td></tr>
+<tr><th id="540">540</th><td>  <i>// Packs one (non-DeviceMemoryBase) parameter into the arg and sizes array.</i></td></tr>
+<tr><th id="541">541</th><td><i>  // The enable_if&lt;&gt; is for excluding DeviceMemoryBase args, which have a</i></td></tr>
+<tr><th id="542">542</th><td><i>  // separate implementation below.</i></td></tr>
+<tr><th id="543">543</th><td>  <b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="544">544</th><td>  <em>void</em> <dfn class="decl def" id="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEERKT_PNSt9enable_ifIXaaaantsr23IsDeviceMemory11237631" title='perftools::gputools::TypedKernel::PackOneParam' data-ref="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEERKT_PNSt9enable_ifIXaaaantsr23IsDeviceMemory11237631">PackOneParam</dfn>(</td></tr>
+<tr><th id="545">545</th><td>      <a class="type" href="#perftools::gputools::KernelArgsArray" title='perftools::gputools::KernelArgsArray' data-ref="perftools::gputools::KernelArgsArray">KernelArgsArray</a>&lt;<a class="member" href="#perftools::gputools::TypedKernel::kNumberOfParameters" title='perftools::gputools::TypedKernel::kNumberOfParameters' data-ref="perftools::gputools::TypedKernel::kNumberOfParameters">kNumberOfParameters</a>&gt; *<dfn class="local col1 decl" id="1491args" title='args' data-type='KernelArgsArray&lt;kNumberOfParameters&gt; *' data-ref="1491args">args</dfn>, <em>const</em> T &amp;<dfn class="local col2 decl" id="1492arg" title='arg' data-type='const T &amp;' data-ref="1492arg">arg</dfn>,</td></tr>
+<tr><th id="546">546</th><td>      <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/type_traits.html#std::enable_if" title='std::enable_if' data-ref="std::enable_if">enable_if</a>&lt;!<a class="type" href="#perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike">IsDeviceMemoryValueLike</a>&lt;T&gt;::value &amp;&amp;</td></tr>
+<tr><th id="547">547</th><td>                              !<a class="type" href="#perftools::gputools::IsDeviceMemoryPointer" title='perftools::gputools::IsDeviceMemoryPointer' data-ref="perftools::gputools::IsDeviceMemoryPointer">IsDeviceMemoryPointer</a>&lt;T&gt;::value &amp;&amp;</td></tr>
+<tr><th id="548">548</th><td>                              !<a class="type" href="#perftools::gputools::IsSharedDeviceMemory" title='perftools::gputools::IsSharedDeviceMemory' data-ref="perftools::gputools::IsSharedDeviceMemory">IsSharedDeviceMemory</a>&lt;T&gt;::value&gt;::type * =</td></tr>
+<tr><th id="549">549</th><td>          <b>nullptr</b>) <em>const</em> {</td></tr>
+<tr><th id="550">550</th><td>    <b>static_assert</b>(!<span class="namespace">std::</span><a class="type" href="../../../include/c++/5/type_traits.html#std::is_pointer" title='std::is_pointer' data-ref="std::is_pointer">is_pointer</a>&lt;T&gt;::value,</td></tr>
+<tr><th id="551">551</th><td>                  <q>"cannot pass raw pointer to the device"</q>);</td></tr>
+<tr><th id="552">552</th><td>    <b>static_assert</b>(!<span class="namespace">std::</span><a class="type" href="../../../include/c++/5/type_traits.html#std::is_convertible" title='std::is_convertible' data-ref="std::is_convertible">is_convertible</a>&lt;T, <a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemoryBase" title='perftools::gputools::DeviceMemoryBase' data-ref="perftools::gputools::DeviceMemoryBase">DeviceMemoryBase</a>&gt;::value,</td></tr>
+<tr><th id="553">553</th><td>                  <q>"cannot pass device memory as a normal value"</q>);</td></tr>
+<tr><th id="554">554</th><td>    <a class="local col1 ref" href="#1491args" title='args' data-ref="1491args">args</a>-&gt;add_argument(<a class="local col2 ref" href="#1492arg" title='arg' data-ref="1492arg">arg</a>);</td></tr>
+<tr><th id="555">555</th><td>  }</td></tr>
+<tr><th id="556">556</th><td></td></tr>
+<tr><th id="557">557</th><td>  <i>// DeviceMemoryBase family reference override.</i></td></tr>
+<tr><th id="558">558</th><td>  <b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="559">559</th><td>  <em>void</em> <dfn class="decl def" id="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEERKT_PNSt9enable_ifIXsr23IsDeviceMemoryValueL2145761" title='perftools::gputools::TypedKernel::PackOneParam' data-ref="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEERKT_PNSt9enable_ifIXsr23IsDeviceMemoryValueL2145761">PackOneParam</dfn>(</td></tr>
+<tr><th id="560">560</th><td>      <a class="type" href="#perftools::gputools::KernelArgsArray" title='perftools::gputools::KernelArgsArray' data-ref="perftools::gputools::KernelArgsArray">KernelArgsArray</a>&lt;<a class="member" href="#perftools::gputools::TypedKernel::kNumberOfParameters" title='perftools::gputools::TypedKernel::kNumberOfParameters' data-ref="perftools::gputools::TypedKernel::kNumberOfParameters">kNumberOfParameters</a>&gt; *<dfn class="local col3 decl" id="1493args" title='args' data-type='KernelArgsArray&lt;kNumberOfParameters&gt; *' data-ref="1493args">args</dfn>, <em>const</em> T &amp;<dfn class="local col4 decl" id="1494arg" title='arg' data-type='const T &amp;' data-ref="1494arg">arg</dfn>,</td></tr>
+<tr><th id="561">561</th><td>      <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/type_traits.html#std::enable_if" title='std::enable_if' data-ref="std::enable_if">enable_if</a>&lt;<a class="type" href="#perftools::gputools::IsDeviceMemoryValueLike" title='perftools::gputools::IsDeviceMemoryValueLike' data-ref="perftools::gputools::IsDeviceMemoryValueLike">IsDeviceMemoryValueLike</a>&lt;T&gt;::value&gt;::type * =</td></tr>
+<tr><th id="562">562</th><td>          <b>nullptr</b>) <em>const</em> {</td></tr>
+<tr><th id="563">563</th><td>    <a class="local col3 ref" href="#1493args" title='args' data-ref="1493args">args</a>-&gt;add_device_memory_argument(<a class="local col4 ref" href="#1494arg" title='arg' data-ref="1494arg">arg</a>);</td></tr>
+<tr><th id="564">564</th><td>  }</td></tr>
+<tr><th id="565">565</th><td></td></tr>
+<tr><th id="566">566</th><td>  <i>// DeviceMemoryBase family pointer override.</i></td></tr>
+<tr><th id="567">567</th><td>  <b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="568">568</th><td>  <em>void</em> <dfn class="decl def" id="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEET_PNSt9enable_ifIXsr21IsDeviceMemoryPointerIS5_EE5valueEvE4typeE" title='perftools::gputools::TypedKernel::PackOneParam' data-ref="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEET_PNSt9enable_ifIXsr21IsDeviceMemoryPointerIS5_EE5valueEvE4typeE">PackOneParam</dfn>(</td></tr>
+<tr><th id="569">569</th><td>      <a class="type" href="#perftools::gputools::KernelArgsArray" title='perftools::gputools::KernelArgsArray' data-ref="perftools::gputools::KernelArgsArray">KernelArgsArray</a>&lt;<a class="member" href="#perftools::gputools::TypedKernel::kNumberOfParameters" title='perftools::gputools::TypedKernel::kNumberOfParameters' data-ref="perftools::gputools::TypedKernel::kNumberOfParameters">kNumberOfParameters</a>&gt; *<dfn class="local col5 decl" id="1495args" title='args' data-type='KernelArgsArray&lt;kNumberOfParameters&gt; *' data-ref="1495args">args</dfn>, T <dfn class="local col6 decl" id="1496arg" title='arg' data-type='T' data-ref="1496arg">arg</dfn>,</td></tr>
+<tr><th id="570">570</th><td>      <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/type_traits.html#std::enable_if" title='std::enable_if' data-ref="std::enable_if">enable_if</a>&lt;<a class="type" href="#perftools::gputools::IsDeviceMemoryPointer" title='perftools::gputools::IsDeviceMemoryPointer' data-ref="perftools::gputools::IsDeviceMemoryPointer">IsDeviceMemoryPointer</a>&lt;T&gt;::value&gt;::type * =</td></tr>
+<tr><th id="571">571</th><td>          <b>nullptr</b>) <em>const</em> {</td></tr>
+<tr><th id="572">572</th><td>    <a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemoryBase" title='perftools::gputools::DeviceMemoryBase' data-ref="perftools::gputools::DeviceMemoryBase">DeviceMemoryBase</a> *<dfn class="local col7 decl" id="1497ptr" title='ptr' data-type='perftools::gputools::DeviceMemoryBase *' data-ref="1497ptr">ptr</dfn> = <b>static_cast</b>&lt;<a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemoryBase" title='perftools::gputools::DeviceMemoryBase' data-ref="perftools::gputools::DeviceMemoryBase">DeviceMemoryBase</a> *&gt;(<a class="local col6 ref" href="#1496arg" title='arg' data-ref="1496arg">arg</a>);</td></tr>
+<tr><th id="573">573</th><td>    <a class="local col5 ref" href="#1495args" title='args' data-ref="1495args">args</a>-&gt;add_device_memory_argument(*<a class="local col7 ref" href="#1497ptr" title='ptr' data-ref="1497ptr">ptr</a>);</td></tr>
+<tr><th id="574">574</th><td>  }</td></tr>
+<tr><th id="575">575</th><td></td></tr>
+<tr><th id="576">576</th><td>  <i>// Dynamic shared device memory has a size, but no associated allocation on</i></td></tr>
+<tr><th id="577">577</th><td><i>  // the host; internally, the device will allocate storage.</i></td></tr>
+<tr><th id="578">578</th><td>  <b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="579">579</th><td>  <em>void</em> <dfn class="decl def" id="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEET_PNSt9enable_ifIXsr20IsSharedDeviceMemoryIS5_EE5valueEvE4typeE" title='perftools::gputools::TypedKernel::PackOneParam' data-ref="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEET_PNSt9enable_ifIXsr20IsSharedDeviceMemoryIS5_EE5valueEvE4typeE">PackOneParam</dfn>(</td></tr>
+<tr><th id="580">580</th><td>      <a class="type" href="#perftools::gputools::KernelArgsArray" title='perftools::gputools::KernelArgsArray' data-ref="perftools::gputools::KernelArgsArray">KernelArgsArray</a>&lt;<a class="member" href="#perftools::gputools::TypedKernel::kNumberOfParameters" title='perftools::gputools::TypedKernel::kNumberOfParameters' data-ref="perftools::gputools::TypedKernel::kNumberOfParameters">kNumberOfParameters</a>&gt; *<dfn class="local col8 decl" id="1498args" title='args' data-type='KernelArgsArray&lt;kNumberOfParameters&gt; *' data-ref="1498args">args</dfn>, T <dfn class="local col9 decl" id="1499arg" title='arg' data-type='T' data-ref="1499arg">arg</dfn>,</td></tr>
+<tr><th id="581">581</th><td>      <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/type_traits.html#std::enable_if" title='std::enable_if' data-ref="std::enable_if">enable_if</a>&lt;<a class="type" href="#perftools::gputools::IsSharedDeviceMemory" title='perftools::gputools::IsSharedDeviceMemory' data-ref="perftools::gputools::IsSharedDeviceMemory">IsSharedDeviceMemory</a>&lt;T&gt;::value&gt;::type * =</td></tr>
+<tr><th id="582">582</th><td>          <b>nullptr</b>) <em>const</em> {</td></tr>
+<tr><th id="583">583</th><td>    <a class="local col8 ref" href="#1498args" title='args' data-ref="1498args">args</a>-&gt;add_shared_bytes(<a class="local col9 ref" href="#1499arg" title='arg' data-ref="1499arg">arg</a>.size());</td></tr>
+<tr><th id="584">584</th><td>  }</td></tr>
+<tr><th id="585">585</th><td></td></tr>
+<tr><th id="586">586</th><td>  <i>// Base case for variadic template expansion - nothing to do!</i></td></tr>
+<tr><th id="587">587</th><td>  <em>void</em> <dfn class="decl def" id="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEE" title='perftools::gputools::TypedKernel::PackOneParam' data-ref="_ZNK9perftools8gputools11TypedKernel12PackOneParamEPNS0_15KernelArgsArrayIL_ZNS1_19kNumberOfParametersEEEE">PackOneParam</dfn>(<a class="type" href="#perftools::gputools::KernelArgsArray" title='perftools::gputools::KernelArgsArray' data-ref="perftools::gputools::KernelArgsArray">KernelArgsArray</a>&lt;<a class="member" href="#perftools::gputools::TypedKernel::kNumberOfParameters" title='perftools::gputools::TypedKernel::kNumberOfParameters' data-ref="perftools::gputools::TypedKernel::kNumberOfParameters">kNumberOfParameters</a>&gt; *<dfn class="local col0 decl" id="1500args" title='args' data-type='KernelArgsArray&lt;kNumberOfParameters&gt; *' data-ref="1500args">args</dfn>) <em>const</em> {}</td></tr>
+<tr><th id="588">588</th><td></td></tr>
+<tr><th id="589">589</th><td>  <a class="macro" href="platform/port.h.html#56" title="TF_DISALLOW_COPY_AND_ASSIGN" data-ref="_M/SE_DISALLOW_COPY_AND_ASSIGN">SE_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN9perftools8gputools11TypedKernelC1ERKNS0_11TypedKernelIJDpT_EEE" title='perftools::gputools::TypedKernel::TypedKernel&lt;Params...&gt;' data-ref="_ZN9perftools8gputools11TypedKernelC1ERKNS0_11TypedKernelIJDpT_EEE">TypedKernel</dfn>);</td></tr>
+<tr><th id="590">590</th><td>};</td></tr>
+<tr><th id="591">591</th><td></td></tr>
+<tr><th id="592">592</th><td><i>// Template metaprogramming helper type that helps us produce better error</i></td></tr>
+<tr><th id="593">593</th><td><i>// messages at compile time when the are mismatches between the parameter</i></td></tr>
+<tr><th id="594">594</th><td><i>// type list and the argument type list.</i></td></tr>
+<tr><th id="595">595</th><td><b>template</b> &lt;<b>typename</b> ParamTuple, <b>typename</b> ArgTuple&gt;</td></tr>
+<tr><th id="596">596</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::KernelInvocationChecker" title='perftools::gputools::KernelInvocationChecker' data-ref="perftools::gputools::KernelInvocationChecker">KernelInvocationChecker</dfn> {</td></tr>
+<tr><th id="597">597</th><td>  <i>// Whether the parameter tuple and argument tuple match in length.</i></td></tr>
+<tr><th id="598">598</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::KernelInvocationChecker::kLengthMatches" title='perftools::gputools::KernelInvocationChecker::kLengthMatches' data-ref="perftools::gputools::KernelInvocationChecker::kLengthMatches">kLengthMatches</dfn> =</td></tr>
+<tr><th id="599">599</th><td>      <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/utility.html#std::tuple_size" title='std::tuple_size' data-ref="std::tuple_size">tuple_size</a>&lt;ParamTuple&gt;::value == <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/utility.html#std::tuple_size" title='std::tuple_size' data-ref="std::tuple_size">tuple_size</a>&lt;ArgTuple&gt;::value;</td></tr>
+<tr><th id="600">600</th><td></td></tr>
+<tr><th id="601">601</th><td>  <i>// The (matching) length of the parameters and arguments type lists.</i></td></tr>
+<tr><th id="602">602</th><td>  <em>static</em> <b>constexpr</b> <em>int</em> <dfn class="decl" id="perftools::gputools::KernelInvocationChecker::kTupleLength" title='perftools::gputools::KernelInvocationChecker::kTupleLength' data-ref="perftools::gputools::KernelInvocationChecker::kTupleLength">kTupleLength</dfn> =</td></tr>
+<tr><th id="603">603</th><td>      <b>static_cast</b>&lt;<em>int</em>&gt;(<span class="namespace">std::</span><a class="type" href="../../../include/c++/5/utility.html#std::tuple_size" title='std::tuple_size' data-ref="std::tuple_size">tuple_size</a>&lt;ArgTuple&gt;::value);</td></tr>
+<tr><th id="604">604</th><td></td></tr>
+<tr><th id="605">605</th><td>  <i>// Helper trait to say whether the parameter wants a DeviceMemory-reference</i></td></tr>
+<tr><th id="606">606</th><td><i>  // compatible type. This is for inexact type matches, so that it doesn't have</i></td></tr>
+<tr><th id="607">607</th><td><i>  // to be precisely a const DeviceMemory&lt;T&gt;&amp;, but can also be a value that</i></td></tr>
+<tr><th id="608">608</th><td><i>  // represents the same.</i></td></tr>
+<tr><th id="609">609</th><td>  <b>template</b> &lt;<b>typename</b> ParamType, <b>typename</b> ArgType&gt;</td></tr>
+<tr><th id="610">610</th><td>  <b>struct</b> <dfn class="type def" id="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef" title='perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef' data-ref="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef">IsCompatibleDeviceMemoryRef</dfn> {</td></tr>
+<tr><th id="611">611</th><td>    <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef::value" title='perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef::value' data-ref="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef::value">value</dfn> = <b>false</b>;</td></tr>
+<tr><th id="612">612</th><td>  };</td></tr>
+<tr><th id="613">613</th><td></td></tr>
+<tr><th id="614">614</th><td>  <i>// See type trait definition above.</i></td></tr>
+<tr><th id="615">615</th><td>  <b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="616">616</th><td>  <b>struct</b> <dfn class="type def" id="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef" title='perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef' data-ref="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef">IsCompatibleDeviceMemoryRef</dfn>&lt;<em>const</em> <a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemory" title='perftools::gputools::DeviceMemory' data-ref="perftools::gputools::DeviceMemory">DeviceMemory</a>&lt;U&gt; &amp;, <a class="type" href="device_memory.h.html#perftools::gputools::DeviceMemory" title='perftools::gputools::DeviceMemory' data-ref="perftools::gputools::DeviceMemory">DeviceMemory</a>&lt;U&gt;&gt; {</td></tr>
+<tr><th id="617">617</th><td>    <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef{constDeviceMemory{type-parameter-1-0}&amp;,DeviceMemory{type-parameter-1-0}}::value" title='perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef&lt;const DeviceMemory&lt;type-parameter-1-0&gt; &amp;, DeviceMemory&lt;type-parameter-1-0&gt; &gt;::value' data-ref="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef{constDeviceMemory{type-parameter-1-0}&amp;,DeviceMemory{type-parameter-1-0}}::value">value</dfn> = <b>true</b>;</td></tr>
+<tr><th id="618">618</th><td>  };</td></tr>
+<tr><th id="619">619</th><td></td></tr>
+<tr><th id="620">620</th><td>  <i>// See type trait definition above.</i></td></tr>
+<tr><th id="621">621</th><td>  <b>template</b> &lt;<b>typename</b> U&gt;</td></tr>
+<tr><th id="622">622</th><td>  <b>struct</b> <dfn class="type def" id="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef" title='perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef' data-ref="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef">IsCompatibleDeviceMemoryRef</dfn>&lt;<em>const</em> <a class="type" href="device_memory.h.html#perftools::gputools::SharedDeviceMemory" title='perftools::gputools::SharedDeviceMemory' data-ref="perftools::gputools::SharedDeviceMemory">SharedDeviceMemory</a>&lt;U&gt; &amp;,</td></tr>
+<tr><th id="623">623</th><td>                                     <a class="type" href="device_memory.h.html#perftools::gputools::SharedDeviceMemory" title='perftools::gputools::SharedDeviceMemory' data-ref="perftools::gputools::SharedDeviceMemory">SharedDeviceMemory</a>&lt;U&gt;&gt; {</td></tr>
+<tr><th id="624">624</th><td>    <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef{constSharedDeviceMemory{type-parameter-1-0}&amp;,SharedDeviceMemory{type-parameter-1-0}}::value" title='perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef&lt;const SharedDeviceMemory&lt;type-parameter-1-0&gt; &amp;, SharedDeviceMemory&lt;type-parameter-1-0&gt; &gt;::value' data-ref="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef{constSharedDeviceMemory{type-parameter-1-0}&amp;,SharedDeviceMemory{type-parameter-1-0}}::value">value</dfn> = <b>true</b>;</td></tr>
+<tr><th id="625">625</th><td>  };</td></tr>
+<tr><th id="626">626</th><td></td></tr>
+<tr><th id="627">627</th><td>  <i>// Returns whether ParamT and ArgT are compatible for data parallel kernel</i></td></tr>
+<tr><th id="628">628</th><td><i>  // parameter packing without any assert functionality.</i></td></tr>
+<tr><th id="629">629</th><td>  <b>template</b> &lt;<b>typename</b> ParamT, <b>typename</b> ArgT&gt;</td></tr>
+<tr><th id="630">630</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl def" id="_ZN9perftools8gputools23KernelInvocationChecker18CompatibleNoAssertEv" title='perftools::gputools::KernelInvocationChecker::CompatibleNoAssert' data-ref="_ZN9perftools8gputools23KernelInvocationChecker18CompatibleNoAssertEv">CompatibleNoAssert</dfn>() {</td></tr>
+<tr><th id="631">631</th><td>    <b>return</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/type_traits.html#std::is_same" title='std::is_same' data-ref="std::is_same">is_same</a>&lt;<b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/type_traits.html#std::remove_const" title='std::remove_const' data-ref="std::remove_const">remove_const</a>&lt;ParamT&gt;::type,</td></tr>
+<tr><th id="632">632</th><td>                        ArgT&gt;::value ||</td></tr>
+<tr><th id="633">633</th><td>           <a class="type" href="#perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef" title='perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef' data-ref="perftools::gputools::KernelInvocationChecker::IsCompatibleDeviceMemoryRef">IsCompatibleDeviceMemoryRef</a>&lt;ParamT, ArgT&gt;::value;</td></tr>
+<tr><th id="634">634</th><td>  }</td></tr>
+<tr><th id="635">635</th><td></td></tr>
+<tr><th id="636">636</th><td>  <i>// Checks whether ParamT and ArgT are compatible for data parallel kernel</i></td></tr>
+<tr><th id="637">637</th><td><i>  // parameter packing. kArgumentNumber is unused, it just for error display.</i></td></tr>
+<tr><th id="638">638</th><td><i>  //</i></td></tr>
+<tr><th id="639">639</th><td><i>  // NOTE: if you encounter an error here, you can see the mismatch by looking</i></td></tr>
+<tr><th id="640">640</th><td><i>  // at the end of the last error message, which will be of the form:</i></td></tr>
+<tr><th id="641">641</th><td><i>  //</i></td></tr>
+<tr><th id="642">642</th><td><i>  //    ...::Compatible&lt;const perftools::gputools::DeviceMemory&lt;OneThing&gt; &amp;,</i></td></tr>
+<tr><th id="643">643</th><td><i>  //                    perftools::gputools::DeviceMemory&lt;AnotherThing&gt;, true,</i></td></tr>
+<tr><th id="644">644</th><td><i>  //                    0&gt;'</i></td></tr>
+<tr><th id="645">645</th><td><i>  //    requested here</i></td></tr>
+<tr><th id="646">646</th><td><i>  //</i></td></tr>
+<tr><th id="647">647</th><td><i>  // This means that the 0th argument you passed to the kernel invocation should</i></td></tr>
+<tr><th id="648">648</th><td><i>  // have been DeviceMemory&lt;OneThing&gt; but was observed to be</i></td></tr>
+<tr><th id="649">649</th><td><i>  // DeviceMemory&lt;AnotherThing&gt;.</i></td></tr>
+<tr><th id="650">650</th><td>  <b>template</b> &lt;<b>typename</b> ParamT, <b>typename</b> ArgT, <em>bool</em> kShouldStaticAssert,</td></tr>
+<tr><th id="651">651</th><td>            <em>int</em> kArgumentNumber&gt;</td></tr>
+<tr><th id="652">652</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl def" id="_ZN9perftools8gputools23KernelInvocationChecker10CompatibleEv" title='perftools::gputools::KernelInvocationChecker::Compatible' data-ref="_ZN9perftools8gputools23KernelInvocationChecker10CompatibleEv">Compatible</dfn>() {</td></tr>
+<tr><th id="653">653</th><td>    <b>static_assert</b>(</td></tr>
+<tr><th id="654">654</th><td>        <a class="tu ref" href="#kShouldStaticAssert" title='kShouldStaticAssert' data-ref="kShouldStaticAssert">kShouldStaticAssert</a> ? CompatibleNoAssert&lt;ParamT, ArgT&gt;() : <b>true</b>,</td></tr>
+<tr><th id="655">655</th><td>        <q>"parameter type (LHS) is not compatible with argument type (RHS)"</q>);</td></tr>
+<tr><th id="656">656</th><td>    <b>return</b> CompatibleNoAssert&lt;ParamT, ArgT&gt;();</td></tr>
+<tr><th id="657">657</th><td>  }</td></tr>
+<tr><th id="658">658</th><td></td></tr>
+<tr><th id="659">659</th><td>  <i>// Checks the parameter/argument match at kArgumentNumber for an out of bounds</i></td></tr>
+<tr><th id="660">660</th><td><i>  // argument number.</i></td></tr>
+<tr><th id="661">661</th><td><i>  //</i></td></tr>
+<tr><th id="662">662</th><td><i>  // This is the base case: we've run out of argument to check, so we're all</i></td></tr>
+<tr><th id="663">663</th><td><i>  // good.</i></td></tr>
+<tr><th id="664">664</th><td>  <b>template</b> &lt;<em>int</em> kArgumentNumber, <em>bool</em> kShouldStaticAssert&gt;</td></tr>
+<tr><th id="665">665</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl def" id="_ZN9perftools8gputools23KernelInvocationChecker10CheckParamEPNSt9enable_ifIXltT_Li0EEvE4typeE" title='perftools::gputools::KernelInvocationChecker::CheckParam' data-ref="_ZN9perftools8gputools23KernelInvocationChecker10CheckParamEPNSt9enable_ifIXltT_Li0EEvE4typeE">CheckParam</dfn>(</td></tr>
+<tr><th id="666">666</th><td>      <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/type_traits.html#std::enable_if" title='std::enable_if' data-ref="std::enable_if">enable_if</a>&lt;(<a class="tu ref" href="#kArgumentNumber" title='kArgumentNumber' data-use='r' data-ref="kArgumentNumber">kArgumentNumber</a> &lt; <var>0</var>)&gt;::type *<dfn class="local col1 decl" id="1501dummy" title='dummy' data-type='typename std::enable_if&lt;(kArgumentNumber &lt; 0)&gt;::type *' data-ref="1501dummy">dummy</dfn> = <b>nullptr</b>) {</td></tr>
+<tr><th id="667">667</th><td>    <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="668">668</th><td>  }</td></tr>
+<tr><th id="669">669</th><td></td></tr>
+<tr><th id="670">670</th><td>  <i>// Checks the parameter/argument match at kArgumentNumber.</i></td></tr>
+<tr><th id="671">671</th><td><i>  // kShouldStaticAssert determines whether to assert out on a mismatch, or just</i></td></tr>
+<tr><th id="672">672</th><td><i>  // yield the constexpr boolean value.</i></td></tr>
+<tr><th id="673">673</th><td>  <b>template</b> &lt;<em>int</em> kArgumentNumber, <em>bool</em> kShouldStaticAssert&gt;</td></tr>
+<tr><th id="674">674</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl def" id="_ZN9perftools8gputools23KernelInvocationChecker10CheckParamEPNSt9enable_ifIXgeT_Li0EEvE4typeE" title='perftools::gputools::KernelInvocationChecker::CheckParam' data-ref="_ZN9perftools8gputools23KernelInvocationChecker10CheckParamEPNSt9enable_ifIXgeT_Li0EEvE4typeE">CheckParam</dfn>(</td></tr>
+<tr><th id="675">675</th><td>      <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/type_traits.html#std::enable_if" title='std::enable_if' data-ref="std::enable_if">enable_if</a>&lt;<a class="tu ref" href="#kArgumentNumber" title='kArgumentNumber' data-use='r' data-ref="kArgumentNumber">kArgumentNumber</a> &gt;= <var>0</var>&gt;::type *<dfn class="local col2 decl" id="1502dummy" title='dummy' data-type='typename std::enable_if&lt;kArgumentNumber &gt;= 0&gt;::type *' data-ref="1502dummy">dummy</dfn> = <b>nullptr</b>) {</td></tr>
+<tr><th id="676">676</th><td>    <b>typedef</b> <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/utility.html#std::tuple_element" title='std::tuple_element' data-ref="std::tuple_element">tuple_element</a>&lt;<a class="tu ref" href="#kArgumentNumber" title='kArgumentNumber' data-ref="kArgumentNumber">kArgumentNumber</a>, ParamTuple&gt;::type</td></tr>
+<tr><th id="677">677</th><td>        <dfn class="local col3 typedef" id="1503ParamT" title='ParamT' data-type='typename std::tuple_element&lt;kArgumentNumber, ParamTuple&gt;::type' data-ref="1503ParamT">ParamT</dfn>;</td></tr>
+<tr><th id="678">678</th><td>    <b>typedef</b> <b>typename</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/utility.html#std::tuple_element" title='std::tuple_element' data-ref="std::tuple_element">tuple_element</a>&lt;<a class="tu ref" href="#kArgumentNumber" title='kArgumentNumber' data-ref="kArgumentNumber">kArgumentNumber</a>, ArgTuple&gt;::type <dfn class="local col4 typedef" id="1504ArgT" title='ArgT' data-type='typename std::tuple_element&lt;kArgumentNumber, ArgTuple&gt;::type' data-ref="1504ArgT">ArgT</dfn>;</td></tr>
+<tr><th id="679">679</th><td>    <b>return</b> Compatible&lt;<a class="local col3 typedef" href="#1503ParamT" title='ParamT' data-type='typename std::tuple_element&lt;kArgumentNumber, ParamTuple&gt;::type' data-ref="1503ParamT">ParamT</a>, <a class="local col4 typedef" href="#1504ArgT" title='ArgT' data-type='typename std::tuple_element&lt;kArgumentNumber, ArgTuple&gt;::type' data-ref="1504ArgT">ArgT</a>, <a class="tu ref" href="#kShouldStaticAssert" title='kShouldStaticAssert' data-use='c' data-ref="kShouldStaticAssert">kShouldStaticAssert</a>, <a class="tu ref" href="#kArgumentNumber" title='kArgumentNumber' data-use='c' data-ref="kArgumentNumber">kArgumentNumber</a>&gt;() &amp;&amp;</td></tr>
+<tr><th id="680">680</th><td>           CheckParam&lt;<a class="tu ref" href="#kArgumentNumber" title='kArgumentNumber' data-use='r' data-ref="kArgumentNumber">kArgumentNumber</a> - <var>1</var>, <a class="tu ref" href="#kShouldStaticAssert" title='kShouldStaticAssert' data-use='c' data-ref="kShouldStaticAssert">kShouldStaticAssert</a>&gt;();</td></tr>
+<tr><th id="681">681</th><td>  }</td></tr>
+<tr><th id="682">682</th><td></td></tr>
+<tr><th id="683">683</th><td>  <i>// Checks the parameters/arguments for match, but doesn't static assert out.</i></td></tr>
+<tr><th id="684">684</th><td><i>  // This is useful for testing/inspecting whether a set of parameters match in</i></td></tr>
+<tr><th id="685">685</th><td><i>  // things like tests.</i></td></tr>
+<tr><th id="686">686</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl def" id="_ZN9perftools8gputools23KernelInvocationChecker22CheckAllNoStaticAssertEv" title='perftools::gputools::KernelInvocationChecker::CheckAllNoStaticAssert' data-ref="_ZN9perftools8gputools23KernelInvocationChecker22CheckAllNoStaticAssertEv">CheckAllNoStaticAssert</dfn>() {</td></tr>
+<tr><th id="687">687</th><td>    <b>return</b> <a class="member" href="#perftools::gputools::KernelInvocationChecker::kLengthMatches" title='perftools::gputools::KernelInvocationChecker::kLengthMatches' data-ref="perftools::gputools::KernelInvocationChecker::kLengthMatches">kLengthMatches</a> &amp;&amp; CheckParam&lt;<a class="member" href="#perftools::gputools::KernelInvocationChecker::kTupleLength" title='perftools::gputools::KernelInvocationChecker::kTupleLength' data-ref="perftools::gputools::KernelInvocationChecker::kTupleLength">kTupleLength</a> - <var>1</var>, <b>false</b>&gt;();</td></tr>
+<tr><th id="688">688</th><td>  }</td></tr>
+<tr><th id="689">689</th><td></td></tr>
+<tr><th id="690">690</th><td>  <i>// Checks the parameters and static asserts out with a helpful error message</i></td></tr>
+<tr><th id="691">691</th><td><i>  // (and useful template parameters in the instantiation stack) if there is an</i></td></tr>
+<tr><th id="692">692</th><td><i>  // error.</i></td></tr>
+<tr><th id="693">693</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl def" id="_ZN9perftools8gputools23KernelInvocationChecker20CheckAllStaticAssertEv" title='perftools::gputools::KernelInvocationChecker::CheckAllStaticAssert' data-ref="_ZN9perftools8gputools23KernelInvocationChecker20CheckAllStaticAssertEv">CheckAllStaticAssert</dfn>() {</td></tr>
+<tr><th id="694">694</th><td>    <b>static_assert</b>(<a class="member" href="#perftools::gputools::KernelInvocationChecker::kLengthMatches" title='perftools::gputools::KernelInvocationChecker::kLengthMatches' data-ref="perftools::gputools::KernelInvocationChecker::kLengthMatches">kLengthMatches</a>,</td></tr>
+<tr><th id="695">695</th><td>                  <q>"argument length mismatched against typed kernel parameters"</q>);</td></tr>
+<tr><th id="696">696</th><td>    <b>return</b> <a class="member" href="#perftools::gputools::KernelInvocationChecker::kLengthMatches" title='perftools::gputools::KernelInvocationChecker::kLengthMatches' data-ref="perftools::gputools::KernelInvocationChecker::kLengthMatches">kLengthMatches</a> &amp;&amp; CheckParam&lt;<a class="member" href="#perftools::gputools::KernelInvocationChecker::kTupleLength" title='perftools::gputools::KernelInvocationChecker::kTupleLength' data-ref="perftools::gputools::KernelInvocationChecker::kTupleLength">kTupleLength</a> - <var>1</var>, <b>true</b>&gt;();</td></tr>
+<tr><th id="697">697</th><td>  }</td></tr>
+<tr><th id="698">698</th><td>};</td></tr>
+<tr><th id="699">699</th><td></td></tr>
+<tr><th id="700">700</th><td><i>// This is a convenience type for checking whether a typed kernel matches</i></td></tr>
+<tr><th id="701">701</th><td><i>// against a type list.</i></td></tr>
+<tr><th id="702">702</th><td><b>template</b> &lt;<b>typename</b> KernelT, <b>typename</b>... Params&gt;</td></tr>
+<tr><th id="703">703</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::KernelParamsOk" title='perftools::gputools::KernelParamsOk' data-ref="perftools::gputools::KernelParamsOk">KernelParamsOk</dfn> {</td></tr>
+<tr><th id="704">704</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::KernelParamsOk::kResult" title='perftools::gputools::KernelParamsOk::kResult' data-ref="perftools::gputools::KernelParamsOk::kResult">kResult</dfn> = <b>false</b>;</td></tr>
+<tr><th id="705">705</th><td>};</td></tr>
+<tr><th id="706">706</th><td></td></tr>
+<tr><th id="707">707</th><td><i>// See above.</i></td></tr>
+<tr><th id="708">708</th><td><b>template</b> &lt;<b>typename</b>... Params, <b>typename</b>... Args&gt;</td></tr>
+<tr><th id="709">709</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::KernelParamsOk" title='perftools::gputools::KernelParamsOk' data-ref="perftools::gputools::KernelParamsOk">KernelParamsOk</dfn>&lt;<a class="type" href="#perftools::gputools::TypedKernel" title='perftools::gputools::TypedKernel' data-ref="perftools::gputools::TypedKernel">TypedKernel</a>&lt;Params...&gt;, Args...&gt; {</td></tr>
+<tr><th id="710">710</th><td>  <em>static</em> <b>constexpr</b> <em>bool</em> <dfn class="decl" id="perftools::gputools::KernelParamsOk{TypedKernel{type-parameter-0-0...},type-parameter-0-1...}::kResult" title='perftools::gputools::KernelParamsOk&lt;TypedKernel&lt;type-parameter-0-0...&gt;, type-parameter-0-1...&gt;::kResult' data-ref="perftools::gputools::KernelParamsOk{TypedKernel{type-parameter-0-0...},type-parameter-0-1...}::kResult">kResult</dfn> = <a class="type" href="#perftools::gputools::KernelInvocationChecker" title='perftools::gputools::KernelInvocationChecker' data-ref="perftools::gputools::KernelInvocationChecker">KernelInvocationChecker</a>&lt;</td></tr>
+<tr><th id="711">711</th><td>      <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/stl_pair.h.html#std::tuple" title='std::tuple' data-ref="std::tuple">tuple</a>&lt;Params...&gt;, <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/stl_pair.h.html#std::tuple" title='std::tuple' data-ref="std::tuple">tuple</a>&lt;Args...&gt;&gt;::CheckAllNoStaticAssert();</td></tr>
+<tr><th id="712">712</th><td>};</td></tr>
+<tr><th id="713">713</th><td></td></tr>
+<tr><th id="714">714</th><td>}  <i>// namespace gputools</i></td></tr>
+<tr><th id="715">715</th><td>}  <i>// namespace perftools</i></td></tr>
+<tr><th id="716">716</th><td></td></tr>
+<tr><th id="717">717</th><td><u>#<span data-ppcond="69">endif</span>  // TENSORFLOW_STREAM_EXECUTOR_KERNEL_H_</u></td></tr>
+<tr><th id="718">718</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../compiler/jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

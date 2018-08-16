@@ -1,0 +1,27 @@
+<def f='tensorflow/tensorflow/compiler/xla/client/executable_build_options.h' l='28' ll='92'/>
+<size>152</size>
+<doc f='tensorflow/tensorflow/compiler/xla/client/executable_build_options.h' l='26'>// Class containing options for building an LocalExecutable with
+// LocalClient::Compile.</doc>
+<fun r='_ZN3xla22ExecutableBuildOptions18set_device_ordinalEi'/>
+<fun r='_ZNK3xla22ExecutableBuildOptions14device_ordinalEv'/>
+<fun r='_ZN3xla22ExecutableBuildOptions17set_result_layoutERKNS_5ShapeE'/>
+<fun r='_ZNK3xla22ExecutableBuildOptions13result_layoutEv'/>
+<fun r='_ZN3xla22ExecutableBuildOptions20set_device_allocatorEPNS_21DeviceMemoryAllocatorE'/>
+<fun r='_ZNK3xla22ExecutableBuildOptions16device_allocatorEv'/>
+<fun r='_ZN3xla22ExecutableBuildOptions22set_generate_hlo_graphESs'/>
+<fun r='_ZNK3xla22ExecutableBuildOptions18generate_hlo_graphEv'/>
+<fun r='_ZN3xla22ExecutableBuildOptions31set_dump_optimized_hlo_proto_toEN10tensorflow11StringPieceE'/>
+<fun r='_ZNK3xla22ExecutableBuildOptions27dump_optimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla22ExecutableBuildOptions30set_dump_per_pass_hlo_proto_toEN10tensorflow11StringPieceE'/>
+<fun r='_ZNK3xla22ExecutableBuildOptions26dump_per_pass_hlo_proto_toEv'/>
+<fun r='_ZN3xla22ExecutableBuildOptions15set_hlo_profileEb'/>
+<fun r='_ZNK3xla22ExecutableBuildOptions11hlo_profileEv'/>
+<fun r='_ZNK3xla22ExecutableBuildOptions8ToStringEv'/>
+<mbr r='xla::ExecutableBuildOptions::hlo_profile_' o='0' t='tensorflow::gtl::optional&lt;bool&gt;'/>
+<mbr r='xla::ExecutableBuildOptions::device_ordinal_' o='32' t='int'/>
+<mbr r='xla::ExecutableBuildOptions::result_layout_' o='64' t='xla::Shape'/>
+<mbr r='xla::ExecutableBuildOptions::result_layout_set_' o='704' t='bool'/>
+<mbr r='xla::ExecutableBuildOptions::generate_hlo_graph_' o='768' t='tensorflow::gtl::optional&lt;string&gt;'/>
+<mbr r='xla::ExecutableBuildOptions::dump_optimized_hlo_proto_to_' o='896' t='tensorflow::gtl::optional&lt;string&gt;'/>
+<mbr r='xla::ExecutableBuildOptions::dump_per_pass_hlo_proto_to_' o='1024' t='tensorflow::gtl::optional&lt;string&gt;'/>
+<mbr r='xla::ExecutableBuildOptions::device_allocator_' o='1152' t='xla::DeviceMemoryAllocator *'/>

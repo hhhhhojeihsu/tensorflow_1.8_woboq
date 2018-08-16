@@ -1,0 +1,32 @@
+<def f='tensorflow/tensorflow/compiler/xla/sparse_index_array.h' l='36' ll='123'/>
+<size>40</size>
+<doc f='tensorflow/tensorflow/compiler/xla/sparse_index_array.h' l='30'>// Encapsulates the array of indices for a sparse array.  A SparseIndexArray
+// contain indices for up to `max_indices` elements of a sparse array.  Each
+// sparse index is an array of `rank` int64 value that gives the location of a
+// value within a sparse array.  Note that the dimensions of the array are not
+// checked (except for the rank).  To avoid confusion, we refer to the position
+// of an index within a SparseIndexArray as a sparse index number.</doc>
+<fun r='_ZN3xla16SparseIndexArrayC1Ev'/>
+<fun r='_ZN3xla16SparseIndexArrayC1ERKS0_'/>
+<fun r='_ZN3xla16SparseIndexArrayC1EOS0_'/>
+<fun r='_ZN3xla16SparseIndexArrayaSERKS0_'/>
+<fun r='_ZN3xla16SparseIndexArrayaSEOS0_'/>
+<fun r='_ZN3xla16SparseIndexArrayC1ExRKNS_7Array2DIxEE'/>
+<fun r='_ZN3xla16SparseIndexArrayC1ExxSt6vectorIxSaIxEE'/>
+<fun r='_ZN3xla16SparseIndexArrayC1ExxN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZNK3xla16SparseIndexArray11index_countEv'/>
+<fun r='_ZNK3xla16SparseIndexArray2AtEx'/>
+<fun r='_ZN3xla16SparseIndexArray2AtEx'/>
+<fun r='_ZN3xla16SparseIndexArray6AppendEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla16SparseIndexArray5ClearEv'/>
+<fun r='_ZN3xla16SparseIndexArray6ResizeEx'/>
+<fun r='_ZNK3xla16SparseIndexArray8ValidateERKNS_5ShapeE'/>
+<fun r='_ZNK3xla16SparseIndexArray4rankEv'/>
+<fun r='_ZNK3xla16SparseIndexArray11max_indicesEv'/>
+<fun r='_ZN3xla16SparseIndexArray12mutable_dataEv'/>
+<fun r='_ZNK3xla16SparseIndexArray4dataEv'/>
+<fun r='_ZN3xla16SparseIndexArray14SortWithValuesEN10tensorflow3gtl17MutableArraySliceIT_EE'/>
+<mbr r='xla::SparseIndexArray::indices_' o='0' t='std::vector&lt;int64&gt;'/>
+<mbr r='xla::SparseIndexArray::rank_' o='192' t='int64'/>
+<mbr r='xla::SparseIndexArray::max_indices_' o='256' t='int64'/>
+<fun r='_ZN3xla16SparseIndexArray14SortWithValuesEN10tensorflow3gtl17MutableArraySliceIT_EE'/>

@@ -1,0 +1,69 @@
+<def f='include/c++/5/bits/stl_vector.h' l='821' ll='826' type='reference std::vector::at(size_type __n)'/>
+<doc f='include/c++/5/bits/stl_vector.h' l='810'>/**
+       *  @brief  Provides access to the data contained in the %vector.
+       *  @param __n The index of the element for which data should be
+       *  accessed.
+       *  @return  Read/write reference to data.
+       *  @throw  std::out_of_range  If @a __n is an invalid index.
+       *
+       *  This function provides for safer data access.  The parameter
+       *  is first checked that it is in the range of the vector.  The
+       *  function throws out_of_range if the check fails.
+       */</doc>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='442' u='c' c='_ZN12_GLOBAL__N_124MaybeInitializeStepStatsEPN10tensorflow9StepStatsEPNS0_12EagerContextE'/>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='454' u='c' c='_ZN12_GLOBAL__N_120StepStatsDeviceIndexEPN10tensorflow9StepStatsEPNS0_12EagerContextEPNS0_6DeviceE'/>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='455' u='c' c='_ZN12_GLOBAL__N_120StepStatsDeviceIndexEPN10tensorflow9StepStatsEPNS0_12EagerContextEPNS0_6DeviceE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1259' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond11ExtractBodyERKSt6vectorINS1_11CondArgNodeESaIS3_EERKS2_IPNS_4NodeESaIS9_EESD_iPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1268' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond11ExtractBodyERKSt6vectorINS1_11CondArgNodeESaIS3_EERKS2_IPNS_4NodeESaIS9_EESD_iPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1274' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond11ExtractBodyERKSt6vectorINS1_11CondArgNodeESaIS3_EERKS2_IPNS_4NodeESaIS9_EESD_iPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1275' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond11ExtractBodyERKSt6vectorINS1_11CondArgNodeESaIS3_EERKS2_IPNS_4NodeESaIS9_EESD_iPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1279' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond11ExtractBodyERKSt6vectorINS1_11CondArgNodeESaIS3_EERKS2_IPNS_4NodeESaIS9_EESD_iPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1280' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond11ExtractBodyERKSt6vectorINS1_11CondArgNodeESaIS3_EERKS2_IPNS_4NodeESaIS9_EESD_iPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1282' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond11ExtractBodyERKSt6vectorINS1_11CondArgNodeESaIS3_EERKS2_IPNS_4NodeESaIS9_EESD_iPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1282' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond11ExtractBodyERKSt6vectorINS1_11CondArgNodeESaIS3_EERKS2_IPNS_4NodeESaIS9_EESD_iPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/conv_ops.cc' l='280' u='c' c='_ZN10tensorflow12_GLOBAL__N_16ConvOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/conv_ops.cc' l='281' u='c' c='_ZN10tensorflow12_GLOBAL__N_16ConvOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/extract_image_patches_op.cc' l='139' u='c' c='_ZN10tensorflow12_GLOBAL__N_121ExtractImagePatchesOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/extract_image_patches_op.cc' l='140' u='c' c='_ZN10tensorflow12_GLOBAL__N_121ExtractImagePatchesOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='554' u='c' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='562' u='c' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='576' u='c' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='579' u='c' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='580' u='c' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.h' l='59' u='c' c='_ZN3xla16HloAliasAnalysis9GetBufferEx'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.cc' l='387' u='c' c='_ZN10tensorflow12tensorforest16getDirichletMeanERKNS_6TensorES3_iiPSt6vectorIfSaIfEE'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.cc' l='390' u='c' c='_ZN10tensorflow12tensorforest16getDirichletMeanERKNS_6TensorES3_iiPSt6vectorIfSaIfEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/execute.cc' l='79' u='c' c='_ZN10tensorflow12EagerExecuteEPNS_12EagerContextEPNS_6DeviceERKNS_3gtl13InlinedVectorIPNS_12TensorHandleELi4EEEPNS_15KernelAndDeviceEPNS_13NodeExecStatsEPS7_i'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1037' u='c' c='_ZN10tensorflow8grappler15ConstantFolding19EvaluateOneFoldableERKNS_7NodeDefEPSt6vectorIS2_SaIS2_EE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1041' u='c' c='_ZN10tensorflow8grappler15ConstantFolding19EvaluateOneFoldableERKNS_7NodeDefEPSt6vectorIS2_SaIS2_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/batch_kernels.cc' l='384' u='c' c='_ZNK10tensorflow13BatchResource12ProcessBatchESt10unique_ptrINS_7serving5BatchINS0_9BatchTaskEEESt14default_deleteIS5_EE'/>
+<use f='tensorflow/tensorflow/core/util/ctc/ctc_loss_calculator.h' l='353' u='c' c='_ZNK10tensorflow3ctc17CTCLossCalculator15PopulateLPrimesEbbiiRKT_RKSt6vectorIS5_IiSaIiEESaIS7_EEPmPS9_'/>
+<use f='tensorflow/tensorflow/core/util/ctc/ctc_loss_calculator.h' l='354' u='c' c='_ZNK10tensorflow3ctc17CTCLossCalculator15PopulateLPrimesEbbiiRKT_RKSt6vectorIS5_IiSaIiEESaIS7_EEPmPS9_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='443' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset8Iterator12RestoreGroupEPNS_19IteratorStateReaderERKSsPSt6vectorIS8_INS_6TensorESaIS9_EESaISB_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='446' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp7Dataset8Iterator12RestoreGroupEPNS_19IteratorStateReaderERKSsPSt6vectorIS8_INS_6TensorESaIS9_EESaISB_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='159' u='c' c='_ZN10tensorflow15GraphTransferer18LoadGraphFromProtoERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaISA_EERKS7_ISsSaISsEEb'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='173' u='c' c='_ZN10tensorflow15GraphTransferer18LoadGraphFromProtoERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaISA_EERKS7_ISsSaISsEEb'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='174' u='c' c='_ZN10tensorflow15GraphTransferer18LoadGraphFromProtoERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaISA_EERKS7_ISsSaISsEEb'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='367' u='c' c='_ZN10tensorflow15GraphTransferer38TransformGraphToAddAggregatedInputNodeERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EEPNS_5GraphEPNS_12ShapeRefinerE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='373' u='c' c='_ZN10tensorflow15GraphTransferer38TransformGraphToAddAggregatedInputNodeERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EEPNS_5GraphEPNS_12ShapeRefinerE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='625' u='c' c='_ZN10tensorflow15GraphTransferer20IsNodeFlattenReshapeERKNS_4NodeERKNS_12ShapeRefinerE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='684' u='c' c='_ZN10tensorflow15GraphTransferer20RegisterNodeWithRankERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_12ShapeRefinerERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='929' u='c' c='_ZN10tensorflow15GraphTransferer22AppendNodeOutputParamsERKNS_12ShapeRefinerEiRKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='934' u='c' c='_ZN10tensorflow15GraphTransferer22AppendNodeOutputParamsERKNS_12ShapeRefinerEiRKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/range_sampler.cc' l='297' u='c' c='_ZN10tensorflow19FixedUnigramSampler12LoadFromFileEPNS_3EnvERKSsf'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='109' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ConvertMapToVectorERKSt13unordered_mapIiSsSt4hashIiESt8equal_toIiESaISt4pairIKiSsEEEPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='308' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils25DryRunInferenceForAllNodeERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEbPSt18unordered_mult12394834'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='309' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils25DryRunInferenceForAllNodeERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEbPSt18unordered_mult12394834'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='314' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils25DryRunInferenceForAllNodeERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEbPSt18unordered_mult12394834'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='433' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils24GetOutputTensorShapeTypeERKNS_8GraphDefERKSsPNS_8DataTypeEPNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='434' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils24GetOutputTensorShapeTypeERKNS_8GraphDefERKSsPNS_8DataTypeEPNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='857' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23BuildClusterSubgraphDefERKSt5tupleIJSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEESt6vectorISsS716399687'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='859' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23BuildClusterSubgraphDefERKSt5tupleIJSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEESt6vectorISsS716399687'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1049' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils26FuseRemoteGraphByNodeNamesERKNS_8GraphDefERKSt6vectorISsSaISsEES8_RKSsRKSt13unordered_setISsSt4hashISsE15750335'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_conditional_accumulator.h' l='280' u='c' c='_ZN10tensorflow28SparseConditionalAccumulator22AddToAccumGradFunctionEPNS_15OpKernelContextEPSt5tupleIJPKNS_6TensorES6_S6_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_conditional_accumulator.h' l='284' u='c' c='_ZN10tensorflow28SparseConditionalAccumulator22AddToAccumGradFunctionEPNS_15OpKernelContextEPSt5tupleIJPKNS_6TensorES6_S6_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_conditional_accumulator.h' l='288' u='c' c='_ZN10tensorflow28SparseConditionalAccumulator22AddToAccumGradFunctionEPNS_15OpKernelContextEPSt5tupleIJPKNS_6TensorES6_S6_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_conditional_accumulator.h' l='294' u='c' c='_ZN10tensorflow28SparseConditionalAccumulator22AddToAccumGradFunctionEPNS_15OpKernelContextEPSt5tupleIJPKNS_6TensorES6_S6_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_conditional_accumulator.h' l='412' u='c' c='_ZN10tensorflow28SparseConditionalAccumulator3cmpEPSt6vectorIxSaIxEEPKNS_6TensorExx'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_conditional_accumulator.h' l='430' u='c' c='_ZN10tensorflow28SparseConditionalAccumulator15ReturnIdxTensorEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='192' u='c' c='_ZN10tensorflow3Env10FilesExistERKSt6vectorISsSaISsEEPS1_INS_6StatusESaIS6_EE'/>

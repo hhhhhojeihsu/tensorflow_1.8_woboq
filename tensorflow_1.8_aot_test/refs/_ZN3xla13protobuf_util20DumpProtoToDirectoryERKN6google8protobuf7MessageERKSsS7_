@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/protobuf_util.h' l='39' type='tensorflow::Status xla::protobuf_util::DumpProtoToDirectory(const tensorflow::protobuf::Message &amp; message, const string &amp; directory, const string &amp; file_name)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/protobuf_util.h' l='35'>// Writes the given message in binary proto to the path formed by joining
+// &apos;directory/file_name.pb&apos;. The &apos;directory&apos; is recursively created if it
+// doesn&apos;t already exist, and the &apos;file_name&apos; is sanitized by replacing
+// illegal characters with underscore &apos;_&apos;.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/protobuf_util.cc' l='54' ll='61' type='tensorflow::Status xla::protobuf_util::DumpProtoToDirectory(const tensorflow::protobuf::Message &amp; message, const string &amp; directory, const string &amp; file_name)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='549' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='658' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='839' u='c' c='_ZN3xla3cpu11CpuCompiler18CompileAheadOfTimeESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS4_EESaIS7_EERKNS_21AotCompilationOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_pipeline.cc' l='55' u='c' c='_ZN3xla12_GLOBAL__N_115DumpModuleProtoERKNS_9HloModuleERKSsS5_S5_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1929' u='c' c='_ZNK3xla7Service18MaybeDumpHloModuleERKNS_9HloModuleE'/>

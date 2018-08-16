@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/core/framework/allocator.h' l='51' type='int64'/>
+<offset>64</offset>
+<doc f='tensorflow/tensorflow/core/framework/allocator.h' l='51'>// Number of bytes in use.</doc>
+<use f='tensorflow/tensorflow/contrib/memory_stats/kernels/memory_stats_ops.cc' l='52' u='r' c='_ZNK10tensorflow12BytesInUseOp21ExtractAllocatorStatsERKNS_14AllocatorStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='321' u='w' c='_ZN10tensorflow12BFCAllocator12FindChunkPtrEimm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='323' u='r' c='_ZN10tensorflow12BFCAllocator12FindChunkPtrEimm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='472' u='w' c='_ZN10tensorflow12BFCAllocator20FreeAndMaybeCoalesceEm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='691' u='r' c='_ZN10tensorflow12BFCAllocator10ClearStatsEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/kernel_and_device.cc' l='118' u='r' c='_ZN10tensorflow15KernelAndDevice3RunEPSt6vectorINS_6TensorESaIS2_EES5_PNS_13NodeExecStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='55' u='r' c='_ZN10tensorflow20NodeExecStatsWrapper13AddAllocationEPNS_9AllocatorEPNS_17TrackingAllocatorE'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.cc' l='30' u='w' c='_ZN10tensorflow14AllocatorStats5ClearEv'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.cc' l='43' u='r' c='_ZNK10tensorflow14AllocatorStats11DebugStringEv'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.cc' l='111' u='w' c='_ZN10tensorflow12CPUAllocator11AllocateRawEmm'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.cc' l='113' u='r' c='_ZN10tensorflow12CPUAllocator11AllocateRawEmm'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.cc' l='117' u='r' c='_ZN10tensorflow12CPUAllocator11AllocateRawEmm'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.cc' l='119' u='r' c='_ZN10tensorflow12CPUAllocator11AllocateRawEmm'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.cc' l='133' u='w' c='_ZN10tensorflow12CPUAllocator13DeallocateRawEPv'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.cc' l='146' u='r' c='_ZN10tensorflow12CPUAllocator10ClearStatsEv'/>
+<use f='tensorflow/tensorflow/core/kernels/stack_ops.cc' l='288' u='r' c='_ZN10tensorflow11StackPushOp12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE'/>

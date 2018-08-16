@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/core/graph/graph_constructor.h' l='115' type='std::vector&lt;TensorId&gt;'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2012' u='m' c='TF_ImportGraphDefOptionsAddReturnOutput'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2017' u='m' c='TF_ImportGraphDefOptionsNumReturnOutputs'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2129' u='m' c='TF_GraphImportGraphDefWithReturnOutputs'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2131' u='m' c='TF_GraphImportGraphDefWithReturnOutputs'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2212' u='m' c='(anonymousnamespace)::CopyGraph'/>
+<offset>768</offset>
+<doc f='tensorflow/tensorflow/core/graph/graph_constructor.h' l='105'>// Tensors in `gdef` that will be returned via the ImportGraphDefResults
+  // output parameter of `ImportGraphDef()`. If this list is non-empty, the
+  // caller must pass a results object to `ImportGraphDef()`. The
+  // `return_tensors` field will be populated with the imported nodes in `g`.
+  //
+  // Entries should not include `prefix`, i.e., each TensorId&apos;s name should be
+  // the name as it originally appears in `gdef`.
+  //
+  // If this contains a tensor that&apos;s also being remapped via `input_map`, the
+  // corresponding existing tensor in `g` will be returned.</doc>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='85' u='r' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor7OptionsC1ERKNS_21ImportGraphDefOptionsE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='1205' u='m' c='_ZN10tensorflow14ImportGraphDefERKNS_21ImportGraphDefOptionsERKNS_8GraphDefEPNS_5GraphEPNS_12ShapeRefinerEPNS_21ImportGraphDefResultsE'/>

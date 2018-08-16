@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/core/framework/collective.h' l='65' ll='70'/>
+<size>72</size>
+<doc f='tensorflow/tensorflow/core/framework/collective.h' l='58'>// The best implementation of a collective op depends on many factors
+// including the number of devices involved, the topology of
+// interconnects between them and the sizes of inputs.  This structure
+// is used in generating and representing data movement choreography
+// for each specific algorithm, hence it does not have a single, fixed
+// interpretation.  On first execution the runtime will update this
+// structure with decisions that will guide all subsequent executions.</doc>
+<mbr r='tensorflow::CollImplDetails::subdiv_permutations' o='0' t='std::vector&lt;std::vector&lt;int&gt; &gt;'/>
+<mbr r='tensorflow::CollImplDetails::subdiv_offsets' o='192' t='std::vector&lt;int&gt;'/>
+<mbr r='tensorflow::CollImplDetails::subdiv_source_rank' o='384' t='std::vector&lt;int&gt;'/>

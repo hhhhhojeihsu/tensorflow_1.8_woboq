@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>pystate.h source code [include/python3.5m/pystate.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'include/python3.5m/pystate.h'; var root_path = '../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>include</a>/<a href='./'>python3.5m</a>/<a href='pystate.h.html'>pystate.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td></td></tr>
+<tr><th id="2">2</th><td><i>/* Thread and interpreter state structures and their interfaces */</i></td></tr>
+<tr><th id="3">3</th><td></td></tr>
+<tr><th id="4">4</th><td></td></tr>
+<tr><th id="5">5</th><td><u>#<span data-ppcond="5">ifndef</span> <span class="macro" data-ref="_M/Py_PYSTATE_H">Py_PYSTATE_H</span></u></td></tr>
+<tr><th id="6">6</th><td><u>#define <dfn class="macro" id="_M/Py_PYSTATE_H" data-ref="_M/Py_PYSTATE_H">Py_PYSTATE_H</dfn></u></td></tr>
+<tr><th id="7">7</th><td><u>#<span data-ppcond="7">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="8">8</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="7">endif</span></u></td></tr>
+<tr><th id="10">10</th><td></td></tr>
+<tr><th id="11">11</th><td><i>/* State shared between threads */</i></td></tr>
+<tr><th id="12">12</th><td></td></tr>
+<tr><th id="13">13</th><td><b>struct</b> <a class="type" href="#_ts" title='_ts' data-ref="_ts">_ts</a>; <i>/* Forward */</i></td></tr>
+<tr><th id="14">14</th><td><b>struct</b> <a class="type" href="#_is" title='_is' data-ref="_is">_is</a>; <i>/* Forward */</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifdef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="17">17</th><td><b>typedef</b> <b>struct</b> _is PyInterpreterState;</td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="16">else</span></u></td></tr>
+<tr><th id="19">19</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="_is" title='_is' data-ref="_is"><a class="type" href="#_is" title='_is' data-ref="_is">_is</a></dfn> {</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td>    <b>struct</b> <a class="type" href="#_is" title='_is' data-ref="_is">_is</a> *<dfn class="decl" id="_is::next" title='_is::next' data-ref="_is::next">next</dfn>;</td></tr>
+<tr><th id="22">22</th><td>    <b>struct</b> <a class="type" href="#_ts" title='_ts' data-ref="_ts">_ts</a> *<dfn class="decl" id="_is::tstate_head" title='_is::tstate_head' data-ref="_is::tstate_head">tstate_head</dfn>;</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_is::modules" title='_is::modules' data-ref="_is::modules">modules</dfn>;</td></tr>
+<tr><th id="25">25</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_is::modules_by_index" title='_is::modules_by_index' data-ref="_is::modules_by_index">modules_by_index</dfn>;</td></tr>
+<tr><th id="26">26</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_is::sysdict" title='_is::sysdict' data-ref="_is::sysdict">sysdict</dfn>;</td></tr>
+<tr><th id="27">27</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_is::builtins" title='_is::builtins' data-ref="_is::builtins">builtins</dfn>;</td></tr>
+<tr><th id="28">28</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_is::importlib" title='_is::importlib' data-ref="_is::importlib">importlib</dfn>;</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_is::codec_search_path" title='_is::codec_search_path' data-ref="_is::codec_search_path">codec_search_path</dfn>;</td></tr>
+<tr><th id="31">31</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_is::codec_search_cache" title='_is::codec_search_cache' data-ref="_is::codec_search_cache">codec_search_cache</dfn>;</td></tr>
+<tr><th id="32">32</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_is::codec_error_registry" title='_is::codec_error_registry' data-ref="_is::codec_error_registry">codec_error_registry</dfn>;</td></tr>
+<tr><th id="33">33</th><td>    <em>int</em> <dfn class="decl" id="_is::codecs_initialized" title='_is::codecs_initialized' data-ref="_is::codecs_initialized">codecs_initialized</dfn>;</td></tr>
+<tr><th id="34">34</th><td>    <em>int</em> <dfn class="decl" id="_is::fscodec_initialized" title='_is::fscodec_initialized' data-ref="_is::fscodec_initialized">fscodec_initialized</dfn>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="36">ifdef</span> <a class="macro" href="../x86_64-linux-gnu/python3.5m/pyconfig.h.html#201" data-ref="_M/HAVE_DLOPEN">HAVE_DLOPEN</a></u></td></tr>
+<tr><th id="37">37</th><td>    <em>int</em> <dfn class="decl" id="_is::dlopenflags" title='_is::dlopenflags' data-ref="_is::dlopenflags">dlopenflags</dfn>;</td></tr>
+<tr><th id="38">38</th><td><u>#<span data-ppcond="36">endif</span></u></td></tr>
+<tr><th id="39">39</th><td><u>#<span data-ppcond="39">ifdef</span> <span class="macro" data-ref="_M/WITH_TSC">WITH_TSC</span></u></td></tr>
+<tr><th id="40">40</th><td>    <em>int</em> tscdump;</td></tr>
+<tr><th id="41">41</th><td><u>#<span data-ppcond="39">endif</span></u></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_is::builtins_copy" title='_is::builtins_copy' data-ref="_is::builtins_copy">builtins_copy</dfn>;</td></tr>
+<tr><th id="44">44</th><td>} <dfn class="typedef" id="PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</dfn>;</td></tr>
+<tr><th id="45">45</th><td><u>#<span data-ppcond="16">endif</span></u></td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><i>/* State unique per thread */</i></td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><b>struct</b> <dfn class="type" id="_frame" title='_frame' data-ref="_frame">_frame</dfn>; <i>/* Avoid including frameobject.h */</i></td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td><u>#<span data-ppcond="52">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="53">53</th><td><i>/* Py_tracefunc return -1 when raising an exception, or 0 for success. */</i></td></tr>
+<tr><th id="54">54</th><td><b>typedef</b> <em>int</em> (*<dfn class="typedef" id="Py_tracefunc" title='Py_tracefunc' data-type='int (*)(PyObject *, struct _frame *, int, PyObject *)' data-ref="Py_tracefunc">Py_tracefunc</dfn>)(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *, <b>struct</b> <a class="type" href="#_frame" title='_frame' data-ref="_frame">_frame</a> *, <em>int</em>, <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *);</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><i>/* The following values are used for 'what' for tracefunc functions: */</i></td></tr>
+<tr><th id="57">57</th><td><u>#define <dfn class="macro" id="_M/PyTrace_CALL" data-ref="_M/PyTrace_CALL">PyTrace_CALL</dfn> 0</u></td></tr>
+<tr><th id="58">58</th><td><u>#define <dfn class="macro" id="_M/PyTrace_EXCEPTION" data-ref="_M/PyTrace_EXCEPTION">PyTrace_EXCEPTION</dfn> 1</u></td></tr>
+<tr><th id="59">59</th><td><u>#define <dfn class="macro" id="_M/PyTrace_LINE" data-ref="_M/PyTrace_LINE">PyTrace_LINE</dfn> 2</u></td></tr>
+<tr><th id="60">60</th><td><u>#define <dfn class="macro" id="_M/PyTrace_RETURN" data-ref="_M/PyTrace_RETURN">PyTrace_RETURN</dfn> 3</u></td></tr>
+<tr><th id="61">61</th><td><u>#define <dfn class="macro" id="_M/PyTrace_C_CALL" data-ref="_M/PyTrace_C_CALL">PyTrace_C_CALL</dfn> 4</u></td></tr>
+<tr><th id="62">62</th><td><u>#define <dfn class="macro" id="_M/PyTrace_C_EXCEPTION" data-ref="_M/PyTrace_C_EXCEPTION">PyTrace_C_EXCEPTION</dfn> 5</u></td></tr>
+<tr><th id="63">63</th><td><u>#define <dfn class="macro" id="_M/PyTrace_C_RETURN" data-ref="_M/PyTrace_C_RETURN">PyTrace_C_RETURN</dfn> 6</u></td></tr>
+<tr><th id="64">64</th><td><u>#<span data-ppcond="52">endif</span></u></td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td><u>#<span data-ppcond="66">ifdef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="67">67</th><td><b>typedef</b> <b>struct</b> _ts PyThreadState;</td></tr>
+<tr><th id="68">68</th><td><u>#<span data-ppcond="66">else</span></u></td></tr>
+<tr><th id="69">69</th><td><b>typedef</b> <b>struct</b> <dfn class="type def" id="_ts" title='_ts' data-ref="_ts"><a class="type" href="#_ts" title='_ts' data-ref="_ts">_ts</a></dfn> {</td></tr>
+<tr><th id="70">70</th><td>    <i>/* See Python/ceval.c for comments explaining most fields */</i></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>    <b>struct</b> <a class="type" href="#_ts" title='_ts' data-ref="_ts">_ts</a> *<dfn class="decl" id="_ts::prev" title='_ts::prev' data-ref="_ts::prev">prev</dfn>;</td></tr>
+<tr><th id="73">73</th><td>    <b>struct</b> <a class="type" href="#_ts" title='_ts' data-ref="_ts">_ts</a> *<dfn class="decl" id="_ts::next" title='_ts::next' data-ref="_ts::next">next</dfn>;</td></tr>
+<tr><th id="74">74</th><td>    <a class="typedef" href="#PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</a> *<dfn class="decl" id="_ts::interp" title='_ts::interp' data-ref="_ts::interp">interp</dfn>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>    <b>struct</b> <a class="type" href="#_frame" title='_frame' data-ref="_frame">_frame</a> *<dfn class="decl" id="_ts::frame" title='_ts::frame' data-ref="_ts::frame">frame</dfn>;</td></tr>
+<tr><th id="77">77</th><td>    <em>int</em> <dfn class="decl" id="_ts::recursion_depth" title='_ts::recursion_depth' data-ref="_ts::recursion_depth">recursion_depth</dfn>;</td></tr>
+<tr><th id="78">78</th><td>    <em>char</em> <dfn class="decl" id="_ts::overflowed" title='_ts::overflowed' data-ref="_ts::overflowed">overflowed</dfn>; <i>/* The stack has overflowed. Allow 50 more calls</i></td></tr>
+<tr><th id="79">79</th><td><i>                        to handle the runtime error. */</i></td></tr>
+<tr><th id="80">80</th><td>    <em>char</em> <dfn class="decl" id="_ts::recursion_critical" title='_ts::recursion_critical' data-ref="_ts::recursion_critical">recursion_critical</dfn>; <i>/* The current calls must not cause</i></td></tr>
+<tr><th id="81">81</th><td><i>                                a stack overflow. */</i></td></tr>
+<tr><th id="82">82</th><td>    <i>/* 'tracing' keeps track of the execution depth when tracing/profiling.</i></td></tr>
+<tr><th id="83">83</th><td><i>       This is to prevent the actual trace/profile code from being recorded in</i></td></tr>
+<tr><th id="84">84</th><td><i>       the trace/profile. */</i></td></tr>
+<tr><th id="85">85</th><td>    <em>int</em> <dfn class="decl" id="_ts::tracing" title='_ts::tracing' data-ref="_ts::tracing">tracing</dfn>;</td></tr>
+<tr><th id="86">86</th><td>    <em>int</em> <dfn class="decl" id="_ts::use_tracing" title='_ts::use_tracing' data-ref="_ts::use_tracing">use_tracing</dfn>;</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>    <a class="typedef" href="#Py_tracefunc" title='Py_tracefunc' data-type='int (*)(PyObject *, struct _frame *, int, PyObject *)' data-ref="Py_tracefunc">Py_tracefunc</a> <dfn class="decl" id="_ts::c_profilefunc" title='_ts::c_profilefunc' data-ref="_ts::c_profilefunc">c_profilefunc</dfn>;</td></tr>
+<tr><th id="89">89</th><td>    <a class="typedef" href="#Py_tracefunc" title='Py_tracefunc' data-type='int (*)(PyObject *, struct _frame *, int, PyObject *)' data-ref="Py_tracefunc">Py_tracefunc</a> <dfn class="decl" id="_ts::c_tracefunc" title='_ts::c_tracefunc' data-ref="_ts::c_tracefunc">c_tracefunc</dfn>;</td></tr>
+<tr><th id="90">90</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::c_profileobj" title='_ts::c_profileobj' data-ref="_ts::c_profileobj">c_profileobj</dfn>;</td></tr>
+<tr><th id="91">91</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::c_traceobj" title='_ts::c_traceobj' data-ref="_ts::c_traceobj">c_traceobj</dfn>;</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::curexc_type" title='_ts::curexc_type' data-ref="_ts::curexc_type">curexc_type</dfn>;</td></tr>
+<tr><th id="94">94</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::curexc_value" title='_ts::curexc_value' data-ref="_ts::curexc_value">curexc_value</dfn>;</td></tr>
+<tr><th id="95">95</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::curexc_traceback" title='_ts::curexc_traceback' data-ref="_ts::curexc_traceback">curexc_traceback</dfn>;</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::exc_type" title='_ts::exc_type' data-ref="_ts::exc_type">exc_type</dfn>;</td></tr>
+<tr><th id="98">98</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::exc_value" title='_ts::exc_value' data-ref="_ts::exc_value">exc_value</dfn>;</td></tr>
+<tr><th id="99">99</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::exc_traceback" title='_ts::exc_traceback' data-ref="_ts::exc_traceback">exc_traceback</dfn>;</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::dict" title='_ts::dict' data-ref="_ts::dict">dict</dfn>;  <i>/* Stores per-thread state */</i></td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>    <em>int</em> <dfn class="decl" id="_ts::gilstate_counter" title='_ts::gilstate_counter' data-ref="_ts::gilstate_counter">gilstate_counter</dfn>;</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::async_exc" title='_ts::async_exc' data-ref="_ts::async_exc">async_exc</dfn>; <i>/* Asynchronous exception to raise */</i></td></tr>
+<tr><th id="106">106</th><td>    <em>long</em> <dfn class="decl" id="_ts::thread_id" title='_ts::thread_id' data-ref="_ts::thread_id">thread_id</dfn>; <i>/* Thread id where this tstate was created */</i></td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>    <em>int</em> <dfn class="decl" id="_ts::trash_delete_nesting" title='_ts::trash_delete_nesting' data-ref="_ts::trash_delete_nesting">trash_delete_nesting</dfn>;</td></tr>
+<tr><th id="109">109</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::trash_delete_later" title='_ts::trash_delete_later' data-ref="_ts::trash_delete_later">trash_delete_later</dfn>;</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>    <i>/* Called when a thread state is deleted normally, but not when it</i></td></tr>
+<tr><th id="112">112</th><td><i>     * is destroyed after fork().</i></td></tr>
+<tr><th id="113">113</th><td><i>     * Pain:  to prevent rare but fatal shutdown errors (issue 18808),</i></td></tr>
+<tr><th id="114">114</th><td><i>     * Thread.join() must wait for the join'ed thread's tstate to be unlinked</i></td></tr>
+<tr><th id="115">115</th><td><i>     * from the tstate chain.  That happens at the end of a thread's life,</i></td></tr>
+<tr><th id="116">116</th><td><i>     * in pystate.c.</i></td></tr>
+<tr><th id="117">117</th><td><i>     * The obvious way doesn't quite work:  create a lock which the tstate</i></td></tr>
+<tr><th id="118">118</th><td><i>     * unlinking code releases, and have Thread.join() wait to acquire that</i></td></tr>
+<tr><th id="119">119</th><td><i>     * lock.  The problem is that we _are_ at the end of the thread's life:</i></td></tr>
+<tr><th id="120">120</th><td><i>     * if the thread holds the last reference to the lock, decref'ing the</i></td></tr>
+<tr><th id="121">121</th><td><i>     * lock will delete the lock, and that may trigger arbitrary Python code</i></td></tr>
+<tr><th id="122">122</th><td><i>     * if there's a weakref, with a callback, to the lock.  But by this time</i></td></tr>
+<tr><th id="123">123</th><td><i>     * _PyThreadState_Current is already NULL, so only the simplest of C code</i></td></tr>
+<tr><th id="124">124</th><td><i>     * can be allowed to run (in particular it must not be possible to</i></td></tr>
+<tr><th id="125">125</th><td><i>     * release the GIL).</i></td></tr>
+<tr><th id="126">126</th><td><i>     * So instead of holding the lock directly, the tstate holds a weakref to</i></td></tr>
+<tr><th id="127">127</th><td><i>     * the lock:  that's the value of on_delete_data below.  Decref'ing a</i></td></tr>
+<tr><th id="128">128</th><td><i>     * weakref is harmless.</i></td></tr>
+<tr><th id="129">129</th><td><i>     * on_delete points to _threadmodule.c's static release_sentinel() function.</i></td></tr>
+<tr><th id="130">130</th><td><i>     * After the tstate is unlinked, release_sentinel is called with the</i></td></tr>
+<tr><th id="131">131</th><td><i>     * weakref-to-lock (on_delete_data) argument, and release_sentinel releases</i></td></tr>
+<tr><th id="132">132</th><td><i>     * the indirectly held lock.</i></td></tr>
+<tr><th id="133">133</th><td><i>     */</i></td></tr>
+<tr><th id="134">134</th><td>    <em>void</em> (*<dfn class="decl" id="_ts::on_delete" title='_ts::on_delete' data-ref="_ts::on_delete">on_delete</dfn>)(<em>void</em> *);</td></tr>
+<tr><th id="135">135</th><td>    <em>void</em> *<dfn class="decl" id="_ts::on_delete_data" title='_ts::on_delete_data' data-ref="_ts::on_delete_data">on_delete_data</dfn>;</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="decl" id="_ts::coroutine_wrapper" title='_ts::coroutine_wrapper' data-ref="_ts::coroutine_wrapper">coroutine_wrapper</dfn>;</td></tr>
+<tr><th id="138">138</th><td>    <em>int</em> <dfn class="decl" id="_ts::in_coroutine_wrapper" title='_ts::in_coroutine_wrapper' data-ref="_ts::in_coroutine_wrapper">in_coroutine_wrapper</dfn>;</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>    <i>/* XXX signal handlers should also be here */</i></td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td>} <dfn class="typedef" id="PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</dfn>;</td></tr>
+<tr><th id="143">143</th><td><u>#<span data-ppcond="66">endif</span></u></td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td></td></tr>
+<tr><th id="146">146</th><td><a class="macro" href="pyport.h.html#768" title="PyInterpreterState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</a> *) <dfn class="decl" id="PyInterpreterState_New" title='PyInterpreterState_New' data-ref="PyInterpreterState_New">PyInterpreterState_New</dfn>(<em>void</em>);</td></tr>
+<tr><th id="147">147</th><td><a class="macro" href="pyport.h.html#768" title="void" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>void</em>) <dfn class="decl" id="PyInterpreterState_Clear" title='PyInterpreterState_Clear' data-ref="PyInterpreterState_Clear">PyInterpreterState_Clear</dfn>(<a class="typedef" href="#PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</a> *);</td></tr>
+<tr><th id="148">148</th><td><a class="macro" href="pyport.h.html#768" title="void" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>void</em>) <dfn class="decl" id="PyInterpreterState_Delete" title='PyInterpreterState_Delete' data-ref="PyInterpreterState_Delete">PyInterpreterState_Delete</dfn>(<a class="typedef" href="#PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</a> *);</td></tr>
+<tr><th id="149">149</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyState_AddModule" title='_PyState_AddModule' data-ref="_PyState_AddModule">_PyState_AddModule</dfn>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>*, <b>struct</b> <a class="type" href="moduleobject.h.html#PyModuleDef" title='PyModuleDef' data-ref="PyModuleDef">PyModuleDef</a>*);</td></tr>
+<tr><th id="150">150</th><td><u>#<span data-ppcond="150">if</span> !defined(<span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span>) || Py_LIMITED_API+0 &gt;= 0x03030000</u></td></tr>
+<tr><th id="151">151</th><td><i>/* New in 3.3 */</i></td></tr>
+<tr><th id="152">152</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="PyState_AddModule" title='PyState_AddModule' data-ref="PyState_AddModule">PyState_AddModule</dfn>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>*, <b>struct</b> <a class="type" href="moduleobject.h.html#PyModuleDef" title='PyModuleDef' data-ref="PyModuleDef">PyModuleDef</a>*);</td></tr>
+<tr><th id="153">153</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="PyState_RemoveModule" title='PyState_RemoveModule' data-ref="PyState_RemoveModule">PyState_RemoveModule</dfn>(<b>struct</b> <a class="type" href="moduleobject.h.html#PyModuleDef" title='PyModuleDef' data-ref="PyModuleDef">PyModuleDef</a>*);</td></tr>
+<tr><th id="154">154</th><td><u>#<span data-ppcond="150">endif</span></u></td></tr>
+<tr><th id="155">155</th><td><a class="macro" href="pyport.h.html#768" title="PyObject*" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a>*) <dfn class="decl" id="PyState_FindModule" title='PyState_FindModule' data-ref="PyState_FindModule">PyState_FindModule</dfn>(<b>struct</b> <a class="type" href="moduleobject.h.html#PyModuleDef" title='PyModuleDef' data-ref="PyModuleDef">PyModuleDef</a>*);</td></tr>
+<tr><th id="156">156</th><td><u>#<span data-ppcond="156">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="157">157</th><td><a class="macro" href="pyport.h.html#768" title="void" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>void</em>) <dfn class="decl" id="_PyState_ClearModules" title='_PyState_ClearModules' data-ref="_PyState_ClearModules">_PyState_ClearModules</dfn>(<em>void</em>);</td></tr>
+<tr><th id="158">158</th><td><u>#<span data-ppcond="156">endif</span></u></td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td><a class="macro" href="pyport.h.html#768" title="PyThreadState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *) <dfn class="decl" id="PyThreadState_New" title='PyThreadState_New' data-ref="PyThreadState_New">PyThreadState_New</dfn>(<a class="typedef" href="#PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</a> *);</td></tr>
+<tr><th id="161">161</th><td><a class="macro" href="pyport.h.html#768" title="PyThreadState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *) <dfn class="decl" id="_PyThreadState_Prealloc" title='_PyThreadState_Prealloc' data-ref="_PyThreadState_Prealloc">_PyThreadState_Prealloc</dfn>(<a class="typedef" href="#PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</a> *);</td></tr>
+<tr><th id="162">162</th><td><a class="macro" href="pyport.h.html#768" title="void" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>void</em>) <dfn class="decl" id="_PyThreadState_Init" title='_PyThreadState_Init' data-ref="_PyThreadState_Init">_PyThreadState_Init</dfn>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *);</td></tr>
+<tr><th id="163">163</th><td><a class="macro" href="pyport.h.html#768" title="void" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>void</em>) <dfn class="decl" id="PyThreadState_Clear" title='PyThreadState_Clear' data-ref="PyThreadState_Clear">PyThreadState_Clear</dfn>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *);</td></tr>
+<tr><th id="164">164</th><td><a class="macro" href="pyport.h.html#768" title="void" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>void</em>) <dfn class="decl" id="PyThreadState_Delete" title='PyThreadState_Delete' data-ref="PyThreadState_Delete">PyThreadState_Delete</dfn>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *);</td></tr>
+<tr><th id="165">165</th><td><a class="macro" href="pyport.h.html#768" title="void" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>void</em>) <dfn class="decl" id="_PyThreadState_DeleteExcept" title='_PyThreadState_DeleteExcept' data-ref="_PyThreadState_DeleteExcept">_PyThreadState_DeleteExcept</dfn>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *<dfn class="local col4 decl" id="694tstate" title='tstate' data-type='PyThreadState *' data-ref="694tstate">tstate</dfn>);</td></tr>
+<tr><th id="166">166</th><td><u>#<span data-ppcond="166">ifdef</span> <a class="macro" href="../x86_64-linux-gnu/python3.5m/pyconfig.h.html#1380" data-ref="_M/WITH_THREAD">WITH_THREAD</a></u></td></tr>
+<tr><th id="167">167</th><td><a class="macro" href="pyport.h.html#768" title="void" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>void</em>) <dfn class="decl" id="PyThreadState_DeleteCurrent" title='PyThreadState_DeleteCurrent' data-ref="PyThreadState_DeleteCurrent">PyThreadState_DeleteCurrent</dfn>(<em>void</em>);</td></tr>
+<tr><th id="168">168</th><td><a class="macro" href="pyport.h.html#768" title="void" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>void</em>) <dfn class="decl" id="_PyGILState_Reinit" title='_PyGILState_Reinit' data-ref="_PyGILState_Reinit">_PyGILState_Reinit</dfn>(<em>void</em>);</td></tr>
+<tr><th id="169">169</th><td><u>#<span data-ppcond="166">endif</span></u></td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td><i>/* Return the current thread state. The global interpreter lock must be held.</i></td></tr>
+<tr><th id="172">172</th><td><i> * When the current thread state is NULL, this issues a fatal error (so that</i></td></tr>
+<tr><th id="173">173</th><td><i> * the caller needn't check for NULL). */</i></td></tr>
+<tr><th id="174">174</th><td><a class="macro" href="pyport.h.html#768" title="PyThreadState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *) <dfn class="decl" id="PyThreadState_Get" title='PyThreadState_Get' data-ref="PyThreadState_Get">PyThreadState_Get</dfn>(<em>void</em>);</td></tr>
+<tr><th id="175">175</th><td></td></tr>
+<tr><th id="176">176</th><td><i>/* Similar to PyThreadState_Get(), but don't issue a fatal error</i></td></tr>
+<tr><th id="177">177</th><td><i> * if it is NULL. */</i></td></tr>
+<tr><th id="178">178</th><td><a class="macro" href="pyport.h.html#768" title="PyThreadState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *) <dfn class="decl" id="_PyThreadState_UncheckedGet" title='_PyThreadState_UncheckedGet' data-ref="_PyThreadState_UncheckedGet">_PyThreadState_UncheckedGet</dfn>(<em>void</em>);</td></tr>
+<tr><th id="179">179</th><td></td></tr>
+<tr><th id="180">180</th><td><a class="macro" href="pyport.h.html#768" title="PyThreadState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *) <dfn class="decl" id="PyThreadState_Swap" title='PyThreadState_Swap' data-ref="PyThreadState_Swap">PyThreadState_Swap</dfn>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *);</td></tr>
+<tr><th id="181">181</th><td><a class="macro" href="pyport.h.html#768" title="PyObject *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *) <dfn class="decl" id="PyThreadState_GetDict" title='PyThreadState_GetDict' data-ref="PyThreadState_GetDict">PyThreadState_GetDict</dfn>(<em>void</em>);</td></tr>
+<tr><th id="182">182</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="PyThreadState_SetAsyncExc" title='PyThreadState_SetAsyncExc' data-ref="PyThreadState_SetAsyncExc">PyThreadState_SetAsyncExc</dfn>(<em>long</em>, <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *);</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td></td></tr>
+<tr><th id="185">185</th><td><i>/* Variable and macro for in-line access to current thread state */</i></td></tr>
+<tr><th id="186">186</th><td></td></tr>
+<tr><th id="187">187</th><td><i>/* Assuming the current thread holds the GIL, this is the</i></td></tr>
+<tr><th id="188">188</th><td><i>   PyThreadState for the current thread. */</i></td></tr>
+<tr><th id="189">189</th><td><u>#<span data-ppcond="189">ifdef</span> <span class="macro" data-ref="_M/Py_BUILD_CORE">Py_BUILD_CORE</span></u></td></tr>
+<tr><th id="190">190</th><td>PyAPI_DATA(_Py_atomic_address) _PyThreadState_Current;</td></tr>
+<tr><th id="191">191</th><td><u>#  define PyThreadState_GET() \</u></td></tr>
+<tr><th id="192">192</th><td><u>             ((PyThreadState*)_Py_atomic_load_relaxed(&amp;_PyThreadState_Current))</u></td></tr>
+<tr><th id="193">193</th><td><u>#<span data-ppcond="189">else</span></u></td></tr>
+<tr><th id="194">194</th><td><u>#  define <dfn class="macro" id="_M/PyThreadState_GET" data-ref="_M/PyThreadState_GET">PyThreadState_GET</dfn>() PyThreadState_Get()</u></td></tr>
+<tr><th id="195">195</th><td><u>#<span data-ppcond="189">endif</span></u></td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td><b>typedef</b></td></tr>
+<tr><th id="198">198</th><td>    <b>enum</b> {<dfn class="enum" id="PyGILState_LOCKED" title='PyGILState_LOCKED' data-ref="PyGILState_LOCKED">PyGILState_LOCKED</dfn>, <dfn class="enum" id="PyGILState_UNLOCKED" title='PyGILState_UNLOCKED' data-ref="PyGILState_UNLOCKED">PyGILState_UNLOCKED</dfn>}</td></tr>
+<tr><th id="199">199</th><td>        <dfn class="typedef" id="PyGILState_STATE" title='PyGILState_STATE' data-type='enum PyGILState_STATE' data-ref="PyGILState_STATE">PyGILState_STATE</dfn>;</td></tr>
+<tr><th id="200">200</th><td></td></tr>
+<tr><th id="201">201</th><td><u>#<span data-ppcond="201">ifdef</span> <a class="macro" href="../x86_64-linux-gnu/python3.5m/pyconfig.h.html#1380" data-ref="_M/WITH_THREAD">WITH_THREAD</a></u></td></tr>
+<tr><th id="202">202</th><td></td></tr>
+<tr><th id="203">203</th><td><i>/* Ensure that the current thread is ready to call the Python</i></td></tr>
+<tr><th id="204">204</th><td><i>   C API, regardless of the current state of Python, or of its</i></td></tr>
+<tr><th id="205">205</th><td><i>   thread lock.  This may be called as many times as desired</i></td></tr>
+<tr><th id="206">206</th><td><i>   by a thread so long as each call is matched with a call to</i></td></tr>
+<tr><th id="207">207</th><td><i>   PyGILState_Release().  In general, other thread-state APIs may</i></td></tr>
+<tr><th id="208">208</th><td><i>   be used between _Ensure() and _Release() calls, so long as the</i></td></tr>
+<tr><th id="209">209</th><td><i>   thread-state is restored to its previous state before the Release().</i></td></tr>
+<tr><th id="210">210</th><td><i>   For example, normal use of the Py_BEGIN_ALLOW_THREADS/</i></td></tr>
+<tr><th id="211">211</th><td><i>   Py_END_ALLOW_THREADS macros are acceptable.</i></td></tr>
+<tr><th id="212">212</th><td><i></i></td></tr>
+<tr><th id="213">213</th><td><i>   The return value is an opaque "handle" to the thread state when</i></td></tr>
+<tr><th id="214">214</th><td><i>   PyGILState_Ensure() was called, and must be passed to</i></td></tr>
+<tr><th id="215">215</th><td><i>   PyGILState_Release() to ensure Python is left in the same state. Even</i></td></tr>
+<tr><th id="216">216</th><td><i>   though recursive calls are allowed, these handles can *not* be shared -</i></td></tr>
+<tr><th id="217">217</th><td><i>   each unique call to PyGILState_Ensure must save the handle for its</i></td></tr>
+<tr><th id="218">218</th><td><i>   call to PyGILState_Release.</i></td></tr>
+<tr><th id="219">219</th><td><i></i></td></tr>
+<tr><th id="220">220</th><td><i>   When the function returns, the current thread will hold the GIL.</i></td></tr>
+<tr><th id="221">221</th><td><i></i></td></tr>
+<tr><th id="222">222</th><td><i>   Failure is a fatal error.</i></td></tr>
+<tr><th id="223">223</th><td><i>*/</i></td></tr>
+<tr><th id="224">224</th><td><a class="macro" href="pyport.h.html#768" title="PyGILState_STATE" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyGILState_STATE" title='PyGILState_STATE' data-type='enum PyGILState_STATE' data-ref="PyGILState_STATE">PyGILState_STATE</a>) <dfn class="decl" id="PyGILState_Ensure" title='PyGILState_Ensure' data-ref="PyGILState_Ensure">PyGILState_Ensure</dfn>(<em>void</em>);</td></tr>
+<tr><th id="225">225</th><td></td></tr>
+<tr><th id="226">226</th><td><i>/* Release any resources previously acquired.  After this call, Python's</i></td></tr>
+<tr><th id="227">227</th><td><i>   state will be the same as it was prior to the corresponding</i></td></tr>
+<tr><th id="228">228</th><td><i>   PyGILState_Ensure() call (but generally this state will be unknown to</i></td></tr>
+<tr><th id="229">229</th><td><i>   the caller, hence the use of the GILState API.)</i></td></tr>
+<tr><th id="230">230</th><td><i></i></td></tr>
+<tr><th id="231">231</th><td><i>   Every call to PyGILState_Ensure must be matched by a call to</i></td></tr>
+<tr><th id="232">232</th><td><i>   PyGILState_Release on the same thread.</i></td></tr>
+<tr><th id="233">233</th><td><i>*/</i></td></tr>
+<tr><th id="234">234</th><td><a class="macro" href="pyport.h.html#768" title="void" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>void</em>) <dfn class="decl" id="PyGILState_Release" title='PyGILState_Release' data-ref="PyGILState_Release">PyGILState_Release</dfn>(<a class="typedef" href="#PyGILState_STATE" title='PyGILState_STATE' data-type='enum PyGILState_STATE' data-ref="PyGILState_STATE">PyGILState_STATE</a>);</td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td><i>/* Helper/diagnostic function - get the current thread state for</i></td></tr>
+<tr><th id="237">237</th><td><i>   this thread.  May return NULL if no GILState API has been used</i></td></tr>
+<tr><th id="238">238</th><td><i>   on the current thread.  Note that the main thread always has such a</i></td></tr>
+<tr><th id="239">239</th><td><i>   thread-state, even if no auto-thread-state call has been made</i></td></tr>
+<tr><th id="240">240</th><td><i>   on the main thread.</i></td></tr>
+<tr><th id="241">241</th><td><i>*/</i></td></tr>
+<tr><th id="242">242</th><td><a class="macro" href="pyport.h.html#768" title="PyThreadState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *) <dfn class="decl" id="PyGILState_GetThisThreadState" title='PyGILState_GetThisThreadState' data-ref="PyGILState_GetThisThreadState">PyGILState_GetThisThreadState</dfn>(<em>void</em>);</td></tr>
+<tr><th id="243">243</th><td></td></tr>
+<tr><th id="244">244</th><td><i>/* Helper/diagnostic function - return 1 if the current thread</i></td></tr>
+<tr><th id="245">245</th><td><i> * currently holds the GIL, 0 otherwise</i></td></tr>
+<tr><th id="246">246</th><td><i> */</i></td></tr>
+<tr><th id="247">247</th><td><u>#<span data-ppcond="247">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="248">248</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="PyGILState_Check" title='PyGILState_Check' data-ref="PyGILState_Check">PyGILState_Check</dfn>(<em>void</em>);</td></tr>
+<tr><th id="249">249</th><td><u>#<span data-ppcond="247">endif</span></u></td></tr>
+<tr><th id="250">250</th><td></td></tr>
+<tr><th id="251">251</th><td><u>#<span data-ppcond="201">endif</span>   /* #ifdef WITH_THREAD */</u></td></tr>
+<tr><th id="252">252</th><td></td></tr>
+<tr><th id="253">253</th><td><i>/* The implementation of sys._current_frames()  Returns a dict mapping</i></td></tr>
+<tr><th id="254">254</th><td><i>   thread id to that thread's current frame.</i></td></tr>
+<tr><th id="255">255</th><td><i>*/</i></td></tr>
+<tr><th id="256">256</th><td><u>#<span data-ppcond="256">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="257">257</th><td><a class="macro" href="pyport.h.html#768" title="PyObject *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *) <dfn class="decl" id="_PyThread_CurrentFrames" title='_PyThread_CurrentFrames' data-ref="_PyThread_CurrentFrames">_PyThread_CurrentFrames</dfn>(<em>void</em>);</td></tr>
+<tr><th id="258">258</th><td><u>#<span data-ppcond="256">endif</span></u></td></tr>
+<tr><th id="259">259</th><td></td></tr>
+<tr><th id="260">260</th><td><i>/* Routines for advanced debuggers, requested by David Beazley.</i></td></tr>
+<tr><th id="261">261</th><td><i>   Don't use unless you know what you are doing! */</i></td></tr>
+<tr><th id="262">262</th><td><u>#<span data-ppcond="262">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="263">263</th><td><a class="macro" href="pyport.h.html#768" title="PyInterpreterState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</a> *) <dfn class="decl" id="PyInterpreterState_Head" title='PyInterpreterState_Head' data-ref="PyInterpreterState_Head">PyInterpreterState_Head</dfn>(<em>void</em>);</td></tr>
+<tr><th id="264">264</th><td><a class="macro" href="pyport.h.html#768" title="PyInterpreterState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</a> *) <dfn class="decl" id="PyInterpreterState_Next" title='PyInterpreterState_Next' data-ref="PyInterpreterState_Next">PyInterpreterState_Next</dfn>(<a class="typedef" href="#PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</a> *);</td></tr>
+<tr><th id="265">265</th><td><a class="macro" href="pyport.h.html#768" title="PyThreadState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *) <dfn class="decl" id="PyInterpreterState_ThreadHead" title='PyInterpreterState_ThreadHead' data-ref="PyInterpreterState_ThreadHead">PyInterpreterState_ThreadHead</dfn>(<a class="typedef" href="#PyInterpreterState" title='PyInterpreterState' data-type='struct _is' data-ref="PyInterpreterState">PyInterpreterState</a> *);</td></tr>
+<tr><th id="266">266</th><td><a class="macro" href="pyport.h.html#768" title="PyThreadState *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *) <dfn class="decl" id="PyThreadState_Next" title='PyThreadState_Next' data-ref="PyThreadState_Next">PyThreadState_Next</dfn>(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *);</td></tr>
+<tr><th id="267">267</th><td></td></tr>
+<tr><th id="268">268</th><td><b>typedef</b> <b>struct</b> <a class="type" href="#_frame" title='_frame' data-ref="_frame">_frame</a> *(*<dfn class="typedef" id="PyThreadFrameGetter" title='PyThreadFrameGetter' data-type='struct _frame *(*)(PyThreadState *)' data-ref="PyThreadFrameGetter">PyThreadFrameGetter</dfn>)(<a class="typedef" href="#PyThreadState" title='PyThreadState' data-type='struct _ts' data-ref="PyThreadState">PyThreadState</a> *<dfn class="local col5 decl" id="695self_" title='self_' data-type='PyThreadState *' data-ref="695self_">self_</dfn>);</td></tr>
+<tr><th id="269">269</th><td><u>#<span data-ppcond="262">endif</span></u></td></tr>
+<tr><th id="270">270</th><td></td></tr>
+<tr><th id="271">271</th><td><i>/* hook for PyEval_GetFrame(), requested for Psyco */</i></td></tr>
+<tr><th id="272">272</th><td><u>#<span data-ppcond="272">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="273">273</th><td><a class="macro" href="pyport.h.html#771" title="extern PyThreadFrameGetter" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<a class="typedef" href="#PyThreadFrameGetter" title='PyThreadFrameGetter' data-type='struct _frame *(*)(PyThreadState *)' data-ref="PyThreadFrameGetter">PyThreadFrameGetter</a>) <dfn class="decl" id="_PyThreadState_GetFrame" title='_PyThreadState_GetFrame' data-ref="_PyThreadState_GetFrame">_PyThreadState_GetFrame</dfn>;</td></tr>
+<tr><th id="274">274</th><td><u>#<span data-ppcond="272">endif</span></u></td></tr>
+<tr><th id="275">275</th><td></td></tr>
+<tr><th id="276">276</th><td><u>#<span data-ppcond="276">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="277">277</th><td>}</td></tr>
+<tr><th id="278">278</th><td><u>#<span data-ppcond="276">endif</span></u></td></tr>
+<tr><th id="279">279</th><td><u>#<span data-ppcond="5">endif</span> /* !Py_PYSTATE_H */</u></td></tr>
+<tr><th id="280">280</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc.html'>tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc</a><br/>Generated on <em>2018-Aug-16</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

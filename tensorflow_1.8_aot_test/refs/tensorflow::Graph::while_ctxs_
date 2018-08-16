@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='657' type='std::map&lt;string, WhileContext&gt;'/>
+<offset>5248</offset>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='653'>// All the while contexts owned by this graph, keyed by frame name,
+  // corresponding to all the while loops contained in this graph (including
+  // nested loops). The stored contexts are usually accessed via
+  // AddWhileContext() or Node::while_ctx(), but this manages the lifetime.</doc>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='696' u='m' c='_ZN10tensorflow5Graph15AddWhileContextENS_11StringPieceESt6vectorIPNS_4NodeESaIS4_EES6_NS_12OutputTensorES2_IS7_SaIS7_EES9_PPNS_12WhileContextE'/>

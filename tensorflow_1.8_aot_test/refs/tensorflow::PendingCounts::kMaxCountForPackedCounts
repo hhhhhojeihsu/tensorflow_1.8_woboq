@@ -1,0 +1,17 @@
+<use f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='102' u='r' c='_ZN10tensorflow13PendingCounts17set_initial_countENS0_6HandleEm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='185' u='r' c='_ZN10tensorflow13PendingCounts9mark_liveENS0_6HandleE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='205' u='r' c='_ZN10tensorflow13PendingCounts20increment_dead_countENS0_6HandleE'/>
+<dec f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='265' type='const int'/>
+<use f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='311' u='r' c='_ZN10tensorflow13PendingCounts6Layout12CreateHandleEmm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='312' u='r' c='_ZN10tensorflow13PendingCounts6Layout12CreateHandleEmm'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='254'>// We keep track of the pending count and dead input count for each
+  // graph node.  The representation used here is designed to be cache
+  // efficient for graphs with large numbers of nodes, where most
+  // nodes have relatively small maximum pending counts (e.g. for one
+  // LSTM model, 99% of 5000+ nodes had in-degrees of 3 or less).  We
+  // use one byte to hold both the pending and dead count for a node
+  // where these together can fit in one byte, and we use a hash table
+  // to handle the rare node ids that need larger counts than this.
+  // Each frame in this subgraph has its own PendingCounts.
+
+  // We use 3 bits each for dead_count and pending.</doc>

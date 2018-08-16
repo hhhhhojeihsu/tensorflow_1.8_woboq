@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.h' l='58' type='static tensorflow::Status xla::cpu::DotOpEmitter::EmitDotOperation(const xla::HloInstruction &amp; dot, bool transpose_lhs, bool transpose_rhs, const llvm_ir::IrArray &amp; target_array, const llvm_ir::IrArray &amp; lhs_array, const llvm_ir::IrArray &amp; rhs_array, const llvm_ir::IrArray * addend_array, llvm::Value * executable_run_options_value, llvm::IRBuilder&lt;&gt; * ir_builder, const xla::HloModuleConfig &amp; hlo_module_config, const xla::cpu::TargetMachineFeatures &amp; target_machine_features)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.h' l='49'>// Emit LLVM IR to perform the dot operation on lhs_array and rhs_array and
+  // place the result in target_array. IR is emitted at current insert point of
+  // the builder. Upon completion of the method, the insert point is set to the
+  // end of all instructions emitted for this operation.
+  //
+  // If `addend_array` is not nullptr then it must be an array of the same
+  // dimensions as the result, and the result is computed as `addend_array` +
+  // dot(`lhs_array`, `rhs_array`).  A non-null `addend_array` is only supported
+  // for Matrix-vector products.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='544' ll='558' type='static tensorflow::Status xla::cpu::DotOpEmitter::EmitDotOperation(const xla::HloInstruction &amp; dot, bool transpose_lhs, bool transpose_rhs, const llvm_ir::IrArray &amp; target_array, const llvm_ir::IrArray &amp; lhs_array, const llvm_ir::IrArray &amp; rhs_array, const llvm_ir::IrArray * addend_array, llvm::Value * executable_run_options_value, llvm::IRBuilder&lt;&gt; * ir_builder, const xla::HloModuleConfig &amp; hlo_module_config, const xla::cpu::TargetMachineFeatures &amp; target_machine_features)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='544'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='841' u='c' c='_ZN3xla3cpu9IrEmitter9HandleDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2096' u='c' c='_ZN3xla3cpu9IrEmitter12HandleFusionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2145' u='c' c='_ZN3xla3cpu9IrEmitter12HandleFusionEPNS_14HloInstructionE'/>

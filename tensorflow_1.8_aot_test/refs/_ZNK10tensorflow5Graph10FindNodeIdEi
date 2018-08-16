@@ -1,0 +1,24 @@
+<def f='tensorflow/tensorflow/core/graph/graph.h' l='523' type='tensorflow::Node * tensorflow::Graph::FindNodeId(int id) const'/>
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='540' u='c' c='_ZNK10tensorflow5Graph11source_nodeEv'/>
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='541' u='c' c='_ZNK10tensorflow5Graph9sink_nodeEv'/>
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='752' u='c' c='_ZN10tensorflow8NodeIterppEv'/>
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='758' u='c' c='_ZN10tensorflow8NodeIterdeEv'/>
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='760' u='c' c='_ZN10tensorflow8NodeIterptEv'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='405' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ValidateNoCyclesERKNS_5GraphE'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='442' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ValidateNoCyclesERKNS_5GraphE'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='746' u='c' c='_ZN10tensorflow24ExtendSessionGraphHelperEP10TF_SessionP9TF_Status'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1923' u='c' c='TF_GraphNextOperation'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2069' u='c' c='_Z25GraphImportGraphDefLockedP8TF_GraphRKN10tensorflow8GraphDefEPK24TF_ImportGraphDefOptionsP24TF_ImportGraphDefResultsP9TF_Status'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2390' u='c' c='(anonymousnamespace)::TF_FinishWhileHelper'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2455' u='c' c='TF_AddGradients'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='519'>// Returns the node associated with an id, or nullptr if no node
+  // with that id (the node with that id was removed and the id has
+  // not yet been re-used). *this owns the returned instance.
+  // REQUIRES: 0 &lt;= id &lt; num_node_ids().</doc>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='439' u='c' c='_ZN10tensorflow12_GLOBAL__N_113DescribeCycleERKNS_11GraphCyclesERKNS_5GraphEii'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='668' u='c' c='_ZN10tensorflow22MarkForCompilationPass7RunImplERKNS_28GraphOptimizationPassOptionsERKSt8functionIFbPKNS_4NodeERKNS_10DeviceTypeEEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='684' u='c' c='_ZN10tensorflow22MarkForCompilationPass7RunImplERKNS_28GraphOptimizationPassOptionsERKSt8functionIFbPKNS_4NodeERKNS_10DeviceTypeEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.h' l='149' u='c' c='_ZNK10tensorflow19GraphExecutionState16get_node_by_nameERKSs'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='541' u='c' c='_ZNK10tensorflow5Graph18ToGraphDefSubRangeEPNS_8GraphDefEi'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='609' u='c' c='_ZN10tensorflow12_GLOBAL__N_114AddControlFlowERKNS_16PartitionOptionsEPNS_5GraphEPNS0_9GraphInfoE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='490' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils28BuildTensorShapeMapFromGraphERKNS_5GraphERKNS_12ShapeRefinerEPSt18unordered_multimapISsSt4pairIiS8_INS_10209530'/>

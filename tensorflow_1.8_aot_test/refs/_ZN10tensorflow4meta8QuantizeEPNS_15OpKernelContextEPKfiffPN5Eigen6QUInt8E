@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/kernels/meta_support.h' l='90' type='void tensorflow::meta::Quantize(tensorflow::OpKernelContext * , const float * input, int count, float range_min, float range_max, quint8 * output)'/>
+<doc f='tensorflow/tensorflow/core/kernels/meta_support.h' l='88'>// Take an array of float values and quantize them uniformly to the range
+// [range_min, range_max] expressed as uint8. Saturate the uint8 values.</doc>
+<def f='tensorflow/tensorflow/core/kernels/meta_support.cc' l='316' ll='344' type='void tensorflow::meta::Quantize(tensorflow::OpKernelContext * tf_context, const float * input, int count, float range_min, float range_max, quint8 * output)'/>
+<use f='tensorflow/tensorflow/core/kernels/quantize_op.cc' l='175' u='c' c='_ZN10tensorflow12QuantizeV2Op7ComputeEPNS_15OpKernelContextE'/>

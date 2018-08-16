@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='356' type='static xla::Shape xla::ShapeUtil::MakeShapeWithDescendingLayoutAndSamePhysicalLayout(const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='351'>// Returns a new Shape based on the given Shape with low-dimension-major
+  // layout (i.e. {n, n-1, ..., 0}, like Fortran), and with the dimensions
+  // rearranged so that it has the same in-memory layout as the given shape.
+  //
+  // For example, transforms f32[B,H,W,C]{0,3,2,1} to f32[H,W,C,B]{3,2,1,0}.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='216' ll='224' type='static xla::Shape xla::ShapeUtil::MakeShapeWithDescendingLayoutAndSamePhysicalLayout(const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='216'>/* static */</doc>

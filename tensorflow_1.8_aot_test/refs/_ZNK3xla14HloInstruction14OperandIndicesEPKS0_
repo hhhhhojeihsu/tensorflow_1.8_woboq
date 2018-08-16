@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1220' type='std::vector&lt;int64&gt; xla::HloInstruction::OperandIndices(const xla::HloInstruction * operand) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1217'>// Returns the indices that the given operand appear in the operand list of
+  // this instruction. Note that an instruction can use the same operand
+  // multiple times.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1087' u='c' c='_ZN3xla12_GLOBAL__N_136OutputIsPermutationOfOperandElementsEPNS_14HloInstructionES2_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1103' u='c' c='_ZN3xla12_GLOBAL__N_131OutputIsSubsetOfOperandElementsEPNS_14HloInstructionES2_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='646' u='c' c='_ZN3xla19HloDataflowAnalysis9PropagateEv'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2960' ll='2969' type='std::vector&lt;int64&gt; xla::HloInstruction::OperandIndices(const xla::HloInstruction * operand) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3064' u='c' c='_ZN3xla12_GLOBAL__N_133IsInstructionElementwiseOnOperandEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_value.cc' l='179' u='c' c='_ZN3xla8HloValue26SetPositionsAndComputeUsesEN10tensorflow3gtl10ArraySliceINS_11HloPositionEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1127' u='c' c='_ZN3xla12_GLOBAL__N_120GetArrayUsesOfBufferERKNS_13LogicalBufferERKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='123' u='c' c='_ZN3xla12_GLOBAL__N_130GetAllUsesOfInstructionAtIndexEPNS_14HloInstructionERKNS_10ShapeIndexERKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='143' u='c' c='_ZN3xla12_GLOBAL__N_128HasUniqueFusedUseOfOperandAtEPNS_14HloInstructionERKNS_10ShapeIndexES2_xRKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='243' u='c' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='250' u='c' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='347' u='c' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_19HloDataflowAnalysisE'/>

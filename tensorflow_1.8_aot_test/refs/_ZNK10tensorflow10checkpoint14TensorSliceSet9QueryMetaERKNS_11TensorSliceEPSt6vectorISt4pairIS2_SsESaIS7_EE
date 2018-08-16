@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_slice_set.h' l='68' type='bool tensorflow::checkpoint::TensorSliceSet::QueryMeta(const tensorflow::TensorSlice &amp; slice, std::vector&lt;std::pair&lt;tensorflow::TensorSlice, string&gt; &gt; * results) const'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_slice_set.h' l='65'>// Alternative way of querying about a new slice: instead of copying the
+  // data, it returns a list of meta data about the stored slices that will
+  // supply data for the slice.</doc>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='945' u='c' c='_ZN10tensorflow12BundleReader13GetSliceValueENS_11StringPieceERKNS_16BundleEntryProtoERKNS_11TensorSliceEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_reader.cc' l='193' u='c' c='_ZNK10tensorflow10checkpoint17TensorSliceReader15FindTensorSliceERKSsRKNS_11TensorSliceEPSt6vectorISt4pairIS4_SsESaIS9_EE'/>
+<def f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='119' ll='169' type='bool tensorflow::checkpoint::TensorSliceSet::QueryMeta(const tensorflow::TensorSlice &amp; slice, std::vector&lt;std::pair&lt;TensorSlice, string&gt; &gt; * results) const'/>

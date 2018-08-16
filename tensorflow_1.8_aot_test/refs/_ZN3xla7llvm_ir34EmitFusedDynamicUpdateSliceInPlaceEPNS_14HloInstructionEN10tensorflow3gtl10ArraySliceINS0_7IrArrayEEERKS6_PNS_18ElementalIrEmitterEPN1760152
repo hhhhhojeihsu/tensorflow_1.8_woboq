@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.h' l='75' type='tensorflow::Status xla::llvm_ir::EmitFusedDynamicUpdateSliceInPlace(xla::HloInstruction * fusion, tensorflow::gtl::ArraySlice&lt;IrArray&gt; fusion_operand_arrays, const xla::llvm_ir::IrArray &amp; fusion_output_array, xla::ElementalIrEmitter * elemental_emitter, llvm::IRBuilder&lt;&gt; * ir_builder)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2110' u='c' c='_ZN3xla3cpu9IrEmitter12HandleFusionEPNS_14HloInstructionE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.h' l='71'>// Given a loop-fusion node whose root is a dynamic-update-slice op whose
+// array-to-be-updated and output share the same buffer slice, emits
+// (sequential) code for a fusion node that does the dynamic-update-slice in
+// place.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.cc' l='159' ll='167' type='tensorflow::Status xla::llvm_ir::EmitFusedDynamicUpdateSliceInPlace(xla::HloInstruction * fusion, tensorflow::gtl::ArraySlice&lt;IrArray&gt; fusion_operand_arrays, const xla::llvm_ir::IrArray &amp; fusion_output_array, xla::ElementalIrEmitter * elemental_emitter, llvm::IRBuilder&lt;&gt; * ir_builder)'/>

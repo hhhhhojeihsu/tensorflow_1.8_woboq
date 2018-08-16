@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='97' type='StatusOr&lt;xla::HloInstruction *&gt; xla::MakeConcatHlo(tensorflow::gtl::ArraySlice&lt;HloInstruction *&gt; operands, int64 dimension)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='94'>// Creates a Concatenate HLO instruction and adds it to the computation
+// containing `operands` (`operands` must be non-empty and every element must be
+// contained in the same computation).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='156' u='c' c='_ZN3xlaL33ExpandIndexVectorIntoOperandSpaceEPNS_14HloInstructionERKNS_22GatherDimensionNumbersEx'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='146' ll='163' type='StatusOr&lt;xla::HloInstruction *&gt; xla::MakeConcatHlo(ArraySlice&lt;xla::HloInstruction *&gt; operands, int64 dimension)'/>

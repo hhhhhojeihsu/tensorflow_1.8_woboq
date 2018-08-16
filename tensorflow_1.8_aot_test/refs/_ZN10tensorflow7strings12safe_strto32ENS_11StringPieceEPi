@@ -1,0 +1,38 @@
+<dec f='tensorflow/tensorflow/core/lib/strings/numbers.h' l='97' type='bool tensorflow::strings::safe_strto32(tensorflow::StringPiece str, int32 * value)'/>
+<use f='tensorflow/tensorflow/core/lib/strings/numbers.h' l='125' u='c' c='_ZN10tensorflow7strings17ProtoParseNumericENS_11StringPieceEPi'/>
+<doc f='tensorflow/tensorflow/core/lib/strings/numbers.h' l='94'>// Convert strings to 32bit integer values.
+// Leading and trailing spaces are allowed.
+// Return false with overflow or invalid input.</doc>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/data_spec.h' l='45' u='c' c='_ZN10tensorflow12tensorforest10DataColumn15ParseFromStringERKSs'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/data_spec.h' l='46' u='c' c='_ZN10tensorflow12tensorforest10DataColumn15ParseFromStringERKSs'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/data_spec.h' l='82' u='c' c='_ZN10tensorflow12tensorforest20TensorForestDataSpec15ParseFromStringERKSs'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/model_ops.cc' l='416' u='c' c='_ZN10tensorflow12tensorforest20FeatureUsageCountsOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/model_ops.cc' l='422' u='c' c='_ZN10tensorflow12tensorforest20FeatureUsageCountsOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/model_ops.cc' l='427' u='c' c='_ZN10tensorflow12tensorforest20FeatureUsageCountsOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/decision_node_evaluator.cc' l='54' u='c' c='_ZN10tensorflow12tensorforest31InequalityDecisionNodeEvaluatorC1ERKNS_14decision_trees14InequalityTestEii'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/decision_node_evaluator.cc' l='75' u='c' c='_ZN10tensorflow12tensorforest38ObliqueInequalityDecisionNodeEvaluatorC1ERKNS_14decision_trees14InequalityTestEii'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/decision_node_evaluator.cc' l='100' u='c' c='_ZN10tensorflow12tensorforest35MatchingValuesDecisionNodeEvaluatorC1ERKNS_14decision_trees18MatchingValuesTestEii'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/input_data.cc' l='87' u='c' c='_ZNK10tensorflow12tensorforest13TensorDataSet15GetExampleValueEiRKNS_14decision_trees9FeatureIdE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='100' u='c' c='_ZN10tensorflowL23ExtractGpuWithStreamAllESs'/>
+<use f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='129' u='c' c='_ZN10tensorflowL23ExtractGpuWithoutStreamESs'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='151' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='306' u='c' c='_ZN10tensorflow10GrpcServer18WorkerCacheFactoryERKNS_25WorkerCacheFactoryOptionsEPPNS_20WorkerCacheInterfaceE'/>
+<use f='tensorflow/tensorflow/core/grappler/utils.cc' l='171' u='c' c='_ZN10tensorflow8grappler13ParseNodeNameERKSsPi'/>
+<use f='tensorflow/tensorflow/core/kernels/debug_ops.h' l='141' u='c' c='_ZN10tensorflow11BaseDebugOpC1ERKSsPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_csv_op.cc' l='93' u='c' c='_ZN10tensorflow11DecodeCSVOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_util.cc' l='206' u='c' c='_ZN10tensorflow6lookup12_GLOBAL__N_120TextFileLineIterator8SetValueERKSsRKSt6vectorISsSaISsEExPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1202' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils32FuseRemoteGraphByPlacedArgumentsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPS1_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1213' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils32FuseRemoteGraphByPlacedArgumentsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPS1_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1214' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils32FuseRemoteGraphByPlacedArgumentsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPS1_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1230' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils32FuseRemoteGraphByPlacedArgumentsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPS1_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1231' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils32FuseRemoteGraphByPlacedArgumentsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPS1_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1242' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils32FuseRemoteGraphByPlacedArgumentsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPS1_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1243' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils32FuseRemoteGraphByPlacedArgumentsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPS1_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1249' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils32FuseRemoteGraphByPlacedArgumentsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPS1_'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1250' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils32FuseRemoteGraphByPlacedArgumentsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPS1_'/>
+<def f='tensorflow/tensorflow/core/lib/strings/numbers.cc' l='264' ll='292' type='bool tensorflow::strings::safe_strto32(tensorflow::StringPiece str, int32 * value)'/>
+<use f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='439' u='r' c='_ZN10tensorflow8str_util19SplitAndParseAsIntsENS_11StringPieceEcPSt6vectorIiSaIiEE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_stats.cc' l='218' u='c' c='_ZN10tensorflow6tfprof7TFStats8AddGraphESt10unique_ptrINS_8GraphDefESt14default_deleteIS3_EE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_utils.cc' l='131' u='c' c='_ZN10tensorflow6tfprof12ParseCmdLineERKSsPSsPNS0_7OptionsE'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/insert_logging.cc' l='84' u='c' c='_ZN10tensorflow16graph_transforms13InsertLoggingERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='636' u='c' c='_ZNK10tensorflow16graph_transforms20TransformFuncContext20GetOneInt32ParameterERKSsiPi'/>

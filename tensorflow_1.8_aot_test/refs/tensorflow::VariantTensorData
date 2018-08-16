@@ -1,0 +1,34 @@
+<def f='tensorflow/tensorflow/core/framework/variant_tensor_data.h' l='38' ll='108'/>
+<size>40</size>
+<doc f='tensorflow/tensorflow/core/framework/variant_tensor_data.h' l='30'>// The serialization format for Variant objects. Objects with references to
+// other Tensors can simply store those tensors in the `tensors` field, and
+// serialize other metadata content in to the `metadata` field. Objects can
+// optionally set the `type_name` for type-checking before deserializing an
+// object.
+//
+// This is the native C++ class equivalent of VariantTensorDataProto. They are
+// separate so that kernels do not need to depend on protos.</doc>
+<fun r='_ZN10tensorflow17VariantTensorDataC1Ev'/>
+<fun r='_ZN10tensorflow17VariantTensorDataC1ERKNS_22VariantTensorDataProtoE'/>
+<fun r='_ZN10tensorflow17VariantTensorDataD1Ev'/>
+<fun r='_ZNK10tensorflow17VariantTensorData9type_nameEv'/>
+<fun r='_ZN10tensorflow17VariantTensorData13set_type_nameERKSs'/>
+<fun r='_ZN10tensorflow17VariantTensorData12set_metadataERKT_'/>
+<fun r='_ZNK10tensorflow17VariantTensorData12get_metadataEPT_'/>
+<fun r='_ZNK10tensorflow17VariantTensorData12tensors_sizeEv'/>
+<fun r='_ZNK10tensorflow17VariantTensorData7tensorsEi'/>
+<fun r='_ZNK10tensorflow17VariantTensorData7tensorsEv'/>
+<fun r='_ZN10tensorflow17VariantTensorData11add_tensorsEv'/>
+<fun r='_ZNK10tensorflow17VariantTensorData7ToProtoEPNS_22VariantTensorDataProtoE'/>
+<fun r='_ZN10tensorflow17VariantTensorData9FromProtoERKNS_22VariantTensorDataProtoE'/>
+<fun r='_ZNK10tensorflow17VariantTensorData17SerializeAsStringEv'/>
+<fun r='_ZN10tensorflow17VariantTensorData17SerializeToStringEPSs'/>
+<fun r='_ZN10tensorflow17VariantTensorData15ParseFromStringERKSs'/>
+<fun r='_ZNK10tensorflow17VariantTensorData11DebugStringEv'/>
+<mbr r='tensorflow::VariantTensorData::type_name_' o='0' t='string'/>
+<mbr r='tensorflow::VariantTensorData::metadata_' o='64' t='string'/>
+<mbr r='tensorflow::VariantTensorData::tensors_' o='128' t='std::vector&lt;Tensor&gt;'/>
+<fun r='_ZN10tensorflow17VariantTensorData11SetMetadataERKSsNS0_11PODResolverIT_Lb0EEE'/>
+<fun r='_ZNK10tensorflow17VariantTensorData11GetMetadataEPSsNS0_11PODResolverIT_Lb0EEE'/>
+<fun r='_ZN10tensorflow17VariantTensorData11SetMetadataERKT_NS0_11PODResolverIS1_Lb1EEE'/>
+<fun r='_ZNK10tensorflow17VariantTensorData11GetMetadataEPT_NS0_11PODResolverIS1_Lb1EEE'/>

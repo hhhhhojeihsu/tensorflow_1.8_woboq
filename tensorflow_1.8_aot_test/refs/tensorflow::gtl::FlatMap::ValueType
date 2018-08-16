@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/core/lib/gtl/flatmap.h' l='50' ll='57'/>
+<doc f='tensorflow/tensorflow/core/lib/gtl/flatmap.h' l='44'>// We cannot use std::pair&lt;&gt; since internal representation stores
+  // keys and values in separate arrays, so we make a custom struct
+  // that holds references to the internal key, value elements.
+  //
+  // We define the struct as private ValueType, and typedef it as public
+  // value_type, to work around a gcc bug when compiling the iterators.</doc>
+<mbr r='tensorflow::gtl::FlatMap::ValueType::first' t='const Key &amp;'/>
+<mbr r='tensorflow::gtl::FlatMap::ValueType::second' t='Val &amp;'/>
+<fun r='_ZN10tensorflow3gtl7FlatMap9ValueTypeC1ERKT_RT0_'/>

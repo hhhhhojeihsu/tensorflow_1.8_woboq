@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/platform/tracing.h' l='68' type='static bool tensorflow::port::Tracing::IsActive()'/>
+<def f='tensorflow/tensorflow/core/platform/default/tracing_impl.h' l='44' type='static bool tensorflow::port::Tracing::IsActive()'/>
+<doc f='tensorflow/tensorflow/core/platform/tracing.h' l='66'>// Returns true if a trace is in progress.  Can be used to reduce tracing
+  // overheads in fast-path code.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/process_util.cc' l='81' u='c' c='_ZN10tensorflow12SchedClosureESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/threadpool_device.cc' l='56' u='c' c='_ZN10tensorflow16ThreadPoolDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/lib/core/threadpool.cc' l='62' u='c' c='_ZN10tensorflow6thread16EigenEnvironment10CreateTaskESt8functionIFvvEE'/>

@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='352' type='StatusOr&lt;BufferAllocation::Slice&gt; xla::BufferAssignment::GetUniqueTopLevelOutputSlice() const'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='591' ll='595' type='StatusOr&lt;BufferAllocation::Slice&gt; xla::BufferAssignment::GetUniqueTopLevelOutputSlice() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='349'>// Like GetUniqueTopLevelSlice but returns the slice for the output of the
+  // entry computation of the HLO module (ie, the result of the XLA
+  // computation).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='918' u='c' c='_ZN3xla3cpu11CpuCompiler18CompileAheadOfTimeESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS4_EESaIS7_EERKNS_21AotCompilationOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='118' u='c' c='_ZN3xla3cpu13CpuExecutable15AllocateBuffersEPNS_21DeviceMemoryAllocatorEiPSt6vectorIN9perftools8gputools16DeviceMemoryBaseESaIS7_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='164' u='c' c='_ZN3xla3cpu13CpuExecutable22ExecuteComputeFunctionEPKNS_20ExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEENS7_IN9perftools8gp3637109'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='368' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable15AllocateBuffersEPNS_21DeviceMemoryAllocatorEiPSt6vectorIN9perftools8gputools16DeviceMemoryBaseESaIS7_EE'/>

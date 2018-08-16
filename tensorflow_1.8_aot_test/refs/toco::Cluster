@@ -1,0 +1,26 @@
+<def f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/cluster.h' l='39' ll='81'/>
+<ovr f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.h' l='31' c='toco::SvdfCluster'/>
+<size>128</size>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/cluster.h' l='32'>// The base class for Cluster. A cluster is group of nodes all related to each
+// other because their name match a given &quot;pattern&quot;, which shows they all belong
+// to a composite op supported in TFLite. The nodes in a cluster will be
+// collapsed into a single composite op node plus a series of constant nodes
+// holding the input parameters to that node. The nodes in a cluster are assumed
+// to be using the same device. By changing the &quot;pattern&quot; we can have different
+// subclasses of the base Cluster class.</doc>
+<fun r='_ZN4toco7ClusterD1Ev'/>
+<fun r='_ZN4toco7Cluster11CreateNodesEv'/>
+<fun r='_ZN4toco7Cluster15SetGraphDefInfoEPKN10tensorflow8GraphDefE'/>
+<fun r='_ZNK4toco7Cluster7GetNameEv'/>
+<fun r='_ZNK4toco7Cluster11GetNewNodesEv'/>
+<fun r='_ZN4toco7Cluster8GetNodesEv'/>
+<fun r='_ZN4toco7Cluster7SetNameERKSs'/>
+<fun r='_ZN4toco7Cluster9SetDeviceERKSs'/>
+<fun r='_ZN4toco7Cluster27FindClusterInputsAndOutputsEv'/>
+<mbr r='toco::Cluster::name_' o='64' t='string'/>
+<mbr r='toco::Cluster::device_' o='128' t='string'/>
+<mbr r='toco::Cluster::inputs_' o='192' t='std::vector&lt;string&gt;'/>
+<mbr r='toco::Cluster::outputs_' o='384' t='std::vector&lt;string&gt;'/>
+<mbr r='toco::Cluster::nodes_' o='576' t='std::vector&lt;const tensorflow::NodeDef *&gt;'/>
+<mbr r='toco::Cluster::new_nodes_' o='768' t='std::vector&lt;std::unique_ptr&lt;tensorflow::NodeDef&gt; &gt;'/>
+<mbr r='toco::Cluster::graph_def_' o='960' t='const tensorflow::GraphDef *'/>

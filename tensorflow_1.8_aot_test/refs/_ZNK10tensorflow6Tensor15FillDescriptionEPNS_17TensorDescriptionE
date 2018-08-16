@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor.h' l='438' type='void tensorflow::Tensor::FillDescription(tensorflow::TensorDescription * description) const'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor.h' l='436'>/// Fill in the `TensorDescription` proto with metadata about the
+  /// tensor that is useful for monitoring and debugging.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='165' u='c' c='_ZN10tensorflow12_GLOBAL__N_19nodestats9SetOutputEPNS_20NodeExecStatsWrapperEiPKNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/framework/log_memory.cc' l='54' u='c' c='_ZN10tensorflow9LogMemory22RecordTensorAllocationERKSsxRKNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/framework/log_memory.cc' l='73' u='c' c='_ZN10tensorflow9LogMemory18RecordTensorOutputERKSsxiRKNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/framework/tensor.cc' l='868' u='c' c='_ZNK10tensorflow6Tensor14AllocatedBytesEv'/>
+<def f='tensorflow/tensorflow/core/framework/tensor.cc' l='1052' ll='1059' type='void tensorflow::Tensor::FillDescription(tensorflow::TensorDescription * description) const'/>

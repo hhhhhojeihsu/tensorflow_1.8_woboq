@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/scoped_allocator.h' l='46' type='void tensorflow::ScopedAllocator::ScopedAllocator(const tensorflow::Tensor &amp; backing_tensor, int32 scope_id, const string &amp; name, const gtl::ArraySlice&lt;Field&gt; &amp; fields, int32 expected_call_count, tensorflow::ScopedAllocatorContainer * container)'/>
+<def f='tensorflow/tensorflow/core/common_runtime/scoped_allocator.cc' l='20' ll='38' type='void tensorflow::ScopedAllocator::ScopedAllocator(const tensorflow::Tensor &amp; backing_tensor, int32 scope_id, const string &amp; name, const gtl::ArraySlice&lt;Field&gt; &amp; fields, int32 expected_call_count, tensorflow::ScopedAllocatorContainer * container)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/scoped_allocator.h' l='43'>// backing_tensor is expected to be newly allocated by a ScopedAllocatorOp
+  // instance.  It must be large enough to back all of the specified
+  // (offset, byte) ranges of the fields.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/scoped_allocator_mgr.cc' l='44' u='c' c='_ZN10tensorflow24ScopedAllocatorContainer18AddScopedAllocatorERKNS_6TensorEiRKSsRKNS_3gtl10ArraySliceINS_15ScopedAllocator5FieldEEEi'/>

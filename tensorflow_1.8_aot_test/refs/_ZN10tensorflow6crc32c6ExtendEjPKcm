@@ -1,0 +1,21 @@
+<dec f='tensorflow/tensorflow/core/lib/hash/crc32c.h' l='28' type='uint32 tensorflow::crc32c::Extend(uint32 init_crc, const char * data, size_t n)'/>
+<use f='tensorflow/tensorflow/core/lib/hash/crc32c.h' l='31' u='c' c='_ZN10tensorflow6crc32c5ValueEPKcm'/>
+<doc f='tensorflow/tensorflow/core/lib/hash/crc32c.h' l='25'>// Return the crc32c of concat(A, data[0,n-1]) where init_crc is the
+// crc32c of some string A.  Extend() is often used to maintain the
+// crc32c of a stream of data.</doc>
+<def f='tensorflow/tensorflow/core/lib/hash/crc32c.cc' l='212' ll='264' type='uint32 tensorflow::crc32c::Extend(uint32 crc, const char * buf, size_t size)'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='211' u='c' c='_ZN10tensorflow5table12TableBuilder13WriteRawBlockERKNS_11StringPieceENS0_15CompressionTypeEPNS0_11BlockHandleE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='102' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ReadStringTensorEPNS_2io11InputBufferEmmmPSsPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='114' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ReadStringTensorEPNS_2io11InputBufferEmmmPSsPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='136' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReadVariantTensorEPNS_2io11InputBufferEPNS_6TensorEmmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='145' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReadVariantTensorEPNS_2io11InputBufferEPNS_6TensorEmmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='172' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReadVariantTensorEPNS_2io11InputBufferEPNS_6TensorEmmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='237' u='c' c='_ZN10tensorflow12_GLOBAL__N_117WriteStringTensorERKNS_6TensorEPNS_16FileOutputBufferEPmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='247' u='c' c='_ZN10tensorflow12_GLOBAL__N_117WriteStringTensorERKNS_6TensorEPNS_16FileOutputBufferEPmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='256' u='c' c='_ZN10tensorflow12_GLOBAL__N_117WriteStringTensorERKNS_6TensorEPNS_16FileOutputBufferEPmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='287' u='c' c='_ZN10tensorflow12_GLOBAL__N_118WriteVariantTensorERKNS_6TensorEPNS_16FileOutputBufferEPmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='293' u='c' c='_ZN10tensorflow12_GLOBAL__N_118WriteVariantTensorERKNS_6TensorEPNS_16FileOutputBufferEPmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='301' u='c' c='_ZN10tensorflow12_GLOBAL__N_118WriteVariantTensorERKNS_6TensorEPNS_16FileOutputBufferEPmPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='1072' u='c' c='_ZN10tensorflow16FileOutputBuffer6AppendENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='1077' u='c' c='_ZN10tensorflow16FileOutputBuffer6AppendENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='1085' u='c' c='_ZN10tensorflow16FileOutputBuffer6AppendENS_11StringPieceE'/>

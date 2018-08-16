@@ -1,0 +1,15 @@
+<def f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='414' ll='435'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='407'>/// \brief SQLite transaction scope.
+///
+/// This class acquires an exclusive lock on the connection object (if
+/// mutexes weren&apos;t disabled) and runs BEGIN / ROLLBACK automatically.
+/// Unlike SqliteLock this scope is non-reentrant. To avoid program
+/// crashes, business logic should use the EXCLUSIVE_LOCK_FUNCTION and
+/// LOCKS_EXCLUDED annotations as much as possible.</doc>
+<fun r='_ZN10tensorflow17SqliteTransactionC1ERNS_6SqliteE'/>
+<fun r='_ZN10tensorflow17SqliteTransactionD1Ev'/>
+<fun r='_ZN10tensorflow17SqliteTransaction6CommitEv'/>
+<fun r='_ZN10tensorflow17SqliteTransaction5BeginEv'/>
+<mbr r='tensorflow::SqliteTransaction::db_' o='0' t='tensorflow::Sqlite *const'/>
+<fun r='_ZN10tensorflow17SqliteTransactionC1ERKS0_'/>

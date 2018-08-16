@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/python/eager/pywrap_tfe.h' l='143' type='void TFE_Py_TapeSetRecordOperation(PyObject * op_type, PyObject * output_tensors, PyObject * input_tensor_ids, PyObject * backward_function)'/>
+<doc f='tensorflow/tensorflow/python/eager/pywrap_tfe.h' l='136'>// Records an operation in the gradient tape stack.type is a string for the
+// operation type, used in the backprop code. output_tensors should be a list of
+// python ops.Tensor objects. input_tensor_ids should be a list of python
+// integers with the ids of the input tensors of the recorded
+// operation. backward_function should be the function to be called during
+// backprop to, given the gradients of the output tensors, produce the gradients
+// of the input tensors.</doc>
+<def f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1142' ll='1152' type='void TFE_Py_TapeSetRecordOperation(PyObject * op_type, PyObject * output_tensors, PyObject * input_tensors, PyObject * backward_function)'/>

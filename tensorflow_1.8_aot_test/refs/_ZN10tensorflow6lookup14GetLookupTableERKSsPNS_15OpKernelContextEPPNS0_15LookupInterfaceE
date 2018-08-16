@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/kernels/lookup_util.h' l='29' type='tensorflow::Status tensorflow::lookup::GetLookupTable(const string &amp; input_name, tensorflow::OpKernelContext * ctx, tensorflow::lookup::LookupInterface ** table)'/>
+<doc f='tensorflow/tensorflow/core/kernels/lookup_util.h' l='26'>// Gets the LookupTable stored in the ctx-&gt;resource_manager() with key
+// passed by attribute with name input_name, returns null if the table
+// doesn&apos;t exist.</doc>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='654' u='c' c='_ZN10tensorflow17LookupTableFindOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='691' u='c' c='_ZN10tensorflow19LookupTableInsertOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='728' u='c' c='_ZN10tensorflow17LookupTableSizeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='749' u='c' c='_ZN10tensorflow19LookupTableExportOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='768' u='c' c='_ZN10tensorflow19LookupTableImportOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/kernels/lookup_util.cc' l='275' ll='290' type='tensorflow::Status tensorflow::lookup::GetLookupTable(const string &amp; input_name, tensorflow::OpKernelContext * ctx, tensorflow::lookup::LookupInterface ** table)'/>

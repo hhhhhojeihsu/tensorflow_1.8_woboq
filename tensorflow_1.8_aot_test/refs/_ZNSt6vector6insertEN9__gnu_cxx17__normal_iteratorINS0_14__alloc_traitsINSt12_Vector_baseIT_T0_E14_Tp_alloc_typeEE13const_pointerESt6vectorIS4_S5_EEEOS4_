@@ -1,0 +1,20 @@
+<def f='include/c++/5/bits/stl_vector.h' l='1013' ll='1015' type='iterator std::vector::insert(const_iterator __position, value_type &amp;&amp; __x)'/>
+<doc f='include/c++/5/bits/stl_vector.h' l='1002'>/**
+       *  @brief  Inserts given rvalue into %vector before specified iterator.
+       *  @param  __position  A const_iterator into the %vector.
+       *  @param  __x  Data to be inserted.
+       *  @return  An iterator that points to the inserted data.
+       *
+       *  This function will insert a copy of the given rvalue before
+       *  the specified location.  Note that this kind of operation
+       *  could be expensive for a %vector and if it is frequently
+       *  used the user should consider using std::list.
+       */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/kernel_support_library.cc' l='124' u='c' c='_ZN3xla20KernelSupportLibrary25EmitAndCallOutlinedKernelEbbPN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEN10tensorflow11Stri9590450'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.cc' l='137' u='c' c='_ZN3xla7llvm_ir7ForLoop4EmitEPN4llvm9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/convert_expanddims_to_reshape.cc' l='64' u='c' c='_ZN4toco26ConvertExpandDimsToReshape3RunEPNS_5ModelEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/propagate_fixed_sizes.cc' l='1253' u='c' c='_ZN4toco12_GLOBAL__N_120ProcessStackOperatorEPNS_5ModelEPNS_13StackOperatorE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='263' u='c' c='_ZN10tensorflow12BFCAllocator13RegionManager19AddAllocationRegionEPvm'/>
+<use f='tensorflow/tensorflow/core/kernels/priority_queue.cc' l='420' u='c' c='_ZNK10tensorflow13PriorityQueue28MatchesPriorityNodeDefShapesERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/kernels/priority_queue_op.cc' l='48' u='c' c='_ZN10tensorflow15PriorityQueueOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/set_kernels.cc' l='413' u='c' c='_ZN10tensorflow20PopulateGroupIndicesExNS_3gtl10ArraySliceIxEEPSt6vectorIxSaIxEE'/>

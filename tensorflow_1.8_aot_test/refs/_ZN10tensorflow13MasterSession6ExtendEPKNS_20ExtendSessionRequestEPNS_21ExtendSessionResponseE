@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/master_session.h' l='80' type='tensorflow::Status tensorflow::MasterSession::Extend(const tensorflow::ExtendSessionRequest * req, tensorflow::ExtendSessionResponse * resp)'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/master_session.h' l='70'>// Attempt to extend the graph according to the given &quot;req&quot;.
+  // (See master.proto for details of valid extensions.)
+  //
+  // PRECONDITION: The current version of this session&apos;s graph
+  //   is &quot;req-&gt;current_graph_version&quot;.
+  //
+  // POSTCONDITION: The current version of this session&apos;s graph
+  //   is &quot;resp-&gt;new_graph_version&quot;.
+  //
+  // Extend() may block the caller thread for a long time.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='453' u='c' c='_ZN10tensorflow6Master13ExtendSessionEPKNS_20ExtendSessionRequestEPNS_21ExtendSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1338' ll='1365' type='tensorflow::Status tensorflow::MasterSession::Extend(const tensorflow::ExtendSessionRequest * req, tensorflow::ExtendSessionResponse * resp)'/>

@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/metric_table_report.h' l='95' type='string xla::MetricTableReport::MakeReport(double expected_metric_sum)'/>
+<def f='tensorflow/tensorflow/compiler/xla/metric_table_report.cc' l='49' ll='74' type='string xla::MetricTableReport::MakeReport(double expected_metric_sum)'/>
+<use f='tensorflow/tensorflow/compiler/xla/metric_table_report.cc' l='81' u='c' c='_ZN3xla17MetricTableReport20WriteReportToInfoLogEd'/>
+<doc f='tensorflow/tensorflow/compiler/xla/metric_table_report.h' l='90'>// Returns the report as a string. expected_metric_sum is the expected sum of
+  // the metric across the entries. It is not an error for the actual sum to be
+  // different from the expectation - the report will include the
+  // discrepancy. All metric percentages are for the ratio with respect to the
+  // expected sum, not the actual sum.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/human_readable_profile_builder.cc' l='123' u='c' c='_ZNK3xla27HumanReadableProfileBuilder8ToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/human_readable_profile_builder.cc' l='139' u='c' c='_ZNK3xla27HumanReadableProfileBuilder8ToStringEv'/>

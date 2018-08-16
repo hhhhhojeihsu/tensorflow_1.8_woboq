@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='46' type='static perftools::gputools::DeviceMemoryBase tensorflow::XlaTensor::DeviceMemoryFromTensor(const tensorflow::Tensor &amp; tensor)'/>
+<doc f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='42'>// Create a DeviceMemoryBase from a Tensor. The Tensor can be an XlaTensor, in
+  // which case the returned value is shaped_buffer()-&gt;root_buffer(), or a
+  // normal Tensor in which case the returned value is
+  // {tensor.tensor_data().data(), tensor.tensor_data().size}.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='112' u='c' c='_ZNK10tensorflow18XlaTransferManager21CopyCPUTensorToDeviceEPKNS_6TensorEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='151' u='c' c='_ZN10tensorflow18XlaTransferManager21CopyDeviceTensorToCPUEPKNS_6TensorENS_11StringPieceEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='151' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext14PopulateInputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultERKSt3mapIiNS_14OptionalTensor4150569'/>
+<def f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='34' ll='45' type='static perftools::gputools::DeviceMemoryBase tensorflow::XlaTensor::DeviceMemoryFromTensor(const tensorflow::Tensor &amp; tensor)'/>
+<doc f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='34'>/*static*/</doc>

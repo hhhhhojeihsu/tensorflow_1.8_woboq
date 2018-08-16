@@ -1,0 +1,36 @@
+<def f='tensorflow/tensorflow/core/lib/strings/scanner.h' l='34' ll='236'/>
+<size>40</size>
+<doc f='tensorflow/tensorflow/core/lib/strings/scanner.h' l='27'>// Scanner provides simplified string parsing, in which a string is parsed as a
+// series of scanning calls (e.g. One, Any, Many, OneLiteral, Eos), and then
+// finally GetResult is called. If GetResult returns true, then it also returns
+// the remaining characters and any captured substring.
+//
+// The range to capture can be controlled with RestartCapture and StopCapture;
+// by default, all processed characters are captured.</doc>
+<fun r='_ZN10tensorflow7strings7ScannerC1ENS_11StringPieceE'/>
+<fun r='_ZN10tensorflow7strings7Scanner3OneENS1_9CharClassE'/>
+<fun r='_ZN10tensorflow7strings7Scanner16ZeroOrOneLiteralENS_11StringPieceE'/>
+<fun r='_ZN10tensorflow7strings7Scanner10OneLiteralENS_11StringPieceE'/>
+<fun r='_ZN10tensorflow7strings7Scanner3AnyENS1_9CharClassE'/>
+<fun r='_ZN10tensorflow7strings7Scanner4ManyENS1_9CharClassE'/>
+<fun r='_ZN10tensorflow7strings7Scanner14RestartCaptureEv'/>
+<fun r='_ZN10tensorflow7strings7Scanner11StopCaptureEv'/>
+<fun r='_ZN10tensorflow7strings7Scanner3EosEv'/>
+<fun r='_ZN10tensorflow7strings7Scanner8AnySpaceEv'/>
+<fun r='_ZN10tensorflow7strings7Scanner9ScanUntilEc'/>
+<fun r='_ZN10tensorflow7strings7Scanner16ScanEscapedUntilEc'/>
+<fun r='_ZNK10tensorflow7strings7Scanner4PeekEc'/>
+<fun r='_ZNK10tensorflow7strings7Scanner5emptyEv'/>
+<fun r='_ZN10tensorflow7strings7Scanner9GetResultEPNS_11StringPieceES3_'/>
+<fun r='_ZN10tensorflow7strings7Scanner13ScanUntilImplEcb'/>
+<fun r='_ZN10tensorflow7strings7Scanner5ErrorEv'/>
+<fun r='_ZN10tensorflow7strings7Scanner8IsLetterEc'/>
+<fun r='_ZN10tensorflow7strings7Scanner13IsLowerLetterEc'/>
+<fun r='_ZN10tensorflow7strings7Scanner7IsDigitEc'/>
+<fun r='_ZN10tensorflow7strings7Scanner7IsSpaceEc'/>
+<fun r='_ZN10tensorflow7strings7Scanner7MatchesENS1_9CharClassEc'/>
+<mbr r='tensorflow::strings::Scanner::cur_' o='0' t='tensorflow::StringPiece'/>
+<mbr r='tensorflow::strings::Scanner::capture_start_' o='128' t='const char *'/>
+<mbr r='tensorflow::strings::Scanner::capture_end_' o='192' t='const char *'/>
+<mbr r='tensorflow::strings::Scanner::error_' o='256' t='bool'/>
+<fun r='_ZN10tensorflow7strings7ScannerC1ERKS1_'/>

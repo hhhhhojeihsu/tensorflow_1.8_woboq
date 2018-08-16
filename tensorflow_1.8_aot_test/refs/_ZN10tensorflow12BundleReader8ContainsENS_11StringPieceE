@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='194' type='bool tensorflow::BundleReader::Contains(tensorflow::StringPiece key)'/>
+<use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='69' u='c' c='_ZNK10tensorflow10checkpoint16CheckpointReader9HasTensorERKSs'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='191'>// Queries whether the bundle contains an entry keyed by &quot;key&quot;.  Calls Seek()
+  // internally, so this call invalidates the reader&apos;s current position.
+  // REQUIRES: status().ok()</doc>
+<def f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='1027' ll='1030' type='bool tensorflow::BundleReader::Contains(tensorflow::StringPiece key)'/>

@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/cc/framework/scope.h' l='113' type='tensorflow::Scope tensorflow::Scope::NewSubScope(const string &amp; child_scope_name) const'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2376' u='c' c='(anonymousnamespace)::TF_FinishWhileHelper'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2442' u='c' c='TF_AddGradients'/>
+<doc f='tensorflow/tensorflow/cc/framework/scope.h' l='109'>/// Return a new scope. Ops created with this scope will have
+  /// `name/child_scope_name` as the prefix. The actual name will be unique
+  /// in the current scope. All other properties are inherited from the current
+  /// scope. If `child_scope_name` is empty, the `/` is elided.</doc>
+<use f='tensorflow/tensorflow/cc/framework/gradients.cc' l='418' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SymbolicGradientBuilder16ProcessWhileLoopEPNS_4NodeERKNS_6OutputE'/>
+<def f='tensorflow/tensorflow/cc/framework/scope.cc' l='341' ll='352' type='tensorflow::Scope tensorflow::Scope::NewSubScope(const string &amp; child_scope_name) const'/>
+<use f='tensorflow/tensorflow/cc/framework/scope.cc' l='413' u='c' c='_ZNK10tensorflow5Scope20GetCompositeOpScopesERKSs'/>
+<use f='tensorflow/tensorflow/cc/framework/while_gradients.cc' l='144' u='c' c='_ZN10tensorflow12_GLOBAL__N_120AddWhileGradientLoopEPNS_12WhileContextERKSt6vectorINS_6OutputESaIS4_EERKS4_RKNS_5ScopeEPS6_'/>
+<use f='tensorflow/tensorflow/cc/framework/while_gradients.cc' l='184' u='c' c='_ZN10tensorflow20AddWhileLoopGradientEPNS_12WhileContextERKNS_5ScopeERKSt6vectorINS_6OutputESaIS6_EEPS8_'/>
+<use f='tensorflow/tensorflow/cc/framework/while_gradients.cc' l='191' u='c' c='_ZN10tensorflow20AddWhileLoopGradientEPNS_12WhileContextERKNS_5ScopeERKSt6vectorINS_6OutputESaIS6_EEPS8_'/>
+<use f='tensorflow/tensorflow/cc/ops/const_op.cc' l='68' u='c' c='_ZN10tensorflow3ops9AsNodeOutERKNS_5ScopeERKNS_5InputE'/>
+<use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='102' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_110CreateCondERKNS_5ScopeERKSt8functionIFNS_6StatusES4_RKSt6vectorINS_6OutputESaIS8_EEPS8_EESC_SD_'/>
+<use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='129' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_110CreateBodyERKNS_5ScopeERKSt8functionIFNS_6StatusES4_RKSt6vectorINS_6OutputESaIS8_EEPSA_EESC_SD_'/>

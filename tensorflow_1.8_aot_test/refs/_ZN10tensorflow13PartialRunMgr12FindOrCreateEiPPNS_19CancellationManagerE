@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/partial_run_mgr.h' l='53' type='bool tensorflow::PartialRunMgr::FindOrCreate(int step_id, tensorflow::CancellationManager ** cancellation_manager)'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/partial_run_mgr.cc' l='29' ll='43' type='bool tensorflow::PartialRunMgr::FindOrCreate(int step_id, tensorflow::CancellationManager ** cancellation_manager)'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/partial_run_mgr.h' l='49'>// Find or create the CancellationManager associated with step_id.
+  // The PartialRunMgr owns the cancellation_manager.
+  // Returns true if a new CancellationManager was created
+  // (i.e this is a new partial run).</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='229' u='c' c='_ZN10tensorflow6Worker17DoPartialRunGraphEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>

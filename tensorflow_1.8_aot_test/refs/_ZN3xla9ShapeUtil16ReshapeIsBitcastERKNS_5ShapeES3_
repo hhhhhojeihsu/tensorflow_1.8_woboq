@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='548' type='static bool xla::ShapeUtil::ReshapeIsBitcast(const xla::Shape &amp; input_shape, const xla::Shape &amp; output_shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='544'>// Returns whether a reshape from &quot;input_shape&quot; to &quot;output_shape&quot; is a
+  // bitcast.
+  //
+  // Precondition: Both input_shape and output_shape have explicit layouts.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='87' u='c' c='_ZN3xla12_GLOBAL__N_116ReshapeIsBitcastEPKNS_14HloInstructionERKSt8functionIFbRKNS_5ShapeES7_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='947' u='c' c='_ZN3xla16LayoutAssignment35ChooseOperandLayoutFromOutputLayoutERKNS_6LayoutEPKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='952' u='c' c='_ZN3xla16LayoutAssignment35ChooseOperandLayoutFromOutputLayoutERKNS_6LayoutEPKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1019' u='c' c='_ZN3xla16LayoutAssignment35ChooseOutputLayoutFromOperandLayoutERKNS_6LayoutEPKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1024' u='c' c='_ZN3xla16LayoutAssignment35ChooseOutputLayoutFromOperandLayoutERKNS_6LayoutEPKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='121' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index18LinearValidOnShapeERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='168' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index20SourceIndexOfReshapeERKNS_5ShapeES5_PN4llvm9IRBuilderINS6_14ConstantFolderENS6_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='219' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index20SourceIndexOfBitcastERKNS_5ShapeES5_PN4llvm9IRBuilderINS6_14ConstantFolderENS6_24IRBuilderDefaultInserterEEE'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1119' ll='1280' type='static bool xla::ShapeUtil::ReshapeIsBitcast(const xla::Shape &amp; input_shape, const xla::Shape &amp; output_shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1412' u='c' c='_ZN3xla9ShapeUtil12AlignLayoutsERKNS_5ShapeES3_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1119'>/* static */</doc>

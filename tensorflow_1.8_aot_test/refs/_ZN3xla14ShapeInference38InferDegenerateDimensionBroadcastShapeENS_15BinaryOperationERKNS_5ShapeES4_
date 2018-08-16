@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='297' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferDegenerateDimensionBroadcastShape(xla::BinaryOperation operation, const xla::Shape &amp; lhs, const xla::Shape &amp; rhs)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='294'>// Helper for inferring shapes of binary operations which use degenerate
+  // dimension broadcasting (a dimension of size 1 in one operand is broadcast
+  // up to match the size of the dimension in the other operand).</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='760' ll='787' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferDegenerateDimensionBroadcastShape(xla::BinaryOperation operation, const xla::Shape &amp; lhs, const xla::Shape &amp; rhs)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='926' u='c' c='_ZN3xla14ShapeInference29InferElementwiseBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='941' u='c' c='_ZN3xla14ShapeInference29InferElementwiseBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='760'>/* static */</doc>

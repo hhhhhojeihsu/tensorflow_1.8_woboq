@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/gpu/pool_allocator.h' l='74' type='void tensorflow::PoolAllocator::AddAllocVisitor(Visitor visitor)'/>
+<inh f='tensorflow/tensorflow/core/common_runtime/visitable_allocator.h' l='39' c='_ZN10tensorflow18VisitableAllocator15AddAllocVisitorESt8functionIFvPvmEE'/>
+<def f='tensorflow/tensorflow/core/common_runtime/gpu/pool_allocator.cc' l='271' ll='277' type='void tensorflow::PoolAllocator::AddAllocVisitor(Visitor visitor)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/pool_allocator.h' l='70'>// REQUIRES: The following functions may only be called prior
+  // to the first Allocate*() call.  Once allocation has begun, it is
+  // illegal to register another visitor.</doc>

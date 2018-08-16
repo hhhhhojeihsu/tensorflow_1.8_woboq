@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/worker.h' l='95' type='tensorflow::Status tensorflow::Worker::PrepareRecvTensor(const Rendezvous::ParsedKey &amp; parsed, tensorflow::Device ** src_dev)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.cc' l='381' u='c' c='_ZN10tensorflow10GrpcWorker19GrpcRecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPN4grpc10ByteBufferESt8functionIFvRKNS_6StatusEEE'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='313' ll='329' type='tensorflow::Status tensorflow::Worker::PrepareRecvTensor(const Rendezvous::ParsedKey &amp; parsed, tensorflow::Device ** src_dev)'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='311'>// Helper for RecvTensor. Validates &quot;key&quot; and returns the source
+// device in &quot;*src_dev&quot;.</doc>

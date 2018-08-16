@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.h' l='127' type='tensorflow::Status tensorflow::io::ZlibOutputBuffer::DeflateBuffered(bool last = false)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.h' l='119'>// Deflate contents in z_stream_input_ and store results in z_stream_output_.
+  // The contents of output stream are written to file if more space is needed.
+  // On successful termination it is assured that:
+  // - z_stream_-&gt;avail_in == 0
+  // - z_stream_-&gt;avail_out &gt; 0
+  //
+  // Note: This method does not flush contents to file.
+  // Returns non-ok status if writing contents to file fails.</doc>
+<def f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.cc' l='109' ll='130' type='tensorflow::Status tensorflow::io::ZlibOutputBuffer::DeflateBuffered(bool last = false)'/>
+<use f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.cc' l='163' u='c' c='_ZN10tensorflow2io16ZlibOutputBuffer6AppendERKNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.cc' l='195' u='c' c='_ZN10tensorflow2io16ZlibOutputBuffer5FlushEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.cc' l='206' u='c' c='_ZN10tensorflow2io16ZlibOutputBuffer5CloseEv'/>

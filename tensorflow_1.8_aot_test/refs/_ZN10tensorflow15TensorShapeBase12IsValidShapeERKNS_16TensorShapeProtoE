@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='185' type='static tensorflow::Status tensorflow::TensorShapeBase::IsValidShape(const tensorflow::TensorShapeProto &amp; proto)'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='183'>/// Returns `OK` iff `proto` is a valid tensor shape, and a descriptive error
+  /// status otherwise.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/const_op.cc' l='37' u='c' c='_ZN10tensorflow12_GLOBAL__N_17ConstOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.cc' l='81' u='c' c='_ZN10tensorflow14ValidateConfigERKNS_6tf2xla6ConfigE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='233' u='c' c='_ZN10tensorflow11GetNodeAttrERKNS_9AttrSliceENS_11StringPieceEPNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='233' u='c' c='_ZN10tensorflow11GetNodeAttrERKNS_9AttrSliceENS_11StringPieceEPSt6vectorINS_11TensorShapeESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='236' u='c' c='_ZN10tensorflow11GetNodeAttrERKNS_9AttrSliceENS_11StringPieceEPNS_18PartialTensorShapeE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='236' u='c' c='_ZN10tensorflow11GetNodeAttrERKNS_9AttrSliceENS_11StringPieceEPSt6vectorINS_18PartialTensorShapeESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='897' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext23MakeShapeFromShapeProtoERKNS_16TensorShapeProtoEPNS0_11ShapeHandleE'/>
+<def f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='74' ll='114' type='static tensorflow::Status tensorflow::TensorShapeBase::IsValidShape(const tensorflow::TensorShapeProto &amp; proto)'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='627' u='c'/>

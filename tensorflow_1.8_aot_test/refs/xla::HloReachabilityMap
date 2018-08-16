@@ -1,0 +1,21 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.h' l='40' ll='156'/>
+<size>128</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.h' l='33'>// A class for representing reachability between HloInstructions.
+//
+// !!! THIS CLASS DOES NOT COMPUTE REACHABILITY !!! It has an adjacency matrix
+// and it is up to the user of the class to set the adjacency matrix such that
+// it represents reachability, i.e. such that it is transitive. That the graph
+// be transitive is thus not an invariant of this class, but it is required for
+// the name of the class and its methods to make sense.</doc>
+<fun r='_ZN3xla18HloReachabilityMapC1ERKSt4listIPNS_14HloInstructionESaIS3_EE'/>
+<fun r='_ZN3xla18HloReachabilityMap22SetReachabilityToUnionEN10tensorflow3gtl10ArraySliceIPKNS_14HloInstructionEEES6_'/>
+<fun r='_ZN3xla18HloReachabilityMap12SetReachableEPKNS_14HloInstructionES3_'/>
+<fun r='_ZNK3xla18HloReachabilityMap11IsReachableEPKNS_14HloInstructionES3_'/>
+<fun r='_ZNK3xla18HloReachabilityMap11IsConnectedEPKNS_14HloInstructionES3_'/>
+<fun r='_ZNK3xla18HloReachabilityMap12GetBitVectorEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla18HloReachabilityMap12GetBitVectorEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla18HloReachabilityMap8GetIndexEPKNS_14HloInstructionE'/>
+<mbr r='xla::HloReachabilityMap::size_' o='0' t='const size_t'/>
+<mbr r='xla::HloReachabilityMap::indices_' o='64' t='tensorflow::gtl::FlatMap&lt;const HloInstruction *, int&gt;'/>
+<mbr r='xla::HloReachabilityMap::bit_vectors_' o='576' t='std::vector&lt;BitVector&gt;'/>
+<mbr r='xla::HloReachabilityMap::tmp_bit_vector_' o='768' t='xla::HloReachabilityMap::BitVector'/>

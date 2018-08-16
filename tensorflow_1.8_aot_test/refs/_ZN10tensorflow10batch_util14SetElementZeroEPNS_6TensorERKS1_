@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/kernels/batch_util.h' l='37' type='tensorflow::Status tensorflow::batch_util::SetElementZero(tensorflow::Tensor * element, const tensorflow::Tensor &amp; padding)'/>
+<def f='tensorflow/tensorflow/core/kernels/batch_util.cc' l='217' ll='227' type='tensorflow::Status tensorflow::batch_util::SetElementZero(tensorflow::Tensor * element, const tensorflow::Tensor &amp; padding)'/>
+<doc f='tensorflow/tensorflow/core/kernels/batch_util.h' l='35'>// Zero-initializes the tensor `element` using the scalar stored in `padding`.
+// Both `element` and `padding` must have matching `dtype`.</doc>
+<use f='tensorflow/tensorflow/core/kernels/data/padded_batch_dataset_op.cc' l='287' u='c' c='_ZN10tensorflow12_GLOBAL__N_120PaddedBatchDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='224' u='c' c='_ZN10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS6_EEPb'/>

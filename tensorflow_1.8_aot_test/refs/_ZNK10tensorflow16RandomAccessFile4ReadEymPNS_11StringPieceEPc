@@ -1,0 +1,32 @@
+<dec f='tensorflow/tensorflow/core/platform/file_system.h' l='238' type='tensorflow::Status tensorflow::RandomAccessFile::Read(uint64 offset, size_t n, tensorflow::StringPiece * result, char * scratch) const'/>
+<doc f='tensorflow/tensorflow/core/platform/file_system.h' l='223'>/// \brief Reads up to `n` bytes from the file starting at `offset`.
+  ///
+  /// `scratch[0..n-1]` may be written by this routine.  Sets `*result`
+  /// to the data that was read (including if fewer than `n` bytes were
+  /// successfully read).  May set `*result` to point at data in
+  /// `scratch[0..n-1]`, so `scratch[0..n-1]` must be live when
+  /// `*result` is used.
+  ///
+  /// On OK returned status: `n` bytes have been stored in `*result`.
+  /// On non-OK returned status: `[0..n]` bytes have been stored in `*result`.
+  ///
+  /// Returns `OUT_OF_RANGE` if fewer than n bytes were stored in `*result`
+  /// because of EOF.
+  ///
+  /// Safe for concurrent use by multiple threads.</doc>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='310' u='c' c='_ZN10tensorflow17ReadEventFromFileERKSsPNS_5EventE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/cache_dataset_ops.cc' l='172' u='c' c='_ZN10tensorflow12_GLOBAL__N_114CacheDatasetOp11FileDataset18FileWriterIterator20EnsureLockFileExistsEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/format.cc' l='96' u='c' c='_ZN10tensorflow5table9ReadBlockEPNS_16RandomAccessFileERKNS0_11BlockHandleEPNS0_13BlockContentsE'/>
+<use f='tensorflow/tensorflow/core/lib/io/inputbuffer.cc' l='35' u='c' c='_ZN10tensorflow2io11InputBuffer10FillBufferEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/random_inputstream.cc' l='41' u='c' c='_ZN10tensorflow2io23RandomAccessInputStream10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/random_inputstream.cc' l='73' u='c' c='_ZN10tensorflow2io23RandomAccessInputStream10SkipNBytesEx'/>
+<use f='tensorflow/tensorflow/core/lib/io/random_inputstream.cc' l='83' u='c' c='_ZN10tensorflow2io23RandomAccessInputStream10SkipNBytesEx'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='145' u='c' c='_ZN10tensorflow2io12RecordReader15ReadChecksummedEymPNS_11StringPieceEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/snappy/snappy_inputbuffer.cc' l='164' u='c' c='_ZN10tensorflow2io17SnappyInputBuffer12ReadFromFileEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/table.cc' l='50' u='c' c='_ZN10tensorflow5table5Table4OpenERKNS0_7OptionsEPNS_16RandomAccessFileEyPPS1_'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='393' u='c' c='_ZN10tensorflow16ReadFileToStringEPNS_3EnvERKSsPSs'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='435' u='c' c='_ZN10tensorflow18FileSystemCopyFileEPNS_10FileSystemERKSsS1_S3_'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='461' u='c' c='_ZN10tensorflow12_GLOBAL__N_110FileStream4NextEPPKvPi'/>
+<ovr f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='55' c='_ZNK10tensorflow21PosixRandomAccessFile4ReadEymPNS_11StringPieceEPc'/>
+<ovr f='tensorflow/tensorflow/core/util/memmapped_file_system.cc' l='59' c='_ZNK10tensorflow12_GLOBAL__N_129RandomAccessFileFromMemmapped4ReadEymPNS_11StringPieceEPc'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='827' u='c' c='_ZN10tensorflow12BundleReader8GetValueERKNS_16BundleEntryProtoEPNS_6TensorE'/>

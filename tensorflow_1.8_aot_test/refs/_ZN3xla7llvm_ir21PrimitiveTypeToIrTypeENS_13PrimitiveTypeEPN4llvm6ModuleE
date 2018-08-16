@@ -1,0 +1,45 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='130' type='llvm::Type * xla::llvm_ir::PrimitiveTypeToIrType(xla::PrimitiveType element_type, llvm::Module * module)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='129'>// Returns the LLVM type which represents the given XLA primitive type.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='553' u='c' c='_ZN3xla3cpu9IrEmitter18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='677' u='c' c='_ZN3xla3cpu9IrEmitter22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='762' u='c' c='_ZN3xla3cpu9IrEmitter22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1016' u='c' c='_ZN3xla3cpu9IrEmitter17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1441' u='c' c='_ZN3xla3cpu9IrEmitter23CreateShardedVectorTypeENS_13PrimitiveTypeEj'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1768' u='c' c='_ZN3xla3cpu9IrEmitter12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2294' u='c' c='_ZN3xla3cpu9IrEmitter11HandleWhileEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2433' u='c' c='_ZN3xla3cpu9IrEmitter20EmitTransferElementsEPN4llvm5ValueES4_xNS_13PrimitiveTypeERKNS_7llvm_ir7IrArrayES9_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2519' u='c' c='_ZN3xla3cpu9IrEmitter17HandleConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2814' u='c' c='_ZN3xla3cpu9IrEmitter21EmitArrayFunctionCallEPN4llvm8FunctionERKNS_5ShapeExN10tensorflow3gtl10ArraySliceIPNS2_5ValueEEENS8_11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='32' u='c' c='_ZN3xla3cpu20VectorSupportLibraryC1ENS_13PrimitiveTypeExPN4llvm9IRBuilderINS3_14ConstantFolderENS3_24IRBuilderDefaultInserterEEESs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='191' u='c' c='_ZN3xla12_GLOBAL__N_122EmitIntegralToFloatingEPN4llvm5ValueENS_13PrimitiveTypeES4_PNS1_6ModuleEPNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='196' u='c' c='_ZN3xla12_GLOBAL__N_122EmitIntegralToFloatingEPN4llvm5ValueENS_13PrimitiveTypeES4_PNS1_6ModuleEPNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='228' u='c' c='_ZNK3xla18ElementalIrEmitter18EmitIntegerUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='242' u='c' c='_ZNK3xla18ElementalIrEmitter18EmitIntegerUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='272' u='c' c='_ZNK3xla18ElementalIrEmitter18EmitIntegerUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='287' u='c' c='_ZNK3xla18ElementalIrEmitter18EmitIntegerUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='300' u='c' c='_ZNK3xla18ElementalIrEmitter18EmitIntegerUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='324' u='c' c='_ZNK3xla18ElementalIrEmitter18EmitIntegerUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='356' u='c' c='_ZNK3xla18ElementalIrEmitter16EmitFloatUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='372' u='c' c='_ZNK3xla18ElementalIrEmitter16EmitFloatUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='376' u='c' c='_ZNK3xla18ElementalIrEmitter16EmitFloatUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='380' u='c' c='_ZNK3xla18ElementalIrEmitter16EmitFloatUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='396' u='c' c='_ZNK3xla18ElementalIrEmitter16EmitFloatUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='452' u='c' c='_ZNK3xla18ElementalIrEmitter16EmitFloatUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='494' u='c' c='_ZNK3xla18ElementalIrEmitter18EmitComplexUnaryOpEPKNS_14HloInstructionEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='954' u='c' c='_ZNK3xla18ElementalIrEmitter11EmitErfcInvENS_13PrimitiveTypeEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1163' u='c' c='_ZNK3xla18ElementalIrEmitter23MakeRngElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llv13945864'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1466' u='c' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1691' u='c' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1788' u='c' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1831' u='c' c='_ZNK3xla18ElementalIrEmitter20MakeElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_i753933'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1919' u='c' c='_ZNK3xla18ElementalIrEmitter18EmitComposeComplexEPKNS_14HloInstructionEPN4llvm5ValueES6_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/fused_ir_emitter.cc' l='136' u='c' c='_ZN3xla14FusedIrEmitter11HandleTupleEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='352' u='c' c='_ZNK3xla7llvm_ir7IrArray23EmitArrayElementAddressERKNS1_5IndexEPN4llvm9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEEN10tensorflow11StringPieceE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='153' ll='207' type='llvm::Type * xla::llvm_ir::PrimitiveTypeToIrType(xla::PrimitiveType element_type, llvm::Module * module)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='225' u='c' c='_ZN3xla7llvm_ir13ShapeToIrTypeERKNS_5ShapeEPN4llvm6ModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='275' u='c' c='_ZN3xla7llvm_ir12_GLOBAL__N_117LiteralToConstantERKNS_7LiteralExPSt6vectorIxSaIxEEPN4llvm6ModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='327' u='c' c='_ZN3xla7llvm_ir12_GLOBAL__N_117LiteralToConstantERKNS_7LiteralExPSt6vectorIxSaIxEEPN4llvm6ModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='329' u='c' c='_ZN3xla7llvm_ir12_GLOBAL__N_117LiteralToConstantERKNS_7LiteralExPSt6vectorIxSaIxEEPN4llvm6ModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='476' u='c' c='_ZN3xla7llvm_ir14EmitComparisonEN4llvm7CmpInst9PredicateEPNS1_5ValueES5_PNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/tuple_ops.cc' l='42' u='c' c='_ZN3xla7llvm_ir15EmitTupleSelectENS0_7IrArrayES1_PN4llvm5ValueES4_PNS2_9IRBuilderINS2_14ConstantFolderENS2_24IRBuilderDefaultInserterEEEPNS2_6ModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/tuple_ops.cc' l='79' u='c' c='_ZN3xla7llvm_ir9EmitTupleENS0_7IrArrayEN10tensorflow3gtl10ArraySliceIPN4llvm5ValueEEEPNS5_9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEEPNS5_6ModuleE'/>

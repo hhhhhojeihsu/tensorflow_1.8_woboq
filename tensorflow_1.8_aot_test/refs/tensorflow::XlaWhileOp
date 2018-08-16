@@ -1,0 +1,36 @@
+<inh f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='33' c='tensorflow::XlaOpKernel'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.h' l='50' ll='61'/>
+<size>496</size>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.h' l='24'>// This TensorFlow op provides a functional iteration primitive.
+//
+// The inputs and outputs of the loop body must agree on the number, types, and
+// shapes of the Tensors carried around the loop body.
+//
+// Computations in while loops may read from and write to resource variables.
+// Resource variables may be passed as arguments to a function&apos;s body and
+// condition functions. The XlaCompiler converts resource variable arguments
+// into parameters to the XLA computation and moves them to the end of the
+// parameter list, and by using the `return_updated_values_for_all_variables`
+// we ensure that all variables that appear in the input also appear at the
+// end of the body&apos;s output. This ensures the loop body&apos;s input and output
+// signatures match.
+//
+// It is the user&apos;s responsibility to ensure that each non-variable _Arg matches
+// the corresponding _Retval.
+//
+// For example, suppose we have a loop body with arguments:
+// DT_INT32, DT_RESOURCE (pointing to a DT_BOOL var), DT_FLOAT
+// and return values
+// DT_INT32, DT_FLOAT
+// It is an error for the body to return DT_RESOURCE values.
+//
+// The body will be lowered into an XLA computation that takes and returns a
+// tuple with XLA type (I32, F32, PRED). Note the resource variable appears at
+// the end of both the loop body&apos;s input and output argument lists.</doc>
+<fun r='_ZN10tensorflow10XlaWhileOpC1EPNS_20OpKernelConstructionE'/>
+<fun r='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<mbr r='tensorflow::XlaWhileOp::cond_name_attr_' o='2304' t='tensorflow::NameAttrList'/>
+<mbr r='tensorflow::XlaWhileOp::body_name_attr_' o='3136' t='tensorflow::NameAttrList'/>
+<fun r='_ZN10tensorflow10XlaWhileOpC1ERKS0_'/>
+<fun r='_ZN10tensorflow10XlaWhileOpC1EPNS_20OpKernelConstructionE'/>
+<fun r='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>

@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='442' type='xla::XlaOp xla::XlaBuilder::Complex(const xla::XlaOp &amp; real, const xla::XlaOp &amp; imag, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_dimensions = {})'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='436'>// The following methods enqueue element-wise binary arithmetic operations
+  // onto the computation. The shapes of the operands have to match unless one
+  // of the operands is a scalar, or an explicit broadcast dimension is given
+  // (see g3doc for more details).
+
+  // Enqueues a complex compose instruction onto the computation.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='833' ll='837' type='xla::XlaOp xla::XlaBuilder::Complex(const xla::XlaOp &amp; real, const xla::XlaOp &amp; imag, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_dimensions = {})'/>

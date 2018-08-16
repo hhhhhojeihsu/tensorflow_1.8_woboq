@@ -1,0 +1,11 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1532' ll='1537'/>
+<size>1</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1524'>// Map classes that guarantee a deterministic iteration order when the key is
+// an HloInstruction* or a const HloInstruction*.
+// To make the iteration order over the map deterministic, the comparator
+// should not be using the pointer values, but rather an intrinsic property of
+// the hlo.
+//
+// Note that this cannot be used for HLO instructions across multiple modules
+// since the id of HLO instructions are only unique within each HLO module.</doc>
+<fun r='_ZNK3xla16HloPtrComparatorclERKPKNS_14HloInstructionES5_'/>

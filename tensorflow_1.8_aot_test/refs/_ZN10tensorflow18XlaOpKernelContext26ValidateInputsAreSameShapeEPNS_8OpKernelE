@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='83' type='bool tensorflow::XlaOpKernelContext::ValidateInputsAreSameShape(tensorflow::OpKernel * op)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='80'>// Returns true if all inputs are the same shape, otherwise sets the
+  // status to a non-OK value and returns false.
+  // Usage: if (!context-&gt;ValidateInputsAreSameShape(this)) return;</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/aggregate_ops.cc' l='27' u='c' c='_ZN10tensorflow12_GLOBAL__N_16AddNOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='29' ll='31' type='bool tensorflow::XlaOpKernelContext::ValidateInputsAreSameShape(tensorflow::OpKernel * op)'/>

@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.h' l='26' type='tensorflow::Status tensorflow::FunctionalizeControlFlow(tensorflow::Graph * graph, tensorflow::FunctionLibraryDefinition * library)'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1363' ll='1452' type='tensorflow::Status tensorflow::FunctionalizeControlFlow(tensorflow::Graph * graph, tensorflow::FunctionLibraryDefinition * library)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1361'>// Transformation that converts TensorFlow&apos;s graph control flow constructs into
+// functional equivalents.</doc>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.h' l='24'>// Transformation that converts tf.while_loop() loops into functional While
+// operators, suitable for XLA compilation.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='664' u='c' c='_ZN10tensorflow11XlaCompiler12CompileGraphERKNS0_14CompileOptionsERKSsSt10unique_ptrINS_5GraphESt14default_deleteIS7_EERKSt6vectorINS0_8ArgumentESaISC11181090'/>

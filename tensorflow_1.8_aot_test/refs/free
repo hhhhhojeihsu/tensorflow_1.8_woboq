@@ -1,0 +1,13 @@
+<dec f='include/stdlib.h' l='483' type='void free(void * __ptr)'/>
+<doc f='include/stdlib.h' l='482'>/* Free a block allocated by `malloc&apos;, `realloc&apos; or `calloc&apos;.  */</doc>
+<use f='tensorflow/tensorflow/compiler/aot/runtime.cc' l='54' u='c' c='_ZN10tensorflow9tfcompile7runtime12_GLOBAL__N_112aligned_freeEPv'/>
+<use f='tensorflow/tensorflow/compiler/xla/legacy_flags/parse_flags_from_env.cc' l='193' u='c' c='_ZN3xla12legacy_flags27ResetFlagsFromEnvForTestingEPPiPPSt6vectorIPcSaIS4_EE'/>
+<use f='tensorflow/tensorflow/contrib/lite/context.c' l='61' u='c' c='TfLiteIntArrayFree'/>
+<use f='tensorflow/tensorflow/contrib/lite/context.c' l='65' u='c' c='TfLiteTensorDataFree'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='118' u='c' c='_ZN6tflite11InterpreterD1Ev'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='379' c='_ZN6tflite11Interpreter21AddNodeWithParametersERKSt6vectorIiSaIiEES5_PKcmPvPK19_TfLiteRegistrationPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='380' u='a' c='_ZN6tflite11Interpreter21AddNodeWithParametersERKSt6vectorIiSaIiEES5_PKcmPvPK19_TfLiteRegistrationPi'/>
+<use f='tensorflow/tensorflow/core/platform/abi.cc' l='50' u='a' c='_ZN10tensorflow4port16MaybeAbiDemangleEPKc'/>
+<use f='tensorflow/tensorflow/core/platform/posix/subprocess.cc' l='90' u='c' c='_ZN10tensorflow10SubProcess8FreeArgsEv'/>
+<use f='tensorflow/tensorflow/core/platform/posix/subprocess.cc' l='95' u='c' c='_ZN10tensorflow10SubProcess8FreeArgsEv'/>
+<use f='tensorflow/tensorflow/stream_executor/lib/demangle.cc' l='46' u='c' c='_ZN9perftools8gputools4port8DemangleEPKc'/>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>table.h source code [tensorflow/tensorflow/core/lib/io/table.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::table::Table "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/lib/io/table.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>lib</a>/<a href='./'>io</a>/<a href='table.h.html'>table.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_LIB_IO_TABLE_H_">TENSORFLOW_LIB_IO_TABLE_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_LIB_IO_TABLE_H_" data-ref="_M/TENSORFLOW_LIB_IO_TABLE_H_">TENSORFLOW_LIB_IO_TABLE_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include &lt;stdint.h&gt;</u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="iterator.h.html">"tensorflow/core/lib/io/iterator.h"</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="23">23</th><td><b>class</b> <a class="type" href="../../platform/file_system.h.html#tensorflow::RandomAccessFile" title='tensorflow::RandomAccessFile' data-ref="tensorflow::RandomAccessFile" id="tensorflow::RandomAccessFile">RandomAccessFile</a>;</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">table</span> {</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>class</b> <dfn class="type" id="tensorflow::table::Block" title='tensorflow::table::Block' data-ref="tensorflow::table::Block">Block</dfn>;</td></tr>
+<tr><th id="28">28</th><td><b>class</b> <dfn class="type" id="tensorflow::table::BlockHandle" title='tensorflow::table::BlockHandle' data-ref="tensorflow::table::BlockHandle">BlockHandle</dfn>;</td></tr>
+<tr><th id="29">29</th><td><b>class</b> <dfn class="type" id="tensorflow::table::Footer" title='tensorflow::table::Footer' data-ref="tensorflow::table::Footer">Footer</dfn>;</td></tr>
+<tr><th id="30">30</th><td><b>struct</b> <dfn class="type" id="tensorflow::table::Options" title='tensorflow::table::Options' data-ref="tensorflow::table::Options">Options</dfn>;</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>// A Table is a sorted map from strings to strings.  Tables are</i></td></tr>
+<tr><th id="33">33</th><td><i>// immutable and persistent.  A Table may be safely accessed from</i></td></tr>
+<tr><th id="34">34</th><td><i>// multiple threads without external synchronization.</i></td></tr>
+<tr><th id="35">35</th><td><b>class</b> <dfn class="type def" id="tensorflow::table::Table" title='tensorflow::table::Table' data-ref="tensorflow::table::Table">Table</dfn> {</td></tr>
+<tr><th id="36">36</th><td> <b>public</b>:</td></tr>
+<tr><th id="37">37</th><td>  <i>// Attempt to open the table that is stored in bytes [0..file_size)</i></td></tr>
+<tr><th id="38">38</th><td><i>  // of "file", and read the metadata entries necessary to allow</i></td></tr>
+<tr><th id="39">39</th><td><i>  // retrieving data from the table.</i></td></tr>
+<tr><th id="40">40</th><td><i>  //</i></td></tr>
+<tr><th id="41">41</th><td><i>  // If successful, returns ok and sets "*table" to the newly opened</i></td></tr>
+<tr><th id="42">42</th><td><i>  // table.  The client should delete "*table" when no longer needed.</i></td></tr>
+<tr><th id="43">43</th><td><i>  // If there was an error while initializing the table, sets "*table"</i></td></tr>
+<tr><th id="44">44</th><td><i>  // to NULL and returns a non-ok status.  Does not take ownership of</i></td></tr>
+<tr><th id="45">45</th><td><i>  // "*file", but the client must ensure that "file" remains live</i></td></tr>
+<tr><th id="46">46</th><td><i>  // for the duration of the returned table's lifetime.</i></td></tr>
+<tr><th id="47">47</th><td>  <em>static</em> <a class="type" href="../core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZN10tensorflow5table5Table4OpenERKNS0_7OptionsEPNS_16RandomAccessFileEyPPS1_" title='tensorflow::table::Table::Open' data-ref="_ZN10tensorflow5table5Table4OpenERKNS0_7OptionsEPNS_16RandomAccessFileEyPPS1_">Open</dfn>(<em>const</em> <a class="type" href="#tensorflow::table::Options" title='tensorflow::table::Options' data-ref="tensorflow::table::Options">Options</a>&amp; <dfn class="local col0 decl" id="70options" title='options' data-type='const tensorflow::table::Options &amp;' data-ref="70options">options</dfn>, <a class="type" href="../../platform/file_system.h.html#tensorflow::RandomAccessFile" title='tensorflow::RandomAccessFile' data-ref="tensorflow::RandomAccessFile">RandomAccessFile</a>* <dfn class="local col1 decl" id="71file" title='file' data-type='tensorflow::RandomAccessFile *' data-ref="71file">file</dfn>,</td></tr>
+<tr><th id="48">48</th><td>                     <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="local col2 decl" id="72file_size" title='file_size' data-type='uint64' data-ref="72file_size">file_size</dfn>, <a class="type" href="#tensorflow::table::Table" title='tensorflow::table::Table' data-ref="tensorflow::table::Table">Table</a>** <dfn class="local col3 decl" id="73table" title='table' data-type='tensorflow::table::Table **' data-ref="73table">table</dfn>);</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>  <dfn class="decl" id="_ZN10tensorflow5table5TableD1Ev" title='tensorflow::table::Table::~Table' data-ref="_ZN10tensorflow5table5TableD1Ev">~Table</dfn>();</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>  <i>// Returns a new iterator over the table contents.</i></td></tr>
+<tr><th id="53">53</th><td><i>  // The result of NewIterator() is initially invalid (caller must</i></td></tr>
+<tr><th id="54">54</th><td><i>  // call one of the Seek methods on the iterator before using it).</i></td></tr>
+<tr><th id="55">55</th><td>  <a class="type" href="iterator.h.html#tensorflow::table::Iterator" title='tensorflow::table::Iterator' data-ref="tensorflow::table::Iterator">Iterator</a>* <dfn class="decl" id="_ZNK10tensorflow5table5Table11NewIteratorEv" title='tensorflow::table::Table::NewIterator' data-ref="_ZNK10tensorflow5table5Table11NewIteratorEv">NewIterator</dfn>() <em>const</em>;</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  <i>// Given a key, return an approximate byte offset in the file where</i></td></tr>
+<tr><th id="58">58</th><td><i>  // the data for that key begins (or would begin if the key were</i></td></tr>
+<tr><th id="59">59</th><td><i>  // present in the file).  The returned value is in terms of file</i></td></tr>
+<tr><th id="60">60</th><td><i>  // bytes, and so includes effects like compression of the underlying data.</i></td></tr>
+<tr><th id="61">61</th><td><i>  // E.g., the approximate offset of the last key in the table will</i></td></tr>
+<tr><th id="62">62</th><td><i>  // be close to the file length.</i></td></tr>
+<tr><th id="63">63</th><td>  <a class="typedef" href="../../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="decl" id="_ZNK10tensorflow5table5Table19ApproximateOffsetOfERKNS_11StringPieceE" title='tensorflow::table::Table::ApproximateOffsetOf' data-ref="_ZNK10tensorflow5table5Table19ApproximateOffsetOfERKNS_11StringPieceE">ApproximateOffsetOf</dfn>(<em>const</em> <a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a>&amp; <dfn class="local col4 decl" id="74key" title='key' data-type='const tensorflow::StringPiece &amp;' data-ref="74key">key</dfn>) <em>const</em>;</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td> <b>private</b>:</td></tr>
+<tr><th id="66">66</th><td>  <b>struct</b> <dfn class="type" id="tensorflow::table::Table::Rep" title='tensorflow::table::Table::Rep' data-ref="tensorflow::table::Table::Rep">Rep</dfn>;</td></tr>
+<tr><th id="67">67</th><td>  <a class="type" href="#tensorflow::table::Table::Rep" title='tensorflow::table::Table::Rep' data-ref="tensorflow::table::Table::Rep">Rep</a>* <dfn class="decl" id="tensorflow::table::Table::rep_" title='tensorflow::table::Table::rep_' data-ref="tensorflow::table::Table::rep_">rep_</dfn>;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>  <b>explicit</b> <dfn class="decl def" id="_ZN10tensorflow5table5TableC1EPNS1_3RepE" title='tensorflow::table::Table::Table' data-ref="_ZN10tensorflow5table5TableC1EPNS1_3RepE">Table</dfn>(<a class="type" href="#tensorflow::table::Table::Rep" title='tensorflow::table::Table::Rep' data-ref="tensorflow::table::Table::Rep">Rep</a>* <dfn class="local col5 decl" id="75rep" title='rep' data-type='tensorflow::table::Table::Rep *' data-ref="75rep">rep</dfn>) { <a class="member" href="#tensorflow::table::Table::rep_" title='tensorflow::table::Table::rep_' data-ref="tensorflow::table::Table::rep_">rep_</a> = <a class="local col5 ref" href="#75rep" title='rep' data-ref="75rep">rep</a>; }</td></tr>
+<tr><th id="70">70</th><td>  <em>static</em> <a class="type" href="iterator.h.html#tensorflow::table::Iterator" title='tensorflow::table::Iterator' data-ref="tensorflow::table::Iterator">Iterator</a>* <dfn class="decl" id="_ZN10tensorflow5table5Table11BlockReaderEPvRKNS_11StringPieceE" title='tensorflow::table::Table::BlockReader' data-ref="_ZN10tensorflow5table5Table11BlockReaderEPvRKNS_11StringPieceE">BlockReader</dfn>(<em>void</em>*, <em>const</em> <a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a>&amp;);</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>  <i>// Calls (*handle_result)(arg, ...) with the entry found after a call</i></td></tr>
+<tr><th id="73">73</th><td><i>  // to Seek(key).  May not make such a call if filter policy says</i></td></tr>
+<tr><th id="74">74</th><td><i>  // that key is not present.</i></td></tr>
+<tr><th id="75">75</th><td>  <a class="type" href="../core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZN10tensorflow5table5Table11InternalGetERKNS_11StringPieceEPvPFvS5_S4_S4_E" title='tensorflow::table::Table::InternalGet' data-ref="_ZN10tensorflow5table5Table11InternalGetERKNS_11StringPieceEPvPFvS5_S4_S4_E">InternalGet</dfn>(<em>const</em> <a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a>&amp; <dfn class="local col6 decl" id="76key" title='key' data-type='const tensorflow::StringPiece &amp;' data-ref="76key">key</dfn>, <em>void</em>* <dfn class="local col7 decl" id="77arg" title='arg' data-type='void *' data-ref="77arg">arg</dfn>,</td></tr>
+<tr><th id="76">76</th><td>                     <em>void</em> (*<dfn class="local col8 decl" id="78handle_result" title='handle_result' data-type='void (*)(void *, const tensorflow::StringPiece &amp;, const tensorflow::StringPiece &amp;)' data-ref="78handle_result">handle_result</dfn>)(<em>void</em>* <dfn class="local col9 decl" id="79arg" title='arg' data-type='void *' data-ref="79arg">arg</dfn>, <em>const</em> <a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a>&amp; <dfn class="local col0 decl" id="80k" title='k' data-type='const tensorflow::StringPiece &amp;' data-ref="80k">k</dfn>,</td></tr>
+<tr><th id="77">77</th><td>                                           <em>const</em> <a class="type" href="../core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a>&amp; <dfn class="local col1 decl" id="81v" title='v' data-type='const tensorflow::StringPiece &amp;' data-ref="81v">v</dfn>));</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>  <i>// No copying allowed</i></td></tr>
+<tr><th id="80">80</th><td>  <dfn class="decl" id="_ZN10tensorflow5table5TableC1ERKS1_" title='tensorflow::table::Table::Table' data-ref="_ZN10tensorflow5table5TableC1ERKS1_">Table</dfn>(<em>const</em> <a class="type" href="#tensorflow::table::Table" title='tensorflow::table::Table' data-ref="tensorflow::table::Table">Table</a>&amp;);</td></tr>
+<tr><th id="81">81</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow5table5TableaSERKS1_" title='tensorflow::table::Table::operator=' data-ref="_ZN10tensorflow5table5TableaSERKS1_"><b>operator</b>=</dfn>(<em>const</em> <a class="type" href="#tensorflow::table::Table" title='tensorflow::table::Table' data-ref="tensorflow::table::Table">Table</a>&amp;);</td></tr>
+<tr><th id="82">82</th><td>};</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>}  <i>// namespace table</i></td></tr>
+<tr><th id="85">85</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_LIB_IO_TABLE_H_</u></td></tr>
+<tr><th id="88">88</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../../c/checkpoint_reader.cc.html'>tensorflow/tensorflow/c/checkpoint_reader.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

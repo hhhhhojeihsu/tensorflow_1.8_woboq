@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='109' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferBatchNormInferenceShape(const xla::Shape &amp; operand_shape, const xla::Shape &amp; scale_shape, const xla::Shape &amp; offset_shape, const xla::Shape &amp; mean_shape, const xla::Shape &amp; variance_shape, int64 feature_index)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='107'>// Infers the shape produced by InferBatchNormInference with the given
+  // operands.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='370' u='c' c='_ZN3xla13ShapeVerifier24HandleBatchNormInferenceEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1306' ll='1452' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferBatchNormInferenceShape(const xla::Shape &amp; operand_shape, const xla::Shape &amp; scale_shape, const xla::Shape &amp; offset_shape, const xla::Shape &amp; mean_shape, const xla::Shape &amp; variance_shape, int64 feature_index)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1306'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='576' u='c' c='_ZN3xla15UserComputation32AddBatchNormInferenceInstructionERKNS_25BatchNormInferenceRequestE'/>

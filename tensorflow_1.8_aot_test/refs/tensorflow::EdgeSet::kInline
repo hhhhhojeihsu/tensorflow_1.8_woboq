@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/graph/edgeset.h' l='57' type='const int'/>
+<use f='tensorflow/tensorflow/core/graph/edgeset.h' l='58'/>
+<use f='tensorflow/tensorflow/core/graph/edgeset.h' l='121' u='r' c='_ZN10tensorflow7EdgeSetC1Ev'/>
+<use f='tensorflow/tensorflow/core/graph/edgeset.h' l='136' u='r' c='_ZNK10tensorflow7EdgeSet4sizeEv'/>
+<use f='tensorflow/tensorflow/core/graph/edgeset.h' l='146' u='r' c='_ZN10tensorflow7EdgeSet5clearEv'/>
+<doc f='tensorflow/tensorflow/core/graph/edgeset.h' l='55'>// Up to kInline elements are stored directly in ptrs_ (nullptr means none).
+  // If ptrs_[0] == this then ptrs_[1] points to a set&lt;const Edge*&gt;.</doc>
+<doc f='tensorflow/tensorflow/core/graph/edgeset.h' l='57'>// Must be &gt;= 2.</doc>
+<use f='tensorflow/tensorflow/core/graph/edgeset.cc' l='26' u='r' c='_ZN10tensorflow7EdgeSet6insertEPKNS_4EdgeE'/>
+<use f='tensorflow/tensorflow/core/graph/edgeset.cc' l='32' u='r' c='_ZN10tensorflow7EdgeSet6insertEPKNS_4EdgeE'/>
+<use f='tensorflow/tensorflow/core/graph/edgeset.cc' l='41' u='r' c='_ZN10tensorflow7EdgeSet6insertEPKNS_4EdgeE'/>
+<use f='tensorflow/tensorflow/core/graph/edgeset.cc' l='57' u='r' c='_ZN10tensorflow7EdgeSet5eraseEPKNS_4EdgeE'/>

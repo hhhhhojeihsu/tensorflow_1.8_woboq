@@ -1,0 +1,31 @@
+<def f='tensorflow/tensorflow/python/lib/core/py_exception_registry.h' l='51' ll='69'/>
+<size>48</size>
+<doc f='tensorflow/tensorflow/python/lib/core/py_exception_registry.h' l='30'>// Global registry mapping C API error codes to the corresponding custom Python
+// exception type. This is used to expose the exception types to C extension
+// code (i.e. so we can raise custom exceptions via SWIG).
+//
+// Init() must be called exactly once at the beginning of the process before
+// Lookup() can be used.
+//
+// Example usage:
+//   TF_Status* status = TF_NewStatus();
+//   TF_Foo(..., status);
+//
+//   if (TF_GetCode(status) != TF_OK) {
+//     PyObject* exc_type = PyExceptionRegistry::Lookup(TF_GetCode(status));
+//     // Arguments to OpError base class. Set `node_def` and `op` to None.
+//     PyObject* args =
+//       Py_BuildValue(&quot;sss&quot;, nullptr, nullptr, TF_Message(status));
+//     PyErr_SetObject(exc_type, args);
+//     Py_DECREF(args);
+//     TF_DeleteStatus(status);
+//     return NULL;
+//   }</doc>
+<fun r='_ZN10tensorflow19PyExceptionRegistry4InitEP7_object'/>
+<fun r='_ZN10tensorflow19PyExceptionRegistry6LookupE7TF_Code'/>
+<smbr r='tensorflow::PyExceptionRegistry::singleton_' t='tensorflow::PyExceptionRegistry *'/>
+<fun r='_ZN10tensorflow19PyExceptionRegistryC1Ev'/>
+<mbr r='tensorflow::PyExceptionRegistry::exc_types_' o='0' t='std::map&lt;TF_Code, PyObject *&gt;'/>
+<smbr r='tensorflow::PyExceptionRegistry::singleton_' t='tensorflow::PyExceptionRegistry *'/>
+<fun r='_ZN10tensorflow19PyExceptionRegistry4InitEP7_object'/>
+<fun r='_ZN10tensorflow19PyExceptionRegistry6LookupE7TF_Code'/>

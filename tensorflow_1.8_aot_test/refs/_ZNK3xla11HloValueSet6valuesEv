@@ -1,0 +1,27 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='215' type='const std::vector&lt;const HloValue *&gt; &amp; xla::HloValueSet::values() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='213'>// Return the vector of HloValues in the set. Values in the vector are unique
+  // and stably sorted by value id.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='190' u='c' c='_ZN3xla12_GLOBAL__N_121IndicesToCopyForWhileERKNS_19HloDataflowAnalysisEPKNS_14HloInstructionEPNS_9ShapeTreeIbEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='191' u='c' c='_ZN3xla12_GLOBAL__N_121IndicesToCopyForWhileERKNS_19HloDataflowAnalysisEPKNS_14HloInstructionEPNS_9ShapeTreeIbEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='557' u='c' c='_ZN3xla12_GLOBAL__N_111CopyRemover18BufferValueTracker13CreateCopyMapERKNS_9HloModuleERKN10tensorflow3gtl7FlatMapIPKNS_8HloValueEPNS2_9ValueNodeENS6_47323195'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='1052' u='c' c='_ZN3xla12_GLOBAL__N_120AddSpecialCaseCopiesERKNS_9CallGraphEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='1243' u='c' c='_ZN3xla13CopyInsertion28AddCopiesForBufferAssignmentEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='327' u='c' c='_ZNK3xla16HloAliasAnalysis16ComputeBuffersAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='344' u='c' c='_ZNK3xla16HloAliasAnalysis30InstructionBuffersAreAmbiguousEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='361' u='c' c='_ZNK3xla16HloAliasAnalysis29InstructionBuffersAreDistinctEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='375' u='c' c='_ZNK3xla16HloAliasAnalysis29InstructionBuffersAreDistinctEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='51' u='c' c='_ZNK3xla19HloDataflowAnalysis16ValueIsDefinedAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='129' u='c' c='_ZNK3xla19HloDataflowAnalysis8ToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='138' u='c' c='_ZNK3xla19HloDataflowAnalysis8ToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='173' u='c' c='_ZN3xla19HloDataflowAnalysis3PhiEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIPKNS_19InstructionValueSetEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='175' u='c' c='_ZN3xla19HloDataflowAnalysis3PhiEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIPKNS_19InstructionValueSetEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='175' u='c' c='_ZN3xla19HloDataflowAnalysis3PhiEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIPKNS_19InstructionValueSetEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='181' u='c' c='_ZN3xla19HloDataflowAnalysis3PhiEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIPKNS_19InstructionValueSetEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='215' u='c' c='_ZN3xla19HloDataflowAnalysis3PhiEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIPKNS_19InstructionValueSetEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='815' u='c' c='_ZN3xla19HloDataflowAnalysis3RunERKNS_9HloModuleEbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='851' u='c' c='_ZNK3xla19HloDataflowAnalysis6VerifyEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='852' u='c' c='_ZNK3xla19HloDataflowAnalysis6VerifyEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='853' u='c' c='_ZNK3xla19HloDataflowAnalysis6VerifyEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='867' u='c' c='_ZNK3xla19HloDataflowAnalysis6VerifyEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_value.cc' l='227' u='c' c='_ZN3xla11HloValueSet13AssignUnionOfEN10tensorflow3gtl10ArraySliceIPKS0_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='90' u='c' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_19HloDataflowAnalysisE'/>

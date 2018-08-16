@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.h' l='154' type='StatusOr&lt;int64&gt; xla::HloSharding::UniqueDevice() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='940' u='c' c='_ZNK3xla14HloInstruction22sharding_unique_deviceEv'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.h' l='152'>// Returns the single device this op operates on.
+  // REQUIRES: !IsTuple&amp;&amp; !Replicated() &amp;&amp; IsTileMaximal()</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.cc' l='129' ll='155' type='StatusOr&lt;int64&gt; xla::HloSharding::UniqueDevice() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.cc' l='138' u='c' c='_ZNK3xla11HloSharding12UniqueDeviceEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.cc' l='159' u='c' c='_ZNK3xla11HloSharding15HasUniqueDeviceEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_tfgraph_builder.cc' l='108' u='c' c='_ZN3xla16hlo_graph_dumper17HloTfGraphBuilder25GetNodeNameForInstructionEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_tfgraph_builder.cc' l='220' u='c' c='_ZN3xla16hlo_graph_dumper17HloTfGraphBuilder14AddInstructionEPKNS_14HloInstructionE'/>

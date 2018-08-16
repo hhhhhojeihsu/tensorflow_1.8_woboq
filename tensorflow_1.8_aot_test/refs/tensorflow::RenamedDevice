@@ -1,0 +1,32 @@
+<inh f='tensorflow/tensorflow/core/common_runtime/device.h' l='54' c='tensorflow::Device'/>
+<def f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='29' ll='133'/>
+<size>272</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='24'>// Wraps a device with a new name, delegating work to the wrapped device.
+//
+// This class is used to wrap local devices when using clusterspec propagation
+// where the name of a particular device may change in the context of a given
+// session.</doc>
+<fun r='_ZN10tensorflow13RenamedDevice16NewRenamedDeviceERKSsPNS_6DeviceEbb'/>
+<fun r='_ZN10tensorflow13RenamedDeviceD1Ev'/>
+<fun r='_ZNK10tensorflow13RenamedDevice32RequiresRecordingAccessedTensorsEv'/>
+<fun r='_ZNK10tensorflow13RenamedDevice16UnderlyingDeviceEv'/>
+<fun r='_ZN10tensorflow13RenamedDevice16UnderlyingDeviceEv'/>
+<fun r='_ZNK10tensorflow13RenamedDevice29tensorflow_cpu_worker_threadsEv'/>
+<fun r='_ZNK10tensorflow13RenamedDevice26tensorflow_gpu_device_infoEv'/>
+<fun r='_ZN10tensorflow13RenamedDevice12GetAllocatorENS_19AllocatorAttributesE'/>
+<fun r='_ZN10tensorflow13RenamedDevice16GetStepAllocatorENS_19AllocatorAttributesEPNS_11ResourceMgrE'/>
+<fun r='_ZN10tensorflow13RenamedDevice16eigen_cpu_deviceEv'/>
+<fun r='_ZN10tensorflow13RenamedDevice13MakeGpuDeviceEv'/>
+<fun r='_ZN10tensorflow13RenamedDevice21ReinitializeGpuDeviceEPNS_15OpKernelContextEPNS_14PerOpGpuDeviceEPNS_13DeviceContextEPNS_9AllocatorE'/>
+<fun r='_ZN10tensorflow13RenamedDevice19MakeTensorFromProtoERKNS_11TensorProtoENS_19AllocatorAttributesEPNS_6TensorE'/>
+<fun r='_ZN10tensorflow13RenamedDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<fun r='_ZN10tensorflow13RenamedDevice12ComputeAsyncEPNS_13AsyncOpKernelEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<fun r='_ZN10tensorflow13RenamedDevice28ConsumeListOfAccessedTensorsEPNS_13DeviceContextERKNS_3gtl13InlinedVectorINS_15TensorReferenceELi4EEE'/>
+<fun r='_ZN10tensorflow13RenamedDevice4SyncEv'/>
+<fun r='_ZN10tensorflow13RenamedDevice17MaybeRewriteGraphEPSt10unique_ptrINS_5GraphESt14default_deleteIS2_EE'/>
+<fun r='_ZN10tensorflow13RenamedDevice14FillContextMapEPKNS_5GraphEPSt6vectorIPNS_13DeviceContextESaIS6_EE'/>
+<fun r='_ZN10tensorflow13RenamedDevice16resource_managerEv'/>
+<fun r='_ZN10tensorflow13RenamedDeviceC1EPNS_6DeviceERKNS_16DeviceAttributesEbb'/>
+<mbr r='tensorflow::RenamedDevice::underlying_' o='2048' t='tensorflow::Device *const'/>
+<mbr r='tensorflow::RenamedDevice::owns_underlying_' o='2112' t='const bool'/>
+<mbr r='tensorflow::RenamedDevice::isolate_session_state_' o='2120' t='const bool'/>

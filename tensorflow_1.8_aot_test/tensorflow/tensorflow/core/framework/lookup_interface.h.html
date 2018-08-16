@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>lookup_interface.h source code [tensorflow/tensorflow/core/framework/lookup_interface.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::lookup::LookupInterface "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/framework/lookup_interface.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>framework</a>/<a href='lookup_interface.h.html'>lookup_interface.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_FRAMEWORK_LOOKUP_INTERFACE_H_">TENSORFLOW_FRAMEWORK_LOOKUP_INTERFACE_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_FRAMEWORK_LOOKUP_INTERFACE_H_" data-ref="_M/TENSORFLOW_FRAMEWORK_LOOKUP_INTERFACE_H_">TENSORFLOW_FRAMEWORK_LOOKUP_INTERFACE_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="resource_mgr.h.html">"tensorflow/core/framework/resource_mgr.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="tensor.h.html">"tensorflow/core/framework/tensor.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><b>class</b> <a class="type" href="op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext" id="tensorflow::OpKernelContext">OpKernelContext</a>;</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">lookup</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><i>// Forward declaration so we can define GetInitializableLookupTable() in</i></td></tr>
+<tr><th id="30">30</th><td><i>// LookupInterface.</i></td></tr>
+<tr><th id="31">31</th><td><b>class</b> <dfn class="type" id="tensorflow::lookup::InitializableLookupTable" title='tensorflow::lookup::InitializableLookupTable' data-ref="tensorflow::lookup::InitializableLookupTable">InitializableLookupTable</dfn>;</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>// Lookup interface for batch lookups used by table lookup ops.</i></td></tr>
+<tr><th id="34">34</th><td><b>class</b> <dfn class="type def" id="tensorflow::lookup::LookupInterface" title='tensorflow::lookup::LookupInterface' data-ref="tensorflow::lookup::LookupInterface">LookupInterface</dfn> : <b>public</b> <a class="type" href="resource_mgr.h.html#tensorflow::ResourceBase" title='tensorflow::ResourceBase' data-ref="tensorflow::ResourceBase">ResourceBase</a> {</td></tr>
+<tr><th id="35">35</th><td> <b>public</b>:</td></tr>
+<tr><th id="36">36</th><td>  <i>// Performs batch lookups, for every element in the key tensor, Find returns</i></td></tr>
+<tr><th id="37">37</th><td><i>  // the corresponding value into the values tensor.</i></td></tr>
+<tr><th id="38">38</th><td><i>  // If an element is not present in the table, the given default value is used.</i></td></tr>
+<tr><th id="39">39</th><td><i></i></td></tr>
+<tr><th id="40">40</th><td><i>  // For tables that require initialization, Find is available once the table</i></td></tr>
+<tr><th id="41">41</th><td><i>  // is marked as initialized.</i></td></tr>
+<tr><th id="42">42</th><td><i></i></td></tr>
+<tr><th id="43">43</th><td><i>  // Returns the following statuses:</i></td></tr>
+<tr><th id="44">44</th><td><i>  // - OK: when the find finishes successfully.</i></td></tr>
+<tr><th id="45">45</th><td><i>  // - FailedPrecondition: if the table is not initialized.</i></td></tr>
+<tr><th id="46">46</th><td><i>  // - InvalidArgument: if any of the preconditions on the lookup key or value</i></td></tr>
+<tr><th id="47">47</th><td><i>  //   fails.</i></td></tr>
+<tr><th id="48">48</th><td><i>  // - In addition, other implementations may provide another non-OK status</i></td></tr>
+<tr><th id="49">49</th><td><i>  //   specific to their failure modes.</i></td></tr>
+<tr><th id="50">50</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow6lookup15LookupInterface4FindEPNS_15OpKernelContextERKNS_6TensorEPS4_S6_" title='tensorflow::lookup::LookupInterface::Find' data-ref="_ZN10tensorflow6lookup15LookupInterface4FindEPNS_15OpKernelContextERKNS_6TensorEPS4_S6_">Find</dfn>(<a class="type" href="op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col1 decl" id="1ctx" title='ctx' data-type='tensorflow::OpKernelContext *' data-ref="1ctx">ctx</dfn>, <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col2 decl" id="2keys" title='keys' data-type='const tensorflow::Tensor &amp;' data-ref="2keys">keys</dfn>, <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>* <dfn class="local col3 decl" id="3values" title='values' data-type='tensorflow::Tensor *' data-ref="3values">values</dfn>,</td></tr>
+<tr><th id="51">51</th><td>                      <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col4 decl" id="4default_value" title='default_value' data-type='const tensorflow::Tensor &amp;' data-ref="4default_value">default_value</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <i>// Inserts elements into the table. Each element of the key tensor is</i></td></tr>
+<tr><th id="54">54</th><td><i>  // associated with the corresponding element in the value tensor.</i></td></tr>
+<tr><th id="55">55</th><td><i>  // This method is only implemented in mutable tables that can be updated over</i></td></tr>
+<tr><th id="56">56</th><td><i>  // the execution of the graph. It returns Status::NotImplemented for read-only</i></td></tr>
+<tr><th id="57">57</th><td><i>  // tables that are initialized once before they can be looked up.</i></td></tr>
+<tr><th id="58">58</th><td><i></i></td></tr>
+<tr><th id="59">59</th><td><i>  // Returns the following statuses:</i></td></tr>
+<tr><th id="60">60</th><td><i>  // - OK: when the insert finishes successfully.</i></td></tr>
+<tr><th id="61">61</th><td><i>  // - InvalidArgument: if any of the preconditions on the lookup key or value</i></td></tr>
+<tr><th id="62">62</th><td><i>  //   fails.</i></td></tr>
+<tr><th id="63">63</th><td><i>  // - Unimplemented: if the table does not support insertions.</i></td></tr>
+<tr><th id="64">64</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow6lookup15LookupInterface6InsertEPNS_15OpKernelContextERKNS_6TensorES6_" title='tensorflow::lookup::LookupInterface::Insert' data-ref="_ZN10tensorflow6lookup15LookupInterface6InsertEPNS_15OpKernelContextERKNS_6TensorES6_">Insert</dfn>(<a class="type" href="op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col5 decl" id="5ctx" title='ctx' data-type='tensorflow::OpKernelContext *' data-ref="5ctx">ctx</dfn>, <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col6 decl" id="6keys" title='keys' data-type='const tensorflow::Tensor &amp;' data-ref="6keys">keys</dfn>,</td></tr>
+<tr><th id="65">65</th><td>                        <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col7 decl" id="7values" title='values' data-type='const tensorflow::Tensor &amp;' data-ref="7values">values</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>  <i>// Returns the number of elements in the table.</i></td></tr>
+<tr><th id="68">68</th><td>  <b>virtual</b> <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="virtual decl" id="_ZNK10tensorflow6lookup15LookupInterface4sizeEv" title='tensorflow::lookup::LookupInterface::size' data-ref="_ZNK10tensorflow6lookup15LookupInterface4sizeEv">size</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>  <i>// Exports the values of the table to two tensors named keys and values.</i></td></tr>
+<tr><th id="71">71</th><td><i>  // Note that the shape of the tensors is completely up to the implementation</i></td></tr>
+<tr><th id="72">72</th><td><i>  // of the table and can be different than the tensors used for the Insert</i></td></tr>
+<tr><th id="73">73</th><td><i>  // function above.</i></td></tr>
+<tr><th id="74">74</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow6lookup15LookupInterface12ExportValuesEPNS_15OpKernelContextE" title='tensorflow::lookup::LookupInterface::ExportValues' data-ref="_ZN10tensorflow6lookup15LookupInterface12ExportValuesEPNS_15OpKernelContextE">ExportValues</dfn>(<a class="type" href="op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col8 decl" id="8ctx" title='ctx' data-type='tensorflow::OpKernelContext *' data-ref="8ctx">ctx</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>  <i>// Imports previously exported keys and values.</i></td></tr>
+<tr><th id="77">77</th><td><i>  // As mentioned above, the shape of the keys and values tensors are determined</i></td></tr>
+<tr><th id="78">78</th><td><i>  // by the ExportValues function above and can be different than for the</i></td></tr>
+<tr><th id="79">79</th><td><i>  // Insert function.</i></td></tr>
+<tr><th id="80">80</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="virtual decl" id="_ZN10tensorflow6lookup15LookupInterface12ImportValuesEPNS_15OpKernelContextERKNS_6TensorES6_" title='tensorflow::lookup::LookupInterface::ImportValues' data-ref="_ZN10tensorflow6lookup15LookupInterface12ImportValuesEPNS_15OpKernelContextERKNS_6TensorES6_">ImportValues</dfn>(<a class="type" href="op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col9 decl" id="9ctx" title='ctx' data-type='tensorflow::OpKernelContext *' data-ref="9ctx">ctx</dfn>, <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col0 decl" id="10keys" title='keys' data-type='const tensorflow::Tensor &amp;' data-ref="10keys">keys</dfn>,</td></tr>
+<tr><th id="81">81</th><td>                              <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col1 decl" id="11values" title='values' data-type='const tensorflow::Tensor &amp;' data-ref="11values">values</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>  <i>// Returns the data type of the key.</i></td></tr>
+<tr><th id="84">84</th><td>  <b>virtual</b> <span class='type' title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</span> <dfn class="virtual decl" id="_ZNK10tensorflow6lookup15LookupInterface9key_dtypeEv" title='tensorflow::lookup::LookupInterface::key_dtype' data-ref="_ZNK10tensorflow6lookup15LookupInterface9key_dtypeEv">key_dtype</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>  <i>// Returns the data type of the value.</i></td></tr>
+<tr><th id="87">87</th><td>  <b>virtual</b> <span class='type' title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</span> <dfn class="virtual decl" id="_ZNK10tensorflow6lookup15LookupInterface11value_dtypeEv" title='tensorflow::lookup::LookupInterface::value_dtype' data-ref="_ZNK10tensorflow6lookup15LookupInterface11value_dtypeEv">value_dtype</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>  <i>// Returns the shape of a key in the table.</i></td></tr>
+<tr><th id="90">90</th><td>  <b>virtual</b> <a class="type" href="tensor_shape.h.html#tensorflow::TensorShape" title='tensorflow::TensorShape' data-ref="tensorflow::TensorShape">TensorShape</a> <dfn class="virtual decl" id="_ZNK10tensorflow6lookup15LookupInterface9key_shapeEv" title='tensorflow::lookup::LookupInterface::key_shape' data-ref="_ZNK10tensorflow6lookup15LookupInterface9key_shapeEv">key_shape</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>  <i>// Returns the shape of a value in the table.</i></td></tr>
+<tr><th id="93">93</th><td>  <b>virtual</b> <a class="type" href="tensor_shape.h.html#tensorflow::TensorShape" title='tensorflow::TensorShape' data-ref="tensorflow::TensorShape">TensorShape</a> <dfn class="virtual decl" id="_ZNK10tensorflow6lookup15LookupInterface11value_shapeEv" title='tensorflow::lookup::LookupInterface::value_shape' data-ref="_ZNK10tensorflow6lookup15LookupInterface11value_shapeEv">value_shape</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>  <i>// Check format of the key and value tensors for the Insert function.</i></td></tr>
+<tr><th id="96">96</th><td><i>  // Returns OK if all the following requirements are satisfied, otherwise it</i></td></tr>
+<tr><th id="97">97</th><td><i>  // returns InvalidArgument:</i></td></tr>
+<tr><th id="98">98</th><td><i>  // - DataType of the tensor keys equals to the table key_dtype</i></td></tr>
+<tr><th id="99">99</th><td><i>  // - DataType of the tensor values equals to the table value_dtype</i></td></tr>
+<tr><th id="100">100</th><td><i>  // - the values tensor has the required shape given keys and the tables's</i></td></tr>
+<tr><th id="101">101</th><td><i>  //   value shape.</i></td></tr>
+<tr><th id="102">102</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="virtual decl" href="lookup_interface.cc.html#_ZN10tensorflow6lookup15LookupInterface32CheckKeyAndValueTensorsForInsertERKNS_6TensorES4_" title='tensorflow::lookup::LookupInterface::CheckKeyAndValueTensorsForInsert' data-ref="_ZN10tensorflow6lookup15LookupInterface32CheckKeyAndValueTensorsForInsertERKNS_6TensorES4_" id="_ZN10tensorflow6lookup15LookupInterface32CheckKeyAndValueTensorsForInsertERKNS_6TensorES4_">CheckKeyAndValueTensorsForInsert</a>(<em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col2 decl" id="12keys" title='keys' data-type='const tensorflow::Tensor &amp;' data-ref="12keys">keys</dfn>,</td></tr>
+<tr><th id="103">103</th><td>                                                  <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col3 decl" id="13values" title='values' data-type='const tensorflow::Tensor &amp;' data-ref="13values">values</dfn>);</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>  <i>// Similar to the function above but instead checks eligibility for the Import</i></td></tr>
+<tr><th id="106">106</th><td><i>  // function.</i></td></tr>
+<tr><th id="107">107</th><td>  <b>virtual</b> <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="virtual decl" href="lookup_interface.cc.html#_ZN10tensorflow6lookup15LookupInterface32CheckKeyAndValueTensorsForImportERKNS_6TensorES4_" title='tensorflow::lookup::LookupInterface::CheckKeyAndValueTensorsForImport' data-ref="_ZN10tensorflow6lookup15LookupInterface32CheckKeyAndValueTensorsForImportERKNS_6TensorES4_" id="_ZN10tensorflow6lookup15LookupInterface32CheckKeyAndValueTensorsForImportERKNS_6TensorES4_">CheckKeyAndValueTensorsForImport</a>(<em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col4 decl" id="14keys" title='keys' data-type='const tensorflow::Tensor &amp;' data-ref="14keys">keys</dfn>,</td></tr>
+<tr><th id="108">108</th><td>                                                  <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col5 decl" id="15values" title='values' data-type='const tensorflow::Tensor &amp;' data-ref="15values">values</dfn>);</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td>  <i>// Check the arguments of a find operation. Returns OK if all the following</i></td></tr>
+<tr><th id="111">111</th><td><i>  // requirements are satisfied, otherwise it returns InvalidArgument:</i></td></tr>
+<tr><th id="112">112</th><td><i>  // - DataType of the tensor keys equals to the table key_dtype</i></td></tr>
+<tr><th id="113">113</th><td><i>  // - DataType of the tensor default_value equals to the table value_dtype</i></td></tr>
+<tr><th id="114">114</th><td><i>  // - the default_value tensor shape matches the table's value shape.</i></td></tr>
+<tr><th id="115">115</th><td>  <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="decl" href="lookup_interface.cc.html#_ZN10tensorflow6lookup15LookupInterface18CheckFindArgumentsERKNS_6TensorES4_" title='tensorflow::lookup::LookupInterface::CheckFindArguments' data-ref="_ZN10tensorflow6lookup15LookupInterface18CheckFindArgumentsERKNS_6TensorES4_" id="_ZN10tensorflow6lookup15LookupInterface18CheckFindArgumentsERKNS_6TensorES4_">CheckFindArguments</a>(<em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col6 decl" id="16keys" title='keys' data-type='const tensorflow::Tensor &amp;' data-ref="16keys">keys</dfn>, <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col7 decl" id="17default_value" title='default_value' data-type='const tensorflow::Tensor &amp;' data-ref="17default_value">default_value</dfn>);</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="virtual decl def" id="_ZN10tensorflow6lookup15LookupInterface11DebugStringEv" title='tensorflow::lookup::LookupInterface::DebugString' data-ref="_ZN10tensorflow6lookup15LookupInterface11DebugStringEv">DebugString</dfn>() override {</td></tr>
+<tr><th id="118">118</th><td>    <b>return</b> <span class="namespace">strings::</span><a class="ref" href="../lib/strings/strcat.h.html#_ZN10tensorflow7strings6StrCatERKNS0_8AlphaNumES3_" title='tensorflow::strings::StrCat' data-ref="_ZN10tensorflow7strings6StrCatERKNS0_8AlphaNumES3_">StrCat</a>(<a class="ref fake" href="../lib/strings/strcat.h.html#_ZN10tensorflow7strings8AlphaNumC1EPKc" title='tensorflow::strings::AlphaNum::AlphaNum' data-ref="_ZN10tensorflow7strings8AlphaNumC1EPKc"></a><q>"A lookup table of size: "</q>, <a class="ref fake" href="../lib/strings/strcat.h.html#_ZN10tensorflow7strings8AlphaNumC1Em" title='tensorflow::strings::AlphaNum::AlphaNum' data-ref="_ZN10tensorflow7strings8AlphaNumC1Em"></a><a class="virtual member" href="#_ZNK10tensorflow6lookup15LookupInterface4sizeEv" title='tensorflow::lookup::LookupInterface::size' data-ref="_ZNK10tensorflow6lookup15LookupInterface4sizeEv">size</a>());</td></tr>
+<tr><th id="119">119</th><td>  }</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>  <i>// Returns an InitializableLookupTable, a subclass of LookupInterface, if the</i></td></tr>
+<tr><th id="122">122</th><td><i>  // current object is an InitializableLookupTable. Otherwise, returns nullptr.</i></td></tr>
+<tr><th id="123">123</th><td>  <b>virtual</b> <a class="type" href="#tensorflow::lookup::InitializableLookupTable" title='tensorflow::lookup::InitializableLookupTable' data-ref="tensorflow::lookup::InitializableLookupTable">InitializableLookupTable</a>* <dfn class="virtual decl def" id="_ZN10tensorflow6lookup15LookupInterface27GetInitializableLookupTableEv" title='tensorflow::lookup::LookupInterface::GetInitializableLookupTable' data-ref="_ZN10tensorflow6lookup15LookupInterface27GetInitializableLookupTableEv">GetInitializableLookupTable</dfn>() {</td></tr>
+<tr><th id="124">124</th><td>    <b>return</b> <b>nullptr</b>;</td></tr>
+<tr><th id="125">125</th><td>  }</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td> <b>protected</b>:</td></tr>
+<tr><th id="128">128</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN10tensorflow6lookup15LookupInterfaceD1Ev" title='tensorflow::lookup::LookupInterface::~LookupInterface' data-ref="_ZN10tensorflow6lookup15LookupInterfaceD1Ev">~LookupInterface</dfn>() = <b>default</b>;</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td>  <i>// Makes sure that the key and value tensor DataType's match the table</i></td></tr>
+<tr><th id="131">131</th><td><i>  // key_dtype and value_dtype.</i></td></tr>
+<tr><th id="132">132</th><td>  <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="decl" href="lookup_interface.cc.html#_ZN10tensorflow6lookup15LookupInterface21CheckKeyAndValueTypesERKNS_6TensorES4_" title='tensorflow::lookup::LookupInterface::CheckKeyAndValueTypes' data-ref="_ZN10tensorflow6lookup15LookupInterface21CheckKeyAndValueTypesERKNS_6TensorES4_" id="_ZN10tensorflow6lookup15LookupInterface21CheckKeyAndValueTypesERKNS_6TensorES4_">CheckKeyAndValueTypes</a>(<em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col8 decl" id="18keys" title='keys' data-type='const tensorflow::Tensor &amp;' data-ref="18keys">keys</dfn>, <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col9 decl" id="19values" title='values' data-type='const tensorflow::Tensor &amp;' data-ref="19values">values</dfn>);</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>  <i>// Makes sure that the provided shape is consistent with the table keys shape.</i></td></tr>
+<tr><th id="135">135</th><td>  <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="decl" href="lookup_interface.cc.html#_ZN10tensorflow6lookup15LookupInterface13CheckKeyShapeERKNS_11TensorShapeE" title='tensorflow::lookup::LookupInterface::CheckKeyShape' data-ref="_ZN10tensorflow6lookup15LookupInterface13CheckKeyShapeERKNS_11TensorShapeE" id="_ZN10tensorflow6lookup15LookupInterface13CheckKeyShapeERKNS_11TensorShapeE">CheckKeyShape</a>(<em>const</em> <a class="type" href="tensor_shape.h.html#tensorflow::TensorShape" title='tensorflow::TensorShape' data-ref="tensorflow::TensorShape">TensorShape</a>&amp; <dfn class="local col0 decl" id="20shape" title='shape' data-type='const tensorflow::TensorShape &amp;' data-ref="20shape">shape</dfn>);</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td> <b>private</b>:</td></tr>
+<tr><th id="138">138</th><td>  <a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <a class="decl" href="lookup_interface.cc.html#_ZN10tensorflow6lookup15LookupInterface29CheckKeyAndValueTensorsHelperERKNS_6TensorES4_" title='tensorflow::lookup::LookupInterface::CheckKeyAndValueTensorsHelper' data-ref="_ZN10tensorflow6lookup15LookupInterface29CheckKeyAndValueTensorsHelperERKNS_6TensorES4_" id="_ZN10tensorflow6lookup15LookupInterface29CheckKeyAndValueTensorsHelperERKNS_6TensorES4_">CheckKeyAndValueTensorsHelper</a>(<em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col1 decl" id="21keys" title='keys' data-type='const tensorflow::Tensor &amp;' data-ref="21keys">keys</dfn>,</td></tr>
+<tr><th id="139">139</th><td>                                       <em>const</em> <a class="type" href="tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col2 decl" id="22values" title='values' data-type='const tensorflow::Tensor &amp;' data-ref="22values">values</dfn>);</td></tr>
+<tr><th id="140">140</th><td>};</td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td>}  <i>// namespace lookup</i></td></tr>
+<tr><th id="143">143</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_FRAMEWORK_LOOKUP_INTERFACE_H_</u></td></tr>
+<tr><th id="146">146</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='lookup_interface.cc.html'>tensorflow/tensorflow/core/framework/lookup_interface.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

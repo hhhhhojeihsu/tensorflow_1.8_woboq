@@ -1,0 +1,38 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/dfs_hlo_visitor_with_default.h' l='45' c='xla::DfsHloVisitorWithDefaultBase'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.h' l='37' ll='212'/>
+<size>192</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.h' l='34'>// Responsible for evaluating HLO and obtain literal as the evaluation results.
+//
+// This class is not thread-safe.</doc>
+<fun r='_ZN3xla12HloEvaluatorC1Ex'/>
+<fun r='_ZN3xla12HloEvaluator8EvaluateERKNS_9HloModuleEN10tensorflow3gtl10ArraySliceIT_EE'/>
+<fun r='_ZN3xla12HloEvaluator8EvaluateERKNS_14HloComputationEN10tensorflow3gtl10ArraySliceIT_EE'/>
+<fun r='_ZN3xla12HloEvaluator8EvaluateEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIT_EE'/>
+<fun r='_ZN3xla12HloEvaluator8EvaluateEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator11TryEvaluateEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator25EvaluateWithSubstitutionsEPKNS_14HloInstructionERKSt13unordered_mapIS3_PKNS_7LiteralESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S7_EEE'/>
+<fun r='_ZN3xla12HloEvaluator13DefaultActionEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator10PreprocessEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator11PostprocessEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator15HandleParameterEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator14HandleConstantEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator17HandleConcatenateEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator13HandleReshapeEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator15HandleTransposeEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator14HandleIsFiniteEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator13HandleCompareEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator11HandleTupleEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator12HandleGatherEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator10HandleCopyEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator17HandleConditionalEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator10HandleCallEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator12HandleFusionEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator11HandleWhileEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator12HandleSelectEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla12HloEvaluator22GetEvaluatedLiteralForEPKNS_14HloInstructionE'/>
+<mbr r='xla::HloEvaluator::typed_visitors_' o='256' t='tensorflow::gtl::FlatMap&lt;PrimitiveType, std::unique_ptr&lt;DfsHloVisitor&gt;, std::hash&lt;int&gt; &gt;'/>
+<mbr r='xla::HloEvaluator::evaluated_' o='768' t='tensorflow::gtl::FlatMap&lt;const HloInstruction *, std::unique_ptr&lt;Literal&gt; &gt;'/>
+<mbr r='xla::HloEvaluator::arg_literals_' o='1280' t='std::vector&lt;const Literal *&gt;'/>
+<mbr r='xla::HloEvaluator::max_loop_iterations_' o='1472' t='int64'/>
+<fun r='_ZN3xla12HloEvaluatorC1ERKS0_'/>

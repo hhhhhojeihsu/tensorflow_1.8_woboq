@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/worker_session.h' l='46' type='const std::unique_ptr&lt;DeviceMgr&gt;'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='256' u='m' c='_ZN10tensorflow20BaseRemoteRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='262' u='m' c='_ZN10tensorflow20BaseRemoteRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE'/>
+<offset>192</offset>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/worker_session.h' l='43'>// Collection of local devices. These devices are typically RenamedDevices
+  // in all except the SessionMgr.legacy_session_. legacy_session_.device_mgr
+  // == worker_env_.device_mgr, which holds the true devices.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.cc' l='230' u='m' c='_ZN10tensorflow12_GLOBAL__N_119RpcRemoteRendezvous19RecvFromRemoteAsyncERKNS_10Rendezvous9ParsedKeyERKNS2_4ArgsESt8functionIFvRKNS_6StatusES8_S8_RKNS_6TensorEbEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker_session.cc' l='98' u='w' c='_ZN10tensorflow13WorkerSessionC1ERKSsS2_St10unique_ptrINS_20WorkerCacheInterfaceESt14default_deleteIS4_EES3_INS_9DeviceMgrES5_IS8_EES3_INS_8GraphMgrES5_ISB_EE'/>

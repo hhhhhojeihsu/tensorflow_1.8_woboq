@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>robust_stats.h source code [tensorflow/tensorflow/core/grappler/costs/robust_stats.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::grappler::RobustStats "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/grappler/costs/robust_stats.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>grappler</a>/<a href='./'>costs</a>/<a href='robust_stats.h.html'>robust_stats.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_GRAPPLER_COSTS_ROBUST_STATS_H_">TENSORFLOW_GRAPPLER_COSTS_ROBUST_STATS_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_GRAPPLER_COSTS_ROBUST_STATS_H_" data-ref="_M/TENSORFLOW_GRAPPLER_COSTS_ROBUST_STATS_H_">TENSORFLOW_GRAPPLER_COSTS_ROBUST_STATS_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">grappler</span> {</td></tr>
+<tr><th id="22">22</th><td><b>class</b> <dfn class="type def" id="tensorflow::grappler::RobustStats" title='tensorflow::grappler::RobustStats' data-ref="tensorflow::grappler::RobustStats">RobustStats</dfn> {</td></tr>
+<tr><th id="23">23</th><td> <b>public</b>:</td></tr>
+<tr><th id="24">24</th><td>  <dfn class="decl" id="_ZN10tensorflow8grappler11RobustStatsC1ERKSt6vectorIdSaIdEE" title='tensorflow::grappler::RobustStats::RobustStats' data-ref="_ZN10tensorflow8grappler11RobustStatsC1ERKSt6vectorIdSaIdEE">RobustStats</dfn>(<em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<em>double</em>&gt;&amp; <dfn class="local col8 decl" id="8values" title='values' data-type='const std::vector&lt;double&gt; &amp;' data-ref="8values">values</dfn>);</td></tr>
+<tr><th id="25">25</th><td>  <dfn class="decl" id="_ZN10tensorflow8grappler11RobustStatsC1EOSt6vectorIdSaIdEE" title='tensorflow::grappler::RobustStats::RobustStats' data-ref="_ZN10tensorflow8grappler11RobustStatsC1EOSt6vectorIdSaIdEE">RobustStats</dfn>(<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<em>double</em>&gt;&amp;&amp; <dfn class="local col9 decl" id="9values" title='values' data-type='std::vector&lt;double&gt; &amp;&amp;' data-ref="9values">values</dfn>);</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td>  <em>double</em> <dfn class="decl def" id="_ZNK10tensorflow8grappler11RobustStats2loEv" title='tensorflow::grappler::RobustStats::lo' data-ref="_ZNK10tensorflow8grappler11RobustStats2loEv">lo</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#tensorflow::grappler::RobustStats::lo_" title='tensorflow::grappler::RobustStats::lo_' data-ref="tensorflow::grappler::RobustStats::lo_">lo_</a>; }</td></tr>
+<tr><th id="28">28</th><td>  <em>double</em> <dfn class="decl def" id="_ZNK10tensorflow8grappler11RobustStats2hiEv" title='tensorflow::grappler::RobustStats::hi' data-ref="_ZNK10tensorflow8grappler11RobustStats2hiEv">hi</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#tensorflow::grappler::RobustStats::hi_" title='tensorflow::grappler::RobustStats::hi_' data-ref="tensorflow::grappler::RobustStats::hi_">hi_</a>; }</td></tr>
+<tr><th id="29">29</th><td>  <em>double</em> <dfn class="decl def" id="_ZNK10tensorflow8grappler11RobustStats4meanEv" title='tensorflow::grappler::RobustStats::mean' data-ref="_ZNK10tensorflow8grappler11RobustStats4meanEv">mean</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#tensorflow::grappler::RobustStats::mean_" title='tensorflow::grappler::RobustStats::mean_' data-ref="tensorflow::grappler::RobustStats::mean_">mean_</a>; }</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td> <b>private</b>:</td></tr>
+<tr><th id="32">32</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow8grappler11RobustStats8HuberMADERKSt6vectorIdSaIdEE" title='tensorflow::grappler::RobustStats::HuberMAD' data-ref="_ZN10tensorflow8grappler11RobustStats8HuberMADERKSt6vectorIdSaIdEE">HuberMAD</dfn>(<em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<em>double</em>&gt;&amp; <dfn class="local col0 decl" id="10values" title='values' data-type='const std::vector&lt;double&gt; &amp;' data-ref="10values">values</dfn>);</td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td>  <em>double</em> <dfn class="decl" id="tensorflow::grappler::RobustStats::lo_" title='tensorflow::grappler::RobustStats::lo_' data-ref="tensorflow::grappler::RobustStats::lo_">lo_</dfn>;</td></tr>
+<tr><th id="35">35</th><td>  <em>double</em> <dfn class="decl" id="tensorflow::grappler::RobustStats::hi_" title='tensorflow::grappler::RobustStats::hi_' data-ref="tensorflow::grappler::RobustStats::hi_">hi_</dfn>;</td></tr>
+<tr><th id="36">36</th><td>  <em>double</em> <dfn class="decl" id="tensorflow::grappler::RobustStats::mean_" title='tensorflow::grappler::RobustStats::mean_' data-ref="tensorflow::grappler::RobustStats::mean_">mean_</dfn>;</td></tr>
+<tr><th id="37">37</th><td>  <em>double</em> <dfn class="decl" id="tensorflow::grappler::RobustStats::stddev_" title='tensorflow::grappler::RobustStats::stddev_' data-ref="tensorflow::grappler::RobustStats::stddev_">stddev_</dfn>;</td></tr>
+<tr><th id="38">38</th><td>};</td></tr>
+<tr><th id="39">39</th><td>}  <i>// namespace grappler</i></td></tr>
+<tr><th id="40">40</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_GRAPPLER_COSTS_ROBUST_STATS_H_</u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='measuring_cost_estimator.cc.html'>tensorflow/tensorflow/core/grappler/costs/measuring_cost_estimator.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

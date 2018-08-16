@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='116' type='static bool xla::LayoutUtil::IsSparseArray(const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='114'>// Returns whether the given Shape is an array (i.e. not a tuple) and has a
+  // sparse format layout.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1163' u='c' c='_ZNK3xla7Literal16GetSparseElementExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1173' u='c' c='_ZN3xla7Literal19AppendSparseElementEN10tensorflow3gtl10ArraySliceIxEET_RKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1276' u='c' c='_ZN3xla7Literal14PopulateSparseENS_16SparseIndexArrayEN10tensorflow3gtl10ArraySliceIT_EEb'/>
+<def f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='297' ll='300' type='static bool xla::LayoutUtil::IsSparseArray(const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='297'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='101' u='c' c='_ZN3xla7LiteralC1ERKNS_5ShapeEb'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='952' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1164' u='c' c='_ZN3xla7Literal5Piece26SortSparseElementsInternalEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1203' u='c' c='_ZN3xla12_GLOBAL__N_114ToStringHelperERKNS_7LiteralERKNS_10ShapeIndexEbPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1336' u='c' c='_ZNK3xla7Literal20sparse_element_countEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='2067' u='c' c='_ZNK3xla7Literal7ToProtoEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_hlo_support_checker.cc' l='33' u='c' c='_ZN3xla20CpuHloSupportChecker3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='719' u='c' c='_ZN3xla9ShapeUtil10ByteSizeOfERKNS_5ShapeEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='738' u='c' c='_ZN3xla9ShapeUtil18ByteSizeOfElementsERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='760' u='c' c='_ZN3xla9ShapeUtil23ByteSizeOfSparseIndicesERKNS_5ShapeE'/>

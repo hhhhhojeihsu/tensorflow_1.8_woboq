@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/contrib/ffmpeg/ffmpeg_lib.h' l='58' type='tensorflow::Status tensorflow::ffmpeg::ReadVideoFile(const string &amp; filename, std::vector&lt;uint8&gt; * output_data, uint32 * width, uint32 * height, uint32 * frames)'/>
+<doc f='tensorflow/tensorflow/contrib/ffmpeg/ffmpeg_lib.h' l='56'>// Reads an video file using ffmpeg adn converts it into a RGB24 in uint8
+// [frames, height, width, 3]. The w, h, and frames are obtained from ffmpeg.</doc>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/decode_video_op.cc' l='62' u='c' c='_ZN10tensorflow6ffmpeg13DecodeVideoOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='364' ll='420' type='tensorflow::Status tensorflow::ffmpeg::ReadVideoFile(const string &amp; filename, std::vector&lt;uint8&gt; * output_data, uint32 * width, uint32 * height, uint32 * frames)'/>

@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/python/eager/pywrap_tfe.h' l='156' type='PyObject * TFE_Py_TapeGradient(PyObject * tape, PyObject * vspace, PyObject * target, PyObject * sources, PyObject * output_gradients, TF_Status * status)'/>
+<doc f='tensorflow/tensorflow/python/eager/pywrap_tfe.h' l='150'>// Computes a gradient based on information recorded on the tape.`tape` must
+// have been produced by TFE_Py_NewTape. `vspace` must be a
+// imperative_grad.py:VSpace named tuple. `target` and `sources` must be python
+// lists of Tensor objects. `output_gradients` is either None or a python list
+// of either Tensor or None, and if not None should have the same length as
+// target.</doc>
+<def f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1324' ll='1389' type='PyObject * TFE_Py_TapeGradient(PyObject * tape, PyObject * vspace, PyObject * target, PyObject * sources, PyObject * output_gradients, TF_Status * status)'/>

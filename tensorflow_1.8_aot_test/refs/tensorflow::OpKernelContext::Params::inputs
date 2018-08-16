@@ -1,0 +1,30 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='551' type='const gtl::InlinedVector&lt;TensorValue, 4&gt; *'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='594' u='r' c='_ZNK10tensorflow15OpKernelContext10num_inputsEv'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1339' u='r' c='_ZNK10tensorflow15OpKernelContext11input_dtypeEi'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1366' u='r' c='_ZNK10tensorflow15OpKernelContext12input_is_refEi'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1390' u='r' c='_ZNK10tensorflow15OpKernelContext9has_inputEi'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1397' u='r' c='_ZN10tensorflow15OpKernelContext15input_ref_mutexEi'/>
+<offset>832</offset>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='550'>// Inputs to this op kernel.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/graph_compiler.cc' l='241' u='w' c='_ZN10tensorflow13GraphCompiler20PartiallySetupParamsEPNS_15OpKernelContext6ParamsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/kernel_and_device.cc' l='73' u='w' c='_ZN10tensorflow15KernelAndDevice3RunEPSt6vectorINS_6TensorESaIS2_EES5_PNS_13NodeExecStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='1473' u='r' c='_ZN10tensorflow12_GLOBAL__N_113ExecutorState10AsyncStateC1ERKNS_15OpKernelContext6ParamsERKNS1_10TaggedNodeEPKNS0_8NodeItemEPNS1_5EntryEPNS_20NodeExecStatsWrapperE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='1484' u='w' c='_ZN10tensorflow12_GLOBAL__N_113ExecutorState10AsyncStateC1ERKNS_15OpKernelContext6ParamsERKNS1_10TaggedNodeEPKNS0_8NodeItemEPNS1_5EntryEPNS_20NodeExecStatsWrapperE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='1534' u='w' c='_ZN10tensorflow12_GLOBAL__N_113ExecutorState7ProcessENS1_10TaggedNodeEx'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='331' u='r' c='_ZN10tensorflow15OpKernelContext5inputENS_11StringPieceEPPKNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='345' u='r' c='_ZNK10tensorflow15OpKernelContext11input_dtypeENS_11StringPieceEPNS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='370' u='r' c='_ZN10tensorflow15OpKernelContext5inputEi'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='381' u='r' c='_ZN10tensorflow15OpKernelContext13mutable_inputEib'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='386' u='r' c='_ZN10tensorflow15OpKernelContext13mutable_inputEib'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='399' u='r' c='_ZN10tensorflow15OpKernelContext17replace_ref_inputEiRKNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='402' u='r' c='_ZN10tensorflow15OpKernelContext17replace_ref_inputEiRKNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='412' u='r' c='_ZN10tensorflow15OpKernelContext31forward_ref_input_to_ref_outputEii'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='413' u='r' c='_ZN10tensorflow15OpKernelContext31forward_ref_input_to_ref_outputEii'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='469' u='r' c='_ZN10tensorflow15OpKernelContext13forward_inputEiiNS_8DataTypeERKNS_11TensorShapeENS_10MemoryTypeERKNS_19AllocatorAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='555' u='r' c='_ZN10tensorflow15OpKernelContext16delete_ref_inputEib'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='558' u='r' c='_ZN10tensorflow15OpKernelContext16delete_ref_inputEib'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='577' u='r' c='_ZN10tensorflow15OpKernelContext13mutable_inputENS_11StringPieceEPNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='580' u='r' c='_ZN10tensorflow15OpKernelContext13mutable_inputENS_11StringPieceEPNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='840' u='r' c='_ZN10tensorflow15OpKernelContext26ValidateInputsAreSameShapeEPNS_8OpKernelE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='857' u='r' c='_ZN10tensorflow15OpKernelContext14MatchSignatureENS_3gtl10ArraySliceINS_8DataTypeEEES4_'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='969' u='w' c='_ZNK10tensorflow8grappler15ConstantFolding12EvaluateNodeERKNS_7NodeDefERKNS_3gtl13InlinedVectorINS_11TensorValueELi4EEEPS8_'/>

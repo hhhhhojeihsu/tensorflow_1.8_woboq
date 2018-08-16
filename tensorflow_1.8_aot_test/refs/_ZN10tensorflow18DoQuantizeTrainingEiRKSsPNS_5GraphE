@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/core/graph/quantize_training.h' l='38' type='tensorflow::Status tensorflow::DoQuantizeTraining(int32 num_bits, const string &amp; quant_op_type, tensorflow::Graph * g)'/>
+<def f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='598' ll='661' type='tensorflow::Status tensorflow::DoQuantizeTraining(int32 num_bits, const string &amp; quant_op_type, tensorflow::Graph * graph)'/>
+<use f='tensorflow/tensorflow/core/graph/quantize_training.cc' l='671' u='c' c='_ZN10tensorflow28DoQuantizeTrainingOnGraphDefERKNS_8GraphDefEiRKSsPS0_'/>
+<doc f='tensorflow/tensorflow/core/graph/quantize_training.h' l='22'>// Rewrites graph for quantized training.
+// Rewrites the forward pass to include the precision loss with quantization so
+// the model can learn to deal with such loss and achieve better accuracy when
+// it is quantized later for inference.
+// Note that the num_bits should be in [1, 63] and &apos;g&apos; must be not null.
+// quant_op_type specifies which quantization op should be used.
+// Current ops supported:
+// - QuantizeAndDequantizeV2.
+// - FakeQuantWithMinMaxVars.
+//
+// On success, returns OK.
+//
+// On failure, returns the error status. Possible errors include:
+//    - num_bits out of range.
+//    - g is null.
+//    - More than 1 unknown ops encountered.</doc>

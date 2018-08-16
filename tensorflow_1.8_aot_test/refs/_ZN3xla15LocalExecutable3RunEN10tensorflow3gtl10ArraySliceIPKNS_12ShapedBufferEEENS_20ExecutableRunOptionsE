@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='41' type='StatusOr&lt;std::unique_ptr&lt;ScopedShapedBuffer&gt; &gt; xla::LocalExecutable::Run(const tensorflow::gtl::ArraySlice&lt;const ShapedBuffer *&gt; arguments, xla::ExecutableRunOptions run_options)'/>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='189' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='39'>// Run the compiled computation with the given arguments and options and
+  // return the result.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='71' u='c' c='_ZN10tensorflow20XlaCompileOnDemandOp3RunEPNS_15OpKernelContextERKNS_9XlaDevice8MetadataEPKNS_11XlaCompiler17CompilationResultEPN3xla15LocalExecutableE'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='139' ll='178' type='StatusOr&lt;std::unique_ptr&lt;ScopedShapedBuffer&gt; &gt; xla::LocalExecutable::Run(const tensorflow::gtl::ArraySlice&lt;const ShapedBuffer *&gt; arguments, xla::ExecutableRunOptions run_options)'/>

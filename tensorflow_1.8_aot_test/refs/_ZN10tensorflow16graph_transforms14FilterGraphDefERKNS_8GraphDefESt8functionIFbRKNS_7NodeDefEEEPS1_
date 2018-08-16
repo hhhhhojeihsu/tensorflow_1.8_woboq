@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.h' l='108' type='void tensorflow::graph_transforms::FilterGraphDef(const tensorflow::GraphDef &amp; input_graph_def, std::function&lt;bool (const NodeDef &amp;)&gt; selector, tensorflow::GraphDef * output_graph_def)'/>
+<doc f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.h' l='106'>// Creates a copy of the input GraphDef, but only containing the nodes where the
+// supplied selector function returned true.</doc>
+<use f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='164' u='c' c='_ZN10tensorflow16graph_transforms17RemoveUnusedNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/strip_unused_nodes.cc' l='163' u='c' c='_ZN10tensorflow16graph_transforms16StripUnusedNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<def f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='158' ll='167' type='void tensorflow::graph_transforms::FilterGraphDef(const tensorflow::GraphDef &amp; input_graph_def, std::function&lt;bool (const NodeDef &amp;)&gt; selector, tensorflow::GraphDef * output_graph_def)'/>

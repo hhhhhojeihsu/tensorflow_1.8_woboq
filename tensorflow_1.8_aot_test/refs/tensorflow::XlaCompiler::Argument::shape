@@ -1,0 +1,32 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='121' type='tensorflow::TensorShape'/>
+<offset>64</offset>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='111'>// The shape of the argument. For:
+    // * a parameter: the shape of the parameter.
+    // * a constant: ignored; the shape given by constant_value is used
+    //     instead.
+    // * an uninitialized resource: ignored. We don&apos;t yet know the shape of an
+    //     uninitialized resource (otherwise we would have initialized it!)
+    // * an initialized variable: the shape of the variable&apos;s value.
+    // * an initialized TensorArray or Stack resource: the shape of an entry in
+    //   the TensorArray/Stack. Note this is the size of a single entry, not the
+    //   XLA data structure that represents the complete stack/array.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='141' u='w' c='_ZN10tensorflow12_GLOBAL__N_114BuildArgumentsERKSt3mapIiNS_6TensorESt4lessIiESaISt4pairIKiS2_EEERKS1_IiNS_14OptionalTensorES4_SaIS5_IS6_SC_EEEPNS_15Op9165003'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='154' u='w' c='_ZN10tensorflow12_GLOBAL__N_114BuildArgumentsERKSt3mapIiNS_6TensorESt4lessIiESaISt4pairIKiS2_EEERKS1_IiNS_14OptionalTensorES4_SaIS5_IS6_SC_EEEPNS_15Op9165003'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='166' u='w' c='_ZN10tensorflow12_GLOBAL__N_114BuildArgumentsERKSt3mapIiNS_6TensorESt4lessIiESaISt4pairIKiS2_EEERKS1_IiNS_14OptionalTensorES4_SaIS5_IS6_SC_EEEPNS_15Op9165003'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='175' u='w' c='_ZN10tensorflow12_GLOBAL__N_114BuildArgumentsERKSt3mapIiNS_6TensorESt4lessIiESaISt4pairIKiS2_EEERKS1_IiNS_14OptionalTensorES4_SaIS5_IS6_SC_EEEPNS_15Op9165003'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/graph_compiler.cc' l='63' u='w' c='_ZN10tensorflow12_GLOBAL__N_116PrepareArgumentsEPNS_18XlaOpKernelContextEPNS_5GraphERKSt6vectorIPKNS_13XlaExpressionESaIS8_EEPS5_INS_11XlaCompiler8ArgumentESaISE_EE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='66' u='w' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='76' u='m' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='81' u='w' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='84' u='m' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='61' u='w' c='_ZN10tensorflow12_GLOBAL__N_134MakeXlaCompilerArgumentsFromInputsEPNS_18XlaOpKernelContextEPSt6vectorINS_11XlaCompiler8ArgumentESaIS5_EEPbS9_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='72' u='m' c='_ZN10tensorflow12_GLOBAL__N_134MakeXlaCompilerArgumentsFromInputsEPNS_18XlaOpKernelContextEPSt6vectorINS_11XlaCompiler8ArgumentESaIS5_EEPbS9_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='78' u='w' c='_ZN10tensorflow12_GLOBAL__N_134MakeXlaCompilerArgumentsFromInputsEPNS_18XlaOpKernelContextEPSt6vectorINS_11XlaCompiler8ArgumentESaIS5_EEPbS9_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='158' u='w' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='76' u='m' c='_ZNK10tensorflow11XlaCompiler8ArgumenteqERKS1_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='76' u='r' c='_ZNK10tensorflow11XlaCompiler8ArgumenteqERKS1_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='239' u='r' c='_ZN10tensorflow11XlaCompiler19XLAShapeForArgumentERKNS0_8ArgumentEPN3xla5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='246' u='r' c='_ZN10tensorflow11XlaCompiler19XLAShapeForArgumentERKNS0_8ArgumentEPN3xla5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='257' u='r' c='_ZN10tensorflow11XlaCompiler19XLAShapeForArgumentERKNS0_8ArgumentEPN3xla5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='274' u='r' c='_ZN10tensorflow11XlaCompiler19XLAShapeForArgumentERKNS0_8ArgumentEPN3xla5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='464' u='r' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>

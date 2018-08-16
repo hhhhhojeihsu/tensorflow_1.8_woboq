@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='308' type='TfLiteStatus tflite::Interpreter::SetBufferHandle(int tensor_index, TfLiteBufferHandle buffer_handle, TfLiteDelegate * delegate)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='299'>// Set the delegate buffer handle to a tensor. It can be called in the
+  // following cases:
+  // 1. Set the buffer handle to a tensor that&apos;s not being written by a
+  //    delegate. For example, feeding an OpenGL texture as the input of the
+  //    inference graph.
+  // 2. Set the buffer handle to a tensor that uses the same delegate.
+  //    For example, set an OpenGL texture as the output of inference, while
+  //    the node which produces output is an OpenGL delegate node.
+  // WARNING: This is an experimental API and subject to change.</doc>
+<def f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='825' ll='842' type='TfLiteStatus tflite::Interpreter::SetBufferHandle(int tensor_index, TfLiteBufferHandle buffer_handle, TfLiteDelegate * delegate)'/>

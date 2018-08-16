@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>xla_tensor.h source code [tensorflow/tensorflow/compiler/jit/xla_tensor.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::XlaTensor "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/compiler/jit/xla_tensor.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>compiler</a>/<a href='./'>jit</a>/<a href='xla_tensor.h.html'>xla_tensor.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2018 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_COMPILER_JIT_XLA_TENSOR_H_">TENSORFLOW_COMPILER_JIT_XLA_TENSOR_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMPILER_JIT_XLA_TENSOR_H_" data-ref="_M/TENSORFLOW_COMPILER_JIT_XLA_TENSOR_H_">TENSORFLOW_COMPILER_JIT_XLA_TENSOR_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../xla/client/local_client.h.html">"tensorflow/compiler/xla/client/local_client.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../xla/service/shaped_buffer.h.html">"tensorflow/compiler/xla/service/shaped_buffer.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../core/framework/allocator.h.html">"tensorflow/core/framework/allocator.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../core/framework/device_base.h.html">"tensorflow/core/framework/device_base.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../core/lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../../core/platform/mutex.h.html">"tensorflow/core/platform/mutex.h"</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><i>// The implementation of a Tensor for an XlaDevice. All device tensors are</i></td></tr>
+<tr><th id="29">29</th><td><i>// actually one of these.</i></td></tr>
+<tr><th id="30">30</th><td><i>//</i></td></tr>
+<tr><th id="31">31</th><td><i>// To distinguish between "normal" device tensors and XlaTensors, the raw</i></td></tr>
+<tr><th id="32">32</th><td><i>// pointer data stored in the TensorBuffer is a tagged pointer.</i></td></tr>
+<tr><th id="33">33</th><td><b>class</b> <dfn class="type def" id="tensorflow::XlaTensor" title='tensorflow::XlaTensor' data-ref="tensorflow::XlaTensor">XlaTensor</dfn> {</td></tr>
+<tr><th id="34">34</th><td> <b>public</b>:</td></tr>
+<tr><th id="35">35</th><td>  <i>// Downcast from a Tensor to an XlaTensor. Return nullptr if the downcast</i></td></tr>
+<tr><th id="36">36</th><td><i>  // fails.</i></td></tr>
+<tr><th id="37">37</th><td>  <em>static</em> <a class="type" href="#tensorflow::XlaTensor" title='tensorflow::XlaTensor' data-ref="tensorflow::XlaTensor">XlaTensor</a>* <dfn class="decl" id="_ZN10tensorflow9XlaTensor10FromTensorEPNS_6TensorE" title='tensorflow::XlaTensor::FromTensor' data-ref="_ZN10tensorflow9XlaTensor10FromTensorEPNS_6TensorE">FromTensor</dfn>(<a class="type" href="../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>* <dfn class="local col3 decl" id="8063tensor" title='tensor' data-type='tensorflow::Tensor *' data-ref="8063tensor">tensor</dfn>);</td></tr>
+<tr><th id="38">38</th><td>  <i>// Downcast from a Tensor to an XlaTensor. Return nullptr if the downcast</i></td></tr>
+<tr><th id="39">39</th><td><i>  // fails.</i></td></tr>
+<tr><th id="40">40</th><td>  <em>static</em> <em>const</em> <a class="type" href="#tensorflow::XlaTensor" title='tensorflow::XlaTensor' data-ref="tensorflow::XlaTensor">XlaTensor</a>* <dfn class="decl" id="_ZN10tensorflow9XlaTensor10FromTensorEPKNS_6TensorE" title='tensorflow::XlaTensor::FromTensor' data-ref="_ZN10tensorflow9XlaTensor10FromTensorEPKNS_6TensorE">FromTensor</dfn>(<em>const</em> <a class="type" href="../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>* <dfn class="local col4 decl" id="8064tensor" title='tensor' data-type='const tensorflow::Tensor *' data-ref="8064tensor">tensor</dfn>);</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td>  <i>// Create a DeviceMemoryBase from a Tensor. The Tensor can be an XlaTensor, in</i></td></tr>
+<tr><th id="43">43</th><td><i>  // which case the returned value is shaped_buffer()-&gt;root_buffer(), or a</i></td></tr>
+<tr><th id="44">44</th><td><i>  // normal Tensor in which case the returned value is</i></td></tr>
+<tr><th id="45">45</th><td><i>  // {tensor.tensor_data().data(), tensor.tensor_data().size}.</i></td></tr>
+<tr><th id="46">46</th><td>  <em>static</em> <span class="namespace">perftools::gputools::</span><a class="type" href="../../stream_executor/device_memory.h.html#perftools::gputools::DeviceMemoryBase" title='perftools::gputools::DeviceMemoryBase' data-ref="perftools::gputools::DeviceMemoryBase">DeviceMemoryBase</a> <dfn class="decl" id="_ZN10tensorflow9XlaTensor22DeviceMemoryFromTensorERKNS_6TensorE" title='tensorflow::XlaTensor::DeviceMemoryFromTensor' data-ref="_ZN10tensorflow9XlaTensor22DeviceMemoryFromTensorERKNS_6TensorE">DeviceMemoryFromTensor</dfn>(</td></tr>
+<tr><th id="47">47</th><td>      <em>const</em> <a class="type" href="../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col5 decl" id="8065tensor" title='tensor' data-type='const tensorflow::Tensor &amp;' data-ref="8065tensor">tensor</dfn>);</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <i>// Assign the internal ShapedBuffer to new memory for the given dtype and</i></td></tr>
+<tr><th id="50">50</th><td><i>  // shape. If a ShapedBuffer exists already (has_shaped_buffer() == true), it</i></td></tr>
+<tr><th id="51">51</th><td><i>  // is replaced and the managed memory deallocated.</i></td></tr>
+<tr><th id="52">52</th><td>  <a class="type" href="../../core/lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi" title='tensorflow::XlaTensor::AllocateShapedBuffer' data-ref="_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi">AllocateShapedBuffer</dfn>(<span class='type' title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</span> <dfn class="local col6 decl" id="8066dtype" title='dtype' data-type='tensorflow::DataType' data-ref="8066dtype">dtype</dfn>, <em>const</em> <a class="type" href="../../core/framework/tensor_shape.h.html#tensorflow::TensorShape" title='tensorflow::TensorShape' data-ref="tensorflow::TensorShape">TensorShape</a>&amp; <dfn class="local col7 decl" id="8067shape" title='shape' data-type='const tensorflow::TensorShape &amp;' data-ref="8067shape">shape</dfn>,</td></tr>
+<tr><th id="53">53</th><td>                              <span class="namespace">xla::</span><a class="type" href="../xla/client/local_client.h.html#xla::LocalClient" title='xla::LocalClient' data-ref="xla::LocalClient">LocalClient</a>* <dfn class="local col8 decl" id="8068client" title='client' data-type='xla::LocalClient *' data-ref="8068client">client</dfn>, <em>int</em> <dfn class="local col9 decl" id="8069device_ordinal" title='device_ordinal' data-type='int' data-ref="8069device_ordinal">device_ordinal</dfn>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>  <i>// Some Tensors can have complex on-device shapes, including tuple shapes. To</i></td></tr>
+<tr><th id="56">56</th><td><i>  // manage the memory for these tensors a ShapedBuffer may be required.</i></td></tr>
+<tr><th id="57">57</th><td><i></i></td></tr>
+<tr><th id="58">58</th><td><i>  // Return true if this TensorInfo contains a ShapedBuffer.</i></td></tr>
+<tr><th id="59">59</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK10tensorflow9XlaTensor17has_shaped_bufferEv" title='tensorflow::XlaTensor::has_shaped_buffer' data-ref="_ZNK10tensorflow9XlaTensor17has_shaped_bufferEv">has_shaped_buffer</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#tensorflow::XlaTensor::shaped_buffer_" title='tensorflow::XlaTensor::shaped_buffer_' data-ref="tensorflow::XlaTensor::shaped_buffer_">shaped_buffer_</a> <a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZStneRKSt10unique_ptrIT_T0_EDn" title='std::operator!=' data-ref="_ZStneRKSt10unique_ptrIT_T0_EDn">!=</a> <b>nullptr</b>; }</td></tr>
+<tr><th id="60">60</th><td>  <i>// Return the contained ShapedBuffer.</i></td></tr>
+<tr><th id="61">61</th><td><i>  // REQUIRES: has_shaped_buffer()</i></td></tr>
+<tr><th id="62">62</th><td>  <em>const</em> <span class="namespace">xla::</span><a class="type" href="../xla/service/shaped_buffer.h.html#xla::ShapedBuffer" title='xla::ShapedBuffer' data-ref="xla::ShapedBuffer">ShapedBuffer</a>&amp; <dfn class="decl def" id="_ZNK10tensorflow9XlaTensor13shaped_bufferEv" title='tensorflow::XlaTensor::shaped_buffer' data-ref="_ZNK10tensorflow9XlaTensor13shaped_bufferEv">shaped_buffer</dfn>() <em>const</em> {</td></tr>
+<tr><th id="63">63</th><td>    <a class="macro" href="../../core/platform/default/logging.h.html#97" title="if ((__builtin_expect(!(has_shaped_buffer()), 0))) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/compiler/jit/xla_tensor.h&quot;, 63) &lt;&lt; &quot;Check failed: &quot; &quot;has_shaped_buffer()&quot; &quot; &quot;" data-ref="_M/CHECK">CHECK</a>(<a class="member" href="#_ZNK10tensorflow9XlaTensor17has_shaped_bufferEv" title='tensorflow::XlaTensor::has_shaped_buffer' data-ref="_ZNK10tensorflow9XlaTensor17has_shaped_bufferEv">has_shaped_buffer</a>());</td></tr>
+<tr><th id="64">64</th><td>    <b>return</b> <a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZNKSt10unique_ptrdeEv" title='std::unique_ptr::operator*' data-ref="_ZNKSt10unique_ptrdeEv">*</a><a class="member" href="#tensorflow::XlaTensor::shaped_buffer_" title='tensorflow::XlaTensor::shaped_buffer_' data-ref="tensorflow::XlaTensor::shaped_buffer_">shaped_buffer_</a>;</td></tr>
+<tr><th id="65">65</th><td>  }</td></tr>
+<tr><th id="66">66</th><td>  <i>// Mutates the TensorInfo to set the ShapedBuffer.</i></td></tr>
+<tr><th id="67">67</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow9XlaTensor17set_shaped_bufferESt10unique_ptrIN3xla18ScopedShapedBufferESt14default_deleteIS3_EE" title='tensorflow::XlaTensor::set_shaped_buffer' data-ref="_ZN10tensorflow9XlaTensor17set_shaped_bufferESt10unique_ptrIN3xla18ScopedShapedBufferESt14default_deleteIS3_EE">set_shaped_buffer</dfn>(</td></tr>
+<tr><th id="68">68</th><td>      <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">xla::</span><a class="type" href="../xla/service/shaped_buffer.h.html#xla::ScopedShapedBuffer" title='xla::ScopedShapedBuffer' data-ref="xla::ScopedShapedBuffer">ScopedShapedBuffer</a>&gt; <dfn class="local col0 decl" id="8070shaped_buffer" title='shaped_buffer' data-type='std::unique_ptr&lt;xla::ScopedShapedBuffer&gt;' data-ref="8070shaped_buffer">shaped_buffer</dfn>) {</td></tr>
+<tr><th id="69">69</th><td>    <a class="member" href="#tensorflow::XlaTensor::shaped_buffer_" title='tensorflow::XlaTensor::shaped_buffer_' data-ref="tensorflow::XlaTensor::shaped_buffer_">shaped_buffer_</a> <a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZNSt10unique_ptraSEOSt10unique_ptrIT_T0_E" title='std::unique_ptr::operator=' data-ref="_ZNSt10unique_ptraSEOSt10unique_ptrIT_T0_E">=</a> <span class="namespace">std::</span><a class="ref" href="../../../../include/c++/5/bits/move.h.html#_ZSt4moveOT_" title='std::move' data-ref="_ZSt4moveOT_">move</a>(<span class='refarg'><a class="local col0 ref" href="#8070shaped_buffer" title='shaped_buffer' data-ref="8070shaped_buffer">shaped_buffer</a></span>);</td></tr>
+<tr><th id="70">70</th><td>  }</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>  <i>// Some tensors on the device may have known values on the host. We use these</i></td></tr>
+<tr><th id="73">73</th><td><i>  // in on-demand mode to avoid re-copying values from the device if we know the</i></td></tr>
+<tr><th id="74">74</th><td><i>  // host value already.</i></td></tr>
+<tr><th id="75">75</th><td><i></i></td></tr>
+<tr><th id="76">76</th><td><i>  // Return true if this TensorInfo contains a host tensor.</i></td></tr>
+<tr><th id="77">77</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK10tensorflow9XlaTensor15has_host_tensorEv" title='tensorflow::XlaTensor::has_host_tensor' data-ref="_ZNK10tensorflow9XlaTensor15has_host_tensorEv">has_host_tensor</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#tensorflow::XlaTensor::host_tensor_" title='tensorflow::XlaTensor::host_tensor_' data-ref="tensorflow::XlaTensor::host_tensor_">host_tensor_</a> <a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZStneRKSt10unique_ptrIT_T0_EDn" title='std::operator!=' data-ref="_ZStneRKSt10unique_ptrIT_T0_EDn">!=</a> <b>nullptr</b>; }</td></tr>
+<tr><th id="78">78</th><td>  <i>// Return the contained host tensor.</i></td></tr>
+<tr><th id="79">79</th><td><i>  // REQUIRES: has_host_tensor()</i></td></tr>
+<tr><th id="80">80</th><td>  <em>const</em> <a class="type" href="../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="decl def" id="_ZNK10tensorflow9XlaTensor11host_tensorEv" title='tensorflow::XlaTensor::host_tensor' data-ref="_ZNK10tensorflow9XlaTensor11host_tensorEv">host_tensor</dfn>() <em>const</em> { <b>return</b> <a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZNKSt10unique_ptrdeEv" title='std::unique_ptr::operator*' data-ref="_ZNKSt10unique_ptrdeEv">*</a><a class="member" href="#tensorflow::XlaTensor::host_tensor_" title='tensorflow::XlaTensor::host_tensor_' data-ref="tensorflow::XlaTensor::host_tensor_">host_tensor_</a>; }</td></tr>
+<tr><th id="81">81</th><td>  <i>// Sets the contained host tensor.</i></td></tr>
+<tr><th id="82">82</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow9XlaTensor15set_host_tensorERKNS_6TensorE" title='tensorflow::XlaTensor::set_host_tensor' data-ref="_ZN10tensorflow9XlaTensor15set_host_tensorERKNS_6TensorE">set_host_tensor</dfn>(<em>const</em> <a class="type" href="../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col1 decl" id="8071tensor" title='tensor' data-type='const tensorflow::Tensor &amp;' data-ref="8071tensor">tensor</dfn>) {</td></tr>
+<tr><th id="83">83</th><td>    <a class="member" href="#tensorflow::XlaTensor::host_tensor_" title='tensorflow::XlaTensor::host_tensor_' data-ref="tensorflow::XlaTensor::host_tensor_">host_tensor_</a>.<a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZNSt10unique_ptr5resetENNS_8_PointerE4typeE" title='std::unique_ptr::reset' data-ref="_ZNSt10unique_ptr5resetENNS_8_PointerE4typeE">reset</a>(<b>new</b> <a class="type" href="../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a><a class="ref" href="../../core/framework/tensor.h.html#_ZN10tensorflow6TensorC1ERKS0_" title='tensorflow::Tensor::Tensor' data-ref="_ZN10tensorflow6TensorC1ERKS0_">(</a><a class="local col1 ref" href="#8071tensor" title='tensor' data-ref="8071tensor">tensor</a>));</td></tr>
+<tr><th id="84">84</th><td>  }</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>  <i>// Convert from a raw pointer to an XlaTensor, removing the pointer tag.</i></td></tr>
+<tr><th id="87">87</th><td>  <em>static</em> <a class="type" href="#tensorflow::XlaTensor" title='tensorflow::XlaTensor' data-ref="tensorflow::XlaTensor">XlaTensor</a>* <dfn class="decl" id="_ZN10tensorflow9XlaTensor17FromOpaquePointerEPv" title='tensorflow::XlaTensor::FromOpaquePointer' data-ref="_ZN10tensorflow9XlaTensor17FromOpaquePointerEPv">FromOpaquePointer</dfn>(<em>void</em>* <dfn class="local col2 decl" id="8072ptr" title='ptr' data-type='void *' data-ref="8072ptr">ptr</dfn>);</td></tr>
+<tr><th id="88">88</th><td>  <i>// Convert to a raw pointer from an XlaTensor, adding the pointer tag.</i></td></tr>
+<tr><th id="89">89</th><td>  <em>static</em> <em>void</em>* <dfn class="decl" id="_ZN10tensorflow9XlaTensor15ToOpaquePointerEPS0_" title='tensorflow::XlaTensor::ToOpaquePointer' data-ref="_ZN10tensorflow9XlaTensor15ToOpaquePointerEPS0_">ToOpaquePointer</dfn>(<a class="type" href="#tensorflow::XlaTensor" title='tensorflow::XlaTensor' data-ref="tensorflow::XlaTensor">XlaTensor</a>* <dfn class="local col3 decl" id="8073tensor" title='tensor' data-type='tensorflow::XlaTensor *' data-ref="8073tensor">tensor</dfn>);</td></tr>
+<tr><th id="90">90</th><td></td></tr>
+<tr><th id="91">91</th><td> <b>private</b>:</td></tr>
+<tr><th id="92">92</th><td>  <i>// The optional contained ShapedBuffer.</i></td></tr>
+<tr><th id="93">93</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">xla::</span><a class="type" href="../xla/service/shaped_buffer.h.html#xla::ScopedShapedBuffer" title='xla::ScopedShapedBuffer' data-ref="xla::ScopedShapedBuffer">ScopedShapedBuffer</a>&gt; <dfn class="decl" id="tensorflow::XlaTensor::shaped_buffer_" title='tensorflow::XlaTensor::shaped_buffer_' data-ref="tensorflow::XlaTensor::shaped_buffer_">shaped_buffer_</dfn>;</td></tr>
+<tr><th id="94">94</th><td>  <i>// An optional host tensor value.</i></td></tr>
+<tr><th id="95">95</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../../core/framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&gt; <dfn class="decl" id="tensorflow::XlaTensor::host_tensor_" title='tensorflow::XlaTensor::host_tensor_' data-ref="tensorflow::XlaTensor::host_tensor_">host_tensor_</dfn>;</td></tr>
+<tr><th id="96">96</th><td>};</td></tr>
+<tr><th id="97">97</th><td></td></tr>
+<tr><th id="98">98</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><u>#<span data-ppcond="16">endif</span></u></td></tr>
+<tr><th id="101">101</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

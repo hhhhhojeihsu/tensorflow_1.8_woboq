@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/name_uniquer.h' l='40' type='string xla::NameUniquer::GetUniqueName(tensorflow::StringPiece prefix = &quot;&quot;)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/name_uniquer.h' l='38'>// Get a sanitized unique name in a string, with an optional prefix for
+  // convenience.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='110' u='c' c='_ZN3xla3cpu9IrEmitter15EmitComputationEPNS_14HloComputationERKSsbPSt6vectorIPKNS_14HloInstructionESaIS9_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='817' u='c' c='_ZN3xla14HloComputation12UniquifyNameEPNS_11NameUniquerE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3435' u='c' c='_ZN3xla14HloInstruction12UniquifyNameEPNS_11NameUniquerE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='76' u='c' c='_ZN3xla9HloModule22AddComputationInternalESt10unique_ptrINS_14HloComputationESt14default_deleteIS2_EEbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='78' u='c' c='_ZN3xla9HloModule22AddComputationInternalESt10unique_ptrINS_14HloComputationESt14default_deleteIS2_EEbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='689' u='c' c='_ZN3xla7llvm_irL26GetProcessUniqueIrFileNameEN10tensorflow11StringPieceE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/name_uniquer.cc' l='55' ll='85' type='string xla::NameUniquer::GetUniqueName(tensorflow::StringPiece prefix = &quot;&quot;)'/>

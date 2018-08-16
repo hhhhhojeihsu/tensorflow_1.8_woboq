@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.h' l='76' type='string tensorflow::io::BufferedInputStream::ReadLineAsString()'/>
+<doc f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.h' l='70'>// Returns one text line of data until end-of-file or a &apos;\n&apos; is read. The &apos;\n&apos;
+  // is included in the result.
+  // This method is a substitute for ReadLine() when called from Python which is
+  // the expectation in the python File::readline() API.
+  // Also, &apos;\0&apos;s are treated like any other character within the line and given
+  // no special treatment.</doc>
+<def f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.cc' l='201' ll='205' type='string tensorflow::io::BufferedInputStream::ReadLineAsString()'/>

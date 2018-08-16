@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='263' type='tensorflow::Status tensorflow::OpKernelConstruction::allocate_temp(tensorflow::DataType type, const tensorflow::TensorShape &amp; shape, tensorflow::Tensor * out_temp)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='246'>// Allocation of tensors during kernel construction:
+  //
+  // It is legal to temporarily allocate scratch tensor storage during
+  // Op kernel construction. Scratch tensors should be allocated using
+  // allocate_temp below. Some kernels need to keep tensors in between
+  // invocations. If such a Tensor is allocated during kernel
+  // construction this must be done using allocate_persistent, and the
+  // Op may only store the returned PersistentTensor object. When the
+  // Tensor is needed in a subsequent invocation, it can be retrieved
+  // from the PersistentTensor using the AccessTensor method. This
+  // ensures that the system is made aware of any use of the tensor&apos;s
+  // allocated memory, which is needed for correctness on asynchronous
+  // devices such as GPUs.
+
+  // Allocates a temporary Tensor of the specified type and shape. The
+  // Tensor must not be used after kernel construction is
+  // complete. See comment above.</doc>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='217' ll='234' type='tensorflow::Status tensorflow::OpKernelConstruction::allocate_temp(tensorflow::DataType type, const tensorflow::TensorShape &amp; shape, tensorflow::Tensor * out_temp)'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='242' u='c' c='_ZN10tensorflow20OpKernelConstruction19allocate_persistentENS_8DataTypeERKNS_11TensorShapeEPNS_16PersistentTensorEPPNS_6TensorE'/>

@@ -1,0 +1,54 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='260' type='3'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='208'>/** Performs an 2-D convolution operation.
+   *
+   * The CONV_2D op sweeps a 2-D filter that can mix channels together over a
+   * batch of images, applying the filter to each window of each image of the
+   * appropriate size.
+   *
+   * The output dimensions are functions of the filter dimensions, stride, and
+   * padding.
+   *
+   * The values in the output tensor are computed as:
+   *
+   *     output[batch, row, col, channel] =
+   *         sum_{i, j} (
+   *             input[batch, row + i, col + j, k] *
+   *             filter[channel, row + i, col + j, k] +
+   *             bias[channel]
+   *         )
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   * * {@link ANEURALNETWORKS_TENSOR_QUANT8_ASYMM}
+   *
+   * Supported tensor rank: 4, with &quot;NHWC&quot; data layout.
+   *
+   * Inputs:
+   * * 0: A 4-D tensor, of shape [batches, height, width, depth_in], specifying
+   * the input.
+   * * 1: A 4-D tensor, of shape [depth_out, filter_height, filter_width,
+   * depth_in], specifying the filter.
+   * * 2: A 1-D tensor, of shape [depth_out], specifying the bias.
+   *      For input tensor of {@link ANEURALNETWORKS_TENSOR_FLOAT32} type, the
+   * bias should also be of {@link ANEURALNETWORKS_TENSOR_FLOAT32}. For input
+   * tensor of {@link ANEURALNETWORKS_TENSOR_QUANT8_ASYMM} type, the bias should
+   * be of {@link ANEURALNETWORKS_TENSOR_INT32}.
+   * * 3: An INT32 value, specifying the padding on the left, in the ‘width’
+   * dimension.
+   * * 4: An INT32 value, specifying the padding on the right,in the ‘width’
+   * dimension.
+   * * 5: An INT32 value, specifying the padding on the top, in the ‘height’
+   * dimension.
+   * * 6: An INT32 value, specifying the padding on the bottom, in the ‘height’
+   * dimension.
+   * * 7: An INT32 value, specifying the output stride in the ‘width’ dimension.
+   * * 8: An INT32 value, specifying the output stride in the ‘height’
+   * dimension.
+   * * 9: An INT32 value, and has to be one of the {@link FuseCode} values.
+   *      Specifies the activation to invoke on the result of each addition.
+   *
+   * Outputs:
+   * * 0: The output 4-D tensor, of shape [batches, out_height, out_width,
+   * depth_out].
+   */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='270' u='r' c='_ZN6tflite15AddOpsAndParamsEPNS_11InterpreterEP20ANeuralNetworksModelj'/>

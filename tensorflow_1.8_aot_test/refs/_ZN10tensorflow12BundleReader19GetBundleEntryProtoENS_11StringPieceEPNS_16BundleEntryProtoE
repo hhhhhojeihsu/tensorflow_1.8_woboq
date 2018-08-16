@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='269' type='tensorflow::Status tensorflow::BundleReader::GetBundleEntryProto(tensorflow::StringPiece key, tensorflow::BundleEntryProto * entry)'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='266'>// Seeks for &quot;key&quot; and reads the metadata proto.
+  // On non-OK return, clears &quot;entry&quot; for the caller.
+  // REQUIRES: status().ok()</doc>
+<def f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='757' ll='776' type='tensorflow::Status tensorflow::BundleReader::GetBundleEntryProto(tensorflow::StringPiece key, tensorflow::BundleEntryProto * entry)'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='864' u='c' c='_ZN10tensorflow12BundleReader6LookupENS_11StringPieceEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='897' u='c' c='_ZN10tensorflow12BundleReader18LookupTensorSlicesENS_11StringPieceEPSt6vectorINS_11TensorSliceESaIS3_EE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='909' u='c' c='_ZN10tensorflow12BundleReader11LookupSliceENS_11StringPieceERKNS_11TensorSliceEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='966' u='c' c='_ZN10tensorflow12BundleReader13GetSliceValueENS_11StringPieceERKNS_16BundleEntryProtoERKNS_11TensorSliceEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='1035' u='c' c='_ZN10tensorflow12BundleReader19LookupDtypeAndShapeENS_11StringPieceEPNS_8DataTypeEPNS_11TensorShapeE'/>

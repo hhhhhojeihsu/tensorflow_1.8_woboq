@@ -1,0 +1,28 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='181' c='xla::HeapAlgorithm'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='264' ll='292'/>
+<size>192</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='248'>// LazyBestFitHeap is a variant of the traditional best-fit heap.  This is a
+// greedy heuristic, based on the idea that delaying offset assignment helps
+// reduce fragmentation.  Here&apos;s an example of a &quot;bad&quot; offset assignment, where
+// a tiny buffer A prevents adjacent free chunks from being coalesced:
+//    BAD: |  free  |A|  free  |
+// If we could have delayed the assignment of A, we might have ended up with:
+//   GOOD: |      free       |A|
+//
+// In general it&apos;s actually hard to say whether GOOD is better than BAD; the
+// heuristic we use is we try to leave large contiguous chunks free, and we try
+// to avoid growing the overall heap size unless necessary.
+//
+// Just like regular best-fit, in Alloc we look for the smallest free chunk that
+// fits the requested size.  Unlike regular best-fit, we postpone offset
+// assignment for buffers that cannot re-use existing free chunks (and force us
+// to grow the heap); these buffers are &quot;lazily&quot; assigned offsets in Free.</doc>
+<fun r='_ZN3xla15LazyBestFitHeapC1Ex'/>
+<fun r='_ZN3xla15LazyBestFitHeapD1Ev'/>
+<fun r='_ZN3xla15LazyBestFitHeap5AllocEPKNS_13LogicalBufferEx'/>
+<fun r='_ZN3xla15LazyBestFitHeap4FreeEPKNS_13LogicalBufferEx'/>
+<fun r='_ZN3xla15LazyBestFitHeap6FinishEv'/>
+<fun r='_ZN3xla15LazyBestFitHeap12AddFreeChunkExx'/>
+<mbr r='xla::LazyBestFitHeap::alignment_' o='64' t='const int64'/>
+<mbr r='xla::LazyBestFitHeap::result_' o='128' t='Result'/>
+<mbr r='xla::LazyBestFitHeap::free_' o='1152' t='std::set&lt;Chunk, OrderChunkByIncreasingSize&gt;'/>

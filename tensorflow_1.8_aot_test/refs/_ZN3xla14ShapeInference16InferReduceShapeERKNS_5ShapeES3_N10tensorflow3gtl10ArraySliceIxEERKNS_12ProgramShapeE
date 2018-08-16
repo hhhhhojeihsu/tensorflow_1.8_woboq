@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='144' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferReduceShape(const xla::Shape &amp; arg, const xla::Shape &amp; init_value, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions_to_reduce, const xla::ProgramShape &amp; to_apply)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1127' u='c' c='_ZN3xla10XlaBuilder6ReduceERKNS_5XlaOpES3_RKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIxEE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='138'>// Infers the shape produced by applying the given reduction computation
+  // shape to the given input operand shape.
+  //
+  // If pass_index is true, the reduce function is invoked with the element
+  // index as the leading parameter, and the program shape should match
+  // accordingly (or an error will result).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1540' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='160' u='c' c='_ZN3xla13ShapeVerifier12HandleReduceEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1864' ll='1889' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferReduceShape(const xla::Shape &amp; arg, const xla::Shape &amp; init_value, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions_to_reduce, const xla::ProgramShape &amp; to_apply)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1864'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='492' u='c' c='_ZN3xla15UserComputation20AddReduceInstructionERKNS_13ReduceRequestERKS0_'/>

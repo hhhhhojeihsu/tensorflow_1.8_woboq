@@ -1,0 +1,30 @@
+<def f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='83' ll='87'/>
+<size>1</size>
+<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='55'>// An interpreter for a graph of nodes that input and output from tensors.
+// Each node of the graph processes a set of input tensors and produces a
+// set of output Tensors. All inputs/output tensors are referenced by index.
+//
+// Usage:
+//
+// -- Create basic model
+// Interpreter foo(2, 1);
+// foo.SetTensorParametersReadWrite(0, ...);
+// foo.SetTensorParametersReadOnly(1, ...);
+// foo.SetNodeParameters(0, ...)
+//
+// -- Resize input array to 1 length.
+// foo.ResizeInputTensor(0, 1);
+// foo.AllocateTensors();
+// -- Install array data
+// foo.typed_tensor&lt;float&gt;(0)[0] = 3;
+// foo.Invoke();
+// foo.typed_tensor&lt;float&gt;(0)[0] = 4;
+// foo.Invoke();
+// -- Resize input array and set data.
+// foo.ResizeInputTensor(0, 2);
+// foo.AllocateTensors();
+// foo.typed_tensor&lt;float&gt;(0)[0] = 4;
+// foo.typed_tensor&lt;float&gt;(0)[1] = 8;
+// foo.Invoke();
+//</doc>
+<fun r='_ZN6tflite21TfLiteIntArrayDeleterclEP14TfLiteIntArray'/>

@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='263' type='::tensorflow::Status tensorflow::DirectSession::CheckFetch(const std::vector&lt;std::pair&lt;string, Tensor&gt; &gt; &amp; feeds, const std::vector&lt;string&gt; &amp; fetches, const tensorflow::DirectSession::ExecutorsAndKeys * executors_and_keys, const tensorflow::DirectSession::RunState * run_state)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='848' u='c' c='_ZN10tensorflow13DirectSession4PRunERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS6_EERKS3_ISsSaISsEEPS3_IS5_SaIS5_EE'/>
+<def f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1006' ll='1065' type='tensorflow::Status tensorflow::DirectSession::CheckFetch(const NamedTensorList &amp; feeds, const std::vector&lt;string&gt; &amp; fetches, const tensorflow::DirectSession::ExecutorsAndKeys * executors_and_keys, const tensorflow::DirectSession::RunState * run_state)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='261'>// Check if the specified fetches can be computed from the feeds
+  // that we have already provided.</doc>

@@ -1,0 +1,91 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/dfs_hlo_visitor.h' l='60' c='xla::DfsHloVisitorBase'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.h' l='37' ll='196'/>
+<size>272</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.h' l='32'>// HloCostAnalysis traverses an HLO graph and calculates the amount of
+// computations required for the graph. Each HLO instruction handler provides
+// the computation cost of the instruction, and the values are accumulated
+// during the traversal for the entire graph. We treat normal floating point
+// operations separately from transcendental operations.</doc>
+<smbr r='xla::HloCostAnalysis::kFlopsKey' t='const char [6]'/>
+<smbr r='xla::HloCostAnalysis::kTranscendentalsKey' t='const char [16]'/>
+<smbr r='xla::HloCostAnalysis::kBytesAccessedKey' t='const char [15]'/>
+<smbr r='xla::HloCostAnalysis::kOptimalSecondsKey' t='const char [16]'/>
+<fun r='_ZN3xla15HloCostAnalysisC1ERKSt8functionIFxRKNS_5ShapeEEE'/>
+<fun r='_ZN3xla15HloCostAnalysis22HandleElementwiseUnaryEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis23HandleElementwiseBinaryEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis14HandleConstantEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis21HandleGetTupleElementEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis12HandleSelectEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis13HandleCompareEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis11HandleClampEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis21HandleReducePrecisionEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis17HandleConcatenateEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis10HandleSendEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis14HandleSendDoneEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis10HandleRecvEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis14HandleRecvDoneEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis13HandleConvertEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis10HandleCopyEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis9HandleDotEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis17HandleConvolutionEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis9HandleFftEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis21HandleCrossReplicaSumEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis12HandleInfeedEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis13HandleOutfeedEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis17HandleHostComputeEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis9HandleRngEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis13HandleReverseEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis10HandleSortEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis15HandleParameterEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis12HandleReduceEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis23HandleBatchNormTrainingEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis24HandleBatchNormInferenceEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis19HandleBatchNormGradEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis12HandleFusionEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis10HandleCallEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis16HandleCustomCallEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis11HandleSliceEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis18HandleDynamicSliceEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis24HandleDynamicUpdateSliceEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis11HandleTupleEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis9HandleMapEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis18HandleReduceWindowEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis22HandleSelectAndScatterEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis13HandleBitcastEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis15HandleBroadcastEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis21HandleBroadcastDimOneEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis9HandlePadEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis13HandleReshapeEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis15HandleTransposeEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis11HandleWhileEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis17HandleConditionalEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis12HandleGatherEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis11FinishVisitEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis10PreprocessEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis11PostprocessEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis20set_flops_per_secondEf'/>
+<fun r='_ZN3xla15HloCostAnalysis30set_transcendentals_per_secondEf'/>
+<fun r='_ZN3xla15HloCostAnalysis20set_bytes_per_secondEf'/>
+<fun r='_ZNK3xla15HloCostAnalysis10flop_countEv'/>
+<fun r='_ZNK3xla15HloCostAnalysis20transcendental_countEv'/>
+<fun r='_ZNK3xla15HloCostAnalysis14bytes_accessedEv'/>
+<fun r='_ZNK3xla15HloCostAnalysis15optimal_secondsEv'/>
+<fun r='_ZNK3xla15HloCostAnalysis10flop_countERKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla15HloCostAnalysis20transcendental_countERKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla15HloCostAnalysis14bytes_accessedERKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla15HloCostAnalysis15optimal_secondsERKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla15HloCostAnalysis10propertiesEv'/>
+<fun r='_ZNK3xla15HloCostAnalysis8propertyERKSs'/>
+<smbr r='xla::HloCostAnalysis::kFmaFlops' t='const int64'/>
+<fun r='_ZN3xla15HloCostAnalysisC1ERKSt8functionIFxRKNS_5ShapeEEERKSt3mapISsfSt4lessISsESaISt4pairIKSsfEEE'/>
+<fun r='_ZN3xla15HloCostAnalysis21ProcessSubcomputationEPNS_14HloComputationEPKSt8functionIFxRKNS_5ShapeEEE'/>
+<fun r='_ZN3xla15HloCostAnalysis19HandleElementwiseOpEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla15HloCostAnalysis11GetPropertyERKSsRKSt3mapISsfSt4lessISsESaISt4pairIS1_fEEEf'/>
+<fun r='_ZN3xla15HloCostAnalysis17GetPropertyForHloERKNS_14HloInstructionERKSsRKSt13unordered_mapIPS2_St3mapISsfSt4lessISsESaISt4pairIS4_fEEESt4hashIS7_ESt8eq7953166'/>
+<mbr r='xla::HloCostAnalysis::shape_size_' o='256' t='const ShapeSizeFunction'/>
+<mbr r='xla::HloCostAnalysis::hlo_properties_' o='512' t='HloToProperties'/>
+<mbr r='xla::HloCostAnalysis::current_should_compute_bottleneck_time_' o='960' t='bool'/>
+<mbr r='xla::HloCostAnalysis::current_properties_' o='1024' t='Properties'/>
+<mbr r='xla::HloCostAnalysis::properties_sum_' o='1408' t='Properties'/>
+<mbr r='xla::HloCostAnalysis::per_second_rates_' o='1792' t='Properties'/>
+<fun r='_ZN3xla15HloCostAnalysisC1ERKS0_'/>

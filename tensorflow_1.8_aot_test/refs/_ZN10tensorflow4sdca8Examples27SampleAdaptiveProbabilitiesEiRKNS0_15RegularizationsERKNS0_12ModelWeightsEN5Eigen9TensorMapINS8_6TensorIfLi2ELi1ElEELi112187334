@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/kernels/sdca_internal.h' l='330' type='tensorflow::Status tensorflow::sdca::Examples::SampleAdaptiveProbabilities(const int num_loss_partitions, const tensorflow::sdca::Regularizations &amp; regularization, const tensorflow::sdca::ModelWeights &amp; model_weights, const TTypes&lt;float&gt;::Matrix example_state_data, const std::unique_ptr&lt;DualLossUpdater&gt; &amp; loss_updater, const int num_weight_vectors)'/>
+<def f='tensorflow/tensorflow/core/kernels/sdca_internal.cc' l='229' ll='303' type='tensorflow::Status tensorflow::sdca::Examples::SampleAdaptiveProbabilities(const int num_loss_partitions, const tensorflow::sdca::Regularizations &amp; regularization, const tensorflow::sdca::ModelWeights &amp; model_weights, const TTypes&lt;float&gt;::Matrix example_state_data, const std::unique_ptr&lt;DualLossUpdater&gt; &amp; loss_updater, const int num_weight_vectors)'/>
+<doc f='tensorflow/tensorflow/core/kernels/sdca_internal.cc' l='228'>// Examples contains all the training examples that SDCA uses for a mini-batch.</doc>
+<doc f='tensorflow/tensorflow/core/kernels/sdca_internal.h' l='327'>// Adaptive SDCA in the current implementation only works for
+  // binary classification, where the input argument for num_weight_vectors
+  // is 1.</doc>
+<use f='tensorflow/tensorflow/core/kernels/sdca_ops.cc' l='152' u='c' c='_ZN10tensorflow12_GLOBAL__N_19DoComputeERKNS0_14ComputeOptionsEPNS_15OpKernelContextE'/>

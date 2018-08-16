@@ -1,0 +1,19 @@
+<def f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.h' l='68' ll='111'/>
+<size>104</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.h' l='65'>// StepStatsCollector manages the collection of a StepStats object.
+// The StepStats object holds multiple DeviceStats.
+// Each DeviceStats object holds multiple NodeExecStats.</doc>
+<fun r='_ZN10tensorflow18StepStatsCollectorC1EPNS_9StepStatsE'/>
+<fun r='_ZN10tensorflow18StepStatsCollector14BuildCostModelEPNS_16CostModelManagerERKSt13unordered_mapISsPKNS_5GraphESt4hashISsESt8equal_toISsESaISt4pairIKSsS6_EEE'/>
+<fun r='_ZN10tensorflow18StepStatsCollector4SaveERKSsPNS_13NodeExecStatsE'/>
+<fun r='_ZN10tensorflow18StepStatsCollector4SaveERKSsPNS_20NodeExecStatsWrapperE'/>
+<fun r='_ZN10tensorflow18StepStatsCollector31ReportAllocsOnResourceExhaustedERKSs'/>
+<fun r='_ZN10tensorflow18StepStatsCollector8FinalizeEv'/>
+<fun r='_ZN10tensorflow18StepStatsCollector15FinalizeAndSwapEPNS_9StepStatsE'/>
+<fun r='_ZN10tensorflow18StepStatsCollector16FinalizeInternalEv'/>
+<mbr r='tensorflow::StepStatsCollector::kMaxCollectedNodes' o='0' t='const uint64'/>
+<mbr r='tensorflow::StepStatsCollector::mu_' o='64' t='tensorflow::mutex'/>
+<mbr r='tensorflow::StepStatsCollector::finalized_' o='192' t='bool'/>
+<mbr r='tensorflow::StepStatsCollector::dev_stats_' o='256' t='std::unordered_map&lt;string, NodeExecStatsVec&gt;'/>
+<mbr r='tensorflow::StepStatsCollector::step_stats_' o='704' t='tensorflow::StepStats *'/>
+<mbr r='tensorflow::StepStatsCollector::collectedNodes' o='768' t='uint64'/>

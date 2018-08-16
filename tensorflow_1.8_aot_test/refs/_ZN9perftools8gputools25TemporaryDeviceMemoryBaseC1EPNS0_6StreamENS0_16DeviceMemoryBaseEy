@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/stream_executor/temporary_device_memory.h' l='94' type='void perftools::gputools::TemporaryDeviceMemoryBase::TemporaryDeviceMemoryBase(perftools::gputools::Stream * parent, perftools::gputools::DeviceMemoryBase device_memory, uint64 allocation_generation)'/>
+<doc f='tensorflow/tensorflow/stream_executor/temporary_device_memory.h' l='92'>// Note: construction DCHECKs that the memory is known-allocated in the
+  // stream&apos;s temporary-allocation-manager.</doc>
+<def f='tensorflow/tensorflow/stream_executor/temporary_device_memory.cc' l='58' ll='65' type='void perftools::gputools::TemporaryDeviceMemoryBase::TemporaryDeviceMemoryBase(perftools::gputools::Stream * parent, perftools::gputools::DeviceMemoryBase device_memory, uint64 allocation_generation)'/>
+<use f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.cc' l='122' u='c' c='_ZN9perftools8gputools8internal22TemporaryMemoryManager17AllocateArrayBaseEyy'/>

@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='415' type='bool perftools::gputools::StreamExecutor::Launch(perftools::gputools::Stream * stream, const perftools::gputools::ThreadDim &amp; thread_dims, const perftools::gputools::BlockDim &amp; block_dims, const perftools::gputools::KernelBase &amp; kernel, const perftools::gputools::KernelArgsArrayBase &amp; args)'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='797' u='c' c='_ZN9perftools8gputools6Stream10ThenLaunchENS0_9ThreadDimENS0_8BlockDimERKNS0_11TypedKernelIJDpT_EEEDpT0_'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='402'>// Warning: use Stream::ThenLaunch instead, this method is not for general
+  // consumption. However, this is the only way to launch a kernel for which
+  // the type signature is only known at runtime; say, if an application
+  // supports loading/launching kernels with arbitrary type signatures.
+  // In this case, the application is expected to know how to do parameter
+  // packing that obeys the contract of the underlying platform implementation.
+  //
+  // Launches a data parallel kernel with the given thread/block
+  // dimensionality and already-packed args/sizes to pass to the underlying
+  // platform driver.
+  //
+  // This is called by Stream::Launch() to delegate to the platform&apos;s launch
+  // implementation in StreamExecutorInterface::Launch().</doc>
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='435' ll='443' type='bool perftools::gputools::StreamExecutor::Launch(perftools::gputools::Stream * stream, const perftools::gputools::ThreadDim &amp; thread_dims, const perftools::gputools::BlockDim &amp; block_dims, const perftools::gputools::KernelBase &amp; kernel, const perftools::gputools::KernelArgsArrayBase &amp; args)'/>

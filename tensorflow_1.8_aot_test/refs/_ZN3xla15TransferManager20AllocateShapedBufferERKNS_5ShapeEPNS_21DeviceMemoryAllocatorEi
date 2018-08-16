@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='113' type='StatusOr&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; xla::TransferManager::AllocateShapedBuffer(const xla::Shape &amp; on_host_shape, xla::DeviceMemoryAllocator * allocator, int device_ordinal)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='110'>// Allocate a ShapedBuffer which can hold data with the given on-host
+  // shape. The on-device shape may be different as indicated by
+  // HostShapeToDeviceShape.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1363' u='c' c='_ZN3xla7Service16TransferToServerEPKNS_23TransferToServerRequestEPNS_24TransferToServerResponseE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='183' ll='210' type='StatusOr&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; xla::TransferManager::AllocateShapedBuffer(const xla::Shape &amp; on_host_shape, xla::DeviceMemoryAllocator * allocator, int device_ordinal)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='218' u='c' c='_ZN3xla15TransferManager26AllocateScopedShapedBufferERKNS_5ShapeEPNS_21DeviceMemoryAllocatorEi'/>

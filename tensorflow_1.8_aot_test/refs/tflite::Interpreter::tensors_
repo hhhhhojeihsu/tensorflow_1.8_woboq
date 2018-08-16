@@ -1,0 +1,24 @@
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='283' u='m' c='_ZN6tflite11Interpreter26EnsureTensorDataIsReadableEi'/>
+<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='373' type='std::vector&lt;TfLiteTensor&gt;'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='446' u='m' c='_ZN6tflite11Interpreter27EnsureTensorsVectorCapacityEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='447' u='m' c='_ZN6tflite11Interpreter27EnsureTensorsVectorCapacityEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='448' u='m' c='_ZN6tflite11Interpreter27EnsureTensorsVectorCapacityEv'/>
+<offset>0</offset>
+<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='369'>// Tensors needed by the interpreter. Use `AddTensors` to add more blank
+  // tensor entries. Note, `tensors_.data()` needs to be synchronized to the
+  // `context_` whenever this std::vector is reallocated. Currently this
+  // only happens in `AddTensors()`.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='106' u='m' c='_ZN6tflite11InterpreterC1EPNS_13ErrorReporterE'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='247' u='m' c='_ZN6tflite11Interpreter35ReplaceSubgraphsWithDelegateKernelsE19_TfLiteRegistrationPK14TfLiteIntArrayP15_TfLiteDelegate'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='556' u='m' c='_ZN6tflite11Interpreter6InvokeEv'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='599' u='m' c='_ZN6tflite11Interpreter10AddTensorsEiPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='601' u='m' c='_ZN6tflite11Interpreter10AddTensorsEiPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='601' u='m' c='_ZN6tflite11Interpreter10AddTensorsEiPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='602' u='m' c='_ZN6tflite11Interpreter10AddTensorsEiPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='603' u='m' c='_ZN6tflite11Interpreter10AddTensorsEiPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='603' u='m' c='_ZN6tflite11Interpreter10AddTensorsEiPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='604' u='m' c='_ZN6tflite11Interpreter10AddTensorsEiPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='606' u='m' c='_ZN6tflite11Interpreter10AddTensorsEiPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='607' u='m' c='_ZN6tflite11Interpreter10AddTensorsEiPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='829' u='m' c='_ZN6tflite11Interpreter15SetBufferHandleEiiP15_TfLiteDelegate'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='848' u='m' c='_ZN6tflite11Interpreter15GetBufferHandleEiPiPP15_TfLiteDelegate'/>

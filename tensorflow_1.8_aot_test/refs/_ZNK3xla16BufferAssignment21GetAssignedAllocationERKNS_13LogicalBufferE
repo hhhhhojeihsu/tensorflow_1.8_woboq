@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='319' type='const xla::BufferAllocation &amp; xla::BufferAssignment::GetAssignedAllocation(const xla::LogicalBuffer &amp; buffer) const'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='461' ll='465' type='const xla::BufferAllocation &amp; xla::BufferAssignment::GetAssignedAllocation(const xla::LogicalBuffer &amp; buffer) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='469' u='c' c='_ZN3xla16BufferAssignment28GetMutableAssignedAllocationERKNS_13LogicalBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='477' u='c' c='_ZNK3xla16BufferAssignment12GetAllSlicesEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='522' u='c' c='_ZNK3xla16BufferAssignment14GetUniqueSliceEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='317'>// Returns the allocation that a particular LogicalBuffer has been assigned
+  // to. CHECKs if buffer has not been assigned an allocation.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/alias_analysis.cc' l='174' u='c' c='_ZN3xla7llvm_ir13AliasAnalysis27GetNoaliasMetadataForBufferERKNS_16BufferAllocation5SliceEPN4llvm6MDNodeERKNS_16BufferAssignmentERKNS_14HloInstructionE'/>

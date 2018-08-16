@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/kernels/variable_ops.h' l='53' type='bool'/>
+<offset>128</offset>
+<doc f='tensorflow/tensorflow/core/kernels/variable_ops.h' l='48'>// Only used in the resource variable path. In resource variables,
+  // tensor.IsInitialized() can be true (i.e. have memory allocated to it) while
+  // there is not a good value there due to a race condition, and it&apos;s possible
+  // to stumble upon this during variable.initialized_value(). So it&apos;s best to
+  // just store directly whether the variable is initialized.</doc>
+<doc f='tensorflow/tensorflow/core/kernels/variable_ops.h' l='53'>// GUARDED_BY(mu_) but annotalysis doesn&apos;t like</doc>
+<use f='tensorflow/tensorflow/core/kernels/resource_variable_ops.cc' l='257' u='w' c='_ZN10tensorflow16AssignVariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/resource_variable_ops.cc' l='327' u='w' c='_ZN10tensorflow16AssignVariableOpIT_NS_7VariantEE7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/resource_variable_ops.cc' l='456' u='r' c='_ZN10tensorflow18VarIsInitializedOp7ComputeEPNS_15OpKernelContextE'/>

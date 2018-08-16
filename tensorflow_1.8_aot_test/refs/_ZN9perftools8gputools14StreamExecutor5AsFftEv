@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='426' type='fft::FftSupport * perftools::gputools::StreamExecutor::AsFft()'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='419'>// Gets-or-creates (creates with memoization) a FftSupport datatype that can
+  // be used to execute FFT routines on the current platform.
+  //
+  // Ownership and user-facing is the same as AsBlas() below.
+  //
+  // Returns null if there was an error initializing the FFT support for the
+  // underlying platform.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5056' u='c' c='_ZN9perftools8gputools6Stream7ThenFftEPNS0_3fft4PlanERKNS0_12DeviceMemoryISt7complexIfEEEPS8_'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5073' u='c' c='_ZN9perftools8gputools6Stream7ThenFftEPNS0_3fft4PlanERKNS0_12DeviceMemoryISt7complexIdEEEPS8_'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5089' u='c' c='_ZN9perftools8gputools6Stream7ThenFftEPNS0_3fft4PlanERKNS0_12DeviceMemoryIfEEPNS5_ISt7complexIfEEE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5105' u='c' c='_ZN9perftools8gputools6Stream7ThenFftEPNS0_3fft4PlanERKNS0_12DeviceMemoryIdEEPNS5_ISt7complexIdEEE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5122' u='c' c='_ZN9perftools8gputools6Stream7ThenFftEPNS0_3fft4PlanERKNS0_12DeviceMemoryISt7complexIfEEEPNS5_IfEE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5139' u='c' c='_ZN9perftools8gputools6Stream7ThenFftEPNS0_3fft4PlanERKNS0_12DeviceMemoryISt7complexIdEEEPNS5_IdEE'/>
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='415' ll='423' type='fft::FftSupport * perftools::gputools::StreamExecutor::AsFft()'/>

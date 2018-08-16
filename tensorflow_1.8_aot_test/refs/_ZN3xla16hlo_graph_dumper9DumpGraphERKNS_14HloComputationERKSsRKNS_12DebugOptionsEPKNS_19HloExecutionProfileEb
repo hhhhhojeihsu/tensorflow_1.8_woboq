@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.h' l='56' type='string xla::hlo_graph_dumper::DumpGraph(const xla::HloComputation &amp; computation, const string &amp; label, const xla::DebugOptions &amp; debug_options, const xla::HloExecutionProfile * hlo_execution_profile = nullptr, bool show_metadata = false)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.h' l='53'>// Dumps a graph of the computation and returns a description of the rendered
+// graph (e.g., a URL) based on the renderer. The &quot;best&quot; renderer in the
+// registry is used.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='1404' ll='1427' type='string xla::hlo_graph_dumper::DumpGraph(const xla::HloComputation &amp; computation, const string &amp; label, const xla::DebugOptions &amp; debug_options, const xla::HloExecutionProfile * hlo_execution_profile = nullptr, bool show_metadata = false)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='1467' u='c' c='_ZN3xla16hlo_graph_dumper18MaybeDumpHloModuleERKNS_9HloModuleERKSsPKNS_19HloExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1540' u='c' c='_ZN3xla16LayoutAssignment3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1595' u='c' c='_ZN3xla16LayoutAssignment3RunEPNS_9HloModuleE'/>

@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/lib/jpeg/jpeg_mem.h' l='89' type='uint8 * tensorflow::jpeg::Uncompress(const void * srcdata, int datasize, const tensorflow::jpeg::UncompressFlags &amp; flags, int * width, int * height, int * components, int64 * nwarn)'/>
+<doc f='tensorflow/tensorflow/core/lib/jpeg/jpeg_mem.h' l='77'>// Uncompress some raw JPEG data given by the pointer srcdata and the length
+// datasize.
+// - width and height are the address where to store the size of the
+//   uncompressed image in pixels.  May be nullptr.
+// - components is the address where the number of read components are
+//   stored.  This is *output only*: to request a specific number of
+//   components use flags.components.  May be nullptr.
+// - nwarn is the address in which to store the number of warnings.
+//   May be nullptr.
+// The function returns a pointer to the raw uncompressed data or NULL if
+// there was an error. The caller of the function is responsible for
+// freeing the memory (using delete []).</doc>
+<def f='tensorflow/tensorflow/core/lib/jpeg/jpeg_mem.cc' l='517' ll='532' type='uint8 * tensorflow::jpeg::Uncompress(const void * srcdata, int datasize, const tensorflow::jpeg::UncompressFlags &amp; flags, int * pwidth, int * pheight, int * pcomponents, int64 * nwarn)'/>

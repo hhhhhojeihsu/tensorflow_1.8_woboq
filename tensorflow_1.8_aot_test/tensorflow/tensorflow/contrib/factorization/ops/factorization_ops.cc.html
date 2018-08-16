@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>factorization_ops.cc source code [tensorflow/tensorflow/contrib/factorization/ops/factorization_ops.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/contrib/factorization/ops/factorization_ops.cc'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>contrib</a>/<a href='..'>factorization</a>/<a href='./'>ops</a>/<a href='factorization_ops.cc.html'>factorization_ops.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>// Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Licensed under the Apache License, Version 2.0 (the "License"); you may not</i></td></tr>
+<tr><th id="4">4</th><td><i>// use this file except in compliance with the License.  You may obtain a copy</i></td></tr>
+<tr><th id="5">5</th><td><i>// of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//     <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT</i></td></tr>
+<tr><th id="11">11</th><td><i>// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the</i></td></tr>
+<tr><th id="12">12</th><td><i>// License for the specific language governing permissions and limitations under</i></td></tr>
+<tr><th id="13">13</th><td><i>// the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>// ==============================================================================</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../../core/framework/common_shape_fns.h.html">"tensorflow/core/framework/common_shape_fns.h"</a></u></td></tr>
+<tr><th id="17">17</th><td><u>#include <a href="../../../core/framework/op.h.html">"tensorflow/core/framework/op.h"</a></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><a class="macro" href="../../../core/framework/op.h.html#290" title="static ::tensorflow::register_op::OpDefBuilderReceiver register_op0 __attribute__((unused)) = ::tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;(&quot;WALSComputePartialLhsAndRhs&quot;)" data-ref="_M/REGISTER_OP">REGISTER_OP</a>(<q>"WALSComputePartialLhsAndRhs"</q>)</td></tr>
+<tr><th id="22">22</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"factors: float32"</q>)</td></tr>
+<tr><th id="23">23</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"factor_weights: float32"</q>)</td></tr>
+<tr><th id="24">24</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"unobserved_weights: float32"</q>)</td></tr>
+<tr><th id="25">25</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"input_weights: float32"</q>)</td></tr>
+<tr><th id="26">26</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"input_indices: int64"</q>)</td></tr>
+<tr><th id="27">27</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"input_values: float32"</q>)</td></tr>
+<tr><th id="28">28</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"input_block_size: int64"</q>)</td></tr>
+<tr><th id="29">29</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"input_is_transpose: bool"</q>)</td></tr>
+<tr><th id="30">30</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE6OutputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Output' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE6OutputENS_11StringPieceE">Output</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"partial_lhs: float32"</q>)</td></tr>
+<tr><th id="31">31</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE6OutputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Output' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE6OutputENS_11StringPieceE">Output</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"partial_rhs: float32"</q>)</td></tr>
+<tr><th id="32">32</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE10SetShapeFnEPFNS_6StatusEPNS_15shape_inference16InferenceContextEE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::SetShapeFn' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE10SetShapeFnEPFNS_6StatusEPNS_15shape_inference16InferenceContextEE">SetShapeFn</a>(<span class="namespace">shape_inference::</span><a class="ref" href="../../../core/framework/common_shape_fns.h.html#_ZN10tensorflow15shape_inference12UnknownShapeEPNS0_16InferenceContextE" title='tensorflow::shape_inference::UnknownShape' data-ref="_ZN10tensorflow15shape_inference12UnknownShapeEPNS0_16InferenceContextE">UnknownShape</a>)</td></tr>
+<tr><th id="33">33</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE3DocENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Doc' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE3DocENS_11StringPieceE">Doc</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>R"(</q></td></tr>
+<tr><th id="34">34</th><td><q>Computes the partial left-hand side and right-hand side of WALS update.</q></td></tr>
+<tr><th id="35">35</th><td><q></q></td></tr>
+<tr><th id="36">36</th><td><q>factors: Matrix of size m * k.</q></td></tr>
+<tr><th id="37">37</th><td><q>factor_weights: Vector of size m. Corresponds to column weights</q></td></tr>
+<tr><th id="38">38</th><td><q>unobserved_weights: Scalar. Weight for unobserved input entries.</q></td></tr>
+<tr><th id="39">39</th><td><q>input_weights: Vector of size n. Corresponds to row weights.</q></td></tr>
+<tr><th id="40">40</th><td><q>input_indices: Indices for the input SparseTensor.</q></td></tr>
+<tr><th id="41">41</th><td><q>input_values: Values for the input SparseTensor.</q></td></tr>
+<tr><th id="42">42</th><td><q>input_block_size: Scalar. Number of rows spanned by input.</q></td></tr>
+<tr><th id="43">43</th><td><q>input_is_transpose: If true, logically transposes the input for processing.</q></td></tr>
+<tr><th id="44">44</th><td><q>partial_lhs: 3-D tensor with size input_block_size x k x k.</q></td></tr>
+<tr><th id="45">45</th><td><q>partial_rhs: Matrix with size input_block_size x k.</q></td></tr>
+<tr><th id="46">46</th><td><q>)"</q>);</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><a class="macro" href="../../../core/framework/op.h.html#290" title="static ::tensorflow::register_op::OpDefBuilderReceiver register_op2 __attribute__((unused)) = ::tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;(&quot;MaskedMatmul&quot;)" data-ref="_M/REGISTER_OP">REGISTER_OP</a>(<q>"MaskedMatmul"</q>)</td></tr>
+<tr><th id="49">49</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"a: float32"</q>)</td></tr>
+<tr><th id="50">50</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"b: float32"</q>)</td></tr>
+<tr><th id="51">51</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"mask_indices: int64"</q>)</td></tr>
+<tr><th id="52">52</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"transpose_a: bool"</q>)</td></tr>
+<tr><th id="53">53</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Input' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE5InputENS_11StringPieceE">Input</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"transpose_b: bool"</q>)</td></tr>
+<tr><th id="54">54</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE6OutputENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Output' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE6OutputENS_11StringPieceE">Output</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"prod_values: float32"</q>)</td></tr>
+<tr><th id="55">55</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE10SetShapeFnEPFNS_6StatusEPNS_15shape_inference16InferenceContextEE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::SetShapeFn' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE10SetShapeFnEPFNS_6StatusEPNS_15shape_inference16InferenceContextEE">SetShapeFn</a>(<span class="namespace">shape_inference::</span><a class="ref" href="../../../core/framework/common_shape_fns.h.html#_ZN10tensorflow15shape_inference12UnknownShapeEPNS0_16InferenceContextE" title='tensorflow::shape_inference::UnknownShape' data-ref="_ZN10tensorflow15shape_inference12UnknownShapeEPNS0_16InferenceContextE">UnknownShape</a>)</td></tr>
+<tr><th id="56">56</th><td>    .<a class="ref" href="../../../core/framework/op.h.html#_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE3DocENS_11StringPieceE" title='tensorflow::register_op::OpDefBuilderWrapper&lt;true&gt;::Doc' data-ref="_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE3DocENS_11StringPieceE">Doc</a>(<a class="ref fake" href="../../../core/lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>R"(</q></td></tr>
+<tr><th id="57">57</th><td><q>Computes the product a * b, but only for indices (i, j) in mask_indices. The</q></td></tr>
+<tr><th id="58">58</th><td><q>result is stored in prod_values, a rank 1 tensor, such that for all i,</q></td></tr>
+<tr><th id="59">59</th><td><q>prod_values[i] = (a * b)[mask_indices[i, 0], mask_indices[i, 1]].</q></td></tr>
+<tr><th id="60">60</th><td><q>Note that the shapes of the input matrices a, b should be compatible (after</q></td></tr>
+<tr><th id="61">61</th><td><q>transposing as specified by the arguments transpose_a and transpose_b).</q></td></tr>
+<tr><th id="62">62</th><td><q></q></td></tr>
+<tr><th id="63">63</th><td><q>Input arguments:</q></td></tr>
+<tr><th id="64">64</th><td><q>a: A rank 2 tensor of shape [m, n].</q></td></tr>
+<tr><th id="65">65</th><td><q>b: A rank 2 tensor of shape [s, t]. The inner dimensions of a and b should match</q></td></tr>
+<tr><th id="66">66</th><td><q>  after transposition.</q></td></tr>
+<tr><th id="67">67</th><td><q>mask_indices: A rank 2 tensor, of shape [nnz, 2] where nnz is the number of</q></td></tr>
+<tr><th id="68">68</th><td><q>  non-zero elements in the output. The indices are not assumed to be in</q></td></tr>
+<tr><th id="69">69</th><td><q>  lexicographic, or any particular order.</q></td></tr>
+<tr><th id="70">70</th><td><q>  For all i, mask_indices[i, :] should represent a valid index of the product</q></td></tr>
+<tr><th id="71">71</th><td><q>  matrix (a * b) (after transposition). That is:</q></td></tr>
+<tr><th id="72">72</th><td><q>  mask_indices[i, 0] should be in [0, m) if !transpose_a, and in [0, n)</q></td></tr>
+<tr><th id="73">73</th><td><q>    otherwise.</q></td></tr>
+<tr><th id="74">74</th><td><q>  mask_indices[i, 1] should be in [0, t) if !transpose_b, and in [0, s)</q></td></tr>
+<tr><th id="75">75</th><td><q>    otherwise.</q></td></tr>
+<tr><th id="76">76</th><td><q>transpose_a: A boolean, specifies whether to transpose the matrix a.</q></td></tr>
+<tr><th id="77">77</th><td><q>transpose_b: A boolean, specifies whether to transpose the matrix b.</q></td></tr>
+<tr><th id="78">78</th><td><q></q></td></tr>
+<tr><th id="79">79</th><td><q>Output arguments:</q></td></tr>
+<tr><th id="80">80</th><td><q>prod_values: A rank 1 tensor of shape [nnz], representing the values of the</q></td></tr>
+<tr><th id="81">81</th><td><q>  non-zero elements in the product, such that for all i,</q></td></tr>
+<tr><th id="82">82</th><td><q>  prod_values[i] = (a * b)[mask_indices[i, 0], mask_indices[i, 1]].</q></td></tr>
+<tr><th id="83">83</th><td><q>)"</q>);</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

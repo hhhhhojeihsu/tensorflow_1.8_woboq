@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='286' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferClampShape(const xla::Shape &amp; min, const xla::Shape &amp; operand, const xla::Shape &amp; max)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='285'>// Helper for inferring the shape of Clamp ops.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1057' u='c' c='_ZN3xla14ShapeInference19InferTernaryOpShapeENS_16TernaryOperationERKNS_5ShapeES4_S4_'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2366' ll='2396' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferClampShape(const xla::Shape &amp; min, const xla::Shape &amp; operand, const xla::Shape &amp; max)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2364'>// TODO(b/36794510): Make broadcast semantics more consistent, by supporting
+// &quot;degenerate&quot; cases, as with binary elementwise ops.</doc>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2366'>/* static */</doc>

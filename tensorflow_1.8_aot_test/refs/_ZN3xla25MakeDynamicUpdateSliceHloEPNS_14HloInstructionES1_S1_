@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='78' type='StatusOr&lt;xla::HloInstruction *&gt; xla::MakeDynamicUpdateSliceHlo(xla::HloInstruction * operand, xla::HloInstruction * update, xla::HloInstruction * start_indices)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='75'>// Creates a dynamic-update-slice HLO instruction and adds it to the computation
+// containing `operand`, `update` and `start_indices` (`operand`, `update` and
+// `start_indices` must be in the same computation).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='211' u='c' c='_ZN3xlaL14GatherLoopBodyERKNS_14HloInstructionEPS0_RKSt6vectorIS3_SaIS3_EE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='110' ll='122' type='StatusOr&lt;xla::HloInstruction *&gt; xla::MakeDynamicUpdateSliceHlo(xla::HloInstruction * operand, xla::HloInstruction * update, xla::HloInstruction * start_indices)'/>

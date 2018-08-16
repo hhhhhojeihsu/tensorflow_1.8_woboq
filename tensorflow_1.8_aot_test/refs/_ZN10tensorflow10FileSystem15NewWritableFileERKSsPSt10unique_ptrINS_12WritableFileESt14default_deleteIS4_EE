@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/platform/file_system.h' l='74' type='tensorflow::Status tensorflow::FileSystem::NewWritableFile(const string &amp; fname, std::unique_ptr&lt;WritableFile&gt; * result)'/>
+<doc f='tensorflow/tensorflow/core/platform/file_system.h' l='62'>/// \brief Creates an object that writes to a new file with the specified
+  /// name.
+  ///
+  /// Deletes any existing file with the same name and creates a
+  /// new file.  On success, stores a pointer to the new file in
+  /// *result and returns OK.  On failure stores NULL in *result and
+  /// returns non-OK.
+  ///
+  /// The returned file will only be accessed by one thread at a time.
+  ///
+  /// The ownership of the returned WritableFile is passed to the caller
+  /// and the object should be deleted when is not used.</doc>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='147' u='c' c='_ZN10tensorflow3Env15NewWritableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='428' u='c' c='_ZN10tensorflow18FileSystemCopyFileEPNS_10FileSystemERKSsS1_S3_'/>
+<ovr f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='155' c='_ZN10tensorflow15PosixFileSystem15NewWritableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE'/>
+<ovr f='tensorflow/tensorflow/core/util/memmapped_file_system.cc' l='146' c='_ZN10tensorflow19MemmappedFileSystem15NewWritableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE'/>

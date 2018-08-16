@@ -1,0 +1,23 @@
+<dec f='tensorflow/tensorflow/core/util/example_proto_helper.h' l='75' type='tensorflow::Status tensorflow::SingleExampleProtoToTensors(const tensorflow::Example &amp; example, const string &amp; name, const int batch_index, const std::vector&lt;FixedLenFeature&gt; &amp; fixed_len_features, const std::vector&lt;VarLenFeature&gt; &amp; var_len_features, std::vector&lt;Tensor *&gt; * dense_values, std::vector&lt;std::vector&lt;Tensor&gt; &gt; * sparse_values_temporary_vector)'/>
+<doc f='tensorflow/tensorflow/core/util/example_proto_helper.h' l='55'>// Given a single tensorflow::Example, with an optional example name
+// at a particular index within a batch, and dense and sparse feature
+// configurations from fixed_len_features, var_len_features, this method
+// updates the dense value tensor and the sparse values temporary vector
+// of tensors. The indexing of the output vectors correspond 1:1 to the
+// indexing of the feature configuration vectors.
+//
+// The fixed_len_features and var_len_features maps are assume to be
+// have disjoint key fields from the Feature map in the tensorflow.Example
+// proto.
+//
+// For each sparse feature, the sparse values temporary vector holds a
+// tensor for each Example. Each tensor is either empty or filled, depending
+// on if the sparse feature value is set for the Example. This
+// temporary structure is needed because we need to know the total number
+// of filled elements in the batch to get the proper final sparse tensor
+// shapes allocated.  After the entire batch is processed,
+// GetSparseTensorShape can be used to calculate the final shapes and
+// CopyIntoSparseTensor can be used to copy from the temporary vector
+// into the final allocated tensors.</doc>
+<def f='tensorflow/tensorflow/core/util/example_proto_helper.cc' l='215' ll='296' type='tensorflow::Status tensorflow::SingleExampleProtoToTensors(const tensorflow::Example &amp; example, const string &amp; example_name, const int batch_index, const std::vector&lt;FixedLenFeature&gt; &amp; fixed_len_features, const std::vector&lt;VarLenFeature&gt; &amp; var_len_features, std::vector&lt;Tensor *&gt; * output_dense_values_tensor, std::vector&lt;std::vector&lt;Tensor&gt; &gt; * output_sparse_values_tmp)'/>
+<use f='tensorflow/tensorflow/core/util/example_proto_helper.cc' l='364' u='c' c='_ZN10tensorflow26BatchExampleProtoToTensorsERKSt6vectorIPKNS_7ExampleESaIS3_EERKS0_ISsSaISsEERKS0_INS_15FixedLenFeatureESaISC_EERKS0_INS_13VarLenFeatu5576636'/>

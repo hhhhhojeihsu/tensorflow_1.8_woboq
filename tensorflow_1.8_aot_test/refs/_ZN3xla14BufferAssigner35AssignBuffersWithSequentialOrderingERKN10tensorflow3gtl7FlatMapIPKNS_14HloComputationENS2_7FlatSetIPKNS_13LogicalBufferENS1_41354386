@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='530' type='tensorflow::Status xla::BufferAssigner::AssignBuffersWithSequentialOrdering(const tensorflow::gtl::FlatMap&lt;const HloComputation *, tensorflow::gtl::FlatSet&lt;const LogicalBuffer *&gt; &gt; &amp; buffers_to_assign_sequentially, bool run_whole_module_heap_simulation, xla::BufferAssignment * assignment)'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1156' ll='1229' type='tensorflow::Status xla::BufferAssigner::AssignBuffersWithSequentialOrdering(const FlatMap&lt;const xla::HloComputation *, FlatSet&lt;const xla::LogicalBuffer *&gt; &gt; &amp; buffers_to_assign_sequentially, bool run_whole_module_heap_simulation, xla::BufferAssignment * assignment)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1657' u='c' c='_ZN3xla14BufferAssigner16CreateAssignmentEPKNS_9HloModuleESt10unique_ptrINS_11HloOrderingESt14default_deleteIS5_EESt8functionIFxRKNS_13LogicalBufferEE7316938'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='525'>// Assigns &apos;buffers_to_assign_sequentially&apos; using heap simulation, assuming
+  // the HLO instructions will be executed in the sequential order given by
+  // assignment-&gt;liveness().hlo_ordering().SequentialOrder. If
+  // &apos;run_whole_module_heap_simulation&apos; is true, the heap simulation will be run
+  // assuming all global computations are sequentially ordered.</doc>

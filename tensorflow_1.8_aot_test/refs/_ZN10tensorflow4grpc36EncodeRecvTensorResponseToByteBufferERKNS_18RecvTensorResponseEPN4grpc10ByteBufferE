@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.h' l='37' type='void tensorflow::grpc::EncodeRecvTensorResponseToByteBuffer(const tensorflow::RecvTensorResponse &amp; proto, ::grpc::ByteBuffer * result)'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.cc' l='32' ll='39' type='void tensorflow::grpc::EncodeRecvTensorResponseToByteBuffer(const tensorflow::RecvTensorResponse &amp; proto, ::grpc::ByteBuffer * result)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.cc' l='151' u='c' c='_ZN10tensorflow4grpc24EncodeTensorToByteBufferEbRKNS_6TensorEPN4grpc10ByteBufferE'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.h' l='32'>// Encode a RecvTensorResponse protocol buffer into a byte buffer in a
+// format that is parseable as a RecvTensorResponse protocol buffer
+// holding &quot;proto&quot;.
+//
+// Discards original contents of *result.</doc>

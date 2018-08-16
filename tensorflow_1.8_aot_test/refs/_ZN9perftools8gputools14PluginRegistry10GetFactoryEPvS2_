@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/stream_executor/plugin_registry.h' l='95' type='port::StatusOr&lt;FactoryT&gt; perftools::gputools::PluginRegistry::GetFactory(Platform::Id platform_id, PluginId plugin_id)'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='207' u='c' c='_ZNK9perftools8gputools4host12HostExecutor12SupportsBlasEv'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='215' u='c' c='_ZN9perftools8gputools4host12HostExecutor10CreateBlasEv'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='228' u='c' c='_ZNK9perftools8gputools4host12HostExecutor11SupportsFftEv'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='236' u='c' c='_ZN9perftools8gputools4host12HostExecutor9CreateFftEv'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='249' u='c' c='_ZNK9perftools8gputools4host12HostExecutor11SupportsRngEv'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='257' u='c' c='_ZN9perftools8gputools4host12HostExecutor9CreateRngEv'/>
+<def f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='242' macro='1' type='port::StatusOr&lt;PluginRegistry::BlasFactory&gt; perftools::gputools::PluginRegistry::GetFactory(Platform::Id platform_id, PluginId plugin_id)'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='239' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryENS0_12PlatformKindEPv'/>
+<def f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='243' macro='1' type='port::StatusOr&lt;PluginRegistry::DnnFactory&gt; perftools::gputools::PluginRegistry::GetFactory(Platform::Id platform_id, PluginId plugin_id)'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='239' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryENS0_12PlatformKindEPv'/>
+<def f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='244' macro='1' type='port::StatusOr&lt;PluginRegistry::FftFactory&gt; perftools::gputools::PluginRegistry::GetFactory(Platform::Id platform_id, PluginId plugin_id)'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='239' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryENS0_12PlatformKindEPv'/>
+<def f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='245' macro='1' type='port::StatusOr&lt;PluginRegistry::RngFactory&gt; perftools::gputools::PluginRegistry::GetFactory(Platform::Id platform_id, PluginId plugin_id)'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='239' u='c' c='_ZN9perftools8gputools14PluginRegistry10GetFactoryENS0_12PlatformKindEPv'/>

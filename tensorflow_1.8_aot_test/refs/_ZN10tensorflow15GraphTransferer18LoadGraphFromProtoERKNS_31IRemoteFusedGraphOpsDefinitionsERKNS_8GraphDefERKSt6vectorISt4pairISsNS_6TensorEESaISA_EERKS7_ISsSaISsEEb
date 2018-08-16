@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.h' l='55' type='tensorflow::Status tensorflow::GraphTransferer::LoadGraphFromProto(const tensorflow::IRemoteFusedGraphOpsDefinitions &amp; ops_definitions, const tensorflow::GraphDef &amp; graph_def, const std::vector&lt;std::pair&lt;string, Tensor&gt; &gt; &amp; input_node_info_list, const std::vector&lt;string&gt; &amp; output_node_names, const bool shape_inference_for_unknown_shape)'/>
+<doc f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.h' l='52'>// Load graph structure into GraphTransferer
+  // TODO(satok): Pass a pair of TensorShape and DataType instead of
+  // Tensor as input_node_info_list.</doc>
+<def f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='83' ll='188' type='tensorflow::Status tensorflow::GraphTransferer::LoadGraphFromProto(const tensorflow::IRemoteFusedGraphOpsDefinitions &amp; ops_definitions, const tensorflow::GraphDef &amp; graph_def, const std::vector&lt;std::pair&lt;string, Tensor&gt; &gt; &amp; input_node_info_list, const std::vector&lt;string&gt; &amp; output_node_names, const bool shape_inference_for_unknown_shape)'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='227' u='c' c='_ZN10tensorflow15GraphTransferer22LoadGraphFromProtoFileERKNS_31IRemoteFusedGraphOpsDefinitionsERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS9_EERKS6_ISsSaISsEEbbb'/>
+<doc f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='76'>/**
+ * graph loading functions
+ * - LoadGraphFromProto
+ * - LoadGraphFromProptoFile
+ * These functions read a graph definition and store parameters
+ * of node to transfer the graph to SOC.
+ */</doc>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/hexagon_control_wrapper.cc' l='82' u='c' c='_ZN10tensorflow21HexagonControlWrapper4InitERKNS_27RemoteFusedGraphExecuteInfoE'/>

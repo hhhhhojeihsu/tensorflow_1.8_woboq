@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/grappler/utils/traversal.h' l='31' type='void tensorflow::grappler::ReverseDfs(const tensorflow::grappler::GraphView &amp; graph_view, const std::vector&lt;NodeDef *&gt; &amp; from, const std::function&lt;void (NodeDef *)&gt; &amp; pre_order, const std::function&lt;void (NodeDef *)&gt; &amp; post_order, const std::function&lt;void (NodeDef *, NodeDef *)&gt; &amp; on_back_edge)'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='576' u='c' c='_ZN10tensorflow8grappler14SchedulingPassEPNS0_7ClusterEPNS0_12GrapplerItemE'/>
+<doc f='tensorflow/tensorflow/core/grappler/utils/traversal.h' l='25'>// Traverse the graph in reverse dfs order, starting from the list of nodes
+// specified in the &apos;from&apos; argument. The pre_order and post_order functors will
+// be called on each reachable node (including the &apos;from&apos; nodes) in pre and post
+// order. If loops are found, the on_back_edge functor will be called on the
+// corresponding back edges. Moreover, the pre and post order will assume that
+// these back edges will be cut.</doc>
+<def f='tensorflow/tensorflow/core/grappler/utils/traversal.cc' l='22' ll='77' type='void tensorflow::grappler::ReverseDfs(const tensorflow::grappler::GraphView &amp; graph_view, const std::vector&lt;NodeDef *&gt; &amp; from, const std::function&lt;void (NodeDef *)&gt; &amp; pre_order, const std::function&lt;void (NodeDef *)&gt; &amp; post_order, const std::function&lt;void (NodeDef *, NodeDef *)&gt; &amp; on_back_edge)'/>

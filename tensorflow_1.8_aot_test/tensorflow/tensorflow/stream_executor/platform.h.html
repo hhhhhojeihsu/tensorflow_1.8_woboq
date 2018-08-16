@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>platform.h source code [tensorflow/tensorflow/stream_executor/platform.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="perftools::gputools::Platform,perftools::gputools::PlatformKind,perftools::gputools::StreamExecutorConfig "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/stream_executor/platform.h'; var root_path = '../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../..'>tensorflow</a>/<a href='..'>tensorflow</a>/<a href='./'>stream_executor</a>/<a href='platform.h.html'>platform.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// Defines types and declares functions for identifying and extracting</i></td></tr>
+<tr><th id="17">17</th><td><i>// information about the types of platforms and supporting libraries for which</i></td></tr>
+<tr><th id="18">18</th><td><i>// StreamExecutor implementations exist.</i></td></tr>
+<tr><th id="19">19</th><td><u>#<span data-ppcond="19">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_PLATFORM_H_">TENSORFLOW_STREAM_EXECUTOR_PLATFORM_H_</span></u></td></tr>
+<tr><th id="20">20</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_STREAM_EXECUTOR_PLATFORM_H_" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_PLATFORM_H_">TENSORFLOW_STREAM_EXECUTOR_PLATFORM_H_</dfn></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../include/c++/5/map.html">&lt;map&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="device_options.h.html">"tensorflow/stream_executor/device_options.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="lib/status.h.html">"tensorflow/stream_executor/lib/status.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="lib/status_macros.h.html">"tensorflow/stream_executor/lib/status_macros.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="lib/statusor.h.html">"tensorflow/stream_executor/lib/statusor.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="platform/port.h.html">"tensorflow/stream_executor/platform/port.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="plugin.h.html">"tensorflow/stream_executor/plugin.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="trace_listener.h.html">"tensorflow/stream_executor/trace_listener.h"</a></u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><b>namespace</b> <span class="namespace">perftools</span> {</td></tr>
+<tr><th id="33">33</th><td><b>namespace</b> <span class="namespace">gputools</span> {</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><b>class</b> <a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor" id="perftools::gputools::StreamExecutor">StreamExecutor</a>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><i>// Describes the platform for a StreamExecutor instantiation to act upon.</i></td></tr>
+<tr><th id="38">38</th><td><i>//</i></td></tr>
+<tr><th id="39">39</th><td><i>// Implementors: if you add a value here be sure to update PlatformKindString</i></td></tr>
+<tr><th id="40">40</th><td><i>// and CheckPlatformKindIsValid.</i></td></tr>
+<tr><th id="41">41</th><td><b>enum</b> <b>class</b> <dfn class="type def" id="perftools::gputools::PlatformKind" title='perftools::gputools::PlatformKind' data-ref="perftools::gputools::PlatformKind">PlatformKind</dfn> {</td></tr>
+<tr><th id="42">42</th><td>  <dfn class="enum" id="perftools::gputools::PlatformKind::kInvalid" title='perftools::gputools::PlatformKind::kInvalid' data-ref="perftools::gputools::PlatformKind::kInvalid">kInvalid</dfn>,</td></tr>
+<tr><th id="43">43</th><td>  <dfn class="enum" id="perftools::gputools::PlatformKind::kCuda" title='perftools::gputools::PlatformKind::kCuda' data-ref="perftools::gputools::PlatformKind::kCuda">kCuda</dfn>,</td></tr>
+<tr><th id="44">44</th><td>  <dfn class="enum" id="perftools::gputools::PlatformKind::kOpenCL" title='perftools::gputools::PlatformKind::kOpenCL' data-ref="perftools::gputools::PlatformKind::kOpenCL">kOpenCL</dfn>,</td></tr>
+<tr><th id="45">45</th><td>  <dfn class="enum" id="perftools::gputools::PlatformKind::kHost" title='perftools::gputools::PlatformKind::kHost' data-ref="perftools::gputools::PlatformKind::kHost">kHost</dfn>,</td></tr>
+<tr><th id="46">46</th><td>  <dfn class="enum" id="perftools::gputools::PlatformKind::kMock" title='perftools::gputools::PlatformKind::kMock' data-ref="perftools::gputools::PlatformKind::kMock">kMock</dfn>,</td></tr>
+<tr><th id="47">47</th><td>  <dfn class="enum" id="perftools::gputools::PlatformKind::kSize" title='perftools::gputools::PlatformKind::kSize' data-ref="perftools::gputools::PlatformKind::kSize">kSize</dfn>,</td></tr>
+<tr><th id="48">48</th><td>};</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i>// Returns true if kind represents a valid platform capable of enqueuing items</i></td></tr>
+<tr><th id="51">51</th><td><i>// on a stream, but not necessarily on an accelerator device.</i></td></tr>
+<tr><th id="52">52</th><td><i>// Returns false for kMock and any invalid PlatformKind values.</i></td></tr>
+<tr><th id="53">53</th><td><em>bool</em> <dfn class="decl" id="_ZN9perftools8gputools18PlatformIsRunnableENS0_12PlatformKindE" title='perftools::gputools::PlatformIsRunnable' data-ref="_ZN9perftools8gputools18PlatformIsRunnableENS0_12PlatformKindE">PlatformIsRunnable</dfn>(<a class="type" href="#perftools::gputools::PlatformKind" title='perftools::gputools::PlatformKind' data-ref="perftools::gputools::PlatformKind">PlatformKind</a> <dfn class="local col5 decl" id="1535kind" title='kind' data-type='perftools::gputools::PlatformKind' data-ref="1535kind">kind</dfn>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><i>// Returns true if kind represents a valid platform capable of running kernels</i></td></tr>
+<tr><th id="56">56</th><td><i>// on an accelerator device. Returns false for kHost*, kMock and any invalid</i></td></tr>
+<tr><th id="57">57</th><td><i>// PlatformKind values.</i></td></tr>
+<tr><th id="58">58</th><td><em>bool</em> <dfn class="decl" id="_ZN9perftools8gputools26PlatformIsRunnableOnDeviceENS0_12PlatformKindE" title='perftools::gputools::PlatformIsRunnableOnDevice' data-ref="_ZN9perftools8gputools26PlatformIsRunnableOnDeviceENS0_12PlatformKindE">PlatformIsRunnableOnDevice</dfn>(<a class="type" href="#perftools::gputools::PlatformKind" title='perftools::gputools::PlatformKind' data-ref="perftools::gputools::PlatformKind">PlatformKind</a> <dfn class="local col6 decl" id="1536kind" title='kind' data-type='perftools::gputools::PlatformKind' data-ref="1536kind">kind</dfn>);</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><i>// Returns a printable description of a PlatformKind.</i></td></tr>
+<tr><th id="61">61</th><td><a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="_ZN9perftools8gputools18PlatformKindStringENS0_12PlatformKindE" title='perftools::gputools::PlatformKindString' data-ref="_ZN9perftools8gputools18PlatformKindStringENS0_12PlatformKindE">PlatformKindString</dfn>(<a class="type" href="#perftools::gputools::PlatformKind" title='perftools::gputools::PlatformKind' data-ref="perftools::gputools::PlatformKind">PlatformKind</a> <dfn class="local col7 decl" id="1537kind" title='kind' data-type='perftools::gputools::PlatformKind' data-ref="1537kind">kind</dfn>);</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td><i>// Returns the PlatformKind corresponding to the input string; returns kInvalid</i></td></tr>
+<tr><th id="64">64</th><td><i>// in the case of no match.</i></td></tr>
+<tr><th id="65">65</th><td><a class="type" href="#perftools::gputools::PlatformKind" title='perftools::gputools::PlatformKind' data-ref="perftools::gputools::PlatformKind">PlatformKind</a> <dfn class="decl" id="_ZN9perftools8gputools22PlatformKindFromStringESs" title='perftools::gputools::PlatformKindFromString' data-ref="_ZN9perftools8gputools22PlatformKindFromStringESs">PlatformKindFromString</dfn>(<a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="local col8 decl" id="1538platform_string" title='platform_string' data-type='string' data-ref="1538platform_string">platform_string</dfn>);</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td><i>// Checks that kind takes on a valid value.</i></td></tr>
+<tr><th id="68">68</th><td><em>void</em> <dfn class="decl" id="_ZN9perftools8gputools24CheckPlatformKindIsValidENS0_12PlatformKindE" title='perftools::gputools::CheckPlatformKindIsValid' data-ref="_ZN9perftools8gputools24CheckPlatformKindIsValidENS0_12PlatformKindE">CheckPlatformKindIsValid</dfn>(<a class="type" href="#perftools::gputools::PlatformKind" title='perftools::gputools::PlatformKind' data-ref="perftools::gputools::PlatformKind">PlatformKind</a> <dfn class="local col9 decl" id="1539kind" title='kind' data-type='perftools::gputools::PlatformKind' data-ref="1539kind">kind</dfn>);</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td><i>// StreamExecutorConfig encapsulates the set of options for constructing a</i></td></tr>
+<tr><th id="71">71</th><td><i>// StreamExecutor for a given platform.</i></td></tr>
+<tr><th id="72">72</th><td><b>struct</b> <dfn class="type def" id="perftools::gputools::StreamExecutorConfig" title='perftools::gputools::StreamExecutorConfig' data-ref="perftools::gputools::StreamExecutorConfig">StreamExecutorConfig</dfn> {</td></tr>
+<tr><th id="73">73</th><td>  <i>// Sets members to defaults: -1 for ordinal (must be changed), and default</i></td></tr>
+<tr><th id="74">74</th><td><i>  // PluginConfig and DeviceOptions.</i></td></tr>
+<tr><th id="75">75</th><td>  <dfn class="decl" id="_ZN9perftools8gputools20StreamExecutorConfigC1Ev" title='perftools::gputools::StreamExecutorConfig::StreamExecutorConfig' data-ref="_ZN9perftools8gputools20StreamExecutorConfigC1Ev">StreamExecutorConfig</dfn>();</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>  <i>// Simple ordinal-setting constructor.</i></td></tr>
+<tr><th id="78">78</th><td>  <b>explicit</b> <dfn class="decl" id="_ZN9perftools8gputools20StreamExecutorConfigC1Ei" title='perftools::gputools::StreamExecutorConfig::StreamExecutorConfig' data-ref="_ZN9perftools8gputools20StreamExecutorConfigC1Ei">StreamExecutorConfig</dfn>(<em>int</em> <dfn class="local col0 decl" id="1540ordinal" title='ordinal' data-type='int' data-ref="1540ordinal">ordinal</dfn>);</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>  <i>// The ordinal of the device to be managed by the returned StreamExecutor.</i></td></tr>
+<tr><th id="81">81</th><td>  <em>int</em> <dfn class="decl" id="perftools::gputools::StreamExecutorConfig::ordinal" title='perftools::gputools::StreamExecutorConfig::ordinal' data-ref="perftools::gputools::StreamExecutorConfig::ordinal">ordinal</dfn>;</td></tr>
+<tr><th id="82">82</th><td></td></tr>
+<tr><th id="83">83</th><td>  <i>// The PluginConfig for the returned StreamExecutor.</i></td></tr>
+<tr><th id="84">84</th><td>  <a class="type" href="plugin.h.html#perftools::gputools::PluginConfig" title='perftools::gputools::PluginConfig' data-ref="perftools::gputools::PluginConfig">PluginConfig</a> <dfn class="decl" id="perftools::gputools::StreamExecutorConfig::plugin_config" title='perftools::gputools::StreamExecutorConfig::plugin_config' data-ref="perftools::gputools::StreamExecutorConfig::plugin_config">plugin_config</dfn>;</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td>  <i>// The DeviceOptions for the returned StreamExecutor.</i></td></tr>
+<tr><th id="87">87</th><td>  <a class="type" href="device_options.h.html#perftools::gputools::DeviceOptions" title='perftools::gputools::DeviceOptions' data-ref="perftools::gputools::DeviceOptions">DeviceOptions</a> <dfn class="decl" id="perftools::gputools::StreamExecutorConfig::device_options" title='perftools::gputools::StreamExecutorConfig::device_options' data-ref="perftools::gputools::StreamExecutorConfig::device_options">device_options</dfn>;</td></tr>
+<tr><th id="88">88</th><td>};</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td><i>// Abstract base class for a platform registered with the MultiPlatformManager.</i></td></tr>
+<tr><th id="91">91</th><td><b>class</b> <dfn class="type def" id="perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</dfn> {</td></tr>
+<tr><th id="92">92</th><td> <b>public</b>:</td></tr>
+<tr><th id="93">93</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN9perftools8gputools8PlatformD1Ev" title='perftools::gputools::Platform::~Platform' data-ref="_ZN9perftools8gputools8PlatformD1Ev">~Platform</dfn>();</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td>  <i>// A platform ID is a unique identifier for each registered platform type -</i></td></tr>
+<tr><th id="96">96</th><td><i>  // each platform is required to expose an ID to ensure unique registration and</i></td></tr>
+<tr><th id="97">97</th><td><i>  // as a target against which plugins can register.</i></td></tr>
+<tr><th id="98">98</th><td><i>  //</i></td></tr>
+<tr><th id="99">99</th><td><i>  // The macro below is provided to help generate a [process-unique] identifier.</i></td></tr>
+<tr><th id="100">100</th><td>  <b>using</b> <dfn class="typedef" id="perftools::gputools::Platform::Id" title='perftools::gputools::Platform::Id' data-type='void *' data-ref="perftools::gputools::Platform::Id">Id</dfn> = <em>void</em>*;</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td><i>// Helper macro to define a plugin ID. To be used only inside plugin</i></td></tr>
+<tr><th id="103">103</th><td><i>// implementation files. Works by "reserving" an address/value (guaranteed to be</i></td></tr>
+<tr><th id="104">104</th><td><i>// unique) inside a process space.</i></td></tr>
+<tr><th id="105">105</th><td><u>#define <dfn class="macro" id="_M/PLATFORM_DEFINE_ID" data-ref="_M/PLATFORM_DEFINE_ID">PLATFORM_DEFINE_ID</dfn>(ID_VAR_NAME) \</u></td></tr>
+<tr><th id="106">106</th><td><u>  namespace {                           \</u></td></tr>
+<tr><th id="107">107</th><td><u>  int plugin_id_value;                  \</u></td></tr>
+<tr><th id="108">108</th><td><u>  }                                     \</u></td></tr>
+<tr><th id="109">109</th><td><u>  const perftools::gputools::Platform::Id ID_VAR_NAME = &amp;plugin_id_value;</u></td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>  <i>// Returns a key uniquely identifying this platform.</i></td></tr>
+<tr><th id="112">112</th><td>  <b>virtual</b> <a class="typedef" href="#perftools::gputools::Platform::Id" title='perftools::gputools::Platform::Id' data-type='void *' data-ref="perftools::gputools::Platform::Id">Id</a> <dfn class="virtual decl" id="_ZNK9perftools8gputools8Platform2idEv" title='perftools::gputools::Platform::id' data-ref="_ZNK9perftools8gputools8Platform2idEv">id</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>  <i>// Name of this platform.</i></td></tr>
+<tr><th id="115">115</th><td>  <b>virtual</b> <em>const</em> <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="virtual decl" id="_ZNK9perftools8gputools8Platform4NameEv" title='perftools::gputools::Platform::Name' data-ref="_ZNK9perftools8gputools8Platform4NameEv">Name</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td>  <i>// Returns the number of devices accessible on this platform.</i></td></tr>
+<tr><th id="118">118</th><td><i>  //</i></td></tr>
+<tr><th id="119">119</th><td><i>  // Note that, though these devices are visible, if there is only one userspace</i></td></tr>
+<tr><th id="120">120</th><td><i>  // context allowed for the device at a time and another process is using this</i></td></tr>
+<tr><th id="121">121</th><td><i>  // device, a call to ExecutorForDevice may return an error status.</i></td></tr>
+<tr><th id="122">122</th><td>  <b>virtual</b> <em>int</em> <dfn class="virtual decl" id="_ZNK9perftools8gputools8Platform18VisibleDeviceCountEv" title='perftools::gputools::Platform::VisibleDeviceCount' data-ref="_ZNK9perftools8gputools8Platform18VisibleDeviceCountEv">VisibleDeviceCount</dfn>() <em>const</em> = <var>0</var>;</td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td>  <i>// Returns true iff the platform has been initialized.</i></td></tr>
+<tr><th id="125">125</th><td>  <b>virtual</b> <em>bool</em> <dfn class="virtual decl" id="_ZNK9perftools8gputools8Platform11InitializedEv" title='perftools::gputools::Platform::Initialized' data-ref="_ZNK9perftools8gputools8Platform11InitializedEv">Initialized</dfn>() <em>const</em>;</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>  <i>// Initializes the platform with a custom set of options. The platform must be</i></td></tr>
+<tr><th id="128">128</th><td><i>  // initialized before obtaining StreamExecutor objects.  The interpretation of</i></td></tr>
+<tr><th id="129">129</th><td><i>  // the platform_options argument is implementation specific.  This method may</i></td></tr>
+<tr><th id="130">130</th><td><i>  // return an error if unrecognized options are provided.  If using</i></td></tr>
+<tr><th id="131">131</th><td><i>  // MultiPlatformManager, this method will be called automatically by</i></td></tr>
+<tr><th id="132">132</th><td><i>  // InitializePlatformWithId/InitializePlatformWithName.</i></td></tr>
+<tr><th id="133">133</th><td>  <b>virtual</b> <span class="namespace">port::</span><a class="typedef" href="lib/status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a> <dfn class="virtual decl" id="_ZN9perftools8gputools8Platform10InitializeERKSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEE" title='perftools::gputools::Platform::Initialize' data-ref="_ZN9perftools8gputools8Platform10InitializeERKSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEE">Initialize</dfn>(</td></tr>
+<tr><th id="134">134</th><td>      <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/stl_map.h.html#std::map" title='std::map' data-ref="std::map">map</a>&lt;<a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <a class="typedef" href="../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&gt;&amp; <dfn class="local col1 decl" id="1541platform_options" title='platform_options' data-type='const std::map&lt;string, string&gt; &amp;' data-ref="1541platform_options">platform_options</dfn>);</td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>  <i>// Returns a device with the given ordinal on this platform with a default</i></td></tr>
+<tr><th id="137">137</th><td><i>  // plugin configuration or, if none can be found with the given ordinal or</i></td></tr>
+<tr><th id="138">138</th><td><i>  // there is an error in opening a context to communicate with the device, an</i></td></tr>
+<tr><th id="139">139</th><td><i>  // error status is returned.</i></td></tr>
+<tr><th id="140">140</th><td><i>  //</i></td></tr>
+<tr><th id="141">141</th><td><i>  // Ownership of the executor is NOT transferred to the caller --</i></td></tr>
+<tr><th id="142">142</th><td><i>  // the Platform owns the executors in a singleton-like fashion.</i></td></tr>
+<tr><th id="143">143</th><td>  <b>virtual</b> <span class="namespace">port::</span><a class="type" href="lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a>*&gt; <dfn class="virtual decl" id="_ZN9perftools8gputools8Platform17ExecutorForDeviceEi" title='perftools::gputools::Platform::ExecutorForDevice' data-ref="_ZN9perftools8gputools8Platform17ExecutorForDeviceEi">ExecutorForDevice</dfn>(<em>int</em> <dfn class="local col2 decl" id="1542ordinal" title='ordinal' data-type='int' data-ref="1542ordinal">ordinal</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td>  <i>// Returns a device or error, as above, with the specified plugins.</i></td></tr>
+<tr><th id="146">146</th><td><i>  //</i></td></tr>
+<tr><th id="147">147</th><td><i>  // Ownership of the executor is NOT transferred to the caller.</i></td></tr>
+<tr><th id="148">148</th><td>  <b>virtual</b> <span class="namespace">port::</span><a class="type" href="lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a>*&gt; <dfn class="virtual decl" id="_ZN9perftools8gputools8Platform33ExecutorForDeviceWithPluginConfigEiRKNS0_12PluginConfigE" title='perftools::gputools::Platform::ExecutorForDeviceWithPluginConfig' data-ref="_ZN9perftools8gputools8Platform33ExecutorForDeviceWithPluginConfigEiRKNS0_12PluginConfigE">ExecutorForDeviceWithPluginConfig</dfn>(</td></tr>
+<tr><th id="149">149</th><td>      <em>int</em> <dfn class="local col3 decl" id="1543ordinal" title='ordinal' data-type='int' data-ref="1543ordinal">ordinal</dfn>, <em>const</em> <a class="type" href="plugin.h.html#perftools::gputools::PluginConfig" title='perftools::gputools::PluginConfig' data-ref="perftools::gputools::PluginConfig">PluginConfig</a>&amp; <dfn class="local col4 decl" id="1544plugin_config" title='plugin_config' data-type='const perftools::gputools::PluginConfig &amp;' data-ref="1544plugin_config">plugin_config</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>  <i>// Returns a device constructed with the options specified in "config".</i></td></tr>
+<tr><th id="152">152</th><td><i>  // Ownership of the executor is NOT transferred to the caller.</i></td></tr>
+<tr><th id="153">153</th><td>  <b>virtual</b> <span class="namespace">port::</span><a class="type" href="lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a>*&gt; <dfn class="virtual decl" id="_ZN9perftools8gputools8Platform11GetExecutorERKNS0_20StreamExecutorConfigE" title='perftools::gputools::Platform::GetExecutor' data-ref="_ZN9perftools8gputools8Platform11GetExecutorERKNS0_20StreamExecutorConfigE">GetExecutor</dfn>(</td></tr>
+<tr><th id="154">154</th><td>      <em>const</em> <a class="type" href="#perftools::gputools::StreamExecutorConfig" title='perftools::gputools::StreamExecutorConfig' data-ref="perftools::gputools::StreamExecutorConfig">StreamExecutorConfig</a>&amp; <dfn class="local col5 decl" id="1545config" title='config' data-type='const perftools::gputools::StreamExecutorConfig &amp;' data-ref="1545config">config</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td>  <i>// Returns a device constructed with the options specified in "config" without</i></td></tr>
+<tr><th id="157">157</th><td><i>  // looking in or storing to the Platform's executor cache.</i></td></tr>
+<tr><th id="158">158</th><td><i>  // Ownership IS transferred to the caller.</i></td></tr>
+<tr><th id="159">159</th><td>  <b>virtual</b> <span class="namespace">port::</span><a class="type" href="lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a>&gt;&gt; <dfn class="virtual decl" id="_ZN9perftools8gputools8Platform19GetUncachedExecutorERKNS0_20StreamExecutorConfigE" title='perftools::gputools::Platform::GetUncachedExecutor' data-ref="_ZN9perftools8gputools8Platform19GetUncachedExecutorERKNS0_20StreamExecutorConfigE">GetUncachedExecutor</dfn>(</td></tr>
+<tr><th id="160">160</th><td>      <em>const</em> <a class="type" href="#perftools::gputools::StreamExecutorConfig" title='perftools::gputools::StreamExecutorConfig' data-ref="perftools::gputools::StreamExecutorConfig">StreamExecutorConfig</a>&amp; <dfn class="local col6 decl" id="1546config" title='config' data-type='const perftools::gputools::StreamExecutorConfig &amp;' data-ref="1546config">config</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td>  <i>// Warning: this is a dangerous API and should be used with caution.</i></td></tr>
+<tr><th id="163">163</th><td><i>  //</i></td></tr>
+<tr><th id="164">164</th><td><i>  // Forces the platform to delete executor instances, releasing their</i></td></tr>
+<tr><th id="165">165</th><td><i>  // associated device contexts. There must be no held instances of the executor</i></td></tr>
+<tr><th id="166">166</th><td><i>  // and there must be no outstanding activity on the devices for this platform.</i></td></tr>
+<tr><th id="167">167</th><td><i>  //</i></td></tr>
+<tr><th id="168">168</th><td><i>  // This is only useful on platforms which bind a device to a single process</i></td></tr>
+<tr><th id="169">169</th><td><i>  // that has obtained the device context. May return UNIMPLEMENTED on platforms</i></td></tr>
+<tr><th id="170">170</th><td><i>  // that have no reason to destroy device contexts.</i></td></tr>
+<tr><th id="171">171</th><td><i>  //</i></td></tr>
+<tr><th id="172">172</th><td><i>  // The platform must be reinitialized after this is called.</i></td></tr>
+<tr><th id="173">173</th><td>  <b>virtual</b> <span class="namespace">port::</span><a class="typedef" href="lib/status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a> <dfn class="virtual decl" id="_ZN9perftools8gputools8Platform21ForceExecutorShutdownEv" title='perftools::gputools::Platform::ForceExecutorShutdown' data-ref="_ZN9perftools8gputools8Platform21ForceExecutorShutdownEv">ForceExecutorShutdown</dfn>();</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>  <i>// Registers a TraceListener to listen to all StreamExecutors for this</i></td></tr>
+<tr><th id="176">176</th><td><i>  // platform.</i></td></tr>
+<tr><th id="177">177</th><td><i>  // Takes ownership of listener.</i></td></tr>
+<tr><th id="178">178</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN9perftools8gputools8Platform21RegisterTraceListenerESt10unique_ptrINS0_13TraceListenerESt14default_deleteIS3_EE" title='perftools::gputools::Platform::RegisterTraceListener' data-ref="_ZN9perftools8gputools8Platform21RegisterTraceListenerESt10unique_ptrINS0_13TraceListenerESt14default_deleteIS3_EE">RegisterTraceListener</dfn>(</td></tr>
+<tr><th id="179">179</th><td>      <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="trace_listener.h.html#perftools::gputools::TraceListener" title='perftools::gputools::TraceListener' data-ref="perftools::gputools::TraceListener">TraceListener</a>&gt; <dfn class="local col7 decl" id="1547listener" title='listener' data-type='std::unique_ptr&lt;TraceListener&gt;' data-ref="1547listener">listener</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td>  <i>// Removes the specified TraceListener from all StreamExecutors.</i></td></tr>
+<tr><th id="182">182</th><td>  <b>virtual</b> <em>void</em> <dfn class="virtual decl" id="_ZN9perftools8gputools8Platform23UnregisterTraceListenerEPNS0_13TraceListenerE" title='perftools::gputools::Platform::UnregisterTraceListener' data-ref="_ZN9perftools8gputools8Platform23UnregisterTraceListenerEPNS0_13TraceListenerE">UnregisterTraceListener</dfn>(<a class="type" href="trace_listener.h.html#perftools::gputools::TraceListener" title='perftools::gputools::TraceListener' data-ref="perftools::gputools::TraceListener">TraceListener</a>* <dfn class="local col8 decl" id="1548listener" title='listener' data-type='perftools::gputools::TraceListener *' data-ref="1548listener">listener</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td>  <i>// Map of executor-to-executor coordinate and boolean, indicating if the first</i></td></tr>
+<tr><th id="185">185</th><td><i>  // executor can access the second's memory.</i></td></tr>
+<tr><th id="186">186</th><td>  <b>using</b> <dfn class="typedef" id="perftools::gputools::Platform::PeerAccessMap" title='perftools::gputools::Platform::PeerAccessMap' data-type='std::map&lt;std::pair&lt;int, int&gt;, bool&gt;' data-ref="perftools::gputools::Platform::PeerAccessMap">PeerAccessMap</dfn> = <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/stl_map.h.html#std::map" title='std::map' data-ref="std::map">map</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<em>int</em>, <em>int</em>&gt;, <em>bool</em>&gt;;</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td>  <i>// Returns a matrix indicating which executors can access which other</i></td></tr>
+<tr><th id="189">189</th><td><i>  // executors' memory.</i></td></tr>
+<tr><th id="190">190</th><td>  <b>virtual</b> <span class="namespace">std::</span><a class="type" href="../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="typedef" href="#perftools::gputools::Platform::PeerAccessMap" title='perftools::gputools::Platform::PeerAccessMap' data-type='std::map&lt;std::pair&lt;int, int&gt;, bool&gt;' data-ref="perftools::gputools::Platform::PeerAccessMap">PeerAccessMap</a>&gt; <dfn class="virtual decl" id="_ZN9perftools8gputools8Platform16GetPeerAccessMapEv" title='perftools::gputools::Platform::GetPeerAccessMap' data-ref="_ZN9perftools8gputools8Platform16GetPeerAccessMapEv">GetPeerAccessMap</dfn>();</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td>  <i>// Attempts to enable all peer-to-peer access links described by the result of</i></td></tr>
+<tr><th id="193">193</th><td><i>  // GetPeerAccessMap(). Note that calling this routine will force the creation</i></td></tr>
+<tr><th id="194">194</th><td><i>  // of a default-argument (see StreamExecutorConfig) StreamExecutor object for</i></td></tr>
+<tr><th id="195">195</th><td><i>  // each device ordinal in the system, should any not yet exist.</i></td></tr>
+<tr><th id="196">196</th><td>  <b>virtual</b> <span class="namespace">port::</span><a class="typedef" href="lib/status.h.html#perftools::gputools::port::Status" title='perftools::gputools::port::Status' data-type='tensorflow::Status' data-ref="perftools::gputools::port::Status">Status</a> <dfn class="virtual decl" id="_ZN9perftools8gputools8Platform16EnablePeerAccessEv" title='perftools::gputools::Platform::EnablePeerAccess' data-ref="_ZN9perftools8gputools8Platform16EnablePeerAccessEv">EnablePeerAccess</dfn>();</td></tr>
+<tr><th id="197">197</th><td></td></tr>
+<tr><th id="198">198</th><td> <b>protected</b>:</td></tr>
+<tr><th id="199">199</th><td>  <i>// SE_DISALLOW_COPY_AND_ASSIGN declares a constructor, which suppresses the</i></td></tr>
+<tr><th id="200">200</th><td><i>  // presence of the default constructor. This statement re-enables it, which</i></td></tr>
+<tr><th id="201">201</th><td><i>  // simplifies subclassing.</i></td></tr>
+<tr><th id="202">202</th><td>  <dfn class="decl" id="_ZN9perftools8gputools8PlatformC1Ev" title='perftools::gputools::Platform::Platform' data-ref="_ZN9perftools8gputools8PlatformC1Ev">Platform</dfn>() = <b>default</b>;</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td> <b>private</b>:</td></tr>
+<tr><th id="205">205</th><td>  <a class="macro" href="platform/port.h.html#56" title="TF_DISALLOW_COPY_AND_ASSIGN" data-ref="_M/SE_DISALLOW_COPY_AND_ASSIGN">SE_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN9perftools8gputools8PlatformC1ERKS1_" title='perftools::gputools::Platform::Platform' data-ref="_ZN9perftools8gputools8PlatformC1ERKS1_"><a class="type" href="#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform"><a class="type" href="#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a></a></dfn>);</td></tr>
+<tr><th id="206">206</th><td>};</td></tr>
+<tr><th id="207">207</th><td></td></tr>
+<tr><th id="208">208</th><td>}  <i>// namespace gputools</i></td></tr>
+<tr><th id="209">209</th><td>}  <i>// namespace perftools</i></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td><u>#<span data-ppcond="19">endif</span>  // TENSORFLOW_STREAM_EXECUTOR_PLATFORM_H_</u></td></tr>
+<tr><th id="212">212</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../compiler/jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

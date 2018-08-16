@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/framework/op_gen_lib.h' l='78' type='tensorflow::Status tensorflow::ApiDefMap::LoadApiDef(const string &amp; api_def_file_contents)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2734' u='c' c='TF_ApiDefMapPut'/>
+<doc f='tensorflow/tensorflow/core/framework/op_gen_lib.h' l='74'>// Load ApiDefs from string containing ApiDefs text proto.
+  // api_def_file_contents is expected to be in &quot;multiline format&quot;.
+  // ApiDefs must contain a subset of ops defined in OpsList
+  // passed to the constructor.</doc>
+<use f='tensorflow/tensorflow/core/framework/op_gen_lib.cc' l='493' u='c' c='_ZN10tensorflow9ApiDefMap8LoadFileEPNS_3EnvERKSs'/>
+<def f='tensorflow/tensorflow/core/framework/op_gen_lib.cc' l='497' ll='510' type='tensorflow::Status tensorflow::ApiDefMap::LoadApiDef(const string &amp; api_def_file_contents)'/>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>cpu_utils.cc source code [tensorflow/tensorflow/core/platform/profile_utils/cpu_utils.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/platform/profile_utils/cpu_utils.cc'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>platform</a>/<a href='./'>profile_utils</a>/<a href='cpu_utils.cc.html'>cpu_utils.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="cpu_utils.h.html">"tensorflow/core/platform/profile_utils/cpu_utils.h"</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../../include/c++/5/limits.html">&lt;limits&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../include/c++/5/mutex.html">&lt;mutex&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../logging.h.html">"tensorflow/core/platform/logging.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="android_armv7a_cpu_utils_helper.h.html">"tensorflow/core/platform/profile_utils/android_armv7a_cpu_utils_helper.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">profile_utils</span> {</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><i>/* static */</i> <b>constexpr</b> <a class="typedef" href="../default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <a class="type" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils" title='tensorflow::profile_utils::CpuUtils' data-ref="tensorflow::profile_utils::CpuUtils">CpuUtils</a>::<dfn class="decl def" id="tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY" title='tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY' data-ref="tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY">INVALID_FREQUENCY</dfn>;</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><em>static</em> <a class="type" href="i_cpu_utils_helper.h.html#tensorflow::profile_utils::ICpuUtilsHelper" title='tensorflow::profile_utils::ICpuUtilsHelper' data-ref="tensorflow::profile_utils::ICpuUtilsHelper">ICpuUtilsHelper</a>* <dfn class="tu decl def" id="tensorflow::profile_utils::cpu_utils_helper_instance_" title='tensorflow::profile_utils::cpu_utils_helper_instance_' data-type='tensorflow::profile_utils::ICpuUtilsHelper *' data-ref="tensorflow::profile_utils::cpu_utils_helper_instance_">cpu_utils_helper_instance_</dfn> = <b>nullptr</b>;</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><u>#<span data-ppcond="31">if</span> (defined(<span class="macro" data-ref="_M/__powerpc__">__powerpc__</span>) ||                                             \</u></td></tr>
+<tr><th id="32">32</th><td><u>     defined(<span class="macro" data-ref="_M/__ppc__">__ppc__</span>) &amp;&amp; (<span class="macro" title="1234" data-ref="_M/__BYTE_ORDER__">__BYTE_ORDER__</span> == <span class="macro" title="1234" data-ref="_M/__ORDER_LITTLE_ENDIAN__">__ORDER_LITTLE_ENDIAN__</span>)) || \</u></td></tr>
+<tr><th id="33">33</th><td><u>    (defined(<span class="macro" data-ref="_M/__s390x__">__s390x__</span>))</u></td></tr>
+<tr><th id="34">34</th><td><i>/* static */</i> uint64 CpuUtils::GetCycleCounterFrequency() {</td></tr>
+<tr><th id="35">35</th><td>  <em>static</em> <em>const</em> uint64 cpu_frequency = GetCycleCounterFrequencyImpl();</td></tr>
+<tr><th id="36">36</th><td>  <b>return</b> cpu_frequency;</td></tr>
+<tr><th id="37">37</th><td>}</td></tr>
+<tr><th id="38">38</th><td><u>#<span data-ppcond="31">else</span></u></td></tr>
+<tr><th id="39">39</th><td><i>/* static */</i> <a class="typedef" href="../default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <a class="type" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils" title='tensorflow::profile_utils::CpuUtils' data-ref="tensorflow::profile_utils::CpuUtils">CpuUtils</a>::<dfn class="decl def" id="_ZN10tensorflow13profile_utils8CpuUtils24GetCycleCounterFrequencyEv" title='tensorflow::profile_utils::CpuUtils::GetCycleCounterFrequency' data-ref="_ZN10tensorflow13profile_utils8CpuUtils24GetCycleCounterFrequencyEv">GetCycleCounterFrequency</dfn>() {</td></tr>
+<tr><th id="40">40</th><td>  <em>static</em> <em>const</em> <a class="typedef" href="../default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col1 decl" id="1cpu_frequency" title='cpu_frequency' data-type='const int64' data-ref="1cpu_frequency">cpu_frequency</dfn> = <a class="member" href="#_ZN10tensorflow13profile_utils8CpuUtils28GetCycleCounterFrequencyImplEv" title='tensorflow::profile_utils::CpuUtils::GetCycleCounterFrequencyImpl' data-ref="_ZN10tensorflow13profile_utils8CpuUtils28GetCycleCounterFrequencyImplEv">GetCycleCounterFrequencyImpl</a>();</td></tr>
+<tr><th id="41">41</th><td>  <b>return</b> <a class="local col1 ref" href="#1cpu_frequency" title='cpu_frequency' data-ref="1cpu_frequency">cpu_frequency</a>;</td></tr>
+<tr><th id="42">42</th><td>}</td></tr>
+<tr><th id="43">43</th><td><u>#<span data-ppcond="31">endif</span></u></td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><i>/* static */</i> <em>double</em> <a class="type" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils" title='tensorflow::profile_utils::CpuUtils' data-ref="tensorflow::profile_utils::CpuUtils">CpuUtils</a>::<dfn class="decl def" id="_ZN10tensorflow13profile_utils8CpuUtils19GetMicroSecPerClockEv" title='tensorflow::profile_utils::CpuUtils::GetMicroSecPerClock' data-ref="_ZN10tensorflow13profile_utils8CpuUtils19GetMicroSecPerClockEv">GetMicroSecPerClock</dfn>() {</td></tr>
+<tr><th id="46">46</th><td>  <em>static</em> <em>const</em> <em>double</em> <dfn class="local col2 decl" id="2micro_sec_per_clock" title='micro_sec_per_clock' data-type='const double' data-ref="2micro_sec_per_clock">micro_sec_per_clock</dfn> =</td></tr>
+<tr><th id="47">47</th><td>      (<var>1000.0</var> * <var>1000.0</var>) / <b>static_cast</b>&lt;<em>double</em>&gt;(<a class="member" href="#_ZN10tensorflow13profile_utils8CpuUtils24GetCycleCounterFrequencyEv" title='tensorflow::profile_utils::CpuUtils::GetCycleCounterFrequency' data-ref="_ZN10tensorflow13profile_utils8CpuUtils24GetCycleCounterFrequencyEv">GetCycleCounterFrequency</a>());</td></tr>
+<tr><th id="48">48</th><td>  <b>return</b> <a class="local col2 ref" href="#2micro_sec_per_clock" title='micro_sec_per_clock' data-ref="2micro_sec_per_clock">micro_sec_per_clock</a>;</td></tr>
+<tr><th id="49">49</th><td>}</td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><i>/* static */</i> <em>void</em> <a class="type" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils" title='tensorflow::profile_utils::CpuUtils' data-ref="tensorflow::profile_utils::CpuUtils">CpuUtils</a>::<dfn class="decl def" id="_ZN10tensorflow13profile_utils8CpuUtils15ResetClockCycleEv" title='tensorflow::profile_utils::CpuUtils::ResetClockCycle' data-ref="_ZN10tensorflow13profile_utils8CpuUtils15ResetClockCycleEv">ResetClockCycle</dfn>() {</td></tr>
+<tr><th id="52">52</th><td>  <a class="member" href="#_ZN10tensorflow13profile_utils8CpuUtils34GetCpuUtilsHelperSingletonInstanceEv" title='tensorflow::profile_utils::CpuUtils::GetCpuUtilsHelperSingletonInstance' data-ref="_ZN10tensorflow13profile_utils8CpuUtils34GetCpuUtilsHelperSingletonInstanceEv">GetCpuUtilsHelperSingletonInstance</a>().<a class="virtual ref" href="i_cpu_utils_helper.h.html#_ZN10tensorflow13profile_utils15ICpuUtilsHelper15ResetClockCycleEv" title='tensorflow::profile_utils::ICpuUtilsHelper::ResetClockCycle' data-ref="_ZN10tensorflow13profile_utils15ICpuUtilsHelper15ResetClockCycleEv">ResetClockCycle</a>();</td></tr>
+<tr><th id="53">53</th><td>}</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><i>/* static */</i> <em>void</em> <a class="type" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils" title='tensorflow::profile_utils::CpuUtils' data-ref="tensorflow::profile_utils::CpuUtils">CpuUtils</a>::<dfn class="decl def" id="_ZN10tensorflow13profile_utils8CpuUtils25EnableClockCycleProfilingEb" title='tensorflow::profile_utils::CpuUtils::EnableClockCycleProfiling' data-ref="_ZN10tensorflow13profile_utils8CpuUtils25EnableClockCycleProfilingEb">EnableClockCycleProfiling</dfn>(<em>const</em> <em>bool</em> <dfn class="local col3 decl" id="3enable" title='enable' data-type='const bool' data-ref="3enable">enable</dfn>) {</td></tr>
+<tr><th id="56">56</th><td>  <a class="member" href="#_ZN10tensorflow13profile_utils8CpuUtils34GetCpuUtilsHelperSingletonInstanceEv" title='tensorflow::profile_utils::CpuUtils::GetCpuUtilsHelperSingletonInstance' data-ref="_ZN10tensorflow13profile_utils8CpuUtils34GetCpuUtilsHelperSingletonInstanceEv">GetCpuUtilsHelperSingletonInstance</a>().<a class="virtual ref" href="i_cpu_utils_helper.h.html#_ZN10tensorflow13profile_utils15ICpuUtilsHelper25EnableClockCycleProfilingEb" title='tensorflow::profile_utils::ICpuUtilsHelper::EnableClockCycleProfiling' data-ref="_ZN10tensorflow13profile_utils15ICpuUtilsHelper25EnableClockCycleProfilingEb">EnableClockCycleProfiling</a>(<a class="local col3 ref" href="#3enable" title='enable' data-ref="3enable">enable</a>);</td></tr>
+<tr><th id="57">57</th><td>}</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><i>/* static */</i> <span class="namespace">std::chrono::</span><a class="type" href="../../../../../include/c++/5/chrono.html#std::chrono::duration" title='std::chrono::duration' data-ref="std::chrono::duration">duration</a>&lt;<em>double</em>&gt; <a class="type" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils" title='tensorflow::profile_utils::CpuUtils' data-ref="tensorflow::profile_utils::CpuUtils">CpuUtils</a>::<dfn class="decl def" id="_ZN10tensorflow13profile_utils8CpuUtils23ConvertClockCycleToTimeEx" title='tensorflow::profile_utils::CpuUtils::ConvertClockCycleToTime' data-ref="_ZN10tensorflow13profile_utils8CpuUtils23ConvertClockCycleToTimeEx">ConvertClockCycleToTime</dfn>(</td></tr>
+<tr><th id="60">60</th><td>    <em>const</em> <a class="typedef" href="../default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col4 decl" id="4clock_cycle" title='clock_cycle' data-type='const int64' data-ref="4clock_cycle">clock_cycle</dfn>) {</td></tr>
+<tr><th id="61">61</th><td>  <b>return</b> <span class="namespace">std::chrono::</span><a class="type" href="../../../../../include/c++/5/chrono.html#std::chrono::duration" title='std::chrono::duration' data-ref="std::chrono::duration">duration</a>&lt;<em>double</em>&gt;<a class="ref" href="../../../../../include/c++/5/chrono.html#_ZNSt6chrono8durationC1ERKT_" title='std::chrono::duration::duration&lt;_Rep, _Period&gt;' data-ref="_ZNSt6chrono8durationC1ERKT_">(</a><b>static_cast</b>&lt;<em>double</em>&gt;(<a class="local col4 ref" href="#4clock_cycle" title='clock_cycle' data-ref="4clock_cycle">clock_cycle</a>) /</td></tr>
+<tr><th id="62">62</th><td>                                       <a class="member" href="#_ZN10tensorflow13profile_utils8CpuUtils24GetCycleCounterFrequencyEv" title='tensorflow::profile_utils::CpuUtils::GetCycleCounterFrequency' data-ref="_ZN10tensorflow13profile_utils8CpuUtils24GetCycleCounterFrequencyEv">GetCycleCounterFrequency</a>());</td></tr>
+<tr><th id="63">63</th><td>}</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><i>/* static */</i> <a class="typedef" href="../default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <a class="type" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils" title='tensorflow::profile_utils::CpuUtils' data-ref="tensorflow::profile_utils::CpuUtils">CpuUtils</a>::<dfn class="decl def" id="_ZN10tensorflow13profile_utils8CpuUtils28GetCycleCounterFrequencyImplEv" title='tensorflow::profile_utils::CpuUtils::GetCycleCounterFrequencyImpl' data-ref="_ZN10tensorflow13profile_utils8CpuUtils28GetCycleCounterFrequencyImplEv">GetCycleCounterFrequencyImpl</dfn>() {</td></tr>
+<tr><th id="66">66</th><td><i>// TODO(satok): do not switch by macro here</i></td></tr>
+<tr><th id="67">67</th><td><u>#<span data-ppcond="67">if</span> defined(<span class="macro" data-ref="_M/__ANDROID__">__ANDROID__</span>)</u></td></tr>
+<tr><th id="68">68</th><td>  <b>return</b> GetCpuUtilsHelperSingletonInstance().CalculateCpuFrequency();</td></tr>
+<tr><th id="69">69</th><td><u>#<span data-ppcond="67">elif</span> defined(<span class="macro" data-ref="_M/__linux__">__linux__</span>)</u></td></tr>
+<tr><th id="70">70</th><td>  <em>double</em> <dfn class="local col5 decl" id="5bogomips" title='bogomips' data-type='double' data-ref="5bogomips">bogomips</dfn>;</td></tr>
+<tr><th id="71">71</th><td>  <a class="typedef" href="../../../../../include/stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a>* <dfn class="local col6 decl" id="6fp" title='fp' data-type='FILE *' data-ref="6fp">fp</dfn> = <a class="ref" href="../../../../../include/stdio.h.html#popen" title='popen' data-ref="popen">popen</a>(<q>"grep '^bogomips' /proc/cpuinfo | head -1"</q>, <q>"r"</q>);</td></tr>
+<tr><th id="72">72</th><td>  <b>if</b> (<a class="local col6 ref" href="#6fp" title='fp' data-ref="6fp">fp</a> == <b>nullptr</b>) {</td></tr>
+<tr><th id="73">73</th><td>    <b>return</b> <a class="member" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY" title='tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY' data-ref="tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY">INVALID_FREQUENCY</a>;</td></tr>
+<tr><th id="74">74</th><td>  }</td></tr>
+<tr><th id="75">75</th><td>  <em>const</em> <em>int</em> <dfn class="local col7 decl" id="7retval_of_bogomips" title='retval_of_bogomips' data-type='const int' data-ref="7retval_of_bogomips">retval_of_bogomips</dfn> = <a class="ref" href="../../../../../include/stdio.h.html#fscanf" title='fscanf' data-ref="fscanf">fscanf</a>(<a class="local col6 ref" href="#6fp" title='fp' data-ref="6fp">fp</a>, <q>"bogomips : %lf"</q>, &amp;<a class="local col5 ref" href="#5bogomips" title='bogomips' data-ref="5bogomips">bogomips</a>);</td></tr>
+<tr><th id="76">76</th><td>  <b>if</b> (<a class="local col7 ref" href="#7retval_of_bogomips" title='retval_of_bogomips' data-ref="7retval_of_bogomips">retval_of_bogomips</a> &lt;= <var>0</var>) {</td></tr>
+<tr><th id="77">77</th><td>    <b>return</b> <a class="member" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY" title='tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY' data-ref="tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY">INVALID_FREQUENCY</a>;</td></tr>
+<tr><th id="78">78</th><td>  }</td></tr>
+<tr><th id="79">79</th><td>  <a class="ref" href="../../../../../include/stdio.h.html#pclose" title='pclose' data-ref="pclose">pclose</a>(<a class="local col6 ref" href="#6fp" title='fp' data-ref="6fp">fp</a>);</td></tr>
+<tr><th id="80">80</th><td>  <em>const</em> <em>double</em> <dfn class="local col8 decl" id="8freq_ghz" title='freq_ghz' data-type='const double' data-ref="8freq_ghz">freq_ghz</dfn> = <a class="local col5 ref" href="#5bogomips" title='bogomips' data-ref="5bogomips">bogomips</a> / <var>1000.0</var> / <var>2.0</var>;</td></tr>
+<tr><th id="81">81</th><td>  <b>if</b> (<a class="local col7 ref" href="#7retval_of_bogomips" title='retval_of_bogomips' data-ref="7retval_of_bogomips">retval_of_bogomips</a> != <var>1</var> || <a class="local col8 ref" href="#8freq_ghz" title='freq_ghz' data-ref="8freq_ghz">freq_ghz</a> &lt; <var>0.01</var>) {</td></tr>
+<tr><th id="82">82</th><td>    <a class="macro" href="../default/logging.h.html#77" title="::tensorflow::internal::LogMessage(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/platform/profile_utils/cpu_utils.cc&quot;, 82, ::tensorflow::WARNING)" data-ref="_M/LOG">LOG</a>(WARNING) <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsOSt13basic_ostreamIT_T0_ERKT1_" title='std::operator&lt;&lt;' data-ref="_ZStlsOSt13basic_ostreamIT_T0_ERKT1_">&lt;&lt;</a> <q>"Failed to get CPU frequency: "</q> <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZNSt13basic_ostreamlsEd" title='std::basic_ostream::operator&lt;&lt;' data-ref="_ZNSt13basic_ostreamlsEd">&lt;&lt;</a> <a class="local col8 ref" href="#8freq_ghz" title='freq_ghz' data-ref="8freq_ghz">freq_ghz</a> <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsRSt13basic_ostreamIcT_EPKc" title='std::operator&lt;&lt;' data-ref="_ZStlsRSt13basic_ostreamIcT_EPKc">&lt;&lt;</a> <q>" Hz"</q>;</td></tr>
+<tr><th id="83">83</th><td>    <b>return</b> <a class="member" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY" title='tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY' data-ref="tensorflow::profile_utils::CpuUtils::INVALID_FREQUENCY">INVALID_FREQUENCY</a>;</td></tr>
+<tr><th id="84">84</th><td>  }</td></tr>
+<tr><th id="85">85</th><td>  <b>return</b> <b>static_cast</b>&lt;<a class="typedef" href="../default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>&gt;(<a class="local col8 ref" href="#8freq_ghz" title='freq_ghz' data-ref="8freq_ghz">freq_ghz</a> * <var>1000.0</var> * <var>1000.0</var> * <var>1000.0</var>);</td></tr>
+<tr><th id="86">86</th><td><u>#<span data-ppcond="67">elif</span> defined(__APPLE__)</u></td></tr>
+<tr><th id="87">87</th><td>  int64 freq_hz;</td></tr>
+<tr><th id="88">88</th><td>  FILE* fp =</td></tr>
+<tr><th id="89">89</th><td>      popen(<q>"sysctl hw | grep hw.cpufrequency_max: | cut -d' ' -f 2"</q>, <q>"r"</q>);</td></tr>
+<tr><th id="90">90</th><td>  <b>if</b> (fp == <b>nullptr</b>) {</td></tr>
+<tr><th id="91">91</th><td>    <b>return</b> INVALID_FREQUENCY;</td></tr>
+<tr><th id="92">92</th><td>  }</td></tr>
+<tr><th id="93">93</th><td>  <b>if</b> (fscanf(fp, <q>"%lld"</q>, &amp;freq_hz) != <var>1</var>) {</td></tr>
+<tr><th id="94">94</th><td>    <b>return</b> INVALID_FREQUENCY;</td></tr>
+<tr><th id="95">95</th><td>  }</td></tr>
+<tr><th id="96">96</th><td>  pclose(fp);</td></tr>
+<tr><th id="97">97</th><td>  <b>if</b> (freq_hz &lt; <var>1e6</var>) {</td></tr>
+<tr><th id="98">98</th><td>    LOG(WARNING) &lt;&lt; <q>"Failed to get CPU frequency: "</q> &lt;&lt; freq_hz &lt;&lt; <q>" Hz"</q>;</td></tr>
+<tr><th id="99">99</th><td>    <b>return</b> INVALID_FREQUENCY;</td></tr>
+<tr><th id="100">100</th><td>  }</td></tr>
+<tr><th id="101">101</th><td>  <b>return</b> freq_hz;</td></tr>
+<tr><th id="102">102</th><td><u>#else</u></td></tr>
+<tr><th id="103">103</th><td>  <i>// TODO(satok): Support other OS if needed</i></td></tr>
+<tr><th id="104">104</th><td><i>  // Return INVALID_FREQUENCY on unsupported OS</i></td></tr>
+<tr><th id="105">105</th><td>  <b>return</b> INVALID_FREQUENCY;</td></tr>
+<tr><th id="106">106</th><td><u>#<span data-ppcond="67">endif</span></u></td></tr>
+<tr><th id="107">107</th><td>}</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td><i>/* static */</i> <a class="type" href="i_cpu_utils_helper.h.html#tensorflow::profile_utils::ICpuUtilsHelper" title='tensorflow::profile_utils::ICpuUtilsHelper' data-ref="tensorflow::profile_utils::ICpuUtilsHelper">ICpuUtilsHelper</a>&amp; <a class="type" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils" title='tensorflow::profile_utils::CpuUtils' data-ref="tensorflow::profile_utils::CpuUtils">CpuUtils</a>::<dfn class="decl def" id="_ZN10tensorflow13profile_utils8CpuUtils34GetCpuUtilsHelperSingletonInstanceEv" title='tensorflow::profile_utils::CpuUtils::GetCpuUtilsHelperSingletonInstance' data-ref="_ZN10tensorflow13profile_utils8CpuUtils34GetCpuUtilsHelperSingletonInstanceEv">GetCpuUtilsHelperSingletonInstance</dfn>() {</td></tr>
+<tr><th id="110">110</th><td>  <em>static</em> <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/mutex.html#std::once_flag" title='std::once_flag' data-ref="std::once_flag">once_flag</a> <a class="ref fake" href="../../../../../include/c++/5/mutex.html#_ZNSt9once_flagC1Ev" title='std::once_flag::once_flag' data-ref="_ZNSt9once_flagC1Ev"></a><dfn class="local col9 decl" id="9flag" title='flag' data-type='std::once_flag' data-ref="9flag">flag</dfn>;</td></tr>
+<tr><th id="111">111</th><td>  <span class="namespace">std::</span><a class="ref" href="../../../../../include/c++/5/mutex.html#_ZSt9call_onceRSt9once_flagOT_DpOT0_" title='std::call_once' data-ref="_ZSt9call_onceRSt9once_flagOT_DpOT0_">call_once</a>(<span class='refarg'><a class="local col9 ref" href="#9flag" title='flag' data-ref="9flag">flag</a></span>, []() {</td></tr>
+<tr><th id="112">112</th><td>    <b>if</b> (<a class="tu ref" href="#tensorflow::profile_utils::cpu_utils_helper_instance_" title='tensorflow::profile_utils::cpu_utils_helper_instance_' data-use='r' data-ref="tensorflow::profile_utils::cpu_utils_helper_instance_">cpu_utils_helper_instance_</a> != <b>nullptr</b>) {</td></tr>
+<tr><th id="113">113</th><td>      <a class="macro" href="../default/logging.h.html#77" title="::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/platform/profile_utils/cpu_utils.cc&quot;, 113)" data-ref="_M/LOG">LOG</a>(FATAL) <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsOSt13basic_ostreamIT_T0_ERKT1_" title='std::operator&lt;&lt;' data-ref="_ZStlsOSt13basic_ostreamIT_T0_ERKT1_">&lt;&lt;</a> <q>"cpu_utils_helper_instance_ is already instantiated."</q>;</td></tr>
+<tr><th id="114">114</th><td>    }</td></tr>
+<tr><th id="115">115</th><td><u>#<span data-ppcond="115">if</span> defined(<span class="macro" data-ref="_M/__ANDROID__">__ANDROID__</span>) &amp;&amp; (__ANDROID_API__ &gt;= 21) &amp;&amp; \</u></td></tr>
+<tr><th id="116">116</th><td><u>    (defined(<span class="macro" data-ref="_M/__ARM_ARCH_7A__">__ARM_ARCH_7A__</span>) || defined(<span class="macro" data-ref="_M/__aarch64__">__aarch64__</span>))</u></td></tr>
+<tr><th id="117">117</th><td>    cpu_utils_helper_instance_ = <b>new</b> AndroidArmV7ACpuUtilsHelper();</td></tr>
+<tr><th id="118">118</th><td><u>#<span data-ppcond="115">else</span></u></td></tr>
+<tr><th id="119">119</th><td>      <a class="tu ref" href="#tensorflow::profile_utils::cpu_utils_helper_instance_" title='tensorflow::profile_utils::cpu_utils_helper_instance_' data-use='w' data-ref="tensorflow::profile_utils::cpu_utils_helper_instance_">cpu_utils_helper_instance_</a> = <b>new</b> <a class="type" href="cpu_utils.h.html#tensorflow::profile_utils::CpuUtils::DefaultCpuUtilsHelper" title='tensorflow::profile_utils::CpuUtils::DefaultCpuUtilsHelper' data-ref="tensorflow::profile_utils::CpuUtils::DefaultCpuUtilsHelper">DefaultCpuUtilsHelper</a><a class="ref" href="cpu_utils.h.html#_ZN10tensorflow13profile_utils8CpuUtils21DefaultCpuUtilsHelperC1Ev" title='tensorflow::profile_utils::CpuUtils::DefaultCpuUtilsHelper::DefaultCpuUtilsHelper' data-ref="_ZN10tensorflow13profile_utils8CpuUtils21DefaultCpuUtilsHelperC1Ev">(</a>);</td></tr>
+<tr><th id="120">120</th><td><u>#<span data-ppcond="115">endif</span></u></td></tr>
+<tr><th id="121">121</th><td>  });</td></tr>
+<tr><th id="122">122</th><td>  <b>return</b> *<a class="tu ref" href="#tensorflow::profile_utils::cpu_utils_helper_instance_" title='tensorflow::profile_utils::cpu_utils_helper_instance_' data-use='r' data-ref="tensorflow::profile_utils::cpu_utils_helper_instance_">cpu_utils_helper_instance_</a>;</td></tr>
+<tr><th id="123">123</th><td>}</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>}  <i>// namespace profile_utils</i></td></tr>
+<tr><th id="126">126</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="127">127</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

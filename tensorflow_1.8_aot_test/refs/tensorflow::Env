@@ -1,0 +1,55 @@
+<def f='tensorflow/tensorflow/core/platform/env.h' l='47' ll='301'/>
+<ovr f='tensorflow/tensorflow/core/platform/env.h' l='307' c='tensorflow::EnvWrapper'/>
+<size>24</size>
+<doc f='tensorflow/tensorflow/core/platform/env.h' l='39'>/// \brief An interface used by the tensorflow implementation to
+/// access operating system functionality like the filesystem etc.
+///
+/// Callers may wish to provide a custom Env object to get fine grain
+/// control.
+///
+/// All Env implementations are safe for concurrent access from
+/// multiple threads without any external synchronization.</doc>
+<fun r='_ZN10tensorflow3EnvC1Ev'/>
+<fun r='_ZN10tensorflow3EnvD1Ev'/>
+<fun r='_ZN10tensorflow3Env7DefaultEv'/>
+<fun r='_ZN10tensorflow3Env20GetFileSystemForFileERKSsPPNS_10FileSystemE'/>
+<fun r='_ZN10tensorflow3Env30GetRegisteredFileSystemSchemesEPSt6vectorISsSaISsEE'/>
+<fun r='_ZN10tensorflow3Env18RegisterFileSystemERKSsSt8functionIFPNS_10FileSystemEvEE'/>
+<fun r='_ZN10tensorflow3Env21FlushFileSystemCachesEv'/>
+<fun r='_ZN10tensorflow3Env19NewRandomAccessFileERKSsPSt10unique_ptrINS_16RandomAccessFileESt14default_deleteIS4_EE'/>
+<fun r='_ZN10tensorflow3Env15NewWritableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE'/>
+<fun r='_ZN10tensorflow3Env17NewAppendableFileERKSsPSt10unique_ptrINS_12WritableFileESt14default_deleteIS4_EE'/>
+<fun r='_ZN10tensorflow3Env31NewReadOnlyMemoryRegionFromFileERKSsPSt10unique_ptrINS_20ReadOnlyMemoryRegionESt14default_deleteIS4_EE'/>
+<fun r='_ZN10tensorflow3Env10FileExistsERKSs'/>
+<fun r='_ZN10tensorflow3Env10FilesExistERKSt6vectorISsSaISsEEPS1_INS_6StatusESaIS6_EE'/>
+<fun r='_ZN10tensorflow3Env11GetChildrenERKSsPSt6vectorISsSaISsEE'/>
+<fun r='_ZN10tensorflow3Env9MatchPathERKSsS2_'/>
+<fun r='_ZN10tensorflow3Env16GetMatchingPathsERKSsPSt6vectorISsSaISsEE'/>
+<fun r='_ZN10tensorflow3Env10DeleteFileERKSs'/>
+<fun r='_ZN10tensorflow3Env17DeleteRecursivelyERKSsPxS3_'/>
+<fun r='_ZN10tensorflow3Env20RecursivelyCreateDirERKSs'/>
+<fun r='_ZN10tensorflow3Env9CreateDirERKSs'/>
+<fun r='_ZN10tensorflow3Env9DeleteDirERKSs'/>
+<fun r='_ZN10tensorflow3Env4StatERKSsPNS_14FileStatisticsE'/>
+<fun r='_ZN10tensorflow3Env11IsDirectoryERKSs'/>
+<fun r='_ZN10tensorflow3Env11GetFileSizeERKSsPy'/>
+<fun r='_ZN10tensorflow3Env10RenameFileERKSsS2_'/>
+<fun r='_ZN10tensorflow3Env8CopyFileERKSsS2_'/>
+<fun r='_ZN10tensorflow3Env17GetExecutablePathEv'/>
+<fun r='_ZN10tensorflow3Env17LocalTempFilenameEPSs'/>
+<fun r='_ZN10tensorflow3Env20CreateUniqueFileNameEPSsRKSs'/>
+<fun r='_ZN10tensorflow3Env9NowMicrosEv'/>
+<fun r='_ZN10tensorflow3Env10NowSecondsEv'/>
+<fun r='_ZN10tensorflow3Env20SleepForMicrosecondsEx'/>
+<fun r='_ZN10tensorflow3Env11StartThreadERKNS_13ThreadOptionsERKSsSt8functionIFvvEE'/>
+<fun r='_ZN10tensorflow3Env12SchedClosureESt8functionIFvvEE'/>
+<fun r='_ZN10tensorflow3Env17SchedClosureAfterExSt8functionIFvvEE'/>
+<fun r='_ZN10tensorflow3Env11LoadLibraryEPKcPPv'/>
+<fun r='_ZN10tensorflow3Env20GetSymbolFromLibraryEPvPKcPS1_'/>
+<fun r='_ZN10tensorflow3Env21FormatLibraryFileNameERKSsS2_'/>
+<fun r='_ZN10tensorflow3Env23GetLocalTempDirectoriesEPSt6vectorISsSaISsEE'/>
+<mbr r='tensorflow::Env::file_system_registry_' o='64' t='std::unique_ptr&lt;FileSystemRegistry&gt;'/>
+<fun r='_ZN10tensorflow3EnvC1ERKS0_'/>
+<mbr r='tensorflow::Env::envTime' o='128' t='tensorflow::EnvTime *'/>
+<ovr f='tensorflow/tensorflow/core/platform/posix/env.cc' l='53' c='tensorflow::(anonymousnamespace)::PosixEnv'/>
+<fun r='_ZN10tensorflow3Env7DefaultEv'/>

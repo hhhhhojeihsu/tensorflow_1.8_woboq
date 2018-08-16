@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>function.h source code [tensorflow/tensorflow/core/common_runtime/function.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::FunctionBody "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/common_runtime/function.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>common_runtime</a>/<a href='function.h.html'>function.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_COMMON_RUNTIME_FUNCTION_H_">TENSORFLOW_COMMON_RUNTIME_FUNCTION_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMMON_RUNTIME_FUNCTION_H_" data-ref="_M/TENSORFLOW_COMMON_RUNTIME_FUNCTION_H_">TENSORFLOW_COMMON_RUNTIME_FUNCTION_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../include/c++/5/functional.html">&lt;functional&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="device.h.html">"tensorflow/core/common_runtime/device.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="device_mgr.h.html">"tensorflow/core/common_runtime/device_mgr.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="process_function_library_runtime.h.html">"tensorflow/core/common_runtime/process_function_library_runtime.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../framework/function.h.html">"tensorflow/core/framework/function.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../graph/graph.h.html">"tensorflow/core/graph/graph.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include "tensorflow/core/protobuf/config.pb.h"</u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><em>static</em> <b>constexpr</b> <em>const</em> <em>char</em>* <em>const</em> <dfn class="decl def" id="tensorflow::kNoInlineAttr" title='tensorflow::kNoInlineAttr' data-ref="tensorflow::kNoInlineAttr">kNoInlineAttr</dfn> = <q>"_noinline"</q>;</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><i>// Registers a default customizable kernel creator for a function call.</i></td></tr>
+<tr><th id="34">34</th><td><i>//</i></td></tr>
+<tr><th id="35">35</th><td><i>// If 'cb()' returns a non-OK, we still fall back to an executor-based</i></td></tr>
+<tr><th id="36">36</th><td><i>// interpreter op kernel to execute a function. If 'cb()' returns OK,</i></td></tr>
+<tr><th id="37">37</th><td><i>// takes ownership of the returned OpKernel.</i></td></tr>
+<tr><th id="38">38</th><td><i>//</i></td></tr>
+<tr><th id="39">39</th><td><i>// TODO(zhifengc/phawkins): b/32379046</i></td></tr>
+<tr><th id="40">40</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow34RegisterDefaultCustomKernelCreatorESt8functionIFNS_6StatusEPNS_22FunctionLibraryRuntimeERKNS_7NodeDefEPSt10unique_ptrINS_8OpKernelESt10904410" title='tensorflow::RegisterDefaultCustomKernelCreator' data-ref="_ZN10tensorflow34RegisterDefaultCustomKernelCreatorESt8functionIFNS_6StatusEPNS_22FunctionLibraryRuntimeERKNS_7NodeDefEPSt10unique_ptrINS_8OpKernelESt10904410">RegisterDefaultCustomKernelCreator</dfn>(<a class="typedef" href="../framework/function.h.html#tensorflow::CustomKernelCreator" title='tensorflow::CustomKernelCreator' data-type='std::function&lt;Status (FunctionLibraryRuntime *, const NodeDef &amp;, std::unique_ptr&lt;OpKernel&gt; *)&gt;' data-ref="tensorflow::CustomKernelCreator">CustomKernelCreator</a> <dfn class="local col3 decl" id="753cb" title='cb' data-type='CustomKernelCreator' data-ref="753cb">cb</dfn>);</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><i>// Creates a FunctionLibraryRuntime, which instantiates functions</i></td></tr>
+<tr><th id="43">43</th><td><i>// defined in "lib_def" and executes functions on the "device".</i></td></tr>
+<tr><th id="44">44</th><td><i>// "device_mgr" must contain the "device". If not nullptr,</i></td></tr>
+<tr><th id="45">45</th><td><i>// "custom_kernel_creator" is consulted by the returned runtime to</i></td></tr>
+<tr><th id="46">46</th><td><i>// create kernels.</i></td></tr>
+<tr><th id="47">47</th><td><i>//</i></td></tr>
+<tr><th id="48">48</th><td><i>// The returned object does not take ownerships of "device" or</i></td></tr>
+<tr><th id="49">49</th><td><i>// "lib_def".  The caller must ensure "device" and "lib_def" outlives</i></td></tr>
+<tr><th id="50">50</th><td><i>// the returned object.</i></td></tr>
+<tr><th id="51">51</th><td><i>//</i></td></tr>
+<tr><th id="52">52</th><td><i>// The "parent" is a pointer to the ProcessFunctionLibraryRuntime object that</i></td></tr>
+<tr><th id="53">53</th><td><i>// typically owns the created FunctionLibraryRuntime object. The parent pointer</i></td></tr>
+<tr><th id="54">54</th><td><i>// is not owned by the FunctionLibraryRuntime object.</i></td></tr>
+<tr><th id="55">55</th><td><span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../framework/function.h.html#tensorflow::FunctionLibraryRuntime" title='tensorflow::FunctionLibraryRuntime' data-ref="tensorflow::FunctionLibraryRuntime">FunctionLibraryRuntime</a>&gt; <dfn class="decl" id="_ZN10tensorflow25NewFunctionLibraryRuntimeEPKNS_9DeviceMgrEPNS_3EnvEPNS_6DeviceEiPKNS_25FunctionLibraryDefinitionEPNS_6thread10ThreadPoolERKNS_16Optim6205627" title='tensorflow::NewFunctionLibraryRuntime' data-ref="_ZN10tensorflow25NewFunctionLibraryRuntimeEPKNS_9DeviceMgrEPNS_3EnvEPNS_6DeviceEiPKNS_25FunctionLibraryDefinitionEPNS_6thread10ThreadPoolERKNS_16Optim6205627">NewFunctionLibraryRuntime</dfn>(</td></tr>
+<tr><th id="56">56</th><td>    <em>const</em> <a class="type" href="device_mgr.h.html#tensorflow::DeviceMgr" title='tensorflow::DeviceMgr' data-ref="tensorflow::DeviceMgr">DeviceMgr</a>* <dfn class="local col4 decl" id="754device_mgr" title='device_mgr' data-type='const tensorflow::DeviceMgr *' data-ref="754device_mgr">device_mgr</dfn>, <a class="type" href="../platform/env.h.html#tensorflow::Env" title='tensorflow::Env' data-ref="tensorflow::Env">Env</a>* <dfn class="local col5 decl" id="755env" title='env' data-type='tensorflow::Env *' data-ref="755env">env</dfn>, <a class="type" href="device.h.html#tensorflow::Device" title='tensorflow::Device' data-ref="tensorflow::Device">Device</a>* <dfn class="local col6 decl" id="756device" title='device' data-type='tensorflow::Device *' data-ref="756device">device</dfn>,</td></tr>
+<tr><th id="57">57</th><td>    <em>int</em> <dfn class="local col7 decl" id="757graph_def_version" title='graph_def_version' data-type='int' data-ref="757graph_def_version">graph_def_version</dfn>, <em>const</em> <a class="type" href="../framework/function.h.html#tensorflow::FunctionLibraryDefinition" title='tensorflow::FunctionLibraryDefinition' data-ref="tensorflow::FunctionLibraryDefinition">FunctionLibraryDefinition</a>* <dfn class="local col8 decl" id="758lib_def" title='lib_def' data-type='const tensorflow::FunctionLibraryDefinition *' data-ref="758lib_def">lib_def</dfn>,</td></tr>
+<tr><th id="58">58</th><td>    <span class="namespace">thread::</span><a class="type" href="../lib/core/threadpool.h.html#tensorflow::thread::ThreadPool" title='tensorflow::thread::ThreadPool' data-ref="tensorflow::thread::ThreadPool">ThreadPool</a>* <dfn class="local col9 decl" id="759thread_pool" title='thread_pool' data-type='thread::ThreadPool *' data-ref="759thread_pool">thread_pool</dfn>, <em>const</em> <span class='type' title='tensorflow::OptimizerOptions' data-ref="tensorflow::OptimizerOptions">OptimizerOptions</span>&amp; <dfn class="local col0 decl" id="760optimizer_options" title='optimizer_options' data-type='const tensorflow::OptimizerOptions &amp;' data-ref="760optimizer_options">optimizer_options</dfn>,</td></tr>
+<tr><th id="59">59</th><td>    <a class="typedef" href="../framework/function.h.html#tensorflow::CustomKernelCreator" title='tensorflow::CustomKernelCreator' data-type='std::function&lt;Status (FunctionLibraryRuntime *, const NodeDef &amp;, std::unique_ptr&lt;OpKernel&gt; *)&gt;' data-ref="tensorflow::CustomKernelCreator">CustomKernelCreator</a> <dfn class="local col1 decl" id="761custom_kernel_creator" title='custom_kernel_creator' data-type='CustomKernelCreator' data-ref="761custom_kernel_creator">custom_kernel_creator</dfn>,</td></tr>
+<tr><th id="60">60</th><td>    <a class="type" href="process_function_library_runtime.h.html#tensorflow::ProcessFunctionLibraryRuntime" title='tensorflow::ProcessFunctionLibraryRuntime' data-ref="tensorflow::ProcessFunctionLibraryRuntime">ProcessFunctionLibraryRuntime</a>* <dfn class="local col2 decl" id="762parent" title='parent' data-type='tensorflow::ProcessFunctionLibraryRuntime *' data-ref="762parent">parent</dfn>);</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td><i>// Same as above except that the returned runtime consults with the</i></td></tr>
+<tr><th id="63">63</th><td><i>// global default custom kernel creator registered by</i></td></tr>
+<tr><th id="64">64</th><td><i>// RegisterDefaultCustomKernelCreator.</i></td></tr>
+<tr><th id="65">65</th><td><span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../framework/function.h.html#tensorflow::FunctionLibraryRuntime" title='tensorflow::FunctionLibraryRuntime' data-ref="tensorflow::FunctionLibraryRuntime">FunctionLibraryRuntime</a>&gt; <dfn class="decl" id="_ZN10tensorflow25NewFunctionLibraryRuntimeEPKNS_9DeviceMgrEPNS_3EnvEPNS_6DeviceEiPKNS_25FunctionLibraryDefinitionEPNS_6thread10ThreadPoolERKNS_16Optim1298055" title='tensorflow::NewFunctionLibraryRuntime' data-ref="_ZN10tensorflow25NewFunctionLibraryRuntimeEPKNS_9DeviceMgrEPNS_3EnvEPNS_6DeviceEiPKNS_25FunctionLibraryDefinitionEPNS_6thread10ThreadPoolERKNS_16Optim1298055">NewFunctionLibraryRuntime</dfn>(</td></tr>
+<tr><th id="66">66</th><td>    <em>const</em> <a class="type" href="device_mgr.h.html#tensorflow::DeviceMgr" title='tensorflow::DeviceMgr' data-ref="tensorflow::DeviceMgr">DeviceMgr</a>* <dfn class="local col3 decl" id="763device_mgr" title='device_mgr' data-type='const tensorflow::DeviceMgr *' data-ref="763device_mgr">device_mgr</dfn>, <a class="type" href="../platform/env.h.html#tensorflow::Env" title='tensorflow::Env' data-ref="tensorflow::Env">Env</a>* <dfn class="local col4 decl" id="764env" title='env' data-type='tensorflow::Env *' data-ref="764env">env</dfn>, <a class="type" href="device.h.html#tensorflow::Device" title='tensorflow::Device' data-ref="tensorflow::Device">Device</a>* <dfn class="local col5 decl" id="765device" title='device' data-type='tensorflow::Device *' data-ref="765device">device</dfn>,</td></tr>
+<tr><th id="67">67</th><td>    <em>int</em> <dfn class="local col6 decl" id="766graph_def_version" title='graph_def_version' data-type='int' data-ref="766graph_def_version">graph_def_version</dfn>, <em>const</em> <a class="type" href="../framework/function.h.html#tensorflow::FunctionLibraryDefinition" title='tensorflow::FunctionLibraryDefinition' data-ref="tensorflow::FunctionLibraryDefinition">FunctionLibraryDefinition</a>* <dfn class="local col7 decl" id="767lib_def" title='lib_def' data-type='const tensorflow::FunctionLibraryDefinition *' data-ref="767lib_def">lib_def</dfn>,</td></tr>
+<tr><th id="68">68</th><td>    <span class="namespace">thread::</span><a class="type" href="../lib/core/threadpool.h.html#tensorflow::thread::ThreadPool" title='tensorflow::thread::ThreadPool' data-ref="tensorflow::thread::ThreadPool">ThreadPool</a>* <dfn class="local col8 decl" id="768thread_pool" title='thread_pool' data-type='thread::ThreadPool *' data-ref="768thread_pool">thread_pool</dfn>, <em>const</em> <span class='type' title='tensorflow::OptimizerOptions' data-ref="tensorflow::OptimizerOptions">OptimizerOptions</span>&amp; <dfn class="local col9 decl" id="769optimizer_options" title='optimizer_options' data-type='const tensorflow::OptimizerOptions &amp;' data-ref="769optimizer_options">optimizer_options</dfn>,</td></tr>
+<tr><th id="69">69</th><td>    <a class="type" href="process_function_library_runtime.h.html#tensorflow::ProcessFunctionLibraryRuntime" title='tensorflow::ProcessFunctionLibraryRuntime' data-ref="tensorflow::ProcessFunctionLibraryRuntime">ProcessFunctionLibraryRuntime</a>* <dfn class="local col0 decl" id="770parent" title='parent' data-type='tensorflow::ProcessFunctionLibraryRuntime *' data-ref="770parent">parent</dfn>);</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td><i>// FunctionLibraryRuntime::GetFunctionBody returns a description of an</i></td></tr>
+<tr><th id="72">72</th><td><i>// instantiated function that is represented as a Graph with arg/ret</i></td></tr>
+<tr><th id="73">73</th><td><i>// nodes annotated.</i></td></tr>
+<tr><th id="74">74</th><td><b>struct</b> <dfn class="type def" id="tensorflow::FunctionBody" title='tensorflow::FunctionBody' data-ref="tensorflow::FunctionBody">FunctionBody</dfn> {</td></tr>
+<tr><th id="75">75</th><td>  <span class='type' title='tensorflow::FunctionDef' data-ref="tensorflow::FunctionDef">FunctionDef</span> <dfn class="decl" id="tensorflow::FunctionBody::fdef" title='tensorflow::FunctionBody::fdef' data-ref="tensorflow::FunctionBody::fdef">fdef</dfn>;</td></tr>
+<tr><th id="76">76</th><td>  <a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="decl" id="tensorflow::FunctionBody::graph" title='tensorflow::FunctionBody::graph' data-ref="tensorflow::FunctionBody::graph">graph</dfn> = <b>nullptr</b>;  <i>// owned.</i></td></tr>
+<tr><th id="77">77</th><td>  <a class="typedef" href="../framework/types.h.html#tensorflow::DataTypeVector" title='tensorflow::DataTypeVector' data-type='gtl::InlinedVector&lt;DataType, 4&gt;' data-ref="tensorflow::DataTypeVector">DataTypeVector</a> <dfn class="decl" id="tensorflow::FunctionBody::arg_types" title='tensorflow::FunctionBody::arg_types' data-ref="tensorflow::FunctionBody::arg_types">arg_types</dfn>;</td></tr>
+<tr><th id="78">78</th><td>  <a class="typedef" href="../framework/types.h.html#tensorflow::DataTypeVector" title='tensorflow::DataTypeVector' data-type='gtl::InlinedVector&lt;DataType, 4&gt;' data-ref="tensorflow::DataTypeVector">DataTypeVector</a> <dfn class="decl" id="tensorflow::FunctionBody::ret_types" title='tensorflow::FunctionBody::ret_types' data-ref="tensorflow::FunctionBody::ret_types">ret_types</dfn>;</td></tr>
+<tr><th id="79">79</th><td>  <span class="namespace">gtl::</span><a class="type" href="../lib/gtl/inlined_vector.h.html#tensorflow::gtl::InlinedVector" title='tensorflow::gtl::InlinedVector' data-ref="tensorflow::gtl::InlinedVector">InlinedVector</a>&lt;<a class="type" href="../graph/graph.h.html#tensorflow::Node" title='tensorflow::Node' data-ref="tensorflow::Node">Node</a>*, <var>4</var>&gt; <dfn class="decl" id="tensorflow::FunctionBody::arg_nodes" title='tensorflow::FunctionBody::arg_nodes' data-ref="tensorflow::FunctionBody::arg_nodes">arg_nodes</dfn>;</td></tr>
+<tr><th id="80">80</th><td>  <span class="namespace">gtl::</span><a class="type" href="../lib/gtl/inlined_vector.h.html#tensorflow::gtl::InlinedVector" title='tensorflow::gtl::InlinedVector' data-ref="tensorflow::gtl::InlinedVector">InlinedVector</a>&lt;<a class="type" href="../graph/graph.h.html#tensorflow::Node" title='tensorflow::Node' data-ref="tensorflow::Node">Node</a>*, <var>4</var>&gt; <dfn class="decl" id="tensorflow::FunctionBody::ret_nodes" title='tensorflow::FunctionBody::ret_nodes' data-ref="tensorflow::FunctionBody::ret_nodes">ret_nodes</dfn>;</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>  <dfn class="decl def" id="_ZN10tensorflow12FunctionBodyC1Ev" title='tensorflow::FunctionBody::FunctionBody' data-ref="_ZN10tensorflow12FunctionBodyC1Ev">FunctionBody</dfn>() {}</td></tr>
+<tr><th id="83">83</th><td>  <dfn class="decl" id="_ZN10tensorflow12FunctionBodyC1ERKNS_11FunctionDefENS_3gtl10ArraySliceINS_8DataTypeEEES7_PNS_5GraphE" title='tensorflow::FunctionBody::FunctionBody' data-ref="_ZN10tensorflow12FunctionBodyC1ERKNS_11FunctionDefENS_3gtl10ArraySliceINS_8DataTypeEEES7_PNS_5GraphE">FunctionBody</dfn>(<em>const</em> <span class='type' title='tensorflow::FunctionDef' data-ref="tensorflow::FunctionDef">FunctionDef</span>&amp; <dfn class="local col1 decl" id="771f" title='f' data-type='const tensorflow::FunctionDef &amp;' data-ref="771f">f</dfn>, <a class="typedef" href="../framework/types.h.html#tensorflow::DataTypeSlice" title='tensorflow::DataTypeSlice' data-type='gtl::ArraySlice&lt;DataType&gt;' data-ref="tensorflow::DataTypeSlice">DataTypeSlice</a> <dfn class="local col2 decl" id="772arg_types" title='arg_types' data-type='DataTypeSlice' data-ref="772arg_types">arg_types</dfn>,</td></tr>
+<tr><th id="84">84</th><td>               <a class="typedef" href="../framework/types.h.html#tensorflow::DataTypeSlice" title='tensorflow::DataTypeSlice' data-type='gtl::ArraySlice&lt;DataType&gt;' data-ref="tensorflow::DataTypeSlice">DataTypeSlice</a> <dfn class="local col3 decl" id="773ret_types" title='ret_types' data-type='DataTypeSlice' data-ref="773ret_types">ret_types</dfn>, <a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col4 decl" id="774g" title='g' data-type='tensorflow::Graph *' data-ref="774g">g</dfn>);</td></tr>
+<tr><th id="85">85</th><td>  <dfn class="decl" id="_ZN10tensorflow12FunctionBodyD1Ev" title='tensorflow::FunctionBody::~FunctionBody' data-ref="_ZN10tensorflow12FunctionBodyD1Ev">~FunctionBody</dfn>();</td></tr>
+<tr><th id="86">86</th><td>};</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td><i>// Debugging facility.  Returns a debug string for a graph</i></td></tr>
+<tr><th id="89">89</th><td><i>// representing an instantiated function.</i></td></tr>
+<tr><th id="90">90</th><td><a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="_ZN10tensorflow11DebugStringEPKNS_5GraphE" title='tensorflow::DebugString' data-ref="_ZN10tensorflow11DebugStringEPKNS_5GraphE">DebugString</dfn>(<em>const</em> <a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col5 decl" id="775instantiated_func_graph" title='instantiated_func_graph' data-type='const tensorflow::Graph *' data-ref="775instantiated_func_graph">instantiated_func_graph</dfn>);</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><i>// A few hand-crafted optimization on the instantiated function body</i></td></tr>
+<tr><th id="93">93</th><td><i>// (a Graph*).</i></td></tr>
+<tr><th id="94">94</th><td><i></i></td></tr>
+<tr><th id="95">95</th><td><i>// Removes nodes that are</i></td></tr>
+<tr><th id="96">96</th><td><i>//   1. not stateful; and</i></td></tr>
+<tr><th id="97">97</th><td><i>//   2. not _Arg; and</i></td></tr>
+<tr><th id="98">98</th><td><i>//   3. not reachable from _Retval.</i></td></tr>
+<tr><th id="99">99</th><td><i>// Returns true iff any node is removed from "g".</i></td></tr>
+<tr><th id="100">100</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow15RemoveDeadNodesEPNS_5GraphE" title='tensorflow::RemoveDeadNodes' data-ref="_ZN10tensorflow15RemoveDeadNodesEPNS_5GraphE">RemoveDeadNodes</dfn>(<a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col6 decl" id="776g" title='g' data-type='tensorflow::Graph *' data-ref="776g">g</dfn>);</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td><i>// Find a pattern:</i></td></tr>
+<tr><th id="103">103</th><td><i>//   src -(in)-&gt; node -(out)-&gt; dst, where</i></td></tr>
+<tr><th id="104">104</th><td><i>// 1) node is an identity node;</i></td></tr>
+<tr><th id="105">105</th><td><i>// 2) in is the only incoming data edge;</i></td></tr>
+<tr><th id="106">106</th><td><i>// 3) out is the only outgoing data edge;</i></td></tr>
+<tr><th id="107">107</th><td><i>//</i></td></tr>
+<tr><th id="108">108</th><td><i>// Rewrites the above pattern with src-&gt;dst and relevant data</i></td></tr>
+<tr><th id="109">109</th><td><i>// dependencies updated. Repeat the process until no such pattern</i></td></tr>
+<tr><th id="110">110</th><td><i>// left.</i></td></tr>
+<tr><th id="111">111</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow19RemoveIdentityNodesEPNS_5GraphE" title='tensorflow::RemoveIdentityNodes' data-ref="_ZN10tensorflow19RemoveIdentityNodesEPNS_5GraphE">RemoveIdentityNodes</dfn>(<a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col7 decl" id="777g" title='g' data-type='tensorflow::Graph *' data-ref="777g">g</dfn>);</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><i>// Rewrites _ListToArray and _ArrayToList to a set of Identity nodes.</i></td></tr>
+<tr><th id="114">114</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow24RemoveListArrayConverterEPNS_5GraphE" title='tensorflow::RemoveListArrayConverter' data-ref="_ZN10tensorflow24RemoveListArrayConverterEPNS_5GraphE">RemoveListArrayConverter</dfn>(<a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col8 decl" id="778g" title='g' data-type='tensorflow::Graph *' data-ref="778g">g</dfn>);</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><i>// For each node in "graph", if "lib" indicates that the node is a</i></td></tr>
+<tr><th id="117">117</th><td><i>// function call, inline the function body.  Returns true if at least</i></td></tr>
+<tr><th id="118">118</th><td><i>// one node is inlined.</i></td></tr>
+<tr><th id="119">119</th><td><i>//</i></td></tr>
+<tr><th id="120">120</th><td><i>// This routine goes through "graph" nodes once and applies the</i></td></tr>
+<tr><th id="121">121</th><td><i>// inlining.  The caller may decide to apply the inlining on "graph"</i></td></tr>
+<tr><th id="122">122</th><td><i>// multiple times by calling ExpandInlineFunctions a few times.</i></td></tr>
+<tr><th id="123">123</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow21ExpandInlineFunctionsEPNS_22FunctionLibraryRuntimeEPNS_5GraphE" title='tensorflow::ExpandInlineFunctions' data-ref="_ZN10tensorflow21ExpandInlineFunctionsEPNS_22FunctionLibraryRuntimeEPNS_5GraphE">ExpandInlineFunctions</dfn>(<a class="type" href="../framework/function.h.html#tensorflow::FunctionLibraryRuntime" title='tensorflow::FunctionLibraryRuntime' data-ref="tensorflow::FunctionLibraryRuntime">FunctionLibraryRuntime</a>* <dfn class="local col9 decl" id="779lib" title='lib' data-type='tensorflow::FunctionLibraryRuntime *' data-ref="779lib">lib</dfn>, <a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col0 decl" id="780graph" title='graph' data-type='tensorflow::Graph *' data-ref="780graph">graph</dfn>);</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td><i>// Dump the contents of the "graph" to log files if the logging level is</i></td></tr>
+<tr><th id="126">126</th><td><i>// sufficiently high.</i></td></tr>
+<tr><th id="127">127</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow9DumpGraphENS_11StringPieceEPKNS_5GraphE" title='tensorflow::DumpGraph' data-ref="_ZN10tensorflow9DumpGraphENS_11StringPieceEPKNS_5GraphE">DumpGraph</dfn>(<a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a> <dfn class="local col1 decl" id="781label" title='label' data-type='tensorflow::StringPiece' data-ref="781label">label</dfn>, <em>const</em> <a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col2 decl" id="782g" title='g' data-type='const tensorflow::Graph *' data-ref="782g">g</dfn>);</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td><i>// Applies graph rewrite optimization such as inlining, dead code</i></td></tr>
+<tr><th id="130">130</th><td><i>// removal, etc.</i></td></tr>
+<tr><th id="131">131</th><td><i>//</i></td></tr>
+<tr><th id="132">132</th><td><i>// **g is a graph constructed based on the runtime library 'lib'.</i></td></tr>
+<tr><th id="133">133</th><td><i>// OptimizeGraph mutates **g extensively and replaces '*g' with a</i></td></tr>
+<tr><th id="134">134</th><td><i>// complete copy. Therefore, the caller should not keep any references</i></td></tr>
+<tr><th id="135">135</th><td><i>// to nodes *g.</i></td></tr>
+<tr><th id="136">136</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow13OptimizeGraphEPNS_22FunctionLibraryRuntimeEPSt10unique_ptrINS_5GraphESt14default_deleteIS3_EE" title='tensorflow::OptimizeGraph' data-ref="_ZN10tensorflow13OptimizeGraphEPNS_22FunctionLibraryRuntimeEPSt10unique_ptrINS_5GraphESt14default_deleteIS3_EE">OptimizeGraph</dfn>(<a class="type" href="../framework/function.h.html#tensorflow::FunctionLibraryRuntime" title='tensorflow::FunctionLibraryRuntime' data-ref="tensorflow::FunctionLibraryRuntime">FunctionLibraryRuntime</a>* <dfn class="local col3 decl" id="783lib" title='lib' data-type='tensorflow::FunctionLibraryRuntime *' data-ref="783lib">lib</dfn>, <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>&gt;* <dfn class="local col4 decl" id="784g" title='g' data-type='std::unique_ptr&lt;Graph&gt; *' data-ref="784g">g</dfn>);</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td><i>// Convert the Graph of a function to a GraphDef.</i></td></tr>
+<tr><th id="139">139</th><td><i>//</i></td></tr>
+<tr><th id="140">140</th><td><i>// Handles renaming of nodes to avoid duplicate names which may</i></td></tr>
+<tr><th id="141">141</th><td><i>// be present after various rewriting operations.</i></td></tr>
+<tr><th id="142">142</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow10ToGraphDefEPKNS_5GraphEPNS_8GraphDefEb" title='tensorflow::ToGraphDef' data-ref="_ZN10tensorflow10ToGraphDefEPKNS_5GraphEPNS_8GraphDefEb">ToGraphDef</dfn>(<em>const</em> <a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col5 decl" id="785g" title='g' data-type='const tensorflow::Graph *' data-ref="785g">g</dfn>, <span class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</span>* <dfn class="local col6 decl" id="786gdef" title='gdef' data-type='tensorflow::GraphDef *' data-ref="786gdef">gdef</dfn>, <em>bool</em> <dfn class="local col7 decl" id="787pretty" title='pretty' data-type='bool' data-ref="787pretty">pretty</dfn> = <b>false</b>);</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><i>// Given a numerical function "f", returns another numerical function</i></td></tr>
+<tr><th id="145">145</th><td><i>// "g", such that if "f" takes N inputs and produces M outputs, "g"</i></td></tr>
+<tr><th id="146">146</th><td><i>// takes N + M inputs and produces N outputs. I.e., if</i></td></tr>
+<tr><th id="147">147</th><td><i>//   (y1, y2, ..., y_M) = f(x1, x2, ..., x_N),</i></td></tr>
+<tr><th id="148">148</th><td><i>// g is a function which is</i></td></tr>
+<tr><th id="149">149</th><td><i>//   (dL/dx1, dL/dx2, ..., dL/dx_N) = g(x1, x2, ..., x_N,</i></td></tr>
+<tr><th id="150">150</th><td><i>//                                     dL/dy1, dL/dy2, ..., dL/dy_M),</i></td></tr>
+<tr><th id="151">151</th><td><i>// where L is a scalar-value function of (...x_i...).</i></td></tr>
+<tr><th id="152">152</th><td><i>//</i></td></tr>
+<tr><th id="153">153</th><td><i>// TODO(zhifengc): Asks math expert to say the comment again.</i></td></tr>
+<tr><th id="154">154</th><td><a class="type" href="#tensorflow::FunctionBody" title='tensorflow::FunctionBody' data-ref="tensorflow::FunctionBody">FunctionBody</a>* <dfn class="decl" id="_ZN10tensorflow16SymbolicGradientERKNS_12FunctionBodyE" title='tensorflow::SymbolicGradient' data-ref="_ZN10tensorflow16SymbolicGradientERKNS_12FunctionBodyE">SymbolicGradient</dfn>(<em>const</em> <a class="type" href="#tensorflow::FunctionBody" title='tensorflow::FunctionBody' data-ref="tensorflow::FunctionBody">FunctionBody</a>&amp; <dfn class="local col8 decl" id="788f" title='f' data-type='const tensorflow::FunctionBody &amp;' data-ref="788f">f</dfn>);</td></tr>
+<tr><th id="155">155</th><td></td></tr>
+<tr><th id="156">156</th><td><i>// Given a "caller" in graph "g", which is a function call of a function</i></td></tr>
+<tr><th id="157">157</th><td><i>// to "fbody". Replaces the "caller" with fbody-&gt;graph and connects</i></td></tr>
+<tr><th id="158">158</th><td><i>// edges properly.</i></td></tr>
+<tr><th id="159">159</th><td><em>void</em> <dfn class="decl" id="_ZN10tensorflow18InlineFunctionBodyERKNS_25FunctionLibraryDefinitionEPNS_5GraphEPNS_4NodeEPKNS_12FunctionBodyE" title='tensorflow::InlineFunctionBody' data-ref="_ZN10tensorflow18InlineFunctionBodyERKNS_25FunctionLibraryDefinitionEPNS_5GraphEPNS_4NodeEPKNS_12FunctionBodyE">InlineFunctionBody</dfn>(<em>const</em> <a class="type" href="../framework/function.h.html#tensorflow::FunctionLibraryDefinition" title='tensorflow::FunctionLibraryDefinition' data-ref="tensorflow::FunctionLibraryDefinition">FunctionLibraryDefinition</a>&amp; <dfn class="local col9 decl" id="789flib_def" title='flib_def' data-type='const tensorflow::FunctionLibraryDefinition &amp;' data-ref="789flib_def">flib_def</dfn>, <a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>* <dfn class="local col0 decl" id="790g" title='g' data-type='tensorflow::Graph *' data-ref="790g">g</dfn>,</td></tr>
+<tr><th id="160">160</th><td>                        <a class="type" href="../graph/graph.h.html#tensorflow::Node" title='tensorflow::Node' data-ref="tensorflow::Node">Node</a>* <dfn class="local col1 decl" id="791caller" title='caller' data-type='tensorflow::Node *' data-ref="791caller">caller</dfn>, <em>const</em> <a class="type" href="#tensorflow::FunctionBody" title='tensorflow::FunctionBody' data-ref="tensorflow::FunctionBody">FunctionBody</a>* <dfn class="local col2 decl" id="792fbody" title='fbody' data-type='const tensorflow::FunctionBody *' data-ref="792fbody">fbody</dfn>);</td></tr>
+<tr><th id="161">161</th><td></td></tr>
+<tr><th id="162">162</th><td><i>// Instantiates FunctionDef into a graph. Set *fbody to point to the</i></td></tr>
+<tr><th id="163">163</th><td><i>// FunctionBody that holds the instantiated FunctionDef.</i></td></tr>
+<tr><th id="164">164</th><td><a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a> <dfn class="decl" id="_ZN10tensorflow23FunctionDefToBodyHelperERKNS_11FunctionDefERKNS_9AttrSliceEPKNS_25FunctionLibraryDefinitionERKSt8functionIFNS_6StatusERKSsPPKNS_5OpDe1895849" title='tensorflow::FunctionDefToBodyHelper' data-ref="_ZN10tensorflow23FunctionDefToBodyHelperERKNS_11FunctionDefERKNS_9AttrSliceEPKNS_25FunctionLibraryDefinitionERKSt8functionIFNS_6StatusERKSsPPKNS_5OpDe1895849">FunctionDefToBodyHelper</dfn>(</td></tr>
+<tr><th id="165">165</th><td>    <em>const</em> <span class='type' title='tensorflow::FunctionDef' data-ref="tensorflow::FunctionDef">FunctionDef</span>&amp; <dfn class="local col3 decl" id="793fdef" title='fdef' data-type='const tensorflow::FunctionDef &amp;' data-ref="793fdef">fdef</dfn>, <em>const</em> <a class="type" href="../framework/node_def_util.h.html#tensorflow::AttrSlice" title='tensorflow::AttrSlice' data-ref="tensorflow::AttrSlice">AttrSlice</a>&amp; <dfn class="local col4 decl" id="794attrs" title='attrs' data-type='const tensorflow::AttrSlice &amp;' data-ref="794attrs">attrs</dfn>,</td></tr>
+<tr><th id="166">166</th><td>    <em>const</em> <a class="type" href="../framework/function.h.html#tensorflow::FunctionLibraryDefinition" title='tensorflow::FunctionLibraryDefinition' data-ref="tensorflow::FunctionLibraryDefinition">FunctionLibraryDefinition</a>* <em>const</em> <dfn class="local col5 decl" id="795lib_def" title='lib_def' data-type='const tensorflow::FunctionLibraryDefinition *const' data-ref="795lib_def">lib_def</dfn>,</td></tr>
+<tr><th id="167">167</th><td>    <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<a class="type" href="../lib/core/status.h.html#tensorflow::Status" title='tensorflow::Status' data-ref="tensorflow::Status">Status</a>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp;, <em>const</em> <span class='type' title='tensorflow::OpDef' data-ref="tensorflow::OpDef">OpDef</span>**)&gt;&amp; <dfn class="local col6 decl" id="796get_func_sig" title='get_func_sig' data-type='const std::function&lt;Status (const string &amp;, const OpDef **)&gt; &amp;' data-ref="796get_func_sig">get_func_sig</dfn>,</td></tr>
+<tr><th id="168">168</th><td>    <a class="type" href="#tensorflow::FunctionBody" title='tensorflow::FunctionBody' data-ref="tensorflow::FunctionBody">FunctionBody</a>** <dfn class="local col7 decl" id="797fbody" title='fbody' data-type='tensorflow::FunctionBody **' data-ref="797fbody">fbody</dfn>);</td></tr>
+<tr><th id="169">169</th><td>}  <i>// end namespace tensorflow</i></td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_COMMON_RUNTIME_FUNCTION_H_</u></td></tr>
+<tr><th id="172">172</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../c/eager/c_api.cc.html'>tensorflow/tensorflow/c/eager/c_api.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

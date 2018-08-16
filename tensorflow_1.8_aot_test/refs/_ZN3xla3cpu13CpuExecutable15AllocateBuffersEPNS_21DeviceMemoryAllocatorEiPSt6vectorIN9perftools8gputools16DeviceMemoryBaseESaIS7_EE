@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.h' l='93' type='tensorflow::Status xla::cpu::CpuExecutable::AllocateBuffers(xla::DeviceMemoryAllocator * memory_allocator, int device_ordinal, std::vector&lt;perftools::gputools::DeviceMemoryBase&gt; * buffers)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.h' l='88'>// Allocate buffers required for execution and assign them to the elements of
+  // &quot;buffers&quot;. &quot;buffers&quot; should be sized to the number of buffers in buffer
+  // assignment. Each vector element corresponds to a particular Index. If
+  // a vector element already contains a non-null DeviceMemoryBase, then no
+  // buffer is assigned for this element.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='76' ll='122' type='tensorflow::Status xla::cpu::CpuExecutable::AllocateBuffers(xla::DeviceMemoryAllocator * memory_allocator, int device_ordinal, std::vector&lt;perftools::gputools::DeviceMemoryBase&gt; * buffers)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='299' u='c' c='_ZN3xla3cpu13CpuExecutable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='331' u='c' c='_ZN3xla3cpu13CpuExecutable20ExecuteAsyncOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>

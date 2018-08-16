@@ -1,0 +1,102 @@
+<inh f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='147' c='perftools::gputools::internal::StreamExecutorInterface'/>
+<def f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.h' l='45' ll='210'/>
+<size>40</size>
+<doc f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.h' l='35'>// An implementation of StreamExecutor that does no communication or interaction
+// with a device, but DOES perform memory operations backed by the host.
+// Plugin routines (RNG, BLAS) are also supported and functional.
+// Kernel invocations will fail, but host callbacks may be enqueued on this
+// executor and its associated stream, and should follow standard ordering
+// semantics.
+//
+// This is useful for evaluating the performance of host-based or fallback
+// routines executed under the context of a GPU executor.
+// See stream_executor.h for description of the below operations.</doc>
+<fun r='_ZN9perftools8gputools4host12HostExecutorC1ERKNS0_12PluginConfigE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutorD1Ev'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor4InitEiNS0_13DeviceOptionsE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor9GetKernelERKNS0_21MultiKernelLoaderSpecEPNS0_10KernelBaseE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor6LaunchEPNS0_6StreamERKNS0_9ThreadDimERKNS0_8BlockDimERKNS0_10KernelBaseERKNS0_19KernelArgsArrayBaseE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor8AllocateEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor17AllocateSubBufferEPNS0_16DeviceMemoryBaseEyy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor10DeallocateEPNS0_16DeviceMemoryBaseE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor18HostMemoryAllocateEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor20HostMemoryDeallocateEPv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor18HostMemoryRegisterEPvy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor20HostMemoryUnregisterEPv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor6MemcpyEPNS0_6StreamEPvRKNS0_16DeviceMemoryBaseEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor6MemcpyEPNS0_6StreamEPNS0_16DeviceMemoryBaseEPKvy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor20MemcpyDeviceToDeviceEPNS0_6StreamEPNS0_16DeviceMemoryBaseERKS5_y'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor7MemZeroEPNS0_6StreamEPNS0_16DeviceMemoryBaseEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor6MemsetEPNS0_6StreamEPNS0_16DeviceMemoryBaseEhy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor8Memset32EPNS0_6StreamEPNS0_16DeviceMemoryBaseEjy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor22SynchronizeAllActivityEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor18SynchronousMemZeroEPNS0_16DeviceMemoryBaseEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor17SynchronousMemSetEPNS0_16DeviceMemoryBaseEiy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor17SynchronousMemcpyEPNS0_16DeviceMemoryBaseEPKvy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor17SynchronousMemcpyEPvRKNS0_16DeviceMemoryBaseEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor31SynchronousMemcpyDeviceToDeviceEPNS0_16DeviceMemoryBaseERKS3_y'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor12HostCallbackEPNS0_6StreamESt8functionIFvvEE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor13AllocateEventEPNS0_5EventE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor15DeallocateEventEPNS0_5EventE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor11RecordEventEPNS0_6StreamEPNS0_5EventE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor12WaitForEventEPNS0_6StreamEPNS0_5EventE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor18PollForEventStatusEPNS0_5EventE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor14AllocateStreamEPNS0_6StreamE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor16DeallocateStreamEPNS0_6StreamE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor22CreateStreamDependencyEPNS0_6StreamES4_'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor13AllocateTimerEPNS0_5TimerE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor15DeallocateTimerEPNS0_5TimerE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor10StartTimerEPNS0_6StreamEPNS0_5TimerE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor9StopTimerEPNS0_6StreamEPNS0_5TimerE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor18BlockHostUntilDoneEPNS0_6StreamE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor19PlatformDeviceCountEv'/>
+<fun r='_ZNK9perftools8gputools4host12HostExecutor17DeviceMemoryUsageEPxS3_'/>
+<fun r='_ZNK9perftools8gputools4host12HostExecutor25PopulateDeviceDescriptionEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor18EnablePeerAccessToEPNS0_8internal23StreamExecutorInterfaceE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor21CanEnablePeerAccessToEPNS0_8internal23StreamExecutorInterfaceE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor27GetDeviceSharedMemoryConfigEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor27SetDeviceSharedMemoryConfigENS0_18SharedMemoryConfigE'/>
+<fun r='_ZNK9perftools8gputools4host12HostExecutor12SupportsBlasEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor10CreateBlasEv'/>
+<fun r='_ZNK9perftools8gputools4host12HostExecutor11SupportsDnnEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor9CreateDnnEv'/>
+<fun r='_ZNK9perftools8gputools4host12HostExecutor11SupportsFftEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor9CreateFftEv'/>
+<fun r='_ZNK9perftools8gputools4host12HostExecutor11SupportsRngEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor9CreateRngEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor25CreateEventImplementationEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor26CreateKernelImplementationEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor23GetStreamImplementationEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor22GetTimerImplementationEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor15CudaContextHackEv'/>
+<mbr r='perftools::gputools::host::HostExecutor::plugin_config_' o='64' t='const perftools::gputools::PluginConfig'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutorC1ERKNS0_12PluginConfigE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutorD1Ev'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor8AllocateEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor17AllocateSubBufferEPNS0_16DeviceMemoryBaseEyy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor10DeallocateEPNS0_16DeviceMemoryBaseE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor18SynchronousMemZeroEPNS0_16DeviceMemoryBaseEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor17SynchronousMemSetEPNS0_16DeviceMemoryBaseEiy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor6MemcpyEPNS0_6StreamEPvRKNS0_16DeviceMemoryBaseEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor6MemcpyEPNS0_6StreamEPNS0_16DeviceMemoryBaseEPKvy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor20MemcpyDeviceToDeviceEPNS0_6StreamEPNS0_16DeviceMemoryBaseERKS5_y'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor7MemZeroEPNS0_6StreamEPNS0_16DeviceMemoryBaseEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor6MemsetEPNS0_6StreamEPNS0_16DeviceMemoryBaseEhy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor8Memset32EPNS0_6StreamEPNS0_16DeviceMemoryBaseEjy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor17SynchronousMemcpyEPNS0_16DeviceMemoryBaseEPKvy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor17SynchronousMemcpyEPvRKNS0_16DeviceMemoryBaseEy'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor31SynchronousMemcpyDeviceToDeviceEPNS0_16DeviceMemoryBaseERKS3_y'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor12HostCallbackEPNS0_6StreamESt8functionIFvvEE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor14AllocateStreamEPNS0_6StreamE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor16DeallocateStreamEPNS0_6StreamE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor22CreateStreamDependencyEPNS0_6StreamES4_'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor10StartTimerEPNS0_6StreamEPNS0_5TimerE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor9StopTimerEPNS0_6StreamEPNS0_5TimerE'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor18BlockHostUntilDoneEPNS0_6StreamE'/>
+<fun r='_ZNK9perftools8gputools4host12HostExecutor25PopulateDeviceDescriptionEv'/>
+<fun r='_ZNK9perftools8gputools4host12HostExecutor12SupportsBlasEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor10CreateBlasEv'/>
+<fun r='_ZNK9perftools8gputools4host12HostExecutor11SupportsFftEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor9CreateFftEv'/>
+<fun r='_ZNK9perftools8gputools4host12HostExecutor11SupportsRngEv'/>
+<fun r='_ZN9perftools8gputools4host12HostExecutor9CreateRngEv'/>

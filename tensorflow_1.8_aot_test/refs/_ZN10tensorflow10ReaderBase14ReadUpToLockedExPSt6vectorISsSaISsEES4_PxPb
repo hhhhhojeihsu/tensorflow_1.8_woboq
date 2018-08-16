@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/framework/reader_base.h' l='62' type='tensorflow::Status tensorflow::ReaderBase::ReadUpToLocked(int64 num_records, std::vector&lt;string&gt; * keys, std::vector&lt;string&gt; * values, int64 * num_read, bool * at_end)'/>
+<use f='tensorflow/tensorflow/core/framework/reader_base.cc' l='107' u='c' c='_ZN10tensorflow10ReaderBase8ReadUpToExPNS_14QueueInterfaceEPSt6vectorISsSaISsEES6_PNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/framework/reader_base.cc' l='136' ll='151' type='tensorflow::Status tensorflow::ReaderBase::ReadUpToLocked(int64 num_records, std::vector&lt;string&gt; * keys, std::vector&lt;string&gt; * values, int64 * num_read, bool * at_end)'/>
+<doc f='tensorflow/tensorflow/core/framework/reader_base.cc' l='135'>// Default implementation just reads one record at a time.</doc>
+<doc f='tensorflow/tensorflow/core/framework/reader_base.h' l='58'>// Descendants may optionally implement these -------------------------------
+
+  // Produce up to num_records next key/value pairs from the current
+  // work item, in the same manner of ReadLocked.</doc>

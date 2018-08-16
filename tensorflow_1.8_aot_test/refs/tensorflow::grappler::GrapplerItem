@@ -1,0 +1,24 @@
+<def f='tensorflow/tensorflow/core/grappler/grappler_item.h' l='37' ll='77'/>
+<size>224</size>
+<doc f='tensorflow/tensorflow/core/grappler/grappler_item.h' l='33'>// A TensorFlow model to optimize.
+// Models are represented by the combination of a graph, one of more fetch
+// nodes, and potentially a set of nodes to feed.
+// TODO(volunteer_needed): turn this struct into a class.</doc>
+<fun r='_ZN10tensorflow8grappler12GrapplerItemC1Ev'/>
+<fun r='_ZN10tensorflow8grappler12GrapplerItemC1ERKS1_ONS_8GraphDefE'/>
+<mbr r='tensorflow::grappler::GrapplerItem::id' o='0' t='string'/>
+<mbr r='tensorflow::grappler::GrapplerItem::graph' o='64' t='tensorflow::GraphDef'/>
+<mbr r='tensorflow::grappler::GrapplerItem::feed' o='576' t='std::vector&lt;std::pair&lt;string, Tensor&gt; &gt;'/>
+<mbr r='tensorflow::grappler::GrapplerItem::fetch' o='768' t='std::vector&lt;string&gt;'/>
+<mbr r='tensorflow::grappler::GrapplerItem::init_ops' o='960' t='std::vector&lt;string&gt;'/>
+<mbr r='tensorflow::grappler::GrapplerItem::expected_init_time' o='1152' t='int64'/>
+<mbr r='tensorflow::grappler::GrapplerItem::save_op' o='1216' t='string'/>
+<mbr r='tensorflow::grappler::GrapplerItem::restore_op' o='1280' t='string'/>
+<mbr r='tensorflow::grappler::GrapplerItem::save_restore_loc_tensor' o='1344' t='string'/>
+<mbr r='tensorflow::grappler::GrapplerItem::queue_runners' o='1408' t='std::vector&lt;QueueRunnerDef&gt;'/>
+<mbr r='tensorflow::grappler::GrapplerItem::keep_ops' o='1600' t='std::vector&lt;string&gt;'/>
+<fun r='_ZNK10tensorflow8grappler12GrapplerItem12MainOpsFaninEv'/>
+<fun r='_ZNK10tensorflow8grappler12GrapplerItem15EnqueueOpsFaninEv'/>
+<fun r='_ZNK10tensorflow8grappler12GrapplerItem12InitOpsFaninEv'/>
+<fun r='_ZNK10tensorflow8grappler12GrapplerItem13MainVariablesEv'/>
+<fun r='_ZNK10tensorflow8grappler12GrapplerItem15NodesToPreserveEv'/>

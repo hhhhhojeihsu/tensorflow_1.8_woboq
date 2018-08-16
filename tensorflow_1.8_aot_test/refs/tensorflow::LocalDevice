@@ -1,0 +1,16 @@
+<inh f='tensorflow/tensorflow/core/common_runtime/device.h' l='54' c='tensorflow::Device'/>
+<def f='tensorflow/tensorflow/core/common_runtime/local_device.h' l='34' ll='53'/>
+<size>264</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/local_device.h' l='30'>// This class is shared by ThreadPoolDevice and GPUDevice and
+// initializes a shared Eigen compute device used by both.  This
+// should eventually be removed once we refactor ThreadPoolDevice and
+// GPUDevice into more &apos;process-wide&apos; abstractions.</doc>
+<fun r='_ZN10tensorflow11LocalDeviceC1ERKNS_14SessionOptionsERKNS_16DeviceAttributesE'/>
+<fun r='_ZN10tensorflow11LocalDeviceD1Ev'/>
+<smbr r='tensorflow::LocalDevice::use_global_threadpool_' t='bool'/>
+<fun r='_ZN10tensorflow11LocalDevice25set_use_global_threadpoolEb'/>
+<mbr r='tensorflow::LocalDevice::owned_tp_info_' o='2048' t='std::unique_ptr&lt;EigenThreadPoolInfo&gt;'/>
+<fun r='_ZN10tensorflow11LocalDeviceC1ERKS0_'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.h' l='50' c='tensorflow::XlaCompilationDevice'/>
+<ovr f='tensorflow/tensorflow/compiler/jit/xla_device.h' l='46' c='tensorflow::XlaDevice'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/threadpool_device.h' l='25' c='tensorflow::ThreadPoolDevice'/>

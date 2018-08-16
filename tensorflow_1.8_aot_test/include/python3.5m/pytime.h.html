@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>pytime.h source code [include/python3.5m/pytime.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'include/python3.5m/pytime.h'; var root_path = '../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>include</a>/<a href='./'>python3.5m</a>/<a href='pytime.h.html'>pytime.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#<span data-ppcond="2">ifndef</span> <span class="macro" data-ref="_M/Py_PYTIME_H">Py_PYTIME_H</span></u></td></tr>
+<tr><th id="3">3</th><td><u>#define <dfn class="macro" id="_M/Py_PYTIME_H" data-ref="_M/Py_PYTIME_H">Py_PYTIME_H</dfn></u></td></tr>
+<tr><th id="4">4</th><td></td></tr>
+<tr><th id="5">5</th><td><u>#include <a href="pyconfig.h.html">"pyconfig.h"</a> /* include for defines */</u></td></tr>
+<tr><th id="6">6</th><td><u>#include <a href="object.h.html">"object.h"</a></u></td></tr>
+<tr><th id="7">7</th><td></td></tr>
+<tr><th id="8">8</th><td><i>/**************************************************************************</i></td></tr>
+<tr><th id="9">9</th><td><i>Symbols and macros to supply platform-independent interfaces to time related</i></td></tr>
+<tr><th id="10">10</th><td><i>functions and constants</i></td></tr>
+<tr><th id="11">11</th><td><i>**************************************************************************/</i></td></tr>
+<tr><th id="12">12</th><td><u>#<span data-ppcond="12">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="13">13</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="14">14</th><td><u>#<span data-ppcond="12">endif</span></u></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifdef</span> <a class="macro" href="pyport.h.html#130" data-ref="_M/PY_INT64_T">PY_INT64_T</a></u></td></tr>
+<tr><th id="17">17</th><td><i>/* _PyTime_t: Python timestamp with subsecond precision. It can be used to</i></td></tr>
+<tr><th id="18">18</th><td><i>   store a duration, and so indirectly a date (related to another date, like</i></td></tr>
+<tr><th id="19">19</th><td><i>   UNIX epoch). */</i></td></tr>
+<tr><th id="20">20</th><td><b>typedef</b> <a class="macro" href="pyport.h.html#130" title="int64_t" data-ref="_M/PY_INT64_T">PY_INT64_T</a> <dfn class="typedef" id="_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</dfn>;</td></tr>
+<tr><th id="21">21</th><td><u>#define <dfn class="macro" id="_M/_PyTime_MIN" data-ref="_M/_PyTime_MIN">_PyTime_MIN</dfn> PY_LLONG_MIN</u></td></tr>
+<tr><th id="22">22</th><td><u>#define <dfn class="macro" id="_M/_PyTime_MAX" data-ref="_M/_PyTime_MAX">_PyTime_MAX</dfn> PY_LLONG_MAX</u></td></tr>
+<tr><th id="23">23</th><td><u>#<span data-ppcond="16">else</span></u></td></tr>
+<tr><th id="24">24</th><td><u>#  error "_PyTime_t need signed 64-bit integer type"</u></td></tr>
+<tr><th id="25">25</th><td><u>#<span data-ppcond="16">endif</span></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>typedef</b> <b>enum</b> {</td></tr>
+<tr><th id="28">28</th><td>    <i>/* Round towards minus infinity (-inf).</i></td></tr>
+<tr><th id="29">29</th><td><i>       For example, used to read a clock. */</i></td></tr>
+<tr><th id="30">30</th><td>    <dfn class="enum" id="_PyTime_ROUND_FLOOR" title='_PyTime_ROUND_FLOOR' data-ref="_PyTime_ROUND_FLOOR">_PyTime_ROUND_FLOOR</dfn>=<var>0</var>,</td></tr>
+<tr><th id="31">31</th><td>    <i>/* Round towards infinity (+inf).</i></td></tr>
+<tr><th id="32">32</th><td><i>       For example, used for timeout to wait "at least" N seconds. */</i></td></tr>
+<tr><th id="33">33</th><td>    <dfn class="enum" id="_PyTime_ROUND_CEILING" title='_PyTime_ROUND_CEILING' data-ref="_PyTime_ROUND_CEILING">_PyTime_ROUND_CEILING</dfn></td></tr>
+<tr><th id="34">34</th><td>} <dfn class="typedef" id="_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</dfn>;</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i>/* Convert a time_t to a PyLong. */</i></td></tr>
+<tr><th id="37">37</th><td><a class="macro" href="pyport.h.html#768" title="PyObject *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *) <dfn class="decl" id="_PyLong_FromTime_t" title='_PyLong_FromTime_t' data-ref="_PyLong_FromTime_t">_PyLong_FromTime_t</dfn>(</td></tr>
+<tr><th id="38">38</th><td>    <a class="typedef" href="../time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> <dfn class="local col7 decl" id="27sec" title='sec' data-type='time_t' data-ref="27sec">sec</dfn>);</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><i>/* Convert a PyLong to a time_t. */</i></td></tr>
+<tr><th id="41">41</th><td><a class="macro" href="pyport.h.html#768" title="time_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="../time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a>) <dfn class="decl" id="_PyLong_AsTime_t" title='_PyLong_AsTime_t' data-ref="_PyLong_AsTime_t">_PyLong_AsTime_t</dfn>(</td></tr>
+<tr><th id="42">42</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col8 decl" id="28obj" title='obj' data-type='PyObject *' data-ref="28obj">obj</dfn>);</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><i>/* Convert a number of seconds, int or float, to time_t. */</i></td></tr>
+<tr><th id="45">45</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_ObjectToTime_t" title='_PyTime_ObjectToTime_t' data-ref="_PyTime_ObjectToTime_t">_PyTime_ObjectToTime_t</dfn>(</td></tr>
+<tr><th id="46">46</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col9 decl" id="29obj" title='obj' data-type='PyObject *' data-ref="29obj">obj</dfn>,</td></tr>
+<tr><th id="47">47</th><td>    <a class="typedef" href="../time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> *<dfn class="local col0 decl" id="30sec" title='sec' data-type='time_t *' data-ref="30sec">sec</dfn>,</td></tr>
+<tr><th id="48">48</th><td>    <a class="typedef" href="#_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</a>);</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td><i>/* Convert a number of seconds, int or float, to a timeval structure.</i></td></tr>
+<tr><th id="51">51</th><td><i>   usec is in the range [0; 999999] and rounded towards zero.</i></td></tr>
+<tr><th id="52">52</th><td><i>   For example, -1.2 is converted to (-2, 800000). */</i></td></tr>
+<tr><th id="53">53</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_ObjectToTimeval" title='_PyTime_ObjectToTimeval' data-ref="_PyTime_ObjectToTimeval">_PyTime_ObjectToTimeval</dfn>(</td></tr>
+<tr><th id="54">54</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col1 decl" id="31obj" title='obj' data-type='PyObject *' data-ref="31obj">obj</dfn>,</td></tr>
+<tr><th id="55">55</th><td>    <a class="typedef" href="../time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> *<dfn class="local col2 decl" id="32sec" title='sec' data-type='time_t *' data-ref="32sec">sec</dfn>,</td></tr>
+<tr><th id="56">56</th><td>    <em>long</em> *<dfn class="local col3 decl" id="33usec" title='usec' data-type='long *' data-ref="33usec">usec</dfn>,</td></tr>
+<tr><th id="57">57</th><td>    <a class="typedef" href="#_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</a>);</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td><i>/* Convert a number of seconds, int or float, to a timespec structure.</i></td></tr>
+<tr><th id="60">60</th><td><i>   nsec is in the range [0; 999999999] and rounded towards zero.</i></td></tr>
+<tr><th id="61">61</th><td><i>   For example, -1.2 is converted to (-2, 800000000). */</i></td></tr>
+<tr><th id="62">62</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_ObjectToTimespec" title='_PyTime_ObjectToTimespec' data-ref="_PyTime_ObjectToTimespec">_PyTime_ObjectToTimespec</dfn>(</td></tr>
+<tr><th id="63">63</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col4 decl" id="34obj" title='obj' data-type='PyObject *' data-ref="34obj">obj</dfn>,</td></tr>
+<tr><th id="64">64</th><td>    <a class="typedef" href="../time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> *<dfn class="local col5 decl" id="35sec" title='sec' data-type='time_t *' data-ref="35sec">sec</dfn>,</td></tr>
+<tr><th id="65">65</th><td>    <em>long</em> *<dfn class="local col6 decl" id="36nsec" title='nsec' data-type='long *' data-ref="36nsec">nsec</dfn>,</td></tr>
+<tr><th id="66">66</th><td>    <a class="typedef" href="#_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</a>);</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><i>/* Create a timestamp from a number of seconds. */</i></td></tr>
+<tr><th id="70">70</th><td><a class="macro" href="pyport.h.html#768" title="_PyTime_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a>) <dfn class="decl" id="_PyTime_FromSeconds" title='_PyTime_FromSeconds' data-ref="_PyTime_FromSeconds">_PyTime_FromSeconds</dfn>(<em>int</em> <dfn class="local col7 decl" id="37seconds" title='seconds' data-type='int' data-ref="37seconds">seconds</dfn>);</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><i>/* Macro to create a timestamp from a number of seconds, no integer overflow.</i></td></tr>
+<tr><th id="73">73</th><td><i>   Only use the macro for small values, prefer _PyTime_FromSeconds(). */</i></td></tr>
+<tr><th id="74">74</th><td><u>#define <dfn class="macro" id="_M/_PYTIME_FROMSECONDS" data-ref="_M/_PYTIME_FROMSECONDS">_PYTIME_FROMSECONDS</dfn>(seconds) \</u></td></tr>
+<tr><th id="75">75</th><td><u>            ((_PyTime_t)(seconds) * (1000 * 1000 * 1000))</u></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><i>/* Create a timestamp from a number of nanoseconds. */</i></td></tr>
+<tr><th id="78">78</th><td><a class="macro" href="pyport.h.html#768" title="_PyTime_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a>) <dfn class="decl" id="_PyTime_FromNanoseconds" title='_PyTime_FromNanoseconds' data-ref="_PyTime_FromNanoseconds">_PyTime_FromNanoseconds</dfn>(<a class="macro" href="pyport.h.html#58" title="long long" data-ref="_M/PY_LONG_LONG">PY_LONG_LONG</a> <dfn class="local col8 decl" id="38ns" title='ns' data-type='long long' data-ref="38ns">ns</dfn>);</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td><i>/* Convert a number of seconds (Python float or int) to a timetamp.</i></td></tr>
+<tr><th id="81">81</th><td><i>   Raise an exception and return -1 on error, return 0 on success. */</i></td></tr>
+<tr><th id="82">82</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_FromSecondsObject" title='_PyTime_FromSecondsObject' data-ref="_PyTime_FromSecondsObject">_PyTime_FromSecondsObject</dfn>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> *<dfn class="local col9 decl" id="39t" title='t' data-type='_PyTime_t *' data-ref="39t">t</dfn>,</td></tr>
+<tr><th id="83">83</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col0 decl" id="40obj" title='obj' data-type='PyObject *' data-ref="40obj">obj</dfn>,</td></tr>
+<tr><th id="84">84</th><td>    <a class="typedef" href="#_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</a> <dfn class="local col1 decl" id="41round" title='round' data-type='_PyTime_round_t' data-ref="41round">round</dfn>);</td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td><i>/* Convert a number of milliseconds (Python float or int, 10^-3) to a timetamp.</i></td></tr>
+<tr><th id="87">87</th><td><i>   Raise an exception and return -1 on error, return 0 on success. */</i></td></tr>
+<tr><th id="88">88</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_FromMillisecondsObject" title='_PyTime_FromMillisecondsObject' data-ref="_PyTime_FromMillisecondsObject">_PyTime_FromMillisecondsObject</dfn>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> *<dfn class="local col2 decl" id="42t" title='t' data-type='_PyTime_t *' data-ref="42t">t</dfn>,</td></tr>
+<tr><th id="89">89</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col3 decl" id="43obj" title='obj' data-type='PyObject *' data-ref="43obj">obj</dfn>,</td></tr>
+<tr><th id="90">90</th><td>    <a class="typedef" href="#_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</a> <dfn class="local col4 decl" id="44round" title='round' data-type='_PyTime_round_t' data-ref="44round">round</dfn>);</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><i>/* Convert a timestamp to a number of seconds as a C double. */</i></td></tr>
+<tr><th id="93">93</th><td><a class="macro" href="pyport.h.html#768" title="double" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>double</em>) <dfn class="decl" id="_PyTime_AsSecondsDouble" title='_PyTime_AsSecondsDouble' data-ref="_PyTime_AsSecondsDouble">_PyTime_AsSecondsDouble</dfn>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> <dfn class="local col5 decl" id="45t" title='t' data-type='_PyTime_t' data-ref="45t">t</dfn>);</td></tr>
+<tr><th id="94">94</th><td></td></tr>
+<tr><th id="95">95</th><td><i>/* Convert timestamp to a number of milliseconds (10^-3 seconds). */</i></td></tr>
+<tr><th id="96">96</th><td><a class="macro" href="pyport.h.html#768" title="_PyTime_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a>) <dfn class="decl" id="_PyTime_AsMilliseconds" title='_PyTime_AsMilliseconds' data-ref="_PyTime_AsMilliseconds">_PyTime_AsMilliseconds</dfn>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> <dfn class="local col6 decl" id="46t" title='t' data-type='_PyTime_t' data-ref="46t">t</dfn>,</td></tr>
+<tr><th id="97">97</th><td>    <a class="typedef" href="#_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</a> <dfn class="local col7 decl" id="47round" title='round' data-type='_PyTime_round_t' data-ref="47round">round</dfn>);</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><i>/* Convert timestamp to a number of microseconds (10^-6 seconds). */</i></td></tr>
+<tr><th id="100">100</th><td><a class="macro" href="pyport.h.html#768" title="_PyTime_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a>) <dfn class="decl" id="_PyTime_AsMicroseconds" title='_PyTime_AsMicroseconds' data-ref="_PyTime_AsMicroseconds">_PyTime_AsMicroseconds</dfn>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> <dfn class="local col8 decl" id="48t" title='t' data-type='_PyTime_t' data-ref="48t">t</dfn>,</td></tr>
+<tr><th id="101">101</th><td>    <a class="typedef" href="#_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</a> <dfn class="local col9 decl" id="49round" title='round' data-type='_PyTime_round_t' data-ref="49round">round</dfn>);</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td><i>/* Convert timestamp to a number of nanoseconds (10^-9 seconds) as a Python int</i></td></tr>
+<tr><th id="104">104</th><td><i>   object. */</i></td></tr>
+<tr><th id="105">105</th><td><a class="macro" href="pyport.h.html#768" title="PyObject *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *) <dfn class="decl" id="_PyTime_AsNanosecondsObject" title='_PyTime_AsNanosecondsObject' data-ref="_PyTime_AsNanosecondsObject">_PyTime_AsNanosecondsObject</dfn>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> <dfn class="local col0 decl" id="50t" title='t' data-type='_PyTime_t' data-ref="50t">t</dfn>);</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td><i>/* Convert a timestamp to a timeval structure (microsecond resolution).</i></td></tr>
+<tr><th id="108">108</th><td><i>   tv_usec is always positive.</i></td></tr>
+<tr><th id="109">109</th><td><i>   Raise an exception and return -1 if the conversion overflowed,</i></td></tr>
+<tr><th id="110">110</th><td><i>   return 0 on success. */</i></td></tr>
+<tr><th id="111">111</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_AsTimeval" title='_PyTime_AsTimeval' data-ref="_PyTime_AsTimeval">_PyTime_AsTimeval</dfn>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> <dfn class="local col1 decl" id="51t" title='t' data-type='_PyTime_t' data-ref="51t">t</dfn>,</td></tr>
+<tr><th id="112">112</th><td>    <b>struct</b> <a class="type" href="../x86_64-linux-gnu/bits/time.h.html#timeval" title='timeval' data-ref="timeval">timeval</a> *<dfn class="local col2 decl" id="52tv" title='tv' data-type='struct timeval *' data-ref="52tv">tv</dfn>,</td></tr>
+<tr><th id="113">113</th><td>    <a class="typedef" href="#_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</a> <dfn class="local col3 decl" id="53round" title='round' data-type='_PyTime_round_t' data-ref="53round">round</dfn>);</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><i>/* Similar to _PyTime_AsTimeval(), but don't raise an exception on error. */</i></td></tr>
+<tr><th id="116">116</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_AsTimeval_noraise" title='_PyTime_AsTimeval_noraise' data-ref="_PyTime_AsTimeval_noraise">_PyTime_AsTimeval_noraise</dfn>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> <dfn class="local col4 decl" id="54t" title='t' data-type='_PyTime_t' data-ref="54t">t</dfn>,</td></tr>
+<tr><th id="117">117</th><td>    <b>struct</b> <a class="type" href="../x86_64-linux-gnu/bits/time.h.html#timeval" title='timeval' data-ref="timeval">timeval</a> *<dfn class="local col5 decl" id="55tv" title='tv' data-type='struct timeval *' data-ref="55tv">tv</dfn>,</td></tr>
+<tr><th id="118">118</th><td>    <a class="typedef" href="#_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</a> <dfn class="local col6 decl" id="56round" title='round' data-type='_PyTime_round_t' data-ref="56round">round</dfn>);</td></tr>
+<tr><th id="119">119</th><td></td></tr>
+<tr><th id="120">120</th><td><i>/* Convert a timestamp to a number of seconds (secs) and microseconds (us).</i></td></tr>
+<tr><th id="121">121</th><td><i>   us is always positive. This function is similar to _PyTime_AsTimeval()</i></td></tr>
+<tr><th id="122">122</th><td><i>   except that secs is always a time_t type, whereas the timeval structure</i></td></tr>
+<tr><th id="123">123</th><td><i>   uses a C long for tv_sec on Windows.</i></td></tr>
+<tr><th id="124">124</th><td><i>   Raise an exception and return -1 if the conversion overflowed,</i></td></tr>
+<tr><th id="125">125</th><td><i>   return 0 on success. */</i></td></tr>
+<tr><th id="126">126</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_AsTimevalTime_t" title='_PyTime_AsTimevalTime_t' data-ref="_PyTime_AsTimevalTime_t">_PyTime_AsTimevalTime_t</dfn>(</td></tr>
+<tr><th id="127">127</th><td>    <a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> <dfn class="local col7 decl" id="57t" title='t' data-type='_PyTime_t' data-ref="57t">t</dfn>,</td></tr>
+<tr><th id="128">128</th><td>    <a class="typedef" href="../time.h.html#time_t" title='time_t' data-type='__time_t' data-ref="time_t">time_t</a> *<dfn class="local col8 decl" id="58secs" title='secs' data-type='time_t *' data-ref="58secs">secs</dfn>,</td></tr>
+<tr><th id="129">129</th><td>    <em>int</em> *<dfn class="local col9 decl" id="59us" title='us' data-type='int *' data-ref="59us">us</dfn>,</td></tr>
+<tr><th id="130">130</th><td>    <a class="typedef" href="#_PyTime_round_t" title='_PyTime_round_t' data-type='enum _PyTime_round_t' data-ref="_PyTime_round_t">_PyTime_round_t</a> <dfn class="local col0 decl" id="60round" title='round' data-type='_PyTime_round_t' data-ref="60round">round</dfn>);</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><u>#<span data-ppcond="132">if</span> defined(<a class="macro" href="../x86_64-linux-gnu/python3.5m/pyconfig.h.html#127" data-ref="_M/HAVE_CLOCK_GETTIME">HAVE_CLOCK_GETTIME</a>) || defined(<span class="macro" data-ref="_M/HAVE_KQUEUE">HAVE_KQUEUE</span>)</u></td></tr>
+<tr><th id="133">133</th><td><i>/* Convert a timestamp to a timespec structure (nanosecond resolution).</i></td></tr>
+<tr><th id="134">134</th><td><i>   tv_nsec is always positive.</i></td></tr>
+<tr><th id="135">135</th><td><i>   Raise an exception and return -1 on error, return 0 on success. */</i></td></tr>
+<tr><th id="136">136</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_AsTimespec" title='_PyTime_AsTimespec' data-ref="_PyTime_AsTimespec">_PyTime_AsTimespec</dfn>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> <dfn class="local col1 decl" id="61t" title='t' data-type='_PyTime_t' data-ref="61t">t</dfn>, <b>struct</b> <a class="type" href="../time.h.html#timespec" title='timespec' data-ref="timespec">timespec</a> *<dfn class="local col2 decl" id="62ts" title='ts' data-type='struct timespec *' data-ref="62ts">ts</dfn>);</td></tr>
+<tr><th id="137">137</th><td><u>#<span data-ppcond="132">endif</span></u></td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td><i>/* Get the current time from the system clock.</i></td></tr>
+<tr><th id="140">140</th><td><i></i></td></tr>
+<tr><th id="141">141</th><td><i>   The function cannot fail. _PyTime_Init() ensures that the system clock</i></td></tr>
+<tr><th id="142">142</th><td><i>   works. */</i></td></tr>
+<tr><th id="143">143</th><td><a class="macro" href="pyport.h.html#768" title="_PyTime_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a>) <dfn class="decl" id="_PyTime_GetSystemClock" title='_PyTime_GetSystemClock' data-ref="_PyTime_GetSystemClock">_PyTime_GetSystemClock</dfn>(<em>void</em>);</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td><i>/* Get the time of a monotonic clock, i.e. a clock that cannot go backwards.</i></td></tr>
+<tr><th id="146">146</th><td><i>   The clock is not affected by system clock updates. The reference point of</i></td></tr>
+<tr><th id="147">147</th><td><i>   the returned value is undefined, so that only the difference between the</i></td></tr>
+<tr><th id="148">148</th><td><i>   results of consecutive calls is valid.</i></td></tr>
+<tr><th id="149">149</th><td><i></i></td></tr>
+<tr><th id="150">150</th><td><i>   The function cannot fail. _PyTime_Init() ensures that a monotonic clock</i></td></tr>
+<tr><th id="151">151</th><td><i>   is available and works. */</i></td></tr>
+<tr><th id="152">152</th><td><a class="macro" href="pyport.h.html#768" title="_PyTime_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a>) <dfn class="decl" id="_PyTime_GetMonotonicClock" title='_PyTime_GetMonotonicClock' data-ref="_PyTime_GetMonotonicClock">_PyTime_GetMonotonicClock</dfn>(<em>void</em>);</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td><i>/* Structure used by time.get_clock_info() */</i></td></tr>
+<tr><th id="156">156</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="157">157</th><td>    <em>const</em> <em>char</em> *<dfn class="decl" id="(anonymous)::implementation" title='(anonymous struct)::implementation' data-ref="(anonymous)::implementation">implementation</dfn>;</td></tr>
+<tr><th id="158">158</th><td>    <em>int</em> <dfn class="decl" id="(anonymous)::monotonic" title='(anonymous struct)::monotonic' data-ref="(anonymous)::monotonic">monotonic</dfn>;</td></tr>
+<tr><th id="159">159</th><td>    <em>int</em> <dfn class="decl" id="(anonymous)::adjustable" title='(anonymous struct)::adjustable' data-ref="(anonymous)::adjustable">adjustable</dfn>;</td></tr>
+<tr><th id="160">160</th><td>    <em>double</em> <dfn class="decl" id="(anonymous)::resolution" title='(anonymous struct)::resolution' data-ref="(anonymous)::resolution">resolution</dfn>;</td></tr>
+<tr><th id="161">161</th><td>} <dfn class="typedef" id="_Py_clock_info_t" title='_Py_clock_info_t' data-type='struct _Py_clock_info_t' data-ref="_Py_clock_info_t">_Py_clock_info_t</dfn>;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><i>/* Get the current time from the system clock.</i></td></tr>
+<tr><th id="164">164</th><td><i> * Fill clock information if info is not NULL.</i></td></tr>
+<tr><th id="165">165</th><td><i> * Raise an exception and return -1 on error, return 0 on success.</i></td></tr>
+<tr><th id="166">166</th><td><i> */</i></td></tr>
+<tr><th id="167">167</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_GetSystemClockWithInfo" title='_PyTime_GetSystemClockWithInfo' data-ref="_PyTime_GetSystemClockWithInfo">_PyTime_GetSystemClockWithInfo</dfn>(</td></tr>
+<tr><th id="168">168</th><td>    <a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> *<dfn class="local col3 decl" id="63t" title='t' data-type='_PyTime_t *' data-ref="63t">t</dfn>,</td></tr>
+<tr><th id="169">169</th><td>    <a class="typedef" href="#_Py_clock_info_t" title='_Py_clock_info_t' data-type='struct _Py_clock_info_t' data-ref="_Py_clock_info_t">_Py_clock_info_t</a> *<dfn class="local col4 decl" id="64info" title='info' data-type='_Py_clock_info_t *' data-ref="64info">info</dfn>);</td></tr>
+<tr><th id="170">170</th><td></td></tr>
+<tr><th id="171">171</th><td><i>/* Get the time of a monotonic clock, i.e. a clock that cannot go backwards.</i></td></tr>
+<tr><th id="172">172</th><td><i>   The clock is not affected by system clock updates. The reference point of</i></td></tr>
+<tr><th id="173">173</th><td><i>   the returned value is undefined, so that only the difference between the</i></td></tr>
+<tr><th id="174">174</th><td><i>   results of consecutive calls is valid.</i></td></tr>
+<tr><th id="175">175</th><td><i></i></td></tr>
+<tr><th id="176">176</th><td><i>   Fill info (if set) with information of the function used to get the time.</i></td></tr>
+<tr><th id="177">177</th><td><i></i></td></tr>
+<tr><th id="178">178</th><td><i>   Return 0 on success, raise an exception and return -1 on error. */</i></td></tr>
+<tr><th id="179">179</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_GetMonotonicClockWithInfo" title='_PyTime_GetMonotonicClockWithInfo' data-ref="_PyTime_GetMonotonicClockWithInfo">_PyTime_GetMonotonicClockWithInfo</dfn>(</td></tr>
+<tr><th id="180">180</th><td>    <a class="typedef" href="#_PyTime_t" title='_PyTime_t' data-type='int64_t' data-ref="_PyTime_t">_PyTime_t</a> *<dfn class="local col5 decl" id="65t" title='t' data-type='_PyTime_t *' data-ref="65t">t</dfn>,</td></tr>
+<tr><th id="181">181</th><td>    <a class="typedef" href="#_Py_clock_info_t" title='_Py_clock_info_t' data-type='struct _Py_clock_info_t' data-ref="_Py_clock_info_t">_Py_clock_info_t</a> *<dfn class="local col6 decl" id="66info" title='info' data-type='_Py_clock_info_t *' data-ref="66info">info</dfn>);</td></tr>
+<tr><th id="182">182</th><td></td></tr>
+<tr><th id="183">183</th><td></td></tr>
+<tr><th id="184">184</th><td><i>/* Initialize time.</i></td></tr>
+<tr><th id="185">185</th><td><i>   Return 0 on success, raise an exception and return -1 on error. */</i></td></tr>
+<tr><th id="186">186</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_PyTime_Init" title='_PyTime_Init' data-ref="_PyTime_Init">_PyTime_Init</dfn>(<em>void</em>);</td></tr>
+<tr><th id="187">187</th><td></td></tr>
+<tr><th id="188">188</th><td><u>#<span data-ppcond="188">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="189">189</th><td>}</td></tr>
+<tr><th id="190">190</th><td><u>#<span data-ppcond="188">endif</span></u></td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td><u>#<span data-ppcond="2">endif</span> /* Py_PYTIME_H */</u></td></tr>
+<tr><th id="193">193</th><td><u>#<span data-ppcond="1">endif</span> /* Py_LIMITED_API */</u></td></tr>
+<tr><th id="194">194</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc.html'>tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc</a><br/>Generated on <em>2018-Aug-16</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

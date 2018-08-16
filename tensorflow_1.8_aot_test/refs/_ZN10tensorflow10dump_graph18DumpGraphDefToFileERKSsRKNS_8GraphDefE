@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/dump_graph.h' l='36' type='string tensorflow::dump_graph::DumpGraphDefToFile(const string &amp; name, const tensorflow::GraphDef &amp; graph_def)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/dump_graph.h' l='29'>// Dumps &apos;graph_def&apos; to a file, as a GraphDef text proto. Returns the file name
+// chosen.
+//
+// Automatically picks a file name. Prefixes &apos;name&apos; with the value of the
+// --tf_dump_graph_prefix flag and suffixes it with &quot;.pbtxt&quot; to form a name.
+// If a graph has already been dumped by this process with the same name,
+// suffixes with &quot;_n.pbtxt&quot;, where &apos;n&apos; is a sequence number.</doc>
+<def f='tensorflow/tensorflow/compiler/tf2xla/dump_graph.cc' l='64' ll='73' type='string tensorflow::dump_graph::DumpGraphDefToFile(const string &amp; name, const tensorflow::GraphDef &amp; graph_def)'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/dump_graph.cc' l='82' u='c' c='_ZN10tensorflow10dump_graph15DumpGraphToFileERKSsRKNS_5GraphEPKNS_25FunctionLibraryDefinitionE'/>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>cancellation.h source code [tensorflow/tensorflow/core/framework/cancellation.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::CancellationManager "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/framework/cancellation.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>framework</a>/<a href='cancellation.h.html'>cancellation.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_FRAMEWORK_CANCELLATION_H_">TENSORFLOW_FRAMEWORK_CANCELLATION_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_FRAMEWORK_CANCELLATION_H_" data-ref="_M/TENSORFLOW_FRAMEWORK_CANCELLATION_H_">TENSORFLOW_FRAMEWORK_CANCELLATION_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../include/c++/5/atomic.html">&lt;atomic&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/functional.html">&lt;functional&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../lib/core/notification.h.html">"tensorflow/core/lib/core/notification.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../lib/gtl/flatmap.h.html">"tensorflow/core/lib/gtl/flatmap.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../lib/hash/hash.h.html">"tensorflow/core/lib/hash/hash.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../platform/mutex.h.html">"tensorflow/core/platform/mutex.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../platform/thread_annotations.h.html">"tensorflow/core/platform/thread_annotations.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><i>// A token that can be used to register and deregister a</i></td></tr>
+<tr><th id="33">33</th><td><i>// CancelCallback with a CancellationManager.</i></td></tr>
+<tr><th id="34">34</th><td><i>//</i></td></tr>
+<tr><th id="35">35</th><td><i>// CancellationToken values must be created by a call to</i></td></tr>
+<tr><th id="36">36</th><td><i>// CancellationManager::get_cancellation_token.</i></td></tr>
+<tr><th id="37">37</th><td><b>typedef</b> <a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="typedef" id="tensorflow::CancellationToken" title='tensorflow::CancellationToken' data-type='int64' data-ref="tensorflow::CancellationToken">CancellationToken</dfn>;</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><i>// A callback that is invoked when a step is canceled.</i></td></tr>
+<tr><th id="40">40</th><td><i>//</i></td></tr>
+<tr><th id="41">41</th><td><i>// NOTE(mrry): See caveats about CancelCallback implementations in the</i></td></tr>
+<tr><th id="42">42</th><td><i>// comment for CancellationManager::RegisterCallback.</i></td></tr>
+<tr><th id="43">43</th><td><b>typedef</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<em>void</em>()&gt; <dfn class="typedef" id="tensorflow::CancelCallback" title='tensorflow::CancelCallback' data-type='std::function&lt;void ()&gt;' data-ref="tensorflow::CancelCallback">CancelCallback</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>class</b> <dfn class="type def" id="tensorflow::CancellationManager" title='tensorflow::CancellationManager' data-ref="tensorflow::CancellationManager">CancellationManager</dfn> {</td></tr>
+<tr><th id="46">46</th><td> <b>public</b>:</td></tr>
+<tr><th id="47">47</th><td>  <i>// A value that won't be returned by get_cancellation_token().</i></td></tr>
+<tr><th id="48">48</th><td>  <em>static</em> <em>const</em> <a class="typedef" href="#tensorflow::CancellationToken" title='tensorflow::CancellationToken' data-type='int64' data-ref="tensorflow::CancellationToken">CancellationToken</a> <dfn class="decl" id="tensorflow::CancellationManager::kInvalidToken" title='tensorflow::CancellationManager::kInvalidToken' data-ref="tensorflow::CancellationManager::kInvalidToken">kInvalidToken</dfn>;</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>  <dfn class="decl" id="_ZN10tensorflow19CancellationManagerC1Ev" title='tensorflow::CancellationManager::CancellationManager' data-ref="_ZN10tensorflow19CancellationManagerC1Ev">CancellationManager</dfn>();</td></tr>
+<tr><th id="51">51</th><td>  <dfn class="decl" id="_ZN10tensorflow19CancellationManagerD1Ev" title='tensorflow::CancellationManager::~CancellationManager' data-ref="_ZN10tensorflow19CancellationManagerD1Ev">~CancellationManager</dfn>();</td></tr>
+<tr><th id="52">52</th><td></td></tr>
+<tr><th id="53">53</th><td>  <i>// Run all callbacks associated with this manager.</i></td></tr>
+<tr><th id="54">54</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow19CancellationManager11StartCancelEv" title='tensorflow::CancellationManager::StartCancel' data-ref="_ZN10tensorflow19CancellationManager11StartCancelEv">StartCancel</dfn>();</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>  <i>// Returns true iff StartCancel() has been called.</i></td></tr>
+<tr><th id="57">57</th><td>  <em>bool</em> <dfn class="decl def" id="_ZN10tensorflow19CancellationManager11IsCancelledEv" title='tensorflow::CancellationManager::IsCancelled' data-ref="_ZN10tensorflow19CancellationManager11IsCancelledEv">IsCancelled</dfn>() { <b>return</b> <a class="member" href="#tensorflow::CancellationManager::is_cancelled_" title='tensorflow::CancellationManager::is_cancelled_' data-ref="tensorflow::CancellationManager::is_cancelled_">is_cancelled_</a>.<a class="ref" href="../../../../include/c++/5/atomic.html#_ZNKSt6atomicIbE4loadESt12memory_order" title='std::atomic&lt;bool&gt;::load' data-ref="_ZNKSt6atomicIbE4loadESt12memory_order">load</a>(<span class="namespace">std::</span><a class="enum" href="../../../../include/c++/5/bits/atomic_base.h.html#std::memory_order::memory_order_acquire" title='std::memory_order::memory_order_acquire' data-ref="std::memory_order::memory_order_acquire">memory_order_acquire</a>); }</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>  <i>// Returns a token that must be used in calls to RegisterCallback</i></td></tr>
+<tr><th id="60">60</th><td><i>  // and DeregisterCallback.</i></td></tr>
+<tr><th id="61">61</th><td>  <a class="typedef" href="#tensorflow::CancellationToken" title='tensorflow::CancellationToken' data-type='int64' data-ref="tensorflow::CancellationToken">CancellationToken</a> <dfn class="decl" id="_ZN10tensorflow19CancellationManager22get_cancellation_tokenEv" title='tensorflow::CancellationManager::get_cancellation_token' data-ref="_ZN10tensorflow19CancellationManager22get_cancellation_tokenEv">get_cancellation_token</dfn>();</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td>  <i>// Attempts to register the given callback to be invoked when this</i></td></tr>
+<tr><th id="64">64</th><td><i>  // manager is cancelled. Returns true if the callback was</i></td></tr>
+<tr><th id="65">65</th><td><i>  // registered; returns false if this manager was already cancelled,</i></td></tr>
+<tr><th id="66">66</th><td><i>  // and the callback was not registered.</i></td></tr>
+<tr><th id="67">67</th><td><i>  //</i></td></tr>
+<tr><th id="68">68</th><td><i>  // If this method returns false, it is the caller's responsibility</i></td></tr>
+<tr><th id="69">69</th><td><i>  // to perform any cancellation cleanup.</i></td></tr>
+<tr><th id="70">70</th><td><i>  //</i></td></tr>
+<tr><th id="71">71</th><td><i>  // This method is tricky to use correctly. The following usage pattern</i></td></tr>
+<tr><th id="72">72</th><td><i>  // is recommended:</i></td></tr>
+<tr><th id="73">73</th><td><i>  //</i></td></tr>
+<tr><th id="74">74</th><td><i>  // class ObjectWithCancellableOperation {</i></td></tr>
+<tr><th id="75">75</th><td><i>  //   mutex mu_;</i></td></tr>
+<tr><th id="76">76</th><td><i>  //   void CancellableOperation(CancellationManager* cm,</i></td></tr>
+<tr><th id="77">77</th><td><i>  //                             std::function&lt;void(Status)&gt; callback) {</i></td></tr>
+<tr><th id="78">78</th><td><i>  //     bool already_cancelled;</i></td></tr>
+<tr><th id="79">79</th><td><i>  //     CancellationToken token = cm-&gt;get_cancellation_token();</i></td></tr>
+<tr><th id="80">80</th><td><i>  //     {</i></td></tr>
+<tr><th id="81">81</th><td><i>  //       mutex_lock(mu_);</i></td></tr>
+<tr><th id="82">82</th><td><i>  //       already_cancelled = !cm-&gt;RegisterCallback(</i></td></tr>
+<tr><th id="83">83</th><td><i>  //           [this, token]() { Cancel(token); });</i></td></tr>
+<tr><th id="84">84</th><td><i>  //       if (!already_cancelled) {</i></td></tr>
+<tr><th id="85">85</th><td><i>  //         // Issue asynchronous operation. Associate the pending operation</i></td></tr>
+<tr><th id="86">86</th><td><i>  //         // with `token` in some object state, or provide another way for</i></td></tr>
+<tr><th id="87">87</th><td><i>  //         // the Cancel method to look up the operation for cancellation.</i></td></tr>
+<tr><th id="88">88</th><td><i>  //         // Ensure that `cm-&gt;DeregisterCallback(token)` is called without</i></td></tr>
+<tr><th id="89">89</th><td><i>  //         // holding `mu_`, before `callback` is invoked.</i></td></tr>
+<tr><th id="90">90</th><td><i>  //         // ...</i></td></tr>
+<tr><th id="91">91</th><td><i>  //       }</i></td></tr>
+<tr><th id="92">92</th><td><i>  //     }</i></td></tr>
+<tr><th id="93">93</th><td><i>  //     if (already_cancelled) {</i></td></tr>
+<tr><th id="94">94</th><td><i>  //       callback(errors::Cancelled("Operation was cancelled"));</i></td></tr>
+<tr><th id="95">95</th><td><i>  //     }</i></td></tr>
+<tr><th id="96">96</th><td><i>  //   }</i></td></tr>
+<tr><th id="97">97</th><td><i>  //</i></td></tr>
+<tr><th id="98">98</th><td><i>  //   void Cancel(CancellationToken token) {</i></td></tr>
+<tr><th id="99">99</th><td><i>  //     mutex_lock(mu_);</i></td></tr>
+<tr><th id="100">100</th><td><i>  //     // Take action to cancel the operation with the given cancellation</i></td></tr>
+<tr><th id="101">101</th><td><i>  //     // token.</i></td></tr>
+<tr><th id="102">102</th><td><i>  //   }</i></td></tr>
+<tr><th id="103">103</th><td><i>  //</i></td></tr>
+<tr><th id="104">104</th><td><i>  // NOTE(mrry): The caller should take care that (i) the calling code</i></td></tr>
+<tr><th id="105">105</th><td><i>  // is robust to `callback` being invoked asynchronously (e.g. from</i></td></tr>
+<tr><th id="106">106</th><td><i>  // another thread), (ii) `callback` is deregistered by a call to</i></td></tr>
+<tr><th id="107">107</th><td><i>  // this-&gt;DeregisterCallback(token) when the operation completes</i></td></tr>
+<tr><th id="108">108</th><td><i>  // successfully, and (iii) `callback` does not invoke any method</i></td></tr>
+<tr><th id="109">109</th><td><i>  // on this cancellation manager. Furthermore, it is important that</i></td></tr>
+<tr><th id="110">110</th><td><i>  // the eventual caller of the complementary DeregisterCallback does not</i></td></tr>
+<tr><th id="111">111</th><td><i>  // hold any mutexes that are required by `callback`.</i></td></tr>
+<tr><th id="112">112</th><td>  <em>bool</em> <dfn class="decl" id="_ZN10tensorflow19CancellationManager16RegisterCallbackExSt8functionIFvvEE" title='tensorflow::CancellationManager::RegisterCallback' data-ref="_ZN10tensorflow19CancellationManager16RegisterCallbackExSt8functionIFvvEE">RegisterCallback</dfn>(<a class="typedef" href="#tensorflow::CancellationToken" title='tensorflow::CancellationToken' data-type='int64' data-ref="tensorflow::CancellationToken">CancellationToken</a> <dfn class="local col3 decl" id="16663token" title='token' data-type='CancellationToken' data-ref="16663token">token</dfn>, <a class="typedef" href="#tensorflow::CancelCallback" title='tensorflow::CancelCallback' data-type='std::function&lt;void ()&gt;' data-ref="tensorflow::CancelCallback">CancelCallback</a> <dfn class="local col4 decl" id="16664callback" title='callback' data-type='CancelCallback' data-ref="16664callback">callback</dfn>);</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>  <i>// Deregister the callback that, when registered, was associated</i></td></tr>
+<tr><th id="115">115</th><td><i>  // with the given cancellation token. Returns true iff the callback</i></td></tr>
+<tr><th id="116">116</th><td><i>  // was deregistered and will not be invoked; otherwise returns false</i></td></tr>
+<tr><th id="117">117</th><td><i>  // after the callback has been invoked, blocking if necessary.</i></td></tr>
+<tr><th id="118">118</th><td><i>  //</i></td></tr>
+<tr><th id="119">119</th><td><i>  // NOTE(mrry): This method may block if cancellation is in progress.</i></td></tr>
+<tr><th id="120">120</th><td><i>  // The caller of this method must not hold any mutexes that are required</i></td></tr>
+<tr><th id="121">121</th><td><i>  // to invoke any cancellation callback that has been registered with this</i></td></tr>
+<tr><th id="122">122</th><td><i>  // cancellation manager.</i></td></tr>
+<tr><th id="123">123</th><td>  <em>bool</em> <dfn class="decl" id="_ZN10tensorflow19CancellationManager18DeregisterCallbackEx" title='tensorflow::CancellationManager::DeregisterCallback' data-ref="_ZN10tensorflow19CancellationManager18DeregisterCallbackEx">DeregisterCallback</dfn>(<a class="typedef" href="#tensorflow::CancellationToken" title='tensorflow::CancellationToken' data-type='int64' data-ref="tensorflow::CancellationToken">CancellationToken</a> <dfn class="local col5 decl" id="16665token" title='token' data-type='CancellationToken' data-ref="16665token">token</dfn>);</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td> <b>private</b>:</td></tr>
+<tr><th id="126">126</th><td>  <em>bool</em> <dfn class="decl" id="tensorflow::CancellationManager::is_cancelling_" title='tensorflow::CancellationManager::is_cancelling_' data-ref="tensorflow::CancellationManager::is_cancelling_">is_cancelling_</dfn>;</td></tr>
+<tr><th id="127">127</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../include/c++/5/atomic.html#std::atomic_bool" title='std::atomic_bool' data-type='atomic&lt;bool&gt;' data-ref="std::atomic_bool">atomic_bool</a> <dfn class="decl" id="tensorflow::CancellationManager::is_cancelled_" title='tensorflow::CancellationManager::is_cancelled_' data-ref="tensorflow::CancellationManager::is_cancelled_">is_cancelled_</dfn>;</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>  <a class="type" href="../platform/default/mutex.h.html#tensorflow::mutex" title='tensorflow::mutex' data-ref="tensorflow::mutex">mutex</a> <dfn class="decl" id="tensorflow::CancellationManager::mu_" title='tensorflow::CancellationManager::mu_' data-ref="tensorflow::CancellationManager::mu_">mu_</dfn>;</td></tr>
+<tr><th id="130">130</th><td>  <a class="type" href="../platform/default/notification.h.html#tensorflow::Notification" title='tensorflow::Notification' data-ref="tensorflow::Notification">Notification</a> <dfn class="decl" id="tensorflow::CancellationManager::cancelled_notification_" title='tensorflow::CancellationManager::cancelled_notification_' data-ref="tensorflow::CancellationManager::cancelled_notification_">cancelled_notification_</dfn>;</td></tr>
+<tr><th id="131">131</th><td>  <a class="typedef" href="#tensorflow::CancellationToken" title='tensorflow::CancellationToken' data-type='int64' data-ref="tensorflow::CancellationToken">CancellationToken</a> <dfn class="decl" id="tensorflow::CancellationManager::next_cancellation_token_" title='tensorflow::CancellationManager::next_cancellation_token_' data-ref="tensorflow::CancellationManager::next_cancellation_token_">next_cancellation_token_</dfn> <a class="macro" href="../platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(mu_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::CancellationManager::mu_" title='tensorflow::CancellationManager::mu_' data-ref="tensorflow::CancellationManager::mu_">mu_</a>);</td></tr>
+<tr><th id="132">132</th><td>  <span class="namespace">gtl::</span><a class="type" href="../lib/gtl/flatmap.h.html#tensorflow::gtl::FlatMap" title='tensorflow::gtl::FlatMap' data-ref="tensorflow::gtl::FlatMap">FlatMap</a>&lt;<a class="typedef" href="#tensorflow::CancellationToken" title='tensorflow::CancellationToken' data-type='int64' data-ref="tensorflow::CancellationToken">CancellationToken</a>, <a class="typedef" href="#tensorflow::CancelCallback" title='tensorflow::CancelCallback' data-type='std::function&lt;void ()&gt;' data-ref="tensorflow::CancelCallback">CancelCallback</a>&gt; <dfn class="decl" id="tensorflow::CancellationManager::callbacks_" title='tensorflow::CancellationManager::callbacks_' data-ref="tensorflow::CancellationManager::callbacks_">callbacks_</dfn> <a class="macro" href="../platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(mu_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::CancellationManager::mu_" title='tensorflow::CancellationManager::mu_' data-ref="tensorflow::CancellationManager::mu_">mu_</a>);</td></tr>
+<tr><th id="133">133</th><td>};</td></tr>
+<tr><th id="134">134</th><td></td></tr>
+<tr><th id="135">135</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_FRAMEWORK_CANCELLATION_H_</u></td></tr>
+<tr><th id="138">138</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../c/c_api.cc.html'>tensorflow/tensorflow/c/c_api.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

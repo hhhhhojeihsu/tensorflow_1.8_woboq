@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/buf_rendezvous.h' l='47' type='void tensorflow::BufRendezvous::StartAbort(const tensorflow::Status &amp; s)'/>
+<def f='tensorflow/tensorflow/core/common_runtime/buf_rendezvous.cc' l='32' ll='41' type='void tensorflow::BufRendezvous::StartAbort(const tensorflow::Status &amp; s)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/buf_rendezvous.h' l='45'>// Inform all all waiting parties that this BufRendezvous is defunct
+  // because of an error Status interrupting the Step.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/collective_rma_local.cc' l='23' u='c' c='_ZN10tensorflow27CollectiveRemoteAccessLocal10StartAbortERKNS_6StatusE'/>

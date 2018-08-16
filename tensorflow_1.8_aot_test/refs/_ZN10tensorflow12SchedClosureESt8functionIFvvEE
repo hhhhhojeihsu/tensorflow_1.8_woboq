@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/process_util.h' l='41' type='void tensorflow::SchedClosure(std::function&lt;void ()&gt; closure)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/process_util.h' l='40'>// Schedule &quot;closure&quot; in the default thread queue.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/process_util.cc' l='80' ll='96' type='void tensorflow::SchedClosure(std::function&lt;void ()&gt; closure)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='105' u='c' c='_ZN10tensorflow6Master2GCEv'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='309' u='c' c='_ZN10tensorflow6Master13CreateSessionEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='450' u='c' c='_ZN10tensorflow6Master13ExtendSessionEPKNS_20ExtendSessionRequestEPNS_21ExtendSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='468' u='c' c='_ZN10tensorflow6Master15PartialRunSetupEPKNS_22PartialRunSetupRequestEPNS_23PartialRunSetupResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='484' u='c' c='_ZN10tensorflow6Master7RunStepEPNS_11CallOptionsEPKNS_21RunStepRequestWrapperEPNS_29MutableRunStepResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='517' u='c' c='_ZN10tensorflow6Master12CloseSessionEPKNS_19CloseSessionRequestEPNS_20CloseSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='526' u='c' c='_ZN10tensorflow6Master11ListDevicesEPKNS_18ListDevicesRequestEPNS_19ListDevicesResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='604' u='c' c='_ZN10tensorflow6Master5ResetEPKNS_12ResetRequestEPNS_13ResetResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='622' u='c' c='_ZN10tensorflow6Master12MakeCallableEPKNS_19MakeCallableRequestEPNS_20MakeCallableResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='639' u='c' c='_ZN10tensorflow6Master11RunCallableEPNS_11CallOptionsEPKNS_18RunCallableRequestEPNS_19RunCallableResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='656' u='c' c='_ZN10tensorflow6Master15ReleaseCallableEPKNS_22ReleaseCallableRequestEPNS_23ReleaseCallableResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_partial.cc' l='45' u='c' c='_ZN10tensorflow18WorkerCachePartial22GetDeviceLocalityAsyncERKSsPNS_14DeviceLocalityESt8functionIFvRKNS_6StatusEEE'/>

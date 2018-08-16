@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/executable_run_options.h' l='64' type='xla::ExecutableRunOptions &amp; xla::ExecutableRunOptions::set_stream(perftools::gputools::Stream * stream)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/executable_run_options.h' l='61'>// If set, this is the stream to run the computation on. The platform of the
+  // stream must match the platform the executable was built for.  A value of
+  // nullptr indicates the option has not been set.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='182' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='67' u='c' c='_ZN10tensorflow20XlaCompileOnDemandOp3RunEPNS_15OpKernelContextERKNS_9XlaDevice8MetadataEPKNS_11XlaCompiler17CompilationResultEPN3xla15LocalExecutableE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='153' u='c' c='_ZN3xla15LocalExecutable3RunEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEENS_20ExecutableRunOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/executable_run_options.cc' l='38' ll='42' type='xla::ExecutableRunOptions &amp; xla::ExecutableRunOptions::set_stream(perftools::gputools::Stream * stream)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='584' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='697' u='c' c='_ZN3xla7Service24ExecuteAndRegisterResultEPNS_10ExecutableEN10tensorflow3gtl10ArraySliceISt6vectorIPKNS_12ShapedBufferESaIS9_EEEEPNS_7BackendERKSsPNS_16ExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1250' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>

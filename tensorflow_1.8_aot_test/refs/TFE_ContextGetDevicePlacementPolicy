@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/c/eager/c_api.h' l='114' type='TFE_ContextDevicePlacementPolicy TFE_ContextGetDevicePlacementPolicy(TFE_Context * )'/>
+<def f='tensorflow/tensorflow/c/eager/c_api.cc' l='140' ll='144' type='TFE_ContextDevicePlacementPolicy TFE_ContextGetDevicePlacementPolicy(TFE_Context * ctx)'/>
+<doc f='tensorflow/tensorflow/c/eager/c_api.cc' l='137'>// Note: this function looks up a thread local policy. So it should be called in
+// the appropriate client thread. In particular, in async mode, it may not be
+// safe to call this function from the async EagerExecutor threads.</doc>

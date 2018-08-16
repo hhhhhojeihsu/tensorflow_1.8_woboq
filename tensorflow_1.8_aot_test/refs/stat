@@ -1,0 +1,28 @@
+<def f='include/x86_64-linux-gnu/bits/stat.h' l='46' ll='115'/>
+<dec f='include/x86_64-linux-gnu/sys/stat.h' l='208' type='int stat(const char *__restrict __file, struct stat *__restrict __buf)'/>
+<def f='include/x86_64-linux-gnu/sys/stat.h' l='451' ll='455' macro='1' type='int stat(const char * __path, struct stat * __statbuf)'/>
+<size>144</size>
+<doc f='include/x86_64-linux-gnu/sys/stat.h' l='207'>/* Get file attributes for FILE and put them in BUF.  */</doc>
+<mbr r='stat::st_dev' o='0' t='__dev_t'/>
+<mbr r='stat::st_ino' o='64' t='__ino_t'/>
+<mbr r='stat::st_nlink' o='128' t='__nlink_t'/>
+<mbr r='stat::st_mode' o='192' t='__mode_t'/>
+<mbr r='stat::st_uid' o='224' t='__uid_t'/>
+<mbr r='stat::st_gid' o='256' t='__gid_t'/>
+<mbr r='stat::__pad0' o='288' t='int'/>
+<mbr r='stat::st_rdev' o='320' t='__dev_t'/>
+<mbr r='stat::st_size' o='384' t='__off_t'/>
+<mbr r='stat::st_blksize' o='448' t='__blksize_t'/>
+<mbr r='stat::st_blocks' o='512' t='__blkcnt_t'/>
+<mbr r='stat::st_atim' o='576' t='struct timespec'/>
+<mbr r='stat::st_mtim' o='704' t='struct timespec'/>
+<mbr r='stat::st_ctim' o='832' t='struct timespec'/>
+<mbr r='stat::__glibc_reserved' o='960' t='__syscall_slong_t [3]'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='99' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_117IsBinaryInstalledERKSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_port.cc' l='156' u='c' c='_ZN4toco4port4file6ExistsERKSsRKNS1_7OptionsE'/>
+<use f='tensorflow/tensorflow/core/kernels/lmdb_reader_op.cc' l='43' u='c' c='_ZN10tensorflow10LMDBReader19OnWorkStartedLockedEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/path.cc' l='263' u='c' c='_ZN10tensorflow2io15GetTempFilenameERKSs'/>
+<use f='tensorflow/tensorflow/core/platform/posix/env.cc' l='167' u='c' c='_ZN10tensorflow12_GLOBAL__N_18PosixEnv23GetLocalTempDirectoriesEPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='261' u='c' c='_ZN10tensorflow15PosixFileSystem11GetFileSizeERKSsPy'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='273' u='c' c='_ZN10tensorflow15PosixFileSystem4StatERKSsPNS_14FileStatisticsE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='294' u='c' c='_ZN10tensorflow15PosixFileSystem8CopyFileERKSsS2_'/>

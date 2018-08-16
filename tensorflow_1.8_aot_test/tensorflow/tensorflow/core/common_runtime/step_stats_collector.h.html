@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>step_stats_collector.h source code [tensorflow/tensorflow/core/common_runtime/step_stats_collector.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::NodeExecStatsWrapper,tensorflow::StepStatsCollector "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/common_runtime/step_stats_collector.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>common_runtime</a>/<a href='step_stats_collector.h.html'>step_stats_collector.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_STEP_STATS_COLLECTOR_H_">TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_STEP_STATS_COLLECTOR_H_</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_STEP_STATS_COLLECTOR_H_" data-ref="_M/TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_STEP_STATS_COLLECTOR_H_">TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_STEP_STATS_COLLECTOR_H_</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../include/c++/5/unordered_map.html">&lt;unordered_map&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include "tensorflow/core/framework/step_stats.pb.h"</u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../lib/gtl/inlined_vector.h.html">"tensorflow/core/lib/gtl/inlined_vector.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../platform/mutex.h.html">"tensorflow/core/platform/mutex.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../platform/thread_annotations.h.html">"tensorflow/core/platform/thread_annotations.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>class</b> <a class="type" href="../framework/allocator.h.html#tensorflow::Allocator" title='tensorflow::Allocator' data-ref="tensorflow::Allocator" id="tensorflow::Allocator">Allocator</a>;</td></tr>
+<tr><th id="30">30</th><td><b>class</b> <dfn class='type' title='tensorflow::AllocatorMemoryUsed' data-ref="tensorflow::AllocatorMemoryUsed" id="tensorflow::AllocatorMemoryUsed">AllocatorMemoryUsed</dfn>;</td></tr>
+<tr><th id="31">31</th><td><b>class</b> <a class="type" href="costmodel_manager.h.html#tensorflow::CostModelManager" title='tensorflow::CostModelManager' data-ref="tensorflow::CostModelManager" id="tensorflow::CostModelManager">CostModelManager</a>;</td></tr>
+<tr><th id="32">32</th><td><b>class</b> <a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph" id="tensorflow::Graph">Graph</a>;</td></tr>
+<tr><th id="33">33</th><td><b>class</b> <dfn class='type' title='tensorflow::NodeExecStats' data-ref="tensorflow::NodeExecStats" id="tensorflow::NodeExecStats">NodeExecStats</dfn>;</td></tr>
+<tr><th id="34">34</th><td><b>class</b> <dfn class='type' title='tensorflow::StepStats' data-ref="tensorflow::StepStats" id="tensorflow::StepStats">StepStats</dfn>;</td></tr>
+<tr><th id="35">35</th><td><b>class</b> <a class="type" href="../framework/tracking_allocator.h.html#tensorflow::TrackingAllocator" title='tensorflow::TrackingAllocator' data-ref="tensorflow::TrackingAllocator" id="tensorflow::TrackingAllocator">TrackingAllocator</a>;</td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><i>// Wraps NodeExecStats and adds allocation to it.</i></td></tr>
+<tr><th id="38">38</th><td><b>class</b> <dfn class="type def" id="tensorflow::NodeExecStatsWrapper" title='tensorflow::NodeExecStatsWrapper' data-ref="tensorflow::NodeExecStatsWrapper">NodeExecStatsWrapper</dfn> {</td></tr>
+<tr><th id="39">39</th><td> <b>public</b>:</td></tr>
+<tr><th id="40">40</th><td>  <dfn class="decl" id="_ZN10tensorflow20NodeExecStatsWrapperC1Ev" title='tensorflow::NodeExecStatsWrapper::NodeExecStatsWrapper' data-ref="_ZN10tensorflow20NodeExecStatsWrapperC1Ev">NodeExecStatsWrapper</dfn>();</td></tr>
+<tr><th id="41">41</th><td>  <i>// Owns 'stats'.</i></td></tr>
+<tr><th id="42">42</th><td>  <dfn class="decl" id="_ZN10tensorflow20NodeExecStatsWrapperC1EPNS_13NodeExecStatsE" title='tensorflow::NodeExecStatsWrapper::NodeExecStatsWrapper' data-ref="_ZN10tensorflow20NodeExecStatsWrapperC1EPNS_13NodeExecStatsE">NodeExecStatsWrapper</dfn>(<span class='type' title='tensorflow::NodeExecStats' data-ref="tensorflow::NodeExecStats">NodeExecStats</span>* <dfn class="local col2 decl" id="132stats" title='stats' data-type='tensorflow::NodeExecStats *' data-ref="132stats">stats</dfn>);</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td>  <i>// Destructor calls Finalize() to release the TrackingAllocators.</i></td></tr>
+<tr><th id="45">45</th><td>  <dfn class="decl def" id="_ZN10tensorflow20NodeExecStatsWrapperD1Ev" title='tensorflow::NodeExecStatsWrapper::~NodeExecStatsWrapper' data-ref="_ZN10tensorflow20NodeExecStatsWrapperD1Ev">~NodeExecStatsWrapper</dfn>() { <a class="member" href="#_ZN10tensorflow20NodeExecStatsWrapper8FinalizeEv" title='tensorflow::NodeExecStatsWrapper::Finalize' data-ref="_ZN10tensorflow20NodeExecStatsWrapper8FinalizeEv">Finalize</a>(); }</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>  <span class='type' title='tensorflow::NodeExecStats' data-ref="tensorflow::NodeExecStats">NodeExecStats</span>* <dfn class="decl def" id="_ZN10tensorflow20NodeExecStatsWrapper5statsEv" title='tensorflow::NodeExecStatsWrapper::stats' data-ref="_ZN10tensorflow20NodeExecStatsWrapper5statsEv">stats</dfn>() { <b>return</b> <a class="member" href="#tensorflow::NodeExecStatsWrapper::stats_" title='tensorflow::NodeExecStatsWrapper::stats_' data-ref="tensorflow::NodeExecStatsWrapper::stats_">stats_</a>.<a class="ref" href="../../../../include/c++/5/bits/unique_ptr.h.html#_ZNKSt10unique_ptr3getEv" title='std::unique_ptr::get' data-ref="_ZNKSt10unique_ptr3getEv">get</a>(); }</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <i>// "Does not take ownership of the 'allocator'.</i></td></tr>
+<tr><th id="50">50</th><td><i>  // Transfers ownership of the 'tracking_allocator' to *this."</i></td></tr>
+<tr><th id="51">51</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow20NodeExecStatsWrapper13AddAllocationEPNS_9AllocatorEPNS_17TrackingAllocatorE" title='tensorflow::NodeExecStatsWrapper::AddAllocation' data-ref="_ZN10tensorflow20NodeExecStatsWrapper13AddAllocationEPNS_9AllocatorEPNS_17TrackingAllocatorE">AddAllocation</dfn>(<a class="type" href="../framework/allocator.h.html#tensorflow::Allocator" title='tensorflow::Allocator' data-ref="tensorflow::Allocator">Allocator</a>* <dfn class="local col3 decl" id="133allocator" title='allocator' data-type='tensorflow::Allocator *' data-ref="133allocator">allocator</dfn>,</td></tr>
+<tr><th id="52">52</th><td>                     <a class="type" href="../framework/tracking_allocator.h.html#tensorflow::TrackingAllocator" title='tensorflow::TrackingAllocator' data-ref="tensorflow::TrackingAllocator">TrackingAllocator</a>* <dfn class="local col4 decl" id="134tracking_allocator" title='tracking_allocator' data-type='tensorflow::TrackingAllocator *' data-ref="134tracking_allocator">tracking_allocator</dfn>);</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td> <b>private</b>:</td></tr>
+<tr><th id="55">55</th><td>  <b>friend</b> <b>class</b> <a class="type" href="#tensorflow::StepStatsCollector" title='tensorflow::StepStatsCollector' data-ref="tensorflow::StepStatsCollector">StepStatsCollector</a>;</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  <i>// Populates stats_ and releases TrackingAllocator.</i></td></tr>
+<tr><th id="58">58</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow20NodeExecStatsWrapper8FinalizeEv" title='tensorflow::NodeExecStatsWrapper::Finalize' data-ref="_ZN10tensorflow20NodeExecStatsWrapper8FinalizeEv">Finalize</dfn>();</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td>  <span class="namespace">gtl::</span><a class="type" href="../lib/gtl/inlined_vector.h.html#tensorflow::gtl::InlinedVector" title='tensorflow::gtl::InlinedVector' data-ref="tensorflow::gtl::InlinedVector">InlinedVector</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<span class='type' title='tensorflow::AllocatorMemoryUsed' data-ref="tensorflow::AllocatorMemoryUsed">AllocatorMemoryUsed</span>*, <a class="type" href="../framework/tracking_allocator.h.html#tensorflow::TrackingAllocator" title='tensorflow::TrackingAllocator' data-ref="tensorflow::TrackingAllocator">TrackingAllocator</a>*&gt;, <var>2</var>&gt;</td></tr>
+<tr><th id="61">61</th><td>      <dfn class="decl" id="tensorflow::NodeExecStatsWrapper::allocations_" title='tensorflow::NodeExecStatsWrapper::allocations_' data-ref="tensorflow::NodeExecStatsWrapper::allocations_">allocations_</dfn>;</td></tr>
+<tr><th id="62">62</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class='type' title='tensorflow::NodeExecStats' data-ref="tensorflow::NodeExecStats">NodeExecStats</span>&gt; <dfn class="decl" id="tensorflow::NodeExecStatsWrapper::stats_" title='tensorflow::NodeExecStatsWrapper::stats_' data-ref="tensorflow::NodeExecStatsWrapper::stats_">stats_</dfn>;</td></tr>
+<tr><th id="63">63</th><td>};</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><i>// StepStatsCollector manages the collection of a StepStats object.</i></td></tr>
+<tr><th id="66">66</th><td><i>// The StepStats object holds multiple DeviceStats.</i></td></tr>
+<tr><th id="67">67</th><td><i>// Each DeviceStats object holds multiple NodeExecStats.</i></td></tr>
+<tr><th id="68">68</th><td><b>class</b> <dfn class="type def" id="tensorflow::StepStatsCollector" title='tensorflow::StepStatsCollector' data-ref="tensorflow::StepStatsCollector">StepStatsCollector</dfn> {</td></tr>
+<tr><th id="69">69</th><td> <b>public</b>:</td></tr>
+<tr><th id="70">70</th><td>  <i>// Does not take ownership of `ss`.</i></td></tr>
+<tr><th id="71">71</th><td>  <b>explicit</b> <dfn class="decl" id="_ZN10tensorflow18StepStatsCollectorC1EPNS_9StepStatsE" title='tensorflow::StepStatsCollector::StepStatsCollector' data-ref="_ZN10tensorflow18StepStatsCollectorC1EPNS_9StepStatsE">StepStatsCollector</dfn>(<span class='type' title='tensorflow::StepStats' data-ref="tensorflow::StepStats">StepStats</span>* <dfn class="local col5 decl" id="135ss" title='ss' data-type='tensorflow::StepStats *' data-ref="135ss">ss</dfn>);</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td>  <i>// BuildCostModel builds or updates a CostModel managed by cost_model_manager,</i></td></tr>
+<tr><th id="74">74</th><td><i>  // using the currently collected DeviceStats associated with the devices in</i></td></tr>
+<tr><th id="75">75</th><td><i>  // device_map.</i></td></tr>
+<tr><th id="76">76</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow18StepStatsCollector14BuildCostModelEPNS_16CostModelManagerERKSt13unordered_mapISsPKNS_5GraphESt4hashISsESt8equal_toISsESaISt4pairIKSsS6_EEE" title='tensorflow::StepStatsCollector::BuildCostModel' data-ref="_ZN10tensorflow18StepStatsCollector14BuildCostModelEPNS_16CostModelManagerERKSt13unordered_mapISsPKNS_5GraphESt4hashISsESt8equal_toISsESaISt4pairIKSsS6_EEE">BuildCostModel</dfn>(</td></tr>
+<tr><th id="77">77</th><td>      <a class="type" href="costmodel_manager.h.html#tensorflow::CostModelManager" title='tensorflow::CostModelManager' data-ref="tensorflow::CostModelManager">CostModelManager</a>* <dfn class="local col6 decl" id="136cost_model_manager" title='cost_model_manager' data-type='tensorflow::CostModelManager *' data-ref="136cost_model_manager">cost_model_manager</dfn>,</td></tr>
+<tr><th id="78">78</th><td>      <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unordered_map.h.html#std::unordered_map" title='std::unordered_map' data-ref="std::unordered_map">unordered_map</a>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <em>const</em> <a class="type" href="../graph/graph.h.html#tensorflow::Graph" title='tensorflow::Graph' data-ref="tensorflow::Graph">Graph</a>*&gt;&amp; <dfn class="local col7 decl" id="137device_map" title='device_map' data-type='const std::unordered_map&lt;string, const Graph *&gt; &amp;' data-ref="137device_map">device_map</dfn>);</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>  <i>// Save saves nt to the DeviceStats object associated with device.</i></td></tr>
+<tr><th id="81">81</th><td><i>  // Should be called before Finalize.</i></td></tr>
+<tr><th id="82">82</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow18StepStatsCollector4SaveERKSsPNS_13NodeExecStatsE" title='tensorflow::StepStatsCollector::Save' data-ref="_ZN10tensorflow18StepStatsCollector4SaveERKSsPNS_13NodeExecStatsE">Save</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col8 decl" id="138device" title='device' data-type='const string &amp;' data-ref="138device">device</dfn>, <span class='type' title='tensorflow::NodeExecStats' data-ref="tensorflow::NodeExecStats">NodeExecStats</span>* <dfn class="local col9 decl" id="139nt" title='nt' data-type='tensorflow::NodeExecStats *' data-ref="139nt">nt</dfn>);</td></tr>
+<tr><th id="83">83</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow18StepStatsCollector4SaveERKSsPNS_20NodeExecStatsWrapperE" title='tensorflow::StepStatsCollector::Save' data-ref="_ZN10tensorflow18StepStatsCollector4SaveERKSsPNS_20NodeExecStatsWrapperE">Save</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col0 decl" id="140device" title='device' data-type='const string &amp;' data-ref="140device">device</dfn>, <a class="type" href="#tensorflow::NodeExecStatsWrapper" title='tensorflow::NodeExecStatsWrapper' data-ref="tensorflow::NodeExecStatsWrapper">NodeExecStatsWrapper</a>* <dfn class="local col1 decl" id="141stats" title='stats' data-type='tensorflow::NodeExecStatsWrapper *' data-ref="141stats">stats</dfn>);</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  <i>// Generates a string reporting the currently used memory based</i></td></tr>
+<tr><th id="86">86</th><td><i>  // on ResourceExhausted OOM `err` message.</i></td></tr>
+<tr><th id="87">87</th><td><i>  // `err` message needs to contain device name and allocator name, E.g.:</i></td></tr>
+<tr><th id="88">88</th><td><i>  // "ResourceExhaustedError: OOM when allocating tensor ...</i></td></tr>
+<tr><th id="89">89</th><td><i>  // on /job:localhost/replica:0/task:0/device:GPU:0 by allocator GPU_0_bfc"</i></td></tr>
+<tr><th id="90">90</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="_ZN10tensorflow18StepStatsCollector31ReportAllocsOnResourceExhaustedERKSs" title='tensorflow::StepStatsCollector::ReportAllocsOnResourceExhausted' data-ref="_ZN10tensorflow18StepStatsCollector31ReportAllocsOnResourceExhaustedERKSs">ReportAllocsOnResourceExhausted</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col2 decl" id="142err" title='err' data-type='const string &amp;' data-ref="142err">err</dfn>);</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>  <i>// The following 2 Finalize methods populate the StepStats passed</i></td></tr>
+<tr><th id="93">93</th><td><i>  // from the constructor. Calling it more than once won't have any effect.</i></td></tr>
+<tr><th id="94">94</th><td><i>  // User shouldn't call Save() methods after Finalize.</i></td></tr>
+<tr><th id="95">95</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow18StepStatsCollector8FinalizeEv" title='tensorflow::StepStatsCollector::Finalize' data-ref="_ZN10tensorflow18StepStatsCollector8FinalizeEv">Finalize</dfn>();</td></tr>
+<tr><th id="96">96</th><td>  <i>// swaps the content of StepStats* from constructor with 'ss'.</i></td></tr>
+<tr><th id="97">97</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow18StepStatsCollector15FinalizeAndSwapEPNS_9StepStatsE" title='tensorflow::StepStatsCollector::FinalizeAndSwap' data-ref="_ZN10tensorflow18StepStatsCollector15FinalizeAndSwapEPNS_9StepStatsE">FinalizeAndSwap</dfn>(<span class='type' title='tensorflow::StepStats' data-ref="tensorflow::StepStats">StepStats</span>* <dfn class="local col3 decl" id="143ss" title='ss' data-type='tensorflow::StepStats *' data-ref="143ss">ss</dfn>);</td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td> <b>private</b>:</td></tr>
+<tr><th id="100">100</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow18StepStatsCollector16FinalizeInternalEv" title='tensorflow::StepStatsCollector::FinalizeInternal' data-ref="_ZN10tensorflow18StepStatsCollector16FinalizeInternalEv">FinalizeInternal</dfn>() <a class="macro" href="../platform/default/thread_annotations.h.html#88" title="__attribute__((exclusive_locks_required(mu_)))" data-ref="_M/EXCLUSIVE_LOCKS_REQUIRED">EXCLUSIVE_LOCKS_REQUIRED</a>(<a class="member" href="#tensorflow::StepStatsCollector::mu_" title='tensorflow::StepStatsCollector::mu_' data-ref="tensorflow::StepStatsCollector::mu_">mu_</a>);</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>  <b>typedef</b> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#tensorflow::NodeExecStatsWrapper" title='tensorflow::NodeExecStatsWrapper' data-ref="tensorflow::NodeExecStatsWrapper">NodeExecStatsWrapper</a>&gt;&gt; <dfn class="typedef" id="tensorflow::StepStatsCollector::NodeExecStatsVec" title='tensorflow::StepStatsCollector::NodeExecStatsVec' data-type='std::vector&lt;std::unique_ptr&lt;NodeExecStatsWrapper&gt; &gt;' data-ref="tensorflow::StepStatsCollector::NodeExecStatsVec">NodeExecStatsVec</dfn>;</td></tr>
+<tr><th id="103">103</th><td>  <i>// TODO(suharshs): Make this configurable if its not possible to find a value</i></td></tr>
+<tr><th id="104">104</th><td><i>  //                 that works for all cases.</i></td></tr>
+<tr><th id="105">105</th><td>  <em>const</em> <a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="decl" id="tensorflow::StepStatsCollector::kMaxCollectedNodes" title='tensorflow::StepStatsCollector::kMaxCollectedNodes' data-ref="tensorflow::StepStatsCollector::kMaxCollectedNodes">kMaxCollectedNodes</dfn> = <var>1</var> &lt;&lt; <var>20</var>;</td></tr>
+<tr><th id="106">106</th><td>  <a class="type" href="../platform/default/mutex.h.html#tensorflow::mutex" title='tensorflow::mutex' data-ref="tensorflow::mutex">mutex</a> <dfn class="decl" id="tensorflow::StepStatsCollector::mu_" title='tensorflow::StepStatsCollector::mu_' data-ref="tensorflow::StepStatsCollector::mu_">mu_</dfn>;</td></tr>
+<tr><th id="107">107</th><td>  <em>bool</em> <dfn class="decl" id="tensorflow::StepStatsCollector::finalized_" title='tensorflow::StepStatsCollector::finalized_' data-ref="tensorflow::StepStatsCollector::finalized_">finalized_</dfn> <a class="macro" href="../platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(mu_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::StepStatsCollector::mu_" title='tensorflow::StepStatsCollector::mu_' data-ref="tensorflow::StepStatsCollector::mu_">mu_</a>);</td></tr>
+<tr><th id="108">108</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unordered_map.h.html#std::unordered_map" title='std::unordered_map' data-ref="std::unordered_map">unordered_map</a>&lt;<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>, <a class="typedef" href="#tensorflow::StepStatsCollector::NodeExecStatsVec" title='tensorflow::StepStatsCollector::NodeExecStatsVec' data-type='std::vector&lt;std::unique_ptr&lt;NodeExecStatsWrapper&gt; &gt;' data-ref="tensorflow::StepStatsCollector::NodeExecStatsVec">NodeExecStatsVec</a>&gt; <dfn class="decl" id="tensorflow::StepStatsCollector::dev_stats_" title='tensorflow::StepStatsCollector::dev_stats_' data-ref="tensorflow::StepStatsCollector::dev_stats_">dev_stats_</dfn> <a class="macro" href="../platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(mu_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::StepStatsCollector::mu_" title='tensorflow::StepStatsCollector::mu_' data-ref="tensorflow::StepStatsCollector::mu_">mu_</a>);</td></tr>
+<tr><th id="109">109</th><td>  <span class='type' title='tensorflow::StepStats' data-ref="tensorflow::StepStats">StepStats</span>* <dfn class="decl" id="tensorflow::StepStatsCollector::step_stats_" title='tensorflow::StepStatsCollector::step_stats_' data-ref="tensorflow::StepStatsCollector::step_stats_">step_stats_</dfn> <a class="macro" href="../platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(mu_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::StepStatsCollector::mu_" title='tensorflow::StepStatsCollector::mu_' data-ref="tensorflow::StepStatsCollector::mu_">mu_</a>);</td></tr>
+<tr><th id="110">110</th><td>  <a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::uint64" title='tensorflow::uint64' data-type='unsigned long long' data-ref="tensorflow::uint64">uint64</a> <dfn class="decl" id="tensorflow::StepStatsCollector::collectedNodes" title='tensorflow::StepStatsCollector::collectedNodes' data-ref="tensorflow::StepStatsCollector::collectedNodes">collectedNodes</dfn> <a class="macro" href="../platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(mu_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#tensorflow::StepStatsCollector::mu_" title='tensorflow::StepStatsCollector::mu_' data-ref="tensorflow::StepStatsCollector::mu_">mu_</a>) = <var>0</var>;</td></tr>
+<tr><th id="111">111</th><td>};</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><u>#<span data-ppcond="15">endif</span>  // TENSORFLOW_CORE_DISTRIBUTED_RUNTIME_STEP_STATS_COLLECTOR_H_</u></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='direct_session.cc.html'>tensorflow/tensorflow/core/common_runtime/direct_session.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

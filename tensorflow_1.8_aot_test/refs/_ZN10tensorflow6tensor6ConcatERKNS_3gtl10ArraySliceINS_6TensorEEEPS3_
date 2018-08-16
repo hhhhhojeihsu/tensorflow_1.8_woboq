@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor_util.h' l='41' type='tensorflow::Status tensorflow::tensor::Concat(const gtl::ArraySlice&lt;Tensor&gt; &amp; tensors, tensorflow::Tensor * result)'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor_util.h' l='34'>// Concatenates &apos;tensors&apos; into a single tensor, along their 0th dimension.
+//
+// REQUIRES: All members of &apos;tensors&apos; must have the same data type parameter.
+// REQUIRES: Each member of &apos;tensors&apos; must have at least one dimension.
+// REQUIRES: Each member of &apos;tensors&apos; must point to data stored in CPU memory.
+// REQUIRES: Each member of &apos;tensors&apos; must be a Tensor of a copy-able type if it
+//           is not appropriately memory-aligned.</doc>
+<def f='tensorflow/tensorflow/core/framework/tensor_util.cc' l='48' ll='107' type='tensorflow::Status tensorflow::tensor::Concat(const gtl::ArraySlice&lt;Tensor&gt; &amp; tensors, tensorflow::Tensor * result)'/>

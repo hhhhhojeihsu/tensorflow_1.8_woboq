@@ -1,0 +1,18 @@
+<def f='include/c++/5/bits/stl_list.h' l='1087' ll='1089' type='void std::list::push_back(const value_type &amp; __x)'/>
+<doc f='include/c++/5/bits/stl_list.h' l='1077'>/**
+       *  @brief  Add data to the end of the %list.
+       *  @param  __x  Data to be added.
+       *
+       *  This is a typical stack operation.  The function creates an
+       *  element at the end of the %list and assigns the given data to
+       *  it.  Due to the nature of a %list this operation can be done
+       *  in constant time, and does not invalidate iterators and
+       *  references.
+       */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.cc' l='166' u='c' c='_ZNK3xla18ComputationTracker27ComputeComputationPostOrderERKNS_26VersionedComputationHandleEPSt3setIS1_St4lessIS1_ESaIS1_EEPSt4listIS1_S7_E'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='427' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable23ExecuteComputeFunctionsEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEENS714477719'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='292' u='c' c='_ZN3xla12_GLOBAL__N_122InstructionPostOrderer13DefaultActionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='314' u='c' c='_ZN3xla12_GLOBAL__N_127ComputeComputationPostOrderEPNS_14HloComputationEPN10tensorflow3gtl7FlatSetIS2_NS3_4hashIS2_EESt8equal_toIS2_EEEPSt4listIS2_SaIS2_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='455' u='c' c='_ZNK3xla9HloModule24MakeComputationPostOrderEv'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='144' u='c' c='_ZN10tensorflow8grappler11FIFOManager7AddNodeEPKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='166' u='c' c='_ZN10tensorflow8grappler11LIFOManager7AddNodeEPKNS_7NodeDefE'/>

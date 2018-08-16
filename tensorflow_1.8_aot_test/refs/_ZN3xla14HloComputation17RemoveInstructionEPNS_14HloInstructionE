@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='111' type='tensorflow::Status xla::HloComputation::RemoveInstruction(xla::HloInstruction * instruction)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='109'>// Remove an instruction from the computation. The instruction must have no
+  // users. Instruction is deallocated with this call.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='131' u='c' c='_ZN3xla14HloComputation15RemoveParameterEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='155' u='c' c='_ZN3xla14HloComputation15RemoveParameterEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='211' u='c' c='_ZN3xla14HloComputation34RemoveInstructionAndUnusedOperandsEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='217' ll='240' type='tensorflow::Status xla::HloComputation::RemoveInstruction(xla::HloInstruction * instruction)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='440' u='c' c='_ZN3xla14HloComputation20FuseInstructionsIntoEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEES5_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='445' u='c' c='_ZN3xla14HloComputation20FuseInstructionsIntoEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEES5_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cse.cc' l='82' u='c' c='_ZN3xla12_GLOBAL__N_116CombineConstantsEPNS_14HloComputationEb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cse.cc' l='138' u='c' c='_ZN3xla6HloCSE3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='923' u='c' c='_ZN3xla14HloInstruction37MergeFusionInstructionIntoMultiOutputEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='930' u='c' c='_ZN3xla14HloInstruction37MergeFusionInstructionIntoMultiOutputEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='935' u='c' c='_ZN3xla14HloInstruction37MergeFusionInstructionIntoMultiOutputEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1063' u='c' c='_ZN3xla14HloInstruction20CloneAndFuseInternalEPS0_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1087' u='c' c='_ZN3xla14HloInstruction20CloneAndFuseInternalEPS0_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1089' u='c' c='_ZN3xla14HloInstruction20CloneAndFuseInternalEPS0_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='417' u='c' c='_ZN3xla9HloModule32OutlineExpressionFromComputationEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEERKSsPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='389' u='c' c='_ZN3xla17InstructionFusion3RunEPNS_9HloModuleE'/>

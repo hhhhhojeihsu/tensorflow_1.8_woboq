@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>decision_tree.h source code [tensorflow/tensorflow/contrib/boosted_trees/lib/trees/decision_tree.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::boosted_trees::trees::DecisionTree "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/contrib/boosted_trees/lib/trees/decision_tree.h'; var root_path = '../../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>tensorflow</a>/<a href='../../../..'>tensorflow</a>/<a href='../../..'>contrib</a>/<a href='../..'>boosted_trees</a>/<a href='..'>lib</a>/<a href='./'>trees</a>/<a href='decision_tree.h.html'>decision_tree.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>// Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i>//</i></td></tr>
+<tr><th id="3">3</th><td><i>// Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>// you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>// You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i>//</i></td></tr>
+<tr><th id="7">7</th><td><i>//     <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i>//</i></td></tr>
+<tr><th id="9">9</th><td><i>// Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>// distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>// See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>// limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>// =============================================================================</i></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CONTRIB_BOOSTED_TREES_LIB_TREES_DECISION_TREE_H_">TENSORFLOW_CONTRIB_BOOSTED_TREES_LIB_TREES_DECISION_TREE_H_</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CONTRIB_BOOSTED_TREES_LIB_TREES_DECISION_TREE_H_" data-ref="_M/TENSORFLOW_CONTRIB_BOOSTED_TREES_LIB_TREES_DECISION_TREE_H_">TENSORFLOW_CONTRIB_BOOSTED_TREES_LIB_TREES_DECISION_TREE_H_</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../utils/example.h.html">"tensorflow/contrib/boosted_trees/lib/utils/example.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include "tensorflow/contrib/boosted_trees/proto/tree_config.pb.h"  // NOLINT</u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">boosted_trees</span> {</td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">trees</span> {</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><i>// Decision tree class to encapsulate tree traversal and mutation logic.</i></td></tr>
+<tr><th id="26">26</th><td><i>// This class does not hold state and is thread safe.</i></td></tr>
+<tr><th id="27">27</th><td><b>class</b> <dfn class="type def" id="tensorflow::boosted_trees::trees::DecisionTree" title='tensorflow::boosted_trees::trees::DecisionTree' data-ref="tensorflow::boosted_trees::trees::DecisionTree">DecisionTree</dfn> {</td></tr>
+<tr><th id="28">28</th><td> <b>public</b>:</td></tr>
+<tr><th id="29">29</th><td>  <i>// Traverse given an instance, a sub-root and its set of features</i></td></tr>
+<tr><th id="30">30</th><td><i>  // and return the leaf index or -1 if the tree is empty or</i></td></tr>
+<tr><th id="31">31</th><td><i>  // the sub-root is invalid.</i></td></tr>
+<tr><th id="32">32</th><td>  <em>static</em> <em>int</em> <dfn class="decl" id="_ZN10tensorflow13boosted_trees5trees12DecisionTree8TraverseERKNS1_18DecisionTreeConfigEiRKNS0_5utils7ExampleE" title='tensorflow::boosted_trees::trees::DecisionTree::Traverse' data-ref="_ZN10tensorflow13boosted_trees5trees12DecisionTree8TraverseERKNS1_18DecisionTreeConfigEiRKNS0_5utils7ExampleE">Traverse</dfn>(<em>const</em> <span class='type' title='tensorflow::boosted_trees::trees::DecisionTreeConfig' data-ref="tensorflow::boosted_trees::trees::DecisionTreeConfig">DecisionTreeConfig</span>&amp; <dfn class="local col7 decl" id="27config" title='config' data-type='const tensorflow::boosted_trees::trees::DecisionTreeConfig &amp;' data-ref="27config">config</dfn>, <a class="typedef" href="../../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a> <dfn class="local col8 decl" id="28sub_root_id" title='sub_root_id' data-type='int32' data-ref="28sub_root_id">sub_root_id</dfn>,</td></tr>
+<tr><th id="33">33</th><td>                      <em>const</em> <span class="namespace">utils::</span><a class="type" href="../utils/example.h.html#tensorflow::boosted_trees::utils::Example" title='tensorflow::boosted_trees::utils::Example' data-ref="tensorflow::boosted_trees::utils::Example">Example</a>&amp; <dfn class="local col9 decl" id="29example" title='example' data-type='const utils::Example &amp;' data-ref="29example">example</dfn>);</td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td>  <i>// Links the specified children to the parent, the children must</i></td></tr>
+<tr><th id="36">36</th><td><i>  // already be added to the decision tree config so this method</i></td></tr>
+<tr><th id="37">37</th><td><i>  // just ensures nodes are re-linked.</i></td></tr>
+<tr><th id="38">38</th><td>  <em>static</em> <em>void</em> <dfn class="decl" id="_ZN10tensorflow13boosted_trees5trees12DecisionTree12LinkChildrenERKSt6vectorIiSaIiEEPNS1_8TreeNodeE" title='tensorflow::boosted_trees::trees::DecisionTree::LinkChildren' data-ref="_ZN10tensorflow13boosted_trees5trees12DecisionTree12LinkChildrenERKSt6vectorIiSaIiEEPNS1_8TreeNodeE">LinkChildren</dfn>(<em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>&gt;&amp; <dfn class="local col0 decl" id="30children" title='children' data-type='const std::vector&lt;int32&gt; &amp;' data-ref="30children">children</dfn>,</td></tr>
+<tr><th id="39">39</th><td>                           <span class='type' title='tensorflow::boosted_trees::trees::TreeNode' data-ref="tensorflow::boosted_trees::trees::TreeNode">TreeNode</span>* <dfn class="local col1 decl" id="31parent_node" title='parent_node' data-type='tensorflow::boosted_trees::trees::TreeNode *' data-ref="31parent_node">parent_node</dfn>);</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>  <i>// Retrieves node children indices if any.</i></td></tr>
+<tr><th id="42">42</th><td>  <em>static</em> <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>&gt; <dfn class="decl" id="_ZN10tensorflow13boosted_trees5trees12DecisionTree11GetChildrenERKNS1_8TreeNodeE" title='tensorflow::boosted_trees::trees::DecisionTree::GetChildren' data-ref="_ZN10tensorflow13boosted_trees5trees12DecisionTree11GetChildrenERKNS1_8TreeNodeE">GetChildren</dfn>(<em>const</em> <span class='type' title='tensorflow::boosted_trees::trees::TreeNode' data-ref="tensorflow::boosted_trees::trees::TreeNode">TreeNode</span>&amp; <dfn class="local col2 decl" id="32node" title='node' data-type='const tensorflow::boosted_trees::trees::TreeNode &amp;' data-ref="32node">node</dfn>);</td></tr>
+<tr><th id="43">43</th><td>};</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>}  <i>// namespace trees</i></td></tr>
+<tr><th id="46">46</th><td>}  <i>// namespace boosted_trees</i></td></tr>
+<tr><th id="47">47</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><u>#<span data-ppcond="15">endif</span>  // TENSORFLOW_CONTRIB_BOOSTED_TREES_LIB_TREES_DECISION_TREE_H_</u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../kernels/model_ops.cc.html'>tensorflow/tensorflow/contrib/boosted_trees/kernels/model_ops.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,13 @@
+<inh f='tensorflow/tensorflow/core/framework/function.h' l='575' c='tensorflow::DistributedFunctionLibraryRuntime'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/cluster_function_library_runtime.h' l='28' ll='73'/>
+<size>56</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/cluster_function_library_runtime.h' l='26'>// ClusterFunctionLibraryRuntime contains methods to Instantiate and Run
+// functions across processes by making RPCs.</doc>
+<fun r='_ZN10tensorflow29ClusterFunctionLibraryRuntimeC1EPNS_13WorkerSessionE'/>
+<fun r='_ZN10tensorflow29ClusterFunctionLibraryRuntimeD1Ev'/>
+<fun r='_ZN10tensorflow29ClusterFunctionLibraryRuntime11InstantiateERKSsRKNS_25FunctionLibraryDefinitionENS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<fun r='_ZN10tensorflow29ClusterFunctionLibraryRuntime3RunERKNS_22FunctionLibraryRuntime7OptionsEyNS_3gtl10ArraySliceINS_6TensorEEEPSt6vectorIS7_SaIS7_EESt8fu4773367'/>
+<fun r='_ZN10tensorflow29ClusterFunctionLibraryRuntime22ConstructFunctionGraphERKNS_5OpDefENS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPNS15775531'/>
+<mbr r='tensorflow::ClusterFunctionLibraryRuntime::mu_' o='64' t='tensorflow::mutex'/>
+<mbr r='tensorflow::ClusterFunctionLibraryRuntime::worker_session_' o='192' t='tensorflow::WorkerSession *const'/>
+<mbr r='tensorflow::ClusterFunctionLibraryRuntime::function_data_' o='256' t='std::vector&lt;FunctionData&gt;'/>

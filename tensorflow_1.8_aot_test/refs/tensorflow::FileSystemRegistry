@@ -1,0 +1,13 @@
+<def f='tensorflow/tensorflow/core/platform/file_system.h' l='312' ll='321'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/platform/file_system.h' l='306'>/// \brief A registry for file system implementations.
+///
+/// Filenames are specified as an URI, which is of the form
+/// [scheme://]&lt;filename&gt;.
+/// File system implementations are registered using the REGISTER_FILE_SYSTEM
+/// macro, providing the &apos;scheme&apos; as the key.</doc>
+<fun r='_ZN10tensorflow18FileSystemRegistryD1Ev'/>
+<fun r='_ZN10tensorflow18FileSystemRegistry8RegisterERKSsSt8functionIFPNS_10FileSystemEvEE'/>
+<fun r='_ZN10tensorflow18FileSystemRegistry6LookupERKSs'/>
+<fun r='_ZN10tensorflow18FileSystemRegistry30GetRegisteredFileSystemSchemesEPSt6vectorISsSaISsEE'/>
+<ovr f='tensorflow/tensorflow/core/platform/env.cc' l='49' c='tensorflow::FileSystemRegistryImpl'/>

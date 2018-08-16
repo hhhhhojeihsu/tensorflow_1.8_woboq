@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/stream_executor/multi_platform_manager.h' l='116' type='static port::StatusOr&lt;Platform *&gt; perftools::gputools::MultiPlatformManager::InitializePlatformWithName(const string &amp; target, const std::map&lt;string, string&gt; &amp; options)'/>
+<doc f='tensorflow/tensorflow/stream_executor/multi_platform_manager.h' l='106'>// Retrieves the platform registered with the given platform name (e.g.
+  // &quot;CUDA&quot;, &quot;OpenCL&quot;, ...) or id (an opaque, comparable value provided by the
+  // Platform&apos;s Id() method).
+  //
+  // The platform will be initialized with the given options. If the platform
+  // was already initialized, an error will be returned.
+  //
+  // If the requested platform is not registered, an error status is returned.
+  // Ownership of the platform is NOT transferred to the caller --
+  // the MultiPlatformManager owns the platforms in a singleton-like fashion.</doc>
+<def f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='96' ll='110' type='static port::StatusOr&lt;Platform *&gt; perftools::gputools::MultiPlatformManager::InitializePlatformWithName(const string &amp; target, const std::map&lt;string, string&gt; &amp; options)'/>
+<doc f='tensorflow/tensorflow/stream_executor/multi_platform_manager.cc' l='96'>/* static */</doc>

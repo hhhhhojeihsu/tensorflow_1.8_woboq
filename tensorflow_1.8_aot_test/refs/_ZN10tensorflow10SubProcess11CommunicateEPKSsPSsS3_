@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/platform/posix/subprocess.h' l='100' type='int tensorflow::SubProcess::Communicate(const string * stdin_input, string * stdout_output, string * stderr_output)'/>
+<def f='tensorflow/tensorflow/core/platform/posix/subprocess.cc' l='334' ll='464' type='int tensorflow::SubProcess::Communicate(const string * stdin_input, string * stdout_output, string * stderr_output)'/>
+<doc f='tensorflow/tensorflow/core/platform/posix/subprocess.h' l='89'>// Communicate()
+  //    Read from stdout and stderr and writes to stdin until all pipes have
+  //    closed, then waits for the process to exit.
+  //    Note: Do NOT call Wait() after calling Communicate as it will always
+  //     fail, since Communicate calls Wait() internally.
+  //    &apos;stdin_input&apos;, &apos;stdout_output&apos;, and &apos;stderr_output&apos; may be NULL.
+  //    If this process is not configured to send stdout or stderr to pipes,
+  //     the output strings will not be modified.
+  //    If this process is not configured to take stdin from a pipe, stdin_input
+  //     will be ignored.
+  //    Returns the command&apos;s exit status.</doc>

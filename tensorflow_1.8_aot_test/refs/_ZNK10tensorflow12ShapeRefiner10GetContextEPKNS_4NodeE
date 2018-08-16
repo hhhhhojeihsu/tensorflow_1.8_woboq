@@ -1,0 +1,32 @@
+<def f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='129' ll='135' type='shape_inference::InferenceContext * tensorflow::ShapeRefiner::GetContext(const tensorflow::Node * node) const'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='690' u='c' c='_ZN10tensorflow37TF_GraphSetOutputHandleShapesAndTypesEP8TF_Graph9TF_OutputiPPKlPKiPK11TF_DataTypeP9TF_Status'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1072' u='c' c='TF_GraphSetTensorShape'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1089' u='c' c='TF_GraphGetTensorNumDims'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1112' u='c' c='TF_GraphGetTensorShape'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='128'>// Returns the InferenceContext for &apos;node&apos;, if present.</doc>
+<use f='tensorflow/tensorflow/c/python_api.cc' l='54' u='c' c='_ZN10tensorflow10UpdateEdgeEP8TF_Graph9TF_Output8TF_InputP9TF_Status'/>
+<use f='tensorflow/tensorflow/c/python_api.cc' l='66' u='c' c='_ZN10tensorflow10UpdateEdgeEP8TF_Graph9TF_Output8TF_InputP9TF_Status'/>
+<use f='tensorflow/tensorflow/c/python_api.cc' l='120' u='c' c='_ZN10tensorflow26ResourceHandleShapeAndTypeEP8TF_Graph9TF_Output'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1834' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator47DoStaticShapeInferenceForOutsideCompilationSendERKNS_5GraphERKNS_12ShapeRefinerERKSt13unordered_setISsSt47840707'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eval_const_tensor.cc' l='43' u='c' c='_ZN10tensorflow12_GLOBAL__N_137TryToInferTensorOutputFromInputShapesERKNS_4EdgeERKNS_12ShapeRefinerEPNS_6TensorEPb'/>
+<use f='tensorflow/tensorflow/core/common_runtime/shape_refiner.cc' l='69' u='c' c='_ZN10tensorflow12_GLOBAL__N_129InferShapesForFunctionSubNodeEPKNS_4NodeEPNS_12ShapeRefinerEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/shape_refiner.cc' l='282' u='c' c='_ZN10tensorflow12ShapeRefiner8SetShapeEPKNS_4NodeEiNS_15shape_inference11ShapeHandleE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/shape_refiner.cc' l='431' u='c' c='_ZN10tensorflow12ShapeRefiner20ConstantPartialShapeEPNS_15shape_inference16InferenceContextEPKNS_4NodeEiPNS1_11ShapeHandleE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='569' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor13ValidateShapeEPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='392' u='c' c='_ZN10tensorflow8grappler20SymbolicShapeRefiner10GetContextEPKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='444' u='c' c='_ZN10tensorflow8grappler20SymbolicShapeRefiner20OutputAsIntersectionEPKNS_4NodeEiNS_15shape_inference11ShapeHandleES6_'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='489' u='c' c='_ZN10tensorflow8grappler20SymbolicShapeRefiner13OutputAsUnionEPKNS_4NodeEiNS_15shape_inference11ShapeHandleES6_'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='563' u='c' c='_ZN10tensorflow8grappler20SymbolicShapeRefiner21GetUnknownOutputShapeEPKNS_4NodeEi'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='576' u='c' c='_ZN10tensorflow8grappler20SymbolicShapeRefiner19GetUnknownOutputDimEPKNS_4NodeEii'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='1008' u='c' c='_ZN10tensorflow8grappler15GraphProperties15InferStaticallyEb'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='1040' u='c' c='_ZN10tensorflow8grappler15GraphProperties15InferStaticallyEb'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='353' u='c' c='_ZN10tensorflow15GraphTransferer38TransformGraphToAddAggregatedInputNodeERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EEPNS_5GraphEPNS_12ShapeRefinerE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='398' u='c' c='_ZN10tensorflow15GraphTransferer38TransformGraphToAddAggregatedInputNodeERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EEPNS_5GraphEPNS_12ShapeRefinerE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='464' u='c' c='_ZN10tensorflow15GraphTransferer20RegisterConstantNodeERKNS_12ShapeRefinerERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='604' u='c' c='_ZN10tensorflow15GraphTransferer20IsNodeFlattenReshapeERKNS_4NodeERKNS_12ShapeRefinerE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='641' u='c' c='_ZN10tensorflow15GraphTransferer33RegisterNodeWithPaddingAndStridesERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_12ShapeRefinerERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='675' u='c' c='_ZN10tensorflow15GraphTransferer20RegisterNodeWithRankERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_12ShapeRefinerERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='919' u='c' c='_ZN10tensorflow15GraphTransferer22AppendNodeOutputParamsERKNS_12ShapeRefinerEiRKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='455' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23PropagateShapeInferenceERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EEPNS_5GraphEPNS_12ShapeRefinerE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='496' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils28BuildTensorShapeMapFromGraphERKNS_5GraphERKNS_12ShapeRefinerEPSt18unordered_multimapISsSt4pairIiS8_INS_10209530'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='232' u='c' c='_ZN10tensorflow16graph_transforms13FoldConstantsERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>

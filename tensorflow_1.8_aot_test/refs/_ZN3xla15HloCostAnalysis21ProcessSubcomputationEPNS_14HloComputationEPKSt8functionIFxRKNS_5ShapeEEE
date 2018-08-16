@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.h' l='152' type='StatusOr&lt;Properties&gt; xla::HloCostAnalysis::ProcessSubcomputation(xla::HloComputation * computation, const ShapeSizeFunction * shape_size = nullptr)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.h' l='149'>// Returns the properties computed from visiting the computation rooted at the
+  // given hlo. Uses shape_size_ to calculate shape sizes if shape_size is null,
+  // otherwise uses shape_size_.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='240' u='c' c='_ZN3xla15HloCostAnalysis9HandleMapEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='257' u='c' c='_ZN3xla15HloCostAnalysis12HandleReduceEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='276' u='c' c='_ZN3xla15HloCostAnalysis18HandleReduceWindowEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='301' u='c' c='_ZN3xla15HloCostAnalysis22HandleSelectAndScatterEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='303' u='c' c='_ZN3xla15HloCostAnalysis22HandleSelectAndScatterEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='535' u='c' c='_ZN3xla15HloCostAnalysis12HandleFusionEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='557' u='c' c='_ZN3xla15HloCostAnalysis10HandleCallEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='587' u='c' c='_ZN3xla15HloCostAnalysis11HandleWhileEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='590' u='c' c='_ZN3xla15HloCostAnalysis11HandleWhileEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='608' u='c' c='_ZN3xla15HloCostAnalysis17HandleConditionalEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='610' u='c' c='_ZN3xla15HloCostAnalysis17HandleConditionalEPKNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='664' ll='672' type='StatusOr&lt;HloCostAnalysis::Properties&gt; xla::HloCostAnalysis::ProcessSubcomputation(xla::HloComputation * computation, const ShapeSizeFunction * shape_size = nullptr)'/>

@@ -1,0 +1,26 @@
+<def f='include/c++/5/bits/stl_map.h' l='611' ll='613' type='std::pair&lt;iterator, bool&gt; std::map::insert(const value_type &amp; __x)'/>
+<doc f='include/c++/5/bits/stl_map.h' l='595'>/**
+       *  @brief Attempts to insert a std::pair into the %map.
+
+       *  @param __x Pair to be inserted (see std::make_pair for easy
+       *	     creation of pairs).
+       *
+       *  @return  A pair, of which the first element is an iterator that 
+       *           points to the possibly inserted pair, and the second is 
+       *           a bool that is true if the pair was actually inserted.
+       *
+       *  This function attempts to insert a (key, value) %pair into the %map.
+       *  A %map relies on unique keys and thus a %pair is only inserted if its
+       *  first element (the key) is not already present in the %map.
+       *
+       *  Insertion requires logarithmic time.
+       */</doc>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='167' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1387' u='c' c='_ZN3xla10XlaBuilder20AddCalledComputationERKNS_14XlaComputationEPNS_19HloInstructionProtoE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='436' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GetConstantGraphEPKNS_5GraphERKSt6vectorIPNS_4NodeESaIS6_EERKSt13unordered_mapIPKS5_S4_INS_6TensorESaISE_EESt4hashISD_E6896123'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='444' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GetConstantGraphEPKNS_5GraphERKSt6vectorIPNS_4NodeESaIS6_EERKSt13unordered_mapIPKS5_S4_INS_6TensorESaISE_EESt4hashISD_E6896123'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='100' u='c' c='_ZN10tensorflow6Worker15PrepareRunGraphEPNS_22RunGraphRequestWrapperEPSt3mapISsNS_6TensorESt4lessISsESaISt4pairIKSsS4_EEESC_'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='104' u='c' c='_ZN10tensorflow6Worker15PrepareRunGraphEPNS_22RunGraphRequestWrapperEPSt3mapISsNS_6TensorESt4lessISsESaISt4pairIKSsS4_EEESC_'/>
+<use f='tensorflow/tensorflow/core/kernels/function_ops.cc' l='334' u='c' c='_ZN10tensorflow12RemoteCallOp12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.cc' l='80' u='c' c='_ZN10tensorflow10monitoring18CollectionRegistry8RegisterEPKNS0_17AbstractMetricDefERKSt8functionIFvNS0_21MetricCollectorGetterEEE'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='652' u='c' c='_ZN10tensorflow16graph_transforms13QuantizeNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>

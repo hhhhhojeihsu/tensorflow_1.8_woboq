@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.h' l='40' type='void xla::cpu::ParallelTaskAssignment::ParallelTaskAssignment(const int64 max_parallelism, const HloCostAnalysis::ShapeSizeFunction &amp; shape_size, xla::HloModule * module)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.h' l='36'>// &apos;max_parallelism&apos;: the maximum parallel task count per instruction.
+  // &apos;shape_size&apos;: shape size function used by HloCostAnalysis during parallel
+  //               task assignment.
+  // &apos;module&apos;: the containing HloModule.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.cc' l='114' u='c' c='_ZN3xla3cpu26ParallelizationPreparation25RunParallelTaskAssignmentEPNS_9HloModuleE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.cc' l='105' ll='123' type='void xla::cpu::ParallelTaskAssignment::ParallelTaskAssignment(const int64 max_parallelism, const HloCostAnalysis::ShapeSizeFunction &amp; shape_size, xla::HloModule * module)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.cc' l='233' u='c' c='_ZN3xla3cpu20ParallelTaskAssigner26ComputeTargetParallelTasksEPNS_9HloModuleEPSt13unordered_mapIPKNS_14HloInstructionExSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_xEEE'/>

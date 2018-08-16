@@ -1,0 +1,57 @@
+<def f='include/c++/5/bits/stl_map.h' l='364' ll='366' type='const_iterator std::map::end() const'/>
+<doc f='include/c++/5/bits/stl_map.h' l='359'>/**
+       *  Returns a read-only (constant) iterator that points one past the last
+       *  pair in the %map.  Iteration is done in ascending order according to
+       *  the keys.
+       */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.cc' l='140' u='c' c='_ZNK3xla18ComputationTracker15ResolveInternalERKNS_17ComputationHandleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='110' u='c' c='_ZN3xla15HloCostAnalysis11GetPropertyERKSsRKSt3mapISsfSt4lessISsESaISt4pairIS1_fEEEf'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='434' u='c' c='_ZNK3xla17LayoutConstraints26GetOperandLayoutConstraintEPKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='652' u='c' c='_ZN3xla7llvm_ir13MergeMetadataEPN4llvm11LLVMContextERKSt3mapIiPNS1_6MDNodeESt4lessIiESaISt4pairIKiS6_EEESF_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='668' u='c' c='_ZN3xla7llvm_ir13MergeMetadataEPN4llvm11LLVMContextERKSt3mapIiPNS1_6MDNodeESt4lessIiESaISt4pairIKiS6_EEESF_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2229' u='c' c='_ZNK3xla15UserComputation17ParameterMetadataEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2241' u='c' c='_ZN3xla15UserComputation25RemapEmbeddedComputationsERKSt3mapIxNS_17ComputationHandleESt4lessIxESaISt4pairIKxS2_EEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='242' u='c' c='_ZN10tensorflow12_GLOBAL__N_122SparseGrpcChannelCache13TranslateTaskERKSs'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='371' u='c' c='_ZNK10tensorflow9CostModel18IsPersistentTensorEPKNS_4NodeEx'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='321' u='c' c='_ZN10tensorflow12_GLOBAL__N_116NodeNameInValuesERKSt3mapINS_8TensorIdES2_St4lessIS2_ESaISt4pairIKS2_S2_EEERKNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='698' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor18RemapNodeDefInputsEPNS_7NodeDefEPSt6vectorIbSaIbEE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='865' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor17IsNodeFullyMappedERKNS_7NodeDefEPb'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='1087' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor21PopulateReturnTensorsEv'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='1160' u='c' c='_ZNK10tensorflow8grappler15GraphProperties18HasInputPropertiesERKSs'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='1164' u='c' c='_ZNK10tensorflow8grappler15GraphProperties19HasOutputPropertiesERKSs'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='1170' u='c' c='_ZNK10tensorflow8grappler15GraphProperties18GetInputPropertiesERKSs'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='1179' u='c' c='_ZNK10tensorflow8grappler15GraphProperties19GetOutputPropertiesERKSs'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='315' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator12PredictCostsERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='316' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator12PredictCostsERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='409' u='c' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator14PredictCwiseOpERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='373' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode9trackableEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='494' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode9run_countEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='514' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode11exec_microsEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='536' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode23accelerator_exec_microsEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='558' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode15cpu_exec_microsEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='297' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode15requested_bytesEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='297' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode10peak_bytesEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='297' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode14residual_bytesEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='297' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode12output_bytesEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='578' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode16all_start_microsEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='586' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode17latest_end_microsEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='594' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode27lastest_schedule_end_microsEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='603' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode8op_execsEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='611' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode9cpu_execsEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='621' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode22accelerator_temp_bytesEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='628' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode15host_temp_bytesEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='643' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode22allocator_bytes_in_useEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='651' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode11allocationsEx'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='712' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode12input_shapesEv'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='714' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode12input_shapesEv'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='720' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode12input_shapesEv'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='722' u='c' c='_ZNK10tensorflow6tfprof11TFGraphNode12input_shapesEv'/>
+<use f='tensorflow/tensorflow/stream_executor/kernel_spec.cc' l='128' u='c' c='_ZNK9perftools8gputools15CudaPtxInMemory4textEii'/>
+<use f='tensorflow/tensorflow/stream_executor/kernel_spec.cc' l='153' u='c' c='_ZNK9perftools8gputools15CudaPtxInMemory13original_textEii'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='151' u='c' c='_ZNK9perftools8gputools14PluginRegistry10HasFactoryERKNS1_15PluginFactoriesENS0_10PluginKindEPv'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='153' u='c' c='_ZNK9perftools8gputools14PluginRegistry10HasFactoryERKNS1_15PluginFactoriesENS0_10PluginKindEPv'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='155' u='c' c='_ZNK9perftools8gputools14PluginRegistry10HasFactoryERKNS1_15PluginFactoriesENS0_10PluginKindEPv'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='157' u='c' c='_ZNK9perftools8gputools14PluginRegistry10HasFactoryERKNS1_15PluginFactoriesENS0_10PluginKindEPv'/>
+<use f='tensorflow/tensorflow/stream_executor/plugin_registry.cc' l='169' u='c' c='_ZNK9perftools8gputools14PluginRegistry10HasFactoryEPvNS0_10PluginKindES2_'/>
+<use f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.cc' l='71' u='c' c='_ZNK9perftools8gputools8internal22TemporaryMemoryManager11IsFinalizedERKNS0_16DeviceMemoryBaseEy'/>
+<use f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.cc' l='87' u='c' c='_ZNK9perftools8gputools8internal22TemporaryMemoryManager12HasAllocatedERKNS0_16DeviceMemoryBaseEy'/>

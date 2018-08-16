@@ -1,0 +1,37 @@
+<def f='tensorflow/tensorflow/core/util/sparse/group_iterator.h' l='76' ll='131'/>
+<size>88</size>
+<doc f='tensorflow/tensorflow/core/util/sparse/group_iterator.h' l='50'>/////////////////
+// GroupIterable
+/////////////////
+//
+// Returned when calling sparse_tensor.group({dim0, dim1, ...}).
+//
+// Please note: the sparse_tensor should already be ordered according
+// to {dim0, dim1, ...}.  Otherwise this iteration will return invalid groups.
+//
+// Allows grouping and iteration of the SparseTensor according to the
+// subset of dimensions provided to the group call.
+//
+// The actual grouping dimensions are stored in the
+// internal vector group_dims_.  Iterators inside the iterable provide
+// the three methods:
+//
+// *  group(): returns a vector with the current group dimension values.
+// *  indices(): a map of index, providing the indices in
+//    this group.
+// *  values(): a map of values, providing the values in
+//    this group.
+//
+// To iterate across GroupIterable, see examples in README.md.
+//
+
+// Forward declaration of SparseTensor</doc>
+<fun r='_ZN10tensorflow6sparse13GroupIterableC1ENS_6TensorES2_iRKNS_3gtl10ArraySliceIxEE'/>
+<fun r='_ZN10tensorflow6sparse13GroupIterable5beginEv'/>
+<fun r='_ZN10tensorflow6sparse13GroupIterable2atEx'/>
+<fun r='_ZN10tensorflow6sparse13GroupIterable3endEv'/>
+<fun r='_ZNK10tensorflow6sparse13GroupIterable12GroupMatchesERKT_xx'/>
+<mbr r='tensorflow::sparse::GroupIterable::ix_' o='0' t='tensorflow::Tensor'/>
+<mbr r='tensorflow::sparse::GroupIterable::vals_' o='256' t='tensorflow::Tensor'/>
+<mbr r='tensorflow::sparse::GroupIterable::dims_' o='512' t='const int'/>
+<mbr r='tensorflow::sparse::GroupIterable::group_dims_' o='576' t='const VarDimArray'/>

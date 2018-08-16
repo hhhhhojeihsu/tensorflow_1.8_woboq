@@ -1,0 +1,32 @@
+<inh f='tensorflow/tensorflow/core/lib/core/refcount.h' l='25' c='tensorflow::core::RefCounted'/>
+<def f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='60' ll='133'/>
+<size>56</size>
+<doc f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='47'>/// \brief SQLite connection object.
+///
+/// The SQLite connection is closed automatically by the destructor.
+/// Reference counting ensures that happens after its statements are
+/// destructed.
+///
+/// Instances are reference counted and can be shared between threads.
+/// This class offers the same thread safety behaviors as the SQLite
+/// API itself.
+///
+/// This veneer uses auto-commit mode by default, which means a 4ms
+/// fsync() happens after every write unless a SqliteTransaction is
+/// used or WAL mode is enabled beforehand.</doc>
+<fun r='_ZN10tensorflow6SqliteD1Ev'/>
+<fun r='_ZN10tensorflow6Sqlite4OpenERKSsiPPS0_'/>
+<fun r='_ZN10tensorflow6Sqlite7PrepareERKNS_11StringPieceEPNS_15SqliteStatementE'/>
+<fun r='_ZN10tensorflow6Sqlite12PrepareOrDieERKNS_11StringPieceE'/>
+<fun r='_ZNK10tensorflow6Sqlite7errcodeEv'/>
+<fun r='_ZNK10tensorflow6Sqlite6errmsgEv'/>
+<fun r='_ZNK10tensorflow6Sqlite17last_insert_rowidEv'/>
+<fun r='_ZNK10tensorflow6Sqlite7changesEv'/>
+<fun r='_ZN10tensorflow6SqliteC1EP7sqlite3P12sqlite3_stmtS4_S4_'/>
+<mbr r='tensorflow::Sqlite::db_' o='128' t='sqlite3 *const'/>
+<mbr r='tensorflow::Sqlite::begin_' o='192' t='sqlite3_stmt *const'/>
+<mbr r='tensorflow::Sqlite::commit_' o='256' t='sqlite3_stmt *const'/>
+<mbr r='tensorflow::Sqlite::rollback_' o='320' t='sqlite3_stmt *const'/>
+<mbr r='tensorflow::Sqlite::is_in_transaction_' o='384' t='bool'/>
+<fun r='_ZN10tensorflow6SqliteC1ERKS0_'/>
+<fun r='_ZN10tensorflow6Sqlite12PrepareOrDieERKNS_11StringPieceE'/>

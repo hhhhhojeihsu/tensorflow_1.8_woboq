@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='309' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateSend(xla::HloInstruction * operand, int64 channel_id)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='306'>// Creates an asynchronous send instruction with the given channel id, which
+  // initiates sending the operand data to a unique receive instruction in
+  // another computation that has the same channel id.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='427' ll='437' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateSend(xla::HloInstruction * operand, int64 channel_id)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1442' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='427'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3500' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

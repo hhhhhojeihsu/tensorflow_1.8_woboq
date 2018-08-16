@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/lib/strings/ordered_code.h' l='68' type='static bool tensorflow::strings::OrderedCode::ReadString(tensorflow::StringPiece * src, string * result)'/>
+<def f='tensorflow/tensorflow/core/lib/strings/ordered_code.cc' l='270' ll='272' type='static bool tensorflow::strings::OrderedCode::ReadString(tensorflow::StringPiece * src, string * result)'/>
+<doc f='tensorflow/tensorflow/core/lib/strings/ordered_code.h' l='60'>// -------------------------------------------------------------------
+  // Decoding routines: these extract an item earlier encoded using
+  // the corresponding WriteXXX() routines above.  The item is read
+  // from &quot;*src&quot;; &quot;*src&quot; is modified to point past the decoded item;
+  // and if &quot;result&quot; is non-NULL, &quot;*result&quot; is modified to contain the
+  // result.  In case of string result, the decoded string is appended to
+  // &quot;*result&quot;.  Returns true if the next item was read successfully, false
+  // otherwise.</doc>
+<use f='tensorflow/tensorflow/core/util/saved_tensor_slice_util.cc' l='56' u='c' c='_ZN10tensorflow10checkpoint21DecodeTensorNameSliceERKSsPSsPNS_11TensorSliceE'/>

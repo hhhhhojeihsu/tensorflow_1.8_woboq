@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_slice_set.h' l='55' type='tensorflow::Status tensorflow::checkpoint::TensorSliceSet::Register(const tensorflow::TensorSlice &amp; slice, const string &amp; tag, const float * data)'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_slice_set.h' l='48'>// Register a new slice for the tensor. The &quot;tag&quot; is an arbitrary string
+  // associated with the slice (in one application it denotes the name of the
+  // file that contains the slice); the &quot;data&quot; points to the data of the tensor
+  // slice (it can be a nullptr).
+  // We don&apos;t take the ownership of &quot;data&quot; and the caller needs to make sure
+  // the data is always available during the life time of the tensor slice set
+  // if it is not nullptr.</doc>
+<def f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='33' ll='60' type='tensorflow::Status tensorflow::checkpoint::TensorSliceSet::Register(const tensorflow::TensorSlice &amp; slice, const string &amp; tag, const float * data)'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='197' u='c' c='_ZN10tensorflow10checkpoint19RegisterTensorSliceERKSsRKNS_11TensorShapeENS_8DataTypeES2_RKNS_11TensorSliceEPSt13unordered_mapISsPNS0_14TensorSliceSetE15322183'/>

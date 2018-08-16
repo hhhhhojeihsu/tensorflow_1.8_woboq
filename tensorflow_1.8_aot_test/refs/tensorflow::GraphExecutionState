@@ -1,0 +1,49 @@
+<def f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.h' l='90' ll='207'/>
+<size>224</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.h' l='66'>// GraphExecutionState is responsible for generating an
+// executable ClientGraph from the original GraphDef that specifies
+// the complete graph and from BuildGraphOptions which specifies
+// input/output nodes.
+//
+// An executable Graph differs from a GraphDef by being Placed,
+// meaning that each Node is assigned to a single Device in the
+// available set.
+//
+// When GraphExecutionState is first constructed it instantiates
+// a full Graph from the provided GraphDef, and places it, using only
+// the static device assignments from the GraphDef.  Nodes without are
+// currently placed in a very naive way.  Since stateful Nodes cannot
+// be moved after initial placement, it is important that stateful
+// Nodes get sensible initial device assignments in the graph
+// definition.
+//
+// Subsequently, GraphExecutionState generates a SimpleClientGraph on
+// demand, which is a sub-graph of the latest placement of the full
+// Graph.  MasterSession uses such a ClientGraph to execute one or
+// more similar client requests.
+//
+// GraphExecutionState is thread-safe.</doc>
+<fun r='_ZN10tensorflow19GraphExecutionStateD1Ev'/>
+<fun r='_ZN10tensorflow19GraphExecutionState16MakeForBaseGraphEPNS_8GraphDefERKNS_26GraphExecutionStateOptionsEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<fun r='_ZN10tensorflow19GraphExecutionState18MakeForPrunedGraphERKNS_18FunctionDefLibraryERKNS_26GraphExecutionStateOptionsERKNS_8GraphDefERKNS_17BuildGraphO10336068'/>
+<fun r='_ZNK10tensorflow19GraphExecutionState6ExtendERKNS_8GraphDefEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<fun r='_ZN10tensorflow19GraphExecutionState10BuildGraphERKNS_17BuildGraphOptionsEPSt10unique_ptrINS_11ClientGraphESt14default_deleteIS5_EE'/>
+<fun r='_ZN10tensorflow19GraphExecutionState10full_graphEv'/>
+<fun r='_ZNK10tensorflow19GraphExecutionState16get_node_by_nameERKSs'/>
+<fun r='_ZN10tensorflow19GraphExecutionState18original_graph_defEv'/>
+<fun r='_ZNK10tensorflow19GraphExecutionState21GetStatefulPlacementsEv'/>
+<fun r='_ZN10tensorflow19GraphExecutionStateC1EPNS_8GraphDefERKNS_26GraphExecutionStateOptionsE'/>
+<fun r='_ZN10tensorflow19GraphExecutionState13InitBaseGraphERKNS_17BuildGraphOptionsE'/>
+<mbr r='tensorflow::GraphExecutionState::stateful_placements_' o='64' t='std::unordered_map&lt;string, string&gt;'/>
+<fun r='_ZN10tensorflow19GraphExecutionState17SaveStatefulNodesEPNS_5GraphE'/>
+<fun r='_ZN10tensorflow19GraphExecutionState20RestoreStatefulNodesEPNS_5GraphE'/>
+<fun r='_ZN10tensorflow19GraphExecutionState10PruneGraphERKNS_17BuildGraphOptionsEPNS_5GraphEPNS_8subgraph20RewriteGraphMetadataE'/>
+<fun r='_ZN10tensorflow19GraphExecutionState13OptimizeGraphERKNS_17BuildGraphOptionsEPSt10unique_ptrINS_5GraphESt14default_deleteIS5_EE'/>
+<mbr r='tensorflow::GraphExecutionState::original_graph_def_' o='512' t='tensorflow::GraphDef'/>
+<mbr r='tensorflow::GraphExecutionState::device_set_' o='1024' t='const tensorflow::DeviceSet *'/>
+<mbr r='tensorflow::GraphExecutionState::session_options_' o='1088' t='const tensorflow::SessionOptions *'/>
+<mbr r='tensorflow::GraphExecutionState::node_name_to_cost_id_map_' o='1152' t='NodeNameToCostIdMap'/>
+<mbr r='tensorflow::GraphExecutionState::flib_def_' o='1600' t='std::unique_ptr&lt;FunctionLibraryDefinition&gt;'/>
+<mbr r='tensorflow::GraphExecutionState::rewrite_metadata_' o='1664' t='std::unique_ptr&lt;subgraph::RewriteGraphMetadata&gt;'/>
+<mbr r='tensorflow::GraphExecutionState::graph_' o='1728' t='tensorflow::Graph *'/>
+<fun r='_ZN10tensorflow19GraphExecutionStateC1ERKS0_'/>

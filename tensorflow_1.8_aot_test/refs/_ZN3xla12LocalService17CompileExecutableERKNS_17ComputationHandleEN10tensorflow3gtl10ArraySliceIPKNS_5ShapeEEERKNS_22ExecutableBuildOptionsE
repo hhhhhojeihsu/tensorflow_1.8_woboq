@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/local_service.h' l='49' type='StatusOr&lt;std::unique_ptr&lt;Executable&gt; &gt; xla::LocalService::CompileExecutable(const xla::ComputationHandle &amp; computation, const tensorflow::gtl::ArraySlice&lt;const Shape *&gt; argument_layouts, const xla::ExecutableBuildOptions &amp; options)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/local_service.h' l='44'>// Builds an Executable with the given argument layouts and options. If
+  // result_layout is non-null, then the executable is compiled to produce a
+  // result of the given layout.  If device_allocator is non-null, then the
+  // compiler may use it to allocate temp space on the device.  The compiler is
+  // responsible for freeing any memory it allocates this way.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='261' u='c' c='_ZN3xla11LocalClient7CompileERKNS_11ComputationEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEERKNS_22ExecutableBuildOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/local_service.cc' l='134' ll='196' type='StatusOr&lt;std::unique_ptr&lt;Executable&gt; &gt; xla::LocalService::CompileExecutable(const xla::ComputationHandle &amp; computation, const tensorflow::gtl::ArraySlice&lt;const Shape *&gt; argument_layouts, const xla::ExecutableBuildOptions &amp; build_options)'/>

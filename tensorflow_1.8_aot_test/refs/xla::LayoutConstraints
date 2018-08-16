@@ -1,0 +1,33 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='129' ll='235'/>
+<size>264</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='127'>// Class encapsulating the layout constraints of the values in a HLO
+// computation.</doc>
+<fun r='_ZN3xla17LayoutConstraintsC1ERKNS_21TuplePointsToAnalysisEPNS_14HloComputationE'/>
+<fun r='_ZN3xla17LayoutConstraintsD1Ev'/>
+<fun r='_ZNK3xla17LayoutConstraints11computationEv'/>
+<fun r='_ZN3xla17LayoutConstraints11computationEv'/>
+<fun r='_ZNK3xla17LayoutConstraints18points_to_analysisEv'/>
+<fun r='_ZN3xla17LayoutConstraints23ConsumeAddedConstraintsEv'/>
+<fun r='_ZN3xla17LayoutConstraints21ClearAddedConstraintsEv'/>
+<fun r='_ZNK3xla17LayoutConstraints12BufferLayoutERKNS_13LogicalBufferE'/>
+<fun r='_ZNK3xla17LayoutConstraints25GetBufferLayoutConstraintERKNS_13LogicalBufferE'/>
+<fun r='_ZNK3xla17LayoutConstraints13OperandLayoutEPKNS_14HloInstructionEx'/>
+<fun r='_ZNK3xla17LayoutConstraints26GetOperandLayoutConstraintEPKNS_14HloInstructionEx'/>
+<fun r='_ZNK3xla17LayoutConstraints12ResultLayoutEv'/>
+<fun r='_ZN3xla17LayoutConstraints15SetBufferLayoutERKNS_6LayoutERKNS_13LogicalBufferEbb'/>
+<fun r='_ZN3xla17LayoutConstraints16SetOperandLayoutERKNS_5ShapeEPKNS_14HloInstructionExbb'/>
+<fun r='_ZN3xla17LayoutConstraints15SetResultLayoutERKNS_5ShapeEb'/>
+<fun r='_ZN3xla17LayoutConstraints21SetArrayOperandLayoutERKNS_6LayoutEPKNS_14HloInstructionExbb'/>
+<fun r='_ZN3xla17LayoutConstraints20SetInstructionLayoutERKNS_5ShapeEPKNS_14HloInstructionEbb'/>
+<fun r='_ZNK3xla17LayoutConstraints22OperandBufferForwardedEPKNS_14HloInstructionEx'/>
+<fun r='_ZNK3xla17LayoutConstraints24unconstrained_buffer_idsEv'/>
+<fun r='_ZNK3xla17LayoutConstraints8ToStringEv'/>
+<fun r='_ZNK3xla17LayoutConstraints12GetBufferSetEPKNS_14HloInstructionE'/>
+<mbr r='xla::LayoutConstraints::buffer_constraints_' o='0' t='std::unordered_map&lt;const LogicalBuffer *, BufferLayoutConstraint&gt;'/>
+<mbr r='xla::LayoutConstraints::operand_constraints_' o='448' t='std::map&lt;OperandConstraintKey, OperandLayoutConstraint&gt;'/>
+<mbr r='xla::LayoutConstraints::result_constraint_' o='832' t='std::unique_ptr&lt;ResultLayoutConstraint&gt;'/>
+<mbr r='xla::LayoutConstraints::added_constraints_' o='896' t='std::vector&lt;const LayoutConstraint *&gt;'/>
+<mbr r='xla::LayoutConstraints::points_to_analysis_' o='1088' t='const xla::TuplePointsToAnalysis &amp;'/>
+<mbr r='xla::LayoutConstraints::unconstrained_buffer_ids_' o='1152' t='std::set&lt;LogicalBuffer::Id&gt;'/>
+<mbr r='xla::LayoutConstraints::buffer_sets_cache_' o='1536' t='tensorflow::gtl::FlatMap&lt;const HloInstruction *, std::unique_ptr&lt;PointsToSet::BufferSet&gt; &gt;'/>
+<mbr r='xla::LayoutConstraints::computation_' o='2048' t='xla::HloComputation *'/>

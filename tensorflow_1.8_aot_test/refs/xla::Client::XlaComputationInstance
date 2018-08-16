@@ -1,0 +1,14 @@
+<def f='tensorflow/tensorflow/compiler/xla/client/client.h' l='109' ll='123'/>
+<size>112</size>
+<doc f='tensorflow/tensorflow/compiler/xla/client/client.h' l='102'>// A struct to represent a computation instance to be executed.
+  // * If execution_options.device_handles is not empty, the computation is
+  //   executed on the devices associated with the handles by partitioning the
+  //   computation based on the attached sharding attributes. Otherwise, a
+  //   device is chosen by the service.
+  //
+  // TODO(b/74197823): This is a part of a NOT YET ready refactor.</doc>
+<mbr r='xla::Client::XlaComputationInstance::computation' o='0' t='const xla::XlaComputation &amp;'/>
+<mbr r='xla::Client::XlaComputationInstance::arguments' o='64' t='std::vector&lt;GlobalData *&gt;'/>
+<mbr r='xla::Client::XlaComputationInstance::execution_options' o='256' t='xla::ExecutionOptions'/>
+<mbr r='xla::Client::XlaComputationInstance::execution_profile' o='832' t='xla::ExecutionProfile *'/>
+<fun r='_ZN3xla6Client22XlaComputationInstanceC1ERKNS_14XlaComputationESt6vectorIPNS_10GlobalDataESaIS7_EENS_16ExecutionOptionsEPNS_16ExecutionProfileE'/>

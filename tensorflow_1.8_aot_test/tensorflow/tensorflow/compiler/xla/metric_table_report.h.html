@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>metric_table_report.h source code [tensorflow/tensorflow/compiler/xla/metric_table_report.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="xla::MetricTableReport "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/compiler/xla/metric_table_report.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>compiler</a>/<a href='./'>xla</a>/<a href='metric_table_report.h.html'>metric_table_report.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_COMPILER_XLA_METRIC_TABLE_REPORT_H_">TENSORFLOW_COMPILER_XLA_METRIC_TABLE_REPORT_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMPILER_XLA_METRIC_TABLE_REPORT_H_" data-ref="_M/TENSORFLOW_COMPILER_XLA_METRIC_TABLE_REPORT_H_">TENSORFLOW_COMPILER_XLA_METRIC_TABLE_REPORT_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="util.h.html">"tensorflow/compiler/xla/util.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../core/lib/strings/str_util.h.html">"tensorflow/core/lib/strings/str_util.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../core/lib/strings/strcat.h.html">"tensorflow/core/lib/strings/strcat.h"</a></u></td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">xla</span> {</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><i>// Class for creating a text format table showing entries with a metric</i></td></tr>
+<tr><th id="28">28</th><td><i>// (e.g. cycles) and a text (e.g. name of function taking that many</i></td></tr>
+<tr><th id="29">29</th><td><i>// cycles). Entries are grouped by a category and sorted in decreasing order of</i></td></tr>
+<tr><th id="30">30</th><td><i>// the metric.</i></td></tr>
+<tr><th id="31">31</th><td><i>//</i></td></tr>
+<tr><th id="32">32</th><td><i>// Example of a categories table generated using this class:</i></td></tr>
+<tr><th id="33">33</th><td><i>//</i></td></tr>
+<tr><th id="34">34</th><td><i>// ********** microseconds report **********</i></td></tr>
+<tr><th id="35">35</th><td><i>// There are 3,912,517 microseconds in total.</i></td></tr>
+<tr><th id="36">36</th><td><i>// There are 123 microseconds ( 0.00%) not accounted for by the data.</i></td></tr>
+<tr><th id="37">37</th><td><i>// There are 3002 ops.</i></td></tr>
+<tr><th id="38">38</th><td><i>//</i></td></tr>
+<tr><th id="39">39</th><td><i>// ********** categories table **********</i></td></tr>
+<tr><th id="40">40</th><td><i>// The left hand side numbers are microseconds.</i></td></tr>
+<tr><th id="41">41</th><td><i>// 1,749,414 (44.71% Σ44.72%)   convolution (206 ops)</i></td></tr>
+<tr><th id="42">42</th><td><i>//                             * 10.51% %convolution.202</i></td></tr>
+<tr><th id="43">43</th><td><i>//                             * 10.51% %convolution.204</i></td></tr>
+<tr><th id="44">44</th><td><i>//                             * 10.51% %convolution.203</i></td></tr>
+<tr><th id="45">45</th><td><i>//                             * ... (203 more ops)</i></td></tr>
+<tr><th id="46">46</th><td><i>//   884,939 (22.62% Σ67.33%)   convolution window-dilated (7 ops)</i></td></tr>
+<tr><th id="47">47</th><td><i>//                             *  7.50% %convolution-window-dilated.7</i></td></tr>
+<tr><th id="48">48</th><td><i>// [...]</i></td></tr>
+<tr><th id="49">49</th><td><i>//</i></td></tr>
+<tr><th id="50">50</th><td><i>// The entry table is similar, it just has the entries directly as the entries</i></td></tr>
+<tr><th id="51">51</th><td><i>// instead of grouping by categories first.</i></td></tr>
+<tr><th id="52">52</th><td><b>class</b> <dfn class="type def" id="xla::MetricTableReport" title='xla::MetricTableReport' data-ref="xla::MetricTableReport">MetricTableReport</dfn> {</td></tr>
+<tr><th id="53">53</th><td> <b>public</b>:</td></tr>
+<tr><th id="54">54</th><td>  <i>// Represents an entry in the table.</i></td></tr>
+<tr><th id="55">55</th><td>  <b>struct</b> <dfn class="type def" id="xla::MetricTableReport::Entry" title='xla::MetricTableReport::Entry' data-ref="xla::MetricTableReport::Entry">Entry</dfn> {</td></tr>
+<tr><th id="56">56</th><td>    <i>// Text to show in the entry table for this entry.</i></td></tr>
+<tr><th id="57">57</th><td>    <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="xla::MetricTableReport::Entry::text" title='xla::MetricTableReport::Entry::text' data-ref="xla::MetricTableReport::Entry::text">text</dfn>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>    <i>// Text to show in the category table for this entry.</i></td></tr>
+<tr><th id="60">60</th><td>    <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="xla::MetricTableReport::Entry::short_text" title='xla::MetricTableReport::Entry::short_text' data-ref="xla::MetricTableReport::Entry::short_text">short_text</dfn>;</td></tr>
+<tr><th id="61">61</th><td></td></tr>
+<tr><th id="62">62</th><td>    <i>// Text that represents the category of this entry - entries with the same</i></td></tr>
+<tr><th id="63">63</th><td><i>    // category are grouped together in the category table.</i></td></tr>
+<tr><th id="64">64</th><td>    <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="xla::MetricTableReport::Entry::category_text" title='xla::MetricTableReport::Entry::category_text' data-ref="xla::MetricTableReport::Entry::category_text">category_text</dfn>;</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>    <i>// The value of the metric for this entry.</i></td></tr>
+<tr><th id="67">67</th><td>    <em>double</em> <dfn class="decl" id="xla::MetricTableReport::Entry::metric" title='xla::MetricTableReport::Entry::metric' data-ref="xla::MetricTableReport::Entry::metric">metric</dfn> = <var>0.0</var>;</td></tr>
+<tr><th id="68">68</th><td>  };</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport8AddEntryENS0_5EntryE" title='xla::MetricTableReport::AddEntry' data-ref="_ZN3xla17MetricTableReport8AddEntryENS0_5EntryE" id="_ZN3xla17MetricTableReport8AddEntryENS0_5EntryE">AddEntry</a>(<a class="type" href="#xla::MetricTableReport::Entry" title='xla::MetricTableReport::Entry' data-ref="xla::MetricTableReport::Entry">Entry</a> <dfn class="local col1 decl" id="1entry" title='entry' data-type='xla::MetricTableReport::Entry' data-ref="1entry">entry</dfn>);</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>  <i>// The default name for the metric is "units", this function allows setting a</i></td></tr>
+<tr><th id="73">73</th><td><i>  // more meaningful name.</i></td></tr>
+<tr><th id="74">74</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport13SetMetricNameESs" title='xla::MetricTableReport::SetMetricName' data-ref="_ZN3xla17MetricTableReport13SetMetricNameESs" id="_ZN3xla17MetricTableReport13SetMetricNameESs">SetMetricName</a>(<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="local col2 decl" id="2metric_name" title='metric_name' data-type='string' data-ref="2metric_name">metric_name</dfn>);</td></tr>
+<tr><th id="75">75</th><td></td></tr>
+<tr><th id="76">76</th><td>  <i>// The default name for referring to entries is "entries", this functions</i></td></tr>
+<tr><th id="77">77</th><td><i>  // allows setting a more meaningful name.</i></td></tr>
+<tr><th id="78">78</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport12SetEntryNameESs" title='xla::MetricTableReport::SetEntryName' data-ref="_ZN3xla17MetricTableReport12SetEntryNameESs" id="_ZN3xla17MetricTableReport12SetEntryNameESs">SetEntryName</a>(<a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="local col3 decl" id="3entry_name" title='entry_name' data-type='string' data-ref="3entry_name">entry_name</dfn>);</td></tr>
+<tr><th id="79">79</th><td></td></tr>
+<tr><th id="80">80</th><td>  <i>// By default the size of the table is limited. Calling this function forces</i></td></tr>
+<tr><th id="81">81</th><td><i>  // all entries to be shown no matter how many there are.</i></td></tr>
+<tr><th id="82">82</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport17SetShowAllEntriesEv" title='xla::MetricTableReport::SetShowAllEntries' data-ref="_ZN3xla17MetricTableReport17SetShowAllEntriesEv" id="_ZN3xla17MetricTableReport17SetShowAllEntriesEv">SetShowAllEntries</a>();</td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td>  <i>// Set option to show a table with data on the categories of entries.</i></td></tr>
+<tr><th id="85">85</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport20SetShowCategoryTableEv" title='xla::MetricTableReport::SetShowCategoryTable' data-ref="_ZN3xla17MetricTableReport20SetShowCategoryTableEv" id="_ZN3xla17MetricTableReport20SetShowCategoryTableEv">SetShowCategoryTable</a>();</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>  <i>// Set option to show a table with data on the entries.</i></td></tr>
+<tr><th id="88">88</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport17SetShowEntryTableEv" title='xla::MetricTableReport::SetShowEntryTable' data-ref="_ZN3xla17MetricTableReport17SetShowEntryTableEv" id="_ZN3xla17MetricTableReport17SetShowEntryTableEv">SetShowEntryTable</a>();</td></tr>
+<tr><th id="89">89</th><td></td></tr>
+<tr><th id="90">90</th><td>  <i>// Returns the report as a string. expected_metric_sum is the expected sum of</i></td></tr>
+<tr><th id="91">91</th><td><i>  // the metric across the entries. It is not an error for the actual sum to be</i></td></tr>
+<tr><th id="92">92</th><td><i>  // different from the expectation - the report will include the</i></td></tr>
+<tr><th id="93">93</th><td><i>  // discrepancy. All metric percentages are for the ratio with respect to the</i></td></tr>
+<tr><th id="94">94</th><td><i>  // expected sum, not the actual sum.</i></td></tr>
+<tr><th id="95">95</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport10MakeReportEd" title='xla::MetricTableReport::MakeReport' data-ref="_ZN3xla17MetricTableReport10MakeReportEd" id="_ZN3xla17MetricTableReport10MakeReportEd">MakeReport</a>(<em>double</em> <dfn class="local col4 decl" id="4expected_metric_sum" title='expected_metric_sum' data-type='double' data-ref="4expected_metric_sum">expected_metric_sum</dfn>);</td></tr>
+<tr><th id="96">96</th><td></td></tr>
+<tr><th id="97">97</th><td>  <i>// As MakeReport(), but writes the report to the INFO log in a way that avoids</i></td></tr>
+<tr><th id="98">98</th><td><i>  // cutting the report off if it is longer than the maximum line length for a</i></td></tr>
+<tr><th id="99">99</th><td><i>  // logged line. Individual lines in the report may still be cut off, but they</i></td></tr>
+<tr><th id="100">100</th><td><i>  // would have to be very long for that to happen.</i></td></tr>
+<tr><th id="101">101</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport20WriteReportToInfoLogEd" title='xla::MetricTableReport::WriteReportToInfoLog' data-ref="_ZN3xla17MetricTableReport20WriteReportToInfoLogEd" id="_ZN3xla17MetricTableReport20WriteReportToInfoLogEd">WriteReportToInfoLog</a>(<em>double</em> <dfn class="local col5 decl" id="5expected_metric_sum" title='expected_metric_sum' data-type='double' data-ref="5expected_metric_sum">expected_metric_sum</dfn>);</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td> <b>private</b>:</td></tr>
+<tr><th id="104">104</th><td>  <em>static</em> <b>constexpr</b> <em>double</em> <dfn class="decl" id="xla::MetricTableReport::kDefaultMaxMetricProportionToShow" title='xla::MetricTableReport::kDefaultMaxMetricProportionToShow' data-ref="xla::MetricTableReport::kDefaultMaxMetricProportionToShow">kDefaultMaxMetricProportionToShow</dfn> = <var>0.99</var>;</td></tr>
+<tr><th id="105">105</th><td>  <em>static</em> <b>constexpr</b> <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl" id="xla::MetricTableReport::kDefaultMaxEntriesToShow" title='xla::MetricTableReport::kDefaultMaxEntriesToShow' data-ref="xla::MetricTableReport::kDefaultMaxEntriesToShow">kDefaultMaxEntriesToShow</dfn> = <var>100</var>;</td></tr>
+<tr><th id="106">106</th><td>  <em>static</em> <b>constexpr</b> <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl" id="xla::MetricTableReport::kDefaultMaxEntriesPerCategoryToShow" title='xla::MetricTableReport::kDefaultMaxEntriesPerCategoryToShow' data-ref="xla::MetricTableReport::kDefaultMaxEntriesPerCategoryToShow">kDefaultMaxEntriesPerCategoryToShow</dfn> = <var>5</var>;</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>  <i>// Append all parameters to the report.</i></td></tr>
+<tr><th id="109">109</th><td>  <b>template</b> &lt;<b>typename</b>... Args&gt;</td></tr>
+<tr><th id="110">110</th><td>  <em>void</em> <dfn class="decl def" id="_ZN3xla17MetricTableReport10AppendLineEDpT_" title='xla::MetricTableReport::AppendLine' data-ref="_ZN3xla17MetricTableReport10AppendLineEDpT_">AppendLine</dfn>(Args... <dfn class="local col6 decl" id="6args" title='args' data-type='Args...' data-ref="6args">args</dfn>) {</td></tr>
+<tr><th id="111">111</th><td>    <span class="namespace">tensorflow::strings::</span>StrAppend(&amp;<a class="member" href="#xla::MetricTableReport::report_" title='xla::MetricTableReport::report_' data-ref="xla::MetricTableReport::report_">report_</a>, <span class="namespace">std::</span>forward&lt;Args&gt;(<a class="local col6 ref" href="#6args" title='args' data-ref="6args">args</a>)..., <q>"\n"</q>);</td></tr>
+<tr><th id="112">112</th><td>  }</td></tr>
+<tr><th id="113">113</th><td></td></tr>
+<tr><th id="114">114</th><td>  <i>// Represents a set of entries with the same category_text.</i></td></tr>
+<tr><th id="115">115</th><td>  <b>struct</b> <dfn class="type def" id="xla::MetricTableReport::Category" title='xla::MetricTableReport::Category' data-ref="xla::MetricTableReport::Category">Category</dfn> {</td></tr>
+<tr><th id="116">116</th><td>    <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="xla::MetricTableReport::Category::category_text" title='xla::MetricTableReport::Category::category_text' data-ref="xla::MetricTableReport::Category::category_text">category_text</dfn>;</td></tr>
+<tr><th id="117">117</th><td>    <em>double</em> <dfn class="decl" id="xla::MetricTableReport::Category::metric_sum" title='xla::MetricTableReport::Category::metric_sum' data-ref="xla::MetricTableReport::Category::metric_sum">metric_sum</dfn> = <var>0.0</var>;  <i>// Sum of metric across entries.</i></td></tr>
+<tr><th id="118">118</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<em>const</em> <a class="type" href="#xla::MetricTableReport::Entry" title='xla::MetricTableReport::Entry' data-ref="xla::MetricTableReport::Entry">Entry</a>*&gt; <dfn class="decl" id="xla::MetricTableReport::Category::entries" title='xla::MetricTableReport::Category::entries' data-ref="xla::MetricTableReport::Category::entries">entries</dfn>;</td></tr>
+<tr><th id="119">119</th><td>  };</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td>  <i>// Returns a vector of categories of entries with the same category_text. The</i></td></tr>
+<tr><th id="122">122</th><td><i>  // vector is sorted in order of decreasing metric sum.</i></td></tr>
+<tr><th id="123">123</th><td><i>  //</i></td></tr>
+<tr><th id="124">124</th><td><i>  // The returned categories contain pointers into the entries parameter. The</i></td></tr>
+<tr><th id="125">125</th><td><i>  // style guide requires parameters to which references/pointers are retained</i></td></tr>
+<tr><th id="126">126</th><td><i>  // to be taken by pointer, even for const parameters, so that is why entries</i></td></tr>
+<tr><th id="127">127</th><td><i>  // is taken by pointer.</i></td></tr>
+<tr><th id="128">128</th><td>  <em>static</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="#xla::MetricTableReport::Category" title='xla::MetricTableReport::Category' data-ref="xla::MetricTableReport::Category">Category</a>&gt; <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport14MakeCategoriesEPKSt6vectorINS0_5EntryESaIS2_EE" title='xla::MetricTableReport::MakeCategories' data-ref="_ZN3xla17MetricTableReport14MakeCategoriesEPKSt6vectorINS0_5EntryESaIS2_EE" id="_ZN3xla17MetricTableReport14MakeCategoriesEPKSt6vectorINS0_5EntryESaIS2_EE">MakeCategories</a>(</td></tr>
+<tr><th id="129">129</th><td>      <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="#xla::MetricTableReport::Entry" title='xla::MetricTableReport::Entry' data-ref="xla::MetricTableReport::Entry">Entry</a>&gt;* <dfn class="local col7 decl" id="7entries" title='entries' data-type='const std::vector&lt;Entry&gt; *' data-ref="7entries">entries</dfn>);</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td>  <i>// Append a header to the report.</i></td></tr>
+<tr><th id="132">132</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport12AppendHeaderEv" title='xla::MetricTableReport::AppendHeader' data-ref="_ZN3xla17MetricTableReport12AppendHeaderEv" id="_ZN3xla17MetricTableReport12AppendHeaderEv">AppendHeader</a>();</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>  <i>// Append a table of categories to the report.</i></td></tr>
+<tr><th id="135">135</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport19AppendCategoryTableEv" title='xla::MetricTableReport::AppendCategoryTable' data-ref="_ZN3xla17MetricTableReport19AppendCategoryTableEv" id="_ZN3xla17MetricTableReport19AppendCategoryTableEv">AppendCategoryTable</a>();</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td>  <i>// Append a table of entries to the report.</i></td></tr>
+<tr><th id="138">138</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport16AppendEntryTableEv" title='xla::MetricTableReport::AppendEntryTable' data-ref="_ZN3xla17MetricTableReport16AppendEntryTableEv" id="_ZN3xla17MetricTableReport16AppendEntryTableEv">AppendEntryTable</a>();</td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td>  <i>// Appends a row of a table to the report.</i></td></tr>
+<tr><th id="141">141</th><td>  <em>void</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport14AppendTableRowERKSsdd" title='xla::MetricTableReport::AppendTableRow' data-ref="_ZN3xla17MetricTableReport14AppendTableRowERKSsdd" id="_ZN3xla17MetricTableReport14AppendTableRowERKSsdd">AppendTableRow</a>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col8 decl" id="8text" title='text' data-type='const string &amp;' data-ref="8text">text</dfn>, <em>const</em> <em>double</em> <dfn class="local col9 decl" id="9metric" title='metric' data-type='const double' data-ref="9metric">metric</dfn>,</td></tr>
+<tr><th id="142">142</th><td>                      <em>const</em> <em>double</em> <dfn class="local col0 decl" id="10running_metric_sum" title='running_metric_sum' data-type='const double' data-ref="10running_metric_sum">running_metric_sum</dfn>);</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>  <i>// Returns the discrepancy between the expected sum of the metric of the</i></td></tr>
+<tr><th id="145">145</th><td><i>  // entries and the actual sum.</i></td></tr>
+<tr><th id="146">146</th><td>  <em>double</em> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport17UnaccountedMetricEv" title='xla::MetricTableReport::UnaccountedMetric' data-ref="_ZN3xla17MetricTableReport17UnaccountedMetricEv" id="_ZN3xla17MetricTableReport17UnaccountedMetricEv">UnaccountedMetric</a>();</td></tr>
+<tr><th id="147">147</th><td></td></tr>
+<tr><th id="148">148</th><td>  <i>// Formats the metric value as a string.</i></td></tr>
+<tr><th id="149">149</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport12MetricStringEd" title='xla::MetricTableReport::MetricString' data-ref="_ZN3xla17MetricTableReport12MetricStringEd" id="_ZN3xla17MetricTableReport12MetricStringEd">MetricString</a>(<em>double</em> <dfn class="local col1 decl" id="11metric" title='metric' data-type='double' data-ref="11metric">metric</dfn>);</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>  <i>// Returns a string representing the metric value as a proportion of the</i></td></tr>
+<tr><th id="152">152</th><td><i>  // expected metric sum.</i></td></tr>
+<tr><th id="153">153</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <a class="decl" href="metric_table_report.cc.html#_ZN3xla17MetricTableReport13MetricPercentEd" title='xla::MetricTableReport::MetricPercent' data-ref="_ZN3xla17MetricTableReport13MetricPercentEd" id="_ZN3xla17MetricTableReport13MetricPercentEd">MetricPercent</a>(<em>double</em> <dfn class="local col2 decl" id="12metric" title='metric' data-type='double' data-ref="12metric">metric</dfn>);</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>  <i>// The entries to make a report about.</i></td></tr>
+<tr><th id="156">156</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="#xla::MetricTableReport::Entry" title='xla::MetricTableReport::Entry' data-ref="xla::MetricTableReport::Entry">Entry</a>&gt; <dfn class="decl" id="xla::MetricTableReport::entries_" title='xla::MetricTableReport::entries_' data-ref="xla::MetricTableReport::entries_">entries_</dfn>;</td></tr>
+<tr><th id="157">157</th><td></td></tr>
+<tr><th id="158">158</th><td>  <em>double</em> <dfn class="decl" id="xla::MetricTableReport::expected_metric_sum_" title='xla::MetricTableReport::expected_metric_sum_' data-ref="xla::MetricTableReport::expected_metric_sum_">expected_metric_sum_</dfn> = <var>0.0</var>;</td></tr>
+<tr><th id="159">159</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="xla::MetricTableReport::metric_name_" title='xla::MetricTableReport::metric_name_' data-ref="xla::MetricTableReport::metric_name_">metric_name_</dfn> = <a class="ref fake" href="../../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1EPKT_RKT1_" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1EPKT_RKT1_"></a><q>"units"</q>;</td></tr>
+<tr><th id="160">160</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="xla::MetricTableReport::entry_name_" title='xla::MetricTableReport::entry_name_' data-ref="xla::MetricTableReport::entry_name_">entry_name_</dfn> = <a class="ref fake" href="../../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1EPKT_RKT1_" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1EPKT_RKT1_"></a><q>"entries"</q>;</td></tr>
+<tr><th id="161">161</th><td>  <em>bool</em> <dfn class="decl" id="xla::MetricTableReport::show_category_table_" title='xla::MetricTableReport::show_category_table_' data-ref="xla::MetricTableReport::show_category_table_">show_category_table_</dfn> = <b>false</b>;</td></tr>
+<tr><th id="162">162</th><td>  <em>bool</em> <dfn class="decl" id="xla::MetricTableReport::show_entry_table_" title='xla::MetricTableReport::show_entry_table_' data-ref="xla::MetricTableReport::show_entry_table_">show_entry_table_</dfn> = <b>false</b>;</td></tr>
+<tr><th id="163">163</th><td></td></tr>
+<tr><th id="164">164</th><td>  <i>// These members control how many categories and entries to show in tables.</i></td></tr>
+<tr><th id="165">165</th><td>  <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl" id="xla::MetricTableReport::max_entries_to_show_" title='xla::MetricTableReport::max_entries_to_show_' data-ref="xla::MetricTableReport::max_entries_to_show_">max_entries_to_show_</dfn> = <a class="ref" href="#xla::MetricTableReport::kDefaultMaxEntriesToShow" title='xla::MetricTableReport::kDefaultMaxEntriesToShow' data-ref="xla::MetricTableReport::kDefaultMaxEntriesToShow">kDefaultMaxEntriesToShow</a>;</td></tr>
+<tr><th id="166">166</th><td>  <a class="typedef" href="../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl" id="xla::MetricTableReport::max_entries_per_category_to_show_" title='xla::MetricTableReport::max_entries_per_category_to_show_' data-ref="xla::MetricTableReport::max_entries_per_category_to_show_">max_entries_per_category_to_show_</dfn> = <a class="ref" href="#xla::MetricTableReport::kDefaultMaxEntriesPerCategoryToShow" title='xla::MetricTableReport::kDefaultMaxEntriesPerCategoryToShow' data-ref="xla::MetricTableReport::kDefaultMaxEntriesPerCategoryToShow">kDefaultMaxEntriesPerCategoryToShow</a>;</td></tr>
+<tr><th id="167">167</th><td>  <em>double</em> <dfn class="decl" id="xla::MetricTableReport::max_metric_proportion_to_show_" title='xla::MetricTableReport::max_metric_proportion_to_show_' data-ref="xla::MetricTableReport::max_metric_proportion_to_show_">max_metric_proportion_to_show_</dfn> = <a class="ref" href="#xla::MetricTableReport::kDefaultMaxMetricProportionToShow" title='xla::MetricTableReport::kDefaultMaxMetricProportionToShow' data-ref="xla::MetricTableReport::kDefaultMaxMetricProportionToShow">kDefaultMaxMetricProportionToShow</a>;</td></tr>
+<tr><th id="168">168</th><td></td></tr>
+<tr><th id="169">169</th><td>  <i>// The report that is being created.</i></td></tr>
+<tr><th id="170">170</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="xla::MetricTableReport::report_" title='xla::MetricTableReport::report_' data-ref="xla::MetricTableReport::report_">report_</dfn>;</td></tr>
+<tr><th id="171">171</th><td>};</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>}  <i>// namespace xla</i></td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_COMPILER_XLA_METRIC_TABLE_REPORT_H_</u></td></tr>
+<tr><th id="176">176</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='metric_table_report.cc.html'>tensorflow/tensorflow/compiler/xla/metric_table_report.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

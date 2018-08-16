@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/lib/monitoring/counter.h' l='56' type='void tensorflow::monitoring::CounterCell::IncrementBy(int64 step)'/>
+<def f='tensorflow/tensorflow/core/lib/monitoring/counter.h' l='132' ll='135' type='void tensorflow::monitoring::CounterCell::IncrementBy(const int64 step)'/>
+<use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='294' u='c' c='_ZN10tensorflow14LoadSavedModelERKNS_14SessionOptionsERKNS_10RunOptionsERKSsRKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPNS_16SavedModelBundleE'/>
+<use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='301' u='c' c='_ZN10tensorflow14LoadSavedModelERKNS_14SessionOptionsERKNS_10RunOptionsERKSsRKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPNS_16SavedModelBundleE'/>
+<doc f='tensorflow/tensorflow/core/lib/monitoring/counter.h' l='54'>// Atomically increments the value by step.
+  // REQUIRES: Step be non-negative.</doc>
+<doc f='tensorflow/tensorflow/core/lib/monitoring/counter.h' l='128'>////
+//  Implementation details follow. API readers may skip.
+////</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='630' u='c' c='_ZN10tensorflow13DirectSession3RunERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1672' u='c' c='_ZN10tensorflow13DirectSession11RunCallableExRKSt6vectorINS_6TensorESaIS2_EEPS4_PNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/util/example_proto_fast_parsing.cc' l='478' u='c' c='_ZN10tensorflow7example12_GLOBAL__N_123LogDenseFeatureDataLossENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/example_proto_fast_parsing.cc' l='489' u='c' c='_ZN10tensorflow7example12_GLOBAL__N_124LogSparseFeatureDataLossENS_11StringPieceE'/>

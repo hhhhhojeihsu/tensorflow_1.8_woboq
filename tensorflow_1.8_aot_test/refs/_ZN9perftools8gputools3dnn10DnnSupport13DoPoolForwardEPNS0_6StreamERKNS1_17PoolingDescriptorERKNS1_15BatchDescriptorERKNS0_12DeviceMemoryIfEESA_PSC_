@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/stream_executor/dnn.h' l='1528' type='bool perftools::gputools::dnn::DnnSupport::DoPoolForward(perftools::gputools::Stream * stream, const dnn::PoolingDescriptor &amp; pooling_dimensions, const dnn::BatchDescriptor &amp; input_dimensions, const DeviceMemory&lt;float&gt; &amp; input_data, const dnn::BatchDescriptor &amp; output_dimensions, DeviceMemory&lt;float&gt; * output_data)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1515'>// Performs a forward pooling operation on input_data, writing to
+  // output_data. See PoolingDescriptor for how to configure the
+  // pooling operation.
+  //
+  // Pooling happens as a window that moves across the Y and X
+  // dimensions of input_data, where each position of the window
+  // yields one output value. E.g. for max pooling, the computed value
+  // is the maximum element in the window. The operation is applied
+  // independently to each batch and at each feature map (depth), so
+  // that the output depth and feature_map_count are the same as for
+  // the input. The output width and height can be different.
+  //
+  // See PoolingDescriptor for how to configure the pooling operation.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='1401' u='c' c='_ZN9perftools8gputools6Stream15ThenPoolForwardERKNS0_3dnn17PoolingDescriptorERKNS2_15BatchDescriptorERKNS0_12DeviceMemoryIfEES8_PSA_'/>

@@ -1,0 +1,39 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/dfs_hlo_visitor_with_default.h' l='45' c='xla::DfsHloVisitorWithDefaultBase'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.h' l='183' ll='327'/>
+<size>96</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.h' l='181'>// DFS visitor that performs tuple points-to analysis. This analysis determines
+// the potential sources of each buffer in each instruction&apos;s output.</doc>
+<fun r='_ZN3xla21TuplePointsToAnalysis3RunEPKNS_9HloModuleE'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis14GetPointsToSetEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis9GetBufferEx'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis18GetBufferDefinedAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis16GetBufferAliasesERKNS_13LogicalBufferE'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis19num_logical_buffersEv'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis14logical_bufferEx'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis30GetBuffersDefinedByInstructionEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis31InstructionDefinesBufferAtIndexEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis12VerifyBufferERKNS_13LogicalBufferE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis13DefaultActionEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis11HandleTupleEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis13HandleBitcastEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis11HandleSliceEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis10HandleCopyEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis14HandleRecvDoneEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis10HandleSendEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis12HandleSelectEPNS_14HloInstructionE'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis8ToStringEv'/>
+<fun r='_ZN3xla21TuplePointsToAnalysisC1EPKNS_9HloModuleESt10unique_ptrINS_21LogicalBufferAnalysisESt14default_deleteIS5_EE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis7AnalyzeEv'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis32PopulateDefinedBuffersAndAliasesERKN10tensorflow3gtl14iterator_rangeINS_18UnwrappingIteratorISt14_List_iteratorISt10un1923812'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis22CreateEmptyPointsToSetEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis23CreateCopiedPointsToSetEPKNS_14HloInstructionES3_'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis33GatherBuffersDefinedByInstructionEPKNS_14HloInstructionEPN10tensorflow3gtl13InlinedVectorIPKNS_13LogicalBufferELi1EEE'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis19InstructionToStringEPKNS_14HloInstructionEPSs'/>
+<fun r='_ZNK3xla21TuplePointsToAnalysis7PerInstEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla21TuplePointsToAnalysis7PerInstEPKNS_14HloInstructionE'/>
+<mbr r='xla::TuplePointsToAnalysis::module_' o='256' t='const xla::HloModule *'/>
+<mbr r='xla::TuplePointsToAnalysis::logical_buffer_analysis_' o='320' t='const std::unique_ptr&lt;LogicalBufferAnalysis&gt;'/>
+<mbr r='xla::TuplePointsToAnalysis::per_instruction_' o='384' t='std::vector&lt;PerInstruction&gt;'/>
+<mbr r='xla::TuplePointsToAnalysis::logical_buffer_aliases_' o='576' t='std::vector&lt;BufferAliasVector&gt;'/>
+<fun r='_ZN3xla21TuplePointsToAnalysisC1ERKS0_'/>

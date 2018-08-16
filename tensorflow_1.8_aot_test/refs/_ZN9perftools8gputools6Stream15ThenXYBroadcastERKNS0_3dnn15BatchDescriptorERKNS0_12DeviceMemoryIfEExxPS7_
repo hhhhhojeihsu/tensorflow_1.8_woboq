@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream.h' l='777' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenXYBroadcast(const dnn::BatchDescriptor &amp; dimensions, const DeviceMemory&lt;float&gt; &amp; input_data, int64 replicate_x, int64 replicate_y, DeviceMemory&lt;float&gt; * output_data)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream.h' l='774'>// Grows the input tensor by replicating the X and Y dimensions. The batch and
+  // depth/feature_map dimensions are unchanged. Currently, the input tensor is
+  // limited to X=1 and Y=1.</doc>
+<def f='tensorflow/tensorflow/stream_executor/stream.cc' l='1811' ll='1827' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenXYBroadcast(const dnn::BatchDescriptor &amp; dimensions, const DeviceMemory&lt;float&gt; &amp; input_data, int64 replicate_x, int64 replicate_y, DeviceMemory&lt;float&gt; * output_data)'/>

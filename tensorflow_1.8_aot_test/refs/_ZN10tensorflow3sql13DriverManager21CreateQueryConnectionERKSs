@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/kernels/data/sql/driver_manager.h' l='33' type='static std::unique_ptr&lt;QueryConnection&gt; tensorflow::sql::DriverManager::CreateQueryConnection(const string &amp; driver_name)'/>
+<def f='tensorflow/tensorflow/core/kernels/data/sql/driver_manager.cc' l='22' ll='30' type='static std::unique_ptr&lt;QueryConnection&gt; tensorflow::sql::DriverManager::CreateQueryConnection(const string &amp; driver_name)'/>
+<doc f='tensorflow/tensorflow/core/kernels/data/sql/driver_manager.h' l='27'>// A factory method for creating `QueryConnection` instances.
+  //
+  // `driver_name` is the database type (e.g. &apos;sqlite&apos;). `driver_name`
+  // corresponds to a `QueryConnection` subclass. For example, if `driver_name`
+  // == `sqlite`, then `CreateQueryConnection` will create a
+  // `SqliteQueryConnection` instance.</doc>
+<use f='tensorflow/tensorflow/core/kernels/data/sql_dataset_ops.cc' l='125' u='c' c='_ZN10tensorflow12_GLOBAL__N_112SqlDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>

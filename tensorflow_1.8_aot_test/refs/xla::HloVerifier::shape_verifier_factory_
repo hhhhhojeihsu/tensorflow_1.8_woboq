@@ -1,0 +1,10 @@
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.h' l='125' u='w' c='_ZN3xla11HloVerifierC1Ev'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.h' l='129' u='w' c='_ZN3xla11HloVerifierC1Eb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.h' l='135' u='w' c='_ZN3xla11HloVerifierC1ESt8functionIFSt10unique_ptrINS_13ShapeVerifierESt14default_deleteIS3_EEvEE'/>
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.h' l='152' type='ShapeVerifierFactory'/>
+<offset>64</offset>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.h' l='148'>// Creates a ShapeVerifier that checks that shapes match inferred
+  // expectations.  This is a factory function because ShapeVerifier,  Note that
+  // ShapeVerifier, being a DfsHloVisitor, is stateful.  We want a clean object
+  // for each run of the verifier.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='837' u='m' c='_ZN3xla11HloVerifier3RunEPNS_9HloModuleE'/>

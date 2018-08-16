@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/public/session.h' l='93' type='tensorflow::Status tensorflow::Session::Create(const tensorflow::GraphDef &amp; graph)'/>
+<doc f='tensorflow/tensorflow/core/public/session.h' l='88'>/// \brief Create the graph to be used for the session.
+  ///
+  /// Returns an error if this session has already been created with a
+  /// graph. To re-use the session with a different graph, the caller
+  /// must Close() the session first.</doc>
+<use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='102' u='c' c='_ZN10tensorflow12_GLOBAL__N_124LoadMetaGraphIntoSessionERKNS_12MetaGraphDefERKNS_14SessionOptionsEPSt10unique_ptrINS_7SessionESt14default_deleteIS8_EE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='356' c='_ZN10tensorflow13DirectSession6CreateERKNS_8GraphDefE'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='126' c='_ZN10tensorflow11GrpcSession6CreateERKNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/single_machine.cc' l='152' u='c' c='_ZN10tensorflow8grappler13SingleMachine3RunERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='245' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils15DryRunInferenceERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEEbPS4_IS6_SaIS6_EE'/>

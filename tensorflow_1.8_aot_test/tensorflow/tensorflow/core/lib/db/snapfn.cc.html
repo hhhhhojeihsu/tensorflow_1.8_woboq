@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>snapfn.cc source code [tensorflow/tensorflow/core/lib/db/snapfn.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/lib/db/snapfn.cc'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>lib</a>/<a href='./'>db</a>/<a href='snapfn.cc.html'>snapfn.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>/// \brief SQLite extension for Snappy compression</i></td></tr>
+<tr><th id="17">17</th><td><i>///</i></td></tr>
+<tr><th id="18">18</th><td><i>/// Snappy a compression library that trades ratio for speed, almost going a</i></td></tr>
+<tr><th id="19">19</th><td><i>/// tenth as fast as memcpy().</i></td></tr>
+<tr><th id="20">20</th><td><i>///</i></td></tr>
+<tr><th id="21">21</th><td><i>/// FUNCTIONS</i></td></tr>
+<tr><th id="22">22</th><td><i>///</i></td></tr>
+<tr><th id="23">23</th><td><i>/// - snap(value: BLOB|TEXT) -&gt; BLOB</i></td></tr>
+<tr><th id="24">24</th><td><i>/// - snap(value: NULL|INT|REAL) -&gt; value</i></td></tr>
+<tr><th id="25">25</th><td><i>///</i></td></tr>
+<tr><th id="26">26</th><td><i>///   Applies Snappy compression. If value is TEXT or BLOB, then it is</i></td></tr>
+<tr><th id="27">27</th><td><i>///   compressed and a BLOB is returned with a byte prepended to indicate the</i></td></tr>
+<tr><th id="28">28</th><td><i>///   original type. Other types are returned as-is.</i></td></tr>
+<tr><th id="29">29</th><td><i>///</i></td></tr>
+<tr><th id="30">30</th><td><i>/// - unsnap(value: BLOB) -&gt; TEXT|BLOB</i></td></tr>
+<tr><th id="31">31</th><td><i>/// - unsnap(value: TEXT) -&gt; SQLITE_MISMATCH</i></td></tr>
+<tr><th id="32">32</th><td><i>/// - unsnap(value: NULL|INT|REAL) -&gt; value</i></td></tr>
+<tr><th id="33">33</th><td><i>///</i></td></tr>
+<tr><th id="34">34</th><td><i>///   Decompresses value created by snap(). If value is empty, then an empty</i></td></tr>
+<tr><th id="35">35</th><td><i>///   blob is returned. Otherwise the original type is restored from the first</i></td></tr>
+<tr><th id="36">36</th><td><i>///   byte and the remaining ones are decompressed. TEXT is not allowed as an</i></td></tr>
+<tr><th id="37">37</th><td><i>///   input type. Remaining types are returned as-is.</i></td></tr>
+<tr><th id="38">38</th><td><i>///</i></td></tr>
+<tr><th id="39">39</th><td><i>/// PERFORMANCE CONSIDERATIONS</i></td></tr>
+<tr><th id="40">40</th><td><i>///</i></td></tr>
+<tr><th id="41">41</th><td><i>/// These functions are deterministic. This means SQLite ≥3.8.3 will factor</i></td></tr>
+<tr><th id="42">42</th><td><i>/// them out of inner loops when constant arguments are provided. In SQLite</i></td></tr>
+<tr><th id="43">43</th><td><i>/// ≥3.15.0 they can be used in the WHERE clause of partial indexes. Currently</i></td></tr>
+<tr><th id="44">44</th><td><i>/// there is no support for common sub-expression elimination.</i></td></tr>
+<tr><th id="45">45</th><td><i>///</i></td></tr>
+<tr><th id="46">46</th><td><i>/// SQLite environments that aren't universally UTF8 will work, but should</i></td></tr>
+<tr><th id="47">47</th><td><i>/// encounter superfluous charset transcodings; as this implementation encodes</i></td></tr>
+<tr><th id="48">48</th><td><i>/// only UTF8 TEXT for the sake of simplicity. Contributions are welcome that</i></td></tr>
+<tr><th id="49">49</th><td><i>/// register multiple sister functions for the various charsets, which use the</i></td></tr>
+<tr><th id="50">50</th><td><i>/// higher order bits of the type byte to indicate encoding.</i></td></tr>
+<tr><th id="51">51</th><td><i>///</i></td></tr>
+<tr><th id="52">52</th><td><i>/// SUPPORT MATRIX</i></td></tr>
+<tr><th id="53">53</th><td><i>///</i></td></tr>
+<tr><th id="54">54</th><td><i>/// - 3.20.0 (2016-05-18) What FOSS TensorFlow uses</i></td></tr>
+<tr><th id="55">55</th><td><i>/// - 3.13.0 (2016-05-18) What Google uses c. 2017-12</i></td></tr>
+<tr><th id="56">56</th><td><i>/// - 3.8.2  (2013-12-06) Used by Ubuntu 14.04</i></td></tr>
+<tr><th id="57">57</th><td><i>///</i></td></tr>
+<tr><th id="58">58</th><td><i>/// MANUAL COMPILATION</i></td></tr>
+<tr><th id="59">59</th><td><i>///</i></td></tr>
+<tr><th id="60">60</th><td><i>/// $ sudo apt-get install libsqlite3-dev libsnappy-dev</i></td></tr>
+<tr><th id="61">61</th><td><i>/// $ c++ -shared --std=c++11 -o libsnapfn.so -fPIC snapfn.cc -lsnappy</i></td></tr>
+<tr><th id="62">62</th><td><i>///</i></td></tr>
+<tr><th id="63">63</th><td><i>/// $ sqlite3</i></td></tr>
+<tr><th id="64">64</th><td><i>/// sqlite&gt; .load libsnapfn.so</i></td></tr>
+<tr><th id="65">65</th><td><i>/// sqlite&gt; select hex(snap('aaaaaaaaaaaaaaaaa'));</i></td></tr>
+<tr><th id="66">66</th><td><i>/// 031100613E0100</i></td></tr>
+<tr><th id="67">67</th><td><i>/// sqlite&gt; select unsnap(x'031100613E0100');</i></td></tr>
+<tr><th id="68">68</th><td><i>/// aaaaaaaaaaaaaaaaa</i></td></tr>
+<tr><th id="69">69</th><td><i>///</i></td></tr>
+<tr><th id="70">70</th><td><i>/// $ python</i></td></tr>
+<tr><th id="71">71</th><td><i>/// &gt;&gt;&gt; import sqlite3</i></td></tr>
+<tr><th id="72">72</th><td><i>/// &gt;&gt;&gt; db = sqlite3.connect(':memory:')</i></td></tr>
+<tr><th id="73">73</th><td><i>/// &gt;&gt;&gt; db.enable_load_extension(True)</i></td></tr>
+<tr><th id="74">74</th><td><i>/// &gt;&gt;&gt; db.execute('select load_extension("libsnapfn.so")')</i></td></tr>
+<tr><th id="75">75</th><td><i>/// &gt;&gt;&gt; db.enable_load_extension(False)</i></td></tr>
+<tr><th id="76">76</th><td><i>/// &gt;&gt;&gt; db.execute('select hex(snap("aaaaaaaaaaaaaaaaa"))').fetchone()[0]</i></td></tr>
+<tr><th id="77">77</th><td><i>/// u'031100613E0100'</i></td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td><u>#include "sqlite3ext.h"</u></td></tr>
+<tr><th id="80">80</th><td><u>#include "snappy.h"</u></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><span class="macro" title="" data-ref="_M/SQLITE_EXTENSION_INIT1">SQLITE_EXTENSION_INIT1</span></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="_ZL4snapP15sqlite3_contextiPP13sqlite3_value" title='snap' data-type='void snap(sqlite3_context * ctx, int , sqlite3_value ** argv)' data-ref="_ZL4snapP15sqlite3_contextiPP13sqlite3_value">snap</dfn>(<span class='typedef' title='sqlite3_context' data-type='struct sqlite3_context' data-ref="sqlite3_context">sqlite3_context</span>* <dfn class="local col1 decl" id="1ctx" title='ctx' data-type='sqlite3_context *' data-ref="1ctx">ctx</dfn>, <em>int</em> <i  data-doc="_ZL4snapP15sqlite3_contextiPP13sqlite3_value">/*argc*/</i>, <span class='typedef' title='sqlite3_value' data-type='struct sqlite3_value' data-ref="sqlite3_value">sqlite3_value</span>** <dfn class="local col2 decl" id="2argv" title='argv' data-type='sqlite3_value **' data-ref="2argv">argv</dfn>) {</td></tr>
+<tr><th id="85">85</th><td>  <em>const</em> <em>char</em>* <dfn class="local col3 decl" id="3data" title='data' data-type='const char *' data-ref="3data">data</dfn>;</td></tr>
+<tr><th id="86">86</th><td>  <em>int</em> <dfn class="local col4 decl" id="4type" title='type' data-type='int' data-ref="4type">type</dfn> = <span class='ref' title='sqlite3_value_type' data-ref="sqlite3_value_type">sqlite3_value_type</span>(<a class="local col2 ref" href="#2argv" title='argv' data-ref="2argv">argv</a>[<var>0</var>]);</td></tr>
+<tr><th id="87">87</th><td>  <b>switch</b> (<a class="local col4 ref" href="#4type" title='type' data-ref="4type">type</a>) {</td></tr>
+<tr><th id="88">88</th><td>    <b>case</b> <span class="macro" title="5" data-ref="_M/SQLITE_NULL">SQLITE_NULL</span>:</td></tr>
+<tr><th id="89">89</th><td>      <b>return</b>;</td></tr>
+<tr><th id="90">90</th><td>    <b>case</b> <span class="macro" title="1" data-ref="_M/SQLITE_INTEGER">SQLITE_INTEGER</span>:</td></tr>
+<tr><th id="91">91</th><td>      <span class='ref' title='sqlite3_result_int64' data-ref="sqlite3_result_int64">sqlite3_result_int64</span>(<a class="local col1 ref" href="#1ctx" title='ctx' data-ref="1ctx">ctx</a>, <span class='ref' title='sqlite3_value_int64' data-ref="sqlite3_value_int64">sqlite3_value_int64</span>(<a class="local col2 ref" href="#2argv" title='argv' data-ref="2argv">argv</a>[<var>0</var>]));</td></tr>
+<tr><th id="92">92</th><td>      <b>return</b>;</td></tr>
+<tr><th id="93">93</th><td>    <b>case</b> <span class="macro" title="2" data-ref="_M/SQLITE_FLOAT">SQLITE_FLOAT</span>:</td></tr>
+<tr><th id="94">94</th><td>      <span class='ref' title='sqlite3_result_double' data-ref="sqlite3_result_double">sqlite3_result_double</span>(<a class="local col1 ref" href="#1ctx" title='ctx' data-ref="1ctx">ctx</a>, <span class='ref' title='sqlite3_value_double' data-ref="sqlite3_value_double">sqlite3_value_double</span>(<a class="local col2 ref" href="#2argv" title='argv' data-ref="2argv">argv</a>[<var>0</var>]));</td></tr>
+<tr><th id="95">95</th><td>      <b>return</b>;</td></tr>
+<tr><th id="96">96</th><td>    <b>case</b> <span class="macro" title="4" data-ref="_M/SQLITE_BLOB">SQLITE_BLOB</span>:</td></tr>
+<tr><th id="97">97</th><td>      <a class="local col3 ref" href="#3data" title='data' data-ref="3data">data</a> = <b>reinterpret_cast</b>&lt;<em>const</em> <em>char</em>*&gt;(<span class='ref' title='sqlite3_value_blob' data-ref="sqlite3_value_blob">sqlite3_value_blob</span>(<a class="local col2 ref" href="#2argv" title='argv' data-ref="2argv">argv</a>[<var>0</var>]));</td></tr>
+<tr><th id="98">98</th><td>      <b>break</b>;</td></tr>
+<tr><th id="99">99</th><td>    <b>case</b> <span class="macro" title="3" data-ref="_M/SQLITE_TEXT">SQLITE_TEXT</span>:</td></tr>
+<tr><th id="100">100</th><td>      <a class="local col3 ref" href="#3data" title='data' data-ref="3data">data</a> = <b>reinterpret_cast</b>&lt;<em>const</em> <em>char</em>*&gt;(<span class='ref' title='sqlite3_value_text' data-ref="sqlite3_value_text">sqlite3_value_text</span>(<a class="local col2 ref" href="#2argv" title='argv' data-ref="2argv">argv</a>[<var>0</var>]));</td></tr>
+<tr><th id="101">101</th><td>      <b>break</b>;</td></tr>
+<tr><th id="102">102</th><td>    <b>default</b>:</td></tr>
+<tr><th id="103">103</th><td>      <span class='ref' title='sqlite3_result_error' data-ref="sqlite3_result_error">sqlite3_result_error</span>(<a class="local col1 ref" href="#1ctx" title='ctx' data-ref="1ctx">ctx</a>, <q>"snap() invalid type"</q>, -<var>1</var>);</td></tr>
+<tr><th id="104">104</th><td>      <span class='ref' title='sqlite3_result_error_code' data-ref="sqlite3_result_error_code">sqlite3_result_error_code</span>(<a class="local col1 ref" href="#1ctx" title='ctx' data-ref="1ctx">ctx</a>, <span class="macro" title="20" data-ref="_M/SQLITE_MISMATCH">SQLITE_MISMATCH</span>);</td></tr>
+<tr><th id="105">105</th><td>      <b>return</b>;</td></tr>
+<tr><th id="106">106</th><td>  }</td></tr>
+<tr><th id="107">107</th><td>  <em>int</em> <dfn class="local col5 decl" id="5size" title='size' data-type='int' data-ref="5size">size</dfn> = <span class='ref' title='sqlite3_value_bytes' data-ref="sqlite3_value_bytes">sqlite3_value_bytes</span>(<a class="local col2 ref" href="#2argv" title='argv' data-ref="2argv">argv</a>[<var>0</var>]);</td></tr>
+<tr><th id="108">108</th><td>  <b>if</b> (<a class="local col5 ref" href="#5size" title='size' data-ref="5size">size</a> &lt;= <var>0</var>) {</td></tr>
+<tr><th id="109">109</th><td>    <em>char</em> <dfn class="local col6 decl" id="6result" title='result' data-type='char [1]' data-ref="6result">result</dfn>[] = {<b>static_cast</b>&lt;<em>char</em>&gt;(<a class="local col4 ref" href="#4type" title='type' data-ref="4type">type</a>)};</td></tr>
+<tr><th id="110">110</th><td>    <span class='ref' title='sqlite3_result_blob' data-ref="sqlite3_result_blob">sqlite3_result_blob</span>(<a class="local col1 ref" href="#1ctx" title='ctx' data-ref="1ctx">ctx</a>, <a class="local col6 ref" href="#6result" title='result' data-ref="6result">result</a>, <b>sizeof</b>(<a class="local col6 ref" href="#6result" title='result' data-ref="6result">result</a>), <span class="macro" title="((sqlite3_destructor_type)-1)" data-ref="_M/SQLITE_TRANSIENT">SQLITE_TRANSIENT</span>);</td></tr>
+<tr><th id="111">111</th><td>    <b>return</b>;</td></tr>
+<tr><th id="112">112</th><td>  }</td></tr>
+<tr><th id="113">113</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col7 decl" id="7output_size" title='output_size' data-type='size_t' data-ref="7output_size">output_size</dfn> =</td></tr>
+<tr><th id="114">114</th><td>      <span class="namespace">snappy::</span><span class='ref' title='snappy::MaxCompressedLength' data-ref="_ZN6snappy19MaxCompressedLengthEm">MaxCompressedLength</span>(<b>static_cast</b>&lt;<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>&gt;(<a class="local col5 ref" href="#5size" title='size' data-ref="5size">size</a>)) + <var>1</var>;</td></tr>
+<tr><th id="115">115</th><td>  <b>if</b> (<a class="local col7 ref" href="#7output_size" title='output_size' data-ref="7output_size">output_size</a> &gt;</td></tr>
+<tr><th id="116">116</th><td>      <b>static_cast</b>&lt;<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>&gt;(<span class='ref' title='sqlite3_limit' data-ref="sqlite3_limit">sqlite3_limit</span>(<span class='ref' title='sqlite3_context_db_handle' data-ref="sqlite3_context_db_handle">sqlite3_context_db_handle</span>(<a class="local col1 ref" href="#1ctx" title='ctx' data-ref="1ctx">ctx</a>),</td></tr>
+<tr><th id="117">117</th><td>                                        <span class="macro" title="0" data-ref="_M/SQLITE_LIMIT_LENGTH">SQLITE_LIMIT_LENGTH</span>, -<var>1</var>))) {</td></tr>
+<tr><th id="118">118</th><td>    <span class='ref' title='sqlite3_result_error_toobig' data-ref="sqlite3_result_error_toobig">sqlite3_result_error_toobig</span>(<a class="local col1 ref" href="#1ctx" title='ctx' data-ref="1ctx">ctx</a>);</td></tr>
+<tr><th id="119">119</th><td>    <b>return</b>;</td></tr>
+<tr><th id="120">120</th><td>  }</td></tr>
+<tr><th id="121">121</th><td>  <em>auto</em> <dfn class="local col8 decl" id="8output" title='output' data-type='char *' data-ref="8output">output</dfn> =</td></tr>
+<tr><th id="122">122</th><td>      <b>static_cast</b>&lt;<em>char</em>*&gt;(<span class='ref' title='sqlite3_malloc' data-ref="sqlite3_malloc">sqlite3_malloc</span>(<b>static_cast</b>&lt;<em>int</em>&gt;(<a class="local col7 ref" href="#7output_size" title='output_size' data-ref="7output_size">output_size</a>)));</td></tr>
+<tr><th id="123">123</th><td>  <b>if</b> (<a class="local col8 ref" href="#8output" title='output' data-ref="8output">output</a> == <b>nullptr</b>) {</td></tr>
+<tr><th id="124">124</th><td>    <span class='ref' title='sqlite3_result_error_nomem' data-ref="sqlite3_result_error_nomem">sqlite3_result_error_nomem</span>(<a class="local col1 ref" href="#1ctx" title='ctx' data-ref="1ctx">ctx</a>);</td></tr>
+<tr><th id="125">125</th><td>    <b>return</b>;</td></tr>
+<tr><th id="126">126</th><td>  }</td></tr>
+<tr><th id="127">127</th><td>  *<a class="local col8 ref" href="#8output" title='output' data-ref="8output">output</a>++ = <b>static_cast</b>&lt;<em>char</em>&gt;(<a class="local col4 ref" href="#4type" title='type' data-ref="4type">type</a>), --<a class="local col7 ref" href="#7output_size" title='output_size' data-ref="7output_size">output_size</a>;</td></tr>
+<tr><th id="128">128</th><td>  <span class="namespace">snappy::</span><span class='ref' title='snappy::RawCompress' data-ref="_ZN6snappy11RawCompressEPKcmPcPm">RawCompress</span>(<a class="local col3 ref" href="#3data" title='data' data-ref="3data">data</a>, <b>static_cast</b>&lt;<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>&gt;(<a class="local col5 ref" href="#5size" title='size' data-ref="5size">size</a>), <a class="local col8 ref" href="#8output" title='output' data-ref="8output">output</a>, &amp;<a class="local col7 ref" href="#7output_size" title='output_size' data-ref="7output_size">output_size</a>);</td></tr>
+<tr><th id="129">129</th><td>  <span class='ref' title='sqlite3_result_blob' data-ref="sqlite3_result_blob">sqlite3_result_blob</span>(<a class="local col1 ref" href="#1ctx" title='ctx' data-ref="1ctx">ctx</a>, <a class="local col8 ref" href="#8output" title='output' data-ref="8output">output</a> - <var>1</var>, <b>static_cast</b>&lt;<em>int</em>&gt;(<a class="local col7 ref" href="#7output_size" title='output_size' data-ref="7output_size">output_size</a> + <var>1</var>),</td></tr>
+<tr><th id="130">130</th><td>                      <span class='ref' title='sqlite3_free' data-ref="sqlite3_free">sqlite3_free</span>);</td></tr>
+<tr><th id="131">131</th><td>}</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="_ZL6unsnapP15sqlite3_contextiPP13sqlite3_value" title='unsnap' data-type='void unsnap(sqlite3_context * ctx, int , sqlite3_value ** argv)' data-ref="_ZL6unsnapP15sqlite3_contextiPP13sqlite3_value">unsnap</dfn>(<span class='typedef' title='sqlite3_context' data-type='struct sqlite3_context' data-ref="sqlite3_context">sqlite3_context</span>* <dfn class="local col9 decl" id="9ctx" title='ctx' data-type='sqlite3_context *' data-ref="9ctx">ctx</dfn>, <em>int</em> <i  data-doc="_ZL6unsnapP15sqlite3_contextiPP13sqlite3_value">/*argc*/</i>, <span class='typedef' title='sqlite3_value' data-type='struct sqlite3_value' data-ref="sqlite3_value">sqlite3_value</span>** <dfn class="local col0 decl" id="10argv" title='argv' data-type='sqlite3_value **' data-ref="10argv">argv</dfn>) {</td></tr>
+<tr><th id="134">134</th><td>  <em>int</em> <dfn class="local col1 decl" id="11type" title='type' data-type='int' data-ref="11type">type</dfn> = <span class='ref' title='sqlite3_value_type' data-ref="sqlite3_value_type">sqlite3_value_type</span>(<a class="local col0 ref" href="#10argv" title='argv' data-ref="10argv">argv</a>[<var>0</var>]);</td></tr>
+<tr><th id="135">135</th><td>  <b>switch</b> (<a class="local col1 ref" href="#11type" title='type' data-ref="11type">type</a>) {</td></tr>
+<tr><th id="136">136</th><td>    <b>case</b> <span class="macro" title="5" data-ref="_M/SQLITE_NULL">SQLITE_NULL</span>:</td></tr>
+<tr><th id="137">137</th><td>      <b>return</b>;</td></tr>
+<tr><th id="138">138</th><td>    <b>case</b> <span class="macro" title="1" data-ref="_M/SQLITE_INTEGER">SQLITE_INTEGER</span>:</td></tr>
+<tr><th id="139">139</th><td>      <span class='ref' title='sqlite3_result_int64' data-ref="sqlite3_result_int64">sqlite3_result_int64</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <span class='ref' title='sqlite3_value_int64' data-ref="sqlite3_value_int64">sqlite3_value_int64</span>(<a class="local col0 ref" href="#10argv" title='argv' data-ref="10argv">argv</a>[<var>0</var>]));</td></tr>
+<tr><th id="140">140</th><td>      <b>return</b>;</td></tr>
+<tr><th id="141">141</th><td>    <b>case</b> <span class="macro" title="2" data-ref="_M/SQLITE_FLOAT">SQLITE_FLOAT</span>:</td></tr>
+<tr><th id="142">142</th><td>      <span class='ref' title='sqlite3_result_double' data-ref="sqlite3_result_double">sqlite3_result_double</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <span class='ref' title='sqlite3_value_double' data-ref="sqlite3_value_double">sqlite3_value_double</span>(<a class="local col0 ref" href="#10argv" title='argv' data-ref="10argv">argv</a>[<var>0</var>]));</td></tr>
+<tr><th id="143">143</th><td>      <b>return</b>;</td></tr>
+<tr><th id="144">144</th><td>    <b>case</b> <span class="macro" title="4" data-ref="_M/SQLITE_BLOB">SQLITE_BLOB</span>:</td></tr>
+<tr><th id="145">145</th><td>      <b>break</b>;</td></tr>
+<tr><th id="146">146</th><td>    <b>default</b>:</td></tr>
+<tr><th id="147">147</th><td>      <span class='ref' title='sqlite3_result_error' data-ref="sqlite3_result_error">sqlite3_result_error</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <q>"unsnap() invalid type"</q>, -<var>1</var>);</td></tr>
+<tr><th id="148">148</th><td>      <span class='ref' title='sqlite3_result_error_code' data-ref="sqlite3_result_error_code">sqlite3_result_error_code</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <span class="macro" title="20" data-ref="_M/SQLITE_MISMATCH">SQLITE_MISMATCH</span>);</td></tr>
+<tr><th id="149">149</th><td>      <b>return</b>;</td></tr>
+<tr><th id="150">150</th><td>  }</td></tr>
+<tr><th id="151">151</th><td>  <em>int</em> <dfn class="local col2 decl" id="12size" title='size' data-type='int' data-ref="12size">size</dfn> = <span class='ref' title='sqlite3_value_bytes' data-ref="sqlite3_value_bytes">sqlite3_value_bytes</span>(<a class="local col0 ref" href="#10argv" title='argv' data-ref="10argv">argv</a>[<var>0</var>]);</td></tr>
+<tr><th id="152">152</th><td>  <em>auto</em> <dfn class="local col3 decl" id="13blob" title='blob' data-type='const char *' data-ref="13blob">blob</dfn> = <b>reinterpret_cast</b>&lt;<em>const</em> <em>char</em>*&gt;(<span class='ref' title='sqlite3_value_blob' data-ref="sqlite3_value_blob">sqlite3_value_blob</span>(<a class="local col0 ref" href="#10argv" title='argv' data-ref="10argv">argv</a>[<var>0</var>]));</td></tr>
+<tr><th id="153">153</th><td>  <b>if</b> (<a class="local col2 ref" href="#12size" title='size' data-ref="12size">size</a> &lt;= <var>0</var>) {</td></tr>
+<tr><th id="154">154</th><td>    <span class='ref' title='sqlite3_result_zeroblob' data-ref="sqlite3_result_zeroblob">sqlite3_result_zeroblob</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <var>0</var>);</td></tr>
+<tr><th id="155">155</th><td>    <b>return</b>;</td></tr>
+<tr><th id="156">156</th><td>  }</td></tr>
+<tr><th id="157">157</th><td>  <a class="local col1 ref" href="#11type" title='type' data-ref="11type">type</a> = <b>static_cast</b>&lt;<em>int</em>&gt;(*<a class="local col3 ref" href="#13blob" title='blob' data-ref="13blob">blob</a>++), --<a class="local col2 ref" href="#12size" title='size' data-ref="12size">size</a>;</td></tr>
+<tr><th id="158">158</th><td>  <b>if</b> (<a class="local col1 ref" href="#11type" title='type' data-ref="11type">type</a> != <span class="macro" title="4" data-ref="_M/SQLITE_BLOB">SQLITE_BLOB</span> &amp;&amp; <a class="local col1 ref" href="#11type" title='type' data-ref="11type">type</a> != <span class="macro" title="3" data-ref="_M/SQLITE_TEXT">SQLITE_TEXT</span>) {</td></tr>
+<tr><th id="159">159</th><td>    <span class='ref' title='sqlite3_result_error' data-ref="sqlite3_result_error">sqlite3_result_error</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <q>"unsnap() first byte is invalid type"</q>, -<var>1</var>);</td></tr>
+<tr><th id="160">160</th><td>    <span class='ref' title='sqlite3_result_error_code' data-ref="sqlite3_result_error_code">sqlite3_result_error_code</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <span class="macro" title="11" data-ref="_M/SQLITE_CORRUPT">SQLITE_CORRUPT</span>);</td></tr>
+<tr><th id="161">161</th><td>    <b>return</b>;</td></tr>
+<tr><th id="162">162</th><td>  }</td></tr>
+<tr><th id="163">163</th><td>  <b>if</b> (<a class="local col2 ref" href="#12size" title='size' data-ref="12size">size</a> == <var>0</var>) {</td></tr>
+<tr><th id="164">164</th><td>    <b>if</b> (<a class="local col1 ref" href="#11type" title='type' data-ref="11type">type</a> == <span class="macro" title="3" data-ref="_M/SQLITE_TEXT">SQLITE_TEXT</span>) {</td></tr>
+<tr><th id="165">165</th><td>      <span class='ref' title='sqlite3_result_text' data-ref="sqlite3_result_text">sqlite3_result_text</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <q>""</q>, <var>0</var>, <span class="macro" title="((sqlite3_destructor_type)0)" data-ref="_M/SQLITE_STATIC">SQLITE_STATIC</span>);</td></tr>
+<tr><th id="166">166</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="167">167</th><td>      <span class='ref' title='sqlite3_result_zeroblob' data-ref="sqlite3_result_zeroblob">sqlite3_result_zeroblob</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <var>0</var>);</td></tr>
+<tr><th id="168">168</th><td>    }</td></tr>
+<tr><th id="169">169</th><td>    <b>return</b>;</td></tr>
+<tr><th id="170">170</th><td>  }</td></tr>
+<tr><th id="171">171</th><td>  <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="14output_size" title='output_size' data-type='size_t' data-ref="14output_size">output_size</dfn>;</td></tr>
+<tr><th id="172">172</th><td>  <b>if</b> (!<span class="namespace">snappy::</span><span class='ref' title='snappy::GetUncompressedLength' data-ref="_ZN6snappy21GetUncompressedLengthEPKcmPm">GetUncompressedLength</span>(<a class="local col3 ref" href="#13blob" title='blob' data-ref="13blob">blob</a>, <b>static_cast</b>&lt;<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>&gt;(<a class="local col2 ref" href="#12size" title='size' data-ref="12size">size</a>),</td></tr>
+<tr><th id="173">173</th><td>                                     &amp;<a class="local col4 ref" href="#14output_size" title='output_size' data-ref="14output_size">output_size</a>)) {</td></tr>
+<tr><th id="174">174</th><td>    <span class='ref' title='sqlite3_result_error' data-ref="sqlite3_result_error">sqlite3_result_error</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <q>"snappy parse error"</q>, -<var>1</var>);</td></tr>
+<tr><th id="175">175</th><td>    <span class='ref' title='sqlite3_result_error_code' data-ref="sqlite3_result_error_code">sqlite3_result_error_code</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <span class="macro" title="11" data-ref="_M/SQLITE_CORRUPT">SQLITE_CORRUPT</span>);</td></tr>
+<tr><th id="176">176</th><td>    <b>return</b>;</td></tr>
+<tr><th id="177">177</th><td>  }</td></tr>
+<tr><th id="178">178</th><td>  <b>if</b> (<a class="local col4 ref" href="#14output_size" title='output_size' data-ref="14output_size">output_size</a> &gt;</td></tr>
+<tr><th id="179">179</th><td>      <b>static_cast</b>&lt;<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>&gt;(<span class='ref' title='sqlite3_limit' data-ref="sqlite3_limit">sqlite3_limit</span>(<span class='ref' title='sqlite3_context_db_handle' data-ref="sqlite3_context_db_handle">sqlite3_context_db_handle</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>),</td></tr>
+<tr><th id="180">180</th><td>                                        <span class="macro" title="0" data-ref="_M/SQLITE_LIMIT_LENGTH">SQLITE_LIMIT_LENGTH</span>, -<var>1</var>))) {</td></tr>
+<tr><th id="181">181</th><td>    <span class='ref' title='sqlite3_result_error_toobig' data-ref="sqlite3_result_error_toobig">sqlite3_result_error_toobig</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>);</td></tr>
+<tr><th id="182">182</th><td>    <b>return</b>;</td></tr>
+<tr><th id="183">183</th><td>  }</td></tr>
+<tr><th id="184">184</th><td>  <em>auto</em> <dfn class="local col5 decl" id="15output" title='output' data-type='char *' data-ref="15output">output</dfn> =</td></tr>
+<tr><th id="185">185</th><td>      <b>static_cast</b>&lt;<em>char</em>*&gt;(<span class='ref' title='sqlite3_malloc' data-ref="sqlite3_malloc">sqlite3_malloc</span>(<b>static_cast</b>&lt;<em>int</em>&gt;(<a class="local col4 ref" href="#14output_size" title='output_size' data-ref="14output_size">output_size</a>)));</td></tr>
+<tr><th id="186">186</th><td>  <b>if</b> (<a class="local col5 ref" href="#15output" title='output' data-ref="15output">output</a> == <b>nullptr</b>) {</td></tr>
+<tr><th id="187">187</th><td>    <span class='ref' title='sqlite3_result_error_nomem' data-ref="sqlite3_result_error_nomem">sqlite3_result_error_nomem</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>);</td></tr>
+<tr><th id="188">188</th><td>    <b>return</b>;</td></tr>
+<tr><th id="189">189</th><td>  }</td></tr>
+<tr><th id="190">190</th><td>  <b>if</b> (!<span class="namespace">snappy::</span><span class='ref' title='snappy::RawUncompress' data-ref="_ZN6snappy13RawUncompressEPKcmPc">RawUncompress</span>(<a class="local col3 ref" href="#13blob" title='blob' data-ref="13blob">blob</a>, <b>static_cast</b>&lt;<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span>&gt;(<a class="local col2 ref" href="#12size" title='size' data-ref="12size">size</a>), <a class="local col5 ref" href="#15output" title='output' data-ref="15output">output</a>)) {</td></tr>
+<tr><th id="191">191</th><td>    <span class='ref' title='sqlite3_result_error' data-ref="sqlite3_result_error">sqlite3_result_error</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <q>"snappy message corruption"</q>, -<var>1</var>);</td></tr>
+<tr><th id="192">192</th><td>    <span class='ref' title='sqlite3_result_error_code' data-ref="sqlite3_result_error_code">sqlite3_result_error_code</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <span class="macro" title="11" data-ref="_M/SQLITE_CORRUPT">SQLITE_CORRUPT</span>);</td></tr>
+<tr><th id="193">193</th><td>    <span class='ref' title='sqlite3_free' data-ref="sqlite3_free">sqlite3_free</span>(<a class="local col5 ref" href="#15output" title='output' data-ref="15output">output</a>);</td></tr>
+<tr><th id="194">194</th><td>    <b>return</b>;</td></tr>
+<tr><th id="195">195</th><td>  }</td></tr>
+<tr><th id="196">196</th><td>  <b>if</b> (<a class="local col1 ref" href="#11type" title='type' data-ref="11type">type</a> == <span class="macro" title="3" data-ref="_M/SQLITE_TEXT">SQLITE_TEXT</span>) {</td></tr>
+<tr><th id="197">197</th><td>    <span class='ref' title='sqlite3_result_text' data-ref="sqlite3_result_text">sqlite3_result_text</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <a class="local col5 ref" href="#15output" title='output' data-ref="15output">output</a>, <b>static_cast</b>&lt;<em>int</em>&gt;(<a class="local col4 ref" href="#14output_size" title='output_size' data-ref="14output_size">output_size</a>),</td></tr>
+<tr><th id="198">198</th><td>                        <span class='ref' title='sqlite3_free' data-ref="sqlite3_free">sqlite3_free</span>);</td></tr>
+<tr><th id="199">199</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="200">200</th><td>    <span class='ref' title='sqlite3_result_blob' data-ref="sqlite3_result_blob">sqlite3_result_blob</span>(<a class="local col9 ref" href="#9ctx" title='ctx' data-ref="9ctx">ctx</a>, <a class="local col5 ref" href="#15output" title='output' data-ref="15output">output</a>, <b>static_cast</b>&lt;<em>int</em>&gt;(<a class="local col4 ref" href="#14output_size" title='output_size' data-ref="14output_size">output_size</a>),</td></tr>
+<tr><th id="201">201</th><td>                        <span class='ref' title='sqlite3_free' data-ref="sqlite3_free">sqlite3_free</span>);</td></tr>
+<tr><th id="202">202</th><td>  }</td></tr>
+<tr><th id="203">203</th><td>}</td></tr>
+<tr><th id="204">204</th><td></td></tr>
+<tr><th id="205">205</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td><u>#<span data-ppcond="207">ifndef</span> <span class="macro" data-ref="_M/SQLITE_DETERMINISTIC">SQLITE_DETERMINISTIC</span></u></td></tr>
+<tr><th id="208">208</th><td><u>#define SQLITE_DETERMINISTIC 0</u></td></tr>
+<tr><th id="209">209</th><td><u>#<span data-ppcond="207">endif</span></u></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td><u>#<span data-ppcond="211">ifndef</span> <span class="macro" data-ref="_M/SQLITE_CALLBACK">SQLITE_CALLBACK</span></u></td></tr>
+<tr><th id="212">212</th><td><u>#define SQLITE_CALLBACK</u></td></tr>
+<tr><th id="213">213</th><td><u>#<span data-ppcond="211">endif</span></u></td></tr>
+<tr><th id="214">214</th><td></td></tr>
+<tr><th id="215">215</th><td><span class="macro" title="" data-ref="_M/SQLITE_CALLBACK">SQLITE_CALLBACK</span> <em>int</em> <dfn class="decl def" id="sqlite3_snapfn_init" title='sqlite3_snapfn_init' data-ref="sqlite3_snapfn_init">sqlite3_snapfn_init</dfn>(<span class='typedef' title='sqlite3' data-type='struct sqlite3' data-ref="sqlite3">sqlite3</span>* <dfn class="local col6 decl" id="16db" title='db' data-type='sqlite3 *' data-ref="16db">db</dfn>, <em>const</em> <em>char</em>** <i>/*pzErrMsg*/</i>,</td></tr>
+<tr><th id="216">216</th><td>                                        <em>const</em> <span class='typedef' title='sqlite3_api_routines' data-type='struct sqlite3_api_routines' data-ref="sqlite3_api_routines">sqlite3_api_routines</span>* <dfn class="local col7 decl" id="17pApi" title='pApi' data-type='const sqlite3_api_routines *' data-ref="17pApi">pApi</dfn>) {</td></tr>
+<tr><th id="217">217</th><td>  <span class="macro" title="(void)pApi;" data-ref="_M/SQLITE_EXTENSION_INIT2">SQLITE_EXTENSION_INIT2</span>(<a class="local col7 ref" href="#17pApi" title='pApi' data-ref="17pApi">pApi</a>);</td></tr>
+<tr><th id="218">218</th><td>  <em>int</em> <dfn class="local col8 decl" id="18rc" title='rc' data-type='int' data-ref="18rc">rc</dfn>;</td></tr>
+<tr><th id="219">219</th><td></td></tr>
+<tr><th id="220">220</th><td>  <a class="local col8 ref" href="#18rc" title='rc' data-ref="18rc">rc</a> = <span class='ref' title='sqlite3_create_function_v2' data-ref="sqlite3_create_function_v2">sqlite3_create_function_v2</span>(</td></tr>
+<tr><th id="221">221</th><td>      <a class="local col6 ref" href="#16db" title='db' data-ref="16db">db</a>,</td></tr>
+<tr><th id="222">222</th><td>      <q>"snap"</q>,                              <i>// zFunctionName</i></td></tr>
+<tr><th id="223">223</th><td>      <var>1</var>,                                   <i>// nArg</i></td></tr>
+<tr><th id="224">224</th><td>      <span class="macro" title="1" data-ref="_M/SQLITE_UTF8">SQLITE_UTF8</span> | <span class="macro" title="0x800" data-ref="_M/SQLITE_DETERMINISTIC">SQLITE_DETERMINISTIC</span>,  <i>// eTextRep</i></td></tr>
+<tr><th id="225">225</th><td>      <b>nullptr</b>,                             <i>// pApp</i></td></tr>
+<tr><th id="226">226</th><td>      <a class="tu ref" href="#_ZL4snapP15sqlite3_contextiPP13sqlite3_value" title='snap' data-use='r' data-ref="_ZL4snapP15sqlite3_contextiPP13sqlite3_value">snap</a>,                                <i>// xFunc</i></td></tr>
+<tr><th id="227">227</th><td>      <b>nullptr</b>,                             <i>// xStep</i></td></tr>
+<tr><th id="228">228</th><td>      <b>nullptr</b>,                             <i>// xFinal</i></td></tr>
+<tr><th id="229">229</th><td>      <b>nullptr</b>                              <i>// xDestroy</i></td></tr>
+<tr><th id="230">230</th><td>  );</td></tr>
+<tr><th id="231">231</th><td>  <b>if</b> (<a class="local col8 ref" href="#18rc" title='rc' data-ref="18rc">rc</a> != <span class="macro" title="0" data-ref="_M/SQLITE_OK">SQLITE_OK</span>) {</td></tr>
+<tr><th id="232">232</th><td>    <b>return</b> <a class="local col8 ref" href="#18rc" title='rc' data-ref="18rc">rc</a>;</td></tr>
+<tr><th id="233">233</th><td>  }</td></tr>
+<tr><th id="234">234</th><td></td></tr>
+<tr><th id="235">235</th><td>  <a class="local col8 ref" href="#18rc" title='rc' data-ref="18rc">rc</a> = <span class='ref' title='sqlite3_create_function_v2' data-ref="sqlite3_create_function_v2">sqlite3_create_function_v2</span>(</td></tr>
+<tr><th id="236">236</th><td>      <a class="local col6 ref" href="#16db" title='db' data-ref="16db">db</a>,</td></tr>
+<tr><th id="237">237</th><td>      <q>"unsnap"</q>,                            <i>// zFunctionName</i></td></tr>
+<tr><th id="238">238</th><td>      <var>1</var>,                                   <i>// nArg</i></td></tr>
+<tr><th id="239">239</th><td>      <span class="macro" title="1" data-ref="_M/SQLITE_UTF8">SQLITE_UTF8</span> | <span class="macro" title="0x800" data-ref="_M/SQLITE_DETERMINISTIC">SQLITE_DETERMINISTIC</span>,  <i>// eTextRep</i></td></tr>
+<tr><th id="240">240</th><td>      <b>nullptr</b>,                             <i>// pApp</i></td></tr>
+<tr><th id="241">241</th><td>      <a class="tu ref" href="#_ZL6unsnapP15sqlite3_contextiPP13sqlite3_value" title='unsnap' data-use='r' data-ref="_ZL6unsnapP15sqlite3_contextiPP13sqlite3_value">unsnap</a>,                              <i>// xFunc</i></td></tr>
+<tr><th id="242">242</th><td>      <b>nullptr</b>,                             <i>// xStep</i></td></tr>
+<tr><th id="243">243</th><td>      <b>nullptr</b>,                             <i>// xFinal</i></td></tr>
+<tr><th id="244">244</th><td>      <b>nullptr</b>                              <i>// xDestroy</i></td></tr>
+<tr><th id="245">245</th><td>  );</td></tr>
+<tr><th id="246">246</th><td>  <b>if</b> (<a class="local col8 ref" href="#18rc" title='rc' data-ref="18rc">rc</a> != <span class="macro" title="0" data-ref="_M/SQLITE_OK">SQLITE_OK</span>) {</td></tr>
+<tr><th id="247">247</th><td>    <b>return</b> <a class="local col8 ref" href="#18rc" title='rc' data-ref="18rc">rc</a>;</td></tr>
+<tr><th id="248">248</th><td>  }</td></tr>
+<tr><th id="249">249</th><td></td></tr>
+<tr><th id="250">250</th><td>  <b>return</b> <span class="macro" title="0" data-ref="_M/SQLITE_OK">SQLITE_OK</span>;</td></tr>
+<tr><th id="251">251</th><td>}</td></tr>
+<tr><th id="252">252</th><td></td></tr>
+<tr><th id="253">253</th><td>}  <i>// extern "C"</i></td></tr>
+<tr><th id="254">254</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

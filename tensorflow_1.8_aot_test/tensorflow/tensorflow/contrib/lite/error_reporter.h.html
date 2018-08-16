@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>error_reporter.h source code [tensorflow/tensorflow/contrib/lite/error_reporter.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tflite::ErrorReporter,tflite::StderrReporter "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/contrib/lite/error_reporter.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>contrib</a>/<a href='./'>lite</a>/<a href='error_reporter.h.html'>error_reporter.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CONTRIB_LITE_ERROR_REPORTER_H_">TENSORFLOW_CONTRIB_LITE_ERROR_REPORTER_H_</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CONTRIB_LITE_ERROR_REPORTER_H_" data-ref="_M/TENSORFLOW_CONTRIB_LITE_ERROR_REPORTER_H_">TENSORFLOW_CONTRIB_LITE_ERROR_REPORTER_H_</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../include/c++/5/cstdarg.html">&lt;cstdarg&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="context.h.html">"tensorflow/contrib/lite/context.h"</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">tflite</span> {</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>// A functor that reports error to supporting system. Invoked similar to</i></td></tr>
+<tr><th id="24">24</th><td><i>// printf.</i></td></tr>
+<tr><th id="25">25</th><td><i>//</i></td></tr>
+<tr><th id="26">26</th><td><i>// Usage:</i></td></tr>
+<tr><th id="27">27</th><td><i>//  ErrorReporter foo;</i></td></tr>
+<tr><th id="28">28</th><td><i>//  foo.Report("test %d", 5);</i></td></tr>
+<tr><th id="29">29</th><td><i>// or</i></td></tr>
+<tr><th id="30">30</th><td><i>//  va_list args;</i></td></tr>
+<tr><th id="31">31</th><td><i>//  foo.Report("test %d", args); // where args is va_list</i></td></tr>
+<tr><th id="32">32</th><td><i>//</i></td></tr>
+<tr><th id="33">33</th><td><i>// Subclass ErrorReporter to provide another reporting destination.</i></td></tr>
+<tr><th id="34">34</th><td><i>// For example, if you have a GUI program, you might redirect to a buffer</i></td></tr>
+<tr><th id="35">35</th><td><i>// that drives a GUI error log box.</i></td></tr>
+<tr><th id="36">36</th><td><b>class</b> <dfn class="type def" id="tflite::ErrorReporter" title='tflite::ErrorReporter' data-ref="tflite::ErrorReporter">ErrorReporter</dfn> {</td></tr>
+<tr><th id="37">37</th><td> <b>public</b>:</td></tr>
+<tr><th id="38">38</th><td>  <b>virtual</b> <dfn class="virtual decl" id="_ZN6tflite13ErrorReporterD1Ev" title='tflite::ErrorReporter::~ErrorReporter' data-ref="_ZN6tflite13ErrorReporterD1Ev">~ErrorReporter</dfn>();</td></tr>
+<tr><th id="39">39</th><td>  <b>virtual</b> <em>int</em> <dfn class="virtual decl" id="_ZN6tflite13ErrorReporter6ReportEPKcP13__va_list_tag" title='tflite::ErrorReporter::Report' data-ref="_ZN6tflite13ErrorReporter6ReportEPKcP13__va_list_tag">Report</dfn>(<em>const</em> <em>char</em>* <dfn class="local col1 decl" id="101format" title='format' data-type='const char *' data-ref="101format">format</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col2 decl" id="102args" title='args' data-type='__va_list_tag *' data-ref="102args">args</dfn>) = <var>0</var>;</td></tr>
+<tr><th id="40">40</th><td>  <em>int</em> <dfn class="decl" id="_ZN6tflite13ErrorReporter6ReportEPKcz" title='tflite::ErrorReporter::Report' data-ref="_ZN6tflite13ErrorReporter6ReportEPKcz">Report</dfn>(<em>const</em> <em>char</em>* <dfn class="local col3 decl" id="103format" title='format' data-type='const char *' data-ref="103format">format</dfn>, ...);</td></tr>
+<tr><th id="41">41</th><td>  <em>int</em> <dfn class="decl" id="_ZN6tflite13ErrorReporter11ReportErrorEPvPKcz" title='tflite::ErrorReporter::ReportError' data-ref="_ZN6tflite13ErrorReporter11ReportErrorEPvPKcz">ReportError</dfn>(<em>void</em>*, <em>const</em> <em>char</em>* <dfn class="local col4 decl" id="104format" title='format' data-type='const char *' data-ref="104format">format</dfn>, ...);</td></tr>
+<tr><th id="42">42</th><td>};</td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><i>// An error reporter that simplify writes the message to stderr.</i></td></tr>
+<tr><th id="45">45</th><td><b>struct</b> <dfn class="type def" id="tflite::StderrReporter" title='tflite::StderrReporter' data-ref="tflite::StderrReporter">StderrReporter</dfn> : <b>public</b> <a class="type" href="#tflite::ErrorReporter" title='tflite::ErrorReporter' data-ref="tflite::ErrorReporter">ErrorReporter</a> {</td></tr>
+<tr><th id="46">46</th><td>  <em>int</em> <dfn class="virtual decl" id="_ZN6tflite14StderrReporter6ReportEPKcP13__va_list_tag" title='tflite::StderrReporter::Report' data-ref="_ZN6tflite14StderrReporter6ReportEPKcP13__va_list_tag">Report</dfn>(<em>const</em> <em>char</em>* <dfn class="local col5 decl" id="105format" title='format' data-type='const char *' data-ref="105format">format</dfn>, <span class='typedef' title='va_list' data-type='__gnuc_va_list' data-ref="va_list">va_list</span> <dfn class="local col6 decl" id="106args" title='args' data-type='__va_list_tag *' data-ref="106args">args</dfn>) override;</td></tr>
+<tr><th id="47">47</th><td>};</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td><i>// Return the default error reporter (output to stderr).</i></td></tr>
+<tr><th id="50">50</th><td><a class="type" href="#tflite::ErrorReporter" title='tflite::ErrorReporter' data-ref="tflite::ErrorReporter">ErrorReporter</a>* <dfn class="decl" id="_ZN6tflite20DefaultErrorReporterEv" title='tflite::DefaultErrorReporter' data-ref="_ZN6tflite20DefaultErrorReporterEv">DefaultErrorReporter</dfn>();</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>}  <i>// namespace tflite</i></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><u>#<span data-ppcond="15">endif</span>  // TENSORFLOW_CONTRIB_LITE_ERROR_REPORTER_H_</u></td></tr>
+<tr><th id="55">55</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='allocation.cc.html'>tensorflow/tensorflow/contrib/lite/allocation.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

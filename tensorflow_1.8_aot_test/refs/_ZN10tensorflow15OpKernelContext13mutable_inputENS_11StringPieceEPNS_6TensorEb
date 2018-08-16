@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='651' type='tensorflow::Status tensorflow::OpKernelContext::mutable_input(tensorflow::StringPiece name, tensorflow::Tensor * tensor, bool lock_held)'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='424' u='c' c='_ZN10tensorflow22GetResourceFromContextEPNS_15OpKernelContextERKSsPPT_'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='644'>// Returns the named mutable input tensor in &quot;tensor&quot;, as defined in
+  // the OpDef. Must be used to access Ref inputs. The values stored
+  // in the Tensor buffer may be modified, and modifications will be
+  // visible to other Ops reading the same ref tensor. If !lock_held
+  // the input mutex will be acquired before returning the Tensor.
+  // REQUIRES: the named input must not be a list.
+  // REQUIRES: the named input must be a ref tensor.</doc>
+<use f='tensorflow/tensorflow/contrib/input_pipeline/kernels/input_pipeline_kernels.cc' l='46' u='c' c='_ZN10tensorflow12ObtainNextOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='562' ll='584' type='tensorflow::Status tensorflow::OpKernelContext::mutable_input(tensorflow::StringPiece name, tensorflow::Tensor * tensor, bool lock_held)'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_util.cc' l='260' u='c' c='_ZN10tensorflow6lookup12_GLOBAL__N_114GetTableHandleERKSsPNS_15OpKernelContextEPSsS6_'/>

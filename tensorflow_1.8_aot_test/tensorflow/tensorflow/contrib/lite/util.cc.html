@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>util.cc source code [tensorflow/tensorflow/contrib/lite/util.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/contrib/lite/util.cc'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>contrib</a>/<a href='./'>lite</a>/<a href='util.cc.html'>util.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><u>#include <a href="util.h.html">"tensorflow/contrib/lite/util.h"</a></u></td></tr>
+<tr><th id="16">16</th><td></td></tr>
+<tr><th id="17">17</th><td><b>namespace</b> <span class="namespace">tflite</span> {</td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><a class="typedef" href="context.h.html#TfLiteIntArray" title='TfLiteIntArray' data-type='struct TfLiteIntArray' data-ref="TfLiteIntArray">TfLiteIntArray</a>* <dfn class="decl def" id="_ZN6tflite29ConvertVectorToTfLiteIntArrayERKSt6vectorIiSaIiEE" title='tflite::ConvertVectorToTfLiteIntArray' data-ref="_ZN6tflite29ConvertVectorToTfLiteIntArrayERKSt6vectorIiSaIiEE">ConvertVectorToTfLiteIntArray</dfn>(<em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<em>int</em>&gt;&amp; <dfn class="local col1 decl" id="1input" title='input' data-type='const std::vector&lt;int&gt; &amp;' data-ref="1input">input</dfn>) {</td></tr>
+<tr><th id="20">20</th><td>  <b>return</b> <a class="ref" href="#_ZN6tflite28ConvertArrayToTfLiteIntArrayEiPKi" title='tflite::ConvertArrayToTfLiteIntArray' data-ref="_ZN6tflite28ConvertArrayToTfLiteIntArrayEiPKi">ConvertArrayToTfLiteIntArray</a>(<a class="local col1 ref" href="#1input" title='input' data-ref="1input">input</a>.<a class="ref" href="../../../../include/c++/5/bits/stl_vector.h.html#_ZNKSt6vector4sizeEv" title='std::vector::size' data-ref="_ZNKSt6vector4sizeEv">size</a>(), <a class="local col1 ref" href="#1input" title='input' data-ref="1input">input</a>.<a class="ref" href="../../../../include/c++/5/bits/stl_vector.h.html#_ZNKSt6vector4dataEv" title='std::vector::data' data-ref="_ZNKSt6vector4dataEv">data</a>());</td></tr>
+<tr><th id="21">21</th><td>}</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><a class="typedef" href="context.h.html#TfLiteIntArray" title='TfLiteIntArray' data-type='struct TfLiteIntArray' data-ref="TfLiteIntArray">TfLiteIntArray</a>* <dfn class="decl def" id="_ZN6tflite28ConvertArrayToTfLiteIntArrayEiPKi" title='tflite::ConvertArrayToTfLiteIntArray' data-ref="_ZN6tflite28ConvertArrayToTfLiteIntArrayEiPKi">ConvertArrayToTfLiteIntArray</dfn>(<em>const</em> <em>int</em> <dfn class="local col2 decl" id="2rank" title='rank' data-type='const int' data-ref="2rank">rank</dfn>, <em>const</em> <em>int</em>* <dfn class="local col3 decl" id="3dims" title='dims' data-type='const int *' data-ref="3dims">dims</dfn>) {</td></tr>
+<tr><th id="24">24</th><td>  <a class="typedef" href="context.h.html#TfLiteIntArray" title='TfLiteIntArray' data-type='struct TfLiteIntArray' data-ref="TfLiteIntArray">TfLiteIntArray</a>* <dfn class="local col4 decl" id="4output" title='output' data-type='TfLiteIntArray *' data-ref="4output">output</dfn> = <a class="ref" href="context.h.html#TfLiteIntArrayCreate" title='TfLiteIntArrayCreate' data-ref="TfLiteIntArrayCreate">TfLiteIntArrayCreate</a>(<a class="local col2 ref" href="#2rank" title='rank' data-ref="2rank">rank</a>);</td></tr>
+<tr><th id="25">25</th><td>  <b>for</b> (<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="5i" title='i' data-type='size_t' data-ref="5i">i</dfn> = <var>0</var>; <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a> &lt; <a class="local col2 ref" href="#2rank" title='rank' data-ref="2rank">rank</a>; <a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a>++) {</td></tr>
+<tr><th id="26">26</th><td>    <a class="local col4 ref" href="#4output" title='output' data-ref="4output">output</a>-&gt;<a class="ref" href="context.h.html#(anonymous)::data" title='(anonymous struct)::data' data-ref="(anonymous)::data">data</a>[<a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a>] = <a class="local col3 ref" href="#3dims" title='dims' data-ref="3dims">dims</a>[<a class="local col5 ref" href="#5i" title='i' data-ref="5i">i</a>];</td></tr>
+<tr><th id="27">27</th><td>  }</td></tr>
+<tr><th id="28">28</th><td>  <b>return</b> <a class="local col4 ref" href="#4output" title='output' data-ref="4output">output</a>;</td></tr>
+<tr><th id="29">29</th><td>}</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><em>bool</em> <dfn class="decl def" id="_ZN6tflite27EqualArrayAndTfLiteIntArrayEPK14TfLiteIntArrayiPKi" title='tflite::EqualArrayAndTfLiteIntArray' data-ref="_ZN6tflite27EqualArrayAndTfLiteIntArrayEPK14TfLiteIntArrayiPKi">EqualArrayAndTfLiteIntArray</dfn>(<em>const</em> <a class="typedef" href="context.h.html#TfLiteIntArray" title='TfLiteIntArray' data-type='struct TfLiteIntArray' data-ref="TfLiteIntArray">TfLiteIntArray</a>* <dfn class="local col6 decl" id="6a" title='a' data-type='const TfLiteIntArray *' data-ref="6a">a</dfn>, <em>const</em> <em>int</em> <dfn class="local col7 decl" id="7b_size" title='b_size' data-type='const int' data-ref="7b_size">b_size</dfn>,</td></tr>
+<tr><th id="32">32</th><td>                                 <em>const</em> <em>int</em>* <dfn class="local col8 decl" id="8b" title='b' data-type='const int *' data-ref="8b">b</dfn>) {</td></tr>
+<tr><th id="33">33</th><td>  <b>if</b> (!<a class="local col6 ref" href="#6a" title='a' data-ref="6a">a</a>) <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="34">34</th><td>  <b>if</b> (<a class="local col6 ref" href="#6a" title='a' data-ref="6a">a</a>-&gt;<a class="ref" href="context.h.html#(anonymous)::size" title='(anonymous struct)::size' data-ref="(anonymous)::size">size</a> != <a class="local col7 ref" href="#7b_size" title='b_size' data-ref="7b_size">b_size</a>) <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="35">35</th><td>  <b>for</b> (<em>int</em> <dfn class="local col9 decl" id="9i" title='i' data-type='int' data-ref="9i">i</dfn> = <var>0</var>; <a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a> &lt; <a class="local col6 ref" href="#6a" title='a' data-ref="6a">a</a>-&gt;<a class="ref" href="context.h.html#(anonymous)::size" title='(anonymous struct)::size' data-ref="(anonymous)::size">size</a>; ++<a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a>) {</td></tr>
+<tr><th id="36">36</th><td>    <b>if</b> (<a class="local col6 ref" href="#6a" title='a' data-ref="6a">a</a>-&gt;<a class="ref" href="context.h.html#(anonymous)::data" title='(anonymous struct)::data' data-ref="(anonymous)::data">data</a>[<a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a>] != <a class="local col8 ref" href="#8b" title='b' data-ref="8b">b</a>[<a class="local col9 ref" href="#9i" title='i' data-ref="9i">i</a>]) <b>return</b> <b>false</b>;</td></tr>
+<tr><th id="37">37</th><td>  }</td></tr>
+<tr><th id="38">38</th><td>  <b>return</b> <b>true</b>;</td></tr>
+<tr><th id="39">39</th><td>}</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td>}  <i>// namespace tflite</i></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

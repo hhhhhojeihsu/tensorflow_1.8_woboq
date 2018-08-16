@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/public/session.h' l='278' type='tensorflow::Session * tensorflow::NewSession(const tensorflow::SessionOptions &amp; options)'/>
+<doc f='tensorflow/tensorflow/core/public/session.h' l='271'>/// \brief Create a new session with the given options.
+///
+/// If a new `Session` object could not be created, this function will
+/// return nullptr.
+///
+/// *Strongly prefer* the version of NewSession that returns Status,
+/// which contains more helpful error information.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/session.cc' l='54' ll='62' type='tensorflow::Session * tensorflow::NewSession(const tensorflow::SessionOptions &amp; options)'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/single_machine.cc' l='365' u='c' c='_ZN10tensorflow8grappler13SingleMachine12ResetSessionEv'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='244' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils15DryRunInferenceERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEEbPS4_IS6_SaIS6_EE'/>

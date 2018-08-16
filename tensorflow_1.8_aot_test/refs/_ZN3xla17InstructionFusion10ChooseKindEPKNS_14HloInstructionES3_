@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.h' l='66' type='HloInstruction::FusionKind xla::InstructionFusion::ChooseKind(const xla::HloInstruction * producer, const xla::HloInstruction * consumer)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.h' l='64'>// Chooses a fusion kind for `producer` and `consumer`.
+  // Default method chooses `kLoop`.</doc>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_instruction_fusion.cc' l='150' c='_ZN3xla3cpu20CpuInstructionFusion10ChooseKindEPKNS_14HloInstructionES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='408' u='c' c='_ZN3xla17InstructionFusion4FuseEPNS_14HloInstructionES2_'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='451' ll='454' type='HloInstruction::FusionKind xla::InstructionFusion::ChooseKind(const xla::HloInstruction * producer, const xla::HloInstruction * consumer)'/>

@@ -1,0 +1,23 @@
+<def f='tensorflow/tensorflow/core/lib/random/random_distributions.h' l='308' ll='333'/>
+<def f='tensorflow/tensorflow/core/lib/random/random_distributions.h' l='335' ll='363'/>
+<def f='tensorflow/tensorflow/core/lib/random/random_distributions.h' l='365' ll='387'/>
+<def f='tensorflow/tensorflow/core/lib/random/random_distributions.h' l='389' ll='413'/>
+<doc f='tensorflow/tensorflow/core/lib/random/random_distributions.h' l='305'>// Exactly like the float version, except that we convert to half afterwards;
+// since we don&apos;t have half-precision sin/cos even on GPUs, there&apos;s nothing to
+// gain from working in half internally.</doc>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,Eigen::half}::kResultElementCount' t='const int'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,Eigen::half}::kElementCost' t='const int'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,Eigen::half}::kVariableSamplesPerOutput' t='const bool'/>
+<fun r='_ZN10tensorflow6random18NormalDistributionIT_N5Eigen4halfEEclEPS2_'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,tensorflow::bfloat16}::kResultElementCount' t='const int'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,tensorflow::bfloat16}::kElementCost' t='const int'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,tensorflow::bfloat16}::kVariableSamplesPerOutput' t='const bool'/>
+<fun r='_ZN10tensorflow6random18NormalDistributionIT_NS_8bfloat16EEclEPS2_'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,float}::kResultElementCount' t='const int'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,float}::kElementCost' t='const int'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,float}::kVariableSamplesPerOutput' t='const bool'/>
+<fun r='_ZN10tensorflow6random18NormalDistributionIT_fEclEPS2_'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,double}::kResultElementCount' t='const int'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,double}::kElementCost' t='const int'/>
+<smbr r='tensorflow::random::NormalDistribution{type-parameter-0-0,double}::kVariableSamplesPerOutput' t='const bool'/>
+<fun r='_ZN10tensorflow6random18NormalDistributionIT_dEclEPS2_'/>

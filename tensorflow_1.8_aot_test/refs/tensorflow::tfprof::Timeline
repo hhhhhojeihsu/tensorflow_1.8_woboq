@@ -1,0 +1,24 @@
+<def f='tensorflow/tensorflow/core/profiler/internal/tfprof_timeline.h' l='122' ll='188'/>
+<size>312</size>
+<fun r='_ZN10tensorflow6tfprof8TimelineC1ExRKSs'/>
+<fun r='_ZN10tensorflow6tfprof8TimelineD1Ev'/>
+<fun r='_ZNK10tensorflow6tfprof8Timeline4stepEv'/>
+<fun r='_ZN10tensorflow6tfprof8Timeline7SetStepEx'/>
+<fun r='_ZN10tensorflow6tfprof8Timeline21GenerateGraphTimelineERKSt6vectorIPNS0_9GraphNodeESaIS4_EE'/>
+<fun r='_ZN10tensorflow6tfprof8Timeline21GenerateScopeTimelineEPKNS0_9ScopeNodeE'/>
+<fun r='_ZN10tensorflow6tfprof8Timeline20GenerateCodeTimelineEPKNS0_8CodeNodeE'/>
+<fun r='_ZN10tensorflow6tfprof8Timeline9TrackNodeEPKNS0_9GraphNodeE'/>
+<fun r='_ZN10tensorflow6tfprof8Timeline14OutputTimelineEv'/>
+<fun r='_ZN10tensorflow6tfprof8Timeline12EmitTreeNodeEPKT_xxxPSt3setIxSt4lessIxESaIxEE'/>
+<fun r='_ZN10tensorflow6tfprof8Timeline17AllocateTimeNodesEPNS0_9GraphNodeE'/>
+<fun r='_ZN10tensorflow6tfprof8Timeline13AllocateLanesEv'/>
+<fun r='_ZN10tensorflow6tfprof8Timeline11AllocatePIDEv'/>
+<mbr r='tensorflow::tfprof::Timeline::step_' o='0' t='int64'/>
+<mbr r='tensorflow::tfprof::Timeline::outfile_' o='64' t='const string'/>
+<mbr r='tensorflow::tfprof::Timeline::next_pid_' o='128' t='int64'/>
+<mbr r='tensorflow::tfprof::Timeline::mem_tracker_' o='192' t='tensorflow::tfprof::MemoryTracker'/>
+<mbr r='tensorflow::tfprof::Timeline::chrome_formatter_' o='576' t='tensorflow::tfprof::ChromeTraceFormatter'/>
+<mbr r='tensorflow::tfprof::Timeline::device_pids_' o='960' t='std::map&lt;string, int64&gt;'/>
+<mbr r='tensorflow::tfprof::Timeline::process_' o='1344' t='std::map&lt;string, std::unique_ptr&lt;Process&gt; &gt;'/>
+<mbr r='tensorflow::tfprof::Timeline::alloc_nodes_' o='1728' t='std::map&lt;int64, std::map&lt;int64, std::map&lt;int64, TimeNode *&gt; &gt; &gt;'/>
+<mbr r='tensorflow::tfprof::Timeline::tnodes_' o='2112' t='std::map&lt;string, std::map&lt;int64, std::unique_ptr&lt;TimeNode&gt; &gt; &gt;'/>

@@ -1,0 +1,28 @@
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='281' u='c' c='_ZN3xla9ShapeUtil8IsScalarERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='284' u='c' c='_ZN3xla9ShapeUtil17IsEffectiveScalarERKNS_5ShapeE'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='403' ll='405' type='static bool xla::ShapeUtil::IsOpaque(const xla::Shape &amp; shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='410' u='c' c='_ZN3xla9ShapeUtil7IsArrayERKNS_5ShapeE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='401'>// Returns whether the shape is an opaque value (i.e. an &apos;existential&apos; typed
+  // value that is passed to CustomCall operations).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='118' u='c' c='_ZN3xla10LayoutUtil18SetToDefaultLayoutEPNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='153' u='c' c='_ZN3xla10LayoutUtil21ValidateLayoutInShapeERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='174' u='c' c='_ZN3xla10LayoutUtil22ValidateLayoutForShapeERKNS_6LayoutERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='316' u='c' c='_ZN3xla10LayoutUtil9HasLayoutERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.h' l='80' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable14ShapeSizeBytesERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='506' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='357' u='c' c='_ZN3xla3cpu13CpuExecutable14ShapeSizeBytesERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1271' u='c' c='_ZN3xla3cpu9IrEmitter15HandleParameterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='813' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper33GetInstructionNodeInlinedOperandsEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='220' u='c' c='_ZN3xla14HloInstruction10CreateNaryERKNS_5ShapeENS_9HloOpcodeEN10tensorflow3gtl10ArraySliceIPS0_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='653' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='694' u='c' c='_ZN3xla12_GLOBAL__N_121CheckCustomCallLayoutEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='698' u='c' c='_ZN3xla12_GLOBAL__N_121CheckCustomCallLayoutEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/tuple_ops.cc' l='96' u='c' c='_ZN3xla7llvm_ir19EmitGetTupleElementERKNS_5ShapeExiPN4llvm5ValueEPNS4_9IRBuilderINS4_14ConstantFolderENS4_24IRBuilderDefaultInserterEEEPNS4_6ModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='175' u='c' c='_ZN3xla12_GLOBAL__N_122ExpectNotTupleOrOpaqueERKNS_5ShapeEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='1647' u='c' c='_ZNK3xla15UserComputation19ComputeProgramShapeEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_layout.cc' l='65' u='c' c='_ZN3xla11ShapeLayout11ResetLayoutERKNS_6LayoutE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='79' u='c' c='_ZN3xla12_GLOBAL__N_113CompareShapesERKNS_5ShapeES3_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='79' u='c' c='_ZN3xla12_GLOBAL__N_113CompareShapesERKNS_5ShapeES3_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='80' u='c' c='_ZN3xla12_GLOBAL__N_113CompareShapesERKNS_5ShapeES3_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='80' u='c' c='_ZN3xla12_GLOBAL__N_113CompareShapesERKNS_5ShapeES3_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='474' u='c' c='_ZN3xla9ShapeUtil21HumanStringWithLayoutERKNS_5ShapeE'/>

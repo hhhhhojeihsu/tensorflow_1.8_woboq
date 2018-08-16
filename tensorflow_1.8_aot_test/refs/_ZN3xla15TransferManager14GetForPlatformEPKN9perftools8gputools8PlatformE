@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='135' type='static StatusOr&lt;xla::TransferManager *&gt; xla::TransferManager::GetForPlatform(const perftools::gputools::Platform * platform)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='133'>// Returns the transfer manager singleton pointer if it is available for the
+  // given platform, or an error status if it is not.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='85' u='c' c='_ZN3xla7Backend13CreateBackendERKNS_14BackendOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='92' ll='112' type='static StatusOr&lt;xla::TransferManager *&gt; xla::TransferManager::GetForPlatform(const se::Platform * platform)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='92'>/* static */</doc>

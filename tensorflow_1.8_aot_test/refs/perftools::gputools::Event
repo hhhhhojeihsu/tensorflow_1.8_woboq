@@ -1,0 +1,14 @@
+<def f='tensorflow/tensorflow/stream_executor/event.h' l='37' ll='77'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/stream_executor/event.h' l='33'>// The Event class, when supported by a platform, enables low-overhead status
+// reporting for a Stream. An Event is inserted at a location in a stream via
+// the Stream::ThenRecordEvent() API. From then on, the Event&apos;s status can be
+// monitored via the nonblocking Event::PollForStatus() call.</doc>
+<fun r='_ZN9perftools8gputools5EventC1EPNS0_14StreamExecutorE'/>
+<fun r='_ZN9perftools8gputools5EventD1Ev'/>
+<fun r='_ZN9perftools8gputools5Event4InitEv'/>
+<fun r='_ZN9perftools8gputools5Event13PollForStatusEv'/>
+<fun r='_ZN9perftools8gputools5Event14implementationEv'/>
+<mbr r='perftools::gputools::Event::stream_exec_' o='0' t='perftools::gputools::StreamExecutor *'/>
+<mbr r='perftools::gputools::Event::implementation_' o='64' t='std::unique_ptr&lt;internal::EventInterface&gt;'/>
+<fun r='_ZN9perftools8gputools5EventC1ERKS1_'/>

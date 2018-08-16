@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='517' type='static std::unique_ptr&lt;Literal&gt; xla::Literal::MakeTupleOwned(std::vector&lt;std::unique_ptr&lt;Literal&gt; &gt; elements)'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='538' u='c' c='_ZN3xla7Literal14MakeTupleOwnedEDpSt10unique_ptrIT_St14default_deleteIS2_EE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='510'>// As above, but intended to be invoked with move semantics; i.e.
+  //
+  //  std::vector&lt;std::unique_ptr&lt;Literal&gt;&gt; elements = ...;
+  //  auto result = Literal::MakeTupleOwned(std::move(elements));
+  //
+  // This would have been declared as an overload, but there is ambiguity
+  // in invocation between the above signature and this one.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1359' ll='1372' type='static std::unique_ptr&lt;Literal&gt; xla::Literal::MakeTupleOwned(std::vector&lt;std::unique_ptr&lt;Literal&gt; &gt; elements)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1359'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='238' u='c' c='_ZN3xla18CpuTransferManager26TransferLiteralFromOutfeedEPN9perftools8gputools14StreamExecutorERKNS_5ShapeEPNS_7LiteralE'/>

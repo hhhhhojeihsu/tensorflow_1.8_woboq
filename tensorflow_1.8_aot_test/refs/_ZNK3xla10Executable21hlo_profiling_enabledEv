@@ -1,0 +1,9 @@
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='112' u='c' c='_ZNK3xla10Executable24hlo_profile_printer_dataEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='117' u='c' c='_ZNK3xla10Executable21hlo_profile_index_mapEv'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='124' ll='126' type='bool xla::Executable::hlo_profiling_enabled() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='121'>// Returns whether this executable was compiled with HLO profilings support
+  // enabled. If not, the caller should not expect an hlo_execution_profile
+  // passed to ExecuteOnStream above to be populated during execution.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='319' u='c' c='_ZN3xla3cpu13CpuExecutable20ExecuteAsyncOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='76' u='c' c='_ZN3xla10Executable22ExecuteOnStreamWrapperEPKNS_27ServiceExecutableRunOptionsEPNS_16ExecutionProfileEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='578' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>

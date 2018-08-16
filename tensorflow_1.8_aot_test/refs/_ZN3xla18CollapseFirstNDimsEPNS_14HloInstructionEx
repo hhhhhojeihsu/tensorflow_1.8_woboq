@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='110' type='StatusOr&lt;xla::HloInstruction *&gt; xla::CollapseFirstNDims(xla::HloInstruction * operand, int64 n)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='100'>// -----------------------------------------------------------------------------
+// Some other miscellaneous helpers to generate common HLO patterns.  All of
+// these add all the instructions they generate into the computation containing
+// their operand(s).
+
+// Collapses (via reshape) the first N (logical) dimensions of `operand` into a
+// single leading dimension.  `operand` must have rank &gt; n.
+//
+// For instance if `operand` has shape f32[7,8,9] and n is 2 then the output is
+// the `operand` reshaped to [56,9].</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='92' u='c' c='_ZN3xlaL25CanonicalizeGatherIndicesEPNS_14HloInstructionEx'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='165' ll='185' type='StatusOr&lt;xla::HloInstruction *&gt; xla::CollapseFirstNDims(xla::HloInstruction * operand, int64 n)'/>

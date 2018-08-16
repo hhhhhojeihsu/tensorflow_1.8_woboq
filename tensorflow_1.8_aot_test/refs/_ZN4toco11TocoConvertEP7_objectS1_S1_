@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.h' l='27' type='PyObject * toco::TocoConvert(PyObject * model_flags_proto_txt_raw, PyObject * toco_flags_proto_txt_raw, PyObject * input_contents_txt_raw)'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc' l='38' ll='84' type='PyObject * toco::TocoConvert(PyObject * model_flags_proto_txt_raw, PyObject * toco_flags_proto_txt_raw, PyObject * input_contents_txt_raw)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc' l='36'>// NOTE(aselle): We are using raw PyObject&apos;s here because we want to make
+// sure we input and output bytes rather than unicode strings for Python3.</doc>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.h' l='23'>// Convert a model represented in `input_contents`. `model_flags_proto`
+// describes model parameters. `toco_flags_proto` describes conversion
+// parameters (see relevant .protos for more information). Returns a string
+// representing the contents of the converted model.</doc>

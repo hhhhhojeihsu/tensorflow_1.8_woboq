@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='785' type='xla::XlaComputation xla::XlaBuilder::BuildAndNoteError()'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='777'>// Builds the computation with the requested operations, or notes an error in
+  // the parent XlaBuilder and returns an empty computation if building failed.
+  // This function is intended to be used where the returned XlaComputation is
+  // only used by the parent XlaBuilder and hence further operation on the
+  // returned XlaComputation will simply be error&apos;ed out if an error occurred
+  // while building this computation. If the built computation is to be used by
+  // a XlaBuilder other than the parent XlaBuilder then Build() should be used
+  // instead.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/lib/arithmetic.cc' l='69' u='c' c='_ZN3xla12_GLOBAL__N_123CreateScalarComputationERKSsNS_13PrimitiveTypeEPNS_10XlaBuilderEPFNS_5XlaOpES5_RKS6_S8_E'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='163' ll='173' type='xla::XlaComputation xla::XlaBuilder::BuildAndNoteError()'/>

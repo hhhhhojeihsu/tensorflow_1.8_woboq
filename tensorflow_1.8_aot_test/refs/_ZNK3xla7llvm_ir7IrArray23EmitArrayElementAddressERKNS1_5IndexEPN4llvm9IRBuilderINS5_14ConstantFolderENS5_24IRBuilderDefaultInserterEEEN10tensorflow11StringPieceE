@@ -1,0 +1,23 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='205' type='llvm::Value * xla::llvm_ir::IrArray::EmitArrayElementAddress(const xla::llvm_ir::IrArray::Index &amp; index, llvm::IRBuilder&lt;&gt; * ir_builder, tensorflow::StringPiece name = &quot;&quot;) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='199'>// Emit a sequence of instructions to compute the address of the element in
+  // the given array at the given index. Returns the address of the element as
+  // an LLVM Value.
+  //
+  // The optional name is useful for debugging when looking at
+  // the emitted LLVM IR.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='509' u='c' c='_ZN3xla3cpu9IrEmitter9HandleMapEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='605' u='c' c='_ZN3xla3cpu9IrEmitter18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='753' u='c' c='_ZN3xla3cpu9IrEmitter22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='786' u='c' c='_ZN3xla3cpu9IrEmitter22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='789' u='c' c='_ZN3xla3cpu9IrEmitter22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1536' u='c' c='_ZN3xla3cpu9IrEmitter35EmitInnerLoopForVectorizedReductionERKSt8functionIFPN4llvm5ValueEPNS3_9IRBuilderINS3_14ConstantFolderENS3_24IRBuilderDefaultIns8816630'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1695' u='c' c='_ZN3xla3cpu9IrEmitter20EmitVectorizedReduceEPNS_14HloInstructionES3_S3_N10tensorflow3gtl10ArraySliceIxEEPNS_14HloComputationEPSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1727' u='c' c='_ZN3xla3cpu9IrEmitter20EmitVectorizedReduceEPNS_14HloInstructionES3_S3_N10tensorflow3gtl10ArraySliceIxEEPNS_14HloComputationEPSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1806' u='c' c='_ZN3xla3cpu9IrEmitter12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1936' u='c' c='_ZN3xla3cpu9IrEmitter11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1938' u='c' c='_ZN3xla3cpu9IrEmitter11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2381' u='c' c='_ZN3xla3cpu9IrEmitter19EmitFastConcatenateEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIS3_EEPSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2398' u='c' c='_ZN3xla3cpu9IrEmitter19EmitFastConcatenateEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIS3_EEPSs'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='325' ll='369' type='llvm::Value * xla::llvm_ir::IrArray::EmitArrayElementAddress(const IrArray::Index &amp; index, llvm::IRBuilder&lt;&gt; * ir_builder, tensorflow::StringPiece name = &quot;&quot;) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='387' u='c' c='_ZNK3xla7llvm_ir7IrArray20EmitReadArrayElementERKNS1_5IndexEPN4llvm9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='395' u='c' c='_ZNK3xla7llvm_ir7IrArray21EmitWriteArrayElementERKNS1_5IndexEPN4llvm5ValueEPNS5_9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEE'/>

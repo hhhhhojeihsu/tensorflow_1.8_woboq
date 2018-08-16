@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='326' type='StatusOr&lt;std::unique_ptr&lt;Executable&gt; &gt; xla::Service::BuildExecutable(const xla::VersionedComputationHandle &amp; versioned_handle, std::unique_ptr&lt;HloModuleConfig&gt; module_config, xla::Backend * backend, perftools::gputools::StreamExecutor * executor, xla::DeviceMemoryAllocator * device_allocator = nullptr)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='321'>// Builds an Executable for the given parameters.
+  //
+  // If device_allocator is not null, the compiler may use it to allocate temp
+  // buffers, which the compiler is responsible for freeing.  The allocator
+  // given here need not match the allocator used when running the executable.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/local_service.cc' l='193' u='c' c='_ZN3xla12LocalService17CompileExecutableERKNS_17ComputationHandleEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEERKNS_22ExecutableBuildOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='443' ll='491' type='StatusOr&lt;std::unique_ptr&lt;Executable&gt; &gt; xla::Service::BuildExecutable(const xla::VersionedComputationHandle &amp; versioned_handle, std::unique_ptr&lt;HloModuleConfig&gt; module_config, xla::Backend * backend, se::StreamExecutor * executor, xla::DeviceMemoryAllocator * device_allocator = nullptr)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='518' u='c' c='_ZN3xla7Service23BuildAndCacheExecutableERKNS_26VersionedComputationHandleESt10unique_ptrINS_15HloModuleConfigESt14default_deleteIS5_EEPNS_7BackendEPN3530019'/>

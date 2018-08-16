@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/device.h' l='105' type='tensorflow::Status tensorflow::Device::Sync()'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/device.h' l='102'>// Blocks until all operations queued on the device at the time of
+  // the call have completed.  Returns any error pending on the device
+  // at completion.</doc>
+<ovr f='tensorflow/tensorflow/compiler/jit/xla_device.h' l='96' c='_ZN10tensorflow9XlaDevice4SyncEv'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='107' c='_ZN10tensorflow13RenamedDevice4SyncEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='107' u='c' c='_ZN10tensorflow13RenamedDevice4SyncEv'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.cc' l='118' c='_ZN10tensorflow20XlaCompilationDevice4SyncEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='161' u='c' c='_ZN10tensorflow12TensorHandle12CopyToDeviceEPNS_12EagerContextEPNS_6DeviceEPPS0_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='2289' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ExecutorState6FinishEv'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/single_threaded_cpu_device.h' l='57' c='_ZN10tensorflow23SingleThreadedCpuDevice4SyncEv'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/threadpool_device.h' l='43' c='_ZN10tensorflow16ThreadPoolDevice4SyncEv'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/remote_device.cc' l='48' c='_ZN10tensorflow12RemoteDevice4SyncEv'/>
+<ovr f='tensorflow/tensorflow/core/grappler/optimizers/function_optimizer.cc' l='229' c='_ZN10tensorflow8grappler12_GLOBAL__N_113FakeCPUDevice4SyncEv'/>

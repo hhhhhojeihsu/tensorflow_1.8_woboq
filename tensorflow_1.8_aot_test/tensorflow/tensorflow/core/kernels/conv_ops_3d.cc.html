@@ -1,0 +1,523 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>conv_ops_3d.cc source code [tensorflow/tensorflow/core/kernels/conv_ops_3d.cc] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::Conv3DOp,tensorflow::LaunchConvOp "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/kernels/conv_ops_3d.cc'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>kernels</a>/<a href='conv_ops_3d.cc.html'>conv_ops_3d.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/USE_EIGEN_TENSOR" data-ref="_M/USE_EIGEN_TENSOR">USE_EIGEN_TENSOR</dfn></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/EIGEN_USE_THREADS" data-ref="_M/EIGEN_USE_THREADS">EIGEN_USE_THREADS</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="conv_2d.h.html">"tensorflow/core/kernels/conv_2d.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="conv_3d.h.html">"tensorflow/core/kernels/conv_3d.h"</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../framework/numeric_op.h.html">"tensorflow/core/framework/numeric_op.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../framework/op_kernel.h.html">"tensorflow/core/framework/op_kernel.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../framework/register_types.h.html">"tensorflow/core/framework/register_types.h"</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../framework/tensor.h.html">"tensorflow/core/framework/tensor.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../framework/tensor_shape.h.html">"tensorflow/core/framework/tensor_shape.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../framework/tensor_slice.h.html">"tensorflow/core/framework/tensor_slice.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="conv_ops_gpu.h.html">"tensorflow/core/kernels/conv_ops_gpu.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="ops_util.h.html">"tensorflow/core/kernels/ops_util.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../lib/core/errors.h.html">"tensorflow/core/lib/core/errors.h"</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../util/padding.h.html">"tensorflow/core/util/padding.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../util/tensor_format.h.html">"tensorflow/core/util/tensor_format.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../util/use_cudnn.h.html">"tensorflow/core/util/use_cudnn.h"</a></u></td></tr>
+<tr><th id="34">34</th><td></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="35">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="36">36</th><td><u>#include "tensorflow/core/platform/stream_executor.h"</u></td></tr>
+<tr><th id="37">37</th><td><b>using</b> perftools::gputools::dnn::DimIndex;</td></tr>
+<tr><th id="38">38</th><td><u>#<span data-ppcond="35">endif</span></u></td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><b>typedef</b> <span class="namespace">Eigen::</span><span class='type' title='Eigen::ThreadPoolDevice' data-ref="Eigen::ThreadPoolDevice">ThreadPoolDevice</span> <dfn class="typedef" id="tensorflow::CPUDevice" title='tensorflow::CPUDevice' data-type='Eigen::ThreadPoolDevice' data-ref="tensorflow::CPUDevice">CPUDevice</dfn>;</td></tr>
+<tr><th id="43">43</th><td><b>typedef</b> <span class="namespace">Eigen::</span><span class='type' title='Eigen::GpuDevice' data-ref="Eigen::GpuDevice">GpuDevice</span> <dfn class="typedef" id="tensorflow::GPUDevice" title='tensorflow::GPUDevice' data-type='Eigen::GpuDevice' data-ref="tensorflow::GPUDevice">GPUDevice</dfn>;</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T&gt;</td></tr>
+<tr><th id="46">46</th><td><b>struct</b> <dfn class="type" id="tensorflow::LaunchConvOp" title='tensorflow::LaunchConvOp' data-ref="tensorflow::LaunchConvOp">LaunchConvOp</dfn>;</td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="49">49</th><td><b>struct</b> <dfn class="type def" id="tensorflow::LaunchConvOp" title='tensorflow::LaunchConvOp' data-ref="tensorflow::LaunchConvOp">LaunchConvOp</dfn>&lt;<a class="typedef" href="#tensorflow::CPUDevice" title='tensorflow::CPUDevice' data-type='Eigen::ThreadPoolDevice' data-ref="tensorflow::CPUDevice">CPUDevice</a>, T&gt; {</td></tr>
+<tr><th id="50">50</th><td>  <em>static</em> <em>void</em> <dfn class="tu decl def" id="_ZN10tensorflow12LaunchConvOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextEbRKNS_6TensorES9_RKSt5arrayIxLm3EENS_7PaddingENS_12TensorFormatEPS7_" title='tensorflow::LaunchConvOp&lt;Eigen::ThreadPoolDevice, type-parameter-0-0&gt;::launch' data-type='static void tensorflow::LaunchConvOp&lt;Eigen::ThreadPoolDevice, type-parameter-0-0&gt;::launch(tensorflow::OpKernelContext * context, bool cudnn_use_autotune, const tensorflow::Tensor &amp; input, const tensorflow::Tensor &amp; filter, const std::array&lt;int64, 3&gt; &amp; strides, const tensorflow::Padding padding, tensorflow::TensorFormat data_format, tensorflow::Tensor * output)' data-ref="_ZN10tensorflow12LaunchConvOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextEbRKNS_6TensorES9_RKSt5arrayIxLm3EENS_7PaddingENS_12TensorFormatEPS7_">launch</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col1 decl" id="1context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="1context">context</dfn>, <em>bool</em> <dfn class="local col2 decl" id="2cudnn_use_autotune" title='cudnn_use_autotune' data-type='bool' data-ref="2cudnn_use_autotune">cudnn_use_autotune</dfn>,</td></tr>
+<tr><th id="51">51</th><td>                     <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col3 decl" id="3input" title='input' data-type='const tensorflow::Tensor &amp;' data-ref="3input">input</dfn>, <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col4 decl" id="4filter" title='filter' data-type='const tensorflow::Tensor &amp;' data-ref="4filter">filter</dfn>,</td></tr>
+<tr><th id="52">52</th><td>                     <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>, <var>3</var>&gt;&amp; <dfn class="local col5 decl" id="5strides" title='strides' data-type='const std::array&lt;int64, 3&gt; &amp;' data-ref="5strides">strides</dfn>, <em>const</em> <a class="type" href="../util/padding.h.html#tensorflow::Padding" title='tensorflow::Padding' data-ref="tensorflow::Padding">Padding</a> <dfn class="local col6 decl" id="6padding" title='padding' data-type='const tensorflow::Padding' data-ref="6padding">padding</dfn>,</td></tr>
+<tr><th id="53">53</th><td>                     <a class="type" href="../util/tensor_format.h.html#tensorflow::TensorFormat" title='tensorflow::TensorFormat' data-ref="tensorflow::TensorFormat">TensorFormat</a> <dfn class="local col7 decl" id="7data_format" title='data_format' data-type='tensorflow::TensorFormat' data-ref="7data_format">data_format</dfn>, <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>* <dfn class="local col8 decl" id="8output" title='output' data-type='tensorflow::Tensor *' data-ref="8output">output</dfn>) {</td></tr>
+<tr><th id="54">54</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(data_format == FORMAT_NHWC), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 57, (errors::InvalidArgument(&quot;CPU implementation of Conv3D &quot; &quot;currently only supports the NHWC &quot; &quot;tensor format.&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>, <a class="local col7 ref" href="#7data_format" title='data_format' data-ref="7data_format">data_format</a> == <a class="enum" href="../util/tensor_format.h.html#tensorflow::TensorFormat::FORMAT_NHWC" title='tensorflow::TensorFormat::FORMAT_NHWC' data-ref="tensorflow::TensorFormat::FORMAT_NHWC">FORMAT_NHWC</a>,</td></tr>
+<tr><th id="55">55</th><td>                errors::<a class="ref" href="../lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"CPU implementation of Conv3D "</q></td></tr>
+<tr><th id="56">56</th><td>                                        <q>"currently only supports the NHWC "</q></td></tr>
+<tr><th id="57">57</th><td>                                        <q>"tensor format."</q>));</td></tr>
+<tr><th id="58">58</th><td>    <span class="namespace">functor::</span><a class="type" href="conv_3d.h.html#tensorflow::functor::CuboidConvolution" title='tensorflow::functor::CuboidConvolution' data-ref="tensorflow::functor::CuboidConvolution">CuboidConvolution</a>&lt;<a class="typedef" href="#tensorflow::CPUDevice" title='tensorflow::CPUDevice' data-type='Eigen::ThreadPoolDevice' data-ref="tensorflow::CPUDevice">CPUDevice</a>, T&gt;()(</td></tr>
+<tr><th id="59">59</th><td>        <a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>-&gt;<a class="ref" href="../framework/op_kernel.h.html#_ZNK10tensorflow15OpKernelContext12eigen_deviceEv" title='tensorflow::OpKernelContext::eigen_device' data-ref="_ZNK10tensorflow15OpKernelContext12eigen_deviceEv">eigen_device</a>&lt;<a class="typedef" href="#tensorflow::CPUDevice" title='tensorflow::CPUDevice' data-type='Eigen::ThreadPoolDevice' data-ref="tensorflow::CPUDevice">CPUDevice</a>&gt;(), <a class="local col8 ref" href="#8output" title='output' data-ref="8output">output</a>-&gt;tensor&lt;T, <var>5</var>&gt;(),</td></tr>
+<tr><th id="60">60</th><td>        <a class="local col3 ref" href="#3input" title='input' data-ref="3input">input</a>.tensor&lt;T, <var>5</var>&gt;(), <a class="local col4 ref" href="#4filter" title='filter' data-ref="4filter">filter</a>.tensor&lt;T, <var>5</var>&gt;(), <a class="local col5 ref" href="#5strides" title='strides' data-ref="5strides">strides</a><a class="ref" href="../../../../include/c++/5/array.html#_ZNKSt5arrayixEm" title='std::array::operator[]' data-ref="_ZNKSt5arrayixEm">[<var>2</var>]</a>, <a class="local col5 ref" href="#5strides" title='strides' data-ref="5strides">strides</a><a class="ref" href="../../../../include/c++/5/array.html#_ZNKSt5arrayixEm" title='std::array::operator[]' data-ref="_ZNKSt5arrayixEm">[<var>1</var>]</a>,</td></tr>
+<tr><th id="61">61</th><td>        <a class="local col5 ref" href="#5strides" title='strides' data-ref="5strides">strides</a><a class="ref" href="../../../../include/c++/5/array.html#_ZNKSt5arrayixEm" title='std::array::operator[]' data-ref="_ZNKSt5arrayixEm">[<var>0</var>]</a>, <a class="ref" href="ops_util.h.html#_ZN10tensorflow25BrainPadding2EigenPaddingENS_7PaddingE" title='tensorflow::BrainPadding2EigenPadding' data-ref="_ZN10tensorflow25BrainPadding2EigenPaddingENS_7PaddingE">BrainPadding2EigenPadding</a>(<a class="local col6 ref" href="#6padding" title='padding' data-ref="6padding">padding</a>));</td></tr>
+<tr><th id="62">62</th><td>  }</td></tr>
+<tr><th id="63">63</th><td>};</td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T&gt;</td></tr>
+<tr><th id="66">66</th><td><b>class</b> <dfn class="type def" id="tensorflow::Conv3DOp" title='tensorflow::Conv3DOp' data-ref="tensorflow::Conv3DOp">Conv3DOp</dfn> : <b>public</b> <a class="type" href="../framework/numeric_op.h.html#tensorflow::BinaryOp" title='tensorflow::BinaryOp' data-ref="tensorflow::BinaryOp">BinaryOp</a>&lt;T&gt; {</td></tr>
+<tr><th id="67">67</th><td> <b>public</b>:</td></tr>
+<tr><th id="68">68</th><td>  <b>explicit</b> <dfn class="tu decl def" id="_ZN10tensorflow8Conv3DOpC1EPNS_20OpKernelConstructionE" title='tensorflow::Conv3DOp::Conv3DOp&lt;Device, T&gt;' data-type='void tensorflow::Conv3DOp::Conv3DOp&lt;Device, T&gt;(tensorflow::OpKernelConstruction * context)' data-ref="_ZN10tensorflow8Conv3DOpC1EPNS_20OpKernelConstructionE">Conv3DOp</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelConstruction" title='tensorflow::OpKernelConstruction' data-ref="tensorflow::OpKernelConstruction">OpKernelConstruction</a>* <dfn class="local col9 decl" id="9context" title='context' data-type='tensorflow::OpKernelConstruction *' data-ref="9context">context</dfn>) : <a class="type" href="../framework/numeric_op.h.html#tensorflow::BinaryOp" title='tensorflow::BinaryOp' data-ref="tensorflow::BinaryOp">BinaryOp</a>&lt;T&gt;(<a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>) {</td></tr>
+<tr><th id="69">69</th><td>    <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <a class="ref fake" href="../../../../include/c++/5/bits/basic_string.h.html#_ZNSt12basic_stringC1Ev" title='std::basic_string::basic_string&lt;_CharT, _Traits, _Alloc&gt;' data-ref="_ZNSt12basic_stringC1Ev"></a><dfn class="local col0 decl" id="10data_format" title='data_format' data-type='string' data-ref="10data_format">data_format</dfn>;</td></tr>
+<tr><th id="70">70</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;GetAttr(&quot;data_format&quot;, &amp;data_format)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 70, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>, <a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>-&gt;<a class="ref" href="../framework/op_kernel.h.html#_ZNK10tensorflow20OpKernelConstruction7GetAttrENS_11StringPieceEPT_" title='tensorflow::OpKernelConstruction::GetAttr' data-ref="_ZNK10tensorflow20OpKernelConstruction7GetAttrENS_11StringPieceEPT_">GetAttr</a>(<a class="ref fake" href="../lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"data_format"</q>, &amp;<a class="local col0 ref" href="#10data_format" title='data_format' data-ref="10data_format">data_format</a>));</td></tr>
+<tr><th id="71">71</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(FormatFromString(data_format, &amp;data_format_)), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 72, (errors::InvalidArgument(&quot;Invalid data format&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>, FormatFromString(<a class="local col0 ref" href="#10data_format" title='data_format' data-ref="10data_format">data_format</a>, &amp;<a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-use='a' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>),</td></tr>
+<tr><th id="72">72</th><td>                errors::<a class="ref" href="../lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"Invalid data format"</q>));</td></tr>
+<tr><th id="73">73</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;GetAttr(&quot;strides&quot;, &amp;stride_)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 73, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>, <a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>-&gt;GetAttr(<q>"strides"</q>, &amp;<a class="tu member" href="#tensorflow::Conv3DOp::stride_" title='tensorflow::Conv3DOp::stride_' data-use='a' data-ref="tensorflow::Conv3DOp::stride_">stride_</a>));</td></tr>
+<tr><th id="74">74</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(stride_.size() == 5), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 76, (errors::InvalidArgument(&quot;Sliding window strides field must &quot; &quot;specify 5 dimensions&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>, <a class="tu member" href="#tensorflow::Conv3DOp::stride_" title='tensorflow::Conv3DOp::stride_' data-use='m' data-ref="tensorflow::Conv3DOp::stride_">stride_</a>.<a class="ref" href="../../../../include/c++/5/bits/stl_vector.h.html#_ZNKSt6vector4sizeEv" title='std::vector::size' data-ref="_ZNKSt6vector4sizeEv">size</a>() == <var>5</var>,</td></tr>
+<tr><th id="75">75</th><td>                errors::<a class="ref" href="../lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"Sliding window strides field must "</q></td></tr>
+<tr><th id="76">76</th><td>                                        <q>"specify 5 dimensions"</q>));</td></tr>
+<tr><th id="77">77</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!((GetTensorDim(stride_, data_format_, &apos;N&apos;) == 1 &amp;&amp; GetTensorDim(stride_, data_format_, &apos;C&apos;) == 1)), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 82, (errors::InvalidArgument(&quot;Current implementation does not yet support &quot; &quot;strides in the batch and depth dimensions.&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(</td></tr>
+<tr><th id="78">78</th><td>        <a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>,</td></tr>
+<tr><th id="79">79</th><td>        (GetTensorDim(<a class="tu member" href="#tensorflow::Conv3DOp::stride_" title='tensorflow::Conv3DOp::stride_' data-ref="tensorflow::Conv3DOp::stride_">stride_</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <kbd>'N'</kbd>) == <var>1</var> &amp;&amp;</td></tr>
+<tr><th id="80">80</th><td>         GetTensorDim(<a class="tu member" href="#tensorflow::Conv3DOp::stride_" title='tensorflow::Conv3DOp::stride_' data-ref="tensorflow::Conv3DOp::stride_">stride_</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <kbd>'C'</kbd>) == <var>1</var>),</td></tr>
+<tr><th id="81">81</th><td>        errors::<a class="ref" href="../lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"Current implementation does not yet support "</q></td></tr>
+<tr><th id="82">82</th><td>                                <q>"strides in the batch and depth dimensions."</q>));</td></tr>
+<tr><th id="83">83</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;GetAttr(&quot;padding&quot;, &amp;padding_)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 83, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>, <a class="local col9 ref" href="#9context" title='context' data-ref="9context">context</a>-&gt;GetAttr(<q>"padding"</q>, &amp;<a class="tu member" href="#tensorflow::Conv3DOp::padding_" title='tensorflow::Conv3DOp::padding_' data-use='a' data-ref="tensorflow::Conv3DOp::padding_">padding_</a>));</td></tr>
+<tr><th id="84">84</th><td>    <a class="tu member" href="#tensorflow::Conv3DOp::cudnn_use_autotune_" title='tensorflow::Conv3DOp::cudnn_use_autotune_' data-use='w' data-ref="tensorflow::Conv3DOp::cudnn_use_autotune_">cudnn_use_autotune_</a> = <a class="ref" href="../util/use_cudnn.h.html#_ZN10tensorflow16CudnnUseAutotuneEv" title='tensorflow::CudnnUseAutotune' data-ref="_ZN10tensorflow16CudnnUseAutotuneEv">CudnnUseAutotune</a>();</td></tr>
+<tr><th id="85">85</th><td>  }</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td>  <em>void</em> <dfn class="tu decl def" id="_ZN10tensorflow8Conv3DOp7ComputeEPNS_15OpKernelContextE" title='tensorflow::Conv3DOp::Compute' data-type='void tensorflow::Conv3DOp::Compute(tensorflow::OpKernelContext * context)' data-ref="_ZN10tensorflow8Conv3DOp7ComputeEPNS_15OpKernelContextE">Compute</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col1 decl" id="11context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="11context">context</dfn>) override {</td></tr>
+<tr><th id="88">88</th><td>    <i>// Input tensor is of the following dimensions:</i></td></tr>
+<tr><th id="89">89</th><td><i>    // [ batch, in_z, in_y, in_x, in_channels ]</i></td></tr>
+<tr><th id="90">90</th><td>    <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col2 decl" id="12input" title='input' data-type='const tensorflow::Tensor &amp;' data-ref="12input">input</dfn> = <a class="local col1 ref" href="#11context" title='context' data-ref="11context">context</a>-&gt;<a class="ref" href="../framework/op_kernel.h.html#_ZN10tensorflow15OpKernelContext5inputEi" title='tensorflow::OpKernelContext::input' data-ref="_ZN10tensorflow15OpKernelContext5inputEi">input</a>(<var>0</var>);</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>    <i>// Input filter is of the following dimensions:</i></td></tr>
+<tr><th id="93">93</th><td><i>    // [ filter_z, filter_y, filter_x, in_channels, out_channels]</i></td></tr>
+<tr><th id="94">94</th><td>    <em>const</em> <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>&amp; <dfn class="local col3 decl" id="13filter" title='filter' data-type='const tensorflow::Tensor &amp;' data-ref="13filter">filter</dfn> = <a class="local col1 ref" href="#11context" title='context' data-ref="11context">context</a>-&gt;<a class="ref" href="../framework/op_kernel.h.html#_ZN10tensorflow15OpKernelContext5inputEi" title='tensorflow::OpKernelContext::input' data-ref="_ZN10tensorflow15OpKernelContext5inputEi">input</a>(<var>1</var>);</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>    <i>// NOTE: The ordering of the spatial dimensions is arbitrary, but has to be</i></td></tr>
+<tr><th id="97">97</th><td><i>    // kept consistent between input/filter/output.</i></td></tr>
+<tr><th id="98">98</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(input.dims() == 5), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 99, (errors::InvalidArgument(&quot;input must be 5-dimensional&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col1 ref" href="#11context" title='context' data-ref="11context">context</a>, <a class="local col2 ref" href="#12input" title='input' data-ref="12input">input</a>.<a class="ref" href="../framework/tensor.h.html#_ZNK10tensorflow6Tensor4dimsEv" title='tensorflow::Tensor::dims' data-ref="_ZNK10tensorflow6Tensor4dimsEv">dims</a>() == <var>5</var>,</td></tr>
+<tr><th id="99">99</th><td>                errors::<a class="ref" href="../lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"input must be 5-dimensional"</q>));</td></tr>
+<tr><th id="100">100</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(filter.dims() == 5), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 101, (errors::InvalidArgument(&quot;filter must be 5-dimensional&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col1 ref" href="#11context" title='context' data-ref="11context">context</a>, <a class="local col3 ref" href="#13filter" title='filter' data-ref="13filter">filter</a>.<a class="ref" href="../framework/tensor.h.html#_ZNK10tensorflow6Tensor4dimsEv" title='tensorflow::Tensor::dims' data-ref="_ZNK10tensorflow6Tensor4dimsEv">dims</a>() == <var>5</var>,</td></tr>
+<tr><th id="101">101</th><td>                errors::<a class="ref" href="../lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"filter must be 5-dimensional"</q>));</td></tr>
+<tr><th id="102">102</th><td></td></tr>
+<tr><th id="103">103</th><td>    <em>const</em> <a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col4 decl" id="14in_depth" title='in_depth' data-type='const int64' data-ref="14in_depth">in_depth</dfn> = GetTensorDim(<a class="local col2 ref" href="#12input" title='input' data-ref="12input">input</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <kbd>'C'</kbd>);</td></tr>
+<tr><th id="104">104</th><td>    <em>const</em> <a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col5 decl" id="15in_batch" title='in_batch' data-type='const int64' data-ref="15in_batch">in_batch</dfn> = GetTensorDim(<a class="local col2 ref" href="#12input" title='input' data-ref="12input">input</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <kbd>'N'</kbd>);</td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td>    <em>const</em> <a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="local col6 decl" id="16out_depth" title='out_depth' data-type='const int64' data-ref="16out_depth">out_depth</dfn> = <a class="local col3 ref" href="#13filter" title='filter' data-ref="13filter">filter</a>.<a class="ref" href="../framework/tensor.h.html#_ZNK10tensorflow6Tensor8dim_sizeEi" title='tensorflow::Tensor::dim_size' data-ref="_ZNK10tensorflow6Tensor8dim_sizeEi">dim_size</a>(<var>4</var>);</td></tr>
+<tr><th id="107">107</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(in_depth == filter.dim_size(3)), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 109, (errors::InvalidArgument(&quot;input and filter must have the same depth&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(</td></tr>
+<tr><th id="108">108</th><td>        <a class="local col1 ref" href="#11context" title='context' data-ref="11context">context</a>, <a class="local col4 ref" href="#14in_depth" title='in_depth' data-ref="14in_depth">in_depth</a> == <a class="local col3 ref" href="#13filter" title='filter' data-ref="13filter">filter</a>.<a class="ref" href="../framework/tensor.h.html#_ZNK10tensorflow6Tensor8dim_sizeEi" title='tensorflow::Tensor::dim_size' data-ref="_ZNK10tensorflow6Tensor8dim_sizeEi">dim_size</a>(<var>3</var>),</td></tr>
+<tr><th id="109">109</th><td>        errors::<a class="ref" href="../lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(<q>"input and filter must have the same depth"</q>));</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>    <i>// Dimension order for these arrays is: z, y, x.</i></td></tr>
+<tr><th id="112">112</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>, <var>3</var>&gt; <dfn class="local col7 decl" id="17input_size" title='input_size' data-type='std::array&lt;int64, 3&gt;' data-ref="17input_size">input_size</dfn> = {</td></tr>
+<tr><th id="113">113</th><td>        {GetTensorDim(<a class="local col2 ref" href="#12input" title='input' data-ref="12input">input</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <kbd>'0'</kbd>),</td></tr>
+<tr><th id="114">114</th><td>         GetTensorDim(<a class="local col2 ref" href="#12input" title='input' data-ref="12input">input</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <kbd>'1'</kbd>),</td></tr>
+<tr><th id="115">115</th><td>         GetTensorDim(<a class="local col2 ref" href="#12input" title='input' data-ref="12input">input</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <kbd>'2'</kbd>)}};</td></tr>
+<tr><th id="116">116</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>, <var>3</var>&gt; <dfn class="local col8 decl" id="18filter_size" title='filter_size' data-type='std::array&lt;int64, 3&gt;' data-ref="18filter_size">filter_size</dfn> = {</td></tr>
+<tr><th id="117">117</th><td>        {<a class="local col3 ref" href="#13filter" title='filter' data-ref="13filter">filter</a>.<a class="ref" href="../framework/tensor.h.html#_ZNK10tensorflow6Tensor8dim_sizeEi" title='tensorflow::Tensor::dim_size' data-ref="_ZNK10tensorflow6Tensor8dim_sizeEi">dim_size</a>(<var>0</var>), <a class="local col3 ref" href="#13filter" title='filter' data-ref="13filter">filter</a>.<a class="ref" href="../framework/tensor.h.html#_ZNK10tensorflow6Tensor8dim_sizeEi" title='tensorflow::Tensor::dim_size' data-ref="_ZNK10tensorflow6Tensor8dim_sizeEi">dim_size</a>(<var>1</var>), <a class="local col3 ref" href="#13filter" title='filter' data-ref="13filter">filter</a>.<a class="ref" href="../framework/tensor.h.html#_ZNK10tensorflow6Tensor8dim_sizeEi" title='tensorflow::Tensor::dim_size' data-ref="_ZNK10tensorflow6Tensor8dim_sizeEi">dim_size</a>(<var>2</var>)}};</td></tr>
+<tr><th id="118">118</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>, <var>3</var>&gt; <dfn class="local col9 decl" id="19strides" title='strides' data-type='std::array&lt;int64, 3&gt;' data-ref="19strides">strides</dfn> = {{GetTensorDim(<a class="tu member" href="#tensorflow::Conv3DOp::stride_" title='tensorflow::Conv3DOp::stride_' data-ref="tensorflow::Conv3DOp::stride_">stride_</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <kbd>'0'</kbd>),</td></tr>
+<tr><th id="119">119</th><td>                                     GetTensorDim(<a class="tu member" href="#tensorflow::Conv3DOp::stride_" title='tensorflow::Conv3DOp::stride_' data-ref="tensorflow::Conv3DOp::stride_">stride_</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <kbd>'1'</kbd>),</td></tr>
+<tr><th id="120">120</th><td>                                     GetTensorDim(<a class="tu member" href="#tensorflow::Conv3DOp::stride_" title='tensorflow::Conv3DOp::stride_' data-ref="tensorflow::Conv3DOp::stride_">stride_</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <kbd>'2'</kbd>)}};</td></tr>
+<tr><th id="121">121</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/array.html#std::array" title='std::array' data-ref="std::array">array</a>&lt;<a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>, <var>3</var>&gt; <a class="ref fake" href="../../../../include/c++/5/array.html#89" title='std::array&lt;long long, 3&gt;::array' data-ref="_ZNSt5arrayIxLm3EEC1Ev"></a><dfn class="local col0 decl" id="20out" title='out' data-type='std::array&lt;int64, 3&gt;' data-ref="20out">out</dfn>, <a class="ref fake" href="../../../../include/c++/5/array.html#89" title='std::array&lt;long long, 3&gt;::array' data-ref="_ZNSt5arrayIxLm3EEC1Ev"></a><dfn class="local col1 decl" id="21padding" title='padding' data-type='std::array&lt;int64, 3&gt;' data-ref="21padding">padding</dfn>;</td></tr>
+<tr><th id="122">122</th><td></td></tr>
+<tr><th id="123">123</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(Get3dOutputSize(input_size, filter_size, strides, padding_, &amp;out, &amp;padding)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 124, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col1 ref" href="#11context" title='context' data-ref="11context">context</a>, Get3dOutputSize(<a class="local col7 ref" href="#17input_size" title='input_size' data-ref="17input_size">input_size</a>, <a class="local col8 ref" href="#18filter_size" title='filter_size' data-ref="18filter_size">filter_size</a>, <a class="local col9 ref" href="#19strides" title='strides' data-ref="19strides">strides</a>,</td></tr>
+<tr><th id="124">124</th><td>                                            <a class="tu member" href="#tensorflow::Conv3DOp::padding_" title='tensorflow::Conv3DOp::padding_' data-ref="tensorflow::Conv3DOp::padding_">padding_</a>, &amp;<a class="local col0 ref" href="#20out" title='out' data-ref="20out">out</a>, &amp;<a class="local col1 ref" href="#21padding" title='padding' data-ref="21padding">padding</a>));</td></tr>
+<tr><th id="125">125</th><td>    <a class="type" href="../framework/tensor_shape.h.html#tensorflow::TensorShape" title='tensorflow::TensorShape' data-ref="tensorflow::TensorShape">TensorShape</a> <dfn class="local col2 decl" id="22out_shape" title='out_shape' data-type='tensorflow::TensorShape' data-ref="22out_shape">out_shape</dfn> = ShapeFromFormat(</td></tr>
+<tr><th id="126">126</th><td>        <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <a class="local col5 ref" href="#15in_batch" title='in_batch' data-ref="15in_batch">in_batch</a>, {{<a class="local col0 ref" href="#20out" title='out' data-ref="20out">out</a><a class="ref" href="../../../../include/c++/5/array.html#_ZNSt5arrayixEm" title='std::array::operator[]' data-ref="_ZNSt5arrayixEm">[<var>0</var>]</a>, <a class="local col0 ref" href="#20out" title='out' data-ref="20out">out</a><a class="ref" href="../../../../include/c++/5/array.html#_ZNSt5arrayixEm" title='std::array::operator[]' data-ref="_ZNSt5arrayixEm">[<var>1</var>]</a>, <a class="local col0 ref" href="#20out" title='out' data-ref="20out">out</a><a class="ref" href="../../../../include/c++/5/array.html#_ZNSt5arrayixEm" title='std::array::operator[]' data-ref="_ZNSt5arrayixEm">[<var>2</var>]</a>}}, <a class="local col6 ref" href="#16out_depth" title='out_depth' data-ref="16out_depth">out_depth</a>);</td></tr>
+<tr><th id="127">127</th><td>    <a class="type" href="../framework/tensor.h.html#tensorflow::Tensor" title='tensorflow::Tensor' data-ref="tensorflow::Tensor">Tensor</a>* <dfn class="local col3 decl" id="23output" title='output' data-type='tensorflow::Tensor *' data-ref="23output">output</dfn>;</td></tr>
+<tr><th id="128">128</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(context-&gt;allocate_output(0, out_shape, &amp;output)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/conv_ops_3d.cc&quot;, 128, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(<a class="local col1 ref" href="#11context" title='context' data-ref="11context">context</a>, <a class="local col1 ref" href="#11context" title='context' data-ref="11context">context</a>-&gt;<a class="ref" href="../framework/op_kernel.h.html#_ZN10tensorflow15OpKernelContext15allocate_outputEiRKNS_11TensorShapeEPPNS_6TensorE" title='tensorflow::OpKernelContext::allocate_output' data-ref="_ZN10tensorflow15OpKernelContext15allocate_outputEiRKNS_11TensorShapeEPPNS_6TensorE">allocate_output</a>(<var>0</var>, <a class="local col2 ref" href="#22out_shape" title='out_shape' data-ref="22out_shape">out_shape</a>, &amp;<a class="local col3 ref" href="#23output" title='output' data-ref="23output">output</a>));</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td>    <i>// Return early if nothing to do.</i></td></tr>
+<tr><th id="131">131</th><td>    <b>if</b> (<a class="local col2 ref" href="#22out_shape" title='out_shape' data-ref="22out_shape">out_shape</a>.<a class="ref" href="../framework/tensor_shape.h.html#_ZNK10tensorflow14TensorShapeRep12num_elementsEv" title='tensorflow::TensorShapeRep::num_elements' data-ref="_ZNK10tensorflow14TensorShapeRep12num_elementsEv">num_elements</a>() == <var>0</var>) <b>return</b>;</td></tr>
+<tr><th id="132">132</th><td></td></tr>
+<tr><th id="133">133</th><td>    <a class="type" href="#tensorflow::LaunchConvOp" title='tensorflow::LaunchConvOp' data-ref="tensorflow::LaunchConvOp">LaunchConvOp</a>&lt;Device, T&gt;::launch(<a class="local col1 ref" href="#11context" title='context' data-ref="11context">context</a>, <a class="tu member" href="#tensorflow::Conv3DOp::cudnn_use_autotune_" title='tensorflow::Conv3DOp::cudnn_use_autotune_' data-ref="tensorflow::Conv3DOp::cudnn_use_autotune_">cudnn_use_autotune_</a>, <a class="local col2 ref" href="#12input" title='input' data-ref="12input">input</a>, <a class="local col3 ref" href="#13filter" title='filter' data-ref="13filter">filter</a>,</td></tr>
+<tr><th id="134">134</th><td>                                    <a class="local col9 ref" href="#19strides" title='strides' data-ref="19strides">strides</a>, <a class="tu member" href="#tensorflow::Conv3DOp::padding_" title='tensorflow::Conv3DOp::padding_' data-ref="tensorflow::Conv3DOp::padding_">padding_</a>, <a class="tu member" href="#tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</a>, <a class="local col3 ref" href="#23output" title='output' data-ref="23output">output</a>);</td></tr>
+<tr><th id="135">135</th><td>  }</td></tr>
+<tr><th id="136">136</th><td></td></tr>
+<tr><th id="137">137</th><td> <b>private</b>:</td></tr>
+<tr><th id="138">138</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>&gt; <dfn class="tu decl" id="tensorflow::Conv3DOp::stride_" title='tensorflow::Conv3DOp::stride_' data-type='std::vector&lt;int32&gt;' data-ref="tensorflow::Conv3DOp::stride_">stride_</dfn>;</td></tr>
+<tr><th id="139">139</th><td>  <a class="type" href="../util/padding.h.html#tensorflow::Padding" title='tensorflow::Padding' data-ref="tensorflow::Padding">Padding</a> <dfn class="tu decl" id="tensorflow::Conv3DOp::padding_" title='tensorflow::Conv3DOp::padding_' data-type='tensorflow::Padding' data-ref="tensorflow::Conv3DOp::padding_">padding_</dfn>;</td></tr>
+<tr><th id="140">140</th><td>  <a class="type" href="../util/tensor_format.h.html#tensorflow::TensorFormat" title='tensorflow::TensorFormat' data-ref="tensorflow::TensorFormat">TensorFormat</a> <dfn class="tu decl" id="tensorflow::Conv3DOp::data_format_" title='tensorflow::Conv3DOp::data_format_' data-type='tensorflow::TensorFormat' data-ref="tensorflow::Conv3DOp::data_format_">data_format_</dfn>;</td></tr>
+<tr><th id="141">141</th><td>  <em>bool</em> <dfn class="tu decl" id="tensorflow::Conv3DOp::cudnn_use_autotune_" title='tensorflow::Conv3DOp::cudnn_use_autotune_' data-type='bool' data-ref="tensorflow::Conv3DOp::cudnn_use_autotune_">cudnn_use_autotune_</dfn>;</td></tr>
+<tr><th id="142">142</th><td>};</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td><u>#define <dfn class="macro" id="_M/REGISTER_CPU_KERNEL" data-ref="_M/REGISTER_CPU_KERNEL">REGISTER_CPU_KERNEL</dfn>(T)                                  \</u></td></tr>
+<tr><th id="145">145</th><td><u>  REGISTER_KERNEL_BUILDER(                                      \</u></td></tr>
+<tr><th id="146">146</th><td><u>      <a class="type" href="../framework/op_kernel.h.html#tensorflow::register_kernel::Name" title='tensorflow::register_kernel::Name' data-ref="tensorflow::register_kernel::Name">Name</a><a class="ref" href="../framework/op_kernel.h.html#_ZN10tensorflow15register_kernel4NameC1EPKc" title='tensorflow::register_kernel::Name::Name' data-ref="_ZN10tensorflow15register_kernel4NameC1EPKc">(</a>"Conv3D").<a class="ref" href="../framework/kernel_def_builder.h.html#_ZN10tensorflow16KernelDefBuilder6DeviceEPKc" title='tensorflow::KernelDefBuilder::Device' data-ref="_ZN10tensorflow16KernelDefBuilder6DeviceEPKc">Device</a>(<a class="ref" href="../framework/types.h.html#tensorflow::DEVICE_CPU" title='tensorflow::DEVICE_CPU' data-ref="tensorflow::DEVICE_CPU">DEVICE_CPU</a>).<a class="ref" href="../framework/kernel_def_builder.h.html#_ZN10tensorflow16KernelDefBuilder14TypeConstraintEPKc" title='tensorflow::KernelDefBuilder::TypeConstraint' data-ref="_ZN10tensorflow16KernelDefBuilder14TypeConstraintEPKc">TypeConstraint</a>&lt;T&gt;("T"), \</u></td></tr>
+<tr><th id="147">147</th><td><u>      <a class="type" href="#tensorflow::Conv3DOp" title='tensorflow::Conv3DOp' data-ref="tensorflow::Conv3DOp">Conv3DOp</a>&lt;<a class="typedef" href="#tensorflow::CPUDevice" title='tensorflow::CPUDevice' data-type='Eigen::ThreadPoolDevice' data-ref="tensorflow::CPUDevice">CPUDevice</a>, T&gt;);</u></td></tr>
+<tr><th id="148">148</th><td><a class="macro" href="../framework/register_types.h.html#87" title="constexpr bool should_register_0__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__0__object( should_register_0__flag ? ::tensorflow::register_kernel::Name(&quot;Conv3D&quot;).Device(DEVICE_CPU).TypeConstraint&lt;Eigen::half&gt;(&quot;T&quot;).Build() : nullptr, &quot;Conv3DOp&lt;CPUDevice, Eigen::half&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new Conv3DOp&lt;CPUDevice, Eigen::half&gt;(context); });;" data-ref="_M/TF_CALL_half">TF_CALL_half</a>(REGISTER_CPU_KERNEL);</td></tr>
+<tr><th id="149">149</th><td><a class="macro" href="../framework/register_types.h.html#62" title="constexpr bool should_register_2__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__2__object( should_register_2__flag ? ::tensorflow::register_kernel::Name(&quot;Conv3D&quot;).Device(DEVICE_CPU).TypeConstraint&lt;float&gt;(&quot;T&quot;).Build() : nullptr, &quot;Conv3DOp&lt;CPUDevice, float&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new Conv3DOp&lt;CPUDevice, float&gt;(context); });;" data-ref="_M/TF_CALL_float">TF_CALL_float</a>(REGISTER_CPU_KERNEL);</td></tr>
+<tr><th id="150">150</th><td><a class="macro" href="../framework/register_types.h.html#63" title="constexpr bool should_register_4__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__4__object( should_register_4__flag ? ::tensorflow::register_kernel::Name(&quot;Conv3D&quot;).Device(DEVICE_CPU).TypeConstraint&lt;double&gt;(&quot;T&quot;).Build() : nullptr, &quot;Conv3DOp&lt;CPUDevice, double&gt;&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new Conv3DOp&lt;CPUDevice, double&gt;(context); });;" data-ref="_M/TF_CALL_double">TF_CALL_double</a>(REGISTER_CPU_KERNEL);</td></tr>
+<tr><th id="151">151</th><td><u>#undef <a class="macro" href="#144" data-ref="_M/REGISTER_CPU_KERNEL">REGISTER_CPU_KERNEL</a></u></td></tr>
+<tr><th id="152">152</th><td></td></tr>
+<tr><th id="153">153</th><td><u>#<span data-ppcond="153">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td><i>// A dummy type to group forward convolution autotune results together.</i></td></tr>
+<tr><th id="156">156</th><td><b>struct</b> Conv3dAutoTuneGroup {</td></tr>
+<tr><th id="157">157</th><td>  <em>static</em> string name() { <b>return</b> <q>"Conv3d"</q>; }</td></tr>
+<tr><th id="158">158</th><td>};</td></tr>
+<tr><th id="159">159</th><td><b>typedef</b> AutoTuneSingleton&lt;Conv3dAutoTuneGroup, ConvParameters,</td></tr>
+<tr><th id="160">160</th><td>                          perftools::gputools::dnn::AlgorithmConfig&gt;</td></tr>
+<tr><th id="161">161</th><td>    AutoTuneConv3d;</td></tr>
+<tr><th id="162">162</th><td></td></tr>
+<tr><th id="163">163</th><td><i>// TODO(mjanusz): Share logic with 2d implementation as much as possible.</i></td></tr>
+<tr><th id="164">164</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="165">165</th><td><b>struct</b> LaunchConvOp&lt;GPUDevice, T&gt; {</td></tr>
+<tr><th id="166">166</th><td>  <em>static</em> <em>void</em> launch(OpKernelContext* ctx, <em>bool</em> cudnn_use_autotune,</td></tr>
+<tr><th id="167">167</th><td>                     <em>const</em> Tensor&amp; input_param, <em>const</em> Tensor&amp; filter,</td></tr>
+<tr><th id="168">168</th><td>                     <em>const</em> std::array&lt;int64, <var>3</var>&gt;&amp; strides, <em>const</em> Padding padding,</td></tr>
+<tr><th id="169">169</th><td>                     TensorFormat data_format, Tensor* output) {</td></tr>
+<tr><th id="170">170</th><td>    <em>auto</em>* stream = ctx-&gt;op_device_context()-&gt;stream();</td></tr>
+<tr><th id="171">171</th><td>    OP_REQUIRES(ctx, stream, errors::Internal(<q>"No GPU stream available."</q>));</td></tr>
+<tr><th id="172">172</th><td></td></tr>
+<tr><th id="173">173</th><td>    Tensor input = input_param;</td></tr>
+<tr><th id="174">174</th><td></td></tr>
+<tr><th id="175">175</th><td>    <em>const</em> int64 in_batch = GetTensorDim(input, data_format, <kbd>'N'</kbd>);</td></tr>
+<tr><th id="176">176</th><td>    int64 in_planes = GetTensorDim(input, data_format, <kbd>'0'</kbd>);</td></tr>
+<tr><th id="177">177</th><td>    int64 in_rows = GetTensorDim(input, data_format, <kbd>'1'</kbd>);</td></tr>
+<tr><th id="178">178</th><td>    int64 in_cols = GetTensorDim(input, data_format, <kbd>'2'</kbd>);</td></tr>
+<tr><th id="179">179</th><td>    <em>const</em> int64 in_depth = GetTensorDim(input, data_format, <kbd>'C'</kbd>);</td></tr>
+<tr><th id="180">180</th><td></td></tr>
+<tr><th id="181">181</th><td>    <em>const</em> int64 filter_planes = filter.dim_size(<var>0</var>);</td></tr>
+<tr><th id="182">182</th><td>    <em>const</em> int64 filter_rows = filter.dim_size(<var>1</var>);</td></tr>
+<tr><th id="183">183</th><td>    <em>const</em> int64 filter_cols = filter.dim_size(<var>2</var>);</td></tr>
+<tr><th id="184">184</th><td>    <em>const</em> int64 out_depth = filter.dim_size(<var>4</var>);</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>    int64 pad_planes = <var>0</var>, pad_rows = <var>0</var>, pad_cols = <var>0</var>;</td></tr>
+<tr><th id="187">187</th><td>    int64 out_planes = GetTensorDim(*output, data_format, <kbd>'0'</kbd>);</td></tr>
+<tr><th id="188">188</th><td>    int64 out_rows = GetTensorDim(*output, data_format, <kbd>'1'</kbd>);</td></tr>
+<tr><th id="189">189</th><td>    int64 out_cols = GetTensorDim(*output, data_format, <kbd>'2'</kbd>);</td></tr>
+<tr><th id="190">190</th><td></td></tr>
+<tr><th id="191">191</th><td>    <b>if</b> (padding == Padding::SAME) {</td></tr>
+<tr><th id="192">192</th><td>      pad_planes = std::max&lt;int64&gt;(</td></tr>
+<tr><th id="193">193</th><td>          <var>0</var>, (out_planes - <var>1</var>) * strides[<var>0</var>] + filter_planes - in_planes);</td></tr>
+<tr><th id="194">194</th><td>      pad_rows = std::max&lt;int64&gt;(</td></tr>
+<tr><th id="195">195</th><td>          <var>0</var>, (out_rows - <var>1</var>) * strides[<var>1</var>] + filter_rows - in_rows);</td></tr>
+<tr><th id="196">196</th><td>      pad_cols = std::max&lt;int64&gt;(</td></tr>
+<tr><th id="197">197</th><td>          <var>0</var>, (out_cols - <var>1</var>) * strides[<var>2</var>] + filter_cols - in_cols);</td></tr>
+<tr><th id="198">198</th><td>    }</td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td>    <i>// NOTE: This only works in NHWC.</i></td></tr>
+<tr><th id="201">201</th><td>    <b>if</b> (filter_planes == <var>1</var> &amp;&amp; filter_rows == <var>1</var> &amp;&amp; filter_cols == <var>1</var> &amp;&amp;</td></tr>
+<tr><th id="202">202</th><td>        strides[<var>0</var>] == <var>1</var> &amp;&amp; strides[<var>1</var>] == <var>1</var> &amp;&amp; strides[<var>2</var>] == <var>1</var> &amp;&amp;</td></tr>
+<tr><th id="203">203</th><td>        data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="204">204</th><td>      <i>// 1x1 filter, so call cublas directly.</i></td></tr>
+<tr><th id="205">205</th><td>      <em>const</em> uint64 m = in_batch * in_planes * in_rows * in_cols;</td></tr>
+<tr><th id="206">206</th><td>      <em>const</em> uint64 k = in_depth;</td></tr>
+<tr><th id="207">207</th><td>      <em>const</em> uint64 n = out_depth;</td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td>      <em>auto</em> a_ptr = AsDeviceMemory(input.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="210">210</th><td>                                  input.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="211">211</th><td>      <em>auto</em> b_ptr = AsDeviceMemory(filter.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="212">212</th><td>                                  filter.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="213">213</th><td>      <em>auto</em> c_ptr = AsDeviceMemory(output-&gt;<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="214">214</th><td>                                  output-&gt;<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="215">215</th><td></td></tr>
+<tr><th id="216">216</th><td>      <em>auto</em> no_transpose = perftools::gputools::blas::Transpose::kNoTranspose;</td></tr>
+<tr><th id="217">217</th><td>      <em>bool</em> blas_launch_status =</td></tr>
+<tr><th id="218">218</th><td>          stream</td></tr>
+<tr><th id="219">219</th><td>              -&gt;ThenBlasGemm(no_transpose, no_transpose, n, m, k, <var>1.0f</var>, b_ptr,</td></tr>
+<tr><th id="220">220</th><td>                             n, a_ptr, k, <var>0.0f</var>, &amp;c_ptr, n)</td></tr>
+<tr><th id="221">221</th><td>              .ok();</td></tr>
+<tr><th id="222">222</th><td>      <b>if</b> (!blas_launch_status) {</td></tr>
+<tr><th id="223">223</th><td>        ctx-&gt;SetStatus(errors::Internal(<q>"Blas SGEMM launch failed : m="</q>, m,</td></tr>
+<tr><th id="224">224</th><td>                                        <q>", n="</q>, n, <q>", k="</q>, k));</td></tr>
+<tr><th id="225">225</th><td>      }</td></tr>
+<tr><th id="226">226</th><td>      <b>return</b>;</td></tr>
+<tr><th id="227">227</th><td>    } <b>else</b> <b>if</b> (filter_planes == in_planes &amp;&amp; filter_rows == in_rows &amp;&amp;</td></tr>
+<tr><th id="228">228</th><td>               filter_cols == in_cols &amp;&amp; padding == Padding::VALID &amp;&amp;</td></tr>
+<tr><th id="229">229</th><td>               data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="230">230</th><td>      <i>// The input data and filter have the same planes/height/width, so call</i></td></tr>
+<tr><th id="231">231</th><td><i>      // cublas directly.</i></td></tr>
+<tr><th id="232">232</th><td>      <em>const</em> uint64 m = in_batch;</td></tr>
+<tr><th id="233">233</th><td>      <em>const</em> uint64 k = in_planes * in_rows * in_cols * in_depth;</td></tr>
+<tr><th id="234">234</th><td>      <em>const</em> uint64 n = out_depth;</td></tr>
+<tr><th id="235">235</th><td></td></tr>
+<tr><th id="236">236</th><td>      <em>auto</em> a_ptr = AsDeviceMemory(input.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="237">237</th><td>                                  input.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="238">238</th><td>      <em>auto</em> b_ptr = AsDeviceMemory(filter.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="239">239</th><td>                                  filter.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="240">240</th><td>      <em>auto</em> c_ptr = AsDeviceMemory(output-&gt;<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="241">241</th><td>                                  output-&gt;<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="242">242</th><td></td></tr>
+<tr><th id="243">243</th><td>      <em>auto</em> no_transpose = perftools::gputools::blas::Transpose::kNoTranspose;</td></tr>
+<tr><th id="244">244</th><td>      <em>bool</em> blas_launch_status =</td></tr>
+<tr><th id="245">245</th><td>          stream</td></tr>
+<tr><th id="246">246</th><td>              -&gt;ThenBlasGemm(no_transpose, no_transpose, n, m, k, <var>1.0f</var>, b_ptr,</td></tr>
+<tr><th id="247">247</th><td>                             n, a_ptr, k, <var>0.0f</var>, &amp;c_ptr, n)</td></tr>
+<tr><th id="248">248</th><td>              .ok();</td></tr>
+<tr><th id="249">249</th><td>      <b>if</b> (!blas_launch_status) {</td></tr>
+<tr><th id="250">250</th><td>        ctx-&gt;SetStatus(errors::Internal(<q>"Blas SGEMM launch failed : m="</q>, m,</td></tr>
+<tr><th id="251">251</th><td>                                        <q>", n="</q>, n, <q>", k="</q>, k));</td></tr>
+<tr><th id="252">252</th><td>      }</td></tr>
+<tr><th id="253">253</th><td>      <b>return</b>;</td></tr>
+<tr><th id="254">254</th><td>    }</td></tr>
+<tr><th id="255">255</th><td></td></tr>
+<tr><th id="256">256</th><td>    <b>if</b> (padding == Padding::SAME) {</td></tr>
+<tr><th id="257">257</th><td>      <em>const</em> <em>bool</em> rows_odd = (pad_rows % <var>2</var> != <var>0</var>);</td></tr>
+<tr><th id="258">258</th><td>      <em>const</em> <em>bool</em> cols_odd = (pad_cols % <var>2</var> != <var>0</var>);</td></tr>
+<tr><th id="259">259</th><td>      <em>const</em> <em>bool</em> planes_odd = (pad_planes % <var>2</var> != <var>0</var>);</td></tr>
+<tr><th id="260">260</th><td></td></tr>
+<tr><th id="261">261</th><td>      <i>// Necessary because cuDNN only supports symmetric padding.</i></td></tr>
+<tr><th id="262">262</th><td><i>      // TODO(mjanusz): Consider making this optional? This would save some</i></td></tr>
+<tr><th id="263">263</th><td><i>      // overhead and would work as long as an op trained this way is only</i></td></tr>
+<tr><th id="264">264</th><td><i>      // used on GPU.</i></td></tr>
+<tr><th id="265">265</th><td>      <b>if</b> (rows_odd || cols_odd || planes_odd) {</td></tr>
+<tr><th id="266">266</th><td>        <em>const</em> int64 new_in_rows = in_rows + rows_odd;</td></tr>
+<tr><th id="267">267</th><td>        <em>const</em> int64 new_in_cols = in_cols + cols_odd;</td></tr>
+<tr><th id="268">268</th><td>        <em>const</em> int64 new_in_planes = in_planes + planes_odd;</td></tr>
+<tr><th id="269">269</th><td></td></tr>
+<tr><th id="270">270</th><td>        Tensor transformed_input;</td></tr>
+<tr><th id="271">271</th><td>        TensorShape transformed_shape = ShapeFromFormat(</td></tr>
+<tr><th id="272">272</th><td>            data_format, in_batch, {{new_in_planes, new_in_rows, new_in_cols}},</td></tr>
+<tr><th id="273">273</th><td>            in_depth);</td></tr>
+<tr><th id="274">274</th><td>        OP_REQUIRES_OK(</td></tr>
+<tr><th id="275">275</th><td>            ctx, ctx-&gt;allocate_temp(DataTypeToEnum&lt;T&gt;::value, transformed_shape,</td></tr>
+<tr><th id="276">276</th><td>                                    &amp;transformed_input));</td></tr>
+<tr><th id="277">277</th><td></td></tr>
+<tr><th id="278">278</th><td>        functor::PadInput&lt;GPUDevice, T, <em>int</em>, <var>5</var>&gt;()(</td></tr>
+<tr><th id="279">279</th><td>            ctx-&gt;eigen_device&lt;GPUDevice&gt;(), To32Bit(input_param.tensor&lt;T, <var>5</var>&gt;()),</td></tr>
+<tr><th id="280">280</th><td>            {{<var>0</var>, <var>0</var>, <var>0</var>}}, {{planes_odd, rows_odd, cols_odd}},</td></tr>
+<tr><th id="281">281</th><td>            To32Bit(transformed_input.tensor&lt;T, <var>5</var>&gt;()), data_format);</td></tr>
+<tr><th id="282">282</th><td>        input = transformed_input;</td></tr>
+<tr><th id="283">283</th><td>        in_rows = new_in_rows;</td></tr>
+<tr><th id="284">284</th><td>        in_cols = new_in_cols;</td></tr>
+<tr><th id="285">285</th><td>        in_planes = new_in_planes;</td></tr>
+<tr><th id="286">286</th><td>      }</td></tr>
+<tr><th id="287">287</th><td>    }</td></tr>
+<tr><th id="288">288</th><td></td></tr>
+<tr><th id="289">289</th><td>    <b>if</b> (data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="290">290</th><td>      <em>const</em> TensorShape nchw_shape = ShapeFromFormat(</td></tr>
+<tr><th id="291">291</th><td>          FORMAT_NCHW, in_batch, {{in_planes, in_rows, in_cols}}, in_depth);</td></tr>
+<tr><th id="292">292</th><td>      <b>if</b> (in_depth &gt; <var>1</var>) {</td></tr>
+<tr><th id="293">293</th><td>        Tensor transformed_input;</td></tr>
+<tr><th id="294">294</th><td>        OP_REQUIRES_OK(ctx, ctx-&gt;allocate_temp(DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="295">295</th><td>                                               nchw_shape, &amp;transformed_input));</td></tr>
+<tr><th id="296">296</th><td>        <i>// input: [b, x, y, z, d]</i></td></tr>
+<tr><th id="297">297</th><td><i>        // t_input: [b, d, x, y, z]</i></td></tr>
+<tr><th id="298">298</th><td><i>        // NCDHW is the only format universally supported by cuDNN.</i></td></tr>
+<tr><th id="299">299</th><td>        functor::NHWCToNCHW&lt;GPUDevice, T, <var>5</var>&gt;()(</td></tr>
+<tr><th id="300">300</th><td>            ctx-&gt;eigen_device&lt;GPUDevice&gt;(),</td></tr>
+<tr><th id="301">301</th><td>            <b>const_cast</b>&lt;<em>const</em> Tensor&amp;&gt;(input).tensor&lt;T, <var>5</var>&gt;(),</td></tr>
+<tr><th id="302">302</th><td>            transformed_input.tensor&lt;T, <var>5</var>&gt;());</td></tr>
+<tr><th id="303">303</th><td>        input = transformed_input;</td></tr>
+<tr><th id="304">304</th><td>      } <b>else</b> {</td></tr>
+<tr><th id="305">305</th><td>        CHECK(input.CopyFrom(input, nchw_shape));</td></tr>
+<tr><th id="306">306</th><td>      }</td></tr>
+<tr><th id="307">307</th><td>    }</td></tr>
+<tr><th id="308">308</th><td></td></tr>
+<tr><th id="309">309</th><td>    CHECK(pad_rows &gt;= <var>0</var> &amp;&amp; pad_cols &gt;= <var>0</var> &amp;&amp; pad_planes &gt;= <var>0</var>)</td></tr>
+<tr><th id="310">310</th><td>        &lt;&lt; <q>"Negative paddings: ("</q> &lt;&lt; pad_rows &lt;&lt; <q>", "</q> &lt;&lt; pad_cols &lt;&lt; <q>", "</q></td></tr>
+<tr><th id="311">311</th><td>        &lt;&lt; pad_planes &lt;&lt; <q>")"</q>;</td></tr>
+<tr><th id="312">312</th><td>    perftools::gputools::dnn::BatchDescriptor input_desc(<var>3</var>);</td></tr>
+<tr><th id="313">313</th><td>    input_desc.set_count(in_batch)</td></tr>
+<tr><th id="314">314</th><td>        .set_feature_map_count(in_depth)</td></tr>
+<tr><th id="315">315</th><td>        .set_spatial_dim(DimIndex::X, in_cols)</td></tr>
+<tr><th id="316">316</th><td>        .set_spatial_dim(DimIndex::Y, in_rows)</td></tr>
+<tr><th id="317">317</th><td>        .set_spatial_dim(DimIndex::Z, in_planes)</td></tr>
+<tr><th id="318">318</th><td>        .set_layout(perftools::gputools::dnn::DataLayout::kBatchDepthYX);</td></tr>
+<tr><th id="319">319</th><td>    perftools::gputools::dnn::BatchDescriptor output_desc(<var>3</var>);</td></tr>
+<tr><th id="320">320</th><td>    output_desc.set_count(in_batch)</td></tr>
+<tr><th id="321">321</th><td>        .set_spatial_dim(DimIndex::X, out_cols)</td></tr>
+<tr><th id="322">322</th><td>        .set_spatial_dim(DimIndex::Y, out_rows)</td></tr>
+<tr><th id="323">323</th><td>        .set_spatial_dim(DimIndex::Z, out_planes)</td></tr>
+<tr><th id="324">324</th><td>        .set_feature_map_count(out_depth)</td></tr>
+<tr><th id="325">325</th><td>        .set_layout(perftools::gputools::dnn::DataLayout::kBatchDepthYX);</td></tr>
+<tr><th id="326">326</th><td>    perftools::gputools::dnn::FilterDescriptor filter_desc(<var>3</var>);</td></tr>
+<tr><th id="327">327</th><td>    filter_desc.set_spatial_dim(DimIndex::X, filter_cols)</td></tr>
+<tr><th id="328">328</th><td>        .set_spatial_dim(DimIndex::Y, filter_rows)</td></tr>
+<tr><th id="329">329</th><td>        .set_spatial_dim(DimIndex::Z, filter_planes)</td></tr>
+<tr><th id="330">330</th><td>        .set_input_feature_map_count(in_depth)</td></tr>
+<tr><th id="331">331</th><td>        .set_output_feature_map_count(out_depth);</td></tr>
+<tr><th id="332">332</th><td>    perftools::gputools::dnn::ConvolutionDescriptor conv_desc(<var>3</var>);</td></tr>
+<tr><th id="333">333</th><td>    conv_desc.set_filter_stride(DimIndex::X, strides[<var>2</var>])</td></tr>
+<tr><th id="334">334</th><td>        .set_filter_stride(DimIndex::Y, strides[<var>1</var>])</td></tr>
+<tr><th id="335">335</th><td>        .set_filter_stride(DimIndex::Z, strides[<var>0</var>])</td></tr>
+<tr><th id="336">336</th><td>        .set_zero_padding(DimIndex::X, pad_cols / <var>2</var>)</td></tr>
+<tr><th id="337">337</th><td>        .set_zero_padding(DimIndex::Y, pad_rows / <var>2</var>)</td></tr>
+<tr><th id="338">338</th><td>        .set_zero_padding(DimIndex::Z, pad_planes / <var>2</var>);</td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td>    Tensor transformed_filter;</td></tr>
+<tr><th id="341">341</th><td>    OP_REQUIRES_OK(</td></tr>
+<tr><th id="342">342</th><td>        ctx, ctx-&gt;allocate_temp(DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="343">343</th><td>                                TensorShape({out_depth, in_depth, filter_planes,</td></tr>
+<tr><th id="344">344</th><td>                                             filter_rows, filter_cols}),</td></tr>
+<tr><th id="345">345</th><td>                                &amp;transformed_filter));</td></tr>
+<tr><th id="346">346</th><td>    <i>// filter: [x, y, z, in, out]</i></td></tr>
+<tr><th id="347">347</th><td><i>    // t_filter: [out, in, x, y, z]</i></td></tr>
+<tr><th id="348">348</th><td>    functor::TransformFilter&lt;GPUDevice, T, <em>int</em>, <var>5</var>&gt;()(</td></tr>
+<tr><th id="349">349</th><td>        ctx-&gt;eigen_device&lt;GPUDevice&gt;(), To32Bit(filter.tensor&lt;T, <var>5</var>&gt;()),</td></tr>
+<tr><th id="350">350</th><td>        To32Bit(transformed_filter.tensor&lt;T, <var>5</var>&gt;()));</td></tr>
+<tr><th id="351">351</th><td></td></tr>
+<tr><th id="352">352</th><td>    Tensor transformed_output;</td></tr>
+<tr><th id="353">353</th><td>    OP_REQUIRES_OK(</td></tr>
+<tr><th id="354">354</th><td>        ctx, ctx-&gt;allocate_temp(</td></tr>
+<tr><th id="355">355</th><td>                 DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="356">356</th><td>                 ShapeFromFormat(FORMAT_NCHW, in_batch,</td></tr>
+<tr><th id="357">357</th><td>                                 {{out_planes, out_rows, out_cols}}, out_depth),</td></tr>
+<tr><th id="358">358</th><td>                 &amp;transformed_output));</td></tr>
+<tr><th id="359">359</th><td></td></tr>
+<tr><th id="360">360</th><td>    <em>auto</em> input_ptr = AsDeviceMemory(input.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="361">361</th><td>                                    input.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="362">362</th><td>    <em>auto</em> filter_ptr =</td></tr>
+<tr><th id="363">363</th><td>        AsDeviceMemory(transformed_filter.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="364">364</th><td>                       transformed_filter.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="365">365</th><td>    <em>auto</em> output_ptr =</td></tr>
+<tr><th id="366">366</th><td>        AsDeviceMemory(transformed_output.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="367">367</th><td>                       transformed_output.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="368">368</th><td></td></tr>
+<tr><th id="369">369</th><td>    <em>static</em> int64 ConvolveScratchSize = GetCudnnWorkspaceLimit(</td></tr>
+<tr><th id="370">370</th><td>        <q>"TF_CUDNN_WORKSPACE_LIMIT_IN_MB"</q>, <var>1LL</var> &lt;&lt; <var>32</var>);  <i>// 4GB by default</i></td></tr>
+<tr><th id="371">371</th><td></td></tr>
+<tr><th id="372">372</th><td>    <em>int</em> device_id = stream-&gt;parent()-&gt;device_ordinal();</td></tr>
+<tr><th id="373">373</th><td>    DataType dtype = input.dtype();</td></tr>
+<tr><th id="374">374</th><td>    ConvParameters conv_parameters = {</td></tr>
+<tr><th id="375">375</th><td>        in_batch,</td></tr>
+<tr><th id="376">376</th><td>        in_depth,</td></tr>
+<tr><th id="377">377</th><td>        {{in_planes, in_rows, in_cols}},</td></tr>
+<tr><th id="378">378</th><td>        out_depth,</td></tr>
+<tr><th id="379">379</th><td>        {{filter_planes, filter_rows, filter_cols}},</td></tr>
+<tr><th id="380">380</th><td>        <i>// TODO(yangzihao): Send in arbitrary dilation rates after the dilated</i></td></tr>
+<tr><th id="381">381</th><td><i>        // conv is supported.</i></td></tr>
+<tr><th id="382">382</th><td>        <i>/*dilation=*/</i>{{<var>1</var>, <var>1</var>, <var>1</var>}},</td></tr>
+<tr><th id="383">383</th><td>        {{strides[<var>0</var>], strides[<var>1</var>], strides[<var>2</var>]}},</td></tr>
+<tr><th id="384">384</th><td>        {{pad_planes, pad_rows, pad_cols}},</td></tr>
+<tr><th id="385">385</th><td>        dtype,</td></tr>
+<tr><th id="386">386</th><td>        device_id,</td></tr>
+<tr><th id="387">387</th><td>    };</td></tr>
+<tr><th id="388">388</th><td></td></tr>
+<tr><th id="389">389</th><td>    <b>using</b> perftools::gputools::dnn::AlgorithmConfig;</td></tr>
+<tr><th id="390">390</th><td>    <b>using</b> perftools::gputools::dnn::AlgorithmDesc;</td></tr>
+<tr><th id="391">391</th><td>    <b>using</b> perftools::gputools::dnn::ProfileResult;</td></tr>
+<tr><th id="392">392</th><td></td></tr>
+<tr><th id="393">393</th><td>    AlgorithmConfig algorithm_config;</td></tr>
+<tr><th id="394">394</th><td></td></tr>
+<tr><th id="395">395</th><td>    <b>if</b> (cudnn_use_autotune &amp;&amp; !AutoTuneConv3d::GetInstance()-&gt;Find(</td></tr>
+<tr><th id="396">396</th><td>                                  conv_parameters, &amp;algorithm_config)) {</td></tr>
+<tr><th id="397">397</th><td>      std::vector&lt;AlgorithmDesc&gt; algorithms;</td></tr>
+<tr><th id="398">398</th><td>      CHECK(stream-&gt;parent()-&gt;GetConvolveAlgorithms(</td></tr>
+<tr><th id="399">399</th><td>          conv_parameters.ShouldIncludeWinogradNonfusedAlgo&lt;T&gt;(), &amp;algorithms));</td></tr>
+<tr><th id="400">400</th><td>      ProfileResult best_result;</td></tr>
+<tr><th id="401">401</th><td>      ProfileResult best_result_no_scratch;</td></tr>
+<tr><th id="402">402</th><td>      <b>for</b> (<em>auto</em> profile_algorithm : algorithms) {</td></tr>
+<tr><th id="403">403</th><td>        <i>// TODO(zhengxq): profile each algorithm multiple times to better</i></td></tr>
+<tr><th id="404">404</th><td><i>        // accuracy.</i></td></tr>
+<tr><th id="405">405</th><td>        CudnnScratchAllocator scratch_allocator(ConvolveScratchSize, ctx);</td></tr>
+<tr><th id="406">406</th><td>        ProfileResult profile_result;</td></tr>
+<tr><th id="407">407</th><td>        <em>bool</em> cudnn_launch_status =</td></tr>
+<tr><th id="408">408</th><td>            stream</td></tr>
+<tr><th id="409">409</th><td>                -&gt;ThenConvolveWithAlgorithm(</td></tr>
+<tr><th id="410">410</th><td>                    input_desc, input_ptr, filter_desc, filter_ptr, conv_desc,</td></tr>
+<tr><th id="411">411</th><td>                    output_desc, &amp;output_ptr, &amp;scratch_allocator,</td></tr>
+<tr><th id="412">412</th><td>                    AlgorithmConfig(profile_algorithm), &amp;profile_result)</td></tr>
+<tr><th id="413">413</th><td>                .ok();</td></tr>
+<tr><th id="414">414</th><td>        <b>if</b> (cudnn_launch_status) {</td></tr>
+<tr><th id="415">415</th><td>          <b>if</b> (profile_result.is_valid()) {</td></tr>
+<tr><th id="416">416</th><td>            <b>if</b> (profile_result.elapsed_time_in_ms() &lt;</td></tr>
+<tr><th id="417">417</th><td>                best_result.elapsed_time_in_ms()) {</td></tr>
+<tr><th id="418">418</th><td>              best_result = profile_result;</td></tr>
+<tr><th id="419">419</th><td>            }</td></tr>
+<tr><th id="420">420</th><td>            <b>if</b> (scratch_allocator.TotalByteSize() == <var>0</var> &amp;&amp;</td></tr>
+<tr><th id="421">421</th><td>                profile_result.elapsed_time_in_ms() &lt;</td></tr>
+<tr><th id="422">422</th><td>                    best_result_no_scratch.elapsed_time_in_ms()) {</td></tr>
+<tr><th id="423">423</th><td>              best_result_no_scratch = profile_result;</td></tr>
+<tr><th id="424">424</th><td>            }</td></tr>
+<tr><th id="425">425</th><td>          }</td></tr>
+<tr><th id="426">426</th><td>        }</td></tr>
+<tr><th id="427">427</th><td>      }</td></tr>
+<tr><th id="428">428</th><td>      OP_REQUIRES(ctx,</td></tr>
+<tr><th id="429">429</th><td>                  best_result.is_valid() || best_result_no_scratch.is_valid(),</td></tr>
+<tr><th id="430">430</th><td>                  errors::NotFound(<q>"No algorithm worked!"</q>));</td></tr>
+<tr><th id="431">431</th><td>      <b>if</b> (best_result.is_valid()) {</td></tr>
+<tr><th id="432">432</th><td>        algorithm_config.set_algorithm(best_result.algorithm());</td></tr>
+<tr><th id="433">433</th><td>      }</td></tr>
+<tr><th id="434">434</th><td>      <b>if</b> (best_result_no_scratch.is_valid()) {</td></tr>
+<tr><th id="435">435</th><td>        algorithm_config.set_algorithm_no_scratch(</td></tr>
+<tr><th id="436">436</th><td>            best_result_no_scratch.algorithm());</td></tr>
+<tr><th id="437">437</th><td>      }</td></tr>
+<tr><th id="438">438</th><td>      AutoTuneConv3d::GetInstance()-&gt;Insert(conv_parameters, algorithm_config);</td></tr>
+<tr><th id="439">439</th><td>    }</td></tr>
+<tr><th id="440">440</th><td></td></tr>
+<tr><th id="441">441</th><td>    CudnnScratchAllocator scratch_allocator(ConvolveScratchSize, ctx);</td></tr>
+<tr><th id="442">442</th><td>    <em>bool</em> cudnn_launch_status =</td></tr>
+<tr><th id="443">443</th><td>        stream</td></tr>
+<tr><th id="444">444</th><td>            -&gt;ThenConvolveWithAlgorithm(input_desc, input_ptr, filter_desc,</td></tr>
+<tr><th id="445">445</th><td>                                        filter_ptr, conv_desc, output_desc,</td></tr>
+<tr><th id="446">446</th><td>                                        &amp;output_ptr, &amp;scratch_allocator,</td></tr>
+<tr><th id="447">447</th><td>                                        algorithm_config, <b>nullptr</b>)</td></tr>
+<tr><th id="448">448</th><td>            .ok();</td></tr>
+<tr><th id="449">449</th><td></td></tr>
+<tr><th id="450">450</th><td>    <b>if</b> (!cudnn_launch_status) {</td></tr>
+<tr><th id="451">451</th><td>      ctx-&gt;SetStatus(errors::Internal(</td></tr>
+<tr><th id="452">452</th><td>          <q>"cuDNN launch failure : input shape("</q>, input.shape().DebugString(),</td></tr>
+<tr><th id="453">453</th><td>          <q>") filter shape("</q>, filter.shape().DebugString(), <q>")"</q>));</td></tr>
+<tr><th id="454">454</th><td>    }</td></tr>
+<tr><th id="455">455</th><td></td></tr>
+<tr><th id="456">456</th><td>    <b>if</b> (data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="457">457</th><td>      <i>// t_output: [b, out, x, y, z]</i></td></tr>
+<tr><th id="458">458</th><td><i>      // output: [b, x, y, z, out]</i></td></tr>
+<tr><th id="459">459</th><td>      functor::NCHWToNHWC&lt;GPUDevice, T, <var>5</var>&gt;()(</td></tr>
+<tr><th id="460">460</th><td>          ctx-&gt;eigen_device&lt;GPUDevice&gt;(),</td></tr>
+<tr><th id="461">461</th><td>          <b>const_cast</b>&lt;<em>const</em> Tensor&amp;&gt;(transformed_output).tensor&lt;T, <var>5</var>&gt;(),</td></tr>
+<tr><th id="462">462</th><td>          output-&gt;tensor&lt;T, <var>5</var>&gt;());</td></tr>
+<tr><th id="463">463</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="464">464</th><td>      *output = transformed_output;</td></tr>
+<tr><th id="465">465</th><td>    }</td></tr>
+<tr><th id="466">466</th><td>  }</td></tr>
+<tr><th id="467">467</th><td>};</td></tr>
+<tr><th id="468">468</th><td></td></tr>
+<tr><th id="469">469</th><td><i>// Forward declarations of the functor specializations for GPU.</i></td></tr>
+<tr><th id="470">470</th><td><i>// This ensures that the custom implementation is used instead of the default</i></td></tr>
+<tr><th id="471">471</th><td><i>// Eigen one (which is used for CPU).</i></td></tr>
+<tr><th id="472">472</th><td><b>namespace</b> functor {</td></tr>
+<tr><th id="473">473</th><td><u>#define DECLARE_GPU_SPEC(T)                                           \</u></td></tr>
+<tr><th id="474">474</th><td><u>  template &lt;&gt;                                                         \</u></td></tr>
+<tr><th id="475">475</th><td><u>  void TransformFilter&lt;GPUDevice, T, int, 5&gt;::operator()(             \</u></td></tr>
+<tr><th id="476">476</th><td><u>      const GPUDevice&amp; d, typename TTypes&lt;T, 5, int&gt;::ConstTensor in, \</u></td></tr>
+<tr><th id="477">477</th><td><u>      typename TTypes&lt;T, 5, int&gt;::Tensor out);                        \</u></td></tr>
+<tr><th id="478">478</th><td><u>  template &lt;&gt;                                                         \</u></td></tr>
+<tr><th id="479">479</th><td><u>  void ReverseTransformFilter&lt;GPUDevice, T, 5&gt;::operator()(           \</u></td></tr>
+<tr><th id="480">480</th><td><u>      const GPUDevice&amp; d, typename TTypes&lt;T, 5&gt;::ConstTensor in,      \</u></td></tr>
+<tr><th id="481">481</th><td><u>      typename TTypes&lt;T, 5&gt;::Tensor out);                             \</u></td></tr>
+<tr><th id="482">482</th><td><u>  template &lt;&gt;                                                         \</u></td></tr>
+<tr><th id="483">483</th><td><u>  void PadInput&lt;GPUDevice, T, int, 5&gt;::operator()(                    \</u></td></tr>
+<tr><th id="484">484</th><td><u>      const GPUDevice&amp; d, typename TTypes&lt;T, 5, int&gt;::ConstTensor in, \</u></td></tr>
+<tr><th id="485">485</th><td><u>      const std::array&lt;int, 3&gt;&amp; padding_left,                         \</u></td></tr>
+<tr><th id="486">486</th><td><u>      const std::array&lt;int, 3&gt;&amp; padding_right,                        \</u></td></tr>
+<tr><th id="487">487</th><td><u>      typename TTypes&lt;T, 5, int&gt;::Tensor out, TensorFormat format);</u></td></tr>
+<tr><th id="488">488</th><td></td></tr>
+<tr><th id="489">489</th><td>DECLARE_GPU_SPEC(Eigen::half);</td></tr>
+<tr><th id="490">490</th><td>DECLARE_GPU_SPEC(<em>float</em>);</td></tr>
+<tr><th id="491">491</th><td><u>#undef DECLARE_GPU_SPEC</u></td></tr>
+<tr><th id="492">492</th><td></td></tr>
+<tr><th id="493">493</th><td>}  <i>// namespace functor</i></td></tr>
+<tr><th id="494">494</th><td></td></tr>
+<tr><th id="495">495</th><td><i>// Registration of the GPU implementations.</i></td></tr>
+<tr><th id="496">496</th><td>REGISTER_KERNEL_BUILDER(</td></tr>
+<tr><th id="497">497</th><td>    Name(<q>"Conv3D"</q>).Device(DEVICE_GPU).TypeConstraint&lt;Eigen::half&gt;(<q>"T"</q>),</td></tr>
+<tr><th id="498">498</th><td>    Conv3DOp&lt;GPUDevice, Eigen::half&gt;);</td></tr>
+<tr><th id="499">499</th><td>REGISTER_KERNEL_BUILDER(</td></tr>
+<tr><th id="500">500</th><td>    Name(<q>"Conv3D"</q>).Device(DEVICE_GPU).TypeConstraint&lt;<em>float</em>&gt;(<q>"T"</q>),</td></tr>
+<tr><th id="501">501</th><td>    Conv3DOp&lt;GPUDevice, <em>float</em>&gt;);</td></tr>
+<tr><th id="502">502</th><td><u>#<span data-ppcond="153">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="503">503</th><td></td></tr>
+<tr><th id="504">504</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="505">505</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

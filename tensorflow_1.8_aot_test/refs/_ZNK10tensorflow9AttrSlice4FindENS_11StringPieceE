@@ -1,0 +1,29 @@
+<dec f='tensorflow/tensorflow/core/framework/node_def_util.h' l='124' type='const tensorflow::AttrValue * tensorflow::AttrSlice::Find(tensorflow::StringPiece attr_name) const'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1029' u='c' c='_ZN12_GLOBAL__N_112GetAttrValueEP12TF_OperationPKcP9TF_Status'/>
+<doc f='tensorflow/tensorflow/core/framework/node_def_util.h' l='122'>// Returns the attr with attr_name if found.  Otherwise, returns
+  // nullptr.</doc>
+<use f='tensorflow/tensorflow/c/eager/runtime.h' l='121' u='c' c='_ZNK10tensorflow11AttrBuilder17SetInAttrValueMapEPN6google8protobuf3MapISsNS_9AttrValueEEENS_11StringPieceEOT_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/sharding_util.cc' l='107' u='c' c='_ZN10tensorflow35SetShardingDeviceAssignmentFromNodeERKNS_4NodeEPS0_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='526' u='c' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl11InstantiateERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='151' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ColocationGraph16ColocateAllNodesEv'/>
+<use f='tensorflow/tensorflow/core/debug/debug_graph_utils.cc' l='228' u='c' c='_ZN10tensorflow17DebugNodeInserter23DeparallelizeWhileLoopsEPNS_5GraphEPNS_6DeviceE'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='55' u='c' c='_ZN10tensorflow10ArgNumTypeENS_9AttrSliceERKNS_12OpDef_ArgDefEPbPNS_3gtl13InlinedVectorINS_8DataTypeELi4EEE'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='70' u='c' c='_ZN10tensorflow10ArgNumTypeENS_9AttrSliceERKNS_12OpDef_ArgDefEPbPNS_3gtl13InlinedVectorINS_8DataTypeELi4EEE'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='83' u='c' c='_ZN10tensorflow10ArgNumTypeENS_9AttrSliceERKNS_12OpDef_ArgDefEPbPNS_3gtl13InlinedVectorINS_8DataTypeELi4EEE'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='103' u='c' c='_ZN10tensorflow12_GLOBAL__N_126ValidateSignatureWithAttrsERKNS_5OpDefENS_9AttrSliceE'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='617' u='c' c='_ZN10tensorflow12_GLOBAL__N_115AddDefaultAttrsERKSsRKSt8functionIFNS_6StatusES2_PPKNS_5OpDefEEEPN6google8protobuf3MapISsNS_9AttrValueEEE'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='647' u='c' c='_ZN10tensorflow19InstantiateFunctionERKNS_11FunctionDefENS_9AttrSliceESt8functionIFNS_6StatusERKSsPPKNS_5OpDefEEEPNS_19InstantiationResultE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_builder.cc' l='252' u='c' c='_ZN10tensorflow14NodeDefBuilder4AttrENS_11StringPieceERKNS_9AttrValueE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='68' u='c' c='_ZN10tensorflowL20SummarizeAttrsHelperENS_9AttrSliceENS_11StringPieceE'/>
+<def f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='104' ll='123' type='const tensorflow::AttrValue * tensorflow::AttrSlice::Find(tensorflow::StringPiece attr_name) const'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='127' u='c' c='_ZNK10tensorflow9AttrSlice4FindENS_11StringPieceEPPKNS_9AttrValueE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='185' u='c' c='_ZN10tensorflow17GetNodeAttrSimpleERKNS_9AttrSliceENS_11StringPieceEPSs'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='200' u='c' c='_ZN10tensorflow17GetNodeAttrSimpleERKNS_9AttrSliceENS_11StringPieceEPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='254' u='c' c='_ZN10tensorflow17GetNodeAttrStringERKNS_9AttrSliceENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='539' u='c' c='_ZN10tensorflow20AddDefaultsToNodeDefERKNS_5OpDefEPNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='993' u='c' c='_ZN10tensorflow12_GLOBAL__N_110AttrsMatchENS_9AttrSliceERKNS_9KernelDefEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='577' u='c' c='_ZN10tensorflow15GraphTransferer20HasPaddingAndStridesERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='578' u='c' c='_ZN10tensorflow15GraphTransferer20HasPaddingAndStridesERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='642' u='c' c='_ZN10tensorflow15GraphTransferer33RegisterNodeWithPaddingAndStridesERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_12ShapeRefinerERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='646' u='c' c='_ZN10tensorflow15GraphTransferer33RegisterNodeWithPaddingAndStridesERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_12ShapeRefinerERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='651' u='c' c='_ZN10tensorflow15GraphTransferer33RegisterNodeWithPaddingAndStridesERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_12ShapeRefinerERKNS_4NodeE'/>

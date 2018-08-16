@@ -1,0 +1,11 @@
+<dec f='include/python3.5m/abstract.h' l='805' type='PyObject * PyNumber_Long(PyObject * o)'/>
+<doc f='include/python3.5m/abstract.h' l='797'>/*
+    Returns the object converted to Py_ssize_t by going through
+    PyNumber_Index first.  If an overflow error occurs while
+    converting the int to Py_ssize_t, then the second argument
+    is the error-type to return.  If it is NULL, then the overflow error
+    is cleared and the value is clipped.
+       */</doc>
+<use f='tensorflow/tensorflow/python/lib/core/py_seq_tensor.cc' l='238' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ConvertOneInt64EP7_objectPx'/>
+<use f='tensorflow/tensorflow/python/lib/core/py_seq_tensor.cc' l='264' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ConvertOneInt32EP7_objectPi'/>
+<use f='tensorflow/tensorflow/python/lib/core/py_seq_tensor.cc' l='307' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ConvertOneFloatEP7_objectPT_'/>

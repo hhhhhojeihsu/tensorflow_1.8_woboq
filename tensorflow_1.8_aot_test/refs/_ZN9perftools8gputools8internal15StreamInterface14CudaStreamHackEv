@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='110' type='void * perftools::gputools::internal::StreamInterface::CudaStreamHack()'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='104'>// Returns the CUDA stream associated with this platform&apos;s stream
+  // implementation.
+  //
+  // WARNING: checks that the underlying platform is, in fact, CUDA, causing a
+  // fatal error if it is not. This hack is made available solely for use from
+  // distbelief code, which temporarily has strong ties to CUDA as a platform.</doc>
+<ovr f='tensorflow/tensorflow/stream_executor/host/host_stream.h' l='38' c='_ZN9perftools8gputools4host10HostStream14CudaStreamHackEv'/>

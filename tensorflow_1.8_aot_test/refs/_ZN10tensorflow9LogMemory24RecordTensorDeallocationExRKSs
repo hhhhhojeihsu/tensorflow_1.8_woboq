@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/framework/log_memory.h' l='79' type='static void tensorflow::LogMemory::RecordTensorDeallocation(int64 allocation_id, const string &amp; allocator_name)'/>
+<doc f='tensorflow/tensorflow/core/framework/log_memory.h' l='73'>// Log a tensor buffer deallocation. The deallocation is triggered
+  // when the buffer&apos;s refcount falls to zero, and the tracking
+  // mechanism does not associate it with a particular step or
+  // kernel. The allocation_id/allocator_name should match a
+  // corresponding tensor previously passed in to
+  // RecordTensorAllocation.</doc>
+<def f='tensorflow/tensorflow/core/framework/log_memory.cc' l='58' ll='64' type='static void tensorflow::LogMemory::RecordTensorDeallocation(const int64 allocation_id, const string &amp; allocator_name)'/>
+<use f='tensorflow/tensorflow/core/framework/tensor.cc' l='92' u='c' c='_ZN10tensorflow12_GLOBAL__N_110BufferBase18RecordDeallocationEv'/>

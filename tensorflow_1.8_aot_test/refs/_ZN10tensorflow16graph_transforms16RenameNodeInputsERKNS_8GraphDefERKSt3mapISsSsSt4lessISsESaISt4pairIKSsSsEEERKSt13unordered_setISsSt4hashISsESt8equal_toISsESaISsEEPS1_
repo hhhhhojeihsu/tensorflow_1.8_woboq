@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.h' l='210' type='tensorflow::Status tensorflow::graph_transforms::RenameNodeInputs(const tensorflow::GraphDef &amp; input_graph_def, const std::map&lt;string, string&gt; &amp; inputs_to_rename, const std::unordered_set&lt;string&gt; &amp; nodes_to_ignore, tensorflow::GraphDef * output_graph_def)'/>
+<doc f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.h' l='208'>// Changes all input references to a particular node name. Any nodes with names
+// listed in nodes_to_ignore will not have their inputs rewritten.</doc>
+<use f='tensorflow/tensorflow/tools/graph_transforms/backports.cc' l='111' u='c' c='_ZN10tensorflow16graph_transforms30BackportTensorArrayV3TransformERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/freeze_requantization_ranges.cc' l='204' u='c' c='_ZN10tensorflow16graph_transforms26FreezeRequantizationRangesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/insert_logging.cc' l='145' u='c' c='_ZN10tensorflow16graph_transforms13InsertLoggingERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='244' u='c' c='_ZN10tensorflow16graph_transforms19MergeDuplicateNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='305' u='c' c='_ZN10tensorflow16graph_transforms28RemoveRedundantQuantizationsERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='380' u='c' c='_ZN10tensorflow16graph_transforms20QuantizePlaceholdersERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='383' u='c' c='_ZN10tensorflow16graph_transforms20QuantizePlaceholdersERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/remove_nodes.cc' l='104' u='c' c='_ZN10tensorflow16graph_transforms11RemoveNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<def f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='468' ll='532' type='tensorflow::Status tensorflow::graph_transforms::RenameNodeInputs(const tensorflow::GraphDef &amp; input_graph_def, const std::map&lt;string, string&gt; &amp; inputs_to_rename, const std::unordered_set&lt;string&gt; &amp; nodes_to_ignore, tensorflow::GraphDef * output_graph_def)'/>

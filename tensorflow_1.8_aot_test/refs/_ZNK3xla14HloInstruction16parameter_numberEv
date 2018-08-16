@@ -1,0 +1,43 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='693' ll='696' type='int64 xla::HloInstruction::parameter_number() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='690'>// Returns the parameter number associated with this instruction.
+  //
+  // Note: only parameter opcodes have an associated parameter number.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1029' u='c' c='_ZN3xla14BufferAssigner27AssignBuffersForComputationEPKNS_14HloComputationERKNS_12DebugOptionsEbRKN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS7_44467117'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1566' u='c' c='_ZN3xla14BufferAssigner25AssignColocatedBufferSetsERKSt6vectorIN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS2_4hashIS7_EESt8equal_toIS7_EEESaISC_E5531270'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/call_inliner.cc' l='71' u='c' c='_ZN3xla12_GLOBAL__N_130SubcomputationInsertionVisitor15HandleParameterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='1149' u='c' c='_ZN3xla3cpu37ProfitableToMakeDotOperandColumnMajorERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.h' l='57' u='c' c='_ZN3xla7llvm_ir37CanEmitFusedDynamicUpdateSliceInPlaceEPNS_14HloInstructionERKNS_16BufferAssignmentE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1237' u='c' c='_ZN3xla3cpu9IrEmitter15HandleParameterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2073' u='c' c='_ZN3xla3cpu9IrEmitter12HandleFusionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2075' u='c' c='_ZN3xla3cpu9IrEmitter12HandleFusionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2129' u='c' c='_ZN3xla3cpu9IrEmitter12HandleFusionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2130' u='c' c='_ZN3xla3cpu9IrEmitter12HandleFusionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2132' u='c' c='_ZN3xla3cpu9IrEmitter12HandleFusionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='420' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable23ExecuteComputeFunctionsEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEENS714477719'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='75' u='c' c='_ZN3xla14HloComputationC1ERKSsiPSt6vectorISt10unique_ptrINS_14HloInstructionESt14default_deleteIS5_EESaIS8_EEPS5_SC_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='445' u='c' c='_ZN3xla19HloDataflowAnalysis23UpdateParameterValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='450' u='c' c='_ZN3xla19HloDataflowAnalysis23UpdateParameterValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='463' u='c' c='_ZN3xla19HloDataflowAnalysis23UpdateParameterValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2261' u='c' c='_ZN3xla12HloEvaluator8EvaluateEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2343' u='c' c='_ZN3xla12HloEvaluator15HandleParameterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2344' u='c' c='_ZN3xla12HloEvaluator15HandleParameterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='266' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_123MatchTrivialComputationEPKNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='267' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_123MatchTrivialComputationEPKNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='839' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper33GetInstructionNodeInlinedOperandsEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='857' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper33GetInstructionNodeInlinedOperandsEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='1040' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper23GetInstructionNodeLabelEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='1168' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper27AddInstructionIncomingEdgesEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='859' u='c' c='_ZN3xla14HloInstruction22MergeFusionInstructionEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='899' u='c' c='_ZN3xla14HloInstruction37MergeFusionInstructionIntoMultiOutputEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1769' u='c' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1769' u='c' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_tfgraph_builder.cc' l='125' u='c' c='_ZN3xla16hlo_graph_dumper17HloTfGraphBuilder25GetNodeNameForInstructionEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='712' u='c' c='_ZNK3xla11HloVerifier22CheckFusionInstructionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/inliner.cc' l='87' u='c' c='_ZN3xla14InlinerVisitor9HandleMapEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='500' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='772' u='c' c='_ZN3xla12_GLOBAL__N_120CheckParameterLayoutEPNS_14HloInstructionERKNS_17ComputationLayoutE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1336' u='c' c='_ZN3xla12_GLOBAL__N_116SetFusionLayoutsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='47' u='c' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='151' u='c' c='_ZN3xla12_GLOBAL__N_128HasUniqueFusedUseOfOperandAtEPNS_14HloInstructionERKNS_10ShapeIndexES2_xRKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/fused_ir_emitter.cc' l='121' u='c' c='_ZN3xla14FusedIrEmitter15HandleParameterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/fused_ir_emitter.cc' l='128' u='c' c='_ZN3xla14FusedIrEmitter15HandleParameterEPNS_14HloInstructionE'/>

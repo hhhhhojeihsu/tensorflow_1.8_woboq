@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.h' l='247' type='float tensorflow::tensorforest::ClassificationStats::MaybeCachedGiniScore(int split, float * left_sum, float * right_sum) const'/>
+<doc f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.h' l='245'>// Return the gini score, possibly being calculated from sums and squares
+  // saved in left_gini_ and right_gini_, otherwise calculated from raw counts.</doc>
+<def f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.cc' l='165' ll='180' type='float tensorflow::tensorforest::ClassificationStats::MaybeCachedGiniScore(int split, float * left_sum, float * right_sum) const'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.cc' l='240' u='c' c='_ZN10tensorflow12tensorforest19ClassificationStats10CheckPruneEv'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.cc' l='264' u='c' c='_ZN10tensorflow12tensorforest19ClassificationStats19CheckPruneHoeffdingEv'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.cc' l='306' u='a' c='_ZN10tensorflow12tensorforest19ClassificationStats25CheckFinishEarlyHoeffdingEv'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.cc' l='344' u='a' c='_ZN10tensorflow12tensorforest19ClassificationStats25CheckFinishEarlyBootstrapEv'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.cc' l='387' u='c' c='_ZNK10tensorflow12tensorforest19ClassificationStats9BestSplitEPNS0_14SplitCandidateE'/>

@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='121' type='void xla::HloValue::HloValue(Id id, xla::HloInstruction * instruction, const xla::ShapeIndex &amp; index, bool is_phi = false)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='117'>// Construct an HloValue defined by &apos;instruction&apos; at shape index &apos;index&apos;. If
+  // is_phi is true, then this value is a phi value, for example, at the
+  // parameter of a while body computation. Phi values are only used in the SSA
+  // dataflow analysis (HloDataflowAnalysis::ssa_form_ is true).</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_value.cc' l='70' ll='75' type='void xla::HloValue::HloValue(HloValue::Id id, xla::HloInstruction * instruction, const xla::ShapeIndex &amp; index, bool is_phi = false)'/>

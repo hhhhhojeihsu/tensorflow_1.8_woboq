@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='863' type='bool xla::HloInstruction::IsFused() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='861'>// Returns true if this instruction is fused, ie contained within a fusion
+  // instruction.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='1174' u='c' c='_ZNK3xla18ElementalIrEmitter23MakeRngElementGeneratorEPKNS_14HloInstructionERKSt13unordered_mapIS3_St8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llv13945864'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='546' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper6HeaderEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='551' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper6HeaderEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='732' u='c' c='_ZNK3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper20ShouldMergeIntoUsersEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='837' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper33GetInstructionNodeInlinedOperandsEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='962' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper19GetInstructionColorEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='978' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper19GetInstructionColorEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='1163' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper27AddInstructionIncomingEdgesEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2008' u='c' c='_ZN3xla14HloInstruction12set_to_applyEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2046' u='c' c='_ZN3xla14HloInstruction19set_while_conditionEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2054' u='c' c='_ZN3xla14HloInstruction14set_while_bodyEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2072' u='c' c='_ZN3xla14HloInstruction10set_selectEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2080' u='c' c='_ZN3xla14HloInstruction11set_scatterEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2098' u='c' c='_ZN3xla14HloInstruction20set_true_computationEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2106' u='c' c='_ZN3xla14HloInstruction21set_false_computationEPNS_14HloComputationE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2478' type='bool xla::HloInstruction::IsFused() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='573' u='c' c='_ZNK3xla21TuplePointsToAnalysis19InstructionToStringEPKNS_14HloInstructionEPSs'/>

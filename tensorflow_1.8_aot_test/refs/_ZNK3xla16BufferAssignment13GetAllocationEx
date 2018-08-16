@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='324' type='const xla::BufferAllocation &amp; xla::BufferAssignment::GetAllocation(BufferAllocation::Index index) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='464' u='c' c='_ZNK3xla16BufferAssignment21GetAssignedAllocationERKNS_13LogicalBufferE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='483' ll='488' type='const xla::BufferAllocation &amp; xla::BufferAssignment::GetAllocation(BufferAllocation::Index index) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='492' u='c' c='_ZN3xla16BufferAssignment20GetMutableAllocationEx'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='322'>// Returns the allocation with the given index. CHECKs if no allocation exists
+  // with the given index.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='84' u='c' c='_ZN3xla3cpu13CpuExecutable15AllocateBuffersEPNS_21DeviceMemoryAllocatorEiPSt6vectorIN9perftools8gputools16DeviceMemoryBaseESaIS7_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2722' u='c' c='_ZN3xla3cpu9IrEmitter21EmitTempBufferPointerERKNS_16BufferAllocation5SliceERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='334' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable15AllocateBuffersEPNS_21DeviceMemoryAllocatorEiPSt6vectorIN9perftools8gputools16DeviceMemoryBaseESaIS7_EE'/>

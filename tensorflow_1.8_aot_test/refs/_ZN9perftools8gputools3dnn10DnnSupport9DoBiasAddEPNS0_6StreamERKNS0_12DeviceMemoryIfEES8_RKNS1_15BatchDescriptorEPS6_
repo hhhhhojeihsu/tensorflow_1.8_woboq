@@ -1,0 +1,26 @@
+<dec f='tensorflow/tensorflow/stream_executor/dnn.h' l='1510' type='bool perftools::gputools::dnn::DnnSupport::DoBiasAdd(perftools::gputools::Stream * stream, const DeviceMemory&lt;float&gt; &amp; input_data, const DeviceMemory&lt;float&gt; &amp; biases, const dnn::BatchDescriptor &amp; dimensions, DeviceMemory&lt;float&gt; * output_data)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1486'>// Adds biases to the feature maps in input_data producing
+  // output_data. input_data can equal output_data, but must not
+  // partially overlap it.
+  //
+  // Let K = count() * height() * width() and N = feature_map_count()
+  // on dimensions. Then input_value contains K*N values and biases
+  // contains N values. We can thus logically consider input_value to
+  // contain K vectors of N elements each. This function adds biases
+  // to each of those N vectors.
+  //
+  // TODO(broune): This works differently when width() * height() &gt; 1
+  // and the call to ThenBiasAdd() follows a call to ThenMatMul(). In
+  // that case there should be width() * height() *
+  // feature_map_count() biases, but this is not implemented on all
+  // StreamExecutors.
+  //
+  // Arguments (all borrowed):
+  //  stream: borrowed pointer to the stream that the &apos;bias add&apos; operation
+  //    should be enqueued onto.
+  //  input_data: un-owned device memory region containing the input.
+  //  biases: un-owned device memory region containing biases to add to the
+  //    input.
+  //  dimensions: dimensions of input_data and output_data.
+  //  output_data: un-owned device memory region in which to place the result.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='1358' u='c' c='_ZN9perftools8gputools6Stream11ThenBiasAddERKNS0_12DeviceMemoryIfEES5_RKNS0_3dnn15BatchDescriptorEPS3_'/>

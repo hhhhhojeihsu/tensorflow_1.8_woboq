@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/tracking_allocator.h' l='103' type='int'/>
+<offset>256</offset>
+<doc f='tensorflow/tensorflow/core/framework/tracking_allocator.h' l='100'>// the number of calls to AllocateRaw that have not yet been matched
+  // by a corresponding call to DeAllocateRaw, plus 1 if the Executor
+  // has not yet read out the high watermark.</doc>
+<use f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='25' u='w' c='_ZN10tensorflow17TrackingAllocatorC1EPNS_9AllocatorEb'/>
+<use f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='49' u='w' c='_ZN10tensorflow17TrackingAllocator11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='65' u='w' c='_ZN10tensorflow17TrackingAllocator11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='70' u='w' c='_ZN10tensorflow17TrackingAllocator11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<use f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='200' u='r' c='_ZN10tensorflow17TrackingAllocator5UnRefEv'/>
+<use f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='201' u='w' c='_ZN10tensorflow17TrackingAllocator5UnRefEv'/>
+<use f='tensorflow/tensorflow/core/framework/tracking_allocator.cc' l='202' u='r' c='_ZN10tensorflow17TrackingAllocator5UnRefEv'/>

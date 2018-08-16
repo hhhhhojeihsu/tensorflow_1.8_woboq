@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/util/reporter.h' l='77' type='tensorflow::Status tensorflow::TestReporter::Benchmark(int64 iters, double cpu_time, double wall_time, double throughput)'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='187' u='c' c='_ZN10tensorflow7testing9Benchmark3RunEPKc'/>
+<doc f='tensorflow/tensorflow/core/util/reporter.h' l='73'>// Set the report to be a Benchmark and log the given parameters.
+  // Only does something if the reporting env flag is set.
+  // Does not guarantee the report is written.  Use Close() to
+  // enforce I/O operations.</doc>
+<def f='tensorflow/tensorflow/core/util/reporter.cc' l='40' ll='48' type='tensorflow::Status tensorflow::TestReporter::Benchmark(int64 iters, double cpu_time, double wall_time, double throughput)'/>

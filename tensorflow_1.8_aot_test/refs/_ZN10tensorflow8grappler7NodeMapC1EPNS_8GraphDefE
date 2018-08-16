@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/grappler/utils.h' l='40' type='void tensorflow::grappler::NodeMap::NodeMap(tensorflow::GraphDef * graph)'/>
+<doc f='tensorflow/tensorflow/core/grappler/utils.h' l='38'>// Note: The NodeMap will store pointers to nodes in graph, which may become
+  // invalid if graph is changed.</doc>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_memory.cc' l='165' u='c' c='_ZN10tensorflow8grappler11GraphMemory14InferFromTraceERKNS_9StepStatsE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1503' u='c' c='_ZN10tensorflow8grappler19ArithmeticOptimizer17DedupComputationsEv'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1990' u='c' c='_ZN10tensorflow8grappler19ArithmeticOptimizer8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2377' u='c' c='_ZN10tensorflow8grappler15ConstantFolding19RunOptimizationPassEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2406' u='c' c='_ZN10tensorflow8grappler15ConstantFolding19RunOptimizationPassEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/dependency_optimizer.cc' l='442' u='c' c='_ZN10tensorflow8grappler19DependencyOptimizer20OptimizeDependenciesEv'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/dependency_optimizer.cc' l='579' u='c' c='_ZN10tensorflow8grappler19DependencyOptimizer8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='2158' u='c' c='_ZN10tensorflow8grappler15LayoutOptimizer4TuneERKNS0_12GrapplerItemERKNS0_15GraphPropertiesERKNS1_12TuningConfigEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='365' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_132LoopInvariantNodeMotionOptimizer8OptimizeEv'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='473' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_114RemoveStackOpsERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='432' u='c' c='_ZN10tensorflow8grappler26RecomputationRewritingPassENS_25RewriterConfig_MemOptTypeERKSsPNS_8GraphDefERKNS0_12GrapplerItemE'/>
+<def f='tensorflow/tensorflow/core/grappler/utils.cc' l='55' ll='69' type='void tensorflow::grappler::NodeMap::NodeMap(tensorflow::GraphDef * graph)'/>
+<use f='tensorflow/tensorflow/core/grappler/utils/colocation.cc' l='78' u='c' c='_ZN10tensorflow8grappler18ReassignColocationEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/utils/frame.cc' l='30' u='c' c='_ZN10tensorflow8grappler14IdentifyFramesERKNS_8GraphDefEPSt13unordered_mapIPKNS_7NodeDefESt6vectorIiSaIiEESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_SA_EEEPi'/>

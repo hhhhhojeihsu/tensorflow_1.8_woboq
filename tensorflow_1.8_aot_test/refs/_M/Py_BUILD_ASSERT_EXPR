@@ -1,0 +1,13 @@
+<dec f='include/python3.5m/pymacro.h' l='36'/>
+<doc f='include/python3.5m/pymacro.h' l='24'>/* Assert a build-time dependency, as an expression.
+
+   Your compile will fail if the condition isn&apos;t true, or can&apos;t be evaluated
+   by the compiler. This can be used in an expression: its value is 0.
+
+   Example:
+
+   #define foo_to_char(foo)  \
+       ((char *)(foo)        \
+        + Py_BUILD_ASSERT_EXPR(offsetof(struct foo, string) == 0))
+
+   Written by Rusty Russell, public domain, http://ccodearchive.net/ */</doc>

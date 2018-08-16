@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>stacktrace_handler.cc source code [tensorflow/tensorflow/core/platform/stacktrace_handler.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/platform/stacktrace_handler.cc'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>platform</a>/<a href='stacktrace_handler.cc.html'>stacktrace_handler.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="platform.h.html">"tensorflow/core/platform/platform.h"</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">if</span> !defined(<span class="macro" data-ref="_M/PLATFORM_GOOGLE">PLATFORM_GOOGLE</span>) &amp;&amp; !defined(<span class="macro" data-ref="_M/IS_MOBILE_PLATFORM">IS_MOBILE_PLATFORM</span>) &amp;&amp; \</u></td></tr>
+<tr><th id="19">19</th><td><u>    defined(<a class="macro" href="platform.h.html#54" data-ref="_M/PLATFORM_POSIX">PLATFORM_POSIX</a>) &amp;&amp; (defined(<span class="macro" data-ref="_M/__clang__">__clang__</span>) || defined(<span class="macro" data-ref="_M/__GNUC__">__GNUC__</span>))</u></td></tr>
+<tr><th id="20">20</th><td><u>#define <dfn class="macro" id="_M/TF_GENERATE_STACKTRACE" data-ref="_M/TF_GENERATE_STACKTRACE">TF_GENERATE_STACKTRACE</dfn></u></td></tr>
+<tr><th id="21">21</th><td><u>#<span data-ppcond="18">endif</span></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#<span data-ppcond="23">if</span> defined(<a class="macro" href="#20" data-ref="_M/TF_GENERATE_STACKTRACE">TF_GENERATE_STACKTRACE</a>)</u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../../../../include/errno.h.html">&lt;errno.h&gt;</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../../../../include/signal.h.html">&lt;signal.h&gt;</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../../../include/stdio.h.html">&lt;stdio.h&gt;</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../../../include/stdlib.h.html">&lt;stdlib.h&gt;</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../../../../include/string.h.html">&lt;string.h&gt;</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../../include/x86_64-linux-gnu/sys/time.h.html">&lt;sys/time.h&gt;</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../../../../include/unistd.h.html">&lt;unistd.h&gt;</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="abi.h.html">"tensorflow/core/platform/abi.h"</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="stacktrace.h.html">"tensorflow/core/platform/stacktrace.h"</a></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="23">endif</span>  // defined(TF_GENERATE_STACKTRACE)</u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="39">39</th><td><b>namespace</b> <span class="namespace">testing</span> {</td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#<span data-ppcond="41">if</span> defined(<a class="macro" href="#20" data-ref="_M/TF_GENERATE_STACKTRACE">TF_GENERATE_STACKTRACE</a>)</u></td></tr>
+<tr><th id="42">42</th><td><i>// This function will print stacktrace to STDERR.</i></td></tr>
+<tr><th id="43">43</th><td><i>// It avoids using malloc, so it makes sure to dump the stack even when the heap</i></td></tr>
+<tr><th id="44">44</th><td><i>// is corrupted. However, it can dump mangled symbols.</i></td></tr>
+<tr><th id="45">45</th><td><b>inline</b> <em>void</em> <dfn class="decl def" id="_ZN10tensorflow7testing19SafePrintStackTraceEv" title='tensorflow::testing::SafePrintStackTrace' data-ref="_ZN10tensorflow7testing19SafePrintStackTraceEv">SafePrintStackTrace</dfn>() {</td></tr>
+<tr><th id="46">46</th><td>  <em>static</em> <em>const</em> <em>char</em> <dfn class="local col1 decl" id="1begin_msg" title='begin_msg' data-type='const char [35]' data-ref="1begin_msg">begin_msg</dfn>[] = <q>"*** BEGIN MANGLED STACK TRACE ***\n"</q>;</td></tr>
+<tr><th id="47">47</th><td>  (<em>void</em>)<a class="ref" href="../../../../include/unistd.h.html#write" title='write' data-ref="write">write</a>(<a class="macro" href="../../../../include/unistd.h.html#215" title="2" data-ref="_M/STDERR_FILENO">STDERR_FILENO</a>, <a class="local col1 ref" href="#1begin_msg" title='begin_msg' data-ref="1begin_msg">begin_msg</a>, <a class="ref" href="../../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col1 ref" href="#1begin_msg" title='begin_msg' data-ref="1begin_msg">begin_msg</a>));</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <em>int</em> <dfn class="local col2 decl" id="2buffer_size" title='buffer_size' data-type='int' data-ref="2buffer_size">buffer_size</dfn> = <var>128</var>;</td></tr>
+<tr><th id="50">50</th><td>  <em>void</em> *<dfn class="local col3 decl" id="3trace" title='trace' data-type='void *[128]' data-ref="3trace">trace</dfn>[<var>128</var>];</td></tr>
+<tr><th id="51">51</th><td>  <i>// Run backtrace to get the size of the stacktrace</i></td></tr>
+<tr><th id="52">52</th><td>  <a class="local col2 ref" href="#2buffer_size" title='buffer_size' data-ref="2buffer_size">buffer_size</a> = <a class="ref" href="../../../../include/execinfo.h.html#backtrace" title='backtrace' data-ref="backtrace">backtrace</a>(<a class="local col3 ref" href="#3trace" title='trace' data-ref="3trace">trace</a>, <a class="local col2 ref" href="#2buffer_size" title='buffer_size' data-ref="2buffer_size">buffer_size</a>);</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>  <i>// Print a mangled stacktrace to STDERR as safely as possible.</i></td></tr>
+<tr><th id="55">55</th><td>  <a class="ref" href="../../../../include/execinfo.h.html#backtrace_symbols_fd" title='backtrace_symbols_fd' data-ref="backtrace_symbols_fd">backtrace_symbols_fd</a>(<a class="local col3 ref" href="#3trace" title='trace' data-ref="3trace">trace</a>, <a class="local col2 ref" href="#2buffer_size" title='buffer_size' data-ref="2buffer_size">buffer_size</a>, <a class="macro" href="../../../../include/unistd.h.html#215" title="2" data-ref="_M/STDERR_FILENO">STDERR_FILENO</a>);</td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td>  <em>static</em> <em>const</em> <em>char</em> <dfn class="local col4 decl" id="4end_msg" title='end_msg' data-type='const char [34]' data-ref="4end_msg">end_msg</dfn>[] = <q>"*** END MANGLED STACK TRACE ***\n\n"</q>;</td></tr>
+<tr><th id="58">58</th><td>  (<em>void</em>)<a class="ref" href="../../../../include/unistd.h.html#write" title='write' data-ref="write">write</a>(<a class="macro" href="../../../../include/unistd.h.html#215" title="2" data-ref="_M/STDERR_FILENO">STDERR_FILENO</a>, <a class="local col4 ref" href="#4end_msg" title='end_msg' data-ref="4end_msg">end_msg</a>, <a class="ref" href="../../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col4 ref" href="#4end_msg" title='end_msg' data-ref="4end_msg">end_msg</a>));</td></tr>
+<tr><th id="59">59</th><td>}</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td><em>static</em> <em>void</em> <dfn class="tu decl def" id="_ZN10tensorflow7testingL17StacktraceHandlerEiP9siginfo_tPv" title='tensorflow::testing::StacktraceHandler' data-type='void tensorflow::testing::StacktraceHandler(int sig, siginfo_t * si, void * v)' data-ref="_ZN10tensorflow7testingL17StacktraceHandlerEiP9siginfo_tPv">StacktraceHandler</dfn>(<em>int</em> <dfn class="local col5 decl" id="5sig" title='sig' data-type='int' data-ref="5sig">sig</dfn>, <a class="typedef" href="../../../../include/x86_64-linux-gnu/bits/siginfo.h.html#siginfo_t" title='siginfo_t' data-type='struct siginfo_t' data-ref="siginfo_t">siginfo_t</a> *<dfn class="local col6 decl" id="6si" title='si' data-type='siginfo_t *' data-ref="6si">si</dfn>, <em>void</em> *<dfn class="local col7 decl" id="7v" title='v' data-type='void *' data-ref="7v">v</dfn>) {</td></tr>
+<tr><th id="62">62</th><td>  <i>// Make sure our handler does not deadlock. And this should be the last thing</i></td></tr>
+<tr><th id="63">63</th><td><i>  // our program does. Therefore, set a timer to kill the program in 60</i></td></tr>
+<tr><th id="64">64</th><td><i>  // seconds.</i></td></tr>
+<tr><th id="65">65</th><td>  <b>struct</b> <a class="type" href="../../../../include/x86_64-linux-gnu/sys/time.h.html#itimerval" title='itimerval' data-ref="itimerval">itimerval</a> <a class="ref fake" href="../../../../include/x86_64-linux-gnu/sys/time.h.html#107" title='itimerval::itimerval' data-ref="_ZN9itimervalC1Ev"></a><dfn class="local col8 decl" id="8timer" title='timer' data-type='struct itimerval' data-ref="8timer">timer</dfn>;</td></tr>
+<tr><th id="66">66</th><td>  <a class="local col8 ref" href="#8timer" title='timer' data-ref="8timer">timer</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/sys/time.h.html#itimerval::it_value" title='itimerval::it_value' data-ref="itimerval::it_value">it_value</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_sec" title='timeval::tv_sec' data-ref="timeval::tv_sec">tv_sec</a> = <var>60</var>;</td></tr>
+<tr><th id="67">67</th><td>  <a class="local col8 ref" href="#8timer" title='timer' data-ref="8timer">timer</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/sys/time.h.html#itimerval::it_value" title='itimerval::it_value' data-ref="itimerval::it_value">it_value</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_usec" title='timeval::tv_usec' data-ref="timeval::tv_usec">tv_usec</a> = <var>0</var>;</td></tr>
+<tr><th id="68">68</th><td>  <a class="local col8 ref" href="#8timer" title='timer' data-ref="8timer">timer</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/sys/time.h.html#itimerval::it_interval" title='itimerval::it_interval' data-ref="itimerval::it_interval">it_interval</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_sec" title='timeval::tv_sec' data-ref="timeval::tv_sec">tv_sec</a> = <var>0</var>;</td></tr>
+<tr><th id="69">69</th><td>  <a class="local col8 ref" href="#8timer" title='timer' data-ref="8timer">timer</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/sys/time.h.html#itimerval::it_interval" title='itimerval::it_interval' data-ref="itimerval::it_interval">it_interval</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/bits/time.h.html#timeval::tv_usec" title='timeval::tv_usec' data-ref="timeval::tv_usec">tv_usec</a> = <var>0</var>;</td></tr>
+<tr><th id="70">70</th><td>  <a class="ref" href="../../../../include/x86_64-linux-gnu/sys/time.h.html#setitimer" title='setitimer' data-ref="setitimer">setitimer</a>(<a class="macro" href="../../../../include/x86_64-linux-gnu/sys/time.h.html#95" title="ITIMER_REAL" data-ref="_M/ITIMER_REAL">ITIMER_REAL</a>, &amp;<a class="local col8 ref" href="#8timer" title='timer' data-ref="8timer">timer</a>, <var>0</var>);</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td>  <b>struct</b> <a class="type" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#sigaction" title='sigaction' data-ref="sigaction">sigaction</a> <a class="ref fake" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#24" title='sigaction::sigaction' data-ref="_ZN9sigactionC1Ev"></a><dfn class="local col9 decl" id="9sa_timeout" title='sa_timeout' data-type='struct sigaction' data-ref="9sa_timeout">sa_timeout</dfn>;</td></tr>
+<tr><th id="73">73</th><td>  <a class="ref" href="../../../../include/string.h.html#memset" title='memset' data-ref="memset">memset</a>(&amp;<a class="local col9 ref" href="#9sa_timeout" title='sa_timeout' data-ref="9sa_timeout">sa_timeout</a>, <var>0</var>, <b>sizeof</b>(<a class="local col9 ref" href="#9sa_timeout" title='sa_timeout' data-ref="9sa_timeout">sa_timeout</a>));</td></tr>
+<tr><th id="74">74</th><td>  <a class="local col9 ref" href="#9sa_timeout" title='sa_timeout' data-ref="9sa_timeout">sa_timeout</a>.<a class="macro" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#36" title="__sigaction_handler.sa_handler" data-ref="_M/sa_handler">sa_handler</a> = <a class="macro" href="../../../../include/x86_64-linux-gnu/bits/signum.h.html#23" title="((__sighandler_t) 0)" data-ref="_M/SIG_DFL">SIG_DFL</a>;</td></tr>
+<tr><th id="75">75</th><td>  <a class="ref" href="../../../../include/signal.h.html#sigaction" title='sigaction' data-ref="sigaction">sigaction</a>(<a class="macro" href="../../../../include/x86_64-linux-gnu/bits/signum.h.html#46" title="14" data-ref="_M/SIGALRM">SIGALRM</a>, &amp;<a class="local col9 ref" href="#9sa_timeout" title='sa_timeout' data-ref="9sa_timeout">sa_timeout</a>, <var>0</var>);</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td>  <em>char</em> <dfn class="local col0 decl" id="10buf" title='buf' data-type='char [128]' data-ref="10buf">buf</dfn>[<var>128</var>];</td></tr>
+<tr><th id="78">78</th><td></td></tr>
+<tr><th id="79">79</th><td>  <a class="ref" href="../../../../include/stdio.h.html#snprintf" title='snprintf' data-ref="snprintf">snprintf</a>(<a class="local col0 ref" href="#10buf" title='buf' data-ref="10buf">buf</a>, <b>sizeof</b>(<a class="local col0 ref" href="#10buf" title='buf' data-ref="10buf">buf</a>), <q>"*** Received signal %d ***\n"</q>, <a class="local col5 ref" href="#5sig" title='sig' data-ref="5sig">sig</a>);</td></tr>
+<tr><th id="80">80</th><td>  (<em>void</em>)<a class="ref" href="../../../../include/unistd.h.html#write" title='write' data-ref="write">write</a>(<a class="macro" href="../../../../include/unistd.h.html#215" title="2" data-ref="_M/STDERR_FILENO">STDERR_FILENO</a>, <a class="local col0 ref" href="#10buf" title='buf' data-ref="10buf">buf</a>, <a class="ref" href="../../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col0 ref" href="#10buf" title='buf' data-ref="10buf">buf</a>));</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td>  <i>// Print "a" stack trace, as safely as possible.</i></td></tr>
+<tr><th id="83">83</th><td>  <a class="ref" href="#_ZN10tensorflow7testing19SafePrintStackTraceEv" title='tensorflow::testing::SafePrintStackTrace' data-ref="_ZN10tensorflow7testing19SafePrintStackTraceEv">SafePrintStackTrace</a>();</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  <i>// Up until this line, we made sure not to allocate memory, to be able to dump</i></td></tr>
+<tr><th id="86">86</th><td><i>  // a stack trace even in the event of heap corruption. After this line, we</i></td></tr>
+<tr><th id="87">87</th><td><i>  // will try to print more human readable things to the terminal.</i></td></tr>
+<tr><th id="88">88</th><td><i>  // But these have a higher probability to fail.</i></td></tr>
+<tr><th id="89">89</th><td>  <span class="namespace">std::</span><a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="local col1 decl" id="11stacktrace" title='stacktrace' data-type='std::string' data-ref="11stacktrace">stacktrace</dfn> = <a class="ref" href="default/stacktrace.h.html#_ZN10tensorflow17CurrentStackTraceEv" title='tensorflow::CurrentStackTrace' data-ref="_ZN10tensorflow17CurrentStackTraceEv">CurrentStackTrace</a>();</td></tr>
+<tr><th id="90">90</th><td>  (<em>void</em>)<a class="ref" href="../../../../include/unistd.h.html#write" title='write' data-ref="write">write</a>(<a class="macro" href="../../../../include/unistd.h.html#215" title="2" data-ref="_M/STDERR_FILENO">STDERR_FILENO</a>, <a class="local col1 ref" href="#11stacktrace" title='stacktrace' data-ref="11stacktrace">stacktrace</a>.<a class="ref" href="../../../../include/c++/5/bits/basic_string.h.html#_ZNKSt12basic_string5c_strEv" title='std::basic_string::c_str' data-ref="_ZNKSt12basic_string5c_strEv">c_str</a>(), <a class="local col1 ref" href="#11stacktrace" title='stacktrace' data-ref="11stacktrace">stacktrace</a>.<a class="ref" href="../../../../include/c++/5/bits/basic_string.h.html#_ZNKSt12basic_string6lengthEv" title='std::basic_string::length' data-ref="_ZNKSt12basic_string6lengthEv">length</a>());</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td>  <i>// Abort the program.</i></td></tr>
+<tr><th id="93">93</th><td>  <b>struct</b> <a class="type" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#sigaction" title='sigaction' data-ref="sigaction">sigaction</a> <a class="ref fake" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#24" title='sigaction::sigaction' data-ref="_ZN9sigactionC1Ev"></a><dfn class="local col2 decl" id="12sa" title='sa' data-type='struct sigaction' data-ref="12sa">sa</dfn>;</td></tr>
+<tr><th id="94">94</th><td>  <a class="ref" href="../../../../include/signal.h.html#sigemptyset" title='sigemptyset' data-ref="sigemptyset">sigemptyset</a>(&amp;<a class="local col2 ref" href="#12sa" title='sa' data-ref="12sa">sa</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#sigaction::sa_mask" title='sigaction::sa_mask' data-ref="sigaction::sa_mask">sa_mask</a>);</td></tr>
+<tr><th id="95">95</th><td>  <a class="local col2 ref" href="#12sa" title='sa' data-ref="12sa">sa</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#sigaction::sa_flags" title='sigaction::sa_flags' data-ref="sigaction::sa_flags">sa_flags</a> = <var>0</var>;</td></tr>
+<tr><th id="96">96</th><td>  <a class="local col2 ref" href="#12sa" title='sa' data-ref="12sa">sa</a>.<a class="macro" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#36" title="__sigaction_handler.sa_handler" data-ref="_M/sa_handler">sa_handler</a> = <a class="macro" href="../../../../include/x86_64-linux-gnu/bits/signum.h.html#23" title="((__sighandler_t) 0)" data-ref="_M/SIG_DFL">SIG_DFL</a>;</td></tr>
+<tr><th id="97">97</th><td>  <a class="ref" href="../../../../include/signal.h.html#sigaction" title='sigaction' data-ref="sigaction">sigaction</a>(<a class="macro" href="../../../../include/x86_64-linux-gnu/bits/signum.h.html#37" title="6" data-ref="_M/SIGABRT">SIGABRT</a>, &amp;<a class="local col2 ref" href="#12sa" title='sa' data-ref="12sa">sa</a>, <span class="macro" title="__null" data-ref="_M/NULL">NULL</span>);</td></tr>
+<tr><th id="98">98</th><td>  <a class="ref" href="../../../../include/stdlib.h.html#abort" title='abort' data-ref="abort">abort</a>();</td></tr>
+<tr><th id="99">99</th><td>}</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><em>void</em> <dfn class="decl def" id="_ZN10tensorflow7testing24InstallStacktraceHandlerEv" title='tensorflow::testing::InstallStacktraceHandler' data-ref="_ZN10tensorflow7testing24InstallStacktraceHandlerEv">InstallStacktraceHandler</dfn>() {</td></tr>
+<tr><th id="102">102</th><td>  <em>int</em> <dfn class="local col3 decl" id="13handled_signals" title='handled_signals' data-type='int [5]' data-ref="13handled_signals">handled_signals</dfn>[] = {<a class="macro" href="../../../../include/x86_64-linux-gnu/bits/signum.h.html#43" title="11" data-ref="_M/SIGSEGV">SIGSEGV</a>, <a class="macro" href="../../../../include/x86_64-linux-gnu/bits/signum.h.html#37" title="6" data-ref="_M/SIGABRT">SIGABRT</a>, <a class="macro" href="../../../../include/x86_64-linux-gnu/bits/signum.h.html#39" title="7" data-ref="_M/SIGBUS">SIGBUS</a>, <a class="macro" href="../../../../include/x86_64-linux-gnu/bits/signum.h.html#35" title="4" data-ref="_M/SIGILL">SIGILL</a>, <a class="macro" href="../../../../include/x86_64-linux-gnu/bits/signum.h.html#40" title="8" data-ref="_M/SIGFPE">SIGFPE</a>};</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>  <b>for</b> (<em>int</em> <dfn class="local col4 decl" id="14i" title='i' data-type='int' data-ref="14i">i</dfn> = <var>0</var>; <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a> &lt; <b>sizeof</b>(<a class="local col3 ref" href="#13handled_signals" title='handled_signals' data-ref="13handled_signals">handled_signals</a>) / <b>sizeof</b>(<em>int</em>); <a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>++) {</td></tr>
+<tr><th id="105">105</th><td>    <em>int</em> <dfn class="local col5 decl" id="15sig" title='sig' data-type='int' data-ref="15sig">sig</dfn> = <a class="local col3 ref" href="#13handled_signals" title='handled_signals' data-ref="13handled_signals">handled_signals</a>[<a class="local col4 ref" href="#14i" title='i' data-ref="14i">i</a>];</td></tr>
+<tr><th id="106">106</th><td>    <b>struct</b> <a class="type" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#sigaction" title='sigaction' data-ref="sigaction">sigaction</a> <a class="ref fake" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#24" title='sigaction::sigaction' data-ref="_ZN9sigactionC1Ev"></a><dfn class="local col6 decl" id="16sa" title='sa' data-type='struct sigaction' data-ref="16sa">sa</dfn>;</td></tr>
+<tr><th id="107">107</th><td>    <b>struct</b> <a class="type" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#sigaction" title='sigaction' data-ref="sigaction">sigaction</a> <a class="ref fake" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#24" title='sigaction::sigaction' data-ref="_ZN9sigactionC1Ev"></a><dfn class="local col7 decl" id="17osa" title='osa' data-type='struct sigaction' data-ref="17osa">osa</dfn>;</td></tr>
+<tr><th id="108">108</th><td></td></tr>
+<tr><th id="109">109</th><td>    <a class="ref" href="../../../../include/signal.h.html#sigemptyset" title='sigemptyset' data-ref="sigemptyset">sigemptyset</a>(&amp;<a class="local col6 ref" href="#16sa" title='sa' data-ref="16sa">sa</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#sigaction::sa_mask" title='sigaction::sa_mask' data-ref="sigaction::sa_mask">sa_mask</a>);</td></tr>
+<tr><th id="110">110</th><td>    <a class="local col6 ref" href="#16sa" title='sa' data-ref="16sa">sa</a>.<a class="ref" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#sigaction::sa_flags" title='sigaction::sa_flags' data-ref="sigaction::sa_flags">sa_flags</a> = <a class="macro" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#55" title="4" data-ref="_M/SA_SIGINFO">SA_SIGINFO</a> | <a class="macro" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#64" title="0x80000000" data-ref="_M/SA_RESETHAND">SA_RESETHAND</a>;</td></tr>
+<tr><th id="111">111</th><td>    <a class="local col6 ref" href="#16sa" title='sa' data-ref="16sa">sa</a>.<a class="macro" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#37" title="__sigaction_handler.sa_sigaction" data-ref="_M/sa_sigaction">sa_sigaction</a> = &amp;<a class="tu ref" href="#_ZN10tensorflow7testingL17StacktraceHandlerEiP9siginfo_tPv" title='tensorflow::testing::StacktraceHandler' data-use='a' data-ref="_ZN10tensorflow7testingL17StacktraceHandlerEiP9siginfo_tPv">StacktraceHandler</a>;</td></tr>
+<tr><th id="112">112</th><td>    <b>if</b> (<a class="ref" href="../../../../include/signal.h.html#sigaction" title='sigaction' data-ref="sigaction">sigaction</a>(<a class="local col5 ref" href="#15sig" title='sig' data-ref="15sig">sig</a>, &amp;<a class="local col6 ref" href="#16sa" title='sa' data-ref="16sa">sa</a>, &amp;<a class="local col7 ref" href="#17osa" title='osa' data-ref="17osa">osa</a>) != <var>0</var>) {</td></tr>
+<tr><th id="113">113</th><td>      <em>char</em> <dfn class="local col8 decl" id="18buf" title='buf' data-type='char [128]' data-ref="18buf">buf</dfn>[<var>128</var>];</td></tr>
+<tr><th id="114">114</th><td>      <a class="ref" href="../../../../include/stdio.h.html#snprintf" title='snprintf' data-ref="snprintf">snprintf</a>(<a class="local col8 ref" href="#18buf" title='buf' data-ref="18buf">buf</a>, <b>sizeof</b>(<a class="local col8 ref" href="#18buf" title='buf' data-ref="18buf">buf</a>),</td></tr>
+<tr><th id="115">115</th><td>               <q>"Warning, can't install backtrace signal handler for signal %d, "</q></td></tr>
+<tr><th id="116">116</th><td>               <q>"errno:%d \n"</q>,</td></tr>
+<tr><th id="117">117</th><td>               <a class="local col5 ref" href="#15sig" title='sig' data-ref="15sig">sig</a>, <a class="macro" href="../../../../include/x86_64-linux-gnu/bits/errno.h.html#54" title="(*__errno_location ())" data-ref="_M/errno">errno</a>);</td></tr>
+<tr><th id="118">118</th><td>      (<em>void</em>)<a class="ref" href="../../../../include/unistd.h.html#write" title='write' data-ref="write">write</a>(<a class="macro" href="../../../../include/unistd.h.html#215" title="2" data-ref="_M/STDERR_FILENO">STDERR_FILENO</a>, <a class="local col8 ref" href="#18buf" title='buf' data-ref="18buf">buf</a>, <a class="ref" href="../../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col8 ref" href="#18buf" title='buf' data-ref="18buf">buf</a>));</td></tr>
+<tr><th id="119">119</th><td>    } <b>else</b> <b>if</b> (<a class="local col7 ref" href="#17osa" title='osa' data-ref="17osa">osa</a>.<a class="macro" href="../../../../include/x86_64-linux-gnu/bits/sigaction.h.html#36" title="__sigaction_handler.sa_handler" data-ref="_M/sa_handler">sa_handler</a> != <a class="macro" href="../../../../include/x86_64-linux-gnu/bits/signum.h.html#23" title="((__sighandler_t) 0)" data-ref="_M/SIG_DFL">SIG_DFL</a>) {</td></tr>
+<tr><th id="120">120</th><td>      <em>char</em> <dfn class="local col9 decl" id="19buf" title='buf' data-type='char [128]' data-ref="19buf">buf</dfn>[<var>128</var>];</td></tr>
+<tr><th id="121">121</th><td>      <a class="ref" href="../../../../include/stdio.h.html#snprintf" title='snprintf' data-ref="snprintf">snprintf</a>(<a class="local col9 ref" href="#19buf" title='buf' data-ref="19buf">buf</a>, <b>sizeof</b>(<a class="local col9 ref" href="#19buf" title='buf' data-ref="19buf">buf</a>),</td></tr>
+<tr><th id="122">122</th><td>               <q>"Warning, backtrace signal handler for signal %d overwrote "</q></td></tr>
+<tr><th id="123">123</th><td>               <q>"previous handler.\n"</q>,</td></tr>
+<tr><th id="124">124</th><td>               <a class="local col5 ref" href="#15sig" title='sig' data-ref="15sig">sig</a>);</td></tr>
+<tr><th id="125">125</th><td>      (<em>void</em>)<a class="ref" href="../../../../include/unistd.h.html#write" title='write' data-ref="write">write</a>(<a class="macro" href="../../../../include/unistd.h.html#215" title="2" data-ref="_M/STDERR_FILENO">STDERR_FILENO</a>, <a class="local col9 ref" href="#19buf" title='buf' data-ref="19buf">buf</a>, <a class="ref" href="../../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<a class="local col9 ref" href="#19buf" title='buf' data-ref="19buf">buf</a>));</td></tr>
+<tr><th id="126">126</th><td>    }</td></tr>
+<tr><th id="127">127</th><td>  }</td></tr>
+<tr><th id="128">128</th><td>}</td></tr>
+<tr><th id="129">129</th><td></td></tr>
+<tr><th id="130">130</th><td><u>#<span data-ppcond="41">else</span></u></td></tr>
+<tr><th id="131">131</th><td><em>void</em> InstallStacktraceHandler() {}</td></tr>
+<tr><th id="132">132</th><td><u>#<span data-ppcond="41">endif</span>  // defined(TF_GENERATE_STACKTRACE)</u></td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>}  <i>// namespace testing</i></td></tr>
+<tr><th id="135">135</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="136">136</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

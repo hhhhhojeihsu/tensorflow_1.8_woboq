@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='766' type='xla::HloComputation * xla::HloInstruction::select() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='762'>// Gets/sets the select or scatter HloComputation for SelectAndScatter. The
+  // setters should only be called by HloModule or HloComputation methods.
+  //
+  // Precondition: opcode() == HloOpcode::kSelectAndScatter.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='635' u='c' c='_ZN3xla3cpu9IrEmitter22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='301' u='c' c='_ZN3xla15HloCostAnalysis22HandleSelectAndScatterEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1668' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1358' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1828' u='c' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1828' u='c' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2059' ll='2062' type='xla::HloComputation * xla::HloInstruction::select() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2259' u='c' c='_ZNK3xla14HloInstruction23ExtraAttributesToStringERKNS_15HloPrintOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='170' u='c' c='_ZN3xla9HloModule19ReplaceComputationsERKSt13unordered_mapIPNS_14HloComputationES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='294' u='c' c='_ZN3xla13ShapeVerifier22HandleSelectAndScatterEPNS_14HloInstructionE'/>

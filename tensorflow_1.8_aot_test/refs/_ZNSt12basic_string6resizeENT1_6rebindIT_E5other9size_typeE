@@ -1,0 +1,44 @@
+<def f='include/c++/5/bits/basic_string.h' l='3157' ll='3159' type='void std::basic_string::resize(size_type __n)'/>
+<doc f='include/c++/5/bits/basic_string.h' l='3147'>/**
+       *  @brief  Resizes the %string to the specified number of characters.
+       *  @param  __n  Number of characters the %string should contain.
+       *
+       *  This function will resize the %string to the specified length.  If
+       *  the new size is smaller than the %string&apos;s current size the %string
+       *  is truncated, otherwise the %string is extended and new characters
+       *  are default-constructed.  For basic types such as char, this means
+       *  setting them to 0.
+       */</doc>
+<use f='tensorflow/tensorflow/core/lib/gtl/stl_util.h' l='59' u='c' c='_ZN10tensorflow3gtl28STLStringResizeUninitializedEPSsm'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='385' u='c' c='_ZN10tensorflow7GPUUtil17MemoryDebugStringEPKNS_6DeviceEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='301' u='c' c='_ZN10tensorflow17ReadEventFromFileERKSsPNS_5EventE'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_compressed_op.cc' l='50' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MemoryInputStream10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/kernels/dense_update_functor.cc' l='38' u='c' c='_ZN10tensorflow7functor11DenseUpdateIN5Eigen16ThreadPoolDeviceESsLNS_15DenseUpdateTypeE2EEclERKS3_NS2_9TensorMapINS2_6TensorISsLi1ELi1ElEELi16ENS2_11M12290496'/>
+<use f='tensorflow/tensorflow/core/kernels/dense_update_functor.cc' l='50' u='c' c='_ZN10tensorflow7functor11DenseUpdateIN5Eigen16ThreadPoolDeviceESsLNS_15DenseUpdateTypeE2EEclERKS3_NS2_9TensorMapINS2_6TensorISsLi1ELi1ElEELi16ENS2_11M12290496'/>
+<use f='tensorflow/tensorflow/core/lib/core/bitmap.cc' l='99' u='c' c='_ZNK10tensorflow4core6Bitmap8ToStringEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/block.cc' l='223' u='c' c='_ZN10tensorflow5table5Block4Iter12ParseNextKeyEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/block_builder.cc' l='118' u='c' c='_ZN10tensorflow5table12BlockBuilder3AddERKNS_11StringPieceES4_'/>
+<use f='tensorflow/tensorflow/core/lib/io/format.cc' l='52' u='c' c='_ZNK10tensorflow5table6Footer8EncodeToEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/inputbuffer.cc' l='56' u='c' c='_ZN10tensorflow2io11InputBuffer8ReadLineEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/inputbuffer.cc' l='66' u='c' c='_ZN10tensorflow2io11InputBuffer8ReadLineEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/inputbuffer.cc' l='80' u='c' c='_ZN10tensorflow2io11InputBuffer10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/inputbuffer.cc' l='83' u='c' c='_ZN10tensorflow2io11InputBuffer10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/path.cc' l='199' u='c' c='_ZN10tensorflow2io9CleanPathENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/io/random_inputstream.cc' l='38' u='c' c='_ZN10tensorflow2io23RandomAccessInputStream10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/random_inputstream.cc' l='45' u='c' c='_ZN10tensorflow2io23RandomAccessInputStream10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='91' u='c' c='_ZN10tensorflow2io12RecordReader15ReadChecksummedEymPNS_11StringPieceEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='193' u='c' c='_ZN10tensorflow2io12RecordReader10ReadRecordEPyPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='49' u='c' c='_ZN10tensorflow5table12_GLOBAL__N_121FindShortestSeparatorEPSsRKNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='62' u='c' c='_ZN10tensorflow5table12_GLOBAL__N_118FindShortSuccessorEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/png/png_io.cc' l='339' u='c' c='_ZN10tensorflow3png18WriteImageToBufferEPKviiiiiiPSsPKSt6vectorISt4pairISsSsESaIS6_EE'/>
+<use f='tensorflow/tensorflow/core/lib/strings/proto_text_util.h' l='53' u='c' c='_ZN10tensorflow7strings15ProtoTextOutput18CloseNestedMessageEv'/>
+<use f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='235' u='c' c='_ZN10tensorflow8str_util9CUnescapeENS_11StringPieceEPSsS2_'/>
+<use f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='248' u='c' c='_ZN10tensorflow8str_util23StripTrailingWhitespaceEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/wav/wav_io.cc' l='175' u='c' c='_ZN10tensorflow3wav21EncodeAudioAsS16LEWavEPKfmmmPSs'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='130' u='c' c='_ZN10tensorflow7testing9Benchmark3RunEPKc'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='150' u='c' c='_ZN10tensorflow7testing9Benchmark3RunEPKc'/>
+<use f='tensorflow/tensorflow/core/platform/posix/port.cc' l='138' u='c' c='_ZN10tensorflow4port15Snappy_CompressEPKcmPSs'/>
+<use f='tensorflow/tensorflow/core/platform/posix/port.cc' l='141' u='c' c='_ZN10tensorflow4port15Snappy_CompressEPKcmPSs'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='110' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ReadStringTensorEPNS_2io11InputBufferEmmmPSsPj'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='141' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReadVariantTensorEPNS_2io11InputBufferEPNS_6TensorEmmPj'/>
+<use f='tensorflow/tensorflow/core/util/util.cc' l='90' u='c' c='_ZN10tensorflow11PrintMemoryEPKcm'/>

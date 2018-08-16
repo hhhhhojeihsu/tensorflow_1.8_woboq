@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>client_library.h source code [tensorflow/tensorflow/compiler/xla/client/client_library.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="xla::ClientLibrary,xla::LocalClientOptions "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/compiler/xla/client/client_library.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>compiler</a>/<a href='..'>xla</a>/<a href='./'>client</a>/<a href='client_library.h.html'>client_library.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// The "client library" instantiates a local (in-process) XLA service for</i></td></tr>
+<tr><th id="17">17</th><td><i>// use by this process, and connects to it with a singleton XLA local</i></td></tr>
+<tr><th id="18">18</th><td><i>// client. ClientLibrary::GetOrCreateLocalClient will spawn a local service,</i></td></tr>
+<tr><th id="19">19</th><td><i>// and return a client that's connected to it and ready to run XLA</i></td></tr>
+<tr><th id="20">20</th><td><i>// computations.</i></td></tr>
+<tr><th id="21">21</th><td><u>#<span data-ppcond="21">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_COMPILER_XLA_CLIENT_CLIENT_LIBRARY_H_">TENSORFLOW_COMPILER_XLA_CLIENT_CLIENT_LIBRARY_H_</span></u></td></tr>
+<tr><th id="22">22</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMPILER_XLA_CLIENT_CLIENT_LIBRARY_H_" data-ref="_M/TENSORFLOW_COMPILER_XLA_CLIENT_CLIENT_LIBRARY_H_">TENSORFLOW_COMPILER_XLA_CLIENT_CLIENT_LIBRARY_H_</dfn></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../../../../../include/c++/5/functional.html">&lt;functional&gt;</a></u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../../../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="compile_only_client.h.html">"tensorflow/compiler/xla/client/compile_only_client.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="local_client.h.html">"tensorflow/compiler/xla/client/local_client.h"</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../service/compile_only_service.h.html">"tensorflow/compiler/xla/service/compile_only_service.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../service/device_memory_allocator.h.html">"tensorflow/compiler/xla/service/device_memory_allocator.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../service/local_service.h.html">"tensorflow/compiler/xla/service/local_service.h"</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../statusor.h.html">"tensorflow/compiler/xla/statusor.h"</a></u></td></tr>
+<tr><th id="35">35</th><td><u>#include <a href="../types.h.html">"tensorflow/compiler/xla/types.h"</a></u></td></tr>
+<tr><th id="36">36</th><td><u>#include <a href="../../../core/platform/macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="37">37</th><td><u>#include <a href="../../../core/platform/mutex.h.html">"tensorflow/core/platform/mutex.h"</a></u></td></tr>
+<tr><th id="38">38</th><td><u>#include <a href="../../../core/platform/stream_executor_no_cuda.h.html">"tensorflow/core/platform/stream_executor_no_cuda.h"</a></u></td></tr>
+<tr><th id="39">39</th><td><u>#include <a href="../../../core/platform/thread_annotations.h.html">"tensorflow/core/platform/thread_annotations.h"</a></u></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><b>namespace</b> <span class="namespace">xla</span> {</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td><i>// Options to configure the local client when it is created.</i></td></tr>
+<tr><th id="44">44</th><td><b>class</b> <dfn class="type def" id="xla::LocalClientOptions" title='xla::LocalClientOptions' data-ref="xla::LocalClientOptions">LocalClientOptions</dfn> {</td></tr>
+<tr><th id="45">45</th><td> <b>public</b>:</td></tr>
+<tr><th id="46">46</th><td>  <dfn class="decl" id="_ZN3xla18LocalClientOptionsC1EPN9perftools8gputools8PlatformEii" title='xla::LocalClientOptions::LocalClientOptions' data-ref="_ZN3xla18LocalClientOptionsC1EPN9perftools8gputools8PlatformEii">LocalClientOptions</dfn>(<span class="namespace">perftools::gputools::</span><a class="type" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>* <dfn class="local col4 decl" id="8174platform" title='platform' data-type='perftools::gputools::Platform *' data-ref="8174platform">platform</dfn> = <b>nullptr</b>,</td></tr>
+<tr><th id="47">47</th><td>                     <em>int</em> <dfn class="local col5 decl" id="8175number_of_replicas" title='number_of_replicas' data-type='int' data-ref="8175number_of_replicas">number_of_replicas</dfn> = <var>1</var>,</td></tr>
+<tr><th id="48">48</th><td>                     <em>int</em> <dfn class="local col6 decl" id="8176intra_op_parallelism_threads" title='intra_op_parallelism_threads' data-type='int' data-ref="8176intra_op_parallelism_threads">intra_op_parallelism_threads</dfn> = -<var>1</var>);</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>  <i>// Set the platform backing the service, or nullptr for the default platform.</i></td></tr>
+<tr><th id="51">51</th><td>  <a class="type" href="#xla::LocalClientOptions" title='xla::LocalClientOptions' data-ref="xla::LocalClientOptions">LocalClientOptions</a>&amp; <dfn class="decl" id="_ZN3xla18LocalClientOptions12set_platformEPN9perftools8gputools8PlatformE" title='xla::LocalClientOptions::set_platform' data-ref="_ZN3xla18LocalClientOptions12set_platformEPN9perftools8gputools8PlatformE">set_platform</dfn>(<span class="namespace">perftools::gputools::</span><a class="type" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>* <dfn class="local col7 decl" id="8177platform" title='platform' data-type='perftools::gputools::Platform *' data-ref="8177platform">platform</dfn>);</td></tr>
+<tr><th id="52">52</th><td>  <span class="namespace">perftools::gputools::</span><a class="type" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>* <dfn class="decl" id="_ZNK3xla18LocalClientOptions8platformEv" title='xla::LocalClientOptions::platform' data-ref="_ZNK3xla18LocalClientOptions8platformEv">platform</dfn>() <em>const</em>;</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>  <i>// Set the number of replicas to use when compiling replicated</i></td></tr>
+<tr><th id="55">55</th><td><i>  // programs.</i></td></tr>
+<tr><th id="56">56</th><td>  <a class="type" href="#xla::LocalClientOptions" title='xla::LocalClientOptions' data-ref="xla::LocalClientOptions">LocalClientOptions</a>&amp; <dfn class="decl" id="_ZN3xla18LocalClientOptions22set_number_of_replicasEi" title='xla::LocalClientOptions::set_number_of_replicas' data-ref="_ZN3xla18LocalClientOptions22set_number_of_replicasEi">set_number_of_replicas</dfn>(<em>int</em> <dfn class="local col8 decl" id="8178number_of_replicas" title='number_of_replicas' data-type='int' data-ref="8178number_of_replicas">number_of_replicas</dfn>);</td></tr>
+<tr><th id="57">57</th><td>  <em>int</em> <dfn class="decl" id="_ZNK3xla18LocalClientOptions18number_of_replicasEv" title='xla::LocalClientOptions::number_of_replicas' data-ref="_ZNK3xla18LocalClientOptions18number_of_replicasEv">number_of_replicas</dfn>() <em>const</em>;</td></tr>
+<tr><th id="58">58</th><td></td></tr>
+<tr><th id="59">59</th><td>  <i>// Sets the thread pool size for parallel execution of an individual operator.</i></td></tr>
+<tr><th id="60">60</th><td>  <a class="type" href="#xla::LocalClientOptions" title='xla::LocalClientOptions' data-ref="xla::LocalClientOptions">LocalClientOptions</a>&amp; <dfn class="decl" id="_ZN3xla18LocalClientOptions32set_intra_op_parallelism_threadsEi" title='xla::LocalClientOptions::set_intra_op_parallelism_threads' data-ref="_ZN3xla18LocalClientOptions32set_intra_op_parallelism_threadsEi">set_intra_op_parallelism_threads</dfn>(<em>int</em> <dfn class="local col9 decl" id="8179num_threads" title='num_threads' data-type='int' data-ref="8179num_threads">num_threads</dfn>);</td></tr>
+<tr><th id="61">61</th><td>  <em>int</em> <dfn class="decl" id="_ZNK3xla18LocalClientOptions28intra_op_parallelism_threadsEv" title='xla::LocalClientOptions::intra_op_parallelism_threads' data-ref="_ZNK3xla18LocalClientOptions28intra_op_parallelism_threadsEv">intra_op_parallelism_threads</dfn>() <em>const</em>;</td></tr>
+<tr><th id="62">62</th><td></td></tr>
+<tr><th id="63">63</th><td> <b>private</b>:</td></tr>
+<tr><th id="64">64</th><td>  <span class="namespace">perftools::gputools::</span><a class="type" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>* <dfn class="decl" id="xla::LocalClientOptions::platform_" title='xla::LocalClientOptions::platform_' data-ref="xla::LocalClientOptions::platform_">platform_</dfn>;</td></tr>
+<tr><th id="65">65</th><td>  <em>int</em> <dfn class="decl" id="xla::LocalClientOptions::number_of_replicas_" title='xla::LocalClientOptions::number_of_replicas_' data-ref="xla::LocalClientOptions::number_of_replicas_">number_of_replicas_</dfn>;</td></tr>
+<tr><th id="66">66</th><td>  <em>int</em> <dfn class="decl" id="xla::LocalClientOptions::intra_op_parallelism_threads_" title='xla::LocalClientOptions::intra_op_parallelism_threads_' data-ref="xla::LocalClientOptions::intra_op_parallelism_threads_">intra_op_parallelism_threads_</dfn>;</td></tr>
+<tr><th id="67">67</th><td>};</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><b>class</b> <dfn class="type def" id="xla::ClientLibrary" title='xla::ClientLibrary' data-ref="xla::ClientLibrary">ClientLibrary</dfn> {</td></tr>
+<tr><th id="70">70</th><td> <b>public</b>:</td></tr>
+<tr><th id="71">71</th><td>  <i>// Singleton constructor-or-accessor -- returns a client for the application</i></td></tr>
+<tr><th id="72">72</th><td><i>  // to issue XLA commands on. Arguments:</i></td></tr>
+<tr><th id="73">73</th><td><i>  //</i></td></tr>
+<tr><th id="74">74</th><td><i>  //   platform : The platform the underlying XLA service should target. If</i></td></tr>
+<tr><th id="75">75</th><td><i>  //     null then default platform is used.</i></td></tr>
+<tr><th id="76">76</th><td>  <em>static</em> <a class="type" href="../statusor.h.html#xla::StatusOr" title='xla::StatusOr' data-ref="xla::StatusOr">StatusOr</a>&lt;<a class="type" href="local_client.h.html#xla::LocalClient" title='xla::LocalClient' data-ref="xla::LocalClient">LocalClient</a>*&gt; <dfn class="decl" id="_ZN3xla13ClientLibrary22GetOrCreateLocalClientEPN9perftools8gputools8PlatformE" title='xla::ClientLibrary::GetOrCreateLocalClient' data-ref="_ZN3xla13ClientLibrary22GetOrCreateLocalClientEPN9perftools8gputools8PlatformE">GetOrCreateLocalClient</dfn>(</td></tr>
+<tr><th id="77">77</th><td>      <span class="namespace">perftools::gputools::</span><a class="type" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>* <dfn class="local col0 decl" id="8180platform" title='platform' data-type='perftools::gputools::Platform *' data-ref="8180platform">platform</dfn> = <b>nullptr</b>);</td></tr>
+<tr><th id="78">78</th><td>  <em>static</em> <a class="type" href="../statusor.h.html#xla::StatusOr" title='xla::StatusOr' data-ref="xla::StatusOr">StatusOr</a>&lt;<a class="type" href="local_client.h.html#xla::LocalClient" title='xla::LocalClient' data-ref="xla::LocalClient">LocalClient</a>*&gt; <dfn class="decl" id="_ZN3xla13ClientLibrary22GetOrCreateLocalClientERKNS_18LocalClientOptionsE" title='xla::ClientLibrary::GetOrCreateLocalClient' data-ref="_ZN3xla13ClientLibrary22GetOrCreateLocalClientERKNS_18LocalClientOptionsE">GetOrCreateLocalClient</dfn>(</td></tr>
+<tr><th id="79">79</th><td>      <em>const</em> <a class="type" href="#xla::LocalClientOptions" title='xla::LocalClientOptions' data-ref="xla::LocalClientOptions">LocalClientOptions</a>&amp; <dfn class="local col1 decl" id="8181options" title='options' data-type='const xla::LocalClientOptions &amp;' data-ref="8181options">options</dfn>);</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>  <i>// Convenience "or-die" wrapper around the above which returns the existing</i></td></tr>
+<tr><th id="82">82</th><td><i>  // client library or creates one with default platform and allocator.</i></td></tr>
+<tr><th id="83">83</th><td>  <em>static</em> <a class="type" href="local_client.h.html#xla::LocalClient" title='xla::LocalClient' data-ref="xla::LocalClient">LocalClient</a>* <dfn class="decl" id="_ZN3xla13ClientLibrary16LocalClientOrDieEv" title='xla::ClientLibrary::LocalClientOrDie' data-ref="_ZN3xla13ClientLibrary16LocalClientOrDieEv">LocalClientOrDie</dfn>();</td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td>  <i>// Returns the service from the service thread. Only used in unit tests to</i></td></tr>
+<tr><th id="86">86</th><td><i>  // access user computations from client.</i></td></tr>
+<tr><th id="87">87</th><td>  <em>static</em> <a class="type" href="../service/local_service.h.html#xla::LocalService" title='xla::LocalService' data-ref="xla::LocalService">LocalService</a>* <dfn class="decl" id="_ZN3xla13ClientLibrary13GetXlaServiceEPN9perftools8gputools8PlatformE" title='xla::ClientLibrary::GetXlaService' data-ref="_ZN3xla13ClientLibrary13GetXlaServiceEPN9perftools8gputools8PlatformE">GetXlaService</dfn>(<span class="namespace">perftools::gputools::</span><a class="type" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>* <dfn class="local col2 decl" id="8182platform" title='platform' data-type='perftools::gputools::Platform *' data-ref="8182platform">platform</dfn>);</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>  <i>// Singleton constructor-or-accessor for compile-only clients. Arguments:</i></td></tr>
+<tr><th id="90">90</th><td><i>  //</i></td></tr>
+<tr><th id="91">91</th><td><i>  //   platform : The platform the underlying XLA service should target. If</i></td></tr>
+<tr><th id="92">92</th><td><i>  //     null then default platform is used.</i></td></tr>
+<tr><th id="93">93</th><td>  <em>static</em> <a class="type" href="../statusor.h.html#xla::StatusOr" title='xla::StatusOr' data-ref="xla::StatusOr">StatusOr</a>&lt;<a class="type" href="compile_only_client.h.html#xla::CompileOnlyClient" title='xla::CompileOnlyClient' data-ref="xla::CompileOnlyClient">CompileOnlyClient</a>*&gt; <dfn class="decl" id="_ZN3xla13ClientLibrary28GetOrCreateCompileOnlyClientEPN9perftools8gputools8PlatformE" title='xla::ClientLibrary::GetOrCreateCompileOnlyClient' data-ref="_ZN3xla13ClientLibrary28GetOrCreateCompileOnlyClientEPN9perftools8gputools8PlatformE">GetOrCreateCompileOnlyClient</dfn>(</td></tr>
+<tr><th id="94">94</th><td>      <span class="namespace">perftools::gputools::</span><a class="type" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>* <dfn class="local col3 decl" id="8183platform" title='platform' data-type='perftools::gputools::Platform *' data-ref="8183platform">platform</dfn> = <b>nullptr</b>);</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>  <i>// Clears the local instance and compile only instance caches. The client</i></td></tr>
+<tr><th id="97">97</th><td><i>  // pointers returned by the previous GetOrCreateLocalClient() or</i></td></tr>
+<tr><th id="98">98</th><td><i>  // GetOrCreateCompileOnlyClient() invocations are not valid anymore.</i></td></tr>
+<tr><th id="99">99</th><td>  <em>static</em> <em>void</em> <dfn class="decl" id="_ZN3xla13ClientLibrary21DestroyLocalInstancesEv" title='xla::ClientLibrary::DestroyLocalInstances' data-ref="_ZN3xla13ClientLibrary21DestroyLocalInstancesEv">DestroyLocalInstances</dfn>();</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td> <b>private</b>:</td></tr>
+<tr><th id="102">102</th><td>  <i>// Returns the singleton instance of ClientLibrary.</i></td></tr>
+<tr><th id="103">103</th><td>  <em>static</em> <a class="type" href="#xla::ClientLibrary" title='xla::ClientLibrary' data-ref="xla::ClientLibrary">ClientLibrary</a>&amp; <dfn class="decl" id="_ZN3xla13ClientLibrary9SingletonEv" title='xla::ClientLibrary::Singleton' data-ref="_ZN3xla13ClientLibrary9SingletonEv">Singleton</dfn>();</td></tr>
+<tr><th id="104">104</th><td></td></tr>
+<tr><th id="105">105</th><td>  <dfn class="decl" id="_ZN3xla13ClientLibraryC1Ev" title='xla::ClientLibrary::ClientLibrary' data-ref="_ZN3xla13ClientLibraryC1Ev">ClientLibrary</dfn>();</td></tr>
+<tr><th id="106">106</th><td>  <dfn class="decl" id="_ZN3xla13ClientLibraryD1Ev" title='xla::ClientLibrary::~ClientLibrary' data-ref="_ZN3xla13ClientLibraryD1Ev">~ClientLibrary</dfn>();</td></tr>
+<tr><th id="107">107</th><td></td></tr>
+<tr><th id="108">108</th><td>  <b>struct</b> <dfn class="type def" id="xla::ClientLibrary::LocalInstance" title='xla::ClientLibrary::LocalInstance' data-ref="xla::ClientLibrary::LocalInstance">LocalInstance</dfn> {</td></tr>
+<tr><th id="109">109</th><td>    <i>// Service that is wrapped by the singleton client object.</i></td></tr>
+<tr><th id="110">110</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../service/local_service.h.html#xla::LocalService" title='xla::LocalService' data-ref="xla::LocalService">LocalService</a>&gt; <dfn class="decl" id="xla::ClientLibrary::LocalInstance::service" title='xla::ClientLibrary::LocalInstance::service' data-ref="xla::ClientLibrary::LocalInstance::service">service</dfn>;</td></tr>
+<tr><th id="111">111</th><td>    <i>// Singleton client object.</i></td></tr>
+<tr><th id="112">112</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="local_client.h.html#xla::LocalClient" title='xla::LocalClient' data-ref="xla::LocalClient">LocalClient</a>&gt; <dfn class="decl" id="xla::ClientLibrary::LocalInstance::client" title='xla::ClientLibrary::LocalInstance::client' data-ref="xla::ClientLibrary::LocalInstance::client">client</dfn>;</td></tr>
+<tr><th id="113">113</th><td>  };</td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td>  <b>struct</b> <dfn class="type def" id="xla::ClientLibrary::CompileOnlyInstance" title='xla::ClientLibrary::CompileOnlyInstance' data-ref="xla::ClientLibrary::CompileOnlyInstance">CompileOnlyInstance</dfn> {</td></tr>
+<tr><th id="116">116</th><td>    <i>// Service that is wrapped by the singleton client object.</i></td></tr>
+<tr><th id="117">117</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../service/compile_only_service.h.html#xla::CompileOnlyService" title='xla::CompileOnlyService' data-ref="xla::CompileOnlyService">CompileOnlyService</a>&gt; <dfn class="decl" id="xla::ClientLibrary::CompileOnlyInstance::service" title='xla::ClientLibrary::CompileOnlyInstance::service' data-ref="xla::ClientLibrary::CompileOnlyInstance::service">service</dfn>;</td></tr>
+<tr><th id="118">118</th><td>    <i>// Singleton client object.</i></td></tr>
+<tr><th id="119">119</th><td>    <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="compile_only_client.h.html#xla::CompileOnlyClient" title='xla::CompileOnlyClient' data-ref="xla::CompileOnlyClient">CompileOnlyClient</a>&gt; <dfn class="decl" id="xla::ClientLibrary::CompileOnlyInstance::client" title='xla::ClientLibrary::CompileOnlyInstance::client' data-ref="xla::ClientLibrary::CompileOnlyInstance::client">client</dfn>;</td></tr>
+<tr><th id="120">120</th><td>  };</td></tr>
+<tr><th id="121">121</th><td></td></tr>
+<tr><th id="122">122</th><td>  <span class="namespace">tensorflow::</span><a class="type" href="../../../core/platform/default/mutex.h.html#tensorflow::mutex" title='tensorflow::mutex' data-ref="tensorflow::mutex">mutex</a> <dfn class="decl" id="xla::ClientLibrary::service_mutex_" title='xla::ClientLibrary::service_mutex_' data-ref="xla::ClientLibrary::service_mutex_">service_mutex_</dfn>;  <i>// Guards the singleton creation state.</i></td></tr>
+<tr><th id="123">123</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unordered_map.h.html#std::unordered_map" title='std::unordered_map' data-ref="std::unordered_map">unordered_map</a>&lt;<span class="namespace">perftools::gputools::</span><a class="type" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>::<a class="typedef" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform::Id" title='perftools::gputools::Platform::Id' data-type='void *' data-ref="perftools::gputools::Platform::Id">Id</a>,</td></tr>
+<tr><th id="124">124</th><td>                     <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#xla::ClientLibrary::LocalInstance" title='xla::ClientLibrary::LocalInstance' data-ref="xla::ClientLibrary::LocalInstance">LocalInstance</a>&gt;&gt;</td></tr>
+<tr><th id="125">125</th><td>      <dfn class="decl" id="xla::ClientLibrary::local_instances_" title='xla::ClientLibrary::local_instances_' data-ref="xla::ClientLibrary::local_instances_">local_instances_</dfn> <a class="macro" href="../../../core/platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(service_mutex_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#xla::ClientLibrary::service_mutex_" title='xla::ClientLibrary::service_mutex_' data-ref="xla::ClientLibrary::service_mutex_">service_mutex_</a>);</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unordered_map.h.html#std::unordered_map" title='std::unordered_map' data-ref="std::unordered_map">unordered_map</a>&lt;<span class="namespace">perftools::gputools::</span><a class="type" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>::<a class="typedef" href="../../../stream_executor/platform.h.html#perftools::gputools::Platform::Id" title='perftools::gputools::Platform::Id' data-type='void *' data-ref="perftools::gputools::Platform::Id">Id</a>,</td></tr>
+<tr><th id="128">128</th><td>                     <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="#xla::ClientLibrary::CompileOnlyInstance" title='xla::ClientLibrary::CompileOnlyInstance' data-ref="xla::ClientLibrary::CompileOnlyInstance">CompileOnlyInstance</a>&gt;&gt;</td></tr>
+<tr><th id="129">129</th><td>      <dfn class="decl" id="xla::ClientLibrary::compile_only_instances_" title='xla::ClientLibrary::compile_only_instances_' data-ref="xla::ClientLibrary::compile_only_instances_">compile_only_instances_</dfn> <a class="macro" href="../../../core/platform/default/thread_annotations.h.html#52" title="__attribute__((guarded_by(service_mutex_)))" data-ref="_M/GUARDED_BY">GUARDED_BY</a>(<a class="ref" href="#xla::ClientLibrary::service_mutex_" title='xla::ClientLibrary::service_mutex_' data-ref="xla::ClientLibrary::service_mutex_">service_mutex_</a>);</td></tr>
+<tr><th id="130">130</th><td></td></tr>
+<tr><th id="131">131</th><td>  <a class="macro" href="../../../core/platform/macros.h.html#91" title="ClientLibrary(const ClientLibrary&amp;) = delete; void operator=(const ClientLibrary&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN3xla13ClientLibraryC1ERKS0_" title='xla::ClientLibrary::ClientLibrary' data-ref="_ZN3xla13ClientLibraryC1ERKS0_"><a class="type" href="#xla::ClientLibrary" title='xla::ClientLibrary' data-ref="xla::ClientLibrary"><a class="type" href="#xla::ClientLibrary" title='xla::ClientLibrary' data-ref="xla::ClientLibrary">ClientLibrary</a></a></dfn>);</td></tr>
+<tr><th id="132">132</th><td>};</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>}  <i>// namespace xla</i></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><u>#<span data-ppcond="21">endif</span>  // TENSORFLOW_COMPILER_XLA_CLIENT_CLIENT_LIBRARY_H_</u></td></tr>
+<tr><th id="137">137</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='326' type='tensorflow::Notification *'/>
+<use f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='623' c='_ZN10tensorflow7serving8internal5Queue12ProcessBatchESt10unique_ptrINS0_5BatchIT_EESt14default_deleteIS6_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='624' u='r' c='_ZN10tensorflow7serving8internal5Queue12ProcessBatchESt10unique_ptrINS0_5BatchIT_EESt14default_deleteIS6_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='645' u='w' c='_ZN10tensorflow7serving8internal5Queue22CloseAndWaitUntilEmptyEv'/>
+<doc f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='322'>// Used by CloseAndWaitUntilEmpty() to wait until the queue is empty, for the
+  // case in which the queue is not empty when CloseAndWaitUntilEmpty() starts.
+  // When ProcessBatch() dequeues the last batch and makes the queue empty, if
+  // &apos;empty_notification_&apos; is non-null it calls &apos;empty_notification_-&gt;Notify()&apos;.</doc>

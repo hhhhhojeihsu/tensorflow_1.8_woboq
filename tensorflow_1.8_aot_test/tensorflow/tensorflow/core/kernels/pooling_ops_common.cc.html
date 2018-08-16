@@ -1,0 +1,415 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>pooling_ops_common.cc source code [tensorflow/tensorflow/core/kernels/pooling_ops_common.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/kernels/pooling_ops_common.cc'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>kernels</a>/<a href='pooling_ops_common.cc.html'>pooling_ops_common.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="pooling_ops_common.h.html">"tensorflow/core/kernels/pooling_ops_common.h"</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../common_runtime/device.h.html">"tensorflow/core/common_runtime/device.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../framework/register_types.h.html">"tensorflow/core/framework/register_types.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../framework/tensor.h.html">"tensorflow/core/framework/tensor.h"</a></u></td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><u>#<span data-ppcond="23">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="24">24</th><td><u>#include "tensorflow/core/kernels/conv_2d.h"</u></td></tr>
+<tr><th id="25">25</th><td><u>#include "tensorflow/core/kernels/pooling_ops_common_gpu.h"</u></td></tr>
+<tr><th id="26">26</th><td><u>#include "tensorflow/core/platform/stream_executor.h"</u></td></tr>
+<tr><th id="27">27</th><td><u>#<span data-ppcond="23">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="30">30</th><td></td></tr>
+<tr><th id="31">31</th><td><a class="type" href="pooling_ops_common.h.html#tensorflow::PoolParameters" title='tensorflow::PoolParameters' data-ref="tensorflow::PoolParameters">PoolParameters</a>::<dfn class="decl def" id="_ZN10tensorflow14PoolParametersC1EPNS_15OpKernelContextERKSt6vectorIiSaIiEES7_NS_7PaddingENS_12TensorFormatERKNS_11TensorShapeE" title='tensorflow::PoolParameters::PoolParameters' data-ref="_ZN10tensorflow14PoolParametersC1EPNS_15OpKernelContextERKSt6vectorIiSaIiEES7_NS_7PaddingENS_12TensorFormatERKNS_11TensorShapeE">PoolParameters</dfn>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col1 decl" id="1context" title='context' data-type='tensorflow::OpKernelContext *' data-ref="1context">context</dfn>,</td></tr>
+<tr><th id="32">32</th><td>                               <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>&gt;&amp; <dfn class="local col2 decl" id="2ksize" title='ksize' data-type='const std::vector&lt;int32&gt; &amp;' data-ref="2ksize">ksize</dfn>,</td></tr>
+<tr><th id="33">33</th><td>                               <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>&gt;&amp; <dfn class="local col3 decl" id="3stride" title='stride' data-type='const std::vector&lt;int32&gt; &amp;' data-ref="3stride">stride</dfn>,</td></tr>
+<tr><th id="34">34</th><td>                               <a class="type" href="../util/padding.h.html#tensorflow::Padding" title='tensorflow::Padding' data-ref="tensorflow::Padding">Padding</a> <dfn class="local col4 decl" id="4padding" title='padding' data-type='tensorflow::Padding' data-ref="4padding">padding</dfn>, <a class="type" href="../util/tensor_format.h.html#tensorflow::TensorFormat" title='tensorflow::TensorFormat' data-ref="tensorflow::TensorFormat">TensorFormat</a> <dfn class="local col5 decl" id="5data_format" title='data_format' data-type='tensorflow::TensorFormat' data-ref="5data_format">data_format</dfn>,</td></tr>
+<tr><th id="35">35</th><td>                               <em>const</em> <a class="type" href="../framework/tensor_shape.h.html#tensorflow::TensorShape" title='tensorflow::TensorShape' data-ref="tensorflow::TensorShape">TensorShape</a>&amp; <dfn class="local col6 decl" id="6tensor_in_shape" title='tensor_in_shape' data-type='const tensorflow::TensorShape &amp;' data-ref="6tensor_in_shape">tensor_in_shape</dfn>) {</td></tr>
+<tr><th id="36">36</th><td>  <i>// For maxpooling, tensor_in should have 2 spatial dimensions.</i></td></tr>
+<tr><th id="37">37</th><td><i>  // Note: the total number of dimensions could be 4 for NHWC, NCHW,</i></td></tr>
+<tr><th id="38">38</th><td><i>  // or 5 for NCHW_VECT_C.</i></td></tr>
+<tr><th id="39">39</th><td>  <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(GetTensorSpatialDims(tensor_in_shape.dims(), data_format) == 2), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/pooling_ops_common.cc&quot;, 43, (errors::InvalidArgument( &quot;tensor_in_shape must have 2 spatial dimensions. &quot;, tensor_in_shape.dims(), &quot; &quot;, data_format))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>,</td></tr>
+<tr><th id="40">40</th><td>              <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow20GetTensorSpatialDimsEiNS_12TensorFormatE" title='tensorflow::GetTensorSpatialDims' data-ref="_ZN10tensorflow20GetTensorSpatialDimsEiNS_12TensorFormatE">GetTensorSpatialDims</a>(<a class="local col6 ref" href="#6tensor_in_shape" title='tensor_in_shape' data-ref="6tensor_in_shape">tensor_in_shape</a>.<a class="ref" href="../framework/tensor_shape.h.html#_ZNK10tensorflow15TensorShapeBase4dimsEv" title='tensorflow::TensorShapeBase::dims' data-ref="_ZNK10tensorflow15TensorShapeBase4dimsEv">dims</a>(), <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>) == <var>2</var>,</td></tr>
+<tr><th id="41">41</th><td>              errors::<a class="ref" href="../lib/core/errors.h.html#103" title='tensorflow::errors::InvalidArgument' data-ref="_ZN10tensorflow6errors15InvalidArgumentEDpT_">InvalidArgument</a>(</td></tr>
+<tr><th id="42">42</th><td>                  <q>"tensor_in_shape must have 2 spatial dimensions. "</q>,</td></tr>
+<tr><th id="43">43</th><td>                  <a class="local col6 ref" href="#6tensor_in_shape" title='tensor_in_shape' data-ref="6tensor_in_shape">tensor_in_shape</a>.<a class="ref" href="../framework/tensor_shape.h.html#_ZNK10tensorflow15TensorShapeBase4dimsEv" title='tensorflow::TensorShapeBase::dims' data-ref="_ZNK10tensorflow15TensorShapeBase4dimsEv">dims</a>(), <q>" "</q>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>));</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td>  <b>this</b>-&gt;<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::data_format" title='tensorflow::PoolParameters::data_format' data-ref="tensorflow::PoolParameters::data_format">data_format</a> = <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>;</td></tr>
+<tr><th id="46">46</th><td>  <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth" title='tensorflow::PoolParameters::depth' data-ref="tensorflow::PoolParameters::depth">depth</a> = <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow12GetTensorDimERKNS_11TensorShapeENS_12TensorFormatEc" title='tensorflow::GetTensorDim' data-ref="_ZN10tensorflow12GetTensorDimERKNS_11TensorShapeENS_12TensorFormatEc">GetTensorDim</a>(<a class="local col6 ref" href="#6tensor_in_shape" title='tensor_in_shape' data-ref="6tensor_in_shape">tensor_in_shape</a>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>, <kbd>'C'</kbd>) *</td></tr>
+<tr><th id="47">47</th><td>          (<a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a> == <a class="enum" href="../util/tensor_format.h.html#tensorflow::TensorFormat::FORMAT_NCHW_VECT_C" title='tensorflow::TensorFormat::FORMAT_NCHW_VECT_C' data-ref="tensorflow::TensorFormat::FORMAT_NCHW_VECT_C">FORMAT_NCHW_VECT_C</a> ? <var>4</var> : <var>1</var>);</td></tr>
+<tr><th id="48">48</th><td>  <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::tensor_in_cols" title='tensorflow::PoolParameters::tensor_in_cols' data-ref="tensorflow::PoolParameters::tensor_in_cols">tensor_in_cols</a> = <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow12GetTensorDimERKNS_11TensorShapeENS_12TensorFormatEc" title='tensorflow::GetTensorDim' data-ref="_ZN10tensorflow12GetTensorDimERKNS_11TensorShapeENS_12TensorFormatEc">GetTensorDim</a>(<a class="local col6 ref" href="#6tensor_in_shape" title='tensor_in_shape' data-ref="6tensor_in_shape">tensor_in_shape</a>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>, <kbd>'W'</kbd>);</td></tr>
+<tr><th id="49">49</th><td>  <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::tensor_in_rows" title='tensorflow::PoolParameters::tensor_in_rows' data-ref="tensorflow::PoolParameters::tensor_in_rows">tensor_in_rows</a> = <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow12GetTensorDimERKNS_11TensorShapeENS_12TensorFormatEc" title='tensorflow::GetTensorDim' data-ref="_ZN10tensorflow12GetTensorDimERKNS_11TensorShapeENS_12TensorFormatEc">GetTensorDim</a>(<a class="local col6 ref" href="#6tensor_in_shape" title='tensor_in_shape' data-ref="6tensor_in_shape">tensor_in_shape</a>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>, <kbd>'H'</kbd>);</td></tr>
+<tr><th id="50">50</th><td>  <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::tensor_in_batch" title='tensorflow::PoolParameters::tensor_in_batch' data-ref="tensorflow::PoolParameters::tensor_in_batch">tensor_in_batch</a> = <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow12GetTensorDimERKNS_11TensorShapeENS_12TensorFormatEc" title='tensorflow::GetTensorDim' data-ref="_ZN10tensorflow12GetTensorDimERKNS_11TensorShapeENS_12TensorFormatEc">GetTensorDim</a>(<a class="local col6 ref" href="#6tensor_in_shape" title='tensor_in_shape' data-ref="6tensor_in_shape">tensor_in_shape</a>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>, <kbd>'N'</kbd>);</td></tr>
+<tr><th id="51">51</th><td>  <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::window_rows" title='tensorflow::PoolParameters::window_rows' data-ref="tensorflow::PoolParameters::window_rows">window_rows</a> = <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc" title='tensorflow::GetTensorDim' data-ref="_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc">GetTensorDim</a>(<a class="local col2 ref" href="#2ksize" title='ksize' data-ref="2ksize">ksize</a>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>, <kbd>'H'</kbd>);</td></tr>
+<tr><th id="52">52</th><td>  <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::window_cols" title='tensorflow::PoolParameters::window_cols' data-ref="tensorflow::PoolParameters::window_cols">window_cols</a> = <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc" title='tensorflow::GetTensorDim' data-ref="_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc">GetTensorDim</a>(<a class="local col2 ref" href="#2ksize" title='ksize' data-ref="2ksize">ksize</a>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>, <kbd>'W'</kbd>);</td></tr>
+<tr><th id="53">53</th><td>  <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth_window" title='tensorflow::PoolParameters::depth_window' data-ref="tensorflow::PoolParameters::depth_window">depth_window</a> = <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc" title='tensorflow::GetTensorDim' data-ref="_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc">GetTensorDim</a>(<a class="local col2 ref" href="#2ksize" title='ksize' data-ref="2ksize">ksize</a>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>, <kbd>'C'</kbd>);</td></tr>
+<tr><th id="54">54</th><td>  <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::row_stride" title='tensorflow::PoolParameters::row_stride' data-ref="tensorflow::PoolParameters::row_stride">row_stride</a> = <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc" title='tensorflow::GetTensorDim' data-ref="_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc">GetTensorDim</a>(<a class="local col3 ref" href="#3stride" title='stride' data-ref="3stride">stride</a>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>, <kbd>'H'</kbd>);</td></tr>
+<tr><th id="55">55</th><td>  <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::col_stride" title='tensorflow::PoolParameters::col_stride' data-ref="tensorflow::PoolParameters::col_stride">col_stride</a> = <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc" title='tensorflow::GetTensorDim' data-ref="_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc">GetTensorDim</a>(<a class="local col3 ref" href="#3stride" title='stride' data-ref="3stride">stride</a>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>, <kbd>'W'</kbd>);</td></tr>
+<tr><th id="56">56</th><td>  <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth_stride" title='tensorflow::PoolParameters::depth_stride' data-ref="tensorflow::PoolParameters::depth_stride">depth_stride</a> = <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc" title='tensorflow::GetTensorDim' data-ref="_ZN10tensorflow12GetTensorDimERKSt6vectorIT_SaIS1_EENS_12TensorFormatEc">GetTensorDim</a>(<a class="local col3 ref" href="#3stride" title='stride' data-ref="3stride">stride</a>, <a class="local col5 ref" href="#5data_format" title='data_format' data-ref="5data_format">data_format</a>, <kbd>'C'</kbd>);</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <i>// We only support 2D pooling across width/height and depthwise</i></td></tr>
+<tr><th id="59">59</th><td><i>  // pooling, not a combination.</i></td></tr>
+<tr><th id="60">60</th><td>  <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!((depth_window == 1 || (window_rows == 1 &amp;&amp; window_cols == 1))), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/pooling_ops_common.cc&quot;, 64, (errors::Unimplemented( &quot;MaxPooling supports exactly one of pooling across depth &quot; &quot;or pooling across width/height.&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>,</td></tr>
+<tr><th id="61">61</th><td>              (<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth_window" title='tensorflow::PoolParameters::depth_window' data-ref="tensorflow::PoolParameters::depth_window">depth_window</a> == <var>1</var> || (<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::window_rows" title='tensorflow::PoolParameters::window_rows' data-ref="tensorflow::PoolParameters::window_rows">window_rows</a> == <var>1</var> &amp;&amp; <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::window_cols" title='tensorflow::PoolParameters::window_cols' data-ref="tensorflow::PoolParameters::window_cols">window_cols</a> == <var>1</var>)),</td></tr>
+<tr><th id="62">62</th><td>              errors::<a class="ref" href="../lib/core/errors.h.html#110" title='tensorflow::errors::Unimplemented' data-ref="_ZN10tensorflow6errors13UnimplementedEDpT_">Unimplemented</a>(</td></tr>
+<tr><th id="63">63</th><td>                  <q>"MaxPooling supports exactly one of pooling across depth "</q></td></tr>
+<tr><th id="64">64</th><td>                  <q>"or pooling across width/height."</q>));</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>  <b>if</b> (<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth_window" title='tensorflow::PoolParameters::depth_window' data-ref="tensorflow::PoolParameters::depth_window">depth_window</a> == <var>1</var>) {</td></tr>
+<tr><th id="67">67</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(GetWindowedOutputSize(tensor_in_rows, window_rows, row_stride, padding, &amp;out_height, &amp;pad_rows)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/pooling_ops_common.cc&quot;, 69, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(</td></tr>
+<tr><th id="68">68</th><td>        <a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>, <a class="ref" href="../framework/common_shape_fns.h.html#_ZN10tensorflow21GetWindowedOutputSizeExxxNS_7PaddingEPxS1_" title='tensorflow::GetWindowedOutputSize' data-ref="_ZN10tensorflow21GetWindowedOutputSizeExxxNS_7PaddingEPxS1_">GetWindowedOutputSize</a>(<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::tensor_in_rows" title='tensorflow::PoolParameters::tensor_in_rows' data-ref="tensorflow::PoolParameters::tensor_in_rows">tensor_in_rows</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::window_rows" title='tensorflow::PoolParameters::window_rows' data-ref="tensorflow::PoolParameters::window_rows">window_rows</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::row_stride" title='tensorflow::PoolParameters::row_stride' data-ref="tensorflow::PoolParameters::row_stride">row_stride</a>,</td></tr>
+<tr><th id="69">69</th><td>                                       <a class="local col4 ref" href="#4padding" title='padding' data-ref="4padding">padding</a>, &amp;<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::out_height" title='tensorflow::PoolParameters::out_height' data-ref="tensorflow::PoolParameters::out_height">out_height</a>, &amp;<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::pad_rows" title='tensorflow::PoolParameters::pad_rows' data-ref="tensorflow::PoolParameters::pad_rows">pad_rows</a>));</td></tr>
+<tr><th id="70">70</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1545" title="do { ::tensorflow::Status _s(GetWindowedOutputSize(tensor_in_cols, window_cols, col_stride, padding, &amp;out_width, &amp;pad_cols)); if (!(__builtin_expect(!!(_s.ok()), 1))) { (context)-&gt;CtxFailureWithWarning(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/pooling_ops_common.cc&quot;, 72, _s); return; } } while (0)" data-ref="_M/OP_REQUIRES_OK">OP_REQUIRES_OK</a>(</td></tr>
+<tr><th id="71">71</th><td>        <a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>, <a class="ref" href="../framework/common_shape_fns.h.html#_ZN10tensorflow21GetWindowedOutputSizeExxxNS_7PaddingEPxS1_" title='tensorflow::GetWindowedOutputSize' data-ref="_ZN10tensorflow21GetWindowedOutputSizeExxxNS_7PaddingEPxS1_">GetWindowedOutputSize</a>(<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::tensor_in_cols" title='tensorflow::PoolParameters::tensor_in_cols' data-ref="tensorflow::PoolParameters::tensor_in_cols">tensor_in_cols</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::window_cols" title='tensorflow::PoolParameters::window_cols' data-ref="tensorflow::PoolParameters::window_cols">window_cols</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::col_stride" title='tensorflow::PoolParameters::col_stride' data-ref="tensorflow::PoolParameters::col_stride">col_stride</a>,</td></tr>
+<tr><th id="72">72</th><td>                                       <a class="local col4 ref" href="#4padding" title='padding' data-ref="4padding">padding</a>, &amp;<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::out_width" title='tensorflow::PoolParameters::out_width' data-ref="tensorflow::PoolParameters::out_width">out_width</a>, &amp;<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::pad_cols" title='tensorflow::PoolParameters::pad_cols' data-ref="tensorflow::PoolParameters::pad_cols">pad_cols</a>));</td></tr>
+<tr><th id="73">73</th><td>    <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::pad_depth" title='tensorflow::PoolParameters::pad_depth' data-ref="tensorflow::PoolParameters::pad_depth">pad_depth</a> = <var>0</var>;</td></tr>
+<tr><th id="74">74</th><td>    <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::out_depth" title='tensorflow::PoolParameters::out_depth' data-ref="tensorflow::PoolParameters::out_depth">out_depth</a> = <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth" title='tensorflow::PoolParameters::depth' data-ref="tensorflow::PoolParameters::depth">depth</a>;</td></tr>
+<tr><th id="75">75</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="76">76</th><td>    <i>// Our current version of depthwise max pooling does not support</i></td></tr>
+<tr><th id="77">77</th><td><i>    // any padding, and expects the depth_window to equal the</i></td></tr>
+<tr><th id="78">78</th><td><i>    // depth_stride (no overlapping).</i></td></tr>
+<tr><th id="79">79</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(depth % depth_window == 0), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/pooling_ops_common.cc&quot;, 82, (errors::Unimplemented(&quot;Depthwise max pooling requires the depth &quot; &quot;window to evenly divide the input depth&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(</td></tr>
+<tr><th id="80">80</th><td>        <a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth" title='tensorflow::PoolParameters::depth' data-ref="tensorflow::PoolParameters::depth">depth</a> % <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth_window" title='tensorflow::PoolParameters::depth_window' data-ref="tensorflow::PoolParameters::depth_window">depth_window</a> == <var>0</var>,</td></tr>
+<tr><th id="81">81</th><td>        errors::<a class="ref" href="../lib/core/errors.h.html#110" title='tensorflow::errors::Unimplemented' data-ref="_ZN10tensorflow6errors13UnimplementedEDpT_">Unimplemented</a>(<q>"Depthwise max pooling requires the depth "</q></td></tr>
+<tr><th id="82">82</th><td>                              <q>"window to evenly divide the input depth"</q>));</td></tr>
+<tr><th id="83">83</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!(depth_stride == depth_window), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/pooling_ops_common.cc&quot;, 86, (errors::Unimplemented(&quot;Depthwise max pooling requires the depth &quot; &quot;window to equal the depth stride&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(</td></tr>
+<tr><th id="84">84</th><td>        <a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth_stride" title='tensorflow::PoolParameters::depth_stride' data-ref="tensorflow::PoolParameters::depth_stride">depth_stride</a> == <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth_window" title='tensorflow::PoolParameters::depth_window' data-ref="tensorflow::PoolParameters::depth_window">depth_window</a>,</td></tr>
+<tr><th id="85">85</th><td>        errors::<a class="ref" href="../lib/core/errors.h.html#110" title='tensorflow::errors::Unimplemented' data-ref="_ZN10tensorflow6errors13UnimplementedEDpT_">Unimplemented</a>(<q>"Depthwise max pooling requires the depth "</q></td></tr>
+<tr><th id="86">86</th><td>                              <q>"window to equal the depth stride"</q>));</td></tr>
+<tr><th id="87">87</th><td></td></tr>
+<tr><th id="88">88</th><td>    <i>// The current version of depthwise max is only implemented on CPU.</i></td></tr>
+<tr><th id="89">89</th><td>    <a class="macro" href="../framework/op_kernel.h.html#1537" title="do { if (!(__builtin_expect(!!((DeviceType(static_cast&lt;Device*&gt;(context-&gt;device()) -&gt;attributes() .device_type()) == DeviceType(DEVICE_CPU))), 1))) { (context)-&gt;CtxFailure(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/kernels/pooling_ops_common.cc&quot;, 94, (errors::Unimplemented(&quot;Depthwise max pooling is currently &quot; &quot;only implemented for CPU devices.&quot;))); return; } } while (0)" data-ref="_M/OP_REQUIRES">OP_REQUIRES</a>(<a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>,</td></tr>
+<tr><th id="90">90</th><td>                (<a class="type" href="../framework/types.h.html#tensorflow::DeviceType" title='tensorflow::DeviceType' data-ref="tensorflow::DeviceType">DeviceType</a><a class="ref" href="../framework/types.h.html#_ZN10tensorflow10DeviceTypeC1ENS_11StringPieceE" title='tensorflow::DeviceType::DeviceType' data-ref="_ZN10tensorflow10DeviceTypeC1ENS_11StringPieceE">(</a><a class="ref fake" href="../lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1ERKSs" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1ERKSs"></a><b>static_cast</b>&lt;<a class="type" href="../common_runtime/device.h.html#tensorflow::Device" title='tensorflow::Device' data-ref="tensorflow::Device">Device</a>*&gt;(<a class="local col1 ref" href="#1context" title='context' data-ref="1context">context</a>-&gt;<a class="ref" href="../framework/op_kernel.h.html#_ZNK10tensorflow15OpKernelContext6deviceEv" title='tensorflow::OpKernelContext::device' data-ref="_ZNK10tensorflow15OpKernelContext6deviceEv">device</a>())</td></tr>
+<tr><th id="91">91</th><td>                                -&gt;<a class="virtual ref" href="../common_runtime/device.h.html#_ZNK10tensorflow6Device10attributesEv" title='tensorflow::Device::attributes' data-ref="_ZNK10tensorflow6Device10attributesEv">attributes</a>()</td></tr>
+<tr><th id="92">92</th><td>                                .<span class='ref' title='tensorflow::DeviceAttributes::device_type' data-ref="_ZNK10tensorflow16DeviceAttributes11device_typeEv">device_type</span>()) <a class="ref" href="../framework/types.h.html#_ZNK10tensorflow10DeviceTypeeqERKS0_" title='tensorflow::DeviceType::operator==' data-ref="_ZNK10tensorflow10DeviceTypeeqERKS0_">==</a> <a class="type" href="../framework/types.h.html#tensorflow::DeviceType" title='tensorflow::DeviceType' data-ref="tensorflow::DeviceType">DeviceType</a><a class="ref" href="../framework/types.h.html#_ZN10tensorflow10DeviceTypeC1EPKc" title='tensorflow::DeviceType::DeviceType' data-ref="_ZN10tensorflow10DeviceTypeC1EPKc">(</a><a class="ref" href="../framework/types.h.html#tensorflow::DEVICE_CPU" title='tensorflow::DEVICE_CPU' data-ref="tensorflow::DEVICE_CPU">DEVICE_CPU</a>)),</td></tr>
+<tr><th id="93">93</th><td>                errors::<a class="ref" href="../lib/core/errors.h.html#110" title='tensorflow::errors::Unimplemented' data-ref="_ZN10tensorflow6errors13UnimplementedEDpT_">Unimplemented</a>(<q>"Depthwise max pooling is currently "</q></td></tr>
+<tr><th id="94">94</th><td>                                      <q>"only implemented for CPU devices."</q>));</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>    <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::pad_depth" title='tensorflow::PoolParameters::pad_depth' data-ref="tensorflow::PoolParameters::pad_depth">pad_depth</a> = <var>0</var>;</td></tr>
+<tr><th id="97">97</th><td>    <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::out_depth" title='tensorflow::PoolParameters::out_depth' data-ref="tensorflow::PoolParameters::out_depth">out_depth</a> = <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth" title='tensorflow::PoolParameters::depth' data-ref="tensorflow::PoolParameters::depth">depth</a> / <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth_window" title='tensorflow::PoolParameters::depth_window' data-ref="tensorflow::PoolParameters::depth_window">depth_window</a>;</td></tr>
+<tr><th id="98">98</th><td>  }</td></tr>
+<tr><th id="99">99</th><td>}</td></tr>
+<tr><th id="100">100</th><td></td></tr>
+<tr><th id="101">101</th><td><a class="type" href="../framework/tensor_shape.h.html#tensorflow::TensorShape" title='tensorflow::TensorShape' data-ref="tensorflow::TensorShape">TensorShape</a> <a class="type" href="pooling_ops_common.h.html#tensorflow::PoolParameters" title='tensorflow::PoolParameters' data-ref="tensorflow::PoolParameters">PoolParameters</a>::<dfn class="decl def" id="_ZN10tensorflow14PoolParameters20forward_output_shapeEv" title='tensorflow::PoolParameters::forward_output_shape' data-ref="_ZN10tensorflow14PoolParameters20forward_output_shapeEv">forward_output_shape</dfn>() {</td></tr>
+<tr><th id="102">102</th><td>  <b>if</b> (<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth_window" title='tensorflow::PoolParameters::depth_window' data-ref="tensorflow::PoolParameters::depth_window">depth_window</a> == <var>1</var>) {</td></tr>
+<tr><th id="103">103</th><td>    <i>// Spatial pooling</i></td></tr>
+<tr><th id="104">104</th><td>    <b>return</b> <a class="ref" href="../util/tensor_format.h.html#_ZN10tensorflow15ShapeFromFormatENS_12TensorFormatExxxx" title='tensorflow::ShapeFromFormat' data-ref="_ZN10tensorflow15ShapeFromFormatENS_12TensorFormatExxxx">ShapeFromFormat</a>(<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::data_format" title='tensorflow::PoolParameters::data_format' data-ref="tensorflow::PoolParameters::data_format">data_format</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::tensor_in_batch" title='tensorflow::PoolParameters::tensor_in_batch' data-ref="tensorflow::PoolParameters::tensor_in_batch">tensor_in_batch</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::out_height" title='tensorflow::PoolParameters::out_height' data-ref="tensorflow::PoolParameters::out_height">out_height</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::out_width" title='tensorflow::PoolParameters::out_width' data-ref="tensorflow::PoolParameters::out_width">out_width</a>,</td></tr>
+<tr><th id="105">105</th><td>                           <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::depth" title='tensorflow::PoolParameters::depth' data-ref="tensorflow::PoolParameters::depth">depth</a>);</td></tr>
+<tr><th id="106">106</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="107">107</th><td>    <i>// Depthwise pooling</i></td></tr>
+<tr><th id="108">108</th><td>    <b>return</b> <a class="type" href="../framework/tensor_shape.h.html#tensorflow::TensorShape" title='tensorflow::TensorShape' data-ref="tensorflow::TensorShape">TensorShape</a><a class="ref" href="../framework/tensor_shape.h.html#291" title='tensorflow::TensorShape::TensorShape' data-ref="_ZN10tensorflow11TensorShapeC1ESt16initializer_listIxE">(</a></td></tr>
+<tr><th id="109">109</th><td>        {<a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::tensor_in_batch" title='tensorflow::PoolParameters::tensor_in_batch' data-ref="tensorflow::PoolParameters::tensor_in_batch">tensor_in_batch</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::tensor_in_rows" title='tensorflow::PoolParameters::tensor_in_rows' data-ref="tensorflow::PoolParameters::tensor_in_rows">tensor_in_rows</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::tensor_in_cols" title='tensorflow::PoolParameters::tensor_in_cols' data-ref="tensorflow::PoolParameters::tensor_in_cols">tensor_in_cols</a>, <a class="member" href="pooling_ops_common.h.html#tensorflow::PoolParameters::out_depth" title='tensorflow::PoolParameters::out_depth' data-ref="tensorflow::PoolParameters::out_depth">out_depth</a>});</td></tr>
+<tr><th id="110">110</th><td>  }</td></tr>
+<tr><th id="111">111</th><td>}</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><u>#<span data-ppcond="113">ifdef</span> <span class="macro" data-ref="_M/GOOGLE_CUDA">GOOGLE_CUDA</span></u></td></tr>
+<tr><th id="114">114</th><td></td></tr>
+<tr><th id="115">115</th><td><b>namespace</b> {</td></tr>
+<tr><th id="116">116</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="117">117</th><td>perftools::gputools::DeviceMemory&lt;T&gt; AsDeviceMemory(<em>const</em> T* cuda_memory,</td></tr>
+<tr><th id="118">118</th><td>                                                    uint64 size) {</td></tr>
+<tr><th id="119">119</th><td>  perftools::gputools::DeviceMemoryBase wrapped(<b>const_cast</b>&lt;T*&gt;(cuda_memory),</td></tr>
+<tr><th id="120">120</th><td>                                                size * <b>sizeof</b>(T));</td></tr>
+<tr><th id="121">121</th><td>  perftools::gputools::DeviceMemory&lt;T&gt; typed(wrapped);</td></tr>
+<tr><th id="122">122</th><td>  <b>return</b> typed;</td></tr>
+<tr><th id="123">123</th><td>}</td></tr>
+<tr><th id="124">124</th><td>}  <i>// namespace</i></td></tr>
+<tr><th id="125">125</th><td></td></tr>
+<tr><th id="126">126</th><td><i>// Forward declarations of the functor specializations for GPU.</i></td></tr>
+<tr><th id="127">127</th><td><b>namespace</b> functor {</td></tr>
+<tr><th id="128">128</th><td><u>#define DECLARE_GPU_SPEC(T)                                         \</u></td></tr>
+<tr><th id="129">129</th><td><u>  template &lt;&gt;                                                       \</u></td></tr>
+<tr><th id="130">130</th><td><u>  void TransformDepth&lt;GPUDevice, T, Eigen::DenseIndex&gt;::operator()( \</u></td></tr>
+<tr><th id="131">131</th><td><u>      const GPUDevice&amp; d, typename TTypes&lt;T, 4&gt;::ConstTensor in,    \</u></td></tr>
+<tr><th id="132">132</th><td><u>      const Eigen::DSizes&lt;Eigen::DenseIndex, 4&gt;&amp; shuffle,           \</u></td></tr>
+<tr><th id="133">133</th><td><u>      typename TTypes&lt;T, 4&gt;::Tensor out);                           \</u></td></tr>
+<tr><th id="134">134</th><td><u>  extern template struct TransformDepth&lt;GPUDevice, T, Eigen::DenseIndex&gt;;</u></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td>TF_CALL_GPU_NUMBER_TYPES(DECLARE_GPU_SPEC)</td></tr>
+<tr><th id="137">137</th><td><u>#undef DECLARE_GPU_SPEC</u></td></tr>
+<tr><th id="138">138</th><td>}  <i>// namespace functor</i></td></tr>
+<tr><th id="139">139</th><td></td></tr>
+<tr><th id="140">140</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="141">141</th><td><em>void</em> DnnPoolingOp&lt;T&gt;::Compute(</td></tr>
+<tr><th id="142">142</th><td>    OpKernelContext* context,</td></tr>
+<tr><th id="143">143</th><td>    perftools::gputools::dnn::PoolingMode pooling_mode,</td></tr>
+<tr><th id="144">144</th><td>    <em>const</em> std::vector&lt;int32&gt;&amp; size, <em>const</em> std::vector&lt;int32&gt;&amp; stride,</td></tr>
+<tr><th id="145">145</th><td>    Padding padding, TensorFormat data_format, <em>const</em> Tensor&amp; tensor_in,</td></tr>
+<tr><th id="146">146</th><td>    <em>const</em> TensorShape&amp; tensor_out_shape, <em>bool</em> propagate_nans) {</td></tr>
+<tr><th id="147">147</th><td>  Tensor* tensor_out = <b>nullptr</b>;</td></tr>
+<tr><th id="148">148</th><td>  OP_REQUIRES_OK(context,</td></tr>
+<tr><th id="149">149</th><td>                 context-&gt;allocate_output(<var>0</var>, tensor_out_shape, &amp;tensor_out));</td></tr>
+<tr><th id="150">150</th><td>  <b>if</b> (tensor_in.shape().num_elements() == <var>0</var>) {</td></tr>
+<tr><th id="151">151</th><td>    <b>return</b>;</td></tr>
+<tr><th id="152">152</th><td>  }</td></tr>
+<tr><th id="153">153</th><td></td></tr>
+<tr><th id="154">154</th><td>  PoolParameters params{context, size,        stride,</td></tr>
+<tr><th id="155">155</th><td>                        padding, data_format, tensor_in.shape()};</td></tr>
+<tr><th id="156">156</th><td>  <b>if</b> (!context-&gt;status().ok()) {</td></tr>
+<tr><th id="157">157</th><td>    <b>return</b>;</td></tr>
+<tr><th id="158">158</th><td>  }</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>  <i class="doc">/// For now, cudnn does not support NHWC format, so we need to convert it</i></td></tr>
+<tr><th id="161">161</th><td><i class="doc">  /// to NCHW before calling cudnn. We need to get rid of this once it is done</i></td></tr>
+<tr><th id="162">162</th><td>  Tensor transformed_input;</td></tr>
+<tr><th id="163">163</th><td>  <b>if</b> (data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="164">164</th><td>    OP_REQUIRES_OK(context, context-&gt;allocate_temp(</td></tr>
+<tr><th id="165">165</th><td>                                DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="166">166</th><td>                                ShapeFromFormat(FORMAT_NCHW, tensor_in.shape(),</td></tr>
+<tr><th id="167">167</th><td>                                                data_format),</td></tr>
+<tr><th id="168">168</th><td>                                &amp;transformed_input));</td></tr>
+<tr><th id="169">169</th><td>    functor::NHWCToNCHW&lt;GPUDevice, T, <var>4</var>&gt;()(context-&gt;eigen_device&lt;Device&gt;(),</td></tr>
+<tr><th id="170">170</th><td>                                           tensor_in.tensor&lt;T, <var>4</var>&gt;(),</td></tr>
+<tr><th id="171">171</th><td>                                           transformed_input.tensor&lt;T, <var>4</var>&gt;());</td></tr>
+<tr><th id="172">172</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="173">173</th><td>    transformed_input = tensor_in;</td></tr>
+<tr><th id="174">174</th><td>  }</td></tr>
+<tr><th id="175">175</th><td>  Tensor transformed_output;</td></tr>
+<tr><th id="176">176</th><td>  <b>if</b> (data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="177">177</th><td>    OP_REQUIRES_OK(context, context-&gt;allocate_temp(</td></tr>
+<tr><th id="178">178</th><td>                                DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="179">179</th><td>                                ShapeFromFormat(FORMAT_NCHW, tensor_out_shape,</td></tr>
+<tr><th id="180">180</th><td>                                                data_format),</td></tr>
+<tr><th id="181">181</th><td>                                &amp;transformed_output));</td></tr>
+<tr><th id="182">182</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="183">183</th><td>    transformed_output = *tensor_out;</td></tr>
+<tr><th id="184">184</th><td>  }</td></tr>
+<tr><th id="185">185</th><td></td></tr>
+<tr><th id="186">186</th><td>  <i class="doc">/// Get ready to call cudnn</i></td></tr>
+<tr><th id="187">187</th><td>  perftools::gputools::dnn::PoolingDescriptor pooling_desc;</td></tr>
+<tr><th id="188">188</th><td>  pooling_desc.set_pooling_mode(pooling_mode)</td></tr>
+<tr><th id="189">189</th><td>      .set_window_height(params.window_rows)</td></tr>
+<tr><th id="190">190</th><td>      .set_window_width(params.window_cols)</td></tr>
+<tr><th id="191">191</th><td>      .set_vertical_stride(params.row_stride)</td></tr>
+<tr><th id="192">192</th><td>      .set_horizontal_stride(params.col_stride)</td></tr>
+<tr><th id="193">193</th><td>      .set_vertical_padding(params.pad_rows)</td></tr>
+<tr><th id="194">194</th><td>      .set_horizontal_padding(params.pad_cols)</td></tr>
+<tr><th id="195">195</th><td>      .set_propagate_nans(propagate_nans);</td></tr>
+<tr><th id="196">196</th><td></td></tr>
+<tr><th id="197">197</th><td>  perftools::gputools::dnn::BatchDescriptor input_desc;</td></tr>
+<tr><th id="198">198</th><td>  input_desc.set_count(params.tensor_in_batch)</td></tr>
+<tr><th id="199">199</th><td>      .set_height(params.tensor_in_rows)</td></tr>
+<tr><th id="200">200</th><td>      .set_width(params.tensor_in_cols)</td></tr>
+<tr><th id="201">201</th><td>      .set_feature_map_count(params.depth)</td></tr>
+<tr><th id="202">202</th><td>      .set_layout(perftools::gputools::dnn::DataLayout::kBatchDepthYX);</td></tr>
+<tr><th id="203">203</th><td></td></tr>
+<tr><th id="204">204</th><td>  perftools::gputools::dnn::BatchDescriptor output_desc;</td></tr>
+<tr><th id="205">205</th><td>  output_desc.set_count(params.tensor_in_batch)</td></tr>
+<tr><th id="206">206</th><td>      .set_height(params.out_height)</td></tr>
+<tr><th id="207">207</th><td>      .set_width(params.out_width)</td></tr>
+<tr><th id="208">208</th><td>      .set_feature_map_count(params.depth)</td></tr>
+<tr><th id="209">209</th><td>      .set_layout(perftools::gputools::dnn::DataLayout::kBatchDepthYX);</td></tr>
+<tr><th id="210">210</th><td></td></tr>
+<tr><th id="211">211</th><td>  <em>auto</em> input_data = AsDeviceMemory(transformed_input.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="212">212</th><td>                                   transformed_input.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="213">213</th><td>  <em>auto</em> output_data =</td></tr>
+<tr><th id="214">214</th><td>      AsDeviceMemory(transformed_output.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="215">215</th><td>                     transformed_output.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="216">216</th><td></td></tr>
+<tr><th id="217">217</th><td>  <em>auto</em>* stream = context-&gt;op_device_context()-&gt;stream();</td></tr>
+<tr><th id="218">218</th><td>  OP_REQUIRES(context, stream, errors::Internal(<q>"No GPU stream available."</q>));</td></tr>
+<tr><th id="219">219</th><td></td></tr>
+<tr><th id="220">220</th><td>  <em>bool</em> status = stream</td></tr>
+<tr><th id="221">221</th><td>                    -&gt;ThenPoolForward(pooling_desc, input_desc, input_data,</td></tr>
+<tr><th id="222">222</th><td>                                      output_desc, &amp;output_data)</td></tr>
+<tr><th id="223">223</th><td>                    .ok();</td></tr>
+<tr><th id="224">224</th><td>  OP_REQUIRES(context, status,</td></tr>
+<tr><th id="225">225</th><td>              errors::Internal(<q>"cudnn PoolForward launch failed"</q>));</td></tr>
+<tr><th id="226">226</th><td></td></tr>
+<tr><th id="227">227</th><td>  <b>if</b> (data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="228">228</th><td>    <i class="doc">/// Transform the output data from NCHW back to NHWC</i></td></tr>
+<tr><th id="229">229</th><td>    <em>auto</em> toConstTensor = [](<em>const</em> Tensor&amp; x) -&gt; <em>const</em> Tensor { <b>return</b> x; };</td></tr>
+<tr><th id="230">230</th><td>    functor::NCHWToNHWC&lt;GPUDevice, T, <var>4</var>&gt;()(</td></tr>
+<tr><th id="231">231</th><td>        context-&gt;eigen_device&lt;Device&gt;(),</td></tr>
+<tr><th id="232">232</th><td>        toConstTensor(transformed_output).<b>template</b> tensor&lt;T, <var>4</var>&gt;(),</td></tr>
+<tr><th id="233">233</th><td>        tensor_out-&gt;tensor&lt;T, <var>4</var>&gt;());</td></tr>
+<tr><th id="234">234</th><td>  }</td></tr>
+<tr><th id="235">235</th><td>}</td></tr>
+<tr><th id="236">236</th><td></td></tr>
+<tr><th id="237">237</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="238">238</th><td><em>void</em> DnnPoolingGradOp&lt;T&gt;::Compute(</td></tr>
+<tr><th id="239">239</th><td>    OpKernelContext* context,</td></tr>
+<tr><th id="240">240</th><td>    perftools::gputools::dnn::PoolingMode pooling_mode,</td></tr>
+<tr><th id="241">241</th><td>    <em>const</em> std::vector&lt;int32&gt;&amp; size, <em>const</em> std::vector&lt;int32&gt;&amp; stride,</td></tr>
+<tr><th id="242">242</th><td>    Padding padding, TensorFormat data_format, <em>const</em> Tensor* tensor_in,</td></tr>
+<tr><th id="243">243</th><td>    <em>const</em> Tensor* tensor_out, <em>const</em> Tensor&amp; out_backprop,</td></tr>
+<tr><th id="244">244</th><td>    <em>const</em> TensorShape&amp; tensor_in_shape, <em>bool</em> propagate_nans) {</td></tr>
+<tr><th id="245">245</th><td>  CHECK((pooling_mode != perftools::gputools::dnn::PoolingMode::kMaximum) ||</td></tr>
+<tr><th id="246">246</th><td>        (tensor_in &amp;&amp; tensor_out))</td></tr>
+<tr><th id="247">247</th><td>      &lt;&lt; <q>"For MaxPoolGrad, both tensor_in and tensor_out needs to be "</q></td></tr>
+<tr><th id="248">248</th><td>         <q>"specified"</q>;</td></tr>
+<tr><th id="249">249</th><td></td></tr>
+<tr><th id="250">250</th><td>  Tensor* input_backprop = <b>nullptr</b>;</td></tr>
+<tr><th id="251">251</th><td>  OP_REQUIRES_OK(context,</td></tr>
+<tr><th id="252">252</th><td>                 context-&gt;allocate_output(<var>0</var>, tensor_in_shape, &amp;input_backprop));</td></tr>
+<tr><th id="253">253</th><td>  <b>if</b> (tensor_in_shape.num_elements() == <var>0</var>) {</td></tr>
+<tr><th id="254">254</th><td>    <b>return</b>;</td></tr>
+<tr><th id="255">255</th><td>  }</td></tr>
+<tr><th id="256">256</th><td></td></tr>
+<tr><th id="257">257</th><td>  PoolParameters params{context, size,        stride,</td></tr>
+<tr><th id="258">258</th><td>                        padding, data_format, tensor_in_shape};</td></tr>
+<tr><th id="259">259</th><td>  <b>if</b> (!context-&gt;status().ok()) {</td></tr>
+<tr><th id="260">260</th><td>    <b>return</b>;</td></tr>
+<tr><th id="261">261</th><td>  }</td></tr>
+<tr><th id="262">262</th><td></td></tr>
+<tr><th id="263">263</th><td>  <i class="doc">/// For now, cudnn does not support NHWC format, so we need to convert it</i></td></tr>
+<tr><th id="264">264</th><td><i class="doc">  /// to NCHW before calling cudnn. We need to get rid of this once it is done</i></td></tr>
+<tr><th id="265">265</th><td>  Tensor transformed_input;</td></tr>
+<tr><th id="266">266</th><td>  TensorShape transformed_input_shape;</td></tr>
+<tr><th id="267">267</th><td>  <b>if</b> (data_format == FORMAT_NHWC || !tensor_in) {</td></tr>
+<tr><th id="268">268</th><td>    transformed_input_shape =</td></tr>
+<tr><th id="269">269</th><td>        ShapeFromFormat(FORMAT_NCHW, tensor_in_shape, data_format);</td></tr>
+<tr><th id="270">270</th><td>    OP_REQUIRES_OK(context, context-&gt;allocate_temp(DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="271">271</th><td>                                                   transformed_input_shape,</td></tr>
+<tr><th id="272">272</th><td>                                                   &amp;transformed_input));</td></tr>
+<tr><th id="273">273</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="274">274</th><td>    transformed_input = *tensor_in;</td></tr>
+<tr><th id="275">275</th><td>  }</td></tr>
+<tr><th id="276">276</th><td>  Tensor transformed_output;</td></tr>
+<tr><th id="277">277</th><td>  TensorShape transformed_output_shape;</td></tr>
+<tr><th id="278">278</th><td>  <b>if</b> (data_format == FORMAT_NHWC || !tensor_out) {</td></tr>
+<tr><th id="279">279</th><td>    transformed_output_shape =</td></tr>
+<tr><th id="280">280</th><td>        ShapeFromFormat(FORMAT_NCHW, out_backprop.shape(), data_format);</td></tr>
+<tr><th id="281">281</th><td>    OP_REQUIRES_OK(context, context-&gt;allocate_temp(DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="282">282</th><td>                                                   transformed_output_shape,</td></tr>
+<tr><th id="283">283</th><td>                                                   &amp;transformed_output));</td></tr>
+<tr><th id="284">284</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="285">285</th><td>    transformed_output = *tensor_out;</td></tr>
+<tr><th id="286">286</th><td>  }</td></tr>
+<tr><th id="287">287</th><td>  Tensor transformed_input_backprop;</td></tr>
+<tr><th id="288">288</th><td>  <b>if</b> (data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="289">289</th><td>    OP_REQUIRES_OK(context,</td></tr>
+<tr><th id="290">290</th><td>                   context-&gt;allocate_temp(DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="291">291</th><td>                                          transformed_input_shape,</td></tr>
+<tr><th id="292">292</th><td>                                          &amp;transformed_input_backprop));</td></tr>
+<tr><th id="293">293</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="294">294</th><td>    transformed_input_backprop = *input_backprop;</td></tr>
+<tr><th id="295">295</th><td>  }</td></tr>
+<tr><th id="296">296</th><td>  Tensor transformed_output_backprop;</td></tr>
+<tr><th id="297">297</th><td>  <b>if</b> (data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="298">298</th><td>    OP_REQUIRES_OK(context,</td></tr>
+<tr><th id="299">299</th><td>                   context-&gt;allocate_temp(DataTypeToEnum&lt;T&gt;::value,</td></tr>
+<tr><th id="300">300</th><td>                                          transformed_output_shape,</td></tr>
+<tr><th id="301">301</th><td>                                          &amp;transformed_output_backprop));</td></tr>
+<tr><th id="302">302</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="303">303</th><td>    transformed_output_backprop = out_backprop;</td></tr>
+<tr><th id="304">304</th><td>  }</td></tr>
+<tr><th id="305">305</th><td></td></tr>
+<tr><th id="306">306</th><td>  <b>if</b> (data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="307">307</th><td>    <i class="doc">/// Convert the data from NHWC to NCHW if necessary.</i></td></tr>
+<tr><th id="308">308</th><td>    <b>if</b> (tensor_in) {</td></tr>
+<tr><th id="309">309</th><td>      <i>// For AvgPoolGrad, the original input tensor is not necessary. However,</i></td></tr>
+<tr><th id="310">310</th><td><i>      // cudnn still requires them to run, although they do not affect the</i></td></tr>
+<tr><th id="311">311</th><td><i>      // results.</i></td></tr>
+<tr><th id="312">312</th><td>      functor::NHWCToNCHW&lt;GPUDevice, T, <var>4</var>&gt;()(context-&gt;eigen_device&lt;Device&gt;(),</td></tr>
+<tr><th id="313">313</th><td>                                             tensor_in-&gt;tensor&lt;T, <var>4</var>&gt;(),</td></tr>
+<tr><th id="314">314</th><td>                                             transformed_input.tensor&lt;T, <var>4</var>&gt;());</td></tr>
+<tr><th id="315">315</th><td>    }</td></tr>
+<tr><th id="316">316</th><td>    <b>if</b> (tensor_out) {</td></tr>
+<tr><th id="317">317</th><td>      <i>// For AvgPoolGrad, the original output tensor is not necessary. However,</i></td></tr>
+<tr><th id="318">318</th><td><i>      // cudnn still requires them to run, although they do not affect the</i></td></tr>
+<tr><th id="319">319</th><td><i>      // results.</i></td></tr>
+<tr><th id="320">320</th><td>      functor::NHWCToNCHW&lt;GPUDevice, T, <var>4</var>&gt;()(context-&gt;eigen_device&lt;Device&gt;(),</td></tr>
+<tr><th id="321">321</th><td>                                             tensor_out-&gt;tensor&lt;T, <var>4</var>&gt;(),</td></tr>
+<tr><th id="322">322</th><td>                                             transformed_output.tensor&lt;T, <var>4</var>&gt;());</td></tr>
+<tr><th id="323">323</th><td>    }</td></tr>
+<tr><th id="324">324</th><td>    functor::NHWCToNCHW&lt;GPUDevice, T, <var>4</var>&gt;()(</td></tr>
+<tr><th id="325">325</th><td>        context-&gt;eigen_device&lt;Device&gt;(), out_backprop.tensor&lt;T, <var>4</var>&gt;(),</td></tr>
+<tr><th id="326">326</th><td>        transformed_output_backprop.tensor&lt;T, <var>4</var>&gt;());</td></tr>
+<tr><th id="327">327</th><td>  }</td></tr>
+<tr><th id="328">328</th><td></td></tr>
+<tr><th id="329">329</th><td>  <i class="doc">/// Get ready to call cudnn</i></td></tr>
+<tr><th id="330">330</th><td>  perftools::gputools::dnn::PoolingDescriptor pooling_desc;</td></tr>
+<tr><th id="331">331</th><td>  pooling_desc.set_pooling_mode(pooling_mode)</td></tr>
+<tr><th id="332">332</th><td>      .set_window_height(params.window_rows)</td></tr>
+<tr><th id="333">333</th><td>      .set_window_width(params.window_cols)</td></tr>
+<tr><th id="334">334</th><td>      .set_vertical_stride(params.row_stride)</td></tr>
+<tr><th id="335">335</th><td>      .set_horizontal_stride(params.col_stride)</td></tr>
+<tr><th id="336">336</th><td>      .set_vertical_padding(params.pad_rows)</td></tr>
+<tr><th id="337">337</th><td>      .set_horizontal_padding(params.pad_cols)</td></tr>
+<tr><th id="338">338</th><td>      .set_propagate_nans(propagate_nans);</td></tr>
+<tr><th id="339">339</th><td></td></tr>
+<tr><th id="340">340</th><td>  perftools::gputools::dnn::BatchDescriptor orig_output_desc;</td></tr>
+<tr><th id="341">341</th><td>  orig_output_desc.set_count(params.tensor_in_batch)</td></tr>
+<tr><th id="342">342</th><td>      .set_height(params.out_height)</td></tr>
+<tr><th id="343">343</th><td>      .set_width(params.out_width)</td></tr>
+<tr><th id="344">344</th><td>      .set_feature_map_count(params.depth)</td></tr>
+<tr><th id="345">345</th><td>      .set_layout(perftools::gputools::dnn::DataLayout::kBatchDepthYX);</td></tr>
+<tr><th id="346">346</th><td></td></tr>
+<tr><th id="347">347</th><td>  perftools::gputools::dnn::BatchDescriptor orig_input_desc;</td></tr>
+<tr><th id="348">348</th><td>  orig_input_desc.set_count(params.tensor_in_batch)</td></tr>
+<tr><th id="349">349</th><td>      .set_height(params.tensor_in_rows)</td></tr>
+<tr><th id="350">350</th><td>      .set_width(params.tensor_in_cols)</td></tr>
+<tr><th id="351">351</th><td>      .set_feature_map_count(params.depth)</td></tr>
+<tr><th id="352">352</th><td>      .set_layout(perftools::gputools::dnn::DataLayout::kBatchDepthYX);</td></tr>
+<tr><th id="353">353</th><td></td></tr>
+<tr><th id="354">354</th><td>  <em>auto</em> orig_output_data =</td></tr>
+<tr><th id="355">355</th><td>      AsDeviceMemory(transformed_output.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="356">356</th><td>                     transformed_output.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="357">357</th><td>  <em>auto</em> orig_input_data =</td></tr>
+<tr><th id="358">358</th><td>      AsDeviceMemory(transformed_input.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="359">359</th><td>                     transformed_input.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="360">360</th><td>  <em>auto</em> output_backprop_data =</td></tr>
+<tr><th id="361">361</th><td>      AsDeviceMemory(transformed_output_backprop.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="362">362</th><td>                     transformed_output_backprop.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="363">363</th><td>  <em>auto</em> input_backprop_data =</td></tr>
+<tr><th id="364">364</th><td>      AsDeviceMemory(transformed_input_backprop.<b>template</b> flat&lt;T&gt;().data(),</td></tr>
+<tr><th id="365">365</th><td>                     transformed_input_backprop.<b>template</b> flat&lt;T&gt;().size());</td></tr>
+<tr><th id="366">366</th><td></td></tr>
+<tr><th id="367">367</th><td>  <em>auto</em>* stream = context-&gt;op_device_context()-&gt;stream();</td></tr>
+<tr><th id="368">368</th><td>  OP_REQUIRES(context, stream, errors::Internal(<q>"No GPU stream available."</q>));</td></tr>
+<tr><th id="369">369</th><td></td></tr>
+<tr><th id="370">370</th><td>  <em>bool</em> status =</td></tr>
+<tr><th id="371">371</th><td>      stream</td></tr>
+<tr><th id="372">372</th><td>          -&gt;ThenPoolBackward(pooling_desc, orig_input_desc, orig_input_data,</td></tr>
+<tr><th id="373">373</th><td>                             orig_output_desc, orig_output_data,</td></tr>
+<tr><th id="374">374</th><td>                             output_backprop_data, &amp;input_backprop_data)</td></tr>
+<tr><th id="375">375</th><td>          .ok();</td></tr>
+<tr><th id="376">376</th><td>  OP_REQUIRES(context, status,</td></tr>
+<tr><th id="377">377</th><td>              errors::Internal(<q>"cudnn PoolBackward launch failed"</q>));</td></tr>
+<tr><th id="378">378</th><td></td></tr>
+<tr><th id="379">379</th><td>  <b>if</b> (data_format == FORMAT_NHWC) {</td></tr>
+<tr><th id="380">380</th><td>    <i class="doc">/// Transform the output data from NCHW back to NHWC.</i></td></tr>
+<tr><th id="381">381</th><td>    <em>auto</em> toConstTensor = [](<em>const</em> Tensor&amp; x) -&gt; <em>const</em> Tensor { <b>return</b> x; };</td></tr>
+<tr><th id="382">382</th><td>    functor::NCHWToNHWC&lt;GPUDevice, T, <var>4</var>&gt;()(</td></tr>
+<tr><th id="383">383</th><td>        context-&gt;eigen_device&lt;Device&gt;(),</td></tr>
+<tr><th id="384">384</th><td>        toConstTensor(transformed_input_backprop).<b>template</b> tensor&lt;T, <var>4</var>&gt;(),</td></tr>
+<tr><th id="385">385</th><td>        input_backprop-&gt;tensor&lt;T, <var>4</var>&gt;());</td></tr>
+<tr><th id="386">386</th><td>  }</td></tr>
+<tr><th id="387">387</th><td>}</td></tr>
+<tr><th id="388">388</th><td></td></tr>
+<tr><th id="389">389</th><td><u>#define DEFINE_DNN_OPS(T)         \</u></td></tr>
+<tr><th id="390">390</th><td><u>  template class DnnPoolingOp&lt;T&gt;; \</u></td></tr>
+<tr><th id="391">391</th><td><u>  template class DnnPoolingGradOp&lt;T&gt;;</u></td></tr>
+<tr><th id="392">392</th><td>TF_CALL_GPU_NUMBER_TYPES(DEFINE_DNN_OPS)</td></tr>
+<tr><th id="393">393</th><td><u>#undef DEFINE_DNN_OPS</u></td></tr>
+<tr><th id="394">394</th><td></td></tr>
+<tr><th id="395">395</th><td><u>#<span data-ppcond="113">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="396">396</th><td></td></tr>
+<tr><th id="397">397</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="398">398</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

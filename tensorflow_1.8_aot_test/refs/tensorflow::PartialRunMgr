@@ -1,0 +1,27 @@
+<def f='tensorflow/tensorflow/core/distributed_runtime/partial_run_mgr.h' l='47' ll='83'/>
+<size>72</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/partial_run_mgr.h' l='30'>// PartialRunMgr keeps track of pending partial run requests, and ensures that
+// the partial run is only marked complete when the corresponding executor is
+// run to completion.
+//
+// In tensorflow workers, the executor runs operations asynchronously until
+// specified fetches (operations that return tensors) or targets (operations
+// that don&apos;t return tensors) are reached. A PartialRun has two components: a
+// setup which specifies all desired fetches and targets, and run calls that
+// specify fetch values (from the setup calls) to retrieve.
+// On the last partial run call, it is possible to satisfy the
+// required fetches before the executor has completed running the graph to all
+// the desired targets.
+// PartialRunMgr is used to ensure that we don&apos;t complete and return the final
+// partial run call to the user until both the partial run and executor have
+// completed.
+//
+// PartialRunMgr is thread-safe.</doc>
+<fun r='_ZN10tensorflow13PartialRunMgr12FindOrCreateEiPPNS_19CancellationManagerE'/>
+<fun r='_ZN10tensorflow13PartialRunMgr12ExecutorDoneEiRKNS_6StatusE'/>
+<fun r='_ZN10tensorflow13PartialRunMgr14PartialRunDoneEiSt8functionIFvRKNS_6StatusEEES4_'/>
+<mbr r='tensorflow::PartialRunMgr::mu_' o='0' t='tensorflow::mutex'/>
+<mbr r='tensorflow::PartialRunMgr::step_id_to_partial_run_' o='128' t='std::unordered_map&lt;int, std::unique_ptr&lt;PartialRunState&gt; &gt;'/>
+<fun r='_ZN10tensorflow13PartialRunMgr12FindOrCreateEiPPNS_19CancellationManagerE'/>
+<fun r='_ZN10tensorflow13PartialRunMgr12ExecutorDoneEiRKNS_6StatusE'/>
+<fun r='_ZN10tensorflow13PartialRunMgr14PartialRunDoneEiSt8functionIFvRKNS_6StatusEEES4_'/>

@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='163' ll='166' type='void tensorflow::ShapeRefiner::set_function_library_for_shape_inference(const tensorflow::FunctionLibraryDefinition * lib)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='157'>// Set function library to enable function shape inference.
+  // Without function library, function inference always yields unknown shapes.
+  // With this enabled, shape inference can take more time since it descends
+  // into all function calls. It doesn&apos;t do inference once for each function
+  // definition, but once for each function call.
+  // The function library must outlive the shape refiner.</doc>
+<use f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='197' u='c' c='_ZN10tensorflow16graph_transforms13FoldConstantsERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>

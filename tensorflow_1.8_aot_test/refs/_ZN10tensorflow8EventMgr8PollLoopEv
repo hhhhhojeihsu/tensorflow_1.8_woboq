@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.h' l='164' type='void tensorflow::EventMgr::PollLoop()'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.cc' l='82' u='c' c='_ZN10tensorflow8EventMgr16StartPollingLoopEv'/>
+<def f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.cc' l='130' ll='153' type='void tensorflow::EventMgr::PollLoop()'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.cc' l='126'>// A polling loop to detect completion of GPU events.
+//
+// While one or more events is outstanding, poll for completed events.  When no
+// events are outstanding, we sleep until one is enqueued.</doc>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.h' l='162'>// An internal polling loop that runs at a low frequency to clear
+  // straggler Events.</doc>
