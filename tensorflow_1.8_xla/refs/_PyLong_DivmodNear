@@ -1,0 +1,7 @@
+<dec f='include/python3.5m/longobject.h' l='126' type='PyObject * _PyLong_DivmodNear(PyObject * , PyObject * )'/>
+<doc f='include/python3.5m/longobject.h' l='120'>/* _PyLong_DivmodNear.  Given integers a and b, compute the nearest
+   integer q to the exact quotient a / b, rounding to the nearest even integer
+   in the case of a tie.  Return (q, r), where r = a - q*b.  The remainder r
+   will satisfy abs(r) &lt;= abs(b)/2, with equality possible only if q is
+   even.
+*/</doc>

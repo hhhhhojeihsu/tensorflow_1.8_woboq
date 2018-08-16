@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor.h' l='217' type='void tensorflow::Tensor::AsProtoField(tensorflow::TensorProto * proto) const'/>
+<use f='tensorflow/tensorflow/cc/framework/ops.h' l='187' u='c' c='_ZN10tensorflow5Input11Initializer13AsTensorProtoEv'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor.h' l='212'>/// \brief Fills in `proto` with `*this` tensor&apos;s content.
+  ///
+  /// `AsProtoField()` fills in the repeated field for `proto.dtype()`, while
+  /// `AsProtoTensorContent()` encodes the content in `proto.tensor_content()`
+  /// in a compact form.</doc>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='192' u='c' c='_ZN10tensorflow12_GLOBAL__N_118WrapTensorAsEventsERKNS_12DebugNodeKeyERKNS_6TensorEymPSt6vectorINS_5EventESaIS8_EE'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='377' u='c' c='_ZN10tensorflow12SetAttrValueERKNS_6TensorEPNS_9AttrValueE'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='387' u='c' c='_ZN10tensorflow12SetAttrValueENS_3gtl10ArraySliceINS_6TensorEEEPNS_9AttrValueE'/>
+<def f='tensorflow/tensorflow/core/framework/tensor.cc' l='840' ll='847' type='void tensorflow::Tensor::AsProtoField(tensorflow::TensorProto * proto) const'/>
+<use f='tensorflow/tensorflow/core/framework/variant_tensor_data.cc' l='51' u='c' c='_ZNK10tensorflow17VariantTensorData7ToProtoEPNS_22VariantTensorDataProtoE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='762' u='c' c='_ZN10tensorflow8grappler34GetTensorShapeProtoFromTensorProtoERKNS_11TensorProtoEPNS_16TensorShapeProtoE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='802' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_113NodeProcessor15UpdateAttrValueEPNS_7NodeDefEb'/>
+<use f='tensorflow/tensorflow/core/kernels/parse_tensor_op.cc' l='78' u='c' c='_ZN10tensorflow17SerializeTensorOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/summary_tensor_op.cc' l='46' u='c' c='_ZN10tensorflow17SummaryTensorOpV27ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/summary_tensor_op.cc' l='88' u='c' c='_ZN10tensorflow15SummaryTensorOp7ComputeEPNS_15OpKernelContextE'/>

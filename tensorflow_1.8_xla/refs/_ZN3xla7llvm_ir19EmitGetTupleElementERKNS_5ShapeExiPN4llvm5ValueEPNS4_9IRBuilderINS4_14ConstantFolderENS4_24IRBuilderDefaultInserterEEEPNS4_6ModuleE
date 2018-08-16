@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/tuple_ops.h' l='76' type='llvm::Value * xla::llvm_ir::EmitGetTupleElement(const xla::Shape &amp; target_shape, int64 index, int alignment, llvm::Value * operand, llvm::IRBuilder&lt;&gt; * ir_builder, llvm::Module * module)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='307' u='c' c='_ZN3xla3cpu9IrEmitter21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='472' u='c' c='_ZN3xla3cpu9IrEmitter13HandleOutfeedEPNS_14HloInstructionE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/tuple_ops.h' l='72'>// A tuple is an array of pointers, one for each operand. Each pointer points to
+// the output buffer of its corresponding operand. A GetTupleElement instruction
+// forwards the pointer to underlying tuple element buffer at the given index.
+// Returns an llvm value representing a pointer to the tuple element buffer.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/fused_ir_emitter.cc' l='103' u='c' c='_ZN3xla14FusedIrEmitter21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/tuple_ops.cc' l='87' ll='107' type='llvm::Value * xla::llvm_ir::EmitGetTupleElement(const xla::Shape &amp; target_shape, int64 index, int alignment, llvm::Value * operand, llvm::IRBuilder&lt;&gt; * ir_builder, llvm::Module * module)'/>

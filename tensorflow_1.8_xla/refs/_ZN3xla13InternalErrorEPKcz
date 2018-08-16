@@ -1,0 +1,24 @@
+<dec f='tensorflow/tensorflow/compiler/xla/util.h' l='211' type='tensorflow::Status xla::InternalError(const char * format)'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='121' u='c' c='_ZNK10tensorflow18XlaTransferManager21CopyCPUTensorToDeviceEPKNS_6TensorEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='162' u='c' c='_ZN10tensorflow18XlaTransferManager21CopyDeviceTensorToCPUEPKNS_6TensorENS_11StringPieceEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='123' u='c' c='_ZN3xla18ComputationBuilder21RunOpAndParseResponseEPNS_9OpRequestE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='629' u='c' c='_ZN3xla18ComputationBuilder25ConvWithGeneralDimensionsERKNS_21ComputationDataHandleES3_N10tensorflow3gtl10ArraySliceIxEENS_7PaddingERKNS_27ConvolutionDimensionNumbersE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1175' u='c' c='_ZN3xla18ComputationBuilder15ComputeConstantERKNS_21ComputationDataHandleEPKNS_6LayoutEN10tensorflow3gtl10ArraySliceINS_7LiteralEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1333' u='c' c='_ZN3xla18ComputationBuilder30ReduceWindowWithGeneralPaddingERKNS_21ComputationDataHandleES3_RKNS_11ComputationEN10tensorflow3gtl10ArraySliceIxEESA_NS9_ISt4pairIxxEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1437' u='c' c='_ZN3xla18ComputationBuilder34SelectAndScatterWithGeneralPaddingERKNS_21ComputationDataHandleERKNS_11ComputationEN10tensorflow3gtl10ArraySliceIxEESA_NS4869148'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='147' u='c' c='_ZN3xla12_GLOBAL__N_134GatherComputationsByAllocationTypeEPKNS_9HloModuleEPSt6vectorIPKNS_14HloComputationESaIS7_EESA_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='752' u='c' c='_ZN3xla3cpu11CpuCompiler18CompileAheadOfTimeESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS4_EESaIS7_EERKNS_21AotCompilationOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2242' u='c' c='_ZN3xla3cpu9IrEmitter11HandleWhileEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2715' u='c' c='_ZN3xla14HloInstruction5VisitEPNS_17DfsHloVisitorBaseIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='585' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='594' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='774' u='c' c='_ZN3xla12_GLOBAL__N_120CheckParameterLayoutEPNS_14HloInstructionERKNS_17ComputationLayoutE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='786' u='c' c='_ZN3xla12_GLOBAL__N_119CheckConstantLayoutEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='819' u='c' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1301' u='c' c='_ZN3xla12_GLOBAL__N_116InferArrayLayoutERKNS_21TuplePointsToAnalysisEPNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1567' u='c' c='_ZN3xla16LayoutAssignment3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='242' u='c' c='_ZN3xla7llvm_ir33EncodeSelfDescribingShapeConstantERKNS_5ShapeEPiPN4llvm9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='249' u='c' c='_ZN3xla12PlatformUtil18GetStreamExecutorsEPN9perftools8gputools8PlatformE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='614' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='1603' u='c' c='_ZN3xla12_GLOBAL__N_17GetRootExRKNS_18SessionComputationE'/>
+<def f='tensorflow/tensorflow/compiler/xla/util.cc' l='95' ll='102' type='tensorflow::Status xla::InternalError(const char * format)'/>

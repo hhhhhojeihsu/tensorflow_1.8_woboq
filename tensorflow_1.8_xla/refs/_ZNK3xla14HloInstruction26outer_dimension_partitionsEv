@@ -1,0 +1,17 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1273' ll='1275' type='const std::vector&lt;int64&gt; &amp; xla::HloInstruction::outer_dimension_partitions() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1268'>// Get/Set the number of partitions per outer dimension (in order, starting
+  // with outer-most dimension first). Currently used by the parallel cpu
+  // backend to partition HLOs into parallel tasks.
+  // TODO(b/62783254) Replace these methods with a more general way to
+  // annotate HLOs with backend-specific information.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.cc' l='146' u='c' c='_ZN3xla3cpu26ParallelizationPreparation32OutlineParallelizableInstructionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.cc' l='152' u='c' c='_ZN3xla3cpu26ParallelizationPreparation32OutlineParallelizableInstructionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.cc' l='183' u='c' c='_ZN3xla3cpu26ParallelizationPreparation21AssignedParallelTasksEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_parallelization_preparation.cc' l='187' u='c' c='_ZN3xla3cpu26ParallelizationPreparation21AssignedParallelTasksEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='721' u='c' c='_ZN3xla3cpu12DotOpEmitter4EmitEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='115' u='c' c='_ZN3xla3cpu9IrEmitter15EmitComputationEPNS_14HloComputationERKSsbPSt6vectorIPKNS_14HloInstructionESaIS9_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='117' u='c' c='_ZN3xla3cpu9IrEmitter15EmitComputationEPNS_14HloComputationERKSsbPSt6vectorIPKNS_14HloInstructionESaIS9_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2166' u='c' c='_ZN3xla3cpu9IrEmitter10HandleCallEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2179' u='c' c='_ZN3xla3cpu9IrEmitter10HandleCallEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='193' u='c' c='_ZN3xla3cpu12_GLOBAL__N_18Executor3RunEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='305' u='c' c='_ZN3xla3cpu12_GLOBAL__N_18Executor16HasParallelTasksEPNS_14HloInstructionE'/>

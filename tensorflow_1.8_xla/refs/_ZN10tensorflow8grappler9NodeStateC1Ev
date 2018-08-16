@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='73' ll='80' type='void tensorflow::grappler::NodeState::NodeState()'/>
+<doc f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='62'>// Note that a node may have multiple output ports. The length of outputs,
+  // num_outputs_executed, and time_no_references should be
+  // identical when a NodeState is fully initialized.
+  // They should be 1 + output_properties.size() as we add [-1] for control
+  // dependency.
+
+  // Node will be ready to be executed at time_ready, scheduled at
+  // time_scheduled, and finishes execution at time_finished.
+  // Each output port uses up memory space from time_scheduled to its
+  // time_no_references.</doc>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='657' u='c' c='_ZN10tensorflow8grappler16VirtualScheduler22GetNodeStateOrCreateItEPKNS_7NodeDefE'/>

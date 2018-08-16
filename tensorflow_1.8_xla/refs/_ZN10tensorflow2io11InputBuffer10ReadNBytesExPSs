@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/lib/io/inputbuffer.h' l='53' type='tensorflow::Status tensorflow::io::InputBuffer::ReadNBytes(int64 bytes_to_read, string * result)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/inputbuffer.h' l='48'>// Reads bytes_to_read bytes into *result, overwriting *result.
+  //
+  // If successful, returns OK.  If we there are not enough bytes to
+  // read before the end of the file, we return an OUT_OF_RANGE error.
+  // Otherwise, we return some other non-OK status.</doc>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='385' u='c' c='_ZN10tensorflow12_GLOBAL__N_126FixedLengthRecordDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<def f='tensorflow/tensorflow/core/lib/io/inputbuffer.cc' l='74' ll='85' type='tensorflow::Status tensorflow::io::InputBuffer::ReadNBytes(int64 bytes_to_read, string * result)'/>

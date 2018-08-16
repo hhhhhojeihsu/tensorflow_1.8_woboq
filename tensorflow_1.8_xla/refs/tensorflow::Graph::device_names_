@@ -1,0 +1,25 @@
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='548' u='m' c='_ZN10tensorflow5Graph20CheckDeviceNameIndexEi'/>
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='554' u='m' c='_ZNK10tensorflow5Graph24get_assigned_device_nameERKNS_4NodeE'/>
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='648' type='std::vector&lt;string&gt;'/>
+<offset>4608</offset>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='629'>// In most graphs, the number of unique values used for the
+  // Node::assigned_device_name() property is quite small.  If the graph is
+  // large, then this duplication of values can consume a significant amount of
+  // memory.  Instead, we represent the same information using an interning
+  // table, which consists of a vector of unique strings (device_names_), as
+  // well a map (device_names_map_) from unique strings to indices within the
+  // unique string table.
+  //
+  // The InternDeviceName() method handles adding a new entry into the table,
+  // or locating the index of an existing entry.
+  //
+  // The fact that Node::assigned_device_name() is implemented using an
+  // interning table is intentionally public.  This allows algorithms that
+  // frequently access this field to do so efficiently, especially for the case
+  // where the assigned_device_name of one Node is copied directly from that
+  // of another Node.
+
+  // A table of the unique assigned device names.  Indices do NOT correspond
+  // to node IDs.  Index 0 is always the empty string.</doc>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='274' u='m' c='_ZN10tensorflow5GraphC1EPKNS_19OpRegistryInterfaceE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='685' u='m' c='_ZN10tensorflow5Graph16InternDeviceNameERKSs'/>

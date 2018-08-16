@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>logical_buffer.h source code [tensorflow/tensorflow/compiler/xla/service/logical_buffer.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="xla::LogicalBuffer "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/compiler/xla/service/logical_buffer.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>compiler</a>/<a href='..'>xla</a>/<a href='./'>service</a>/<a href='logical_buffer.h.html'>logical_buffer.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_COMPILER_XLA_SERVICE_LOGICAL_BUFFER_H_">TENSORFLOW_COMPILER_XLA_SERVICE_LOGICAL_BUFFER_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMPILER_XLA_SERVICE_LOGICAL_BUFFER_H_" data-ref="_M/TENSORFLOW_COMPILER_XLA_SERVICE_LOGICAL_BUFFER_H_">TENSORFLOW_COMPILER_XLA_SERVICE_LOGICAL_BUFFER_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../include/c++/5/functional.html">&lt;functional&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../../include/c++/5/iosfwd.html">&lt;iosfwd&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><u>#include "tensorflow/compiler/xla/service/hlo.pb.h"</u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="hlo_instruction.h.html">"tensorflow/compiler/xla/service/hlo_instruction.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../shape_util.h.html">"tensorflow/compiler/xla/shape_util.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../types.h.html">"tensorflow/compiler/xla/types.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include "tensorflow/compiler/xla/xla_data.pb.h"</u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../../../core/lib/gtl/array_slice.h.html">"tensorflow/core/lib/gtl/array_slice.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../../../core/lib/gtl/int_type.h.html">"tensorflow/core/lib/gtl/int_type.h"</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../../../core/platform/macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../../../core/platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><b>namespace</b> <span class="namespace">xla</span> {</td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><i>// Class describing a contiguous sequence of elements (ie, C array) which form</i></td></tr>
+<tr><th id="37">37</th><td><i>// the components of Shaped values in XLA. XLA arrays are trivially a</i></td></tr>
+<tr><th id="38">38</th><td><i>// single LogicalBuffer. Tuple values are made up of more than one</i></td></tr>
+<tr><th id="39">39</th><td><i>// LogicalBuffer: a LogicalBuffer for the pointers to elements, and a</i></td></tr>
+<tr><th id="40">40</th><td><i>// LogicalBuffer for each child element.</i></td></tr>
+<tr><th id="41">41</th><td><i>//</i></td></tr>
+<tr><th id="42">42</th><td><i>// Every buffer is defined by a particular instruction and most instructions</i></td></tr>
+<tr><th id="43">43</th><td><i>// define only a single buffer. Instructions which define a single buffer</i></td></tr>
+<tr><th id="44">44</th><td><i>// include array-shaped instructions such as Add but also includes Tuple-shaped</i></td></tr>
+<tr><th id="45">45</th><td><i>// instructions such as Tuple. The Tuple instruction defines a single buffer</i></td></tr>
+<tr><th id="46">46</th><td><i>// which is a vector of pointers to the buffers containing the Tuple</i></td></tr>
+<tr><th id="47">47</th><td><i>// instruction's operands. Though the result of the Tuple instruction includes</i></td></tr>
+<tr><th id="48">48</th><td><i>// multiple buffers only the top-level buffer (the vector of pointers) is</i></td></tr>
+<tr><th id="49">49</th><td><i>// defined by the Tuple instruction. The buffers containing the tuple elements</i></td></tr>
+<tr><th id="50">50</th><td><i>// are defined by earlier instructions, usually the operands of the Tuple</i></td></tr>
+<tr><th id="51">51</th><td><i>// instruction.</i></td></tr>
+<tr><th id="52">52</th><td><i>//</i></td></tr>
+<tr><th id="53">53</th><td><i>// Instructions which construct both the tuple *and* the tuple elements define</i></td></tr>
+<tr><th id="54">54</th><td><i>// more than one buffer. This includes (at least) tuple-shaped Constant,</i></td></tr>
+<tr><th id="55">55</th><td><i>// Parameter, Infeed and While instructions. The tuple-shaped instructions do</i></td></tr>
+<tr><th id="56">56</th><td><i>// not assemble a tuple from existing buffers like the Tuple instruction does,</i></td></tr>
+<tr><th id="57">57</th><td><i>// but rather define the entire tuple.</i></td></tr>
+<tr><th id="58">58</th><td><i>//</i></td></tr>
+<tr><th id="59">59</th><td><i>// Some instructions, such as Bitcast, define no buffers. These instructions</i></td></tr>
+<tr><th id="60">60</th><td><i>// simply forward buffers from their operands.</i></td></tr>
+<tr><th id="61">61</th><td><i>//</i></td></tr>
+<tr><th id="62">62</th><td><i>// The LogicalBuffer object describes which HLO instruction defines a buffer and</i></td></tr>
+<tr><th id="63">63</th><td><i>// where within that instruction's output shape the buffer is defined. The</i></td></tr>
+<tr><th id="64">64</th><td><i>// location within the output shape is indicated by LogicalBuffer::index() which</i></td></tr>
+<tr><th id="65">65</th><td><i>// is defined identically to the index used in</i></td></tr>
+<tr><th id="66">66</th><td><i>// ShapeUtil::GetSubshape(). Examples:</i></td></tr>
+<tr><th id="67">67</th><td><i>//</i></td></tr>
+<tr><th id="68">68</th><td><i>// %add = Add(%foo, %bar)</i></td></tr>
+<tr><th id="69">69</th><td><i>// %tuple_constant = Constant({1, {42, 43}})</i></td></tr>
+<tr><th id="70">70</th><td><i>//</i></td></tr>
+<tr><th id="71">71</th><td><i>// %add defines a single array-shaped buffer LogicalBuffer(%add, {}) which holds</i></td></tr>
+<tr><th id="72">72</th><td><i>// the array result of the add operation. The nested-tuple-shaped</i></td></tr>
+<tr><th id="73">73</th><td><i>// %tuple_constant defines 5 buffers described by the following LogicalBuffer</i></td></tr>
+<tr><th id="74">74</th><td><i>// objects:</i></td></tr>
+<tr><th id="75">75</th><td><i>//</i></td></tr>
+<tr><th id="76">76</th><td><i>//   LogicalBuffer(%tuple_constant, {})      // "Top-level" buffer: vector of</i></td></tr>
+<tr><th id="77">77</th><td><i>//                                           //  pointers to LogicalBuffers at</i></td></tr>
+<tr><th id="78">78</th><td><i>//                                           //  indices {0} and {1}</i></td></tr>
+<tr><th id="79">79</th><td><i>//   LogicalBuffer(%tuple_constant, {0})     // Holds value "1"</i></td></tr>
+<tr><th id="80">80</th><td><i>//   LogicalBuffer(%tuple_constant, {1})     // Holds nested tuple: vector of</i></td></tr>
+<tr><th id="81">81</th><td><i>//                                           //  pointers to LogicalBuffers at</i></td></tr>
+<tr><th id="82">82</th><td><i>//                                           //  indices {1, 0} and {1, 1}</i></td></tr>
+<tr><th id="83">83</th><td><i>//   LogicalBuffer(%tuple_constant, {1, 0})  // Holds value "42"</i></td></tr>
+<tr><th id="84">84</th><td><i>//   LogicalBuffer(%tuple_constant, {1, 1})  // Holds value "43"</i></td></tr>
+<tr><th id="85">85</th><td><b>class</b> <dfn class="type def" id="xla::LogicalBuffer" title='xla::LogicalBuffer' data-ref="xla::LogicalBuffer">LogicalBuffer</dfn> {</td></tr>
+<tr><th id="86">86</th><td> <b>public</b>:</td></tr>
+<tr><th id="87">87</th><td>  <a class="macro" href="../../../core/lib/gtl/int_type.h.html#173" title="struct Color_tag_ {}; typedef ::tensorflow::gtl::IntType&lt;Color_tag_, int64&gt; Color;" data-ref="_M/TF_LIB_GTL_DEFINE_INT_TYPE">TF_LIB_GTL_DEFINE_INT_TYPE</a>(<dfn class="typedef" id="xla::LogicalBuffer::Color" title='xla::LogicalBuffer::Color' data-type='::tensorflow::gtl::IntType&lt;Color_tag_, int64&gt;' data-ref="xla::LogicalBuffer::Color">Color</dfn>, <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>);</td></tr>
+<tr><th id="88">88</th><td></td></tr>
+<tr><th id="89">89</th><td>  <i>// Id is a unique identifier for the LogicalBuffer to facilitate efficient</i></td></tr>
+<tr><th id="90">90</th><td><i>  // collections of LogicalBuffers with stable iteration order.</i></td></tr>
+<tr><th id="91">91</th><td><i>  // LogicalBuffers are typically created and accessed through</i></td></tr>
+<tr><th id="92">92</th><td><i>  // TuplePointsToAnalysis, and points-to analysis assigns each LogicalBuffer a</i></td></tr>
+<tr><th id="93">93</th><td><i>  // unique value.</i></td></tr>
+<tr><th id="94">94</th><td>  <b>using</b> <dfn class="typedef" id="xla::LogicalBuffer::Id" title='xla::LogicalBuffer::Id' data-type='int64' data-ref="xla::LogicalBuffer::Id">Id</dfn> = <a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>;</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td>  <i>// Functions which return the size and alignment of a logical buffer in bytes.</i></td></tr>
+<tr><th id="97">97</th><td>  <b>using</b> <dfn class="typedef" id="xla::LogicalBuffer::SizeFunction" title='xla::LogicalBuffer::SizeFunction' data-type='std::function&lt;int64 (const LogicalBuffer &amp;)&gt;' data-ref="xla::LogicalBuffer::SizeFunction">SizeFunction</dfn> = <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>(<em>const</em> <a class="type" href="#xla::LogicalBuffer" title='xla::LogicalBuffer' data-ref="xla::LogicalBuffer">LogicalBuffer</a>&amp;)&gt;;</td></tr>
+<tr><th id="98">98</th><td>  <b>using</b> <dfn class="typedef" id="xla::LogicalBuffer::AlignmentFunction" title='xla::LogicalBuffer::AlignmentFunction' data-type='std::function&lt;int64 (LogicalBuffer::Color)&gt;' data-ref="xla::LogicalBuffer::AlignmentFunction">AlignmentFunction</dfn> = <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/functional.html#std::function" title='std::function' data-ref="std::function">function</a>&lt;<a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>(<a class="type" href="#xla::LogicalBuffer" title='xla::LogicalBuffer' data-ref="xla::LogicalBuffer">LogicalBuffer</a>::<a class="typedef" href="#87" title='xla::LogicalBuffer::Color' data-type='::tensorflow::gtl::IntType&lt;Color_tag_, int64&gt;' data-ref="xla::LogicalBuffer::Color">Color</a>)&gt;;</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td>  <dfn class="decl" id="_ZN3xla13LogicalBufferC1EPNS_14HloInstructionERKNS_10ShapeIndexEx" title='xla::LogicalBuffer::LogicalBuffer' data-ref="_ZN3xla13LogicalBufferC1EPNS_14HloInstructionERKNS_10ShapeIndexEx">LogicalBuffer</dfn>(<a class="type" href="hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="local col3 decl" id="7863instruction" title='instruction' data-type='xla::HloInstruction *' data-ref="7863instruction">instruction</dfn>, <em>const</em> <a class="type" href="../shape_util.h.html#xla::ShapeIndex" title='xla::ShapeIndex' data-ref="xla::ShapeIndex">ShapeIndex</a>&amp; <dfn class="local col4 decl" id="7864index" title='index' data-type='const xla::ShapeIndex &amp;' data-ref="7864index">index</dfn>, <a class="typedef" href="#xla::LogicalBuffer::Id" title='xla::LogicalBuffer::Id' data-type='int64' data-ref="xla::LogicalBuffer::Id">Id</a> <dfn class="local col5 decl" id="7865id" title='id' data-type='Id' data-ref="7865id">id</dfn>);</td></tr>
+<tr><th id="101">101</th><td></td></tr>
+<tr><th id="102">102</th><td>  <a class="typedef" href="#xla::LogicalBuffer::Id" title='xla::LogicalBuffer::Id' data-type='int64' data-ref="xla::LogicalBuffer::Id">Id</a> <dfn class="decl def" id="_ZNK3xla13LogicalBuffer2idEv" title='xla::LogicalBuffer::id' data-ref="_ZNK3xla13LogicalBuffer2idEv">id</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#xla::LogicalBuffer::id_" title='xla::LogicalBuffer::id_' data-ref="xla::LogicalBuffer::id_">id_</a>; }</td></tr>
+<tr><th id="103">103</th><td></td></tr>
+<tr><th id="104">104</th><td>  <i>// Return the instruction that defines the buffer.</i></td></tr>
+<tr><th id="105">105</th><td>  <a class="type" href="hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="decl def" id="_ZNK3xla13LogicalBuffer11instructionEv" title='xla::LogicalBuffer::instruction' data-ref="_ZNK3xla13LogicalBuffer11instructionEv">instruction</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#xla::LogicalBuffer::instruction_" title='xla::LogicalBuffer::instruction_' data-ref="xla::LogicalBuffer::instruction_">instruction_</a>; }</td></tr>
+<tr><th id="106">106</th><td></td></tr>
+<tr><th id="107">107</th><td>  <i>// Return the index within the output of the instruction where the buffer is</i></td></tr>
+<tr><th id="108">108</th><td><i>  // defined. Index used defined as in ShapeUtil::GetSubshape()</i></td></tr>
+<tr><th id="109">109</th><td>  <em>const</em> <a class="type" href="../shape_util.h.html#xla::ShapeIndex" title='xla::ShapeIndex' data-ref="xla::ShapeIndex">ShapeIndex</a>&amp; <dfn class="decl def" id="_ZNK3xla13LogicalBuffer5indexEv" title='xla::LogicalBuffer::index' data-ref="_ZNK3xla13LogicalBuffer5indexEv">index</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#xla::LogicalBuffer::index_" title='xla::LogicalBuffer::index_' data-ref="xla::LogicalBuffer::index_">index_</a>; }</td></tr>
+<tr><th id="110">110</th><td></td></tr>
+<tr><th id="111">111</th><td>  <i>// Return the color of the logical buffer. Differently colored buffers can</i></td></tr>
+<tr><th id="112">112</th><td><i>  // not be parts of the same allocation.</i></td></tr>
+<tr><th id="113">113</th><td>  <a class="typedef" href="#87" title='xla::LogicalBuffer::Color' data-type='::tensorflow::gtl::IntType&lt;Color_tag_, int64&gt;' data-ref="xla::LogicalBuffer::Color">Color</a> <dfn class="decl def" id="_ZNK3xla13LogicalBuffer5colorEv" title='xla::LogicalBuffer::color' data-ref="_ZNK3xla13LogicalBuffer5colorEv">color</dfn>() <em>const</em> {</td></tr>
+<tr><th id="114">114</th><td>    <a class="macro" href="../../../core/platform/default/logging.h.html#252" title="while (::tensorflow::internal::CheckOpString _result = ::tensorflow::internal::Check_NEImpl( ::tensorflow::internal::GetReferenceableValue(color_), ::tensorflow::internal::GetReferenceableValue(kInvalidColor), &quot;color_&quot; &quot; &quot; &quot;!=&quot; &quot; &quot; &quot;kInvalidColor&quot;)) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/compiler/xla/service/logical_buffer.h&quot;, 114) &lt;&lt; *(_result.str_)" data-ref="_M/CHECK_NE">CHECK_NE</a>(<a class="member" href="#xla::LogicalBuffer::color_" title='xla::LogicalBuffer::color_' data-ref="xla::LogicalBuffer::color_">color_</a>, <a class="member" href="#xla::LogicalBuffer::kInvalidColor" title='xla::LogicalBuffer::kInvalidColor' data-ref="xla::LogicalBuffer::kInvalidColor">kInvalidColor</a>)</td></tr>
+<tr><th id="115">115</th><td>        <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsRSt13basic_ostreamIcT_EPKc" title='std::operator&lt;&lt;' data-ref="_ZStlsRSt13basic_ostreamIcT_EPKc">&lt;&lt;</a> <q>"Should not query the color of a buffer that was never colored"</q>;</td></tr>
+<tr><th id="116">116</th><td>    <b>return</b> <a class="ref fake" href="../../../core/lib/gtl/int_type.h.html#188" title='tensorflow::gtl::IntType&lt;xla::LogicalBuffer::Color_tag_, long long&gt;::IntType' data-ref="_ZN10tensorflow3gtl7IntTypeIN3xla13LogicalBuffer10Color_tag_ExEC1ERKS5_"></a><a class="member" href="#xla::LogicalBuffer::color_" title='xla::LogicalBuffer::color_' data-ref="xla::LogicalBuffer::color_">color_</a>;</td></tr>
+<tr><th id="117">117</th><td>  }</td></tr>
+<tr><th id="118">118</th><td></td></tr>
+<tr><th id="119">119</th><td>  <em>void</em> <dfn class="decl def" id="_ZN3xla13LogicalBuffer9set_colorEN10tensorflow3gtl7IntTypeINS0_10Color_tag_ExEE" title='xla::LogicalBuffer::set_color' data-ref="_ZN3xla13LogicalBuffer9set_colorEN10tensorflow3gtl7IntTypeINS0_10Color_tag_ExEE">set_color</dfn>(<a class="typedef" href="#87" title='xla::LogicalBuffer::Color' data-type='::tensorflow::gtl::IntType&lt;Color_tag_, int64&gt;' data-ref="xla::LogicalBuffer::Color">Color</a> <dfn class="local col6 decl" id="7866color" title='color' data-type='Color' data-ref="7866color">color</dfn>) {</td></tr>
+<tr><th id="120">120</th><td>    <a class="macro" href="../../../core/platform/default/logging.h.html#252" title="while (::tensorflow::internal::CheckOpString _result = ::tensorflow::internal::Check_NEImpl( ::tensorflow::internal::GetReferenceableValue(color), ::tensorflow::internal::GetReferenceableValue(kInvalidColor), &quot;color&quot; &quot; &quot; &quot;!=&quot; &quot; &quot; &quot;kInvalidColor&quot;)) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/./tensorflow/compiler/xla/service/logical_buffer.h&quot;, 120) &lt;&lt; *(_result.str_)" data-ref="_M/CHECK_NE">CHECK_NE</a>(<a class="local col6 ref" href="#7866color" title='color' data-ref="7866color">color</a>, <a class="member" href="#xla::LogicalBuffer::kInvalidColor" title='xla::LogicalBuffer::kInvalidColor' data-ref="xla::LogicalBuffer::kInvalidColor">kInvalidColor</a>)</td></tr>
+<tr><th id="121">121</th><td>        <a class="ref" href="../../../../../include/c++/5/ostream.html#_ZStlsRSt13basic_ostreamIcT_EPKc" title='std::operator&lt;&lt;' data-ref="_ZStlsRSt13basic_ostreamIcT_EPKc">&lt;&lt;</a> <q>"Should not set the color of a buffer to the invalid color"</q>;</td></tr>
+<tr><th id="122">122</th><td>    <a class="member" href="#xla::LogicalBuffer::color_" title='xla::LogicalBuffer::color_' data-ref="xla::LogicalBuffer::color_">color_</a> <a class="ref" href="../../../core/lib/gtl/int_type.h.html#188" title='tensorflow::gtl::IntType&lt;xla::LogicalBuffer::Color_tag_, long long&gt;::operator=' data-ref="_ZN10tensorflow3gtl7IntTypeIN3xla13LogicalBuffer10Color_tag_ExEaSERKS5_">=</a> <a class="local col6 ref" href="#7866color" title='color' data-ref="7866color">color</a>;</td></tr>
+<tr><th id="123">123</th><td>  }</td></tr>
+<tr><th id="124">124</th><td></td></tr>
+<tr><th id="125">125</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK3xla13LogicalBuffer9has_colorEv" title='xla::LogicalBuffer::has_color' data-ref="_ZNK3xla13LogicalBuffer9has_colorEv">has_color</dfn>() <em>const</em> { <b>return</b> <a class="ref fake" href="../../../core/lib/gtl/int_type.h.html#188" title='tensorflow::gtl::IntType&lt;xla::LogicalBuffer::Color_tag_, long long&gt;::IntType' data-ref="_ZN10tensorflow3gtl7IntTypeIN3xla13LogicalBuffer10Color_tag_ExEC1ERKS5_"></a><a class="member" href="#xla::LogicalBuffer::color_" title='xla::LogicalBuffer::color_' data-ref="xla::LogicalBuffer::color_">color_</a> <a class="ref" href="../../../core/lib/gtl/int_type.h.html#349" title='tensorflow::gtl::operator!=' data-ref="_ZN10tensorflow3gtlneENS0_7IntTypeIT_T0_EES4_">!=</a> <a class="ref fake" href="../../../core/lib/gtl/int_type.h.html#188" title='tensorflow::gtl::IntType&lt;xla::LogicalBuffer::Color_tag_, long long&gt;::IntType' data-ref="_ZN10tensorflow3gtl7IntTypeIN3xla13LogicalBuffer10Color_tag_ExEC1ERKS5_"></a><a class="member" href="#xla::LogicalBuffer::kInvalidColor" title='xla::LogicalBuffer::kInvalidColor' data-ref="xla::LogicalBuffer::kInvalidColor">kInvalidColor</a>; }</td></tr>
+<tr><th id="126">126</th><td></td></tr>
+<tr><th id="127">127</th><td>  <i>// Return the shape of the buffer. This reference points into the shape field</i></td></tr>
+<tr><th id="128">128</th><td><i>  // of the instruction defining the buffer.  Therefore, the returned shape will</i></td></tr>
+<tr><th id="129">129</th><td><i>  // contain the layout of instruction, if any.</i></td></tr>
+<tr><th id="130">130</th><td>  <em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>&amp; <dfn class="decl def" id="_ZNK3xla13LogicalBuffer5shapeEv" title='xla::LogicalBuffer::shape' data-ref="_ZNK3xla13LogicalBuffer5shapeEv">shape</dfn>() <em>const</em> {</td></tr>
+<tr><th id="131">131</th><td>    <b>return</b> <a class="type" href="../shape_util.h.html#xla::ShapeUtil" title='xla::ShapeUtil' data-ref="xla::ShapeUtil">ShapeUtil</a>::<a class="ref" href="../shape_util.h.html#_ZN3xla9ShapeUtil11GetSubshapeERKNS_5ShapeENS_14ShapeIndexViewE" title='xla::ShapeUtil::GetSubshape' data-ref="_ZN3xla9ShapeUtil11GetSubshapeERKNS_5ShapeENS_14ShapeIndexViewE">GetSubshape</a>(<a class="member" href="#xla::LogicalBuffer::instruction_" title='xla::LogicalBuffer::instruction_' data-ref="xla::LogicalBuffer::instruction_">instruction_</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction5shapeEv" title='xla::HloInstruction::shape' data-ref="_ZNK3xla14HloInstruction5shapeEv">shape</a>(), <a class="ref fake" href="../shape_util.h.html#_ZN3xla14ShapeIndexViewC1ERKNS_10ShapeIndexEx" title='xla::ShapeIndexView::ShapeIndexView' data-ref="_ZN3xla14ShapeIndexViewC1ERKNS_10ShapeIndexEx"></a><a class="member" href="#xla::LogicalBuffer::index_" title='xla::LogicalBuffer::index_' data-ref="xla::LogicalBuffer::index_">index_</a>);</td></tr>
+<tr><th id="132">132</th><td>  }</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>  <i>// Returns true if this buffer is the top-level output buffer of the defining</i></td></tr>
+<tr><th id="135">135</th><td><i>  // HLO instruction. This is equivalent to index == {}.</i></td></tr>
+<tr><th id="136">136</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK3xla13LogicalBuffer10IsTopLevelEv" title='xla::LogicalBuffer::IsTopLevel' data-ref="_ZNK3xla13LogicalBuffer10IsTopLevelEv">IsTopLevel</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#xla::LogicalBuffer::index_" title='xla::LogicalBuffer::index_' data-ref="xla::LogicalBuffer::index_">index_</a>.<a class="ref" href="../shape_util.h.html#_ZNK3xla10ShapeIndex5emptyEv" title='xla::ShapeIndex::empty' data-ref="_ZNK3xla10ShapeIndex5emptyEv">empty</a>(); }</td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td>  <i>// Whether this buffer contains a tuple.</i></td></tr>
+<tr><th id="139">139</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK3xla13LogicalBuffer7IsTupleEv" title='xla::LogicalBuffer::IsTuple' data-ref="_ZNK3xla13LogicalBuffer7IsTupleEv">IsTuple</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#xla::LogicalBuffer::is_tuple_" title='xla::LogicalBuffer::is_tuple_' data-ref="xla::LogicalBuffer::is_tuple_">is_tuple_</a>; }</td></tr>
+<tr><th id="140">140</th><td></td></tr>
+<tr><th id="141">141</th><td>  <i>// Whether this buffer contains an array.</i></td></tr>
+<tr><th id="142">142</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK3xla13LogicalBuffer7IsArrayEv" title='xla::LogicalBuffer::IsArray' data-ref="_ZNK3xla13LogicalBuffer7IsArrayEv">IsArray</dfn>() <em>const</em> { <b>return</b> <a class="member" href="#xla::LogicalBuffer::is_array_" title='xla::LogicalBuffer::is_array_' data-ref="xla::LogicalBuffer::is_array_">is_array_</a>; }</td></tr>
+<tr><th id="143">143</th><td></td></tr>
+<tr><th id="144">144</th><td>  <i>// operator&lt; is required for std::set.</i></td></tr>
+<tr><th id="145">145</th><td>  <em>bool</em> <dfn class="decl def" id="_ZNK3xla13LogicalBufferltERKS0_" title='xla::LogicalBuffer::operator&lt;' data-ref="_ZNK3xla13LogicalBufferltERKS0_"><b>operator</b>&lt;</dfn>(<em>const</em> <a class="type" href="#xla::LogicalBuffer" title='xla::LogicalBuffer' data-ref="xla::LogicalBuffer">LogicalBuffer</a>&amp; <dfn class="local col7 decl" id="7867other" title='other' data-type='const xla::LogicalBuffer &amp;' data-ref="7867other">other</dfn>) <em>const</em> { <b>return</b> <a class="member" href="#xla::LogicalBuffer::id_" title='xla::LogicalBuffer::id_' data-ref="xla::LogicalBuffer::id_">id_</a> &lt; <a class="local col7 ref" href="#7867other" title='other' data-ref="7867other">other</a>.<a class="member" href="#xla::LogicalBuffer::id_" title='xla::LogicalBuffer::id_' data-ref="xla::LogicalBuffer::id_">id_</a>; }</td></tr>
+<tr><th id="146">146</th><td></td></tr>
+<tr><th id="147">147</th><td>  <a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="_ZNK3xla13LogicalBuffer8ToStringEv" title='xla::LogicalBuffer::ToString' data-ref="_ZNK3xla13LogicalBuffer8ToStringEv">ToString</dfn>() <em>const</em>;</td></tr>
+<tr><th id="148">148</th><td>  <span class='type' title='xla::LogicalBufferProto' data-ref="xla::LogicalBufferProto">LogicalBufferProto</span> <dfn class="decl" id="_ZNK3xla13LogicalBuffer7ToProtoERKSt8functionIFxRKS0_EE" title='xla::LogicalBuffer::ToProto' data-ref="_ZNK3xla13LogicalBuffer7ToProtoERKSt8functionIFxRKS0_EE">ToProto</dfn>(<em>const</em> <a class="typedef" href="#xla::LogicalBuffer::SizeFunction" title='xla::LogicalBuffer::SizeFunction' data-type='std::function&lt;int64 (const LogicalBuffer &amp;)&gt;' data-ref="xla::LogicalBuffer::SizeFunction">SizeFunction</a>&amp; <dfn class="local col8 decl" id="7868size_fn" title='size_fn' data-type='const SizeFunction &amp;' data-ref="7868size_fn">size_fn</dfn>) <em>const</em>;</td></tr>
+<tr><th id="149">149</th><td></td></tr>
+<tr><th id="150">150</th><td>  <i>// Returns the LogicalBufferProto::Location that serializes the given</i></td></tr>
+<tr><th id="151">151</th><td><i>  // instruction and index.</i></td></tr>
+<tr><th id="152">152</th><td>  <em>static</em> <span class='type' title='xla::LogicalBufferProto' data-ref="xla::LogicalBufferProto">LogicalBufferProto</span>::<span class='typedef' title='xla::LogicalBufferProto::Location' data-type='xla::LogicalBufferProto_Location' data-ref="xla::LogicalBufferProto::Location">Location</span> <dfn class="decl" id="_ZN3xla13LogicalBuffer15ToLocationProtoERKNS_14HloInstructionERKNS_10ShapeIndexE" title='xla::LogicalBuffer::ToLocationProto' data-ref="_ZN3xla13LogicalBuffer15ToLocationProtoERKNS_14HloInstructionERKNS_10ShapeIndexE">ToLocationProto</dfn>(</td></tr>
+<tr><th id="153">153</th><td>      <em>const</em> <a class="type" href="hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>&amp; <dfn class="local col9 decl" id="7869instruction" title='instruction' data-type='const xla::HloInstruction &amp;' data-ref="7869instruction">instruction</dfn>, <em>const</em> <a class="type" href="../shape_util.h.html#xla::ShapeIndex" title='xla::ShapeIndex' data-ref="xla::ShapeIndex">ShapeIndex</a>&amp; <dfn class="local col0 decl" id="7870index" title='index' data-type='const xla::ShapeIndex &amp;' data-ref="7870index">index</dfn>);</td></tr>
+<tr><th id="154">154</th><td></td></tr>
+<tr><th id="155">155</th><td>  <em>const</em> <a class="typedef" href="#87" title='xla::LogicalBuffer::Color' data-type='::tensorflow::gtl::IntType&lt;Color_tag_, int64&gt;' data-ref="xla::LogicalBuffer::Color">Color</a> <dfn class="decl" id="xla::LogicalBuffer::kInvalidColor" title='xla::LogicalBuffer::kInvalidColor' data-ref="xla::LogicalBuffer::kInvalidColor">kInvalidColor</dfn> = <a class="typedef" href="#87" title='xla::LogicalBuffer::Color' data-type='::tensorflow::gtl::IntType&lt;Color_tag_, int64&gt;' data-ref="xla::LogicalBuffer::Color">Color</a><a class="ref" href="../../../core/lib/gtl/int_type.h.html#_ZN10tensorflow3gtl7IntTypeC1ET0_" title='tensorflow::gtl::IntType::IntType&lt;IntTypeName, _ValueType&gt;' data-ref="_ZN10tensorflow3gtl7IntTypeC1ET0_">(</a>-<var>1</var>);</td></tr>
+<tr><th id="156">156</th><td></td></tr>
+<tr><th id="157">157</th><td> <b>private</b>:</td></tr>
+<tr><th id="158">158</th><td>  <a class="type" href="hlo_instruction.h.html#xla::HloInstruction" title='xla::HloInstruction' data-ref="xla::HloInstruction">HloInstruction</a>* <dfn class="decl" id="xla::LogicalBuffer::instruction_" title='xla::LogicalBuffer::instruction_' data-ref="xla::LogicalBuffer::instruction_">instruction_</dfn>;</td></tr>
+<tr><th id="159">159</th><td>  <a class="typedef" href="#xla::LogicalBuffer::Id" title='xla::LogicalBuffer::Id' data-type='int64' data-ref="xla::LogicalBuffer::Id">Id</a> <dfn class="decl" id="xla::LogicalBuffer::id_" title='xla::LogicalBuffer::id_' data-ref="xla::LogicalBuffer::id_">id_</dfn> : <var>62</var>;</td></tr>
+<tr><th id="160">160</th><td>  <em>bool</em> <dfn class="decl" id="xla::LogicalBuffer::is_array_" title='xla::LogicalBuffer::is_array_' data-ref="xla::LogicalBuffer::is_array_">is_array_</dfn> : <var>1</var>;</td></tr>
+<tr><th id="161">161</th><td>  <em>bool</em> <dfn class="decl" id="xla::LogicalBuffer::is_tuple_" title='xla::LogicalBuffer::is_tuple_' data-ref="xla::LogicalBuffer::is_tuple_">is_tuple_</dfn> : <var>1</var>;</td></tr>
+<tr><th id="162">162</th><td>  <a class="typedef" href="#87" title='xla::LogicalBuffer::Color' data-type='::tensorflow::gtl::IntType&lt;Color_tag_, int64&gt;' data-ref="xla::LogicalBuffer::Color">Color</a> <dfn class="decl" id="xla::LogicalBuffer::color_" title='xla::LogicalBuffer::color_' data-ref="xla::LogicalBuffer::color_">color_</dfn>;</td></tr>
+<tr><th id="163">163</th><td>  <a class="type" href="../shape_util.h.html#xla::ShapeIndex" title='xla::ShapeIndex' data-ref="xla::ShapeIndex">ShapeIndex</a> <dfn class="decl" id="xla::LogicalBuffer::index_" title='xla::LogicalBuffer::index_' data-ref="xla::LogicalBuffer::index_">index_</dfn>;</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td>  <i>// Similar to HLO constructs (HloInstruction, etc), pointers are used for</i></td></tr>
+<tr><th id="166">166</th><td><i>  // comparison to equality, so disable all copying.</i></td></tr>
+<tr><th id="167">167</th><td>  <a class="macro" href="../../../core/platform/macros.h.html#91" title="LogicalBuffer(const LogicalBuffer&amp;) = delete; void operator=(const LogicalBuffer&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN3xla13LogicalBufferC1ERKS0_" title='xla::LogicalBuffer::LogicalBuffer' data-ref="_ZN3xla13LogicalBufferC1ERKS0_"><a class="type" href="#xla::LogicalBuffer" title='xla::LogicalBuffer' data-ref="xla::LogicalBuffer"><a class="type" href="#xla::LogicalBuffer" title='xla::LogicalBuffer' data-ref="xla::LogicalBuffer">LogicalBuffer</a></a></dfn>);</td></tr>
+<tr><th id="168">168</th><td>};</td></tr>
+<tr><th id="169">169</th><td></td></tr>
+<tr><th id="170">170</th><td><span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/5/iosfwd.html#std::ostream" title='std::ostream' data-type='basic_ostream&lt;char&gt;' data-ref="std::ostream">ostream</a>&amp; <dfn class="decl" id="_ZN3xlalsERSoRKNS_13LogicalBufferE" title='xla::operator&lt;&lt;' data-ref="_ZN3xlalsERSoRKNS_13LogicalBufferE"><b>operator</b>&lt;&lt;</dfn>(<span class="namespace">std::</span><a class="typedef" href="../../../../../include/c++/5/iosfwd.html#std::ostream" title='std::ostream' data-type='basic_ostream&lt;char&gt;' data-ref="std::ostream">ostream</a>&amp; <dfn class="local col1 decl" id="7871out" title='out' data-type='std::ostream &amp;' data-ref="7871out">out</dfn>, <em>const</em> <a class="type" href="#xla::LogicalBuffer" title='xla::LogicalBuffer' data-ref="xla::LogicalBuffer">LogicalBuffer</a>&amp; <dfn class="local col2 decl" id="7872buffer" title='buffer' data-type='const xla::LogicalBuffer &amp;' data-ref="7872buffer">buffer</dfn>);</td></tr>
+<tr><th id="171">171</th><td></td></tr>
+<tr><th id="172">172</th><td>}  <i>// namespace xla</i></td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_COMPILER_XLA_SERVICE_LOGICAL_BUFFER_H_</u></td></tr>
+<tr><th id="175">175</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

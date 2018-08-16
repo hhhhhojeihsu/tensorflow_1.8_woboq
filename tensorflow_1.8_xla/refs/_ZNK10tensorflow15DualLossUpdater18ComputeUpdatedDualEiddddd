@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/kernels/loss.h' l='29' type='double tensorflow::DualLossUpdater::ComputeUpdatedDual(const int num_loss_partitions, const double label, const double example_weight, const double current_dual, const double wx, const double weighted_example_norm) const'/>
+<doc f='tensorflow/tensorflow/core/kernels/loss.h' l='26'>// Compute update dual (alpha), based on a single example. Various strategies
+  // can be employed here, like newton step and/or line search or approximate
+  // step that decreases the dual sub-optimality.</doc>
+<ovr f='tensorflow/tensorflow/core/kernels/hinge-loss.h' l='42' c='_ZNK10tensorflow16HingeLossUpdater18ComputeUpdatedDualEiddddd'/>
+<ovr f='tensorflow/tensorflow/core/kernels/logistic-loss.h' l='31' c='_ZNK10tensorflow19LogisticLossUpdater18ComputeUpdatedDualEiddddd'/>
+<ovr f='tensorflow/tensorflow/core/kernels/smooth-hinge-loss.h' l='33' c='_ZNK10tensorflow22SmoothHingeLossUpdater18ComputeUpdatedDualEiddddd'/>
+<ovr f='tensorflow/tensorflow/core/kernels/squared-loss.h' l='32' c='_ZNK10tensorflow18SquaredLossUpdater18ComputeUpdatedDualEiddddd'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_ops.cc' l='189' u='c' c='_ZN10tensorflow12_GLOBAL__N_19DoComputeERKNS0_14ComputeOptionsEPNS_15OpKernelContextE'/>

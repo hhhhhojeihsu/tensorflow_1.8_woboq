@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='907' type='tensorflow::Status xla::ComputationBuilder::RunOp(xla::OpRequest * op_request, xla::OpResponse * op_response)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='904'>// Helper function that runs the given op_request, filling in op_response.
+  // Before the op is run, PrepareComputation is called, and common fields in
+  // the op_request are filled in.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='86' ll='104' type='tensorflow::Status xla::ComputationBuilder::RunOp(xla::OpRequest * op_request, xla::OpResponse * op_response)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='108' u='c' c='_ZN3xla18ComputationBuilder17RunOpAndNoteErrorEPNS_9OpRequestE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='117' u='c' c='_ZN3xla18ComputationBuilder21RunOpAndParseResponseEPNS_9OpRequestE'/>

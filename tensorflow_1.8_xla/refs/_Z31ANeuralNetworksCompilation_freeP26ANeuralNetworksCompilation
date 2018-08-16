@@ -1,0 +1,16 @@
+<def f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='1641' ll='1645' type='void ANeuralNetworksCompilation_free(ANeuralNetworksCompilation * compilation)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='1626'>/**
+ * Destroy a compilation.
+ *
+ * &lt;p&gt;If called on a compilation for which
+ * {@link ANeuralNetworksCompilation_start} has been called, the
+ * function will return immediately but will mark the compilation to be deleted
+ * once the compilation completes. The {@link ANeuralNetworksCompilation_wait}
+ * will return ERROR_DELETED.
+ *
+ * See {@link ANeuralNetworksCompilation} for information on multithreaded
+ * usage.
+ *
+ * @param compilation The compilation to be destroyed. Passing NULL is
+ * acceptable and results in no operation.
+ */</doc>

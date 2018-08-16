@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.h' l='88' type='static tensorflow::Status tensorflow::XlaHelpers::ArgMin(xla::ComputationBuilder * builder, tensorflow::XlaOpKernelContext * ctx, const xla::ComputationDataHandle &amp; input, const tensorflow::TensorShape &amp; input_shape, tensorflow::DataType input_type, tensorflow::DataType output_type, int axis, xla::ComputationDataHandle * argmin)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.h' l='85'>// Sets `argmin` to the argmin of `input` along `axis`. `input_shape` and
+  // `input_dtype` are the shape and dtype of `input` respectively, and
+  // `output_type` is the dtype to use for `argmin`.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops.cc' l='70' u='c' c='_ZN10tensorflow14XlaArgMinMaxOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='196' ll='204' type='static tensorflow::Status tensorflow::XlaHelpers::ArgMin(xla::ComputationBuilder * builder, tensorflow::XlaOpKernelContext * ctx, const xla::ComputationDataHandle &amp; input, const tensorflow::TensorShape &amp; input_shape, tensorflow::DataType input_type, tensorflow::DataType output_type, int axis, xla::ComputationDataHandle * argmin)'/>

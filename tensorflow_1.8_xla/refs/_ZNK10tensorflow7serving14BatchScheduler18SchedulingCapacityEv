@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/kernels/batching_util/batch_scheduler.h' l='180' type='size_t tensorflow::serving::BatchScheduler::SchedulingCapacity() const'/>
+<doc f='tensorflow/tensorflow/core/kernels/batching_util/batch_scheduler.h' l='168'>// Returns a guaranteed number of size 1 tasks that can be Schedule()d without
+  // getting an UNAVAILABLE error. In a typical implementation, returns the
+  // available space on a queue.
+  //
+  // There are two important caveats:
+  //  1. The guarantee does not extend to varying-size tasks due to possible
+  //     internal fragmentation of batches.
+  //  2. The guarantee only holds in a single-thread environment or critical
+  //     section, i.e. if an intervening thread cannot call Schedule().
+  //
+  // This method is useful for monitoring, or for guaranteeing a future slot in
+  // the schedule (but being mindful about the caveats listed above).</doc>

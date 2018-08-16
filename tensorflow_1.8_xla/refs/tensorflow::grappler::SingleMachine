@@ -1,0 +1,49 @@
+<inh f='tensorflow/tensorflow/core/grappler/clusters/cluster.h' l='37' c='tensorflow::grappler::Cluster'/>
+<def f='tensorflow/tensorflow/core/grappler/clusters/single_machine.h' l='31' ll='83'/>
+<size>536</size>
+<doc f='tensorflow/tensorflow/core/grappler/clusters/single_machine.h' l='29'>// Create a simple cluster that makes available to grappler a subset of the
+// nodes available on a single local computer.</doc>
+<fun r='_ZN10tensorflow8grappler13SingleMachineC1Eiii'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachineD1Ev'/>
+<fun r='_ZNK10tensorflow8grappler13SingleMachine4typeEv'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine9ProvisionEv'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine8ShutdownEv'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine10InitializeERKNS0_12GrapplerItemE'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine3RunERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine21EnablePeakMemoryStatsEb'/>
+<fun r='_ZNK10tensorflow8grappler13SingleMachine18GetPeakMemoryUsageEPSt13unordered_mapISsySt4hashISsESt8equal_toISsESaISt4pairIKSsyEEE'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine14RunWithTimeoutERKSt6vectorISt4pairISsNS_6TensorEESaIS5_EERKS2_ISsSaISsEEPNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine14RunWithTimeoutERKSt6vectorISt4pairISsNS_6TensorEESaIS5_EERKS2_ISsSaISsEEPNS_11RunMetadataEx'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine12ResetSessionEv'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine12CloseSessionEb'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine15ShutdownSessionEv'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine10MergeCostsEPNS_12CostGraphDefERKS2_S5_'/>
+<fun r='_ZNK10tensorflow8grappler13SingleMachine19ClearAllocatorStatsEv'/>
+<mbr r='tensorflow::grappler::SingleMachine::session_' o='2688' t='std::unique_ptr&lt;Session&gt;'/>
+<mbr r='tensorflow::grappler::SingleMachine::queue_runner_defs_' o='2752' t='std::vector&lt;QueueRunnerDef&gt;'/>
+<mbr r='tensorflow::grappler::SingleMachine::last_graph_id_' o='2944' t='string'/>
+<mbr r='tensorflow::grappler::SingleMachine::last_graph_mu_' o='3008' t='tensorflow::mutex'/>
+<mbr r='tensorflow::grappler::SingleMachine::last_graph_' o='3136' t='const tensorflow::GraphDef *'/>
+<mbr r='tensorflow::grappler::SingleMachine::init_ops_' o='3200' t='std::vector&lt;string&gt;'/>
+<mbr r='tensorflow::grappler::SingleMachine::expected_init_time_s_' o='3392' t='int64'/>
+<mbr r='tensorflow::grappler::SingleMachine::coordinator_' o='3456' t='std::unique_ptr&lt;Coordinator&gt;'/>
+<mbr r='tensorflow::grappler::SingleMachine::thread_pool_' o='3520' t='std::unique_ptr&lt;thread::ThreadPool&gt;'/>
+<mbr r='tensorflow::grappler::SingleMachine::init_metadata_' o='3584' t='tensorflow::RunMetadata'/>
+<mbr r='tensorflow::grappler::SingleMachine::close_mu_' o='4096' t='tensorflow::mutex'/>
+<mbr r='tensorflow::grappler::SingleMachine::closing_' o='4224' t='bool'/>
+<mbr r='tensorflow::grappler::SingleMachine::cpu_allocator_stats_enabled_' o='4232' t='bool'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachineC1Eiii'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachineD1Ev'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine9ProvisionEv'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine10InitializeERKNS0_12GrapplerItemE'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine8ShutdownEv'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine3RunERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine21EnablePeakMemoryStatsEb'/>
+<fun r='_ZNK10tensorflow8grappler13SingleMachine18GetPeakMemoryUsageEPSt13unordered_mapISsySt4hashISsESt8equal_toISsESaISt4pairIKSsyEEE'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine14RunWithTimeoutERKSt6vectorISt4pairISsNS_6TensorEESaIS5_EERKS2_ISsSaISsEEPNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine14RunWithTimeoutERKSt6vectorISt4pairISsNS_6TensorEESaIS5_EERKS2_ISsSaISsEEPNS_11RunMetadataEx'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine12CloseSessionEb'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine15ShutdownSessionEv'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine12ResetSessionEv'/>
+<fun r='_ZN10tensorflow8grappler13SingleMachine10MergeCostsEPNS_12CostGraphDefERKS2_S5_'/>
+<fun r='_ZNK10tensorflow8grappler13SingleMachine19ClearAllocatorStatsEv'/>

@@ -1,0 +1,10 @@
+<inh f='tensorflow/tensorflow/core/framework/op_kernel.h' l='74' c='tensorflow::OpKernel'/>
+<def f='tensorflow/tensorflow/core/kernels/sdca_ops.cc' l='288' ll='316'/>
+<size>288</size>
+<doc f='tensorflow/tensorflow/core/kernels/sdca_ops.cc' l='282'>// Computes platform independent, compact and unique (with very high
+// probability) representation of an example id. It shouldn&apos;t be put in
+// persistent storage, as its implementation may change in the future.
+//
+// The current probability of at least one collision for 1B example_ids is
+// approximately 10^-21 (ie 2^60 / 2^129).</doc>
+<fun r='_ZN10tensorflow10SdcaFprint7ComputeEPNS_15OpKernelContextE'/>

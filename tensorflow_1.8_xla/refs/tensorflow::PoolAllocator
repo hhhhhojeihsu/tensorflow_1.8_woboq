@@ -1,0 +1,51 @@
+<inh f='tensorflow/tensorflow/core/common_runtime/visitable_allocator.h' l='28' c='tensorflow::VisitableAllocator'/>
+<def f='tensorflow/tensorflow/core/common_runtime/gpu/pool_allocator.h' l='47' ll='153'/>
+<size>216</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/pool_allocator.h' l='45'>// Size-limited pool of memory buffers obtained from a SubAllocator
+// instance.  Pool eviction policy is LRU.</doc>
+<fun r='_ZN10tensorflow13PoolAllocatorC1EmbPNS_12SubAllocatorEPNS_16RoundUpInterfaceESs'/>
+<fun r='_ZN10tensorflow13PoolAllocatorD1Ev'/>
+<fun r='_ZN10tensorflow13PoolAllocator4NameEv'/>
+<fun r='_ZN10tensorflow13PoolAllocator11AllocateRawEmm'/>
+<fun r='_ZN10tensorflow13PoolAllocator13DeallocateRawEPv'/>
+<fun r='_ZN10tensorflow13PoolAllocator15AddAllocVisitorESt8functionIFvPvmEE'/>
+<fun r='_ZN10tensorflow13PoolAllocator14AddFreeVisitorESt8functionIFvPvmEE'/>
+<fun r='_ZN10tensorflow13PoolAllocator3GetEm'/>
+<fun r='_ZN10tensorflow13PoolAllocator3PutEPvm'/>
+<fun r='_ZN10tensorflow13PoolAllocator5ClearEv'/>
+<fun r='_ZNK10tensorflow13PoolAllocator19get_from_pool_countEv'/>
+<fun r='_ZNK10tensorflow13PoolAllocator9put_countEv'/>
+<fun r='_ZNK10tensorflow13PoolAllocator15allocated_countEv'/>
+<fun r='_ZNK10tensorflow13PoolAllocator13evicted_countEv'/>
+<fun r='_ZNK10tensorflow13PoolAllocator10size_limitEv'/>
+<fun r='_ZN10tensorflow13PoolAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<fun r='_ZN10tensorflow13PoolAllocator14RemoveFromListEPNS0_9PtrRecordE'/>
+<fun r='_ZN10tensorflow13PoolAllocator9AddToListEPNS0_9PtrRecordE'/>
+<fun r='_ZN10tensorflow13PoolAllocator8EvictOneEv'/>
+<mbr r='tensorflow::PoolAllocator::name_' o='64' t='const string'/>
+<mbr r='tensorflow::PoolAllocator::has_size_limit_' o='128' t='const bool'/>
+<mbr r='tensorflow::PoolAllocator::auto_resize_' o='136' t='const bool'/>
+<mbr r='tensorflow::PoolAllocator::pool_size_limit_' o='192' t='size_t'/>
+<mbr r='tensorflow::PoolAllocator::allocator_' o='256' t='std::unique_ptr&lt;SubAllocator&gt;'/>
+<mbr r='tensorflow::PoolAllocator::size_rounder_' o='320' t='std::unique_ptr&lt;RoundUpInterface&gt;'/>
+<mbr r='tensorflow::PoolAllocator::mutex_' o='384' t='tensorflow::mutex'/>
+<mbr r='tensorflow::PoolAllocator::pool_' o='512' t='std::multimap&lt;const size_t, PtrRecord *&gt;'/>
+<mbr r='tensorflow::PoolAllocator::lru_head_' o='896' t='tensorflow::PoolAllocator::PtrRecord *'/>
+<mbr r='tensorflow::PoolAllocator::lru_tail_' o='960' t='tensorflow::PoolAllocator::PtrRecord *'/>
+<mbr r='tensorflow::PoolAllocator::get_from_pool_count_' o='1024' t='int64'/>
+<mbr r='tensorflow::PoolAllocator::put_count_' o='1088' t='int64'/>
+<mbr r='tensorflow::PoolAllocator::allocated_count_' o='1152' t='int64'/>
+<mbr r='tensorflow::PoolAllocator::evicted_count_' o='1216' t='int64'/>
+<mbr r='tensorflow::PoolAllocator::alloc_visitors_' o='1280' t='std::vector&lt;Visitor&gt;'/>
+<mbr r='tensorflow::PoolAllocator::free_visitors_' o='1472' t='std::vector&lt;Visitor&gt;'/>
+<mbr r='tensorflow::PoolAllocator::allocation_begun_' o='1664' t='std::atomic&lt;bool&gt;'/>
+<fun r='_ZN10tensorflow13PoolAllocatorC1EmbPNS_12SubAllocatorEPNS_16RoundUpInterfaceESs'/>
+<fun r='_ZN10tensorflow13PoolAllocatorD1Ev'/>
+<fun r='_ZN10tensorflow13PoolAllocator11AllocateRawEmm'/>
+<fun r='_ZN10tensorflow13PoolAllocator13DeallocateRawEPv'/>
+<fun r='_ZN10tensorflow13PoolAllocator5ClearEv'/>
+<fun r='_ZN10tensorflow13PoolAllocator14RemoveFromListEPNS0_9PtrRecordE'/>
+<fun r='_ZN10tensorflow13PoolAllocator9AddToListEPNS0_9PtrRecordE'/>
+<fun r='_ZN10tensorflow13PoolAllocator8EvictOneEv'/>
+<fun r='_ZN10tensorflow13PoolAllocator15AddAllocVisitorESt8functionIFvPvmEE'/>
+<fun r='_ZN10tensorflow13PoolAllocator14AddFreeVisitorESt8functionIFvPvmEE'/>

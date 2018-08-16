@@ -1,0 +1,14 @@
+<def f='tensorflow/tensorflow/contrib/lite/context.h' l='274' ll='335'/>
+<size>96</size>
+<mbr r='TfLiteContext::tensors_size' o='0' t='int'/>
+<mbr r='TfLiteContext::GetExecutionPlan' o='64' t='TfLiteStatus (*)(struct TfLiteContext *, TfLiteIntArray **)'/>
+<mbr r='TfLiteContext::tensors' o='128' t='TfLiteTensor *'/>
+<mbr r='TfLiteContext::impl_' o='192' t='void *'/>
+<mbr r='TfLiteContext::ResizeTensor' o='256' t='TfLiteStatus (*)(struct TfLiteContext *, TfLiteTensor *, TfLiteIntArray *)'/>
+<mbr r='TfLiteContext::ReportError' o='320' t='void (*)(struct TfLiteContext *, const char *, ...)'/>
+<mbr r='TfLiteContext::AddTensors' o='384' t='TfLiteStatus (*)(struct TfLiteContext *, int, int *)'/>
+<mbr r='TfLiteContext::GetNodeAndRegistration' o='448' t='TfLiteStatus (*)(struct TfLiteContext *, int, TfLiteNode **, TfLiteRegistration **)'/>
+<mbr r='TfLiteContext::ReplaceSubgraphsWithDelegateKernels' o='512' t='TfLiteStatus (*)(struct TfLiteContext *, TfLiteRegistration, const TfLiteIntArray *, TfLiteDelegate *)'/>
+<mbr r='TfLiteContext::recommended_num_threads' o='576' t='int'/>
+<mbr r='TfLiteContext::gemm_context' o='640' t='void *'/>
+<mbr r='TfLiteContext::eigen_context' o='704' t='void *'/>

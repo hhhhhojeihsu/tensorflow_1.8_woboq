@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/master_env.h' l='74' type='std::vector&lt;Device *&gt;'/>
+<offset>192</offset>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/master_env.h' l='70'>// Local devices co-located with this master.  Devices are not owned
+  // by the master service.
+  //
+  // REQUIRES: !local_devices.empty().</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='70' u='m' c='_ZN10tensorflow6MasterC1EPNS_9MasterEnvEd'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='140' u='r' c='_ZN10tensorflow12DeviceFinder16GetRemoteDevicesERKN6google8protobuf16RepeatedPtrFieldISsEEPNS_9MasterEnvEPNS_20WorkerCacheInterfaceEPSt6vectorISt10uni7806095'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='354' u='m' c='_ZN10tensorflow6Master13CreateSessionEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='355' u='m' c='_ZN10tensorflow6Master13CreateSessionEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='404' c='_ZN10tensorflow6Master13CreateSessionEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='544' c='_ZN10tensorflow6Master11ListDevicesEPKNS_18ListDevicesRequestEPNS_19ListDevicesResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1133' u='m' c='_ZN10tensorflow13MasterSessionC1ERKNS_14SessionOptionsEPKNS_9MasterEnvESt10unique_ptrISt6vectorIS7_INS_6DeviceESt14default_deleteIS9_EESaISC_EESA_ISE_4774954'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1328' c='_ZNK10tensorflow13MasterSession11ListDevicesEPNS_19ListDevicesResponseE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='125' u='a' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='126' u='r' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='133' u='m' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>

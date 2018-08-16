@@ -1,0 +1,10 @@
+<def f='include/c++/5/bits/stl_deque.h' l='1782' ll='1791' type='void std::deque::swap(deque&lt;_Tp, _Alloc&gt; &amp; __x)'/>
+<doc f='include/c++/5/bits/stl_deque.h' l='1773'>/**
+       *  @brief  Swaps data with another %deque.
+       *  @param  __x  A %deque of the same element and allocator types.
+       *
+       *  This exchanges the elements between two deques in constant time.
+       *  (Four pointers, so it should be quite fast.)
+       *  Note that the global std::swap() function is specialized such that
+       *  std::swap(d1,d2) will feed to this function.
+       */</doc>

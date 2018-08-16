@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='48' type='void tensorflow::BFCAllocator::BFCAllocator(tensorflow::SubAllocator * sub_allocator, size_t total_memory, bool allow_growth, const string &amp; name)'/>
+<def f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='32' ll='68' type='void tensorflow::BFCAllocator::BFCAllocator(tensorflow::SubAllocator * sub_allocator, size_t total_memory, bool allow_growth, const string &amp; name)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='47'>// Takes ownership of sub_allocator.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc' l='32' u='c' c='_ZN10tensorflow15GPUBFCAllocatorC1ENS_3gtl7IntTypeINS_14CudaGpuId_tag_EiEEmRKNS_10GPUOptionsERKSs'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/process_state.cc' l='205' u='c' c='_ZN10tensorflow12ProcessState15GetCPUAllocatorEi'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/process_state.cc' l='281' u='c' c='_ZN10tensorflow12ProcessState20GetCUDAHostAllocatorEi'/>

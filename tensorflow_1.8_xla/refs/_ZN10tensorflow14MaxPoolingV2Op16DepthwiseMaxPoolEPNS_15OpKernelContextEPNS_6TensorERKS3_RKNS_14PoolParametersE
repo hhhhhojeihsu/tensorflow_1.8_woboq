@@ -1,0 +1,8 @@
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_common.h' l='372' u='c' c='_ZN10tensorflow14MaxPoolingV2Op7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/kernels/pooling_ops_common.h' l='385' ll='393' type='void tensorflow::MaxPoolingV2Op::DepthwiseMaxPool(tensorflow::OpKernelContext * context, tensorflow::Tensor * output, const tensorflow::Tensor &amp; tensor_in, const tensorflow::PoolParameters &amp; params)'/>
+<doc f='tensorflow/tensorflow/core/kernels/pooling_ops_common.h' l='379'>// Single-threaded implementation of DepthwiseMaxPool which
+  // does not handle all of the same options as SpatialMaxPool
+  // (strict assumptions on no padding, stride).
+  //
+  // TODO(vrv): implement a more general depthwise-max pool that works
+  // on GPU as well.</doc>

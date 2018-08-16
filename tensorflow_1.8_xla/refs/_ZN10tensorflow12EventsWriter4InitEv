@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/util/events_writer.h' l='56' type='tensorflow::Status tensorflow::EventsWriter::Init()'/>
+<doc f='tensorflow/tensorflow/core/util/events_writer.h' l='50'>// Sets the event file filename and opens file for writing.  If not called by
+  // user, will be invoked automatically by a call to FileName() or Write*().
+  // Returns false if the file could not be opened.  Idempotent: if file exists
+  // and is open this is a no-op.  If on the other hand the file was opened,
+  // but has since disappeared (e.g. deleted by another process), this will open
+  // a new file with a new timestamp in its filename.</doc>
+<def f='tensorflow/tensorflow/core/util/events_writer.cc' l='43' type='tensorflow::Status tensorflow::EventsWriter::Init()'/>

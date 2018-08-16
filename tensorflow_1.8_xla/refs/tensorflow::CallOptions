@@ -1,0 +1,18 @@
+<def f='tensorflow/tensorflow/core/distributed_runtime/call_options.h' l='34' ll='75'/>
+<size>56</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/call_options.h' l='28'>// Options passed to interface calls. This class provides portable
+// functionality across different RPC systems on top of
+// platform-specific mechanisms (for client and server contexts,
+// cancellation, etc.).
+//
+// TODO(zhifengc): Maybe change all RPC methods to take CallOptions.</doc>
+<fun r='_ZN10tensorflow11CallOptionsC1Ev'/>
+<fun r='_ZN10tensorflow11CallOptions11StartCancelEv'/>
+<fun r='_ZN10tensorflow11CallOptions17SetCancelCallbackESt8functionIFvvEE'/>
+<fun r='_ZN10tensorflow11CallOptions19ClearCancelCallbackEv'/>
+<fun r='_ZN10tensorflow11CallOptions10GetTimeoutEv'/>
+<fun r='_ZN10tensorflow11CallOptions10SetTimeoutEx'/>
+<mbr r='tensorflow::CallOptions::mu_' o='0' t='tensorflow::mutex'/>
+<mbr r='tensorflow::CallOptions::cancel_func_' o='128' t='CancelFunction'/>
+<mbr r='tensorflow::CallOptions::timeout_in_ms_' o='384' t='int64'/>
+<fun r='_ZN10tensorflow11CallOptionsC1ERKS0_'/>

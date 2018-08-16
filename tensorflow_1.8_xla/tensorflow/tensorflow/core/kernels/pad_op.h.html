@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>pad_op.h source code [tensorflow/tensorflow/core/kernels/pad_op.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::functor::Pad "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/kernels/pad_op.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>kernels</a>/<a href='pad_op.h.html'>pad_op.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_KERNELS_PAD_OP_H_">TENSORFLOW_KERNELS_PAD_OP_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_KERNELS_PAD_OP_H_" data-ref="_M/TENSORFLOW_KERNELS_PAD_OP_H_">TENSORFLOW_KERNELS_PAD_OP_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td><i>// Functor definition for PadOp, must be compilable by nvcc.</i></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../third_party/eigen3/unsupported/Eigen/CXX11/Tensor.html">"third_party/eigen3/unsupported/Eigen/CXX11/Tensor"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../framework/tensor_types.h.html">"tensorflow/core/framework/tensor_types.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">functor</span> {</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><i>// Functor used by PadOp to do the computations.</i></td></tr>
+<tr><th id="28">28</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T, <b>typename</b> Tpadding, <em>int</em> Dims&gt;</td></tr>
+<tr><th id="29">29</th><td><b>struct</b> <dfn class="type def" id="tensorflow::functor::Pad" title='tensorflow::functor::Pad' data-ref="tensorflow::functor::Pad">Pad</dfn> {</td></tr>
+<tr><th id="30">30</th><td>  <i>// Pad "input" into "output", as specified by "paddings" and "pad_value".</i></td></tr>
+<tr><th id="31">31</th><td><i>  // See pad_op.cc for details.</i></td></tr>
+<tr><th id="32">32</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow7functor3PadclERKT_NS_6TTypesIT0_XT2_ElE6TensorENS7_11ConstTensorEN5Eigen5arrayINSA_9IndexPairIT1_EEXT2_EEES6_" title='tensorflow::functor::Pad::operator()' data-ref="_ZN10tensorflow7functor3PadclERKT_NS_6TTypesIT0_XT2_ElE6TensorENS7_11ConstTensorEN5Eigen5arrayINSA_9IndexPairIT1_EEXT2_EEES6_"><b>operator</b>()</dfn>(<em>const</em> Device&amp; <dfn class="local col1 decl" id="1d" title='d' data-type='const Device &amp;' data-ref="1d">d</dfn>, <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <a class="tu member" href="#tensorflow::functor::Pad::Dims" title='tensorflow::functor::Pad::Dims' data-ref="tensorflow::functor::Pad::Dims">Dims</a>&gt;::Tensor <dfn class="local col2 decl" id="2output" title='output' data-type='typename TTypes&lt;T, Dims&gt;::Tensor' data-ref="2output">output</dfn>,</td></tr>
+<tr><th id="33">33</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <a class="tu member" href="#tensorflow::functor::Pad::Dims" title='tensorflow::functor::Pad::Dims' data-ref="tensorflow::functor::Pad::Dims">Dims</a>&gt;::ConstTensor <dfn class="local col3 decl" id="3input" title='input' data-type='typename TTypes&lt;T, Dims&gt;::ConstTensor' data-ref="3input">input</dfn>,</td></tr>
+<tr><th id="34">34</th><td>                  <span class="namespace">Eigen::</span><span class='type' title='Eigen::array' data-ref="Eigen::array">array</span>&lt;<span class="namespace">Eigen::</span><span class='type' title='Eigen::IndexPair' data-ref="Eigen::IndexPair">IndexPair</span>&lt;Tpadding&gt;, <a class="tu member" href="#tensorflow::functor::Pad::Dims" title='tensorflow::functor::Pad::Dims' data-ref="tensorflow::functor::Pad::Dims">Dims</a>&gt; <dfn class="local col4 decl" id="4paddings" title='paddings' data-type='Eigen::array&lt;Eigen::IndexPair&lt;Tpadding&gt;, Dims&gt;' data-ref="4paddings">paddings</dfn>,</td></tr>
+<tr><th id="35">35</th><td>                  T <dfn class="local col5 decl" id="5pad_value" title='pad_value' data-type='T' data-ref="5pad_value">pad_value</dfn>) {</td></tr>
+<tr><th id="36">36</th><td>    <b>if</b> (<span class="namespace">Eigen::internal::</span><span class='type' title='Eigen::internal::is_same' data-ref="Eigen::internal::is_same">is_same</span>&lt;Device, <span class="namespace">Eigen::</span><span class='type' title='Eigen::GpuDevice' data-ref="Eigen::GpuDevice">GpuDevice</span>&gt;::value &amp;&amp;</td></tr>
+<tr><th id="37">37</th><td>        (<a class="local col2 ref" href="#2output" title='output' data-ref="2output">output</a>.size() &lt;= <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;<a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>&gt;::<a class="ref" href="../../../../include/c++/5/limits.html#_ZNSt14numeric_limitsIiE3maxEv" title='std::numeric_limits&lt;int&gt;::max' data-ref="_ZNSt14numeric_limitsIiE3maxEv">max</a>())) {</td></tr>
+<tr><th id="38">38</th><td>      To32Bit(<a class="local col2 ref" href="#2output" title='output' data-ref="2output">output</a>).device(<a class="local col1 ref" href="#1d" title='d' data-ref="1d">d</a>) = To32Bit(<a class="local col3 ref" href="#3input" title='input' data-ref="3input">input</a>).pad(<a class="local col4 ref" href="#4paddings" title='paddings' data-ref="4paddings">paddings</a>, <a class="local col5 ref" href="#5pad_value" title='pad_value' data-ref="5pad_value">pad_value</a>);</td></tr>
+<tr><th id="39">39</th><td>    } <b>else</b> {</td></tr>
+<tr><th id="40">40</th><td>      <a class="local col2 ref" href="#2output" title='output' data-ref="2output">output</a>.device(<a class="local col1 ref" href="#1d" title='d' data-ref="1d">d</a>) = <a class="local col3 ref" href="#3input" title='input' data-ref="3input">input</a>.pad(<a class="local col4 ref" href="#4paddings" title='paddings' data-ref="4paddings">paddings</a>, <a class="local col5 ref" href="#5pad_value" title='pad_value' data-ref="5pad_value">pad_value</a>);</td></tr>
+<tr><th id="41">41</th><td>    }</td></tr>
+<tr><th id="42">42</th><td>  }</td></tr>
+<tr><th id="43">43</th><td>};</td></tr>
+<tr><th id="44">44</th><td></td></tr>
+<tr><th id="45">45</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T, <b>typename</b> Tpadding&gt;</td></tr>
+<tr><th id="46">46</th><td><b>struct</b> <dfn class="type def" id="tensorflow::functor::Pad" title='tensorflow::functor::Pad' data-ref="tensorflow::functor::Pad">Pad</dfn>&lt;Device, T, Tpadding, <var>0</var>&gt; {</td></tr>
+<tr><th id="47">47</th><td>  <i>// In the scalar case we simply copy the input.</i></td></tr>
+<tr><th id="48">48</th><td>  <em>void</em> <dfn class="decl def" id="_ZN10tensorflow7functor3PadIT_T0_T1_Li0EEclERKS2_NS_6TTypesIS3_Li0ElE6TensorENS9_11ConstTensorEN5Eigen5arrayINSC_9IndexPairIS4_EELm0EEES3_" title='tensorflow::functor::Pad&lt;type-parameter-0-0, type-parameter-0-1, type-parameter-0-2, 0&gt;::operator()' data-ref="_ZN10tensorflow7functor3PadIT_T0_T1_Li0EEclERKS2_NS_6TTypesIS3_Li0ElE6TensorENS9_11ConstTensorEN5Eigen5arrayINSC_9IndexPairIS4_EELm0EEES3_"><b>operator</b>()</dfn>(<em>const</em> Device&amp; <dfn class="local col6 decl" id="6d" title='d' data-type='const Device &amp;' data-ref="6d">d</dfn>, <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>0</var>&gt;::Tensor <dfn class="local col7 decl" id="7output" title='output' data-type='typename TTypes&lt;T, 0&gt;::Tensor' data-ref="7output">output</dfn>,</td></tr>
+<tr><th id="49">49</th><td>                  <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>0</var>&gt;::ConstTensor <dfn class="local col8 decl" id="8input" title='input' data-type='typename TTypes&lt;T, 0&gt;::ConstTensor' data-ref="8input">input</dfn>,</td></tr>
+<tr><th id="50">50</th><td>                  <span class="namespace">Eigen::</span><span class='type' title='Eigen::array' data-ref="Eigen::array">array</span>&lt;<span class="namespace">Eigen::</span><span class='type' title='Eigen::IndexPair' data-ref="Eigen::IndexPair">IndexPair</span>&lt;Tpadding&gt;, <var>0</var>&gt;, T) {</td></tr>
+<tr><th id="51">51</th><td>    <a class="local col7 ref" href="#7output" title='output' data-ref="7output">output</a>.device(<a class="local col6 ref" href="#6d" title='d' data-ref="6d">d</a>) = <a class="local col8 ref" href="#8input" title='input' data-ref="8input">input</a>;</td></tr>
+<tr><th id="52">52</th><td>  }</td></tr>
+<tr><th id="53">53</th><td>};</td></tr>
+<tr><th id="54">54</th><td>}  <i>// namespace functor</i></td></tr>
+<tr><th id="55">55</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_KERNELS_PAD_OP_H_</u></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='pad_op.cc.html'>tensorflow/tensorflow/core/kernels/pad_op.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

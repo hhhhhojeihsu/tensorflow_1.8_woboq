@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='200' type='std::unique_ptr&lt;HloReachabilityMap&gt; xla::HloComputation::ComputeReachability() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='194'>// Computes and returns the reachability between HLO instructions in the
+  // computation. The returned HloReachabilityMap is constructed such that
+  // HloReachabilityMap::IsReachable(a, b) returns true iff there exists a
+  // directed path (from producer to consumer) from &apos;a&apos; to &apos;b&apos;. Both data
+  // dependencies (operands) and control dependencies are considered for
+  // reachability. Trivially an instruction is reachable from itself.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='582' ll='595' type='std::unique_ptr&lt;HloReachabilityMap&gt; xla::HloComputation::ComputeReachability() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='325' u='c' c='_ZN3xla21DependencyHloOrderingC1EPKNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='249' u='c' c='_ZN3xla17InstructionFusion3RunEPNS_9HloModuleE'/>

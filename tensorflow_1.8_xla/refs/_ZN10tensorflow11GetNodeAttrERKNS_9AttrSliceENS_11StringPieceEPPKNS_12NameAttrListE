@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/framework/node_def_util.h' l='219' type='tensorflow::Status tensorflow::GetNodeAttr(const tensorflow::AttrSlice &amp; attrs, tensorflow::StringPiece attr_name, const tensorflow::NameAttrList ** value)'/>
+<doc f='tensorflow/tensorflow/core/framework/node_def_util.h' l='217'>// This version avoids copying the NameAttrList.
+// REQUIRES: Must not use *value beyond the lifetime of node_def.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='75' u='c' c='_ZN10tensorflow12_GLOBAL__N_117IsCompilableWhileERKNS_4NodeERKNS_10DeviceTypeEiPNS_22FunctionLibraryRuntimeE'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='88' u='c' c='_ZN10tensorflow12_GLOBAL__N_117IsCompilableWhileERKNS_4NodeERKNS_10DeviceTypeEiPNS_22FunctionLibraryRuntimeE'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='1126' u='c' c='_ZNK10tensorflow25FunctionLibraryDefinition11GetAttrImplERKNS_7NodeDefE'/>
+<def f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='285' ll='292' type='tensorflow::Status tensorflow::GetNodeAttr(const tensorflow::AttrSlice &amp; attrs, tensorflow::StringPiece attr_name, const tensorflow::NameAttrList ** value)'/>
+<use f='tensorflow/tensorflow/core/ops/functional_grad.cc' l='26' u='c' c='_ZN10tensorflow17MapAccumulateGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>

@@ -1,0 +1,7 @@
+<def f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='210' ll='215' type='const std::pair&lt;TfLiteNode, TfLiteRegistration&gt; * tflite::Interpreter::node_and_registration(int node_index) const'/>
+<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='207'>// Get a pointer to an operation and registration data structure if in bounds.
+  // TODO(aselle): Create a safe ArrayHandle interface to avoid exposing this
+  // read/write access to structure</doc>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='74' u='c' c='_ZNK6tflite15InterpreterInfo4nodeEm'/>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='136' u='c' c='_ZN6tflite15AddOpsAndParamsEPNS_11InterpreterEP20ANeuralNetworksModelj'/>
+<use f='tensorflow/tensorflow/contrib/lite/optional_debug_tools.cc' l='93' u='c' c='_ZN6tflite21PrintInterpreterStateEPNS_11InterpreterE'/>

@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/shape_util.h' l='29' type='tensorflow::Status tensorflow::XLAShapeToTensorShape(const xla::Shape &amp; shape, tensorflow::TensorShape * tensor_shape)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/shape_util.h' l='27'>// Convert an XLA Shape into the equivalent TensorFlow shape. May fail since
+// not all XLA shapes can be represented as TensorShapes.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/dynamic_stitch_op.cc' l='68' u='c' c='_ZN10tensorflow12_GLOBAL__N_115DynamicStitchOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/dynamic_stitch_op.cc' l='72' u='c' c='_ZN10tensorflow12_GLOBAL__N_115DynamicStitchOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stack_ops.cc' l='49' u='c' c='_ZN10tensorflow12_GLOBAL__N_113GetStackShapeEPN3xla18ComputationBuilderEPNS_11XlaResourceEPNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='80' u='c' c='_ZN10tensorflow12_GLOBAL__N_126MaybeInitializeTensorArrayEPN3xla18ComputationBuilderEPNS_11XlaResourceENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/literal_util.cc' l='69' u='c' c='_ZN10tensorflow19LiteralToHostTensorERKN3xla7LiteralENS_8DataTypeEPNS_6TensorE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/shape_util.cc' l='27' ll='39' type='tensorflow::Status tensorflow::XLAShapeToTensorShape(const xla::Shape &amp; shape, tensorflow::TensorShape * tensor_shape)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/shape_util.cc' l='26'>// Convert an XLA Shape into the equivalent TensorFlow shape.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='740' u='c' c='_ZN10tensorflow11XlaCompiler12CompileGraphERKNS0_14CompileOptionsERKSsSt10unique_ptrINS_5GraphESt14default_deleteIS7_EERKSt6vectorINS0_8ArgumentESaISC11181090'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='352' u='c' c='_ZN10tensorflow18XlaOpKernelContext9SetOutputEiRKN3xla21ComputationDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='428' u='c' c='_ZN10tensorflow18XlaOpKernelContext14AssignVariableEiNS_8DataTypeEN3xla21ComputationDataHandleE'/>

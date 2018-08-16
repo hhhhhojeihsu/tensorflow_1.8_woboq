@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/compiler.h' l='180' type='static StatusOr&lt;xla::Compiler *&gt; xla::Compiler::GetForPlatform(const perftools::gputools::Platform * platform)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/compiler.h' l='178'>// Returns the compiler singleton pointer if it is available for the given
+  // platform, or an error status if it is not.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='81' u='c' c='_ZN3xla7Backend13CreateBackendERKNS_14BackendOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/compile_only_service.cc' l='53' u='c' c='_ZN3xla18CompileOnlyService10NewServiceERKNS_14ServiceOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/compiler.cc' l='59' ll='87' type='static StatusOr&lt;xla::Compiler *&gt; xla::Compiler::GetForPlatform(const se::Platform * platform)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/compiler.cc' l='59'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='78' u='c' c='_ZN3xla12PlatformUtil21GetSupportedPlatformsEv'/>

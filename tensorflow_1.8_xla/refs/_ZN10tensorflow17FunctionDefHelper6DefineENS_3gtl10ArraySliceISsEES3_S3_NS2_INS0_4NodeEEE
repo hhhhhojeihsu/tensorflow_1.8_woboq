@@ -1,0 +1,32 @@
+<dec f='tensorflow/tensorflow/core/framework/function.h' l='138' type='static tensorflow::FunctionDef tensorflow::FunctionDefHelper::Define(gtl::ArraySlice&lt;string&gt; arg_def, gtl::ArraySlice&lt;string&gt; ret_def, gtl::ArraySlice&lt;string&gt; attr_def, gtl::ArraySlice&lt;Node&gt; node_def)'/>
+<doc f='tensorflow/tensorflow/core/framework/function.h' l='137'>// Defines an anonymous function. I.e., its name is not relevant.</doc>
+<def f='tensorflow/tensorflow/core/framework/function.cc' l='1312' ll='1317' type='static tensorflow::FunctionDef tensorflow::FunctionDefHelper::Define(gtl::ArraySlice&lt;string&gt; arg_def, gtl::ArraySlice&lt;string&gt; ret_def, gtl::ArraySlice&lt;string&gt; attr_def, gtl::ArraySlice&lt;Node&gt; node_def)'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='35' u='c' c='_ZN10tensorflow11ReshapeGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='56' u='c' c='_ZN10tensorflow11SqueezeGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='75' u='c' c='_ZN10tensorflow12IdentityGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='120' u='c' c='_ZN10tensorflow10UnpackGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='229' u='c' c='_ZN10tensorflow9SplitGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='256' u='c' c='_ZN10tensorflow15ArrayToListGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='276' u='c' c='_ZN10tensorflow15ListToArrayGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='295' u='c' c='_ZN10tensorflow8FillGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='318' u='c' c='_ZN10tensorflow13TransposeGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='337' u='c' c='_ZN10tensorflow22ConjugateTransposeGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='356' u='c' c='_ZN10tensorflow11ReverseGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='380' u='c' c='_ZN10tensorflow13ReverseV2GradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='404' u='c' c='_ZN10tensorflow9SliceGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='440' u='c' c='_ZN10tensorflow16StridedSliceGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='480' u='c' c='_ZN10tensorflow20StridedSliceGradGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/functional_grad.cc' l='38' u='c' c='_ZN10tensorflow17MapAccumulateGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='31' u='c' c='_ZN10tensorflow17GradForUnaryCwiseEPNS_11FunctionDefESt6vectorINS_17FunctionDefHelper4NodeESaIS4_EE'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='402' u='c' c='_ZN10tensorflow18GradForBinaryCwiseEPNS_11FunctionDefESt6vectorINS_17FunctionDefHelper4NodeESaIS4_EE'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='558' u='c' c='_ZN10tensorflow10SelectGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='666' u='c' c='_ZN10tensorflow16MinMaxGradHelperERKSsRKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='706' u='c' c='_ZN10tensorflowL16MatMulGradHelperEPNS_11FunctionDefERKSsS3_S3_S3_bS3_bS3_bS3_b'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='54' u='c' c='_ZN10tensorflow8ReluGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='72' u='c' c='_ZN10tensorflow9Relu6GradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='90' u='c' c='_ZN10tensorflow16CrossEntropyGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='119' u='c' c='_ZN10tensorflow10Conv2DGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='155' u='c' c='_ZN10tensorflow11MaxPoolGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='186' u='c' c='_ZN10tensorflow11AvgPoolGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='212' u='c' c='_ZN10tensorflow15MaxPoolGradGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='243' u='c' c='_ZN10tensorflow11BiasAddGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>

@@ -1,0 +1,23 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='188' type='const xla::Backend &amp; xla::LocalClient::backend() const'/>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='133' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='146' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='187'>// Returns the backend used to execute computations.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='57' u='c' c='_ZN10tensorflow20XlaCompileOnDemandOp3RunEPNS_15OpKernelContextERKNS_9XlaDevice8MetadataEPKNS_11XlaCompiler17CompilationResultEPN3xla15LocalExecutableE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='68' u='c' c='_ZN10tensorflow20XlaCompileOnDemandOp3RunEPNS_15OpKernelContextERKNS_9XlaDevice8MetadataEPKNS_11XlaCompiler17CompilationResultEPN3xla15LocalExecutableE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='57' u='c' c='_ZN10tensorflow18XlaTransferManagerC1EPN9perftools8gputools6StreamEPN3xla11LocalClientEb'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='139' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext14PopulateInputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultERKSt3mapIiNS_14OptionalTensor4150569'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='53' u='c' c='_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='62' u='c' c='_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='64' u='c' c='_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='70' u='c' c='_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='241' ll='243' type='const xla::Backend &amp; xla::LocalClient::backend() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='290' u='c' c='_ZN3xla11LocalClient21LiteralToShapedBufferERKNS_7LiteralEiPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='293' u='c' c='_ZN3xla11LocalClient21LiteralToShapedBufferERKNS_7LiteralEiPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='296' u='c' c='_ZN3xla11LocalClient21LiteralToShapedBufferERKNS_7LiteralEiPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='297' u='c' c='_ZN3xla11LocalClient21LiteralToShapedBufferERKNS_7LiteralEiPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='306' u='c' c='_ZN3xla11LocalClient21ShapedBufferToLiteralERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='307' u='c' c='_ZN3xla11LocalClient21ShapedBufferToLiteralERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='314' u='c' c='_ZN3xla11LocalClient21TransferToInfeedLocalERKNS_7LiteralEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='315' u='c' c='_ZN3xla11LocalClient21TransferToInfeedLocalERKNS_7LiteralEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='322' u='c' c='_ZN3xla11LocalClient24TransferFromOutfeedLocalERKNS_5ShapeEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='324' u='c' c='_ZN3xla11LocalClient24TransferFromOutfeedLocalERKNS_5ShapeEi'/>

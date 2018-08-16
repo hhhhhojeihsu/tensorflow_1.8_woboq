@@ -1,0 +1,17 @@
+<use f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='122' u='w' c='_ZN10tensorflow3ctc20CTCBeamSearchDecoder27SetLabelSelectionParametersEif'/>
+<dec f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='146' type='int'/>
+<use f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='251' c='_ZN10tensorflow3ctc20CTCBeamSearchDecoder4StepERKT_'/>
+<use f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='251' c='_ZN10tensorflow3ctc20CTCBeamSearchDecoder4StepERKT_'/>
+<use f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='253' u='r' c='_ZN10tensorflow3ctc20CTCBeamSearchDecoder4StepERKT_'/>
+<use f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='257' c='_ZN10tensorflow3ctc20CTCBeamSearchDecoder4StepERKT_'/>
+<doc f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='136'>// Label selection is designed to avoid possibly very expensive scorer calls,
+  // by pruning the hypotheses based on the input alone.
+  // Label selection size controls how many items in each beam are passed
+  // through to the beam scorer. Only items with top N input scores are
+  // considered.
+  // Label selection margin controls the difference between minimal input score
+  // (versus the best scoring label) for an item to be passed to the beam
+  // scorer. This margin is expressed in terms of log-probability.
+  // Default is to do no label selection.
+  // For more detail: https://research.google.com/pubs/pub44823.html</doc>
+<doc f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='146'>// zero means unlimited</doc>

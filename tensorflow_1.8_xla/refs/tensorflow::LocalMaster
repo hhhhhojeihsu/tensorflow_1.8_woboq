@@ -1,0 +1,49 @@
+<inh f='tensorflow/tensorflow/core/distributed_runtime/master_interface.h' l='32' c='tensorflow::MasterInterface'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/local_master.h' l='39' ll='107'/>
+<size>24</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/local_master.h' l='27'>// An implementation of the TensorFlow master interface that enables direct
+// intraprocess communication between the client and the master implementation.
+//
+// This master implementation is intended to provide more efficient access to
+// a master service that has been created in the same process as the client.
+//
+// TODO(mrry): Add methods that avoid protobuf encoding the request/response
+// objects where this affects performance.
+// TODO(mrry): Avoid closure creation/context switch overhead for synchronous
+// invocation of Master methods.
+// TODO(mrry): Make all potentially blocking Master methods take CallOptions
+// for cancellation.</doc>
+<fun r='_ZN10tensorflow11LocalMasterD1Ev'/>
+<fun r='_ZN10tensorflow11LocalMaster13CreateSessionEPNS_11CallOptionsEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster13ExtendSessionEPNS_11CallOptionsEPKNS_20ExtendSessionRequestEPNS_21ExtendSessionResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster15PartialRunSetupEPNS_11CallOptionsEPKNS_22PartialRunSetupRequestEPNS_23PartialRunSetupResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster7RunStepEPNS_11CallOptionsEPNS_21RunStepRequestWrapperEPNS_29MutableRunStepResponseWrapperE'/>
+<fun r='_ZN10tensorflow11LocalMaster20CreateRunStepRequestEv'/>
+<fun r='_ZN10tensorflow11LocalMaster21CreateRunStepResponseEv'/>
+<fun r='_ZN10tensorflow11LocalMaster12CloseSessionEPNS_11CallOptionsEPKNS_19CloseSessionRequestEPNS_20CloseSessionResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster11ListDevicesEPNS_11CallOptionsEPKNS_18ListDevicesRequestEPNS_19ListDevicesResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster5ResetEPNS_11CallOptionsEPKNS_12ResetRequestEPNS_13ResetResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster12MakeCallableEPNS_11CallOptionsEPKNS_19MakeCallableRequestEPNS_20MakeCallableResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster11RunCallableEPNS_11CallOptionsEPKNS_18RunCallableRequestEPNS_19RunCallableResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster15ReleaseCallableEPNS_11CallOptionsEPKNS_22ReleaseCallableRequestEPNS_23ReleaseCallableResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster8RegisterERKSsPNS_6MasterEx'/>
+<fun r='_ZN10tensorflow11LocalMaster6LookupERKSs'/>
+<mbr r='tensorflow::LocalMaster::master_impl_' o='64' t='tensorflow::Master *'/>
+<mbr r='tensorflow::LocalMaster::default_timeout_in_ms_' o='128' t='const int64'/>
+<fun r='_ZN10tensorflow11LocalMasterC1EPNS_6MasterEx'/>
+<fun r='_ZN10tensorflow11LocalMasterC1ERKS0_'/>
+<fun r='_ZN10tensorflow11LocalMasterC1EPNS_6MasterEx'/>
+<fun r='_ZN10tensorflow11LocalMaster13CreateSessionEPNS_11CallOptionsEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster13ExtendSessionEPNS_11CallOptionsEPKNS_20ExtendSessionRequestEPNS_21ExtendSessionResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster15PartialRunSetupEPNS_11CallOptionsEPKNS_22PartialRunSetupRequestEPNS_23PartialRunSetupResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster7RunStepEPNS_11CallOptionsEPNS_21RunStepRequestWrapperEPNS_29MutableRunStepResponseWrapperE'/>
+<fun r='_ZN10tensorflow11LocalMaster20CreateRunStepRequestEv'/>
+<fun r='_ZN10tensorflow11LocalMaster21CreateRunStepResponseEv'/>
+<fun r='_ZN10tensorflow11LocalMaster12CloseSessionEPNS_11CallOptionsEPKNS_19CloseSessionRequestEPNS_20CloseSessionResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster11ListDevicesEPNS_11CallOptionsEPKNS_18ListDevicesRequestEPNS_19ListDevicesResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster5ResetEPNS_11CallOptionsEPKNS_12ResetRequestEPNS_13ResetResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster12MakeCallableEPNS_11CallOptionsEPKNS_19MakeCallableRequestEPNS_20MakeCallableResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster11RunCallableEPNS_11CallOptionsEPKNS_18RunCallableRequestEPNS_19RunCallableResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster15ReleaseCallableEPNS_11CallOptionsEPKNS_22ReleaseCallableRequestEPNS_23ReleaseCallableResponseE'/>
+<fun r='_ZN10tensorflow11LocalMaster8RegisterERKSsPNS_6MasterEx'/>
+<fun r='_ZN10tensorflow11LocalMaster6LookupERKSs'/>

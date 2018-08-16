@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/core/grappler/utils/colocation.h' l='34' type='void tensorflow::grappler::ReassignColocation(tensorflow::GraphDef * graph)'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/meta_optimizer.cc' l='225' u='c' c='_ZN10tensorflow8grappler13MetaOptimizer8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<doc f='tensorflow/tensorflow/core/grappler/utils/colocation.h' l='25'>// Evaluates the colocation relation in the graph and rewrites the new
+// colocation relation in the graph. We scan the graph nodes sequentially, and
+// builds a disjoint-sets of nodes (within each disjoint-set the nodes are
+// colocated with each other). We then select the root node of each set as a
+// representative node, and then colocate each node within the set (should also
+// exist in graph) with the representative node.
+// Note that there is current one situation this function can&apos;t handle:
+// Node A colocates with X, node B colocates with Y, X colocates with Y but
+// X, Y are removed from graph. In this case we can&apos;t know A colocates with B.</doc>
+<def f='tensorflow/tensorflow/core/grappler/utils/colocation.cc' l='72' ll='119' type='void tensorflow::grappler::ReassignColocation(tensorflow::GraphDef * graph)'/>
+<doc f='tensorflow/tensorflow/core/grappler/utils/colocation.cc' l='65'>// Use of disjoint set algorithm to build the colocation groups from the input
+// graph. The core data structure in use is a hash map from one node to its
+// parent node. Whenever we see two nodes colocate with each other, we merge
+// their colocation groups together. After we traverse all colocation pairs
+// in the graph, we will have several disjoint sets. Then we pick the root node
+// of each disjoint set as the representative node, and let all other nodes in
+// the group colocate with the representative node.</doc>

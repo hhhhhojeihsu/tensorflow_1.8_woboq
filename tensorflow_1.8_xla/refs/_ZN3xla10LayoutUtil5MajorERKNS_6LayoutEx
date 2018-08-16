@@ -1,0 +1,24 @@
+<dec f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='154' type='static int64 xla::LayoutUtil::Major(const xla::Layout &amp; layout, int64 physical_dimension_number)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='140'>// Major(0) is the most major logical dimension number, Major(1) is the
+  // second-most-major logical dimension number and so on.
+  //
+  // This can be used to translate physical dimension numbers to logical
+  // dimension numbers. Assume that we are numbering the physical dimensions so
+  // that the most major physical dimension has physical dimension number 0 and
+  // so on. Then a physical dimension number p corresponds to the logical
+  // dimension number Major(p). So this function could also be called
+  // PhysicalToLogical().
+  //
+  // As an example, consider physical dimension number 0, which by definition is
+  // the most major. Then Major(0) is the most major logical dimension, so Major
+  // maps the physical dimension number 0 to the most major logical dimension
+  // number Major(0).</doc>
+<def f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='347' ll='353' type='static int64 xla::LayoutUtil::Major(const xla::Layout &amp; layout, int64 physical_dimension_number)'/>
+<use f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='367' u='c' c='_ZN3xla10LayoutUtil21MakeLogicalToPhysicalERKNS_6LayoutE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='347'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1904' u='c' c='_ZN3xla3cpu9IrEmitter11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='291' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index22SourceIndexOfBroadcastERKNS_5ShapeES5_N10tensorflow3gtl10ArraySliceIxEEPN4llvm9IRBuilderINSA_14ConstantFolderENSA_24IR6925640'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='300' u='c' c='_ZNK3xla7llvm_ir7IrArray5Index22SourceIndexOfBroadcastERKNS_5ShapeES5_N10tensorflow3gtl10ArraySliceIxEEPN4llvm9IRBuilderINSA_14ConstantFolderENSA_24IR6925640'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='364' u='c' c='_ZNK3xla7llvm_ir7IrArray23EmitArrayElementAddressERKNS1_5IndexEPN4llvm9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/loop_emitter.cc' l='106' u='c' c='_ZN3xla7llvm_ir11LoopEmitter29EmitIndexAndSetExitBasicBlockEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='221' u='c' c='_ZN3xla9ShapeUtil50MakeShapeWithDescendingLayoutAndSamePhysicalLayoutERKNS_5ShapeE'/>

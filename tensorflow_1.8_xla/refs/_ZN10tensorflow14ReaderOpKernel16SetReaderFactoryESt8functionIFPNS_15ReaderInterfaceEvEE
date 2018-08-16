@@ -1,0 +1,11 @@
+<def f='tensorflow/tensorflow/core/framework/reader_op_kernel.h' l='43' ll='48' type='void tensorflow::ReaderOpKernel::SetReaderFactory(std::function&lt;ReaderInterface *()&gt; factory)'/>
+<use f='tensorflow/tensorflow/core/kernels/fixed_length_record_reader_op.cc' l='187' u='c' c='_ZN10tensorflow25FixedLengthRecordReaderOpC1EPNS_20OpKernelConstructionE'/>
+<doc f='tensorflow/tensorflow/core/framework/reader_op_kernel.h' l='39'>// Must be called by descendants before the first call to Compute()
+  // (typically called during construction).  factory must return a
+  // ReaderInterface descendant allocated with new that ReaderOpKernel
+  // will take ownership of.</doc>
+<use f='tensorflow/tensorflow/core/kernels/identity_reader_op.cc' l='67' u='c' c='_ZN10tensorflow16IdentityReaderOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/lmdb_reader_op.cc' l='122' u='c' c='_ZN10tensorflow12LMDBReaderOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/text_line_reader_op.cc' l='106' u='c' c='_ZN10tensorflow16TextLineReaderOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/tf_record_reader_op.cc' l='93' u='c' c='_ZN10tensorflow16TFRecordReaderOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/whole_file_read_ops.cc' l='88' u='c' c='_ZN10tensorflow17WholeFileReaderOpC1EPNS_20OpKernelConstructionE'/>

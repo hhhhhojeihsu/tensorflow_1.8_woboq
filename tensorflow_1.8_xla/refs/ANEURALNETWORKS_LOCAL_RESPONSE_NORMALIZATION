@@ -1,0 +1,30 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='550' type='13'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='521'>/** Applies Local Response Normalization along the depth dimension.
+   *
+   * The 4-D input tensor is treated as a 3-D array of 1-D vectors (along the
+   * last dimension), and each vector is normalized independently. Within a
+   * given vector, each component is divided by the weighted, squared sum of
+   * inputs within depth_radius.
+   *
+   * The output is calculated using this formula:
+   *
+   *     sqr_sum[a, b, c, d] =
+   *         sum(pow(input[a, b, c, d - depth_radius : d + depth_radius + 1], 2)
+   *     output = input / pow((bias + alpha * sqr_sum), beta)
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   *
+   * Supported tensor rank: 4, with &quot;NHWC&quot; data layout.
+   *
+   * Inputs:
+   * * 0: A 4-D tensor, of shape [batches, height, width, depth], specifying the
+   * input.
+   * * 1: An INT32 value, specifying the radius of the normalization window.
+   * * 2: A FLOAT32 value, specifying the bias, must not be zero.
+   * * 3: A FLOAT32 value, specifying the scale factor, alpha.
+   * * 4: A FLOAT32 value, specifying the exponent, beta.
+   *
+   * Outputs:
+   * * 0: The output tensor of same shape as input0.
+   */</doc>

@@ -1,0 +1,16 @@
+<def f='include/c++/5/bits/stl_multimap.h' l='911' ll='913' type='std::pair&lt;iterator, iterator&gt; std::multimap::equal_range(const key_type &amp; __x)'/>
+<doc f='include/c++/5/bits/stl_multimap.h' l='898'>/**
+       *  @brief Finds a subsequence matching given key.
+       *  @param  __x  Key of (key, value) pairs to be located.
+       *  @return  Pair of iterators that possibly points to the subsequence
+       *           matching given key.
+       *
+       *  This function is equivalent to
+       *  @code
+       *    std::make_pair(c.lower_bound(val),
+       *                   c.upper_bound(val))
+       *  @endcode
+       *  (but is faster than making the calls separately).
+       */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cse.cc' l='69' u='c' c='_ZN3xla12_GLOBAL__N_116CombineConstantsEPNS_14HloComputationEb'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/eager_executor.cc' l='141' u='c' c='_ZN10tensorflow13EagerExecutor3RunEv'/>

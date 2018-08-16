@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.h' l='72' type='bool xla::HloReachabilityMap::IsReachable(const xla::HloInstruction * a, const xla::HloInstruction * b) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.h' l='68'>// Returns true if &quot;b&quot; is reachable from &quot;a&quot;
+  //
+  // Note that this function only correctly answers queries about reachability
+  // if the set of edges that have been provided to this class are transitive.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='294' u='c' c='_ZNK3xla22PredecessorHloOrdering31ExecutesBeforeInSameComputationEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='309' u='c' c='_ZNK3xla22PredecessorHloOrdering14ToStringHelperERKSs'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.cc' l='54' ll='57' type='bool xla::HloReachabilityMap::IsReachable(const xla::HloInstruction * a, const xla::HloInstruction * b) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.cc' l='61' u='c' c='_ZNK3xla18HloReachabilityMap11IsConnectedEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.cc' l='61' u='c' c='_ZNK3xla18HloReachabilityMap11IsConnectedEPKNS_14HloInstructionES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='183' u='c' c='_ZN3xla17InstructionFusion17CanFuseOnAllPathsERKNS_18HloReachabilityMapEPNS_14HloInstructionES5_PSt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EE'/>

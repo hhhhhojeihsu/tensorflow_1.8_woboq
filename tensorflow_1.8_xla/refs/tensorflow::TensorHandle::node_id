@@ -1,0 +1,10 @@
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.h' l='54' u='w' c='_ZN10tensorflow12TensorHandleC1ERKNS_6TensorEPNS_6DeviceES5_PNS_12EagerContextE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.h' l='63' u='w' c='_ZN10tensorflow12TensorHandleC1EyNS_8DataTypeEPNS_12EagerContextE'/>
+<dec f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.h' l='113' type='const uint64'/>
+<offset>192</offset>
+<doc f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.h' l='111'>// Id for the EagerNode that will compute the value pointed to by this handle.
+  // If the value is 0, the handle is already ready, but not vice-versa.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='48' u='r' c='_ZN10tensorflow12TensorHandle7IsReadyEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='54' u='r' c='_ZN10tensorflow12TensorHandle9WaitReadyEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='61' u='r' c='_ZN10tensorflow12TensorHandle9WaitReadyEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='100' u='r' c='_ZN10tensorflow12TensorHandle18SetTensorAndDeviceERKNS_6TensorEPNS_6DeviceES5_'/>

@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='434' type='xla::ComputationDataHandle xla::ComputationBuilder::CustomCall(const string &amp; call_target_name, tensorflow::gtl::ArraySlice&lt;ComputationDataHandle&gt; operands, const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='430'>// Enqueues a custom call instruction onto the computation.
+  // During code generation, a call instruction is emitted which targets a
+  // symbol with the name |call_target_name|.  The |operands| are passed to the
+  // call instruction.  |shape| is the resultant shape.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='758' ll='770' type='xla::ComputationDataHandle xla::ComputationBuilder::CustomCall(const string &amp; call_target_name, tensorflow::gtl::ArraySlice&lt;ComputationDataHandle&gt; operands, const xla::Shape &amp; shape)'/>

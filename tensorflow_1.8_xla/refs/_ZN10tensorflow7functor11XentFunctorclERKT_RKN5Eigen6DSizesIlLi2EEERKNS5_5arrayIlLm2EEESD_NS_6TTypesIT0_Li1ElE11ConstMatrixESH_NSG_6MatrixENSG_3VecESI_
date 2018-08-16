@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/kernels/xent_op.h' l='37' type='void tensorflow::functor::XentFunctor::operator()(const Device &amp; d, const Eigen::DSizes&lt;Eigen::DenseIndex, 2&gt; &amp; shape, const Eigen::array&lt;Eigen::DenseIndex, 2&gt; &amp; logits_bcast, const Eigen::array&lt;Eigen::DenseIndex, 2&gt; &amp; labels_bcast, typename TTypes&lt;T&gt;::ConstMatrix logits, typename TTypes&lt;T&gt;::ConstMatrix labels, typename TTypes&lt;T&gt;::Matrix scratch, typename TTypes&lt;T&gt;::Vec loss, typename TTypes&lt;T&gt;::Matrix backprop)'/>
+<doc f='tensorflow/tensorflow/core/kernels/xent_op.h' l='30'>// Computes Cross Entropy loss and backprop.
+  //
+  // logits: batch_size, num_classes.
+  // labels: batch_size, num_classes.
+  // scratch: temporary tensor, dims: batch_size, 1
+  // loss: output tensor for the loss, dims: batch_size.
+  // backprop: output tensor for the backprop, dims: batch_size, num_classes.</doc>

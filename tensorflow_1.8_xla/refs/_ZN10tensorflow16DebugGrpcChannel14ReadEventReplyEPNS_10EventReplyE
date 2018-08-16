@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/debug/debug_io_utils.h' l='277' type='bool tensorflow::DebugGrpcChannel::ReadEventReply(tensorflow::EventReply * event_reply)'/>
+<def f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='703' ll='706' type='bool tensorflow::DebugGrpcChannel::ReadEventReply(tensorflow::EventReply * event_reply)'/>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='712' u='c' c='_ZN10tensorflow16DebugGrpcChannel29ReceiveAndProcessEventRepliesEm'/>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='786' u='c' c='_ZN10tensorflow11DebugGrpcIO39ReceiveEventReplyProtoThroughGrpcStreamEPNS_10EventReplyERKSs'/>
+<doc f='tensorflow/tensorflow/core/debug/debug_io_utils.h' l='266'>// Read an EventReply proto from the debug gRPC stream.
+  //
+  // This method blocks and waits for an EventReply from the server.
+  // Thread-safety: Safe with respect to other calls to the same method and
+  //   calls to WriteEvent() and Close().
+  //
+  // Args:
+  //   event_reply: the to-be-modified EventReply proto passed as reference.
+  //
+  // Returns:
+  //   True iff the read is successful.</doc>

@@ -1,0 +1,11 @@
+<inh f='tensorflow/tensorflow/core/framework/op_kernel.h' l='74' c='tensorflow::OpKernel'/>
+<def f='tensorflow/tensorflow/core/kernels/tensor_array_ops.cc' l='1409' ll='1427'/>
+<size>288</size>
+<doc f='tensorflow/tensorflow/core/kernels/tensor_array_ops.cc' l='1402'>// CLOSE
+// **********************************************************************
+
+// Delete the TensorArray from its resource container.  This enables
+// the user to close and release the resource in the middle of a step/run.
+// TODO(ebrevdo): decide whether closing the grad op should happen
+// here or on the python side.</doc>
+<fun r='_ZN10tensorflow18TensorArrayCloseOp7ComputeEPNS_15OpKernelContextE'/>

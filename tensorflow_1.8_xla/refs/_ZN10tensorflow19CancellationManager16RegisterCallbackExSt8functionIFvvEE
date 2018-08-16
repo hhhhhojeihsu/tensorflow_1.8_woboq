@@ -1,0 +1,72 @@
+<dec f='tensorflow/tensorflow/core/framework/cancellation.h' l='112' type='bool tensorflow::CancellationManager::RegisterCallback(CancellationToken token, CancelCallback callback)'/>
+<doc f='tensorflow/tensorflow/core/framework/cancellation.h' l='63'>// Attempts to register the given callback to be invoked when this
+  // manager is cancelled. Returns true if the callback was
+  // registered; returns false if this manager was already cancelled,
+  // and the callback was not registered.
+  //
+  // If this method returns false, it is the caller&apos;s responsibility
+  // to perform any cancellation cleanup.
+  //
+  // This method is tricky to use correctly. The following usage pattern
+  // is recommended:
+  //
+  // class ObjectWithCancellableOperation {
+  //   mutex mu_;
+  //   void CancellableOperation(CancellationManager* cm,
+  //                             std::function&lt;void(Status)&gt; callback) {
+  //     bool already_cancelled;
+  //     CancellationToken token = cm-&gt;get_cancellation_token();
+  //     {
+  //       mutex_lock(mu_);
+  //       already_cancelled = !cm-&gt;RegisterCallback(
+  //           [this, token]() { Cancel(token); });
+  //       if (!already_cancelled) {
+  //         // Issue asynchronous operation. Associate the pending operation
+  //         // with `token` in some object state, or provide another way for
+  //         // the Cancel method to look up the operation for cancellation.
+  //         // Ensure that `cm-&gt;DeregisterCallback(token)` is called without
+  //         // holding `mu_`, before `callback` is invoked.
+  //         // ...
+  //       }
+  //     }
+  //     if (already_cancelled) {
+  //       callback(errors::Cancelled(&quot;Operation was cancelled&quot;));
+  //     }
+  //   }
+  //
+  //   void Cancel(CancellationToken token) {
+  //     mutex_lock(mu_);
+  //     // Take action to cancel the operation with the given cancellation
+  //     // token.
+  //   }
+  //
+  // NOTE(mrry): The caller should take care that (i) the calling code
+  // is robust to `callback` being invoked asynchronously (e.g. from
+  // another thread), (ii) `callback` is deregistered by a call to
+  // this-&gt;DeregisterCallback(token) when the operation completes
+  // successfully, and (iii) `callback` does not invoke any method
+  // on this cancellation manager. Furthermore, it is important that
+  // the eventual caller of the complementary DeregisterCallback does not
+  // hold any mutexes that are required by `callback`.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='516' u='c' c='_ZN10tensorflow13DirectSession11RunInternalExRKNS_10RunOptionsEPNS_18CallFrameInterfaceEPNS0_16ExecutorsAndKeysEPNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='654' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph19RunPartitionsHelperERKSt13unordered_mapINS_11StringPieceEmNS_4hashIS3_EESt8equal_toIS3_ESaISt4pairI10272309'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_rpc_factory.cc' l='178' u='c' c='_ZN10tensorflow14GrpcRPCFactory4CallEPNS_15OpKernelContextExRKNS_6TensorES5_S5_bPS3_S6_S6_St8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='164' u='c' c='_ZN10tensorflow6Worker10DoRunGraphEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='244' u='c' c='_ZN10tensorflow6Worker17DoPartialRunGraphEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>
+<def f='tensorflow/tensorflow/core/framework/cancellation.cc' l='61' ll='70' type='bool tensorflow::CancellationManager::RegisterCallback(CancellationToken token, CancelCallback callback)'/>
+<use f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base.cc' l='72' u='c' c='_ZN10tensorflow26ConditionalAccumulatorBase11TryTakeGradEiPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='57' u='c' c='_ZN10tensorflow9FIFOQueue10TryEnqueueERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='115' u='c' c='_ZN10tensorflow9FIFOQueue14TryEnqueueManyERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='161' u='c' c='_ZN10tensorflow9FIFOQueue10TryDequeueEPNS_15OpKernelContextESt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='252' u='c' c='_ZN10tensorflow9FIFOQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/framework/reader_op_kernel.h' l='58' u='c' c='_ZN10tensorflow14ReaderOpKernel7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/mutex_ops.cc' l='117' u='c' c='_ZN10tensorflow12_GLOBAL__N_15Mutex12AcquireAsyncEPNS_15OpKernelContextESt8functionIFvRKNS_6StatusENS1_18SharedLockReleaserEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.cc' l='94' u='c' c='_ZN10tensorflow16PaddingFIFOQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/priority_queue.cc' l='78' u='c' c='_ZN10tensorflow13PriorityQueue10TryEnqueueERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/priority_queue.cc' l='143' u='c' c='_ZN10tensorflow13PriorityQueue14TryEnqueueManyERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/priority_queue.cc' l='204' u='c' c='_ZN10tensorflow13PriorityQueue10TryDequeueEPNS_15OpKernelContextESt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/priority_queue.cc' l='295' u='c' c='_ZN10tensorflow13PriorityQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/random_shuffle_queue_op.cc' l='134' u='c' c='_ZN10tensorflow18RandomShuffleQueue10TryEnqueueERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/random_shuffle_queue_op.cc' l='192' u='c' c='_ZN10tensorflow18RandomShuffleQueue14TryEnqueueManyERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/random_shuffle_queue_op.cc' l='239' u='c' c='_ZN10tensorflow18RandomShuffleQueue10TryDequeueEPNS_15OpKernelContextESt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/random_shuffle_queue_op.cc' l='331' u='c' c='_ZN10tensorflow18RandomShuffleQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>

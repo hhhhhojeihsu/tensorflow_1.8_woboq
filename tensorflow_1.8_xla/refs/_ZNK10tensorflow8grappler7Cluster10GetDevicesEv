@@ -1,0 +1,9 @@
+<def f='tensorflow/tensorflow/core/grappler/clusters/cluster.h' l='87' ll='89' type='const std::unordered_map&lt;string, DeviceProperties&gt; &amp; tensorflow::grappler::Cluster::GetDevices() const'/>
+<doc f='tensorflow/tensorflow/core/grappler/clusters/cluster.h' l='85'>// Return the list of TensorFlow devices that are available to execute a
+  // graph. This is empty until provision() is called.</doc>
+<use f='tensorflow/tensorflow/core/grappler/clusters/virtual_cluster.cc' l='104' u='c' c='_ZN10tensorflow8grappler14VirtualCluster3RunERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_placer.cc' l='33' u='c' c='_ZN10tensorflow8grappler13VirtualPlacerC1EPKNS0_7ClusterE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='2131' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_110GetNumGPUsERKNS0_7ClusterE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='519' u='c' c='_ZN10tensorflow8grappler14SchedulingPassEPNS0_7ClusterEPNS0_12GrapplerItemE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='948' u='c' c='_ZN10tensorflow8grapplerL26IdentifySwappingCandidatesEPNS0_7ClusterEPNS0_12GrapplerItemEPSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPSt13uno3951828'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='975' u='c' c='_ZN10tensorflow8grapplerL26IdentifySwappingCandidatesEPNS0_7ClusterEPNS0_12GrapplerItemEPSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPSt13uno3951828'/>

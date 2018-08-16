@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='240' type='void xla::cpu::VectorSupportLibrary::AssertCorrectTypes(std::initializer_list&lt;llvm::Value *&gt; values)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='237'>// Checks that each value in `values` is either of type scalar_type() or
+  // vector_type().  This LOG(FATAL)&apos;s so it should only be called in cases
+  // where a mismatching type is a programmer bug.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='46' ll='56' type='void xla::cpu::VectorSupportLibrary::AssertCorrectTypes(std::initializer_list&lt;llvm::Value *&gt; values)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='59' u='c' c='_ZN3xla3cpu20VectorSupportLibrary3MulEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='73' u='c' c='_ZN3xla3cpu20VectorSupportLibrary3AddEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='78' u='c' c='_ZN3xla3cpu20VectorSupportLibrary3SubEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='83' u='c' c='_ZN3xla3cpu20VectorSupportLibrary3MaxEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='92' u='c' c='_ZN3xla3cpu20VectorSupportLibrary5FloorEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='98' u='c' c='_ZN3xla3cpu20VectorSupportLibrary3DivEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='109' u='c' c='_ZN3xla3cpu20VectorSupportLibrary5ClampEPN4llvm5ValueERKNS2_7APFloatES7_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='120' u='c' c='_ZN3xla3cpu20VectorSupportLibrary10FCmpEQMaskEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='126' u='c' c='_ZN3xla3cpu20VectorSupportLibrary11FCmpOLTMaskEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='132' u='c' c='_ZN3xla3cpu20VectorSupportLibrary11FCmpULEMaskEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='164' u='c' c='_ZN3xla3cpu20VectorSupportLibrary8FloatAndEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='175' u='c' c='_ZN3xla3cpu20VectorSupportLibrary8FloatNotEPN4llvm5ValueE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='185' u='c' c='_ZN3xla3cpu20VectorSupportLibrary7FloatOrEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='234' u='c' c='_ZN3xla3cpu20VectorSupportLibrary11StoreVectorEPN4llvm5ValueES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='244' u='c' c='_ZN3xla3cpu20VectorSupportLibrary11StoreScalarEPN4llvm5ValueES4_'/>

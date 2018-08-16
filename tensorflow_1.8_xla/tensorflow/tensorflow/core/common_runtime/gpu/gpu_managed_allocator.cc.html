@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>gpu_managed_allocator.cc source code [tensorflow/tensorflow/core/common_runtime/gpu/gpu_managed_allocator.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/common_runtime/gpu/gpu_managed_allocator.cc'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>common_runtime</a>/<a href='./'>gpu</a>/<a href='gpu_managed_allocator.cc.html'>gpu_managed_allocator.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifdef</span> <span class="macro" data-ref="_M/GOOGLE_CUDA">GOOGLE_CUDA</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define EIGEN_USE_GPU</u></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="16">endif</span></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="gpu_managed_allocator.h.html">"tensorflow/core/common_runtime/gpu/gpu_managed_allocator.h"</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><em>void</em>* <a class="type" href="gpu_managed_allocator.h.html#tensorflow::GpuManagedAllocator" title='tensorflow::GpuManagedAllocator' data-ref="tensorflow::GpuManagedAllocator">GpuManagedAllocator</a>::<dfn class="virtual decl def" id="_ZN10tensorflow19GpuManagedAllocator11AllocateRawEmm" title='tensorflow::GpuManagedAllocator::AllocateRaw' data-ref="_ZN10tensorflow19GpuManagedAllocator11AllocateRawEmm">AllocateRaw</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="4alignment" title='alignment' data-type='size_t' data-ref="4alignment">alignment</dfn>, <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="5num_bytes" title='num_bytes' data-type='size_t' data-ref="5num_bytes">num_bytes</dfn>) {</td></tr>
+<tr><th id="25">25</th><td>  <em>void</em>* <dfn class="local col6 decl" id="6ptr" title='ptr' data-type='void *' data-ref="6ptr">ptr</dfn> = <b>nullptr</b>;</td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="26">ifdef</span> <span class="macro" data-ref="_M/GOOGLE_CUDA">GOOGLE_CUDA</span></u></td></tr>
+<tr><th id="27">27</th><td>  CHECK_EQ(cudaMallocManaged(&amp;ptr, num_bytes), cudaSuccess);</td></tr>
+<tr><th id="28">28</th><td><u>#<span data-ppcond="26">endif</span></u></td></tr>
+<tr><th id="29">29</th><td>  <a class="macro" href="../../platform/default/logging.h.html#97" title="if ((__builtin_expect(!(!(reinterpret_cast&lt;uintptr_t&gt;(ptr) &amp; (alignment - 1))), 0))) ::tensorflow::internal::LogMessageFatal(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/common_runtime/gpu/gpu_managed_allocator.cc&quot;, 29) &lt;&lt; &quot;Check failed: &quot; &quot;!(reinterpret_cast&lt;uintptr_t&gt;(ptr) &amp; (alignment - 1))&quot; &quot; &quot;" data-ref="_M/CHECK">CHECK</a>(!(<b>reinterpret_cast</b>&lt;<a class="typedef" href="../../../../../include/stdint.h.html#uintptr_t" title='uintptr_t' data-type='unsigned long' data-ref="uintptr_t">uintptr_t</a>&gt;(<a class="local col6 ref" href="#6ptr" title='ptr' data-ref="6ptr">ptr</a>) &amp; (<a class="local col4 ref" href="#4alignment" title='alignment' data-ref="4alignment">alignment</a> - <var>1</var>)));</td></tr>
+<tr><th id="30">30</th><td>  <b>return</b> <a class="local col6 ref" href="#6ptr" title='ptr' data-ref="6ptr">ptr</a>;</td></tr>
+<tr><th id="31">31</th><td>}</td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td><em>void</em> <a class="type" href="gpu_managed_allocator.h.html#tensorflow::GpuManagedAllocator" title='tensorflow::GpuManagedAllocator' data-ref="tensorflow::GpuManagedAllocator">GpuManagedAllocator</a>::<dfn class="virtual decl def" id="_ZN10tensorflow19GpuManagedAllocator13DeallocateRawEPv" title='tensorflow::GpuManagedAllocator::DeallocateRaw' data-ref="_ZN10tensorflow19GpuManagedAllocator13DeallocateRawEPv">DeallocateRaw</dfn>(<em>void</em>* <dfn class="local col7 decl" id="7ptr" title='ptr' data-type='void *' data-ref="7ptr">ptr</dfn>) {</td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="34">ifdef</span> <span class="macro" data-ref="_M/GOOGLE_CUDA">GOOGLE_CUDA</span></u></td></tr>
+<tr><th id="35">35</th><td>  CHECK_EQ(cudaFree(ptr), cudaSuccess);</td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="34">endif</span></u></td></tr>
+<tr><th id="37">37</th><td>}</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

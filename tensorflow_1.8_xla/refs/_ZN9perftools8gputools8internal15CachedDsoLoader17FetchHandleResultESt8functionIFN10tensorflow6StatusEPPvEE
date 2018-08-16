@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/stream_executor/dso_loader.h' l='110' type='static port::StatusOr&lt;void *&gt; perftools::gputools::internal::CachedDsoLoader::FetchHandleResult(std::function&lt;port::Status (void **)&gt; load_dso)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dso_loader.h' l='108'>// Fetches a DSO handle via &quot;load_dso&quot; and returns the StatusOr form of the
+  // result.</doc>
+<use f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='249' u='c' c='_ZN9perftools8gputools8internal15CachedDsoLoader18GetCublasDsoHandleEv'/>
+<use f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='255' u='c' c='_ZN9perftools8gputools8internal15CachedDsoLoader18GetCurandDsoHandleEv'/>
+<use f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='261' u='c' c='_ZN9perftools8gputools8internal15CachedDsoLoader17GetCudnnDsoHandleEv'/>
+<use f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='267' u='c' c='_ZN9perftools8gputools8internal15CachedDsoLoader17GetCufftDsoHandleEv'/>
+<use f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='273' u='c' c='_ZN9perftools8gputools8internal15CachedDsoLoader19GetLibcudaDsoHandleEv'/>
+<use f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='279' u='c' c='_ZN9perftools8gputools8internal15CachedDsoLoader20GetLibcuptiDsoHandleEv'/>
+<def f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='283' ll='291' type='static port::StatusOr&lt;void *&gt; perftools::gputools::internal::CachedDsoLoader::FetchHandleResult(std::function&lt;port::Status (void **)&gt; load_dso)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='283'>/* static */</doc>

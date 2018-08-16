@@ -1,0 +1,16 @@
+<def f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='279' type='tensorflow::ResourceMgr * tensorflow::ContainerInfo::resource_manager() const'/>
+<doc f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='275'>// The policy decides that the kernel should access the resource in
+  // resource_manager(), the resource is in the container() and its
+  // name is name().  If resource_is_private_to_kernel() is true, the
+  // kernel should delete the resource when the kernel is deleted.</doc>
+<use f='tensorflow/tensorflow/core/framework/resource_op_kernel.h' l='58' u='c' c='_ZN10tensorflow16ResourceOpKernelD1Ev'/>
+<use f='tensorflow/tensorflow/contrib/data/kernels/prefetching_kernels.cc' l='257' u='c' c='_ZN10tensorflow30FunctionBufferResourceHandleOpD1Ev'/>
+<use f='tensorflow/tensorflow/contrib/data/kernels/threadpool_dataset_op.cc' l='61' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ThreadPoolHandleOpD1Ev'/>
+<use f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base_op.h' l='68' u='c' c='_ZN10tensorflow28ConditionalAccumulatorBaseOpD1Ev'/>
+<use f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base_op.h' l='97' u='c' c='_ZN10tensorflow28ConditionalAccumulatorBaseOp20SetAccumulatorHandleEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/iterator_ops.cc' l='460' u='c' c='_ZN10tensorflow12_GLOBAL__N_116IteratorHandleOpD1Ev'/>
+<use f='tensorflow/tensorflow/core/kernels/data/iterator_ops.cc' l='684' u='c' c='_ZN10tensorflow12_GLOBAL__N_117OneShotIteratorOpD1Ev'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.h' l='76' u='c' c='_ZN10tensorflow13LookupTableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.h' l='106' u='c' c='_ZN10tensorflow13LookupTableOpD1Ev'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_tensors_map_ops.cc' l='147' u='c' c='_ZN10tensorflow23SparseTensorAccessingOp6GetMapEPNS_15OpKernelContextEbPPNS_16SparseTensorsMapE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='68' u='c' c='_ZN10tensorflow10VariableOp7ComputeEPNS_15OpKernelContextE'/>

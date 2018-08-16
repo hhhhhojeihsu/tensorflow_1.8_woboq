@@ -1,0 +1,7 @@
+<def f='tensorflow/tensorflow/stream_executor/device_memory.h' l='154' type='void perftools::gputools::DeviceMemory::DeviceMemory&lt;ElemT&gt;(void * opaque, uint64 size)'/>
+<doc f='tensorflow/tensorflow/stream_executor/device_memory.h' l='148'>// This constructor is solely used from derived classes; it is made protected
+  // because it accepts a byte-size instead of an element count, which could
+  // potentially be misused given the ElementCount() nature of this interface.
+  //
+  // In order to specify the desire to use byte size instead of element count
+  // explicitly, use MakeFromByteSize.</doc>

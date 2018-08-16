@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='304' type='bool perftools::gputools::StreamExecutor::CanEnablePeerAccessTo(perftools::gputools::StreamExecutor * other)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='298'>// Returns whether it&apos;s possible to enable peer access from this
+  // StreamExecutor
+  // to memory allocated by another.
+  //
+  // Even when this returns true, EnablePeerAccessTo may fail for other reasons;
+  // this is more an up-front test as to whether it&apos;s expressly forbidden.</doc>
+<use f='tensorflow/tensorflow/stream_executor/platform.cc' l='112' u='c' c='_ZN9perftools8gputools8Platform16GetPeerAccessMapEv'/>
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='240' ll='242' type='bool perftools::gputools::StreamExecutor::CanEnablePeerAccessTo(perftools::gputools::StreamExecutor * other)'/>

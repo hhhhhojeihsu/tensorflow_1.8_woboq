@@ -1,0 +1,13 @@
+<def f='tensorflow/tensorflow/core/framework/resource_handle.h' l='42' type='const string &amp; tensorflow::ResourceHandle::container() const'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='463' u='c' c='_ZN10tensorflow14CreateResourceEPNS_15OpKernelContextERKNS_14ResourceHandleEPT_'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='470' u='c' c='_ZN10tensorflow14LookupResourceEPNS_15OpKernelContextERKNS_14ResourceHandleEPPT_'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='477' u='c' c='_ZN10tensorflow22LookupOrCreateResourceEPNS_15OpKernelContextERKNS_14ResourceHandleEPPT_St8functionIFNS_6StatusES7_EE'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='484' u='c' c='_ZN10tensorflow14DeleteResourceEPNS_15OpKernelContextERKNS_14ResourceHandleE'/>
+<doc f='tensorflow/tensorflow/core/framework/resource_handle.h' l='41'>// Container in which this resource is placed.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='906' u='c' c='_ZN10tensorflow13DirectSession27ResourceHandleToInputTensorERKNS_6TensorEPS1_'/>
+<use f='tensorflow/tensorflow/core/framework/resource_handle.cc' l='32' u='c' c='_ZNK10tensorflow14ResourceHandle7AsProtoEPNS_19ResourceHandleProtoE'/>
+<use f='tensorflow/tensorflow/core/framework/resource_handle.cc' l='60' u='c' c='_ZNK10tensorflow14ResourceHandle11DebugStringEv'/>
+<use f='tensorflow/tensorflow/core/framework/resource_mgr.cc' l='206' u='c' c='_ZN10tensorflow11ResourceMgr6DeleteERKNS_14ResourceHandleE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_util.cc' l='305' u='c' c='_ZN10tensorflow6lookup27GetInitializableLookupTableERKSsPNS_15OpKernelContextEPPNS0_24InitializableLookupTableE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_ops.cc' l='462' u='c' c='_ZN10tensorflow11FakeQueueOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/resource_variable_ops.cc' l='88' u='c' c='_ZN10tensorflow14ReadVariableOp7ComputeEPNS_15OpKernelContextE'/>

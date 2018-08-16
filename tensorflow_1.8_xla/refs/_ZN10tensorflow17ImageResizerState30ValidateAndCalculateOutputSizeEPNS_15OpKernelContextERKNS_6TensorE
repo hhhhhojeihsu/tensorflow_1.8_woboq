@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/core/kernels/image_resizer_state.h' l='57' ll='105' type='void tensorflow::ImageResizerState::ValidateAndCalculateOutputSize(tensorflow::OpKernelContext * context, const tensorflow::Tensor &amp; input)'/>
+<use f='tensorflow/tensorflow/core/kernels/image_resizer_state.h' l='109' u='c' c='_ZN10tensorflow17ImageResizerState23ValidateAndCreateOutputEPNS_15OpKernelContextERKNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_ops_fused.cc' l='654' u='c' c='_ZN10tensorflow28FusedResizeConv2DUsingGemmOp7ComputeEPNS_15OpKernelContextE'/>
+<doc f='tensorflow/tensorflow/core/kernels/image_resizer_state.h' l='52'>// ValidateAndCalculateOutputSize checks the bounds on the input tensors
+  // and requested size, sets up some of the resizing state such as the
+  // height_scale and width_scale, and calculates the output size.
+  // If any of these operations fails, it sets an error status in
+  // the context, which the caller must check.</doc>

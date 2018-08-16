@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/node_def_util.h' l='252' type='tensorflow::Status tensorflow::InOutTypesForNode(const tensorflow::NodeDef &amp; node_def, const tensorflow::OpDef &amp; op_def, DataTypeVector * inputs, DataTypeVector * outputs)'/>
+<doc f='tensorflow/tensorflow/core/framework/node_def_util.h' l='250'>// Computes the input and output types for a specific node.
+// REQUIRES: ValidateOpDef(op_def).ok()</doc>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='886' u='c' c='TFE_Execute'/>
+<use f='tensorflow/tensorflow/core/framework/memory_types.cc' l='86' u='c' c='_ZN10tensorflow18MemoryTypesForNodeEPKNS_19OpRegistryInterfaceERKNS_10DeviceTypeERKNS_7NodeDefEPNS_3gtl13InlinedVectorINS_10MemoryTypeELi4EEESD_'/>
+<def f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='381' ll='390' type='tensorflow::Status tensorflow::InOutTypesForNode(const tensorflow::NodeDef &amp; node_def, const tensorflow::OpDef &amp; op_def, DataTypeVector * inputs, DataTypeVector * outputs)'/>
+<use f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='470' u='c' c='_ZN10tensorflow15ValidateNodeDefERKNS_7NodeDefERKNS_5OpDefE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='1194' u='c' c='_ZN10tensorflow14CreateOpKernelENS_10DeviceTypeEPNS_10DeviceBaseEPNS_9AllocatorEPNS_22FunctionLibraryRuntimeERKNS_7NodeDefEiPPNS_8OpKernelE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='330' u='c' c='_ZN10tensorflow5Graph7AddNodeERKNS_7NodeDefEPNS_6StatusE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/graph_rewriter.cc' l='42' u='c' c='_ZN10tensorflow8grappler13GraphRewriterC1ERKNS0_12GrapplerItemE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='198' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_132LoopInvariantNodeMotionOptimizer19HandleInvariantNodeEPNS_7NodeDefEii'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='584' u='c' c='_ZN10tensorflow16graph_transforms13GetInOutTypesERKNS_7NodeDefEPNS_3gtl13InlinedVectorINS_8DataTypeELi4EEES8_'/>

@@ -1,0 +1,21 @@
+<def f='tensorflow/tensorflow/core/framework/tensor_slice.h' l='45' type='void tensorflow::TensorSlice::TensorSlice()'/>
+<use f='tensorflow/tensorflow/core/framework/tensor_slice.h' l='52' u='c' c='_ZN10tensorflow11TensorSlice10ParseOrDieERKSs'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_util.h' l='146' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L36CopyDataFromTensorSliceToTensorSliceERKNS_11TensorShapeERKNS_11TensorSliceES6_PKT_PT0_'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_util.h' l='168' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L36CopyDataFromTensorSliceToTensorSliceERKNS_11TensorShapeERKNS_11TensorSliceES6_PKT_PT0_'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_util.h' l='168' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L36CopyDataFromTensorSliceToTensorSliceERKNS_11TensorShapeERKNS_11TensorSliceES6_PKT_PT0_'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor_slice.h' l='36'>// Construct a tensor slice: you have a number of ways:
+  // -- creating an empty slice
+  // -- from just a dimension (in this case it will create a full slice)
+  // -- from an array of pairs of integers.
+  // -- from a TensorSliceProto protocol buffer
+  // -- from a string format of &quot;start,length:start,length...&quot; where each
+  //    &quot;start,length&quot; pair represents the slice on one dimension. We allow a
+  //    special &quot;-&quot; that means &quot;everything for this dimension&quot;. One such example
+  //    is:  0,10:-:14,1:-:-</doc>
+<use f='tensorflow/tensorflow/core/kernels/save_restore_tensor.cc' l='269' u='c' c='_ZN10tensorflow16RestoreTensorsV2EPNS_15OpKernelContextERKNS_6TensorES4_S4_NS_3gtl10ArraySliceINS_8DataTypeEEE'/>
+<use f='tensorflow/tensorflow/core/ops/io_ops.cc' l='116' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/io_ops.cc' l='230' u='c'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_reader.cc' l='228' u='c' c='_ZNK10tensorflow10checkpoint17TensorSliceReader9GetTensorERKSsPSt10unique_ptrINS_6TensorESt14default_deleteIS5_EE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='90' u='c' c='_ZNK10tensorflow10checkpoint14TensorSliceSet5QueryERKNS_11TensorSliceEPf'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_set.cc' l='147' u='c' c='_ZNK10tensorflow10checkpoint14TensorSliceSet9QueryMetaERKNS_11TensorSliceEPSt6vectorISt4pairIS2_SsESaIS7_EE'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/sparsify_gather.cc' l='162' u='c' c='_ZN10tensorflow16graph_transforms24ReadTensorFromCheckpointERKSsRKSt10unique_ptrINS_12BundleReaderESt14default_deleteIS4_EES2_PNS_6TensorE'/>

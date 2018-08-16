@@ -1,0 +1,69 @@
+<def f='tensorflow/tensorflow/core/framework/shape_inference.h' l='361' ll='363' type='static bool tensorflow::shape_inference::InferenceContext::ValueKnown(tensorflow::shape_inference::DimensionOrConstant d)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1142' u='c' c='TF_GraphGetTensorShape'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/hybrid/core/ops/unpack_path_op.cc' l='45' u='c'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1237' u='c' c='_ZN10tensorflow15shape_inference30BroadcastBinaryOpOutputShapeFnEPNS0_16InferenceContextEi'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1237' u='c' c='_ZN10tensorflow15shape_inference30BroadcastBinaryOpOutputShapeFnEPNS0_16InferenceContextEi'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1296' u='c' c='_ZN10tensorflow15shape_inference20ValidateSparseTensorEPNS0_16InferenceContextENS0_11ShapeHandleES3_S3_'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1298' u='c' c='_ZN10tensorflow15shape_inference20ValidateSparseTensorEPNS0_16InferenceContextENS0_11ShapeHandleES3_S3_'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1311' u='c' c='_ZN10tensorflow15shape_inference20ValidateSparseTensorEPNS0_16InferenceContextENS0_11ShapeHandleES3_S3_'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1313' u='c' c='_ZN10tensorflow15shape_inference20ValidateSparseTensorEPNS0_16InferenceContextENS0_11ShapeHandleES3_S3_'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1350' u='c' c='_ZN10tensorflow15shape_inference20ScatterNdUpdateShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='282' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext18ShapeHandleToProtoENS0_11ShapeHandleEPNS_16TensorShapeProtoE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='293' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext12FullyDefinedENS0_11ShapeHandleE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='331' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext11DebugStringENS0_15DimensionHandleE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='414' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext5RelaxENS0_15DimensionHandleES2_PS2_'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='414' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext5RelaxENS0_15DimensionHandleES2_PS2_'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='422' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext5RelaxENS0_15DimensionHandleES2_PS2_'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='441' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext5MergeENS0_15DimensionHandleES2_PS2_'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='445' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext5MergeENS0_15DimensionHandleES2_PS2_'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='788' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext27InternalMakeShapeFromTensorEbPKNS_6TensorENS0_11ShapeHandleEPS5_'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='973' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext6DivideENS0_15DimensionHandleENS0_19DimensionOrConstantEbPS2_'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='974' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext6DivideENS0_15DimensionHandleENS0_19DimensionOrConstantEbPS2_'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='92' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_19ProcessorINS_15shape_inference15DimensionHandleEE12ExtractValueES4_Px'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='471' u='c' c='_ZN10tensorflow15GraphTransferer20RegisterConstantNodeERKNS_12ShapeRefinerERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='616' u='c' c='_ZN10tensorflow15GraphTransferer20IsNodeFlattenReshapeERKNS_4NodeERKNS_12ShapeRefinerE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='921' u='c' c='_ZN10tensorflow15GraphTransferer22AppendNodeOutputParamsERKNS_12ShapeRefinerEiRKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='503' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils28BuildTensorShapeMapFromGraphERKNS_5GraphERKNS_12ShapeRefinerEPSt18unordered_multimapISsSt4pairIiS8_INS_10209530'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='84' u='c' c='_ZN10tensorflow12_GLOBAL__N_110PadShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='94' u='c' c='_ZN10tensorflow12_GLOBAL__N_110PadShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='122' u='c' c='_ZN10tensorflow12_GLOBAL__N_116TransposeShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='131' u='c' c='_ZN10tensorflow12_GLOBAL__N_116TransposeShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='190' u='c' c='_ZN10tensorflow12_GLOBAL__N_124SetOutputShapeForReshapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='194' u='c' c='_ZN10tensorflow12_GLOBAL__N_124SetOutputShapeForReshapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='208' u='c' c='_ZN10tensorflow12_GLOBAL__N_124SetOutputShapeForReshapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='212' u='c' c='_ZN10tensorflow12_GLOBAL__N_124SetOutputShapeForReshapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='502' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='549' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='559' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='607' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='823' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1096' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1483' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1576' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1585' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1737' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1738' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1830' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2001' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2079' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SpaceToBatchShapeHelperEPNS_15shape_inference16InferenceContextENS1_11ShapeHandleES4_PKNS_6TensorES4_S7_'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2100' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SpaceToBatchShapeHelperEPNS_15shape_inference16InferenceContextENS1_11ShapeHandleES4_PKNS_6TensorES4_S7_'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2154' u='c' c='_ZN10tensorflow12_GLOBAL__N_123BatchToSpaceShapeHelperEPNS_15shape_inference16InferenceContextENS1_11ShapeHandleES4_PKNS_6TensorES4_S7_'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2175' u='c' c='_ZN10tensorflow12_GLOBAL__N_123BatchToSpaceShapeHelperEPNS_15shape_inference16InferenceContextENS1_11ShapeHandleES4_PKNS_6TensorES4_S7_'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2468' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2468' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2540' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2773' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ScatterNdShapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/audio_ops.cc' l='82' u='c' c='_ZN10tensorflow12_GLOBAL__N_118SpectrogramShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='45' u='c' c='_ZN10tensorflow12_GLOBAL__N_121FractionalPoolShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='893' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='893' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='894' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='894' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='1171' u='c' c='_ZN10tensorflow12_GLOBAL__N_111TopKShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='1171' u='c' c='_ZN10tensorflow12_GLOBAL__N_111TopKShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='1227' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='1227' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/set_ops.cc' l='123' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/set_ops.cc' l='165' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/set_ops.cc' l='174' u='c'/>
+<use f='tensorflow/tensorflow/python/framework/cpp_shape_inference.cc' l='40' u='c' c='_ZN10tensorflow4swig12_GLOBAL__N_120ProtoFromShapeHandleENS_15shape_inference11ShapeHandleEPNS2_16InferenceContextEPNS_16TensorShapeProtoE'/>

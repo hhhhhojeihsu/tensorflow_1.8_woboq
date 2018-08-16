@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/kernels/ops_util.h' l='38' type='tensorflow::Status tensorflow::GetBroadcastSize(const int index, const int in_size, const int ksize, const int stride, const int pad_size, int * bindex, int * bsize)'/>
+<doc f='tensorflow/tensorflow/core/kernels/ops_util.h' l='32'>// Calculates broadcast starting index and size.  For SAME padding, addition
+// padding could be applied to right, left, top and bottom.  Depending on the
+// current index, input size, kernel size, stride, padding size, the starting
+// index and size for broadcast for that dimension are different from the
+// current index and kernel size.
+// This is mainly used by gradient algorithms for pooling operations.</doc>
+<use f='tensorflow/tensorflow/core/kernels/avgpooling_op.cc' l='310' u='c' c='_ZN10tensorflow16AvgPoolingGradOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/avgpooling_op.cc' l='320' u='c' c='_ZN10tensorflow16AvgPoolingGradOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/kernels/ops_util.cc' l='37' ll='60' type='tensorflow::Status tensorflow::GetBroadcastSize(const int index, const int in_size, const int ksize, const int stride, const int pad_size, int * bindex, int * bsize)'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='230' u='c' c='_ZN10tensorflow24LaunchMaxPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_6TensorES9_S9_RKSt5arrayIxLm3EESD_SD_SD_NS_12TensorFormatEPS7_'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='235' u='c' c='_ZN10tensorflow24LaunchMaxPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_6TensorES9_S9_RKSt5arrayIxLm3EESD_SD_SD_NS_12TensorFormatEPS7_'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='240' u='c' c='_ZN10tensorflow24LaunchMaxPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_6TensorES9_S9_RKSt5arrayIxLm3EESD_SD_SD_NS_12TensorFormatEPS7_'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='405' u='c' c='_ZN10tensorflow24LaunchAvgPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_11TensorShapeERKNS_6TensorERKSt5arrayIxLm3EE12816150'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='410' u='c' c='_ZN10tensorflow24LaunchAvgPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_11TensorShapeERKNS_6TensorERKSt5arrayIxLm3EE12816150'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='415' u='c' c='_ZN10tensorflow24LaunchAvgPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_11TensorShapeERKNS_6TensorERKSt5arrayIxLm3EE12816150'/>

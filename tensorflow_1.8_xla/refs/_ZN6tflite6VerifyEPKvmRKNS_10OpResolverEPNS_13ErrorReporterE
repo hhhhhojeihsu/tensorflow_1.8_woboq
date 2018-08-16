@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/lite/tools/verifier.h' l='46' type='bool tflite::Verify(const void * buf, size_t len, const tflite::OpResolver &amp; resolver, tflite::ErrorReporter * error_reporter)'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/import.cc' l='177' u='c' c='_ZN4toco6tflite6ImportERKNS_10ModelFlagsERKSs'/>
+<doc f='tensorflow/tensorflow/contrib/lite/tools/verifier.h' l='41'>// Verifies the integrity of a Tensorflow Lite flatbuffer model file.
+// Currently, it verifies:
+// * The file is following a legit flatbuffer schema.
+// * The model is in supported version.
+// * All ops used in the model are supported by OpResolver.</doc>
+<def f='tensorflow/tensorflow/contrib/lite/tools/verifier.cc' l='267' ll='288' type='bool tflite::Verify(const void * buf, size_t len, const tflite::OpResolver &amp; resolver, tflite::ErrorReporter * error_reporter)'/>

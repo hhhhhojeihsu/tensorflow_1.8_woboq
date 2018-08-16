@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/platform/default/logging.h' l='280'/>
+<doc f='tensorflow/tensorflow/core/platform/default/logging.h' l='276'>// NDEBUG is defined, so DCHECK_EQ(x, y) and so on do nothing.
+// However, we still want the compiler to parse x and y, because
+// we don&apos;t want to lose potentially useful errors and warnings.
+// _DCHECK_NOP is a helper, and should not be used outside of this file.</doc>

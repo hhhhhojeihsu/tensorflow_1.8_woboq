@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='419' type='std::unique_ptr&lt;IrFunction&gt;'/>
+<offset>1728</offset>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='415'>// The following fields track the IR emission state. According to LLVM memory
+  // management rules, their memory is owned by the module (Note that IrFunction
+  // creates the encapsulated llvm::Function s.t. it is added to the llvm
+  // module&apos;s function list).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='131' u='m' c='_ZN3xla3cpu9IrEmitter15EmitComputationEPNS_14HloComputationERKSsbPSt6vectorIPKNS_14HloInstructionESaIS9_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='135' u='m' c='_ZN3xla3cpu9IrEmitter15EmitComputationEPNS_14HloComputationERKSsbPSt6vectorIPKNS_14HloInstructionESaIS9_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='147' u='m' c='_ZN3xla3cpu9IrEmitter20InitializeIrFunctionERKSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1248' u='m' c='_ZN3xla3cpu9IrEmitter15HandleParameterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1436' u='m' c='_ZN3xla3cpu9IrEmitter23CreateShardedVectorTypeENS_13PrimitiveTypeEj'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2282' u='m' c='_ZN3xla3cpu9IrEmitter11HandleWhileEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2299' u='m' c='_ZN3xla3cpu9IrEmitter11HandleWhileEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2314' u='m' c='_ZN3xla3cpu9IrEmitter11HandleWhileEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2706' u='m' c='_ZN3xla3cpu9IrEmitter26GetProfileCountersArgumentEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2710' u='m' c='_ZN3xla3cpu9IrEmitter22GetTempBuffersArgumentEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2714' u='m' c='_ZN3xla3cpu9IrEmitter31GetExecutableRunOptionsArgumentEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2828' u='m' c='_ZN3xla3cpu9IrEmitter22EmitTargetAddressForOpEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2891' u='m' c='_ZN3xla3cpu9IrEmitter21EmitTargetElementLoopEPNS_14HloInstructionEN10tensorflow11StringPieceERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_ir7IrArray5IndexEEE'/>

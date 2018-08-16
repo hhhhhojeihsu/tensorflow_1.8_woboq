@@ -1,0 +1,14 @@
+<def f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='94' ll='96'/>
+<size>12</size>
+<doc f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='83'>// We use 16 bytes to represent a TensorShape.  Because we need to
+  // be able to support full 64-bit dimension sizes and an arbitrary
+  // number of dimensions for a Tensor, but most tensor dimensions are
+  // significantly smaller than 64 bits and most tensors are 1, 2, or 3
+  // dimensions, we have several representations.
+  // Rep16: Supports up to 6 dimensions where each dimension is &lt; 2^16 - 1
+  // Rep32: Supports up to 3 dimensions where each dimension is &lt; 2^32 - 1
+  // Rep64: Supports arbitrary dimensionality, 64-bit dimensions using
+  //        an out of line vector.
+  // For PartialTensorShape, a dimension of static_cast&lt;uint??&gt;(-1) is unknown.
+  // This value is not allowed in TensorShape either for format compatibility.</doc>
+<mbr r='tensorflow::TensorShapeRep::Rep16::dims_' o='0' t='uint16 [6]'/>

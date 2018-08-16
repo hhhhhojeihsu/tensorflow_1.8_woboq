@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/device_base.h' l='222' type='const string &amp; tensorflow::DeviceBase::name() const'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/device.h' l='60' c='_ZNK10tensorflow6Device4nameEv'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='165' u='c' c='_ZN10tensorflow9XlaDevice11GetMetadataEPNS_15OpKernelContextEPPKNS0_8MetadataE'/>
+<use f='tensorflow/tensorflow/contrib/data/kernels/prefetching_kernels.cc' l='282' u='c' c='_ZN10tensorflow30FunctionBufferResourceHandleOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/data/kernels/prefetching_kernels.cc' l='455' u='c' c='_ZN10tensorflow19IteratorGetDeviceOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/framework/device_base.cc' l='26' ll='28' type='const string &amp; tensorflow::DeviceBase::name() const'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='682' u='c' c='_ZN10tensorflow15OpKernelContext15allocate_tensorENS_8DataTypeERKNS_11TensorShapeEPNS_6TensorENS_19AllocatorAttributesERKNS_20AllocationAttributesE'/>
+<use f='tensorflow/tensorflow/core/kernels/collective_ops.cc' l='46' u='c' c='_ZN10tensorflow12_GLOBAL__N_118CollectiveOpKernel21CanProceedWithComputeEPNS_15OpKernelContextEPNS_18CollectiveExecutorERKSt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/iterator_ops.cc' l='558' u='c' c='_ZN10tensorflow12_GLOBAL__N_116IteratorHandleOp16CreatePrivateFLREPNS_15OpKernelContextEPSt10unique_ptrINS_9DeviceMgrESt14default_deleteIS5_EEPS4_INS_28848'/>
+<use f='tensorflow/tensorflow/core/kernels/data/iterator_ops.cc' l='568' u='c' c='_ZN10tensorflow12_GLOBAL__N_116IteratorHandleOp16CreatePrivateFLREPNS_15OpKernelContextEPSt10unique_ptrINS_9DeviceMgrESt14default_deleteIS5_EEPS4_INS_28848'/>
+<use f='tensorflow/tensorflow/core/kernels/dense_update_functor.cc' l='100' u='c' c='_ZN10tensorflow13VariantCopyFnEPNS_15OpKernelContextERKNS_6TensorEPS2_'/>
+<use f='tensorflow/tensorflow/core/kernels/scoped_allocator_ops.cc' l='54' u='c' c='_ZN10tensorflow17ScopedAllocatorOp7ComputeEPNS_15OpKernelContextE'/>

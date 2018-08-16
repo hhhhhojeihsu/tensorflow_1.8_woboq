@@ -1,0 +1,13 @@
+<inh f='tensorflow/tensorflow/core/distributed_runtime/worker_cache.h' l='32' c='tensorflow::WorkerCacheInterface'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_partial.h' l='32' ll='54'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_cache.cc' l='34' c='tensorflow::(anonymousnamespace)::GrpcWorkerCache'/>
+<size>80</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_partial.h' l='30'>// Implements the part of the interface that caches and returns remote
+// device status attributes.</doc>
+<fun r='_ZN10tensorflow18WorkerCachePartial28GetDeviceLocalityNonBlockingERKSsPNS_14DeviceLocalityE'/>
+<fun r='_ZN10tensorflow18WorkerCachePartial22GetDeviceLocalityAsyncERKSsPNS_14DeviceLocalityESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow18WorkerCachePartialD1Ev'/>
+<fun r='_ZN10tensorflow18WorkerCachePartial16FlushStatusCacheEv'/>
+<mbr r='tensorflow::WorkerCachePartial::mu_' o='64' t='tensorflow::mutex'/>
+<fun r='_ZN10tensorflow18WorkerCachePartial19RefreshDeviceStatusERKSs'/>
+<mbr r='tensorflow::WorkerCachePartial::device_status_cache_' o='192' t='StatusMap'/>

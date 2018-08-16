@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='570' type='static xla::Shape xla::ShapeUtil::FilterDimensions(const std::function&lt;bool (int64)&gt; &amp; p, xla::Shape shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='565'>// Returns a shape with all the dimensions of the input shape for which `p`
+  // returns true.
+  // For examples:
+  // • `FilterDimensions((&lt; 2), T[m, n, k]) = T[m, n]`
+  // • `FilterDimensions(is_even_number, T[m, n, k]) = T[m, k]`</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1881' u='c' c='_ZN3xla3cpu9IrEmitter11HandleSliceEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1437' ll='1449' type='static xla::Shape xla::ShapeUtil::FilterDimensions(const std::function&lt;bool (int64)&gt; &amp; p, xla::Shape shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1437'>/* static */</doc>

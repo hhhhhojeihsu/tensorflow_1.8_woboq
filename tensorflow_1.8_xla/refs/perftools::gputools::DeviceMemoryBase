@@ -1,0 +1,28 @@
+<def f='tensorflow/tensorflow/stream_executor/device_memory.h' l='47' ll='101'/>
+<ovr f='tensorflow/tensorflow/stream_executor/device_memory.h' l='110' c='perftools::gputools::DeviceMemory'/>
+<ovr f='tensorflow/tensorflow/stream_executor/device_memory.h' l='162' c='perftools::gputools::SharedDeviceMemory'/>
+<size>24</size>
+<doc f='tensorflow/tensorflow/stream_executor/device_memory.h' l='37'>// void*-analogous device memory allocation. For the typed variation, see
+// DeviceMemory&lt;T&gt;.
+//
+// This is effectively a two-tuple of a pointer and size; however, note that the
+// pointer may not be to the virtual address itself -- in OpenCL the pointer is
+// to a cl_mem handle that describes the device allocation. Therefore,
+// DeviceMemoryBase::opaque does not necessarily produce a pointer that can be
+// referenced directly, so use it with caution.
+//
+// Thread-compatible.</doc>
+<fun r='_ZN9perftools8gputools16DeviceMemoryBaseC1EPvyb'/>
+<fun r='_ZNK9perftools8gputools16DeviceMemoryBase7is_nullEv'/>
+<fun r='_ZNK9perftools8gputools16DeviceMemoryBaseeqEDn'/>
+<fun r='_ZNK9perftools8gputools16DeviceMemoryBaseneEDn'/>
+<fun r='_ZNK9perftools8gputools16DeviceMemoryBaseltERKS1_'/>
+<fun r='_ZNK9perftools8gputools16DeviceMemoryBase4sizeEv'/>
+<fun r='_ZN9perftools8gputools16DeviceMemoryBase6opaqueEv'/>
+<fun r='_ZNK9perftools8gputools16DeviceMemoryBase6opaqueEv'/>
+<fun r='_ZNK9perftools8gputools16DeviceMemoryBase13is_sub_bufferEv'/>
+<fun r='_ZNK9perftools8gputools16DeviceMemoryBase8IsSameAsERKS1_'/>
+<fun r='_ZN9perftools8gputools16DeviceMemoryBase5ResetEPvy'/>
+<mbr r='perftools::gputools::DeviceMemoryBase::opaque_' o='0' t='void *'/>
+<mbr r='perftools::gputools::DeviceMemoryBase::size_' o='64' t='uint64'/>
+<mbr r='perftools::gputools::DeviceMemoryBase::is_sub_buffer_' o='128' t='bool'/>

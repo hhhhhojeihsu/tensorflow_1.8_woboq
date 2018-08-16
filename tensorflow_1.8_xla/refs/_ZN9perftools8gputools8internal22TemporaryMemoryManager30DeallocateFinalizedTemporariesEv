@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='85' type='void perftools::gputools::internal::TemporaryMemoryManager::DeallocateFinalizedTemporaries()'/>
+<doc f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='81'>// Deallocates temporary memories that have been finalized.
+  //
+  // Note: These calls to Deallocate will likely force synchronization, so it is
+  // meant to be called before a &quot;BlockHostUntilDone&quot; is about to be performed.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5188' u='c' c='_ZN9perftools8gputools6Stream18BlockHostUntilDoneEv'/>
+<def f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.cc' l='51' ll='65' type='void perftools::gputools::internal::TemporaryMemoryManager::DeallocateFinalizedTemporaries()'/>

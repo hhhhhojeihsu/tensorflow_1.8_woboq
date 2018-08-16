@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='102' type='5'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='92'>/** A tensor of 8 bit integers that represent real numbers.
+   *
+   * Attached to this tensor are two numbers that can be used to convert
+   * the 8 bit integer to the real value and vice versa.  These two numbers are:
+   * - scale: a 32 bit floating point value
+   * - zero_value: an 32 bit integer
+   *
+   * The formula is:
+   * real_value = (integer_value - zero_value) * scale.
+   */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='91' u='r' c='_ZN6tflite17addTensorOperandsEPNS_11InterpreterEP20ANeuralNetworksModel'/>

@@ -1,0 +1,33 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='124' type='const string &amp; tensorflow::OpKernel::type_string() const'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='124'>// Same as def().op()</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='241' u='c' c='_ZN10tensorflow9XlaDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='245' u='c' c='_ZN10tensorflow9XlaDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='253' u='c' c='_ZN10tensorflow9XlaDevice12ComputeAsyncEPNS_13AsyncOpKernelEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='254' u='c' c='_ZN10tensorflow9XlaDevice12ComputeAsyncEPNS_13AsyncOpKernelEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_ops.cc' l='26' u='c' c='_ZN10tensorflow16XlaDeviceDummyOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/conv_ops.cc' l='390' u='c' c='_ZN10tensorflow12_GLOBAL__N_119ConvBackpropInputOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/conv_ops.cc' l='545' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ConvBackpropFilterOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='109' u='c' c='_ZN10tensorflow12_GLOBAL__N_19PoolingOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='458' u='c' c='_ZN10tensorflow12_GLOBAL__N_113AvgPoolGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='32' u='c' c='_ZN10tensorflow12_GLOBAL__N_19SoftmaxOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.cc' l='98' u='c' c='_ZN10tensorflow20XlaCompilationDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='125' u='c' c='_ZN10tensorflow18XlaOpKernelContext21ConstantInputReshapedEiNS_3gtl10ArraySliceIxEEPN3xla7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='132' u='c' c='_ZN10tensorflow18XlaOpKernelContext21ConstantInputReshapedEiNS_3gtl10ArraySliceIxEEPN3xla7LiteralE'/>
+<use f='tensorflow/tensorflow/core/framework/dataset.h' l='460' u='c' c='_ZN10tensorflow16GraphDatasetBaseC1EPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1160' u='c' c='_ZN10tensorflow13DirectSession15CreateExecutorsERKNS_15CallableOptionsEPSt10unique_ptrINS0_16ExecutorsAndKeysESt14default_deleteIS5_EEPS4_INS0_12Funct10670497'/>
+<use f='tensorflow/tensorflow/core/common_runtime/threadpool_device.cc' l='54' u='c' c='_ZN10tensorflow16ThreadPoolDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='252' u='c' c='_ZN10tensorflow8GraphMgr8InitItemERKSsRKNS_8GraphDefERKNS_12GraphOptionsERKNS_12DebugOptionsEPNS_33DistributedFunctionLibraryRuntimeEPNS0_4ItemE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='99' u='c' c='_ZN10tensorflow8OpKernelC1EPNS_20OpKernelConstructionESt10unique_ptrIKNS_7NodeDefESt14default_deleteIS5_EE'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='117' type='const string &amp; tensorflow::OpKernel::type_string() const'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='844' u='c' c='_ZN10tensorflow15OpKernelContext26ValidateInputsAreSameShapeEPNS_8OpKernelE'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_grad_filter_ops.cc' l='234' u='c' c='_ZN10tensorflow26Conv2DFastBackpropFilterOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_grad_ops_3d.cc' l='141' u='c' c='_ZN10tensorflow21Conv3DBackpropInputOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_grad_ops_3d.cc' l='251' u='c' c='_ZN10tensorflow22Conv3DBackpropFilterOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/cwise_ops_common.cc' l='39' u='c' c='_ZN10tensorflow14BinaryOpShared15SetComputeErrorEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_image_op.cc' l='72' u='c' c='_ZN10tensorflow12_GLOBAL__N_113DecodeImageOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_image_op.cc' l='74' u='c' c='_ZN10tensorflow12_GLOBAL__N_113DecodeImageOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_image_op.cc' l='77' u='c' c='_ZN10tensorflow12_GLOBAL__N_113DecodeImageOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_image_op.cc' l='79' u='c' c='_ZN10tensorflow12_GLOBAL__N_113DecodeImageOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/decode_image_op.cc' l='83' u='c' c='_ZN10tensorflow12_GLOBAL__N_113DecodeImageOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/softmax_op.cc' l='59' u='c' c='_ZN10tensorflow9SoftmaxOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/python/lib/core/py_func.cc' l='448' u='c' c='_ZN10tensorflow8PyFuncOpC1EPNS_20OpKernelConstructionE'/>

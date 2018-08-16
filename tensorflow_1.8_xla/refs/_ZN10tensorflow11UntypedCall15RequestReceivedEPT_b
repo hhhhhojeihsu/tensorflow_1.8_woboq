@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_call.h' l='90' type='void tensorflow::UntypedCall::RequestReceived(Service * service, bool ok)'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_call.h' l='80'>// The implementation of this method should use `service` to handle
+  // an incoming request, and (perhaps asynchronously) send the
+  // response.
+  //
+  // One reference on `this` is transferred to the callee, and the
+  // callee is responsible for releasing it (typically via
+  // `Call::SendResponse()`).
+  //
+  // `ok` is true if the request was received in a &quot;regular event&quot;,
+  // otherwise false.</doc>

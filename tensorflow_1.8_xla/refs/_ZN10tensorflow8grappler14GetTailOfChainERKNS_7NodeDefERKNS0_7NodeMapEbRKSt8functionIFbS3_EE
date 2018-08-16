@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/grappler/utils.h' l='170' type='tensorflow::NodeDef * tensorflow::grappler::GetTailOfChain(const tensorflow::NodeDef &amp; source, const tensorflow::grappler::NodeMap &amp; node_map, bool follow_control_input, const std::function&lt;bool (const NodeDef &amp;)&gt; &amp; pred_fn)'/>
+<doc f='tensorflow/tensorflow/core/grappler/utils.h' l='161'>// Returns the last node in the simple chain starting at source and traversing
+// through the input(0) edge from each node as long as the next node satisfies
+// the predicate given in pred_fn. If no nodes satisfy the predicate, &amp;source
+// will be returned. Example: For the chain
+//    source &lt;- a &lt;- b &lt;- ... &lt;- y &lt;- z
+// where
+//    pred_fn(a) = pred_fn(b) = ... = pred_fn(y) = true,
+//    pred_fn(z) = false,
+// the return value will be a pointer to y.</doc>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='260' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_129GetTailOfValuePreservingChainERKNS_7NodeDefERKNS0_7NodeMapERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEE'/>
+<def f='tensorflow/tensorflow/core/grappler/utils.cc' l='320' ll='337' type='tensorflow::NodeDef * tensorflow::grappler::GetTailOfChain(const tensorflow::NodeDef &amp; source, const tensorflow::grappler::NodeMap &amp; node_map, bool follow_control_input, const std::function&lt;bool (const NodeDef &amp;)&gt; &amp; pred_fn)'/>

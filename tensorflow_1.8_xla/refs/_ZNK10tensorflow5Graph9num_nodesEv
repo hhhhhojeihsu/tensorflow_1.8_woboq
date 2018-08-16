@@ -1,0 +1,16 @@
+<def f='tensorflow/tensorflow/core/graph/graph.h' l='476' type='int tensorflow::Graph::num_nodes() const'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='437' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ValidateNoCyclesERKNS_5GraphE'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='446' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ValidateNoCyclesERKNS_5GraphE'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='470'>// The number of live nodes in the graph.
+  //
+  // Because nodes can be removed from the graph, num_nodes() is often
+  // smaller than num_node_ids(). If one needs to create an array of
+  // nodes indexed by node ids, num_node_ids() should be used as the
+  // array&apos;s size.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='584' u='c' c='_ZN10tensorflow9DumpGraphENS_11StringPieceEPKNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/graph/algorithm.cc' l='198' u='c' c='_ZN10tensorflow27PruneForReverseReachabilityEPNS_5GraphESt13unordered_setIPKNS_4NodeESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='536' u='c' c='_ZNK10tensorflow5Graph18ToGraphDefSubRangeEPNS_8GraphDefEi'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='344' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor22EnsureNoNameCollisionsEv'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='1243' u='c' c='_ZN10tensorflow14ImportGraphDefERKNS_21ImportGraphDefOptionsERKNS_8GraphDefEPNS_5GraphEPNS_12ShapeRefinerEPNS_21ImportGraphDefResultsE'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='363' u='c' c='_ZN10tensorflow8subgraph24RewriteGraphForExecutionEPNS_5GraphERKSt6vectorISt10unique_ptrINS0_12PruneRewriteESt14default_deleteIS5_EESaIS8_EESC_RKNS_3g16243535'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='108' u='c' c='_ZN10tensorflow15GraphTransferer18LoadGraphFromProtoERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaISA_EERKS7_ISsSaISsEEb'/>

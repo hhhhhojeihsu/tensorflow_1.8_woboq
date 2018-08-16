@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/lib/io/record_reader.h' l='43' type='int64'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='542' u='w' c='_ZN10tensorflow12_GLOBAL__N_117TFRecordDatasetOp7DatasetC1EPNS_15OpKernelContextESt6vectorISsSaISsEERKSsx'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='573' u='r' c='_ZNK10tensorflow12_GLOBAL__N_117TFRecordDatasetOp7Dataset18AsGraphDefInternalEPNS_11DatasetBase22DatasetGraphDefBuilderEPPNS_4NodeE'/>
+<offset>64</offset>
+<doc f='tensorflow/tensorflow/core/lib/io/record_reader.h' l='40'>// If buffer_size is non-zero, then all reads must be sequential, and no
+  // skipping around is permitted. (Note: this is the same behavior as reading
+  // compressed files.) Consider using SequentialRecordReader.</doc>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='60' u='r' c='_ZN10tensorflow2io12RecordReaderC1EPNS_16RandomAccessFileERKNS0_19RecordReaderOptionsE'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='61' u='r' c='_ZN10tensorflow2io12RecordReaderC1EPNS_16RandomAccessFileERKNS0_19RecordReaderOptionsE'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='119' u='r' c='_ZN10tensorflow2io12RecordReader15ReadChecksummedEymPNS_11StringPieceEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='205' u='r' c='_ZN10tensorflow2io12RecordReader10SkipNBytesEy'/>

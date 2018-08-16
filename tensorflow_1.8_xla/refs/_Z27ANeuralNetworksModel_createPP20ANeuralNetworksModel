@@ -1,0 +1,23 @@
+<def f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='1406' ll='1409' type='int ANeuralNetworksModel_create(ANeuralNetworksModel ** model)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='1385'>/**
+ * Create an empty {@link ANeuralNetworksModel}.
+ *
+ * &lt;p&gt;This only creates the object. Computation is performed once
+ * {@link ANeuralNetworksExecution_startCompute} is invoked.
+ *
+ * The model should be constructed with calls to
+ * {@link ANeuralNetworksModel_addOperation} and
+ * {@link ANeuralNetworksModel_addOperand}
+ *
+ * &lt;p&gt;{@link ANeuralNetworksModel_finish} should be called once the model
+ * has been fully constructed.&lt;/p&gt;
+ *
+ * &lt;p&gt;{@link ANeuralNetworksModel_free} should be called once the model
+ * is no longer needed.&lt;/p&gt;
+ *
+ * @param model The {@link ANeuralNetworksModel} to be created.
+ *              Set to NULL if unsuccessful.
+ *
+ * @return ANEURALNETWORKS_NO_ERROR if successful.
+ */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='376' u='c' c='_ZN6tflite13NNAPIDelegate10BuildGraphEPNS_11InterpreterE'/>

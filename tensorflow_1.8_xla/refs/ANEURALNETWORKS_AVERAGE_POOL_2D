@@ -1,0 +1,41 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='185' type='1'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='146'>/** Performs a 2-D average pooling operation.
+   *
+   * The output dimensions are functions of the filter dimensions, stride, and
+   * padding.
+   *
+   * The values in the output tensor are computed as:
+   *
+   *     output[batch, row, col, channel] =
+   *         sum_{i, j}(input[batch, row + i, col + j, channel]) / sum(1)
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   * * {@link ANEURALNETWORKS_TENSOR_QUANT8_ASYMM}
+   *
+   * Supported tensor rank: 4, with &quot;NHWC&quot; data layout.
+   *
+   * Inputs:
+   * * 0: A 4-D tensor, of shape [batches, height, width, depth], specifying the
+   * input.
+   * * 1: An INT32 value, specifying the padding on the left, in the ‘width’
+   * dimension.
+   * * 2: An INT32 value, specifying the padding on the right,in the ‘width’
+   * dimension.
+   * * 3: An INT32 value, specifying the padding on the top, in the ‘height’
+   * dimension.
+   * * 4: An INT32 value, specifying the padding on the bottom, in the ‘height’
+   * dimension.
+   * * 5: An INT32 value, specifying the output stride in the ‘width’ dimension.
+   * * 6: An INT32 value, specifying the output stride in the ‘height’
+   * dimension.
+   * * 7: An INT32 value, specifying the filter width.
+   * * 8: An INT32 value, specifying the filter height.
+   * * 9: An INT32 value, and has to be one of the {@link FuseCode} values.
+   *      Specifies the activation to invoke on the result of each addition.
+   *
+   * Outputs:
+   * * 0: The output 4-D tensor, of shape [batches, out_height, out_width,
+   * depth].
+   */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='258' u='r' c='_ZN6tflite15AddOpsAndParamsEPNS_11InterpreterEP20ANeuralNetworksModelj'/>

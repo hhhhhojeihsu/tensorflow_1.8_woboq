@@ -1,0 +1,46 @@
+<def f='tensorflow/tensorflow/core/common_runtime/executor.h' l='83' ll='106'/>
+<size>136</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/executor.h' l='50'>// RunAsync() executes the graph computation. &quot;done&quot; is run when the
+  // graph computation completes. If any error happens during the
+  // computation, &quot;done&quot; is run and the error is passed to &quot;done&quot;.
+  //
+  // RunAsync() is given a few arguments in Args. The caller must
+  // ensure objects passed in Args (rendezvous, stats_collector, etc.)
+  // are alive at least until done is invoked. All pointers to the
+  // argument objects can be nullptr.
+  //
+  // &quot;step_id&quot; is a process-wide unique identifier for the step being
+  // run. Executors on different devices may receive the same step_id
+  // in the case that a step runs Ops on more than one device. The
+  // step_id is used for tracking resource usage of a given step.
+  //
+  // RunAsync() uses the given &quot;rendezvous&quot;, if not null, as the
+  // mechanism to communicate inputs and outputs of the underlying
+  // graph computation.
+  //
+  // RunAsync() calls &quot;stats_collector&quot;, if not null, to keep track of
+  // stats. This allows us to collect statistics and traces on demand.
+  //
+  // RunAsync() is provided a &quot;call_frame&quot;, if the executor is used
+  // for executing a function, is used to pass arguments and return
+  // values between the caller and the callee.
+  //
+  // RunAsync() uses &quot;cancellation_manager&quot;, if not nullptr, to
+  // register callbacks that should be called if the graph computation
+  // is canceled. Note that the callbacks merely unblock any
+  // long-running computation, and a canceled step will terminate by
+  // returning/calling the DoneCallback as usual.
+  //
+  // RunAsync() dispatches closures to &quot;runner&quot;. Typically, &quot;runner&quot;
+  // is backed up by a bounded threadpool.</doc>
+<mbr r='tensorflow::Executor::Args::step_id' o='0' t='int64'/>
+<mbr r='tensorflow::Executor::Args::rendezvous' o='64' t='tensorflow::Rendezvous *'/>
+<mbr r='tensorflow::Executor::Args::stats_collector' o='128' t='tensorflow::StepStatsCollector *'/>
+<mbr r='tensorflow::Executor::Args::call_frame' o='192' t='tensorflow::CallFrameInterface *'/>
+<mbr r='tensorflow::Executor::Args::cancellation_manager' o='256' t='tensorflow::CancellationManager *'/>
+<mbr r='tensorflow::Executor::Args::session_state' o='320' t='tensorflow::SessionState *'/>
+<mbr r='tensorflow::Executor::Args::tensor_store' o='384' t='tensorflow::TensorStore *'/>
+<mbr r='tensorflow::Executor::Args::step_container' o='448' t='tensorflow::ScopedStepContainer *'/>
+<mbr r='tensorflow::Executor::Args::sync_on_finish' o='512' t='bool'/>
+<mbr r='tensorflow::Executor::Args::runner' o='576' t='Runner'/>
+<mbr r='tensorflow::Executor::Args::node_outputs_cb' o='832' t='NodeOutputsCallback'/>

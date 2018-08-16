@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/cc/framework/ops.h' l='261' ll='265' type='void tensorflow::InputList::InputList(const OutputList &amp; out)'/>
+<doc f='tensorflow/tensorflow/cc/framework/ops.h' l='259'>/// Implicitly convert a list of outputs to a list of inputs. This is useful
+  /// to write code such as ops::Concat(ops::Split(x, 4)).</doc>
+<doc f='tensorflow/tensorflow/cc/framework/ops.h' l='261'>// NOLINT(runtime/explicit)</doc>
+<use f='tensorflow/tensorflow/cc/framework/gradients.cc' l='367' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SymbolicGradientBuilder12SumGradientsERKNS_6OutputEPS2_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='64' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_110UnpackGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/array_grad.cc' l='118' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_19SplitGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/data_flow_grad.cc' l='99' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_120DynamicPartitionGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/data_flow_grad.cc' l='99' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_120DynamicPartitionGradERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
+<use f='tensorflow/tensorflow/cc/gradients/math_grad.cc' l='657' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_118ReducedShapeHelperERKNS_5ScopeERKNS_6OutputES7_'/>
+<use f='tensorflow/tensorflow/cc/gradients/math_grad.cc' l='657' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_118ReducedShapeHelperERKNS_5ScopeERKNS_6OutputES7_'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transfer_utils.cc' l='145' u='c' c='_ZN10tensorflow18GraphTransferUtils18BuildFusedGraphDefERKNS_31IRemoteFusedGraphOpsDefinitionsERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS9_EERKS6_ISsSaISsEEPNS_8GraphDefE'/>

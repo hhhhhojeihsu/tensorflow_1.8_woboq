@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/platform/env.h' l='122' type='tensorflow::Status tensorflow::Env::NewAppendableFile(const string &amp; fname, std::unique_ptr&lt;WritableFile&gt; * result)'/>
+<doc f='tensorflow/tensorflow/core/platform/env.h' l='110'>/// \brief Creates an object that either appends to an existing file, or
+  /// writes to a new file (if the file does not exist to begin with).
+  ///
+  /// On success, stores a pointer to the new file in *result and
+  /// returns OK.  On failure stores NULL in *result and returns
+  /// non-OK.
+  ///
+  /// The returned file will only be accessed by one thread at a time.
+  ///
+  /// The ownership of the returned WritableFile is passed to the caller
+  /// and the object should be deleted when is not used. The file object
+  /// shouldn&apos;t live longer than the Env object.</doc>
+<def f='tensorflow/tensorflow/core/platform/env.cc' l='150' ll='155' type='tensorflow::Status tensorflow::Env::NewAppendableFile(const string &amp; fname, std::unique_ptr&lt;WritableFile&gt; * result)'/>

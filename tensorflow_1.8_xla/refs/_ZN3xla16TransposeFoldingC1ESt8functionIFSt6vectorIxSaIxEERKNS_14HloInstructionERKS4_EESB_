@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/transpose_folding.h' l='49' type='void xla::TransposeFolding::TransposeFolding(TransposableGemmOperandsFn transposable_gemm_operands, TransposableConvOperandsFn transposable_conv_operands)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/transpose_folding.h' l='42'>// transposable_gemm_operands returns the set of operands it wants to fold if
+  // the instruction argument is implemented as a GEMM kernel that supports
+  // transposing its arguments.
+  //
+  // transposable_conv_operands returns the set of operands it wants to fold if
+  // the instruction argument is implemented as a convolution that supports
+  // transposing its arguments.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/transpose_folding.cc' l='170' ll='174' type='void xla::TransposeFolding::TransposeFolding(TransposableGemmOperandsFn transposable_gemm_operands, TransposableConvOperandsFn transposable_conv_operands)'/>

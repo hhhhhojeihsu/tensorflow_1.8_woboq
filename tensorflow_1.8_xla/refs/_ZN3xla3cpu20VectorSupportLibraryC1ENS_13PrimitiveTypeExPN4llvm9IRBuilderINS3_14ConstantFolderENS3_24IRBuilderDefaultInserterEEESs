@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='47' type='void xla::cpu::VectorSupportLibrary::VectorSupportLibrary(xla::PrimitiveType primitive_type, int64 vector_size, llvm::IRBuilder&lt;&gt; * ir_builder, std::string name)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='161' u='c' c='_ZN3xla3cpu12_GLOBAL__N_137ColumnMajorMatrixVectorProductEmitterC1ENS_13PrimitiveTypeExxxxPN4llvm5ValueES6_S6_S6_PNS4_9IRBuilderINS4_14ConstantFolderE11978782'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='385' u='c' c='_ZN3xla3cpu12_GLOBAL__N_134RowMajorMatrixVectorProductEmitterC1ENS_13PrimitiveTypeExxxxPN4llvm5ValueES6_S6_S6_PNS4_9IRBuilderINS4_14ConstantFolderENS46332902'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='43'>// This VectorSupportLibrary instance remembers `primitive_type` and
+  // `vector_size`, and these are implicitly used by the methods on this
+  // instance (i.e. LoadVector will load a vector of type &lt;`vector_size` x
+  // `primitive_type`&gt;).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/llvm_ir_runtime.cc' l='60' u='c' c='_ZN3xla3cpu7runtime12_GLOBAL__N_125EmitVectorF32TanhIfNeededEPN4llvm6ModuleENS3_9StringRefEib'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/llvm_ir_runtime.cc' l='121' u='c' c='_ZN3xla3cpu7runtime12_GLOBAL__N_124EmitVectorF32ExpIfNeededEPN4llvm6ModuleENS3_9StringRefEib'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/llvm_ir_runtime.cc' l='205' u='c' c='_ZN3xla3cpu7runtime12_GLOBAL__N_124EmitVectorF32LogIfNeededEPN4llvm6ModuleENS3_9StringRefEib'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='24' ll='37' type='void xla::cpu::VectorSupportLibrary::VectorSupportLibrary(xla::PrimitiveType primitive_type, int64 vector_size, llvm::IRBuilder&lt;&gt; * ir_builder, std::string name)'/>

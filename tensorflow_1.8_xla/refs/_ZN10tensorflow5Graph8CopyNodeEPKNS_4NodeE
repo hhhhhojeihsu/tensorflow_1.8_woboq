@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='426' type='tensorflow::Node * tensorflow::Graph::CopyNode(const tensorflow::Node * node)'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='423'>// Copies *node, which may belong to another graph, to a new node,
+  // which is returned.  Does not copy any edges.  *this owns the
+  // returned instance.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='676' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph13MakeNodeImageEPKNS_5GraphEPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1459' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator22CopyNodesToOutputGraphEbPNS_5GraphEPSt13unordered_mapIPKNS_4NodeEPS5_St4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1740' u='c' c='_ZN10tensorflow12_GLOBAL__N_112_GLOBAL__N_129CopyShapeInferenceNodeToGraphEPNS_4NodeEPKS2_RKSt13unordered_mapIS3_S3_St4hashIS3_ESt8equal_toIS3_ESaISt4211990'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1907' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator28MakePrunedGraphCopyAndInlineERKNS_5GraphERKSt6vectorIPNS_4NodeESaIS7_EEPSt10unique_ptrIS2_St14default_del3709695'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='146' u='c' c='_ZN10tensorflow12_GLOBAL__N_112CopySubgraphERKNS_5GraphEPKNS0_5FrameESt6vectorIPNS_4NodeESaIS9_EERKS7_IbSaIbEEPSB_PS1_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='313' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeLoopEPNS_5GraphEPNS0_5FrameEPNS_25FunctionLibraryDefinitionE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1275' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond11ExtractBodyERKSt6vectorINS1_11CondArgNodeESaIS3_EERKS2_IPNS_4NodeESaIS9_EESD_iPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='356' u='c' c='_ZN10tensorflow12_GLOBAL__N_122AddNodeToConstantGraphEPNS_4NodeEPSt13unordered_mapIS2_St6vectorIS2_SaIS2_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S6_EEEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eval_const_tensor.cc' l='153' u='c' c='_ZN10tensorflow12_GLOBAL__N_123ExtractConstantSubgraphERKNS_4NodeERKNS_12ShapeRefinerEPKSt13unordered_mapISsNS_6TensorESt4hashISsESt8equal_toISsESaISt10602876'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eval_const_tensor.cc' l='226' u='c' c='_ZN10tensorflow12_GLOBAL__N_123ExtractConstantSubgraphERKNS_4NodeERKNS_12ShapeRefinerEPKSt13unordered_mapISsNS_6TensorESt4hashISsESt8equal_toISsESaISt10602876'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1508' u='c' c='_ZN10tensorflow22SymbolicGradientHelper4CopyEv'/>
+<def f='tensorflow/tensorflow/core/graph/graph.cc' l='342' ll='359' type='tensorflow::Node * tensorflow::Graph::CopyNode(const tensorflow::Node * node)'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='1289' u='c' c='_ZN10tensorflow9CopyGraphERKNS_5GraphEPS0_'/>

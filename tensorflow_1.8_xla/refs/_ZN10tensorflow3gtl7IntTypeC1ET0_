@@ -1,0 +1,49 @@
+<def f='tensorflow/tensorflow/core/lib/gtl/int_type.h' l='204' type='void tensorflow::gtl::IntType::IntType&lt;IntTypeName, _ValueType&gt;(ValueType value)'/>
+<doc f='tensorflow/tensorflow/core/lib/gtl/int_type.h' l='203'>// C&apos;tor explicitly initializing from a ValueType.</doc>
+<use f='tensorflow/tensorflow/core/graph/costmodel.h' l='208' u='c' c='_ZN10tensorflow9CostModel8MemUsageC1Ev'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.h' l='208' u='c' c='_ZN10tensorflow9CostModel8MemUsageC1Ev'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer.h' l='155' u='c'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='130' u='c' c='_ZN10tensorflow9XlaDevice6CreateERKSsS2_iS2_RKNS_14SessionOptionsES2_RKNS_13XlaOpRegistry18DeviceRegistrationEbPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.cc' l='82' u='c' c='_ZN10tensorflow20XlaCompilationDeviceC1ERKNS_14SessionOptionsENS_10DeviceTypeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_liveness.h' l='79' u='c' c='_ZN3xla14BufferLiveness14DefaultColorerEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/alias_analysis.cc' l='32' u='c'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_id_manager.cc' l='74' u='c' c='_ZNK10tensorflow12_GLOBAL__N_116TfToCudaGpuIdMap15FindOrDieLockedENS_3gtl7IntTypeINS_12TfGpuId_tag_EiEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/process_state.cc' l='263' u='c' c='_ZN10tensorflow12ProcessState20GetCUDAHostAllocatorEi'/>
+<use f='tensorflow/tensorflow/core/common_runtime/single_threaded_cpu_device.h' l='38' u='c' c='_ZN10tensorflow23SingleThreadedCpuDeviceC1EPNS_3EnvE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='231' u='c' c='_ZN10tensorflow18StepStatsCollector14BuildCostModelEPNS_16CostModelManagerERKSt13unordered_mapISsPKNS_5GraphESt4hashISsESt8equal_toISsESaISt4pairIKSsS6_EEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='249' u='c' c='_ZN10tensorflow18StepStatsCollector14BuildCostModelEPNS_16CostModelManagerERKSt13unordered_mapISsPKNS_5GraphESt4hashISsESt8equal_toISsESaISt4pairIKSsS6_EEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='252' u='c' c='_ZN10tensorflow18StepStatsCollector14BuildCostModelEPNS_16CostModelManagerERKSt13unordered_mapISsPKNS_5GraphESt4hashISsESt8equal_toISsESaISt4pairIKSsS6_EEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/threadpool_device_factory.cc' l='41' u='c' c='_ZN10tensorflow23ThreadPoolDeviceFactory13CreateDevicesERKNS_14SessionOptionsERKSsPSt6vectorIPNS_6DeviceESaIS8_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.h' l='161' u='c'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.h' l='162' u='c'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='866' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph12ProcessStatsExPNS0_12PerStepStateEPNS_14ProfileHandlerERKNS_10RunOptionsEPNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/scheduler.cc' l='94' u='c' c='_ZN10tensorflow13SlackAnalysis11ComputeAsapEPSt6vectorINS_3gtl7IntTypeINS_17Microseconds_tag_ExEESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/scheduler.cc' l='150' u='c' c='_ZN10tensorflow13SlackAnalysis11ComputeAlapEPSt6vectorINS_3gtl7IntTypeINS_17Microseconds_tag_ExEESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/scheduler.cc' l='224' u='c' c='_ZN10tensorflow15GreedyScheduler15ComputeScheduleEPSt6vectorINS_3gtl7IntTypeINS_17Microseconds_tag_ExEESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/scheduler.cc' l='238' u='c' c='_ZN10tensorflow15GreedyScheduler15ComputeScheduleEPSt6vectorINS_3gtl7IntTypeINS_17Microseconds_tag_ExEESaIS5_EE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='28' u='c'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='29' u='c'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='145' u='c' c='_ZN10tensorflow9CostModel6EnsureEii'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='147' u='c' c='_ZN10tensorflow9CostModel6EnsureEii'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='198' u='c' c='_ZNK10tensorflow9CostModel10TotalBytesEPKNS_4NodeEi'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='205' u='c' c='_ZNK10tensorflow9CostModel12SizeEstimateEPKNS_4NodeEi'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='221' u='c' c='_ZNK10tensorflow9CostModel9TotalTimeEPKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='222' u='c' c='_ZNK10tensorflow9CostModel9TotalTimeEPKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='236' u='c' c='_ZNK10tensorflow9CostModel16CheckInitializedERKNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='243' u='c' c='_ZNK10tensorflow9CostModel16CheckInitializedERKNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='279' u='c' c='_ZNK10tensorflow9CostModel13MaxMemorySizeEPKNS_4NodeEi'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='307' u='c' c='_ZNK10tensorflow9CostModel14TempMemorySizeEPKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='315' u='c' c='_ZNK10tensorflow9CostModel20PersistentMemorySizeEPKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='344' u='c' c='_ZNK10tensorflow9CostModel16MaxExecutionTimeEPKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='389' u='c' c='_ZN10tensorflow9CostModel16CopyTimeEstimateENS_3gtl7IntTypeINS_10Bytes_tag_ExEEdd'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='400' u='c' c='_ZN10tensorflow9CostModel23ComputationTimeEstimateEx'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='419' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L19AddNodesToCostModelERKNS_5GraphEPNS_9CostModelE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='433' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L11AssignSizesERKNS_5GraphEPNS_9CostModelE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='449' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L19TimeEstimateForNodeEPNS_9CostModelEPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='557' u='c' c='_ZN10tensorflow9CostModel20MinTensorMemoryUsageERKNS_16TensorShapeProtoERKNS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='565' u='c' c='_ZN10tensorflow9CostModel20MinTensorMemoryUsageERKNS_16TensorShapeProtoERKNS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/single_machine.cc' l='95' u='c' c='_ZN10tensorflow8grappler13SingleMachine9ProvisionEv'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/utils.cc' l='123' u='c' c='_ZN10tensorflow8grappler13GetDeviceInfoERKNS_15DeviceNameUtils10ParsedNameE'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/utils.cc' l='132' u='c' c='_ZN10tensorflow8grappler13GetDeviceInfoERKNS_15DeviceNameUtils10ParsedNameE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/utils.cc' l='211' u='c' c='_ZN10tensorflow8grappler13GetDeviceInfoERKSs'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/utils.cc' l='216' u='c' c='_ZN10tensorflow8grappler13GetDeviceInfoERKSs'/>

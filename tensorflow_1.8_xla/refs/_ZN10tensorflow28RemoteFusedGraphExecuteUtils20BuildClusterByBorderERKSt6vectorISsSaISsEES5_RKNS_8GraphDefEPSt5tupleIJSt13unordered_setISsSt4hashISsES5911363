@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.h' l='199' type='static tensorflow::Status tensorflow::RemoteFusedGraphExecuteUtils::BuildClusterByBorder(const std::vector&lt;string&gt; &amp; border_inputs, const std::vector&lt;string&gt; &amp; border_outputs, const tensorflow::GraphDef &amp; graph_def, ClusterInfo * cluster)'/>
+<doc f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.h' l='197'>// Build a cluster by given border.
+  // CAVEAT: The border must be consistent for one cluster.</doc>
+<def f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='884' ll='940' type='static tensorflow::Status tensorflow::RemoteFusedGraphExecuteUtils::BuildClusterByBorder(const std::vector&lt;string&gt; &amp; border_inputs, const std::vector&lt;string&gt; &amp; border_outputs, const tensorflow::GraphDef &amp; graph_def, ClusterInfo * cluster)'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1025' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils11FuseClusterERKNS_8GraphDefERKSt6vectorISsSaISsEES8_RKSsRKSt5tupleIJSt13unordered_setISsSt4hashISsESt8eq13319887'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1065' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23FuseRemoteGraphByBorderERKNS_8GraphDefERKSt6vectorISsSaISsEES8_RKSsS8_S8_SA_bPS1_'/>
+<doc f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='884'>/* static */</doc>

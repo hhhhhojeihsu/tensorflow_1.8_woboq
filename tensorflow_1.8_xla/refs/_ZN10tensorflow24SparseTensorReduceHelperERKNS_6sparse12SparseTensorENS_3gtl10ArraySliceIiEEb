@@ -1,0 +1,9 @@
+<def f='tensorflow/tensorflow/core/kernels/sparse_reduce_op.cc' l='54' ll='104' type='tensorflow::ReduceDetails tensorflow::SparseTensorReduceHelper(const tensorflow::sparse::SparseTensor &amp; sp, gtl::ArraySlice&lt;int32&gt; axes_slice, bool keep_dims)'/>
+<doc f='tensorflow/tensorflow/core/kernels/sparse_reduce_op.cc' l='46'>// Compute common reduce parameters that&apos;ll be used for SparseTensor
+// reductions. Usage:
+// ReduceDetails reduction = SparseTensorReduceHelper(sp, axes, keep_dims);
+// sp.Reorder(reduction.reorder_dims);
+// for (const auto&amp; g : sp.group(reduction.group_by_dims)) {
+//   ...
+// }
+// // Set output shape to reduction.reduced_shape.</doc>

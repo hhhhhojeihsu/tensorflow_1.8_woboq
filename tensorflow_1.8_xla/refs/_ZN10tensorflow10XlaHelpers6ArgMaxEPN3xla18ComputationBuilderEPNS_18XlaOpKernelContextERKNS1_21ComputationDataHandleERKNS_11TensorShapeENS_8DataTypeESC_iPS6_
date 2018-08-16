@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.h' l='78' type='static tensorflow::Status tensorflow::XlaHelpers::ArgMax(xla::ComputationBuilder * builder, tensorflow::XlaOpKernelContext * ctx, const xla::ComputationDataHandle &amp; input, const tensorflow::TensorShape &amp; input_shape, tensorflow::DataType input_type, tensorflow::DataType output_type, int axis, xla::ComputationDataHandle * argmax)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.h' l='75'>// Sets `argmax` to the argmax of `input` along `axis`. `input_shape` and
+  // `input_dtype` are the shape and dtype of `input` respectively, and
+  // `output_type` is the dtype to use for `argmax`.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/categorical_op.cc' l='84' u='c' c='_ZN10tensorflow12_GLOBAL__N_113CategoricalOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops.cc' l='74' u='c' c='_ZN10tensorflow14XlaArgMinMaxOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='186' ll='194' type='static tensorflow::Status tensorflow::XlaHelpers::ArgMax(xla::ComputationBuilder * builder, tensorflow::XlaOpKernelContext * ctx, const xla::ComputationDataHandle &amp; input, const tensorflow::TensorShape &amp; input_shape, tensorflow::DataType input_type, tensorflow::DataType output_type, int axis, xla::ComputationDataHandle * argmax)'/>

@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/grappler/costs/utils.h' l='41' type='std::vector&lt;OpInfo::TensorProperties&gt; tensorflow::grappler::FindInputFeatures(const tensorflow::NodeDef &amp; node, const std::unordered_map&lt;string, const CostGraphDef::Node *&gt; &amp; name_to_cost, const std::unordered_map&lt;string, const NodeDef *&gt; &amp; name_to_node)'/>
+<doc f='tensorflow/tensorflow/core/grappler/costs/utils.h' l='36'>// Returns a vector of InputProperties for &apos;node&apos;. The vector will contain one
+// entry for each input of &apos;node&apos;.
+// For each node in the graph, the &apos;name_to_cost&apos; map stores a pointer to the
+// corresponding cost graph node indexed by node name. The &apos;name_to_node&apos; maps a
+// node name to its node definition.</doc>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='1152' u='c' c='_ZN10tensorflow8grappler15GraphProperties18InferFromCostGraphERKNS_12CostGraphDefE'/>
+<def f='tensorflow/tensorflow/core/grappler/costs/utils.cc' l='167' ll='202' type='std::vector&lt;OpInfo::TensorProperties&gt; tensorflow::grappler::FindInputFeatures(const tensorflow::NodeDef &amp; node, const std::unordered_map&lt;string, const CostGraphDef::Node *&gt; &amp; name_to_cost, const std::unordered_map&lt;string, const NodeDef *&gt; &amp; name_to_node)'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/utils.cc' l='283' u='c' c='_ZN10tensorflow8grappler28CostGraphToOpPerformanceDataERKNS_12CostGraphDefERKNS_8GraphDefE'/>

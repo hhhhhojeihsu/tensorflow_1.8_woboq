@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/grappler/graph_view.h' l='58' type='tensorflow::grappler::GraphView::OutputPort tensorflow::grappler::GraphView::GetOutputPort(const string &amp; node_name, int port_id) const'/>
+<def f='tensorflow/tensorflow/core/grappler/graph_view.cc' l='67' ll='74' type='GraphView::OutputPort tensorflow::grappler::GraphView::GetOutputPort(const string &amp; node_name, int port_id) const'/>
+<doc f='tensorflow/tensorflow/core/grappler/graph_view.h' l='55'>// Get the specified output port. Note that the special &apos;-1&apos; port_id can be
+  // used to access the controlled nodes (i.e. the nodes connected to node_name
+  // through an outgoing control dependency).</doc>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='1025' u='c' c='_ZN10tensorflow8grapplerL26IdentifySwappingCandidatesEPNS0_7ClusterEPNS0_12GrapplerItemEPSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPSt13uno3951828'/>

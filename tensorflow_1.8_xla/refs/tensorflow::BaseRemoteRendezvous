@@ -1,0 +1,51 @@
+<inh f='tensorflow/tensorflow/core/distributed_runtime/rendezvous_mgr_interface.h' l='39' c='tensorflow::RemoteRendezvous'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.h' l='119' ll='220'/>
+<size>160</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.h' l='113'>// RemoteRendezvous is a Rendezvous which can handle either
+// the producer or consumer being in a remote process.
+//
+// Buffering of Tensor values is delegated to a &quot;local&quot; Rendezvous
+// obtained from NewLocalRendezvous().  This class just adds
+// functionality to coordinate with remote workers.</doc>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvousC1EPKNS_9WorkerEnvEx'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous10InitializeEPNS_13WorkerSessionE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous10StartAbortERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous14RecvLocalAsyncERKNS_10Rendezvous9ParsedKeyESt8functionIFvRKNS_6StatusERKNS1_4ArgsESB_RKNS_6TensorEbEE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous19RecvFromRemoteAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous12IsSameWorkerENS_15DeviceNameUtils10ParsedNameES2_'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous12RegisterCallEPNS_18BaseRecvTensorCallE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous14DeregisterCallEPNS_18BaseRecvTensorCallE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous7sessionEv'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous14is_initializedEv'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvousD1Ev'/>
+<mbr r='tensorflow::BaseRemoteRendezvous::env_' o='128' t='const tensorflow::WorkerEnv *const'/>
+<mbr r='tensorflow::BaseRemoteRendezvous::step_id_' o='192' t='const int64'/>
+<mbr r='tensorflow::BaseRemoteRendezvous::local_' o='256' t='tensorflow::Rendezvous *'/>
+<mbr r='tensorflow::BaseRemoteRendezvous::mu_' o='320' t='tensorflow::mutex'/>
+<mbr r='tensorflow::BaseRemoteRendezvous::status_' o='448' t='tensorflow::Status'/>
+<mbr r='tensorflow::BaseRemoteRendezvous::session_' o='512' t='tensorflow::WorkerSession *'/>
+<mbr r='tensorflow::BaseRemoteRendezvous::deferred_calls_' o='576' t='std::vector&lt;DeferredCall&gt;'/>
+<mbr r='tensorflow::BaseRemoteRendezvous::active_' o='768' t='gtl::FlatSet&lt;BaseRecvTensorCall *&gt;'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous21is_initialized_lockedEv'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous15ValidateDevicesERKNS_10Rendezvous9ParsedKeyEb'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous22RecvLocalAsyncInternalERKNS_10Rendezvous9ParsedKeyESt8functionIFvRKNS_6StatusERKNS1_4ArgsESB_RKNS_6TensorEbEE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvousC1ERKS0_'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvousC1EPKNS_9WorkerEnvEx'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvousD1Ev'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous10InitializeEPNS_13WorkerSessionE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous7sessionEv'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous14is_initializedEv'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous15ValidateDevicesERKNS_10Rendezvous9ParsedKeyEb'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous12IsSameWorkerENS_15DeviceNameUtils10ParsedNameES2_'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous14RecvLocalAsyncERKNS_10Rendezvous9ParsedKeyESt8functionIFvRKNS_6StatusERKNS1_4ArgsESB_RKNS_6TensorEbEE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous22RecvLocalAsyncInternalERKNS_10Rendezvous9ParsedKeyESt8functionIFvRKNS_6StatusERKNS1_4ArgsESB_RKNS_6TensorEbEE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous10StartAbortERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous12RegisterCallEPNS_18BaseRecvTensorCallE'/>
+<fun r='_ZN10tensorflow20BaseRemoteRendezvous14DeregisterCallEPNS_18BaseRecvTensorCallE'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.cc' l='40' c='tensorflow::(anonymousnamespace)::RpcRemoteRendezvous'/>

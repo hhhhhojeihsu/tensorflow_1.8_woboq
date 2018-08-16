@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/contrib/lite/context.h' l='353' type='void *(*)(TfLiteContext *, const char *, size_t)'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='332' u='r' c='_ZN6tflite11Interpreter6OpInitERK19_TfLiteRegistrationPKcm'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='333' u='r' c='_ZN6tflite11Interpreter6OpInitERK19_TfLiteRegistrationPKcm'/>
+<offset>0</offset>
+<doc f='tensorflow/tensorflow/contrib/lite/context.h' l='338'>// Initializes the op from serialized data.
+  // If a built-in op:
+  //   `buffer` is the op&apos;s params data (TfLiteLSTMParams*).
+  //   `length` is zero.
+  // If custom op:
+  //   `buffer` is the op&apos;s `custom_options`.
+  //   `length` is the size of the buffer.
+  //
+  // Returns a type-punned (i.e. void*) opaque data (e.g. a primitive pointer
+  // or an instance of a struct).
+  //
+  // The returned pointer will be stored with the node in the `user_data` field,
+  // accessible within prepare and invoke functions below.
+  // NOTE: if the data is already in the desired format, simply implement this
+  // function to return `nullptr` and implement the free function to be a no-op.</doc>

@@ -1,0 +1,7 @@
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='241' ll='243' type='bool perftools::gputools::internal::StreamExecutorInterface::GetSymbol(const string &amp; symbol_name, void ** mem, size_t * bytes)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='236'>// Retrieves device pointer and size for a symbol. The device pointer is
+  // stored at mem, and the size is stored at size. Either mem or bytes can be
+  // null, however, both of them cannot be null at the same time. To use
+  // constant memory in CUDA, GetSymbol has to be used. Returns true if symbol
+  // is found.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='464' u='c' c='_ZN9perftools8gputools14StreamExecutor9GetSymbolERKSsPPvPm'/>

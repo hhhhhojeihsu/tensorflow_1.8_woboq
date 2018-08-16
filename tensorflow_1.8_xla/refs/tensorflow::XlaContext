@@ -1,0 +1,41 @@
+<inh f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='76' c='tensorflow::ResourceBase'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_context.h' l='39' ll='174'/>
+<size>360</size>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_context.h' l='36'>// The XlaContext is the data structure that holds the state of an XLA
+// compilation, that is accessible from OpKernelContexts when compiling a
+// subgraph of Ops using XLA.</doc>
+<fun r='_ZN10tensorflow10XlaContext3GetEPKNS_15OpKernelContextE'/>
+<fun r='_ZN10tensorflow10XlaContext3GetEPKNS_18XlaOpKernelContextE'/>
+<fun r='_ZN10tensorflow10XlaContextC1EPNS_11XlaCompilerEPN3xla18ComputationBuilderEbbPKSt8functionIFNS_11TensorShapeERKS7_NS_8DataTypeEEE'/>
+<fun r='_ZN10tensorflow10XlaContext11DebugStringEv'/>
+<fun r='_ZNK10tensorflow10XlaContext8compilerEv'/>
+<fun r='_ZN10tensorflow10XlaContext7builderEv'/>
+<fun r='_ZNK10tensorflow10XlaContext22allow_cpu_custom_callsEv'/>
+<fun r='_ZNK10tensorflow10XlaContext4argsEv'/>
+<fun r='_ZN10tensorflow10XlaContext8set_argsESt6vectorINS_13XlaExpressionESaIS2_EE'/>
+<fun r='_ZN10tensorflow10XlaContext7retvalsEv'/>
+<fun r='_ZN10tensorflow10XlaContext9AddRetvalEiNS_8DataTypeERKN3xla21ComputationDataHandleE'/>
+<fun r='_ZN10tensorflow10XlaContext14AddConstRetvalEiNS_8DataTypeERKN3xla7LiteralE'/>
+<fun r='_ZN10tensorflow10XlaContext14CreateResourceENS_11XlaResource4KindEiSsNS_8DataTypeENS_11TensorShapeERKN3xla21ComputationDataHandleExRKSt3setISsSt4lessISsESaISsEEPPS1_'/>
+<fun r='_ZN10tensorflow10XlaContext9resourcesEv'/>
+<fun r='_ZNK10tensorflow10XlaContext27VariableRepresentationShapeERKNS_11TensorShapeENS_8DataTypeE'/>
+<fun r='_ZN10tensorflow10XlaContext14GetOrCreateMaxENS_8DataTypeE'/>
+<fun r='_ZN10tensorflow10XlaContext14GetOrCreateMinENS_8DataTypeE'/>
+<fun r='_ZN10tensorflow10XlaContext14GetOrCreateAddENS_8DataTypeE'/>
+<fun r='_ZN10tensorflow10XlaContext14GetOrCreateMulENS_8DataTypeE'/>
+<smbr r='tensorflow::XlaContext::kXlaContextResourceName' t='const char []'/>
+<mbr r='tensorflow::XlaContext::compiler_' o='128' t='tensorflow::XlaCompiler *const'/>
+<mbr r='tensorflow::XlaContext::builder_' o='192' t='xla::ComputationBuilder *'/>
+<mbr r='tensorflow::XlaContext::allow_cpu_custom_calls_' o='256' t='const bool'/>
+<mbr r='tensorflow::XlaContext::resolve_compile_time_constants_' o='264' t='const bool'/>
+<mbr r='tensorflow::XlaContext::args_' o='320' t='std::vector&lt;XlaExpression&gt;'/>
+<mbr r='tensorflow::XlaContext::retvals_' o='512' t='std::vector&lt;XlaExpression&gt;'/>
+<mbr r='tensorflow::XlaContext::resources_' o='704' t='std::vector&lt;std::unique_ptr&lt;XlaResource&gt; &gt;'/>
+<mbr r='tensorflow::XlaContext::variable_representation_shape_fn_' o='896' t='const std::function&lt;TensorShape (const TensorShape &amp;, DataType)&gt; *'/>
+<fun r='_ZN10tensorflow10XlaContext14LookupOrCreateENS_8DataTypeEPSt3mapIS1_N3xla11ComputationESt4lessIS1_ESaISt4pairIKS1_S4_EEERKSt8functionIFS4_vEE'/>
+<mbr r='tensorflow::XlaContext::max_func_' o='960' t='ComputationMap'/>
+<mbr r='tensorflow::XlaContext::min_func_' o='1344' t='ComputationMap'/>
+<mbr r='tensorflow::XlaContext::add_func_' o='1728' t='ComputationMap'/>
+<mbr r='tensorflow::XlaContext::mul_func_' o='2112' t='ComputationMap'/>
+<mbr r='tensorflow::XlaContext::sigmoid_func_' o='2496' t='ComputationMap'/>
+<fun r='_ZN10tensorflow10XlaContextC1ERKS0_'/>

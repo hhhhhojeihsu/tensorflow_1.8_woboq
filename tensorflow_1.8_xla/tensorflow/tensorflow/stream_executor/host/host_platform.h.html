@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>host_platform.h source code [tensorflow/tensorflow/stream_executor/host/host_platform.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="perftools::gputools::host::HostPlatform "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/stream_executor/host/host_platform.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>stream_executor</a>/<a href='./'>host</a>/<a href='host_platform.h.html'>host_platform.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// Declares the "host" platform, which is a CPU-only implementation of the</i></td></tr>
+<tr><th id="17">17</th><td><i>// StreamExecutor. The host platform only supports memory operations and plugin</i></td></tr>
+<tr><th id="18">18</th><td><i>// routines, and is primarily used for testing.</i></td></tr>
+<tr><th id="19">19</th><td><u>#<span data-ppcond="19">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_HOST_HOST_PLATFORM_H_">TENSORFLOW_STREAM_EXECUTOR_HOST_HOST_PLATFORM_H_</span></u></td></tr>
+<tr><th id="20">20</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_STREAM_EXECUTOR_HOST_HOST_PLATFORM_H_" data-ref="_M/TENSORFLOW_STREAM_EXECUTOR_HOST_HOST_PLATFORM_H_">TENSORFLOW_STREAM_EXECUTOR_HOST_HOST_PLATFORM_H_</dfn></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../executor_cache.h.html">"tensorflow/stream_executor/executor_cache.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../lib/statusor.h.html">"tensorflow/stream_executor/lib/statusor.h"</a></u></td></tr>
+<tr><th id="28">28</th><td><u>#include <a href="../multi_platform_manager.h.html">"tensorflow/stream_executor/multi_platform_manager.h"</a></u></td></tr>
+<tr><th id="29">29</th><td><u>#include <a href="../platform.h.html">"tensorflow/stream_executor/platform.h"</a></u></td></tr>
+<tr><th id="30">30</th><td><u>#include <a href="../platform/mutex.h.html">"tensorflow/stream_executor/platform/mutex.h"</a></u></td></tr>
+<tr><th id="31">31</th><td><u>#include <a href="../platform/port.h.html">"tensorflow/stream_executor/platform/port.h"</a></u></td></tr>
+<tr><th id="32">32</th><td><u>#include <a href="../platform/thread_annotations.h.html">"tensorflow/stream_executor/platform/thread_annotations.h"</a></u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../stream_executor_pimpl.h.html">"tensorflow/stream_executor/stream_executor_pimpl.h"</a></u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../trace_listener.h.html">"tensorflow/stream_executor/trace_listener.h"</a></u></td></tr>
+<tr><th id="35">35</th><td></td></tr>
+<tr><th id="36">36</th><td><b>namespace</b> <span class="namespace">perftools</span> {</td></tr>
+<tr><th id="37">37</th><td><b>namespace</b> <span class="namespace">gputools</span> {</td></tr>
+<tr><th id="38">38</th><td><b>namespace</b> <span class="namespace">host</span> {</td></tr>
+<tr><th id="39">39</th><td></td></tr>
+<tr><th id="40">40</th><td><i>// Host (CPU) platform plugin, registered as a singleton value via module</i></td></tr>
+<tr><th id="41">41</th><td><i>// initializer.</i></td></tr>
+<tr><th id="42">42</th><td><b>class</b> <dfn class="type def" id="perftools::gputools::host::HostPlatform" title='perftools::gputools::host::HostPlatform' data-ref="perftools::gputools::host::HostPlatform">HostPlatform</dfn> : <b>public</b> <a class="type" href="../platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a> {</td></tr>
+<tr><th id="43">43</th><td> <b>public</b>:</td></tr>
+<tr><th id="44">44</th><td>  <a class="decl" href="host_platform.cc.html#_ZN9perftools8gputools4host12HostPlatformC1Ev" title='perftools::gputools::host::HostPlatform::HostPlatform' data-ref="_ZN9perftools8gputools4host12HostPlatformC1Ev" id="_ZN9perftools8gputools4host12HostPlatformC1Ev">HostPlatform</a>();</td></tr>
+<tr><th id="45">45</th><td>  <a class="virtual decl" href="host_platform.cc.html#_ZN9perftools8gputools4host12HostPlatformD1Ev" title='perftools::gputools::host::HostPlatform::~HostPlatform' data-ref="_ZN9perftools8gputools4host12HostPlatformD1Ev" id="_ZN9perftools8gputools4host12HostPlatformD1Ev">~HostPlatform</a>() override;</td></tr>
+<tr><th id="46">46</th><td></td></tr>
+<tr><th id="47">47</th><td>  <a class="type" href="../platform.h.html#perftools::gputools::Platform" title='perftools::gputools::Platform' data-ref="perftools::gputools::Platform">Platform</a>::<a class="typedef" href="../platform.h.html#perftools::gputools::Platform::Id" title='perftools::gputools::Platform::Id' data-type='void *' data-ref="perftools::gputools::Platform::Id">Id</a> <a class="virtual decl" href="host_platform.cc.html#_ZNK9perftools8gputools4host12HostPlatform2idEv" title='perftools::gputools::host::HostPlatform::id' data-ref="_ZNK9perftools8gputools4host12HostPlatform2idEv" id="_ZNK9perftools8gputools4host12HostPlatform2idEv">id</a>() <em>const</em> override;</td></tr>
+<tr><th id="48">48</th><td></td></tr>
+<tr><th id="49">49</th><td>  <i>// Device count is less clear-cut for CPUs than accelerators. This call</i></td></tr>
+<tr><th id="50">50</th><td><i>  // currently returns the number of thread units in the host, as reported by</i></td></tr>
+<tr><th id="51">51</th><td><i>  // base::NumCPUs().</i></td></tr>
+<tr><th id="52">52</th><td>  <em>int</em> <a class="virtual decl" href="host_platform.cc.html#_ZNK9perftools8gputools4host12HostPlatform18VisibleDeviceCountEv" title='perftools::gputools::host::HostPlatform::VisibleDeviceCount' data-ref="_ZNK9perftools8gputools4host12HostPlatform18VisibleDeviceCountEv" id="_ZNK9perftools8gputools4host12HostPlatform18VisibleDeviceCountEv">VisibleDeviceCount</a>() <em>const</em> override;</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>  <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <a class="virtual decl" href="host_platform.cc.html#_ZNK9perftools8gputools4host12HostPlatform4NameEv" title='perftools::gputools::host::HostPlatform::Name' data-ref="_ZNK9perftools8gputools4host12HostPlatform4NameEv" id="_ZNK9perftools8gputools4host12HostPlatform4NameEv">Name</a>() <em>const</em> override;</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td>  <span class="namespace">port::</span><a class="type" href="../lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="../stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a>*&gt; <a class="virtual decl" href="host_platform.cc.html#_ZN9perftools8gputools4host12HostPlatform17ExecutorForDeviceEi" title='perftools::gputools::host::HostPlatform::ExecutorForDevice' data-ref="_ZN9perftools8gputools4host12HostPlatform17ExecutorForDeviceEi" id="_ZN9perftools8gputools4host12HostPlatform17ExecutorForDeviceEi">ExecutorForDevice</a>(<em>int</em> <dfn class="local col1 decl" id="1ordinal" title='ordinal' data-type='int' data-ref="1ordinal">ordinal</dfn>) override;</td></tr>
+<tr><th id="57">57</th><td></td></tr>
+<tr><th id="58">58</th><td>  <span class="namespace">port::</span><a class="type" href="../lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="../stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a>*&gt; <a class="virtual decl" href="host_platform.cc.html#_ZN9perftools8gputools4host12HostPlatform33ExecutorForDeviceWithPluginConfigEiRKNS0_12PluginConfigE" title='perftools::gputools::host::HostPlatform::ExecutorForDeviceWithPluginConfig' data-ref="_ZN9perftools8gputools4host12HostPlatform33ExecutorForDeviceWithPluginConfigEiRKNS0_12PluginConfigE" id="_ZN9perftools8gputools4host12HostPlatform33ExecutorForDeviceWithPluginConfigEiRKNS0_12PluginConfigE">ExecutorForDeviceWithPluginConfig</a>(</td></tr>
+<tr><th id="59">59</th><td>      <em>int</em> <dfn class="local col2 decl" id="2ordinal" title='ordinal' data-type='int' data-ref="2ordinal">ordinal</dfn>, <em>const</em> <a class="type" href="../plugin.h.html#perftools::gputools::PluginConfig" title='perftools::gputools::PluginConfig' data-ref="perftools::gputools::PluginConfig">PluginConfig</a>&amp; <dfn class="local col3 decl" id="3config" title='config' data-type='const perftools::gputools::PluginConfig &amp;' data-ref="3config">config</dfn>) override;</td></tr>
+<tr><th id="60">60</th><td></td></tr>
+<tr><th id="61">61</th><td>  <span class="namespace">port::</span><a class="type" href="../lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<a class="type" href="../stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a>*&gt; <a class="virtual decl" href="host_platform.cc.html#_ZN9perftools8gputools4host12HostPlatform11GetExecutorERKNS0_20StreamExecutorConfigE" title='perftools::gputools::host::HostPlatform::GetExecutor' data-ref="_ZN9perftools8gputools4host12HostPlatform11GetExecutorERKNS0_20StreamExecutorConfigE" id="_ZN9perftools8gputools4host12HostPlatform11GetExecutorERKNS0_20StreamExecutorConfigE">GetExecutor</a>(</td></tr>
+<tr><th id="62">62</th><td>      <em>const</em> <a class="type" href="../platform.h.html#perftools::gputools::StreamExecutorConfig" title='perftools::gputools::StreamExecutorConfig' data-ref="perftools::gputools::StreamExecutorConfig">StreamExecutorConfig</a>&amp; <dfn class="local col4 decl" id="4config" title='config' data-type='const perftools::gputools::StreamExecutorConfig &amp;' data-ref="4config">config</dfn>) override;</td></tr>
+<tr><th id="63">63</th><td></td></tr>
+<tr><th id="64">64</th><td>  <span class="namespace">port::</span><a class="type" href="../lib/statusor.h.html#perftools::gputools::port::StatusOr" title='perftools::gputools::port::StatusOr' data-ref="perftools::gputools::port::StatusOr">StatusOr</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../stream_executor_pimpl.h.html#perftools::gputools::StreamExecutor" title='perftools::gputools::StreamExecutor' data-ref="perftools::gputools::StreamExecutor">StreamExecutor</a>&gt;&gt; <a class="virtual decl" href="host_platform.cc.html#_ZN9perftools8gputools4host12HostPlatform19GetUncachedExecutorERKNS0_20StreamExecutorConfigE" title='perftools::gputools::host::HostPlatform::GetUncachedExecutor' data-ref="_ZN9perftools8gputools4host12HostPlatform19GetUncachedExecutorERKNS0_20StreamExecutorConfigE" id="_ZN9perftools8gputools4host12HostPlatform19GetUncachedExecutorERKNS0_20StreamExecutorConfigE">GetUncachedExecutor</a>(</td></tr>
+<tr><th id="65">65</th><td>      <em>const</em> <a class="type" href="../platform.h.html#perftools::gputools::StreamExecutorConfig" title='perftools::gputools::StreamExecutorConfig' data-ref="perftools::gputools::StreamExecutorConfig">StreamExecutorConfig</a>&amp; <dfn class="local col5 decl" id="5config" title='config' data-type='const perftools::gputools::StreamExecutorConfig &amp;' data-ref="5config">config</dfn>) override;</td></tr>
+<tr><th id="66">66</th><td></td></tr>
+<tr><th id="67">67</th><td>  <em>void</em> <a class="virtual decl" href="host_platform.cc.html#_ZN9perftools8gputools4host12HostPlatform21RegisterTraceListenerESt10unique_ptrINS0_13TraceListenerESt14default_deleteIS4_EE" title='perftools::gputools::host::HostPlatform::RegisterTraceListener' data-ref="_ZN9perftools8gputools4host12HostPlatform21RegisterTraceListenerESt10unique_ptrINS0_13TraceListenerESt14default_deleteIS4_EE" id="_ZN9perftools8gputools4host12HostPlatform21RegisterTraceListenerESt10unique_ptrINS0_13TraceListenerESt14default_deleteIS4_EE">RegisterTraceListener</a>(<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="../trace_listener.h.html#perftools::gputools::TraceListener" title='perftools::gputools::TraceListener' data-ref="perftools::gputools::TraceListener">TraceListener</a>&gt; <dfn class="local col6 decl" id="6listener" title='listener' data-type='std::unique_ptr&lt;TraceListener&gt;' data-ref="6listener">listener</dfn>) override;</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td>  <em>void</em> <a class="virtual decl" href="host_platform.cc.html#_ZN9perftools8gputools4host12HostPlatform23UnregisterTraceListenerEPNS0_13TraceListenerE" title='perftools::gputools::host::HostPlatform::UnregisterTraceListener' data-ref="_ZN9perftools8gputools4host12HostPlatform23UnregisterTraceListenerEPNS0_13TraceListenerE" id="_ZN9perftools8gputools4host12HostPlatform23UnregisterTraceListenerEPNS0_13TraceListenerE">UnregisterTraceListener</a>(<a class="type" href="../trace_listener.h.html#perftools::gputools::TraceListener" title='perftools::gputools::TraceListener' data-ref="perftools::gputools::TraceListener">TraceListener</a>* <dfn class="local col7 decl" id="7listener" title='listener' data-type='perftools::gputools::TraceListener *' data-ref="7listener">listener</dfn>) override;</td></tr>
+<tr><th id="70">70</th><td></td></tr>
+<tr><th id="71">71</th><td> <b>private</b>:</td></tr>
+<tr><th id="72">72</th><td>  <i>// This platform's name.</i></td></tr>
+<tr><th id="73">73</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="perftools::gputools::host::HostPlatform::name_" title='perftools::gputools::host::HostPlatform::name_' data-ref="perftools::gputools::host::HostPlatform::name_">name_</dfn>;</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>  <i>// Cache of created StreamExecutors.</i></td></tr>
+<tr><th id="76">76</th><td>  <a class="type" href="../executor_cache.h.html#perftools::gputools::ExecutorCache" title='perftools::gputools::ExecutorCache' data-ref="perftools::gputools::ExecutorCache">ExecutorCache</a> <dfn class="decl" id="perftools::gputools::host::HostPlatform::executor_cache_" title='perftools::gputools::host::HostPlatform::executor_cache_' data-ref="perftools::gputools::host::HostPlatform::executor_cache_">executor_cache_</dfn>;</td></tr>
+<tr><th id="77">77</th><td></td></tr>
+<tr><th id="78">78</th><td>  <a class="macro" href="../platform/port.h.html#56" title="TF_DISALLOW_COPY_AND_ASSIGN" data-ref="_M/SE_DISALLOW_COPY_AND_ASSIGN">SE_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN9perftools8gputools4host12HostPlatformC1ERKS2_" title='perftools::gputools::host::HostPlatform::HostPlatform' data-ref="_ZN9perftools8gputools4host12HostPlatformC1ERKS2_"><a class="type" href="#perftools::gputools::host::HostPlatform" title='perftools::gputools::host::HostPlatform' data-ref="perftools::gputools::host::HostPlatform"><a class="type" href="#perftools::gputools::host::HostPlatform" title='perftools::gputools::host::HostPlatform' data-ref="perftools::gputools::host::HostPlatform">HostPlatform</a></a></dfn>);</td></tr>
+<tr><th id="79">79</th><td>};</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>}  <i>// namespace host</i></td></tr>
+<tr><th id="82">82</th><td>}  <i>// namespace gputools</i></td></tr>
+<tr><th id="83">83</th><td>}  <i>// namespace perftools</i></td></tr>
+<tr><th id="84">84</th><td></td></tr>
+<tr><th id="85">85</th><td><u>#<span data-ppcond="19">endif</span>  // TENSORFLOW_STREAM_EXECUTOR_HOST_HOST_PLATFORM_H_</u></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='host_platform.cc.html'>tensorflow/tensorflow/stream_executor/host/host_platform.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

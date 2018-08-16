@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/placer.h' l='67' type='void tensorflow::Placer::Placer(tensorflow::Graph * graph, const tensorflow::DeviceSet * devices, const tensorflow::SessionOptions * options)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='388' u='c' c='_ZN10tensorflow19GraphExecutionState13InitBaseGraphERKNS_17BuildGraphOptionsE'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/placer.h' l='61'>// Creates an instance of the Placer algorithm for the given
+  // Graph &quot;graph&quot; (nodes in which may or may not be assigned) on the
+  // given DeviceSet &quot;devices&quot;.
+  //
+  // The &quot;graph&quot;, and &quot;devices&quot; pointer arguments
+  // are borrowed by this Placer, and must outlive it.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='651' ll='657' type='void tensorflow::Placer::Placer(tensorflow::Graph * graph, const tensorflow::DeviceSet * devices, const tensorflow::SessionOptions * options)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='660' u='c' c='_ZN10tensorflow6PlacerC1EPNS_5GraphEPKNS_9DeviceSetE'/>

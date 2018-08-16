@@ -1,0 +1,25 @@
+<inh f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='76' c='tensorflow::ResourceBase'/>
+<def f='tensorflow/tensorflow/core/framework/reader_interface.h' l='44' ll='83'/>
+<ovr f='tensorflow/tensorflow/core/framework/reader_base.h' l='30' c='tensorflow::ReaderBase'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/core/framework/reader_interface.h' l='32'>// Readers are the mechanism for reading records from files in
+// TensorFlow graphs.  Each supported file format has a corresponding
+// ReaderInterface descendant and a corresponding Op &amp; OpKernel
+// (implemented using ReaderOpKernel from reader_op_kernel.h).
+//
+// To use a Reader, you first encode &quot;work&quot; (some string, typically a
+// filename) in the Reader&apos;s &quot;work queue&quot;.  It then processes the
+// &quot;work&quot; (reading records from the file), to produce key/value
+// strings.  The methods of this class are called by ReaderFoo ops,
+// so see ../ops/io_ops.cc for detailed descriptions.
+//
+// All descendants of this class must be thread-safe.</doc>
+<fun r='_ZN10tensorflow15ReaderInterface4ReadEPNS_14QueueInterfaceEPSsS3_PNS_15OpKernelContextE'/>
+<fun r='_ZN10tensorflow15ReaderInterface8ReadUpToExPNS_14QueueInterfaceEPSt6vectorISsSaISsEES6_PNS_15OpKernelContextE'/>
+<fun r='_ZN10tensorflow15ReaderInterface5ResetEv'/>
+<fun r='_ZN10tensorflow15ReaderInterface18NumRecordsProducedEv'/>
+<fun r='_ZN10tensorflow15ReaderInterface21NumWorkUnitsCompletedEv'/>
+<fun r='_ZN10tensorflow15ReaderInterface14SerializeStateEPSs'/>
+<fun r='_ZN10tensorflow15ReaderInterface12RestoreStateERKSs'/>
+<fun r='_ZN10tensorflow15ReaderInterface11DebugStringEv'/>
+<fun r='_ZN10tensorflow15ReaderInterfaceD1Ev'/>

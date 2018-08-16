@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='421' type='bool tensorflow::PartialTensorShape::IsIdenticalTo(const tensorflow::PartialTensorShape &amp; shape) const'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor_shape.h' l='417'>/// Exact equality test. Returns true iff the ranks match (i.e., both are
+  /// unknown, or both are known and equal), and all dimensions are equal (i.e.,
+  /// both dimensions are known, or both are known and equal). This is a
+  /// stronger condition that IsCompatibleWith.</doc>
+<def f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='607' ll='616' type='bool tensorflow::PartialTensorShape::IsIdenticalTo(const tensorflow::PartialTensorShape &amp; shape) const'/>
+<use f='tensorflow/tensorflow/core/framework/tensor_shape.cc' l='662' u='c' c='_ZN10tensorflow23PartialTensorShapeUtils12AreIdenticalERKNS_3gtl10ArraySliceINS_18PartialTensorShapeEEES6_'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='249' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_117ReshapeIsIdentityERKNS_7NodeDefES4_iRKNS0_15GraphPropertiesE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='216' u='c' c='_ZN10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS6_EEPb'/>

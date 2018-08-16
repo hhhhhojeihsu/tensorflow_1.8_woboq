@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.h' l='218' type='void tensorflow::graph_transforms::CopyOriginalMatch(const tensorflow::graph_transforms::NodeMatch &amp; match, std::vector&lt;NodeDef&gt; * new_nodes)'/>
+<doc f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.h' l='215'>// Utility function that copies all the nodes found in a match into the
+// new_nodes list. This is useful in replacement functions when you decide to
+// leave the original matched subgraph untouched and make no changes.</doc>
+<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='298' u='c' c='_ZN10tensorflow16graph_transforms28RemoveRedundantQuantizationsERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='724' u='c' c='_ZN10tensorflow16graph_transforms13QuantizeNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/remove_nodes.cc' l='80' u='c' c='_ZN10tensorflow16graph_transforms11RemoveNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
+<def f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='534' ll='541' type='void tensorflow::graph_transforms::CopyOriginalMatch(const tensorflow::graph_transforms::NodeMatch &amp; match, std::vector&lt;NodeDef&gt; * new_nodes)'/>

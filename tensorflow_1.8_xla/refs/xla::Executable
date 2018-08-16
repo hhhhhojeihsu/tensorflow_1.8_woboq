@@ -1,0 +1,34 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='44' ll='178'/>
+<size>120</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='42'>// A given platform&apos;s compiler will produce an Executable -- this is a uniform
+// interface that is used for launching compiled programs across platforms.</doc>
+<fun r='_ZN3xla10ExecutableC1ESt10unique_ptrIKNS_9HloModuleESt14default_deleteIS3_EES1_INS_21HloProfilePrinterDataES4_IS7_EES1_INS_18HloProfileIndexMapES4_ISA_EE'/>
+<fun r='_ZN3xla10ExecutableD1Ev'/>
+<fun r='_ZN3xla10Executable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>
+<fun r='_ZN3xla10Executable20ExecuteAsyncOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>
+<fun r='_ZN3xla10Executable16ExecuteOnStreamsEN10tensorflow3gtl10ArraySliceIKNS_27ServiceExecutableRunOptionsEEENS3_INS3_IPKNS_12ShapedBufferEEEEE'/>
+<fun r='_ZN3xla10Executable24PopulateExecutionProfileEPNS_19HloExecutionProfileEPN9perftools8gputools14StreamExecutorE'/>
+<fun r='_ZN3xla10Executable22ExecuteOnStreamWrapperEPKNS_27ServiceExecutableRunOptionsEPNS_16ExecutionProfileEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>
+<fun r='_ZNK3xla10Executable17execution_profileEv'/>
+<fun r='_ZNK3xla10Executable24hlo_profile_printer_dataEv'/>
+<fun r='_ZNK3xla10Executable21hlo_profile_index_mapEv'/>
+<fun r='_ZNK3xla10Executable21hlo_profiling_enabledEv'/>
+<fun r='_ZNK3xla10Executable6moduleEv'/>
+<fun r='_ZNK3xla10Executable10has_moduleEv'/>
+<fun r='_ZNK3xla10Executable13module_configEv'/>
+<fun r='_ZNK3xla10Executable24entry_computation_handleEv'/>
+<fun r='_ZNK3xla10Executable12result_shapeEv'/>
+<fun r='_ZN3xla10Executable18set_session_moduleESt10unique_ptrINS_13SessionModuleESt14default_deleteIS2_EE'/>
+<fun r='_ZNK3xla10Executable7dumpingEv'/>
+<fun r='_ZNK3xla10Executable14session_moduleEv'/>
+<fun r='_ZN3xla10Executable17DumpSessionModuleEv'/>
+<fun r='_ZN3xla10Executable15DumpToDirectoryERKSsSsRKNS_13SessionModuleE'/>
+<mbr r='xla::Executable::mutex_' o='64' t='tensorflow::mutex'/>
+<mbr r='xla::Executable::execution_profile_' o='192' t='xla::ExecutionProfile'/>
+<mbr r='xla::Executable::hlo_module_' o='640' t='const std::unique_ptr&lt;const HloModule&gt;'/>
+<mbr r='xla::Executable::session_module_' o='704' t='std::unique_ptr&lt;SessionModule&gt;'/>
+<mbr r='xla::Executable::execution_count_' o='768' t='int64'/>
+<mbr r='xla::Executable::hlo_profile_printer_data_' o='832' t='std::unique_ptr&lt;HloProfilePrinterData&gt;'/>
+<mbr r='xla::Executable::hlo_profile_index_map_' o='896' t='std::unique_ptr&lt;HloProfileIndexMap&gt;'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.h' l='48' c='xla::cpu::CpuExecutable'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.h' l='48' c='xla::cpu::ParallelCpuExecutable'/>

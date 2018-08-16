@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='281' type='tensorflow::Status xla::llvm_ir::DumpIRToDirectory(const string &amp; directory_name, const string &amp; hlo_module_name, const llvm::Module &amp; llvm_module, bool optimized)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='276'>// Dumps out `llvm_module` to a file in the directory named `directory_name`,
+// creating the directory if necessary.  A sanitized version of
+// `hlo_module_name` is incorporated into the file name.  If `optimized` is true
+// then a suffix of &quot;-with-opt.ll&quot; is used, else a suffix of &quot;-no-opt.ll&quot; is
+// used.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='404' u='c' c='_ZN3xla3cpu12_GLOBAL__N_121InitializeModuleHooksERKNS_9HloModuleERKSt8functionIFN10tensorflow6StatusERKN4llvm6ModuleEEESF_PSD_SG_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='416' u='c' c='_ZN3xla3cpu12_GLOBAL__N_121InitializeModuleHooksERKNS_9HloModuleERKSt8functionIFN10tensorflow6StatusERKN4llvm6ModuleEEESF_PSD_SG_'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='705' ll='730' type='tensorflow::Status xla::llvm_ir::DumpIRToDirectory(const string &amp; directory_name, const string &amp; hlo_module_name, const llvm::Module &amp; llvm_module, bool optimized)'/>

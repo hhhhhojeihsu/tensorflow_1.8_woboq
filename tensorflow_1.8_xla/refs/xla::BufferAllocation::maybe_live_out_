@@ -1,0 +1,9 @@
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='103' u='r' c='_ZNK3xla16BufferAllocation14maybe_live_outEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='250' u='w' c='_ZN3xla16BufferAllocation18set_maybe_live_outEb'/>
+<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='286' type='bool'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='280' u='r' c='_ZNK3xla16BufferAllocation7ToProtoEv'/>
+<offset>512</offset>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='282'>// Whether the allocation contains a LogicalBuffer which may be live-out of
+  // the entry computation. Note that this flag is conservatively computed by
+  // TuplePointsToAnalysis.  That is, an allocation marked `maybe_live_out_`
+  // might not actually escape.</doc>

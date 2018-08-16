@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_module.h' l='67' type='xla::HloComputation * xla::HloModule::AddEmbeddedComputation(std::unique_ptr&lt;HloComputation&gt; computation)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_module.h' l='66'>// Adds an embedded computation to the module.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='105' u='c' c='_ZN3xla12_GLOBAL__N_129CreateScalarBinaryComputationEPNS_9HloModuleENS_13PrimitiveTypeENS_9HloOpcodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='93' u='c' c='_ZN3xla24BatchNormExpanderVisitor26GetScalarBinaryComputationENS_13PrimitiveTypeENS_9HloOpcodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.cc' l='230' u='c' c='_ZNK3xla18ComputationTracker14BuildHloModuleERKNS_26VersionedComputationHandleERKNS_15HloModuleConfigEb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/flatten_call_graph.cc' l='87' u='c' c='_ZN3xla12_GLOBAL__N_111FlattenNodeERKNS_13CallGraphNodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/flatten_call_graph.cc' l='102' u='c' c='_ZN3xla12_GLOBAL__N_111FlattenNodeERKNS_13CallGraphNodeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='965' u='c' c='_ZN3xla14HloInstruction20CloneAndFuseInternalEPS0_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1576' u='c' c='_ZNK3xla14HloInstruction26CloneFusionWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='113' ll='117' type='xla::HloComputation * xla::HloModule::AddEmbeddedComputation(std::unique_ptr&lt;HloComputation&gt; computation)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='402' u='c' c='_ZN3xla9HloModule32OutlineExpressionFromComputationEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEERKSsPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='503' u='c' c='_ZNK3xla9HloModule5CloneERKSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='526' u='c' c='_ZN3xla9HloModule20DeepCloneComputationEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='511' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='512' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='42' u='c' c='_ZN3xlaL19WidenWhileConditionEPNS_14HloComputationERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='66' u='c' c='_ZN3xlaL14WidenWhileBodyEPNS_14HloComputationERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='236' u='c' c='_ZN3xla9WhileUtil15MakeCountedLoopEPNS_14HloComputationEiRKSt6vectorIPNS_14HloInstructionESaIS5_EERKSt8functionIFNS_8StatusOrIS7_EES5_S9_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='237' u='c' c='_ZN3xla9WhileUtil15MakeCountedLoopEPNS_14HloComputationEiRKSt6vectorIPNS_14HloInstructionESaIS5_EERKSt8functionIFNS_8StatusOrIS7_EES5_S9_EE'/>

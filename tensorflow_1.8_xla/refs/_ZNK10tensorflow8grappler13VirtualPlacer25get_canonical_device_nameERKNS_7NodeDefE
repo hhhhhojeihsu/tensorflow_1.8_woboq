@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/grappler/costs/virtual_placer.h' l='39' type='string tensorflow::grappler::VirtualPlacer::get_canonical_device_name(const tensorflow::NodeDef &amp; node) const'/>
+<doc f='tensorflow/tensorflow/core/grappler/costs/virtual_placer.h' l='36'>// Returns device name from cluster, which best matches the node.device()
+  // specification. Returns default device if no match was found or the
+  // node.device() could not be parsed.</doc>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_placer.cc' l='116' u='c' c='_ZNK10tensorflow8grappler13VirtualPlacer10get_deviceERKNS_7NodeDefE'/>
+<def f='tensorflow/tensorflow/core/grappler/costs/virtual_placer.cc' l='124' ll='140' type='string tensorflow::grappler::VirtualPlacer::get_canonical_device_name(const tensorflow::NodeDef &amp; node) const'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='537' u='c' c='_ZNK10tensorflow8grappler16VirtualScheduler10DeviceNameEPKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='543' u='c' c='_ZNK10tensorflow8grappler16VirtualScheduler19SanitizedDeviceNameEPKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='423' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_114GraphProcessor16AddNodePermConstERKSsS4_RKSt6vectorIiSaIiEE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='447' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_114GraphProcessor18AddNodeConstScalarERKSsS4_NS_8DataTypeEi'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='569' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_113NodeProcessor7IsOnGPUEv'/>

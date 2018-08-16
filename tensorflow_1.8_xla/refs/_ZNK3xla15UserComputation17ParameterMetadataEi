@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='348' type='tensorflow::gtl::optional&lt;const OpMetadata *&gt; xla::UserComputation::ParameterMetadata(int parameter_number) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='343'>// Retrieves the parameter metadata for the given parameter number.
+  //
+  // If the parameter number is invalid for this computation, nullopt is
+  // returned. When the return value has_value(), nullptr will never be
+  // the held value.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/local_service.cc' l='158' u='c' c='_ZN3xla12LocalService17CompileExecutableERKNS_17ComputationHandleEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEERKNS_22ExecutableBuildOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='297' u='c' c='_ZN3xla7Service18CreateModuleConfigERKNS_12ProgramShapeEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEEPKNS_16ExecutionOptionsEPKNS_15UserComputationE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2225' ll='2234' type='tensorflow::gtl::optional&lt;const OpMetadata *&gt; xla::UserComputation::ParameterMetadata(int parameter_number) const'/>

@@ -1,0 +1,23 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='207' type='2'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='186'>/** Concatenates the input tensors along the given dimension.
+   *
+   * The input tensors must have identical type and the same dimensions except
+   * the dimension along the concatenation axis.
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   * * {@link ANEURALNETWORKS_TENSOR_QUANT8_ASYMM}
+   *
+   * Supported tensor rank: up to 4
+   *
+   * Inputs:
+   * 0 ~ n: The list on n input tensors, of shape [D0, D1, ..., Daxis(i), ...,
+   * Dm] n+1: An INT32 value, specifying the concatenation axis. n+2: An INT32
+   * value, and has to be one of the {@link FuseCode} values. Specifies the
+   * activation to invoke on the result of each addition.
+   *
+   * Outputs:
+   * * 0: The output, a tensor of the same type as the input tensors.
+   *      The output shape is [D0, D1, ..., sum(Daxis(i)), ..., Dm].
+   */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='290' u='r' c='_ZN6tflite15AddOpsAndParamsEPNS_11InterpreterEP20ANeuralNetworksModelj'/>

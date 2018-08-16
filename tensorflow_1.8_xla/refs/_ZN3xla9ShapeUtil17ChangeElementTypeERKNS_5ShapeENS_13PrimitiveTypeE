@@ -1,0 +1,30 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='304' type='static xla::Shape xla::ShapeUtil::ChangeElementType(const xla::Shape &amp; original, xla::PrimitiveType type)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='302'>// Returns a shape with the same dimensions as the original, but with the
+  // element type changed to type.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='234' u='c' c='_ZN10tensorflow18XlaOpKernelContext27ConstantInputAsInt64LiteralEiPN3xla7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='240' u='c' c='_ZN3xla10XlaBuilder20AddBroadcastSequenceERKNS_5ShapeERKNS_5XlaOpE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1392' u='c' c='_ZN3xla12_GLOBAL__N_138ConvertBetweenNativeTypesWithConverterERKNS_7LiteralERKT1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1438' u='c' c='_ZN3xla12_GLOBAL__N_112ConvertToC64ERKNS_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1843' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='40' u='c' c='_ZN3xla12_GLOBAL__N_113ToElementTypeEPNS_14HloInstructionENS_13PrimitiveTypeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='73' u='c' c='_ZN3xla12_GLOBAL__N_122GetConvertedTupleShapeERKNS_5ShapeENS_13PrimitiveTypeES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='180' u='c' c='_ZN3xla23HloElementTypeConverter3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='702' u='c' c='_ZN3xla14HloInstruction23CreateBroadcastSequenceERKNS_5ShapeEPS0_RKSt8functionIFS4_St10unique_ptrIS0_St14default_deleteIS0_EEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='152' u='c' c='_ZN3xla12_GLOBAL__N_113UpdateOperandEPKNS_14HloInstructionERKNS_5ShapeEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='241' u='c' c='_ZN3xla12_GLOBAL__N_129PerformSinkReshapeOrTransposeEPNS_14HloInstructionEPKS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='356' u='c' c='_ZN3xla14ShapeInference17InferUnaryOpShapeENS_14UnaryOperationERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='359' u='c' c='_ZN3xla14ShapeInference17InferUnaryOpShapeENS_14UnaryOperationERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='386' u='c' c='_ZN3xla14ShapeInference17InferUnaryOpShapeENS_14UnaryOperationERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='476' u='c' c='_ZN3xla14ShapeInference17InferConvertShapeERKNS_5ShapeENS_13PrimitiveTypeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='505' u='c' c='_ZN3xla14ShapeInference24InferBitcastConvertShapeERKNS_5ShapeENS_13PrimitiveTypeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='921' u='c' c='_ZN3xla14ShapeInference29InferElementwiseBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1003' u='c' c='_ZN3xla14ShapeInference18InferBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1028' u='c' c='_ZN3xla14ShapeInference18InferBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1807' u='c' c='_ZN3xla14ShapeInference13InferFftShapeERKNS_5ShapeENS_7FftTypeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2386' u='c' c='_ZN3xla14ShapeInference15InferClampShapeERKNS_5ShapeES3_S3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2388' u='c' c='_ZN3xla14ShapeInference15InferClampShapeERKNS_5ShapeES3_S3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2390' u='c' c='_ZN3xla14ShapeInference15InferClampShapeERKNS_5ShapeES3_S3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2427' u='c' c='_ZN3xla14ShapeInference16InferSelectShapeERKNS_5ShapeES3_S3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='362' u='c' c='_ZN3xla9ShapeUtil21ComplexComponentShapeERKNS_5ShapeE'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='820' ll='825' type='static xla::Shape xla::ShapeUtil::ChangeElementType(const xla::Shape &amp; original, xla::PrimitiveType type)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='820'>/* static */</doc>

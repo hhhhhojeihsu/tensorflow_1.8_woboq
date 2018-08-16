@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/compiler/xla/legacy_flags/debug_options_parsers.h' l='59' ll='145' type='bool xla::legacy_flags::impl::parse_xla_reduce_precision_option(xla::HloReducePrecisionOptions * options, string option_string)'/>
+<use f='tensorflow/tensorflow/compiler/xla/legacy_flags/debug_options_flags.cc' l='102' u='c' c='_ZN3xla12legacy_flags12_GLOBAL__N_113AllocateFlagsEv'/>
+<doc f='tensorflow/tensorflow/compiler/xla/legacy_flags/debug_options_parsers.h' l='51'>// The --xla_reduce_precision option has the format &quot;LOCATION=E,M:OPS;NAME&quot;,
+// where LOCATION is an HloReducePrecisionOptions::location, E and M are
+// integers for the exponent and matissa bit counts respectively, and OPS and
+// NAMES are comma-separated of the operation types and names to which to
+// attach the reduce-precision operations.  The OPS values are matches to the
+// strings produced by HloOpcodeString, while the NAME values are arbitrary
+// strings subject to the requirements that they not contain any of &quot;=,:;&quot;.
+// The NAME string (with its preceding semicolon) is optional.</doc>

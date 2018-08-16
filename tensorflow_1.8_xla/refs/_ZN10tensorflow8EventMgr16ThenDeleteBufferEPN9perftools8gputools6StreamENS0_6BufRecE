@@ -1,0 +1,3 @@
+<def f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.h' l='70' ll='79' type='void tensorflow::EventMgr::ThenDeleteBuffer(perftools::gputools::Stream * stream, tensorflow::EventMgr::BufRec bufrec)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.h' l='68'>// Takes ownership of *bufrec.buf and calls bufrec.alloc-&gt;DeallocateRaw()
+  // on it as soon as all events currently enqueued on *stream have completed.</doc>

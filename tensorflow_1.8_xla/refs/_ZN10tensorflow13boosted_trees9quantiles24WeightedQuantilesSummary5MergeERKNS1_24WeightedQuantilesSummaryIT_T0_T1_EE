@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/contrib/boosted_trees/lib/quantiles/weighted_quantiles_summary.h' l='113' ll='185' type='void tensorflow::boosted_trees::quantiles::WeightedQuantilesSummary::Merge(const WeightedQuantilesSummary&lt;ValueType, WeightType, CompareFn&gt; &amp; other_summary)'/>
+<doc f='tensorflow/tensorflow/contrib/boosted_trees/lib/quantiles/weighted_quantiles_summary.h' l='104'>// Merges two summaries through an algorithm that&apos;s derived from MergeSort
+  // for summary entries while guaranteeing that the max approximation error
+  // of the final merged summary is no greater than the approximation errors
+  // of each individual summary.
+  // For example consider summaries where each entry is of the form
+  // (element, weight, min rank, max rank):
+  // summary entries 1: (1, 3, 0, 3), (4, 2, 3, 5)
+  // summary entries 2: (3, 1, 0, 1), (4, 1, 1, 2)
+  // merged: (1, 3, 0, 3), (3, 1, 3, 4), (4, 3, 4, 7).</doc>

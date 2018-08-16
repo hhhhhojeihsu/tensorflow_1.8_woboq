@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='274' type='tensorflow::Status tensorflow::OpKernelConstruction::allocate_persistent(tensorflow::DataType type, const tensorflow::TensorShape &amp; shape, tensorflow::PersistentTensor * out_persistent, tensorflow::Tensor ** out_tensor)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='266'>// Allocates a Tensor of the specified type and shape which the Op
+  // plans to maintain as persistent state. out_persistent holds the
+  // PersistentTensor which is the object the caller should store. For
+  // convenience, if out_tensor is non-null then it will be filled in
+  // with a Tensor* pointing to the newly-allocated tensor which the
+  // caller can use instead of calling
+  // out_persistent-&gt;AccessTensor. The caller does not own out_tensor
+  // and should not keep a copy of it. See comment above.</doc>
+<use f='tensorflow/tensorflow/core/framework/resource_op_kernel.h' l='47' u='c' c='_ZN10tensorflow16ResourceOpKernelC1EPNS_20OpKernelConstructionE'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='236' ll='252' type='tensorflow::Status tensorflow::OpKernelConstruction::allocate_persistent(tensorflow::DataType type, const tensorflow::TensorShape &amp; shape, tensorflow::PersistentTensor * out_persistent, tensorflow::Tensor ** out_tensor)'/>
+<use f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base_op.h' l='50' u='c' c='_ZN10tensorflow28ConditionalAccumulatorBaseOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.h' l='44' u='c' c='_ZN10tensorflow13LookupTableOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/kernels/queue_ops.cc' l='456' u='c' c='_ZN10tensorflow11FakeQueueOpC1EPNS_20OpKernelConstructionE'/>

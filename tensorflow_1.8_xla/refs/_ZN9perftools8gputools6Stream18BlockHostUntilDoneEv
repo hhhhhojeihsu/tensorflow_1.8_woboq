@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream.h' l='1949' type='port::Status perftools::gputools::Stream::BlockHostUntilDone()'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream.h' l='1943'>// (Synchronously) block the host code waiting for the operations
+  // entrained on the stream (enqueued to this point in program
+  // execution) to complete.
+  //
+  // Returns an OK status if the blocking was successful and the stream is ok().
+  // Otherwise returns an error describing why the blocking failed.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='119' u='c' c='_ZNK10tensorflow18XlaTransferManager21CopyCPUTensorToDeviceEPKNS_6TensorEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='160' u='c' c='_ZN10tensorflow18XlaTransferManager21CopyDeviceTensorToCPUEPKNS_6TensorENS_11StringPieceEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='56' u='c' c='_ZN3xla10Executable16ExecuteOnStreamsEN10tensorflow3gtl10ArraySliceIKNS_27ServiceExecutableRunOptionsEEENS3_INS3_IPKNS_12ShapedBufferEEEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='88' u='c' c='_ZN3xla10Executable22ExecuteOnStreamWrapperEPKNS_27ServiceExecutableRunOptionsEPNS_16ExecutionProfileEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/execution_tracker.cc' l='42' u='c' c='_ZNK3xla14AsyncExecution14BlockUntilDoneEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='612' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='355' u='c' c='_ZN10tensorflow7GPUUtil4SyncEPNS_6DeviceE'/>
+<use f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='165' u='c' c='_ZN9perftools8gputools4host12HostExecutor22CreateStreamDependencyEPNS0_6StreamES4_'/>
+<def f='tensorflow/tensorflow/stream_executor/stream.cc' l='5164' ll='5193' type='port::Status perftools::gputools::Stream::BlockHostUntilDone()'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5181' u='c' c='_ZN9perftools8gputools6Stream18BlockHostUntilDoneEv'/>

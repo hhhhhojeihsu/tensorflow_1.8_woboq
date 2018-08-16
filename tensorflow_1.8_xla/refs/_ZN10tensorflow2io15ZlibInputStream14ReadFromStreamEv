@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.h' l='109' type='tensorflow::Status tensorflow::io::ZlibInputStream::ReadFromStream()'/>
+<doc f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.h' l='96'>// Reads data from `input_stream_` and tries to fill up `z_stream_input_` if
+  // enough unread data is left in `input_stream_`.
+  //
+  // Looks up z_stream_-&gt;next_in to check how much data in z_stream_input_
+  // has already been read. The used data is removed and new data is added to
+  // after any unread data in z_stream_input_.
+  // After this call z_stream_-&gt;next_in points to the start of z_stream_input_
+  // and z_stream_-&gt;avail_in stores the number of readable bytes in
+  // z_stream_input_.
+  //
+  // Returns OutOfRange error if NO data could be read from stream. Note that
+  // this won&apos;t return an OutOfRange if there wasn&apos;t sufficient data in stream
+  // to completely fill up z_stream_input_.</doc>
+<def f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.cc' l='73' ll='121' type='tensorflow::Status tensorflow::io::ZlibInputStream::ReadFromStream()'/>
+<use f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.cc' l='159' u='c' c='_ZN10tensorflow2io15ZlibInputStream10ReadNBytesExPSs'/>

@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/client_library.h' l='76' type='static StatusOr&lt;xla::LocalClient *&gt; xla::ClientLibrary::GetOrCreateLocalClient(perftools::gputools::Platform * platform = nullptr)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/client_library.h' l='71'>// Singleton constructor-or-accessor -- returns a client for the application
+  // to issue XLA commands on. Arguments:
+  //
+  //   platform : The platform the underlying XLA service should target. If
+  //     null then default platform is used.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='150' u='c' c='_ZNK10tensorflow9XlaDevice8Metadata6clientEv'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='197' u='c' c='_ZNK10tensorflow9XlaDevice6clientEv'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/client_library.cc' l='71' ll='76' type='static StatusOr&lt;xla::LocalClient *&gt; xla::ClientLibrary::GetOrCreateLocalClient(perftools::gputools::Platform * platform = nullptr)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/client_library.cc' l='112' u='c' c='_ZN3xla13ClientLibrary16LocalClientOrDieEv'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/client_library.cc' l='71'>/* static */</doc>

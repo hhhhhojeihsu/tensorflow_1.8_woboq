@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/platform/fingerprint.h' l='44' type='uint64 tensorflow::Fingerprint64(const string &amp; s)'/>
+<def f='tensorflow/tensorflow/core/platform/default/fingerprint.h' l='23' ll='25' type='uint64 tensorflow::Fingerprint64(const string &amp; s)'/>
+<doc f='tensorflow/tensorflow/core/platform/fingerprint.h' l='39'>// TODO(sibyl-Mooth6ku): Change these to accept StringPiece (or make them templated
+// on any kind of byte array?).
+
+// This is a portable fingerprint interface for strings that will never change.
+// However, it is not suitable for cryptography.</doc>
+<use f='tensorflow/tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc' l='81' u='c' c='_ZNK10tensorflow12_GLOBAL__N_118SparseTensorColumn7FeatureExx'/>
+<use f='tensorflow/tensorflow/contrib/layers/kernels/sparse_feature_cross_kernel.cc' l='121' u='c' c='_ZNK10tensorflow12_GLOBAL__N_117DenseTensorColumn7FeatureExx'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_cross_op.cc' l='81' u='c' c='_ZNK10tensorflow12_GLOBAL__N_118SparseTensorColumn7FeatureExx'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_cross_op.cc' l='121' u='c' c='_ZNK10tensorflow12_GLOBAL__N_117DenseTensorColumn7FeatureExx'/>
+<use f='tensorflow/tensorflow/core/kernels/string_to_hash_bucket_op.cc' l='66'/>

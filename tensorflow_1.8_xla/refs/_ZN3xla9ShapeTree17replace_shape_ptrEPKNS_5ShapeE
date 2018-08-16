@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='153' ll='156' type='void xla::ShapeTree::replace_shape_ptr(const xla::Shape * shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='146'>// Replaces *only* the underlying shape of this ShapeTree. The caller must own
+  // the Shape object and hence shape_storage_ is not updated.
+  //
+  // Only safe to use this if the ShapeTree was constructed with &apos;explicit
+  // ShapeTree(const Shape* shape)&apos; or is moved from one such ShapeTree. The
+  // caller must ensure that the input shape is consistent with the underlying
+  // tree.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/shaped_buffer.cc' l='55' u='c' c='_ZN3xla12ShapedBufferC1EOS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shaped_buffer.cc' l='67' u='c' c='_ZN3xla12ShapedBufferaSEOS0_'/>

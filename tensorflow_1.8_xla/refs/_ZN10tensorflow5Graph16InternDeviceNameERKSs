@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='551' type='int tensorflow::Graph::InternDeviceName(const string &amp; device_name)'/>
+<use f='tensorflow/tensorflow/core/graph/graph.h' l='563' u='c' c='_ZN10tensorflow5Graph24set_assigned_device_nameEPNS_4NodeERKSs'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='811' u='c' c='_ZN10tensorflow6Placer3RunEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='850' u='c' c='_ZN10tensorflow6Placer3RunEv'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='275' u='c' c='_ZN10tensorflow5GraphC1EPKNS_19OpRegistryInterfaceE'/>
+<def f='tensorflow/tensorflow/core/graph/graph.cc' l='670' ll='687' type='int tensorflow::Graph::InternDeviceName(const string &amp; device_name)'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.cc' l='667'>// Ensures that &apos;device_name&apos; is present in the device name table, and returns
+// the index of that device name. The index is stable, and can be used in
+// calls to Node::set_assigned_device_name_index().</doc>

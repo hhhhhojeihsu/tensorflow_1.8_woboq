@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>devices.cc source code [tensorflow/tensorflow/core/grappler/devices.cc] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/grappler/devices.cc'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>grappler</a>/<a href='devices.cc.html'>devices.cc</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#include <a href="../../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="devices.h.html">"tensorflow/core/grappler/devices.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../platform/cpu_info.h.html">"tensorflow/core/platform/cpu_info.h"</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><u>#<span data-ppcond="21">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="22">22</th><td><u>#include "tensorflow/core/common_runtime/gpu/gpu_init.h"</u></td></tr>
+<tr><th id="23">23</th><td><u>#include "tensorflow/core/platform/stream_executor.h"</u></td></tr>
+<tr><th id="24">24</th><td><u>#<span data-ppcond="21">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">grappler</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><em>int</em> <dfn class="decl def" id="_ZN10tensorflow8grappler19GetNumAvailableGPUsEv" title='tensorflow::grappler::GetNumAvailableGPUs' data-ref="_ZN10tensorflow8grappler19GetNumAvailableGPUsEv">GetNumAvailableGPUs</dfn>() {</td></tr>
+<tr><th id="30">30</th><td>  <em>int</em> <dfn class="local col1 decl" id="1num_eligible_gpus" title='num_eligible_gpus' data-type='int' data-ref="1num_eligible_gpus">num_eligible_gpus</dfn> = <var>0</var>;</td></tr>
+<tr><th id="31">31</th><td><u>#<span data-ppcond="31">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="32">32</th><td>  <b>if</b> (ValidateGPUMachineManager().ok()) {</td></tr>
+<tr><th id="33">33</th><td>    perftools::gputools::Platform* gpu_manager = GPUMachineManager();</td></tr>
+<tr><th id="34">34</th><td>    <b>if</b> (gpu_manager != <b>nullptr</b>) {</td></tr>
+<tr><th id="35">35</th><td>      <em>int</em> num_gpus = gpu_manager-&gt;VisibleDeviceCount();</td></tr>
+<tr><th id="36">36</th><td>      <b>for</b> (<em>int</em> i = <var>0</var>; i &lt; num_gpus; i++) {</td></tr>
+<tr><th id="37">37</th><td>        <em>auto</em> exec_status = gpu_manager-&gt;ExecutorForDevice(i);</td></tr>
+<tr><th id="38">38</th><td>        <b>if</b> (exec_status.ok()) {</td></tr>
+<tr><th id="39">39</th><td>          perftools::gputools::StreamExecutor* se = exec_status.ValueOrDie();</td></tr>
+<tr><th id="40">40</th><td>          <em>const</em> perftools::gputools::DeviceDescription&amp; desc =</td></tr>
+<tr><th id="41">41</th><td>              se-&gt;GetDeviceDescription();</td></tr>
+<tr><th id="42">42</th><td>          <em>int</em> min_gpu_core_count = <var>8</var>;</td></tr>
+<tr><th id="43">43</th><td>          <b>if</b> (desc.core_count() &gt;= min_gpu_core_count) {</td></tr>
+<tr><th id="44">44</th><td>            num_eligible_gpus++;</td></tr>
+<tr><th id="45">45</th><td>          }</td></tr>
+<tr><th id="46">46</th><td>        }</td></tr>
+<tr><th id="47">47</th><td>      }</td></tr>
+<tr><th id="48">48</th><td>    }</td></tr>
+<tr><th id="49">49</th><td>  }</td></tr>
+<tr><th id="50">50</th><td><u>#<span data-ppcond="31">endif</span>  // GOOGLE_CUDA</u></td></tr>
+<tr><th id="51">51</th><td>  <a class="macro" href="../platform/default/logging.h.html#77" title="::tensorflow::internal::LogMessage(&quot;/root/.cache/bazel/_bazel_root/68a62076e91007a7908bc42a32e4cff9/execroot/org_tensorflow/tensorflow/core/grappler/devices.cc&quot;, 51, ::tensorflow::INFO)" data-ref="_M/LOG">LOG</a>(INFO) <a class="ref" href="../../../../include/c++/5/ostream.html#_ZStlsOSt13basic_ostreamIT_T0_ERKT1_" title='std::operator&lt;&lt;' data-ref="_ZStlsOSt13basic_ostreamIT_T0_ERKT1_">&lt;&lt;</a> <q>"Number of eligible GPUs (core count &gt;= 8): "</q></td></tr>
+<tr><th id="52">52</th><td>            <a class="ref" href="../../../../include/c++/5/ostream.html#_ZNSt13basic_ostreamlsEi" title='std::basic_ostream::operator&lt;&lt;' data-ref="_ZNSt13basic_ostreamlsEi">&lt;&lt;</a> <a class="local col1 ref" href="#1num_eligible_gpus" title='num_eligible_gpus' data-ref="1num_eligible_gpus">num_eligible_gpus</a>;</td></tr>
+<tr><th id="53">53</th><td>  <b>return</b> <a class="local col1 ref" href="#1num_eligible_gpus" title='num_eligible_gpus' data-ref="1num_eligible_gpus">num_eligible_gpus</a>;</td></tr>
+<tr><th id="54">54</th><td>}</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><a class="typedef" href="../platform/default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a> <dfn class="decl def" id="_ZN10tensorflow8grappler18AvailableGPUMemoryEi" title='tensorflow::grappler::AvailableGPUMemory' data-ref="_ZN10tensorflow8grappler18AvailableGPUMemoryEi">AvailableGPUMemory</dfn>(<em>int</em> <dfn class="local col2 decl" id="2gpu_id" title='gpu_id' data-type='int' data-ref="2gpu_id">gpu_id</dfn>) {</td></tr>
+<tr><th id="57">57</th><td><u>#<span data-ppcond="57">if</span> GOOGLE_CUDA</u></td></tr>
+<tr><th id="58">58</th><td>  <i>// Look up the device, to see its attributes.</i></td></tr>
+<tr><th id="59">59</th><td>  perftools::gputools::Platform* gpu_platform = GPUMachineManager();</td></tr>
+<tr><th id="60">60</th><td>  CHECK_LT(gpu_id, gpu_platform-&gt;VisibleDeviceCount());</td></tr>
+<tr><th id="61">61</th><td>  perftools::gputools::StreamExecutor* se =</td></tr>
+<tr><th id="62">62</th><td>      gpu_platform-&gt;ExecutorForDevice(gpu_id).ValueOrDie();</td></tr>
+<tr><th id="63">63</th><td>  int64 total_memory, available_memory;</td></tr>
+<tr><th id="64">64</th><td>  CHECK(se-&gt;DeviceMemoryUsage(&amp;available_memory, &amp;total_memory));</td></tr>
+<tr><th id="65">65</th><td></td></tr>
+<tr><th id="66">66</th><td>  <b>return</b> available_memory;</td></tr>
+<tr><th id="67">67</th><td><u>#<span data-ppcond="57">else</span></u></td></tr>
+<tr><th id="68">68</th><td>  <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="69">69</th><td><u>#<span data-ppcond="57">endif</span></u></td></tr>
+<tr><th id="70">70</th><td>}</td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><em>int</em> <dfn class="decl def" id="_ZN10tensorflow8grappler30GetNumAvailableLogicalCPUCoresEv" title='tensorflow::grappler::GetNumAvailableLogicalCPUCores' data-ref="_ZN10tensorflow8grappler30GetNumAvailableLogicalCPUCoresEv">GetNumAvailableLogicalCPUCores</dfn>() { <b>return</b> <span class="namespace">port::</span><a class="ref" href="../platform/cpu_info.h.html#_ZN10tensorflow4port18NumSchedulableCPUsEv" title='tensorflow::port::NumSchedulableCPUs' data-ref="_ZN10tensorflow4port18NumSchedulableCPUsEv">NumSchedulableCPUs</a>(); }</td></tr>
+<tr><th id="73">73</th><td></td></tr>
+<tr><th id="74">74</th><td>}  <i>// end namespace grappler</i></td></tr>
+<tr><th id="75">75</th><td>}  <i>// end namespace tensorflow</i></td></tr>
+<tr><th id="76">76</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

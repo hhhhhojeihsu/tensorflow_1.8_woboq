@@ -1,0 +1,16 @@
+<inh f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='274' c='toco::Operator'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1163' ll='1165'/>
+<size>72</size>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1151'>// TensorFlow Merge equivalent. Refer to TensorFlow documentation for details.
+//
+// Inputs: this operator accepts any number &gt;= 1 of inputs.
+//   inputs[i]: the i-th array to merge.
+//
+// It is expected that graph transformations will drop all but exactly one
+// of the inputs, at which point the Merge node will be equivalent to an
+// Identity node forwarding the remaining input.
+//
+// Note: We do not currently support runtime control flow: we only support
+// control flow that can be resolved at tooling time (independently of input
+// activations).</doc>
+<fun r='_ZN4toco23TensorFlowMergeOperatorC1Ev'/>

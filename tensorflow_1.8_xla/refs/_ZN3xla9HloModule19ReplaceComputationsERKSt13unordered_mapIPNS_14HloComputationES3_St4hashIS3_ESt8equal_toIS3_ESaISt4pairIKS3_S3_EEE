@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_module.h' l='80' type='void xla::HloModule::ReplaceComputations(const std::unordered_map&lt;HloComputation *, HloComputation *&gt; &amp; replacements)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_module.h' l='73'>// Replaces all uses of computations that are keys of &apos;replacements&apos; with
+  // the corresponding values in &apos;replacements&apos;. Replaces the entry computation,
+  // if applicable.
+  //
+  // This function iterates over all instructions in the module to find
+  // computations to replace. We could speed it up by keeping track of users of
+  // computations.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='119' ll='196' type='void xla::HloModule::ReplaceComputations(const std::unordered_map&lt;HloComputation *, HloComputation *&gt; &amp; replacements)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_subcomputation_unification.cc' l='41' u='c' c='_ZN3xla28HloSubcomputationUnification3RunEPNS_9HloModuleE'/>

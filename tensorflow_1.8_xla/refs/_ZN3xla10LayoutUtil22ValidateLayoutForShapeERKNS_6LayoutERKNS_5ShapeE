@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='68' type='static tensorflow::Status xla::LayoutUtil::ValidateLayoutForShape(const xla::Layout &amp; layout, const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='66'>// Validates that the provided layout satisfies invariants for the given
+  // shape.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='164' u='c' c='_ZN3xla10LayoutUtil21ValidateLayoutInShapeERKNS_5ShapeE'/>
+<def f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='168' ll='228' type='static tensorflow::Status xla::LayoutUtil::ValidateLayoutForShape(const xla::Layout &amp; layout, const xla::Shape &amp; shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='407' u='c' c='_ZN3xla12_GLOBAL__N_118CopyLayoutInternalERKNS_5ShapeEPS1_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='168'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='735' u='c' c='_ZNK3xla7Literal8RelayoutERKNS_6LayoutERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='143' u='c' c='_ZN3xla22BufferLayoutConstraintC1ERKNS_6LayoutERKNS_13LogicalBufferEbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='244' u='c' c='_ZN3xla17LayoutConstraints15SetBufferLayoutERKNS_6LayoutERKNS_13LogicalBufferEbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='962' u='c' c='_ZN3xla16LayoutAssignment35ChooseOperandLayoutFromOutputLayoutERKNS_6LayoutEPKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='978' u='c' c='_ZN3xla16LayoutAssignment35ChooseOperandLayoutFromOutputLayoutERKNS_6LayoutEPKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1034' u='c' c='_ZN3xla16LayoutAssignment35ChooseOutputLayoutFromOperandLayoutERKNS_6LayoutEPKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1050' u='c' c='_ZN3xla16LayoutAssignment35ChooseOutputLayoutFromOperandLayoutERKNS_6LayoutEPKNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1518' u='c' c='_ZN3xla7Service15ComputeConstantEPKNS_22ComputeConstantRequestEPNS_23ComputeConstantResponseE'/>

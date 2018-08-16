@@ -1,0 +1,14 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='36' c='xla::HloOrdering'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='96' ll='129'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='151' c='xla::DependencyHloOrdering'/>
+<size>88</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='94'>// Base class for partial orderings implemented by a map of predecessors for
+// each instruction. Subclasses should fill in predecessors_.</doc>
+<fun r='_ZN3xla22PredecessorHloOrderingD1Ev'/>
+<fun r='_ZNK3xla22PredecessorHloOrdering15SequentialOrderERKNS_14HloComputationE'/>
+<fun r='_ZN3xla22PredecessorHloOrdering16reachability_mapEPKNS_14HloComputationE'/>
+<fun r='_ZNK3xla22PredecessorHloOrdering16reachability_mapEPKNS_14HloComputationE'/>
+<fun r='_ZN3xla22PredecessorHloOrderingC1EPKNS_9HloModuleE'/>
+<fun r='_ZNK3xla22PredecessorHloOrdering14ToStringHelperERKSs'/>
+<fun r='_ZNK3xla22PredecessorHloOrdering31ExecutesBeforeInSameComputationEPKNS_14HloInstructionES3_'/>
+<mbr r='xla::PredecessorHloOrdering::predecessors_' o='192' t='tensorflow::gtl::FlatMap&lt;const HloComputation *, std::unique_ptr&lt;HloReachabilityMap&gt; &gt;'/>

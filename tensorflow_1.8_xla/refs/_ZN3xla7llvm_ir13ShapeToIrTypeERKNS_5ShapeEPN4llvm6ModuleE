@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='138' type='llvm::Type * xla::llvm_ir::ShapeToIrType(const xla::Shape &amp; shape, llvm::Module * module)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='136'>// Returns the LLVM type which represents the given XLA shape. For example,
+// if &quot;shape&quot; is [5 x [10 x f32]], the function returns [5 x [10 x float]].</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2702' u='c' c='_ZN3xla3cpu9IrEmitter11IrShapeTypeERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='403' u='c' c='_ZNK3xla7llvm_ir7IrArray11CastToShapeERKNS_5ShapeEPN4llvm9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='224' ll='236' type='llvm::Type * xla::llvm_ir::ShapeToIrType(const xla::Shape &amp; shape, llvm::Module * module)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/tuple_ops.cc' l='103' u='c' c='_ZN3xla7llvm_ir19EmitGetTupleElementERKNS_5ShapeExiPN4llvm5ValueEPNS4_9IRBuilderINS4_14ConstantFolderENS4_24IRBuilderDefaultInserterEEEPNS4_6ModuleE'/>

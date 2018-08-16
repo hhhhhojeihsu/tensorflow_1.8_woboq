@@ -1,0 +1,20 @@
+<dec f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='80' type='static tensorflow::Status tensorflow::Sqlite::Open(const string &amp; path, int flags, tensorflow::Sqlite ** db)'/>
+<doc f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='65'>/// \brief Opens SQLite database file.
+  ///
+  /// Most users will want to set flags to SQLITE_OPEN_READWRITE |
+  /// SQLITE_OPEN_CREATE. There are many other open flags; here are
+  /// notes on a few of them:
+  ///
+  /// - SQLITE_OPEN_READONLY: Allowed if no WAL journal is active.
+  /// - SQLITE_OPEN_SHAREDCACHE: Will be ignored because this veneer
+  ///   doesn&apos;t support the unlock notify API.
+  /// - SQLITE_OPEN_NOMUTEX: Means access to this connection MUST be
+  ///   serialized by the caller in accordance with the same contracts
+  ///   implemented by this API.
+  ///
+  /// This function sets PRAGMA values from TF_SQLITE_* environment
+  /// variables. See sqlite.cc to learn more.</doc>
+<use f='tensorflow/tensorflow/core/kernels/data/sql/sqlite_query_connection.cc' l='38' u='c' c='_ZN10tensorflow3sql21SqliteQueryConnection4OpenERKSsS3_RKNS_3gtl13InlinedVectorINS_8DataTypeELi4EEE'/>
+<use f='tensorflow/tensorflow/core/kernels/summary_kernels.cc' l='83' u='c' c='_ZN10tensorflow23CreateSummaryDbWriterOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/lib/db/sqlite.cc' l='113' ll='153' type='static tensorflow::Status tensorflow::Sqlite::Open(const string &amp; path, int flags, tensorflow::Sqlite ** db)'/>
+<doc f='tensorflow/tensorflow/core/lib/db/sqlite.cc' l='112'>/* static */</doc>

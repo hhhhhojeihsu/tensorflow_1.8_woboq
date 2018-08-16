@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/platform/file_system.h' l='284' type='tensorflow::Status tensorflow::WritableFile::Sync()'/>
+<doc f='tensorflow/tensorflow/core/platform/file_system.h' l='278'>/// \brief Syncs contents of file to filesystem.
+  ///
+  /// This waits for confirmation from the filesystem that the contents
+  /// of the file have been persisted to the filesystem; if the OS
+  /// or machine crashes after a successful Sync, the contents should
+  /// be properly saved.</doc>
+<ovr f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.cc' l='200' c='_ZN10tensorflow2io16ZlibOutputBuffer4SyncEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.cc' l='202' u='c' c='_ZN10tensorflow2io16ZlibOutputBuffer4SyncEv'/>
+<ovr f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='118' c='_ZN10tensorflow17PosixWritableFile4SyncEv'/>
+<use f='tensorflow/tensorflow/core/util/events_writer.cc' l='127' u='c' c='_ZN10tensorflow12EventsWriter5FlushEv'/>

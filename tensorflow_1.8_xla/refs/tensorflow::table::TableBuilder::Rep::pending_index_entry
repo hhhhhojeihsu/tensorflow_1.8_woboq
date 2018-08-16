@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='91' type='bool'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='105' u='w' c='_ZN10tensorflow5table12TableBuilder3RepC1ERKNS0_7OptionsEPNS_12WritableFileE'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='133' u='r' c='_ZN10tensorflow5table12TableBuilder3AddERKNS_11StringPieceES4_'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='139' u='w' c='_ZN10tensorflow5table12TableBuilder3AddERKNS_11StringPieceES4_'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='160' u='w' c='_ZN10tensorflow5table12TableBuilder5FlushEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='239' u='r' c='_ZN10tensorflow5table12TableBuilder6FinishEv'/>
+<use f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='244' u='w' c='_ZN10tensorflow5table12TableBuilder6FinishEv'/>
+<offset>1480</offset>
+<doc f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='82'>// We do not emit the index entry for a block until we have seen the
+  // first key for the next data block.  This allows us to use shorter
+  // keys in the index block.  For example, consider a block boundary
+  // between the keys &quot;the quick brown fox&quot; and &quot;the who&quot;.  We can use
+  // &quot;the r&quot; as the key for the index block entry since it is &gt;= all
+  // entries in the first block and &lt; all entries in subsequent
+  // blocks.
+  //
+  // Invariant: r-&gt;pending_index_entry is true only if data_block is empty.</doc>

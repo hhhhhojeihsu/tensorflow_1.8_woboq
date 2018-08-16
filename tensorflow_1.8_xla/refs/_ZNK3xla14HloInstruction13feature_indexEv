@@ -1,0 +1,18 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='838' type='int64 xla::HloInstruction::feature_index() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='833'>// Returns feature_index field associated with the instruction. The index
+  // represents the index of the feature dimension.
+  //
+  // Precondition: opcode() is one of kBatchNormTraining, kBatchNormInference,
+  // or kBatchNormGrad.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='165' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='312' u='c' c='_ZN3xla24BatchNormExpanderVisitor24HandleBatchNormInferenceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='438' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1412' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1418' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1432' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1777' u='c' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1777' u='c' c='_ZNK3xla14HloInstruction17IdenticalSlowPathERKS0_RKSt8functionIFbPKNS_14HloComputationES6_EERKS3_IFbRKNS_5ShapeESD_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2233' u='c' c='_ZNK3xla14HloInstruction23ExtraAttributesToStringERKNS_15HloPrintOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='364' u='c' c='_ZN3xla13ShapeVerifier23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='376' u='c' c='_ZN3xla13ShapeVerifier24HandleBatchNormInferenceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='386' u='c' c='_ZN3xla13ShapeVerifier19HandleBatchNormGradEPNS_14HloInstructionE'/>

@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/stat_utils.h' l='24' type='float tensorflow::tensorforest::GiniImpurity(const tensorflow::tensorforest::LeafStat &amp; stats, int32 num_classes)'/>
+<doc f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/stat_utils.h' l='23'>// Returns the smoothed, unweighted Gini impurity.</doc>
+<def f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/stat_utils.cc' l='33' ll='38' type='float tensorflow::tensorforest::GiniImpurity(const tensorflow::tensorforest::LeafStat &amp; stats, int32 num_classes)'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/stat_utils.cc' l='41' u='c' c='_ZN10tensorflow12tensorforest20WeightedGiniImpurityERKNS0_8LeafStatEi'/>
+<doc f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/stat_utils.cc' l='23'>// When using smoothing but only tracking sum and squares, and we&apos;re adding
+// num_classes for smoothing each class, then Gini looks more like this:
+//   Gini = 1 - \sum_i (c_i + 1)^2 / C^2
+//   = 1 - (1 / C^2) ( (\sum_i c_i)^2 + 2 (\sum_i c_i) + (\sum_i 1))
+//   = 1 - (1 / C^2) ( stats.square() + 2 stats.sum() + #_classes)
+//   = 1 - ( stats.square() + 2 stats.sum() + #_classes) / (smoothed_sum *
+//                                                          smoothed_sum)
+//
+//   where
+//   smoothed_sum = stats.sum() + #_classes</doc>

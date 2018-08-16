@@ -1,0 +1,67 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='55' ll='394'/>
+<size>136</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='50'>// Describes a computation at the HLO level.
+//
+// An HloComputation contains a directed acyclic graph of HLO instructions. The
+// computation has a single root instruction which produces the output of the
+// computation.</doc>
+<fun r='_ZN3xla14HloComputation14AddInstructionESt10unique_ptrINS_14HloInstructionESt14default_deleteIS2_EE'/>
+<fun r='_ZN3xla14HloComputation15RemoveParameterEx'/>
+<fun r='_ZN3xla14HloComputation12AddParameterESt10unique_ptrINS_14HloInstructionESt14default_deleteIS2_EE'/>
+<fun r='_ZN3xla14HloComputation17RemoveInstructionEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla14HloComputation34RemoveInstructionAndUnusedOperandsEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla14HloComputation20set_root_instructionEPNS_14HloInstructionE'/>
+<fun r='_ZNK3xla14HloComputation16root_instructionEv'/>
+<fun r='_ZNK3xla14HloComputation14num_parametersEv'/>
+<fun r='_ZNK3xla14HloComputation21parameter_instructionEx'/>
+<fun r='_ZNK3xla14HloComputation22parameter_instructionsEv'/>
+<fun r='_ZNK3xla14HloComputation4nameEv'/>
+<fun r='_ZN3xla14HloComputation12UniquifyNameEPNS_11NameUniquerE'/>
+<fun r='_ZNK3xla14HloComputation8ToStringEv'/>
+<fun r='_ZNK3xla14HloComputation8ToStringERKNS_15HloPrintOptionsE'/>
+<fun r='_ZNK3xla14HloComputation7ToProtoEv'/>
+<fun r='_ZN3xla14HloComputation15CreateFromProtoEPNS_9HloModuleERKNS_19HloComputationProtoERKN10tensorflow3gtl7FlatMapIxPS0_NS6_4hashIxEESt8equal_toIxEEE'/>
+<fun r='_ZNK3xla14HloComputation12instructionsEv'/>
+<fun r='_ZN3xla14HloComputation12instructionsEv'/>
+<fun r='_ZNK3xla14HloComputation24MakeInstructionPostOrderEv'/>
+<fun r='_ZNK3xla14HloComputation19ComputeReachabilityEv'/>
+<fun r='_ZN3xla14HloComputation36UpdateReachabilityThroughInstructionEPKNS_14HloInstructionEPNS_18HloReachabilityMapE'/>
+<fun r='_ZNK3xla14HloComputation17instruction_countEv'/>
+<fun r='_ZNK3xla14HloComputation28MakeEmbeddedComputationsListEv'/>
+<fun r='_ZN3xla14HloComputation23CreateFusionInstructionEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEENS4_10FusionKindE'/>
+<fun r='_ZN3xla14HloComputation19DeepCopyInstructionEPNS_14HloInstructionEPKNS_9ShapeTreeIbEEPNS3_IS2_EE'/>
+<fun r='_ZNK3xla14HloComputation19ComputeProgramShapeEv'/>
+<fun r='_ZNK3xla14HloComputationeqERKS0_'/>
+<fun r='_ZN3xla14HloComputation25ReplaceWithNewInstructionEPNS_14HloInstructionESt10unique_ptrIS1_St14default_deleteIS1_EE'/>
+<fun r='_ZN3xla14HloComputation18ReplaceInstructionEPNS_14HloInstructionES2_'/>
+<fun r='_ZN3xla14HloComputation10set_parentEPNS_9HloModuleE'/>
+<fun r='_ZNK3xla14HloComputation6parentEv'/>
+<fun r='_ZN3xla14HloComputation6parentEv'/>
+<fun r='_ZNK3xla14HloComputation6AcceptEPNS_17DfsHloVisitorBaseIT_EE'/>
+<fun r='_ZNK3xla14HloComputation22AcceptWithOperandOrderEPNS_17DfsHloVisitorBaseIPNS_14HloInstructionEEERKSt8functionIFbPKS2_S8_EE'/>
+<fun r='_ZNK3xla14HloComputation13AcceptOrderedEPNS_17DfsHloVisitorBaseIT_EERKSt6vectorIPKNS_14HloInstructionESaIS8_EE'/>
+<fun r='_ZN3xla14HloComputation6AcceptERKSt8functionIFN10tensorflow6StatusEPNS_14HloInstructionEEE'/>
+<fun r='_ZNK3xla14HloComputation6AcceptERKSt8functionIFN10tensorflow6StatusEPKNS_14HloInstructionEEE'/>
+<fun r='_ZN3xla14HloComputation5CloneERKSsPNS_9HloModuleE'/>
+<fun r='_ZN3xla14HloComputation21CloneWithReplacementsESt13unordered_mapIPKNS_14HloInstructionESt10unique_ptrIS2_St14default_deleteIS2_EESt4hashIS4_ESt8equal_10373642'/>
+<fun r='_ZN3xla14HloComputation11IsRemovableEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla14HloComputation13HasSideEffectEv'/>
+<fun r='_ZNK3xla14HloComputation19IsFusionComputationEv'/>
+<fun r='_ZNK3xla14HloComputation17FusionInstructionEv'/>
+<fun r='_ZN3xla14HloComputation20SetFusionInstructionEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla14HloComputation11SetUniqueIdEx'/>
+<fun r='_ZNK3xla14HloComputation9unique_idEv'/>
+<fun r='_ZN3xla14HloComputationC1ERKSsiPSt6vectorISt10unique_ptrINS_14HloInstructionESt14default_deleteIS5_EESaIS8_EEPS5_SC_'/>
+<fun r='_ZN3xla14HloComputation22AddInstructionInternalESt10unique_ptrINS_14HloInstructionESt14default_deleteIS2_EE'/>
+<fun r='_ZN3xla14HloComputation20FuseInstructionsIntoEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEES5_'/>
+<fun r='_ZN3xla14HloComputation14DeepCopyHelperEPNS_14HloInstructionEPKNS_9ShapeTreeIbEEPNS3_IS2_EEPNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla14HloComputation23CollectUnreachableRootsEv'/>
+<mbr r='xla::HloComputation::name_' o='0' t='string'/>
+<mbr r='xla::HloComputation::unique_id_' o='64' t='int64'/>
+<mbr r='xla::HloComputation::root_instruction_' o='128' t='xla::HloInstruction *'/>
+<mbr r='xla::HloComputation::fusion_instruction_' o='192' t='xla::HloInstruction *'/>
+<mbr r='xla::HloComputation::parent_' o='256' t='xla::HloModule *'/>
+<mbr r='xla::HloComputation::instructions_' o='320' t='InstructionList'/>
+<mbr r='xla::HloComputation::instruction_iterators_' o='448' t='std::unordered_map&lt;const HloInstruction *, InstructionList::iterator&gt;'/>
+<mbr r='xla::HloComputation::param_instructions_' o='896' t='std::vector&lt;HloInstruction *&gt;'/>
+<fun r='_ZN3xla14HloComputationC1ERKS0_'/>

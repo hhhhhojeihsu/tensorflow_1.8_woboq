@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='251' type='tensorflow::Status xla::HloComputation::ReplaceWithNewInstruction(xla::HloInstruction * old_instruction, std::unique_ptr&lt;HloInstruction&gt; new_instruction)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='249'>// Replaces old instruction with newly created instruction. Removes old
+  // instruction from computation. Updates uses and root instruction.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='264' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor25ReplaceWithNewInstructionEPNS_14HloInstructionESt10unique_ptrIS1_St14default_deleteIS1_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='114' u='c' c='_ZN3xla24BatchNormExpanderVisitor25ReplaceWithNewInstructionEPNS_14HloInstructionESt10unique_ptrIS1_St14default_deleteIS1_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/conv_canonicalization.cc' l='136' u='c' c='_ZN3xla3cpu20ConvCanonicalization3RunEPNS_9HloModuleE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='553' ll='558' type='tensorflow::Status xla::HloComputation::ReplaceWithNewInstruction(xla::HloInstruction * old_instruction, std::unique_ptr&lt;HloInstruction&gt; new_instruction)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_constant_folding.cc' l='86' u='c' c='_ZN3xla18HloConstantFolding3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='261' u='c' c='_ZN3xla12_GLOBAL__N_129PerformSinkReshapeOrTransposeEPNS_14HloInstructionEPKS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transpose_folding.cc' l='162' u='c' c='_ZN3xla12_GLOBAL__N_128FoldTransposeIntoConvolutionESt4pairIPNS_14HloInstructionESt6vectorIxSaIxEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/zero_sized_hlo_elimination.cc' l='40' u='c' c='_ZN3xla23ZeroSizedHloElimination3RunEPNS_9HloModuleE'/>

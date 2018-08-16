@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='139' type='StatusOr&lt;std::unique_ptr&lt;ScopedShapedBuffer&gt; &gt; xla::LocalClient::LiteralToShapedBuffer(const xla::Literal &amp; literal, int device_ordinal, xla::DeviceMemoryAllocator * allocator = nullptr)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='135'>// Copy the literal data to the device with the given ordinal and return as a
+  // ScopedShapedBuffer. If non-null the given memory allocator is used for
+  // device memory allocation. If null, the default memory allocator for the
+  // device is used.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='286' ll='300' type='StatusOr&lt;std::unique_ptr&lt;ScopedShapedBuffer&gt; &gt; xla::LocalClient::LiteralToShapedBuffer(const xla::Literal &amp; literal, int device_ordinal, xla::DeviceMemoryAllocator * allocator = nullptr)'/>

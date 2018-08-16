@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base.h' l='60' type='void tensorflow::ConditionalAccumulatorBase::TryTakeGrad(int num_required, tensorflow::OpKernelContext * ctx, DoneCallback callback)'/>
+<def f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base.cc' l='59' ll='100' type='void tensorflow::ConditionalAccumulatorBase::TryTakeGrad(int num_required, tensorflow::OpKernelContext * ctx, DoneCallback callback)'/>
+<doc f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base.cc' l='48'>/**
+ * Logs an attempt to extract the average gradient, and tries to flush all
+ * TakeGrad attempts.
+ * A TakeGrad attempt is blocked until num_required &gt; counter_, i.e.,
+ * sufficient gradients have been accumulated.
+ *
+ * num_required: Number of gradients that needs to be accumulated before the
+ *               attempt is unblocked.
+ * ctx:          Context in which the op is executed.
+ * callback:     A callback to be executed after the attempt has been completed.
+ */</doc>
+<use f='tensorflow/tensorflow/core/kernels/conditional_accumulator_base_op.h' l='230' u='c' c='_ZN10tensorflow40ConditionalAccumulatorBaseTakeGradientOp12ComputeAsyncEPNS_15OpKernelContextEPNS_26ConditionalAccumulatorBaseESt8functionIFvvEE'/>

@@ -1,0 +1,19 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/loop_emitter.h' l='39' c='xla::llvm_ir::LoopEmitter'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/gpu/parallel_loop_emitter.h' l='31' ll='65'/>
+<size>152</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/gpu/parallel_loop_emitter.h' l='27'>// Emits a parallel loop for every element in the given array shape. This loop
+// emitted will be executed by multiple threads in parallel. Therefore, each
+// thread instance of the loop iterates over part of the array, and they
+// collectively iterates over the entire array.</doc>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitterC1ESt8functionIFN10tensorflow6StatusERKNS_7llvm_ir7IrArray5IndexEEERKNS_5ShapeERKNS0_16LaunchDimensionsEPN4llvm9IRBuil11960996'/>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitterC1ERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_ir7IrArray5IndexEEERKS9_RKNS0_16LaunchDimensionsEPNS4_9IRBui11611440'/>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitterC1ERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_ir7IrArray5IndexEEEN10tensorflow3gtl10ArraySliceIS9_EERKNS0_6328673'/>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitterC1ERKS1_'/>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitteraSERKS1_'/>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitterD1Ev'/>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitter29EmitIndexAndSetExitBasicBlockEN10tensorflow11StringPieceE'/>
+<mbr r='xla::gpu::ParallelLoopEmitter::launch_dimensions_' o='1088' t='const xla::gpu::LaunchDimensions'/>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitterC1ESt8functionIFN10tensorflow6StatusERKNS_7llvm_ir7IrArray5IndexEEERKNS_5ShapeERKNS0_16LaunchDimensionsEPN4llvm9IRBuil11960996'/>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitterC1ERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_ir7IrArray5IndexEEEN10tensorflow3gtl10ArraySliceIS9_EERKNS0_6328673'/>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitterC1ERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_ir7IrArray5IndexEEERKS9_RKNS0_16LaunchDimensionsEPNS4_9IRBui11611440'/>
+<fun r='_ZN3xla3gpu19ParallelLoopEmitter29EmitIndexAndSetExitBasicBlockEN10tensorflow11StringPieceE'/>

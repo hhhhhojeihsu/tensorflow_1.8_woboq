@@ -1,0 +1,22 @@
+<dec f='include/c++/5/bits/basic_string.h' l='3892' type='basic_string&lt;_CharT, _Traits, _Alloc&gt; &amp; std::basic_string::replace(size_type __pos, size_type __n1, const _CharT * __s, size_type __n2)'/>
+<def f='include/c++/5/bits/basic_string.tcc' l='855' ll='884' type='basic_string&lt;_CharT, _Traits, _Alloc&gt; &amp; std::basic_string::replace(size_type __pos, size_type __n1, const _CharT * __s, size_type __n2)'/>
+<doc f='include/c++/5/bits/basic_string.h' l='3873'>/**
+       *  @brief  Replace characters with value of a C substring.
+       *  @param __pos  Index of first character to replace.
+       *  @param __n1  Number of characters to be replaced.
+       *  @param __s  C string to insert.
+       *  @param __n2  Number of characters from @a s to use.
+       *  @return  Reference to this string.
+       *  @throw  std::out_of_range  If @a pos1 &gt; size().
+       *  @throw  std::length_error  If new length exceeds @c max_size().
+       *
+       *  Removes the characters in the range [__pos,__pos + __n1)
+       *  from this string.  In place, the first @a __n2 characters of
+       *  @a __s are inserted, or all of @a __s if @a __n2 is too large.  If
+       *  @a __pos is beyond end of string, out_of_range is thrown.  If
+       *  the length of result exceeds max_size(), length_error is
+       *  thrown.  The value of the string doesn&apos;t change if an error
+       *  is thrown.
+      */</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/str_util.cc' l='28' u='c' c='_ZN10tensorflow8str_utilL10ReplaceAllEPSsNS_11StringPieceES2_'/>
+<use f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='338' u='c' c='_ZN10tensorflow8str_util13StringReplaceENS_11StringPieceES1_S1_b'/>

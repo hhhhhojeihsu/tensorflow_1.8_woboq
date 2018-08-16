@@ -1,0 +1,23 @@
+<inh f='tensorflow/tensorflow/core/framework/rendezvous.h' l='46' c='tensorflow::Rendezvous'/>
+<def f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.h' l='40' ll='86'/>
+<size>56</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.h' l='32'>// IntraProcessRendezvous is a Rendezvous which expects all producers
+// and consumers to be devices immediately accessible within the
+// process.  That is, it will never be necessary to perform an RPC to
+// communicate with either.
+//
+// Buffering of Tensor values is delegated to a &quot;local&quot; Rendezvous
+// obtained from NewLocalRendezvous().  This class just adds
+// functionality to coordinate multiple process-local devices.</doc>
+<fun r='_ZN10tensorflow22IntraProcessRendezvousC1EPKNS_9DeviceMgrE'/>
+<fun r='_ZN10tensorflow22IntraProcessRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<fun r='_ZN10tensorflow22IntraProcessRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<fun r='_ZN10tensorflow22IntraProcessRendezvous10StartAbortERKNS_6StatusE'/>
+<mbr r='tensorflow::IntraProcessRendezvous::device_mgr_' o='128' t='const tensorflow::DeviceMgr *'/>
+<mbr r='tensorflow::IntraProcessRendezvous::local_' o='192' t='tensorflow::Rendezvous *'/>
+<mbr r='tensorflow::IntraProcessRendezvous::mu_' o='256' t='tensorflow::mutex'/>
+<mbr r='tensorflow::IntraProcessRendezvous::status_' o='384' t='tensorflow::Status'/>
+<fun r='_ZN10tensorflow22IntraProcessRendezvousD1Ev'/>
+<fun r='_ZN10tensorflow22IntraProcessRendezvous8ParseKeyERKSsbPNS_10Rendezvous9ParsedKeyE'/>
+<fun r='_ZN10tensorflow22IntraProcessRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow22IntraProcessRendezvousC1ERKS0_'/>

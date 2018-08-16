@@ -1,0 +1,35 @@
+<def f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='182' ll='306'/>
+<size>168</size>
+<doc f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='178'>// On construction, silently attempts to read the metadata associated with
+// &quot;prefix&quot;.  If caller intends to call any function afterwards, &quot;status()&quot;
+// must be checked.
+// All threads accessing the same BundleReader must synchronize.</doc>
+<fun r='_ZN10tensorflow12BundleReaderC1EPNS_3EnvENS_11StringPieceE'/>
+<fun r='_ZN10tensorflow12BundleReaderD1Ev'/>
+<fun r='_ZNK10tensorflow12BundleReader6statusEv'/>
+<fun r='_ZN10tensorflow12BundleReader8ContainsENS_11StringPieceE'/>
+<fun r='_ZN10tensorflow12BundleReader19LookupDtypeAndShapeENS_11StringPieceEPNS_8DataTypeEPNS_11TensorShapeE'/>
+<fun r='_ZN10tensorflow12BundleReader17LookupTensorShapeENS_11StringPieceEPNS_11TensorShapeE'/>
+<fun r='_ZN10tensorflow12BundleReader6LookupENS_11StringPieceEPNS_6TensorE'/>
+<fun r='_ZN10tensorflow12BundleReader11ReadCurrentEPNS_6TensorE'/>
+<fun r='_ZN10tensorflow12BundleReader18LookupTensorSlicesENS_11StringPieceEPSt6vectorINS_11TensorSliceESaIS3_EE'/>
+<fun r='_ZN10tensorflow12BundleReader11LookupSliceENS_11StringPieceERKNS_11TensorSliceEPNS_6TensorE'/>
+<fun r='_ZN10tensorflow12BundleReader4SeekENS_11StringPieceE'/>
+<fun r='_ZNK10tensorflow12BundleReader4NextEv'/>
+<fun r='_ZNK10tensorflow12BundleReader5ValidEv'/>
+<fun r='_ZNK10tensorflow12BundleReader3keyEv'/>
+<fun r='_ZNK10tensorflow12BundleReader5valueEv'/>
+<fun r='_ZN10tensorflow12BundleReader11DebugStringEv'/>
+<fun r='_ZN10tensorflow12BundleReader19GetBundleEntryProtoENS_11StringPieceEPNS_16BundleEntryProtoE'/>
+<fun r='_ZN10tensorflow12BundleReader8GetValueERKNS_16BundleEntryProtoEPNS_6TensorE'/>
+<fun r='_ZN10tensorflow12BundleReader13GetSliceValueENS_11StringPieceERKNS_16BundleEntryProtoERKNS_11TensorSliceEPNS_6TensorE'/>
+<mbr r='tensorflow::BundleReader::env_' o='0' t='tensorflow::Env *'/>
+<mbr r='tensorflow::BundleReader::prefix_' o='64' t='const string'/>
+<mbr r='tensorflow::BundleReader::status_' o='128' t='tensorflow::Status'/>
+<mbr r='tensorflow::BundleReader::metadata_' o='192' t='tensorflow::RandomAccessFile *'/>
+<mbr r='tensorflow::BundleReader::table_' o='256' t='table::Table *'/>
+<mbr r='tensorflow::BundleReader::iter_' o='320' t='table::Iterator *'/>
+<mbr r='tensorflow::BundleReader::data_' o='384' t='std::unordered_map&lt;int32, io::InputBuffer *&gt;'/>
+<mbr r='tensorflow::BundleReader::tensor_slices_' o='832' t='std::unordered_map&lt;string, checkpoint::TensorSliceSet *&gt;'/>
+<mbr r='tensorflow::BundleReader::num_shards_' o='1280' t='int'/>
+<fun r='_ZN10tensorflow12BundleReaderC1ERKS0_'/>

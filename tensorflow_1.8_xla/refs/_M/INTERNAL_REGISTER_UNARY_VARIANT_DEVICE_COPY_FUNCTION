@@ -1,0 +1,34 @@
+<dec f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='522'/>
+<doc f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='489'>// ****** NOTE ******
+// FOR INTERNAL USE ONLY.  IF YOU USE THIS WE MAY BREAK YOUR CODE.
+// ****** NOTE ******
+//
+// Register a device copy variant function for the given copy
+// direction and type; where direction is the enum
+// VariantDeviceCopyDirection, and the device_copy_fn has signature:
+//
+//   Status device_copy_fn(
+//     const T&amp; t, T* t_out,
+//     const UnaryVariantOpRegistry::AsyncTensorDeviceCopyFn&amp; copier);
+//
+// And device_copy_fn calls copier 0 or more times.  For details on
+// the behavior of the copier function, see the comments at the
+// declaration of UnaryVariantOpRegistry::AsyncTensorDeviceCopyFn.
+//
+// Note, the device_copy_fn may choose to keep some tensors
+// on host, e.g. by assigning to-&gt;tensor = from.tensor (assuming
+// from.tensor is already on host); or by setting
+//   to-&gt;tensor = Tensor(cpu_allocator(), ...)
+// and manually updating its values.
+//
+// If this is the case, the CopyFns for HOST_TO_DEVICE,
+// DEVICE_TO_HOST, and DEVICE_TO_DEVICE must perform host-to-host
+// copies in a consistent manner.  For example, one must always
+// manually copy any &quot;always on host&quot; tensors in all directions instead of e.g.
+//   - performing a host-to-host copy in one direction,
+//   - using the provided copier function in the reverse direction.
+// Doing the latter will cause program failures.
+//
+// ****** NOTE ******
+// FOR INTERNAL USE ONLY.  IF YOU USE THIS WE MAY BREAK YOUR CODE.
+// ****** NOTE ******</doc>

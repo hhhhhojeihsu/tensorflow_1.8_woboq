@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='1163' type='bool perftools::gputools::blas::BlasSupport::DoBlasHer2k(perftools::gputools::Stream * stream, blas::UpperLower uplo, blas::Transpose trans, uint64 n, uint64 k, std::complex&lt;float&gt; alpha, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; a, int lda, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; b, int ldb, float beta, DeviceMemory&lt;std::complex&lt;float&gt; &gt; * c, int ldc)'/>
+<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='1155'>// Performs a Hermitian rank-2k update.
+  //
+  //     c &lt;- alpha * a * conj(b&apos;) + conj(alpha) * b * conj(a&apos;) + beta * c,
+  // or
+  //     c &lt;- alpha * conj(b&apos;) * a + conj(alpha) * conj(a&apos;) * b + beta * c,
+  //
+  // alpha and beta are scalars; c is a n-by-n Hermitian matrix; a and b are
+  // n-by-k matrices in the first case and k-by-n matrices in the second case.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4107' u='a' c='_ZN9perftools8gputools6Stream13ThenBlasHer2kENS0_4blas10UpperLowerENS2_9TransposeEyySt7complexIfERKNS0_12DeviceMemoryIS6_EEiSA_ifPS8_i'/>

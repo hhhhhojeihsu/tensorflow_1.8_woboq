@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/copy_tensor.h' l='45' type='static void tensorflow::CopyTensor::ViaDMA(tensorflow::StringPiece edge_name, tensorflow::DeviceContext * send_dev_context, tensorflow::DeviceContext * recv_dev_context, tensorflow::Device * src, tensorflow::Device * dst, const tensorflow::AllocatorAttributes src_alloc_attr, const tensorflow::AllocatorAttributes dst_alloc_attr, const tensorflow::Tensor * input, tensorflow::Tensor * output, StatusCallback done)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/copy_tensor.h' l='39'>// Copies &quot;input&quot; to &quot;output&quot; between devices accessible to the
+  // local process via some DMA-like method.  &quot;edge_name&quot; is the name
+  // of the tensor being copied, for debugging purposes. Depending on
+  // the type of devices and memory in use, the copy may be performed
+  // synchronously or asynchronously.  &apos;done&apos; will be invoked only
+  // after the copy is actually complete.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/collective_rma_local.cc' l='97' u='c' c='_ZN10tensorflow27CollectiveRemoteAccessLocal11MemCpyAsyncEPNS_13DeviceContextES2_PNS_6DeviceES4_RKNS_19AllocatorAttributesES7_PKNS_6TensorEPS8_RKSt8fu3769309'/>
+<def f='tensorflow/tensorflow/core/common_runtime/copy_tensor.cc' l='234' ll='330' type='static void tensorflow::CopyTensor::ViaDMA(tensorflow::StringPiece edge_name, tensorflow::DeviceContext * send_dev_context, tensorflow::DeviceContext * recv_dev_context, tensorflow::Device * src, tensorflow::Device * dst, const tensorflow::AllocatorAttributes src_alloc_attr, const tensorflow::AllocatorAttributes dst_alloc_attr, const tensorflow::Tensor * input, tensorflow::Tensor * output, StatusCallback done)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/copy_tensor.cc' l='233'>// static</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='164' u='c' c='_ZN10tensorflow12TensorHandle12CopyToDeviceEPNS_12EagerContextEPNS_6DeviceEPPS0_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.cc' l='110' u='c' c='_ZN10tensorflow22IntraProcessRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='281' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE'/>

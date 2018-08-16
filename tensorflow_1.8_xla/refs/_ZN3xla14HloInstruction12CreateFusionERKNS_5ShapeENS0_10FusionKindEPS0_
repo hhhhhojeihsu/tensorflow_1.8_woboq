@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='463' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateFusion(const xla::Shape &amp; shape, xla::HloInstruction::FusionKind fusion_kind, xla::HloInstruction * fused_root)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='459'>// Creates a fusion instruction. A fusion instruction contains one or more
+  // fused instructions forming an expression with a single root
+  // &quot;fused_root&quot;. Additional instructions can be added to the fusion
+  // instruction with the method FuseInstruction.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='455' u='c' c='_ZN3xla14HloComputation23CreateFusionInstructionEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEENS4_10FusionKindE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='798' ll='807' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateFusion(const xla::Shape &amp; shape, xla::HloInstruction::FusionKind fusion_kind, xla::HloInstruction * fused_root)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='798'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='416' u='c' c='_ZN3xla17InstructionFusion4FuseEPNS_14HloInstructionES2_'/>

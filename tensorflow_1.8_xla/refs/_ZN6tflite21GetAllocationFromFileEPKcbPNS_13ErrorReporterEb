@@ -1,0 +1,5 @@
+<def f='tensorflow/tensorflow/contrib/lite/model.cc' l='70' ll='84' type='std::unique_ptr&lt;Allocation&gt; tflite::GetAllocationFromFile(const char * filename, bool mmap_file, tflite::ErrorReporter * error_reporter, bool use_nnapi)'/>
+<use f='tensorflow/tensorflow/contrib/lite/model.cc' l='91' u='c' c='_ZN6tflite15FlatBufferModel13BuildFromFileEPKcPNS_13ErrorReporterE'/>
+<use f='tensorflow/tensorflow/contrib/lite/model.cc' l='104' u='c' c='_ZN6tflite15FlatBufferModel22VerifyAndBuildFromFileEPKcPNS_14TfLiteVerifierEPNS_13ErrorReporterE'/>
+<doc f='tensorflow/tensorflow/contrib/lite/model.cc' l='68'>// Loads a model from `filename`. If `mmap_file` is true then use mmap,
+// otherwise make a copy of the model in a buffer.</doc>

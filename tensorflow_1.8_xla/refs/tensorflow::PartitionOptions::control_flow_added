@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/graph/graph_partition.h' l='62' type='bool'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1422' u='w' c='_ZN10tensorflow13DirectSession12CreateGraphsERKNS_17BuildGraphOptionsEPSt13unordered_mapISsSt10unique_ptrINS_5GraphESt14default_deleteIS6_EESt4hashISs10698560'/>
+<offset>832</offset>
+<doc f='tensorflow/tensorflow/core/graph/graph_partition.h' l='53'>// True if all the control flow &quot;code&quot; has already been added. The
+  // control flow code needs to be added when we still have the entire
+  // graph before any partitioning. So this flag should be false for
+  // the first partitioning but true for all subsequent partitioning.
+  //
+  // TODO(yuanbyu): We could also make the addition of the control
+  // flow code incremental based on &apos;node_to_loc&apos;. This makes the
+  // communication a broadcast tree, which could be more efficient when
+  // the number of participating devices is large.</doc>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='165' u='w' c='_ZN10tensorflow8GraphMgr8InitItemERKSsRKNS_8GraphDefERKNS_12GraphOptionsERKNS_12DebugOptionsEPNS_33DistributedFunctionLibraryRuntimeEPNS0_4ItemE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1518' u='w' c='_ZN10tensorflow13MasterSession26BuildAndRegisterPartitionsEPNS0_17ReffedClientGraphE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='944' u='r' c='_ZN10tensorflow9PartitionERKNS_16PartitionOptionsEPNS_5GraphEPSt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_toISsESaISt4pairIKSsS6_EEE'/>

@@ -1,0 +1,15 @@
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='982' u='c' c='_ZN3xla14HloInstruction15FuseInstructionEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='994' u='c' c='_ZN3xla14HloInstruction30FuseInstructionIntoMultiOutputEPS0_'/>
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1331' type='xla::HloInstruction * xla::HloInstruction::FuseInstructionInternal(xla::HloInstruction * instruction_to_fuse, bool add_output = false)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1320'>// Fuses the given instruction into this fusion instruction. When add_output
+  // is false (which is the default), instruction_to_fuse is cloned and the
+  // clone is placed in the fusion instruction. instruction_to_fuse is
+  // unchanged.
+  //
+  // When add_output is true, a clone of the instruction_to_fuse will be part
+  // of the output of fusion instructions. The users of instruction_to_fuse
+  // will be redirected to this fusion instructions. instruction_to_fuse will
+  // be removed from its parent computation.
+  //
+  // Precondition: this-&gt;opcode() == HloOpcode::kFusion</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='939' ll='951' type='xla::HloInstruction * xla::HloInstruction::FuseInstructionInternal(xla::HloInstruction * instruction_to_fuse, bool add_output = false)'/>

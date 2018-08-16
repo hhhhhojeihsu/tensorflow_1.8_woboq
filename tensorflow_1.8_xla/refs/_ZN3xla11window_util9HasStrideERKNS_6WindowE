@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/window_util.h' l='44' type='bool xla::window_util::HasStride(const xla::Window &amp; window)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1796' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1963' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/window_util.h' l='39'>// The below functions return true if the given field is set to have a
+// non-trivial effect, e.g. having a stride means that the stride of some
+// dimension is not one. Whether the proto field is populated is not a
+// consideration.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/window_util.cc' l='95' u='c' c='_ZN3xla11window_util8ToStringERKNS_6WindowE'/>
+<def f='tensorflow/tensorflow/compiler/xla/window_util.cc' l='122' ll='129' type='bool xla::window_util::HasStride(const xla::Window &amp; window)'/>

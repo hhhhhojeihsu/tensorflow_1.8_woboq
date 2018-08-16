@@ -1,0 +1,38 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='161' type='static bool xla::ShapeUtil::HasZeroElements(const xla::Shape &amp; shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='656' u='c' c='_ZN3xla9ShapeUtil20ForEachIndexInternalERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_S7_RKT_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1198' u='c' c='_ZNK3xla7Literal8EachCellESt8functionIFvN10tensorflow3gtl10ArraySliceIxEET_EE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='160'>// Returns true if &apos;shape&apos; has zero elements.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/batch_dot.cc' l='76' u='c' c='_ZN10tensorflow8BatchDotEPN3xla18ComputationBuilderENS0_21ComputationDataHandleES3_bbbb'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/lib/batch_dot.cc' l='77' u='c' c='_ZN10tensorflow8BatchDotEPN3xla18ComputationBuilderENS0_21ComputationDataHandleES3_bbbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='210' u='c' c='_ZN3xla7Literal21CopySliceFromInternalERKS0_N10tensorflow3gtl10ArraySliceIxEES6_S6_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='211' u='c' c='_ZN3xla7Literal21CopySliceFromInternalERKS0_N10tensorflow3gtl10ArraySliceIxEES6_S6_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='326' u='c' c='_ZN3xla12_GLOBAL__N_119CopyElementsBetweenEN10tensorflow3gtl17MutableArraySliceIT_EENS2_10ArraySliceIS4_EERKNS_5ShapeESA_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1377' u='c' c='_ZNK3xla7Literal16EachCellAsStringERKSt8functionIFvN10tensorflow3gtl10ArraySliceIxEERKSsEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1781' u='c' c='_ZNK3xla7Literal10IsAllFirstEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='444' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='937' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9HandleDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='938' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9HandleDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='939' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9HandleDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1263' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9HandlePadEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1513' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor13HandleReshapeEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1624' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor24HandleDynamicUpdateSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1636' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1637' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1705' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1717' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1913' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1914' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='1084' u='c' c='_ZN3xla3cpu32PotentiallyImplementedAsEigenDotERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='1085' u='c' c='_ZN3xla3cpu32PotentiallyImplementedAsEigenDotERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='1110' u='c' c='_ZN3xla3cpu32PotentiallyImplementedAsEigenDotERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='1111' u='c' c='_ZN3xla3cpu32PotentiallyImplementedAsEigenDotERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emission_utils.cc' l='38' u='c' c='_ZN3xla3cpu40PotentiallyImplementedAsEigenConvolutionERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emission_utils.cc' l='39' u='c' c='_ZN3xla3cpu40PotentiallyImplementedAsEigenConvolutionERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1843' u='c' c='_ZN3xla3cpu9IrEmitter11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='304' u='c' c='_ZN3xla14GatherExpander12ExpandGatherEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='376' u='c' c='_ZN3xla14GatherExpander3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='807' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper33GetInstructionNodeInlinedOperandsEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/zero_sized_hlo_elimination.cc' l='39' u='c' c='_ZN3xla23ZeroSizedHloElimination3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='330' u='c' c='_ZN3xla9ShapeUtil5IsNilERKNS_5ShapeE'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='380' ll='382' type='static bool xla::ShapeUtil::HasZeroElements(const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='380'>/* static */</doc>

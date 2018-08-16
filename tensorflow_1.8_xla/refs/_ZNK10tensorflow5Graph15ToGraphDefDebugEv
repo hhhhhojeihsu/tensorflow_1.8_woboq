@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='503' type='tensorflow::GraphDef tensorflow::Graph::ToGraphDefDebug() const'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='498'>// This version can be called from debugger to inspect the graph content.
+  // Use the previous version outside debug context for efficiency reasons.
+  //
+  // Note: We do not expose a DebugString() API, since GraphDef.DebugString() is
+  // not defined in some TensorFlow builds.</doc>
+<def f='tensorflow/tensorflow/core/graph/graph.cc' l='525' ll='529' type='tensorflow::GraphDef tensorflow::Graph::ToGraphDefDebug() const'/>

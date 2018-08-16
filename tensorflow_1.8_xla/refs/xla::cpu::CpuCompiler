@@ -1,0 +1,26 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/llvm_compiler.h' l='33' c='xla::LLVMCompiler'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.h' l='107' ll='146'/>
+<size>72</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.h' l='102'>// CPU-targeting implementation of the XLA Compiler interface.
+//
+// The compiler translates XLA HLO code into LLVM IR and uses LLVM&apos;s JIT
+// infrastructure to create an executable &quot;blob&quot; that can then be returned
+// wrapped in CpuExecutable and actually invoked.</doc>
+<fun r='_ZN3xla3cpu11CpuCompilerC1Ev'/>
+<fun r='_ZN3xla3cpu11CpuCompilerD1Ev'/>
+<fun r='_ZN3xla3cpu11CpuCompiler12RunHloPassesESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<fun r='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<fun r='_ZN3xla3cpu11CpuCompiler18CompileAheadOfTimeESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS4_EESaIS7_EERKNS_21AotCompilationOptionsE'/>
+<fun r='_ZNK3xla3cpu11CpuCompiler10PlatformIdEv'/>
+<fun r='_ZNK3xla3cpu11CpuCompiler22ShapeSizeBytesFunctionEv'/>
+<fun r='_ZN3xla3cpu11CpuCompiler20InitializeLLVMTargetEv'/>
+<fun r='_ZN3xla3cpu11CpuCompiler12RunHloPassesEPNS_9HloModuleEb'/>
+<fun r='_ZN3xla3cpu11CpuCompilerC1ERKS1_'/>
+<fun r='_ZN3xla3cpu11CpuCompilerC1Ev'/>
+<fun r='_ZN3xla3cpu11CpuCompiler20InitializeLLVMTargetEv'/>
+<fun r='_ZN3xla3cpu11CpuCompiler12RunHloPassesEPNS_9HloModuleEb'/>
+<fun r='_ZN3xla3cpu11CpuCompiler12RunHloPassesESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<fun r='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<fun r='_ZN3xla3cpu11CpuCompiler18CompileAheadOfTimeESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS4_EESaIS7_EERKNS_21AotCompilationOptionsE'/>
+<fun r='_ZNK3xla3cpu11CpuCompiler10PlatformIdEv'/>
+<fun r='_ZNK3xla3cpu11CpuCompiler22ShapeSizeBytesFunctionEv'/>

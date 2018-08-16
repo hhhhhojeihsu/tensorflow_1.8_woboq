@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>quantization_util.h source code [tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.h'; var root_path = '../../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>tensorflow</a>/<a href='../../../..'>tensorflow</a>/<a href='../../..'>contrib</a>/<a href='../..'>lite</a>/<a href='..'>kernels</a>/<a href='./'>internal</a>/<a href='quantization_util.h.html'>quantization_util.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CONTRIB_LITE_KERNELS_INTERNAL_QUANTIZATION_UTIL_H_">TENSORFLOW_CONTRIB_LITE_KERNELS_INTERNAL_QUANTIZATION_UTIL_H_</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CONTRIB_LITE_KERNELS_INTERNAL_QUANTIZATION_UTIL_H_" data-ref="_M/TENSORFLOW_CONTRIB_LITE_KERNELS_INTERNAL_QUANTIZATION_UTIL_H_">TENSORFLOW_CONTRIB_LITE_KERNELS_INTERNAL_QUANTIZATION_UTIL_H_</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="../../../../../../include/c++/5/cmath.html">&lt;cmath&gt;</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../../include/c++/5/cstdint.html">&lt;cstdint&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../../../include/c++/5/limits.html">&lt;limits&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="compatibility.h.html">"tensorflow/contrib/lite/kernels/internal/compatibility.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="round.h.html">"tensorflow/contrib/lite/kernels/internal/round.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="types.h.html">"tensorflow/contrib/lite/kernels/internal/types.h"</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>namespace</b> <span class="namespace">tflite</span> {</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><i>// Given the min and max values of a float array, return</i></td></tr>
+<tr><th id="29">29</th><td><i>// reasonable quantization parameters to use for this array.</i></td></tr>
+<tr><th id="30">30</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
+<tr><th id="31">31</th><td><a class="type" href="types.h.html#tflite::QuantizationParams" title='tflite::QuantizationParams' data-ref="tflite::QuantizationParams">QuantizationParams</a> <dfn class="decl def" id="_ZN6tflite24ChooseQuantizationParamsEdd" title='tflite::ChooseQuantizationParams' data-ref="_ZN6tflite24ChooseQuantizationParamsEdd">ChooseQuantizationParams</dfn>(<em>double</em> <dfn class="local col1 decl" id="41rmin" title='rmin' data-type='double' data-ref="41rmin">rmin</dfn>, <em>double</em> <dfn class="local col2 decl" id="42rmax" title='rmax' data-type='double' data-ref="42rmax">rmax</dfn>) {</td></tr>
+<tr><th id="32">32</th><td>  <em>const</em> T <dfn class="local col3 decl" id="43qmin" title='qmin' data-type='const T' data-ref="43qmin">qmin</dfn> = <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;T&gt;::min();</td></tr>
+<tr><th id="33">33</th><td>  <em>const</em> T <dfn class="local col4 decl" id="44qmax" title='qmax' data-type='const T' data-ref="44qmax">qmax</dfn> = <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;T&gt;::max();</td></tr>
+<tr><th id="34">34</th><td>  <em>const</em> <em>double</em> <dfn class="local col5 decl" id="45qmin_double" title='qmin_double' data-type='const double' data-ref="45qmin_double">qmin_double</dfn> = <a class="local col3 ref" href="#43qmin" title='qmin' data-ref="43qmin">qmin</a>;</td></tr>
+<tr><th id="35">35</th><td>  <em>const</em> <em>double</em> <dfn class="local col6 decl" id="46qmax_double" title='qmax_double' data-type='const double' data-ref="46qmax_double">qmax_double</dfn> = <a class="local col4 ref" href="#44qmax" title='qmax' data-ref="44qmax">qmax</a>;</td></tr>
+<tr><th id="36">36</th><td>  <i>// 0 should always be a representable value. Let's assume that the initial</i></td></tr>
+<tr><th id="37">37</th><td><i>  // min,max range contains 0.</i></td></tr>
+<tr><th id="38">38</th><td>  <a class="macro" href="compatibility.h.html#72" title="((rmin) &lt;= (0.)) ? (void)0 : abort()" data-ref="_M/TFLITE_CHECK_LE">TFLITE_CHECK_LE</a>(<a class="local col1 ref" href="#41rmin" title='rmin' data-ref="41rmin">rmin</a>, <var>0.</var>);</td></tr>
+<tr><th id="39">39</th><td>  <a class="macro" href="compatibility.h.html#64" title="((rmax) &gt;= (0.)) ? (void)0 : abort()" data-ref="_M/TFLITE_CHECK_GE">TFLITE_CHECK_GE</a>(<a class="local col2 ref" href="#42rmax" title='rmax' data-ref="42rmax">rmax</a>, <var>0.</var>);</td></tr>
+<tr><th id="40">40</th><td>  <b>if</b> (<a class="local col1 ref" href="#41rmin" title='rmin' data-ref="41rmin">rmin</a> == <a class="local col2 ref" href="#42rmax" title='rmax' data-ref="42rmax">rmax</a>) {</td></tr>
+<tr><th id="41">41</th><td>    <i>// Special case where the min,max range is a point. Should be {0}.</i></td></tr>
+<tr><th id="42">42</th><td>    <a class="macro" href="compatibility.h.html#56" title="((rmin) == (0.)) ? (void)0 : abort()" data-ref="_M/TFLITE_CHECK_EQ">TFLITE_CHECK_EQ</a>(<a class="local col1 ref" href="#41rmin" title='rmin' data-ref="41rmin">rmin</a>, <var>0.</var>);</td></tr>
+<tr><th id="43">43</th><td>    <a class="macro" href="compatibility.h.html#56" title="((rmax) == (0.)) ? (void)0 : abort()" data-ref="_M/TFLITE_CHECK_EQ">TFLITE_CHECK_EQ</a>(<a class="local col2 ref" href="#42rmax" title='rmax' data-ref="42rmax">rmax</a>, <var>0.</var>);</td></tr>
+<tr><th id="44">44</th><td>    <a class="type" href="types.h.html#tflite::QuantizationParams" title='tflite::QuantizationParams' data-ref="tflite::QuantizationParams">QuantizationParams</a> <a class="ref fake" href="types.h.html#35" title='tflite::QuantizationParams::QuantizationParams' data-ref="_ZN6tflite18QuantizationParamsC1Ev"></a><dfn class="local col7 decl" id="47quantization_params" title='quantization_params' data-type='tflite::QuantizationParams' data-ref="47quantization_params">quantization_params</dfn>;</td></tr>
+<tr><th id="45">45</th><td>    <a class="local col7 ref" href="#47quantization_params" title='quantization_params' data-ref="47quantization_params">quantization_params</a>.<a class="ref" href="types.h.html#tflite::QuantizationParams::zero_point" title='tflite::QuantizationParams::zero_point' data-ref="tflite::QuantizationParams::zero_point">zero_point</a> = <var>0</var>;</td></tr>
+<tr><th id="46">46</th><td>    <a class="local col7 ref" href="#47quantization_params" title='quantization_params' data-ref="47quantization_params">quantization_params</a>.<a class="ref" href="types.h.html#tflite::QuantizationParams::scale" title='tflite::QuantizationParams::scale' data-ref="tflite::QuantizationParams::scale">scale</a> = <var>0.</var>;</td></tr>
+<tr><th id="47">47</th><td>    <b>return</b> <a class="local col7 ref" href="#47quantization_params" title='quantization_params' data-ref="47quantization_params">quantization_params</a>;</td></tr>
+<tr><th id="48">48</th><td>  }</td></tr>
+<tr><th id="49">49</th><td></td></tr>
+<tr><th id="50">50</th><td>  <i>// General case.</i></td></tr>
+<tr><th id="51">51</th><td><i>  //</i></td></tr>
+<tr><th id="52">52</th><td><i>  // First determine the scale.</i></td></tr>
+<tr><th id="53">53</th><td>  <em>const</em> <em>double</em> <dfn class="local col8 decl" id="48scale" title='scale' data-type='const double' data-ref="48scale">scale</dfn> = (<a class="local col2 ref" href="#42rmax" title='rmax' data-ref="42rmax">rmax</a> - <a class="local col1 ref" href="#41rmin" title='rmin' data-ref="41rmin">rmin</a>) / (<a class="local col6 ref" href="#46qmax_double" title='qmax_double' data-ref="46qmax_double">qmax_double</a> - <a class="local col5 ref" href="#45qmin_double" title='qmin_double' data-ref="45qmin_double">qmin_double</a>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>  <i>// Zero-point computation.</i></td></tr>
+<tr><th id="56">56</th><td><i>  // First the initial floating-point computation. The zero-point can be</i></td></tr>
+<tr><th id="57">57</th><td><i>  // determined from solving an affine equation for any known pair</i></td></tr>
+<tr><th id="58">58</th><td><i>  // (real value, corresponding quantized value).</i></td></tr>
+<tr><th id="59">59</th><td><i>  // We know two such pairs: (rmin, qmin) and (rmax, qmax).</i></td></tr>
+<tr><th id="60">60</th><td><i>  // The arithmetic error on the zero point computed from either pair</i></td></tr>
+<tr><th id="61">61</th><td><i>  // will be roughly machine_epsilon * (sum of absolute values of terms)</i></td></tr>
+<tr><th id="62">62</th><td><i>  // so we want to use the variant that adds the smaller terms.</i></td></tr>
+<tr><th id="63">63</th><td>  <em>const</em> <em>double</em> <dfn class="local col9 decl" id="49zero_point_from_min" title='zero_point_from_min' data-type='const double' data-ref="49zero_point_from_min">zero_point_from_min</dfn> = <a class="local col5 ref" href="#45qmin_double" title='qmin_double' data-ref="45qmin_double">qmin_double</a> - <a class="local col1 ref" href="#41rmin" title='rmin' data-ref="41rmin">rmin</a> / <a class="local col8 ref" href="#48scale" title='scale' data-ref="48scale">scale</a>;</td></tr>
+<tr><th id="64">64</th><td>  <em>const</em> <em>double</em> <dfn class="local col0 decl" id="50zero_point_from_max" title='zero_point_from_max' data-type='const double' data-ref="50zero_point_from_max">zero_point_from_max</dfn> = <a class="local col6 ref" href="#46qmax_double" title='qmax_double' data-ref="46qmax_double">qmax_double</a> - <a class="local col2 ref" href="#42rmax" title='rmax' data-ref="42rmax">rmax</a> / <a class="local col8 ref" href="#48scale" title='scale' data-ref="48scale">scale</a>;</td></tr>
+<tr><th id="65">65</th><td>  <em>const</em> <em>double</em> <dfn class="local col1 decl" id="51zero_point_from_min_error" title='zero_point_from_min_error' data-type='const double' data-ref="51zero_point_from_min_error">zero_point_from_min_error</dfn> =</td></tr>
+<tr><th id="66">66</th><td>      <span class="namespace">std::</span><a class="ref" href="../../../../../../include/c++/5/cmath.html#_ZSt3absd" title='std::abs' data-ref="_ZSt3absd">abs</a>(<a class="local col5 ref" href="#45qmin_double" title='qmin_double' data-ref="45qmin_double">qmin_double</a>) + <span class="namespace">std::</span><a class="ref" href="../../../../../../include/c++/5/cmath.html#_ZSt3absd" title='std::abs' data-ref="_ZSt3absd">abs</a>(<a class="local col1 ref" href="#41rmin" title='rmin' data-ref="41rmin">rmin</a> / <a class="local col8 ref" href="#48scale" title='scale' data-ref="48scale">scale</a>);</td></tr>
+<tr><th id="67">67</th><td>  <em>const</em> <em>double</em> <dfn class="local col2 decl" id="52zero_point_from_max_error" title='zero_point_from_max_error' data-type='const double' data-ref="52zero_point_from_max_error">zero_point_from_max_error</dfn> =</td></tr>
+<tr><th id="68">68</th><td>      <span class="namespace">std::</span><a class="ref" href="../../../../../../include/c++/5/cmath.html#_ZSt3absd" title='std::abs' data-ref="_ZSt3absd">abs</a>(<a class="local col6 ref" href="#46qmax_double" title='qmax_double' data-ref="46qmax_double">qmax_double</a>) + <span class="namespace">std::</span><a class="ref" href="../../../../../../include/c++/5/cmath.html#_ZSt3absd" title='std::abs' data-ref="_ZSt3absd">abs</a>(<a class="local col2 ref" href="#42rmax" title='rmax' data-ref="42rmax">rmax</a> / <a class="local col8 ref" href="#48scale" title='scale' data-ref="48scale">scale</a>);</td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>  <em>const</em> <em>double</em> <dfn class="local col3 decl" id="53zero_point_double" title='zero_point_double' data-type='const double' data-ref="53zero_point_double">zero_point_double</dfn> =</td></tr>
+<tr><th id="71">71</th><td>      <a class="local col1 ref" href="#51zero_point_from_min_error" title='zero_point_from_min_error' data-ref="51zero_point_from_min_error">zero_point_from_min_error</a> &lt; <a class="local col2 ref" href="#52zero_point_from_max_error" title='zero_point_from_max_error' data-ref="52zero_point_from_max_error">zero_point_from_max_error</a></td></tr>
+<tr><th id="72">72</th><td>          ? <a class="local col9 ref" href="#49zero_point_from_min" title='zero_point_from_min' data-ref="49zero_point_from_min">zero_point_from_min</a></td></tr>
+<tr><th id="73">73</th><td>          : <a class="local col0 ref" href="#50zero_point_from_max" title='zero_point_from_max' data-ref="50zero_point_from_max">zero_point_from_max</a>;</td></tr>
+<tr><th id="74">74</th><td></td></tr>
+<tr><th id="75">75</th><td>  <i>// Now we need to nudge the zero point to be an integer</i></td></tr>
+<tr><th id="76">76</th><td><i>  // (our zero points are integer, and this is motivated by the requirement</i></td></tr>
+<tr><th id="77">77</th><td><i>  // to be able to represent the real value "0" exactly as a quantized value,</i></td></tr>
+<tr><th id="78">78</th><td><i>  // which is required in multiple places, for example in Im2col with SAME</i></td></tr>
+<tr><th id="79">79</th><td><i>  // padding).</i></td></tr>
+<tr><th id="80">80</th><td>  T <dfn class="local col4 decl" id="54nudged_zero_point" title='nudged_zero_point' data-type='T' data-ref="54nudged_zero_point">nudged_zero_point</dfn> = <var>0</var>;</td></tr>
+<tr><th id="81">81</th><td>  <b>if</b> (<a class="local col3 ref" href="#53zero_point_double" title='zero_point_double' data-ref="53zero_point_double">zero_point_double</a> &lt; <a class="local col5 ref" href="#45qmin_double" title='qmin_double' data-ref="45qmin_double">qmin_double</a>) {</td></tr>
+<tr><th id="82">82</th><td>    <a class="local col4 ref" href="#54nudged_zero_point" title='nudged_zero_point' data-ref="54nudged_zero_point">nudged_zero_point</a> = <a class="local col3 ref" href="#43qmin" title='qmin' data-ref="43qmin">qmin</a>;</td></tr>
+<tr><th id="83">83</th><td>  } <b>else</b> <b>if</b> (<a class="local col3 ref" href="#53zero_point_double" title='zero_point_double' data-ref="53zero_point_double">zero_point_double</a> &gt; <a class="local col6 ref" href="#46qmax_double" title='qmax_double' data-ref="46qmax_double">qmax_double</a>) {</td></tr>
+<tr><th id="84">84</th><td>    <a class="local col4 ref" href="#54nudged_zero_point" title='nudged_zero_point' data-ref="54nudged_zero_point">nudged_zero_point</a> = <a class="local col4 ref" href="#44qmax" title='qmax' data-ref="44qmax">qmax</a>;</td></tr>
+<tr><th id="85">85</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="86">86</th><td>    <a class="local col4 ref" href="#54nudged_zero_point" title='nudged_zero_point' data-ref="54nudged_zero_point">nudged_zero_point</a> = <b>static_cast</b>&lt;T&gt;(<a class="ref" href="../../../../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#319" title='round' data-ref="round">round</a>(<a class="local col3 ref" href="#53zero_point_double" title='zero_point_double' data-ref="53zero_point_double">zero_point_double</a>));</td></tr>
+<tr><th id="87">87</th><td>  }</td></tr>
+<tr><th id="88">88</th><td>  <i>// The zero point should always be in the range of quantized value,</i></td></tr>
+<tr><th id="89">89</th><td><i>  // [qmin, qmax].</i></td></tr>
+<tr><th id="90">90</th><td>  <a class="macro" href="compatibility.h.html#64" title="((nudged_zero_point) &gt;= (qmin)) ? (void)0 : abort()" data-ref="_M/TFLITE_CHECK_GE">TFLITE_CHECK_GE</a>(<a class="local col4 ref" href="#54nudged_zero_point" title='nudged_zero_point' data-ref="54nudged_zero_point">nudged_zero_point</a>, <a class="local col3 ref" href="#43qmin" title='qmin' data-ref="43qmin">qmin</a>);</td></tr>
+<tr><th id="91">91</th><td>  <a class="macro" href="compatibility.h.html#72" title="((nudged_zero_point) &lt;= (qmax)) ? (void)0 : abort()" data-ref="_M/TFLITE_CHECK_LE">TFLITE_CHECK_LE</a>(<a class="local col4 ref" href="#54nudged_zero_point" title='nudged_zero_point' data-ref="54nudged_zero_point">nudged_zero_point</a>, <a class="local col4 ref" href="#44qmax" title='qmax' data-ref="44qmax">qmax</a>);</td></tr>
+<tr><th id="92">92</th><td></td></tr>
+<tr><th id="93">93</th><td>  <i>// Finally, store the result nudged quantization params.</i></td></tr>
+<tr><th id="94">94</th><td>  <a class="type" href="types.h.html#tflite::QuantizationParams" title='tflite::QuantizationParams' data-ref="tflite::QuantizationParams">QuantizationParams</a> <a class="ref fake" href="types.h.html#35" title='tflite::QuantizationParams::QuantizationParams' data-ref="_ZN6tflite18QuantizationParamsC1Ev"></a><dfn class="local col5 decl" id="55quantization_params" title='quantization_params' data-type='tflite::QuantizationParams' data-ref="55quantization_params">quantization_params</dfn>;</td></tr>
+<tr><th id="95">95</th><td>  <a class="local col5 ref" href="#55quantization_params" title='quantization_params' data-ref="55quantization_params">quantization_params</a>.<a class="ref" href="types.h.html#tflite::QuantizationParams::zero_point" title='tflite::QuantizationParams::zero_point' data-ref="tflite::QuantizationParams::zero_point">zero_point</a> = <a class="local col4 ref" href="#54nudged_zero_point" title='nudged_zero_point' data-ref="54nudged_zero_point">nudged_zero_point</a>;</td></tr>
+<tr><th id="96">96</th><td>  <a class="local col5 ref" href="#55quantization_params" title='quantization_params' data-ref="55quantization_params">quantization_params</a>.<a class="ref" href="types.h.html#tflite::QuantizationParams::scale" title='tflite::QuantizationParams::scale' data-ref="tflite::QuantizationParams::scale">scale</a> = <a class="local col8 ref" href="#48scale" title='scale' data-ref="48scale">scale</a>;</td></tr>
+<tr><th id="97">97</th><td>  <b>return</b> <a class="local col5 ref" href="#55quantization_params" title='quantization_params' data-ref="55quantization_params">quantization_params</a>;</td></tr>
+<tr><th id="98">98</th><td>}</td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><i>// Converts a floating-point number to an integer. For all inputs x where</i></td></tr>
+<tr><th id="101">101</th><td><i>// static_cast&lt;IntOut&gt;(x) is legal according to the C++ standard, the result</i></td></tr>
+<tr><th id="102">102</th><td><i>// is identical to that cast (i.e. the result is x with its fractional part</i></td></tr>
+<tr><th id="103">103</th><td><i>// truncated whenever that is representable as IntOut).</i></td></tr>
+<tr><th id="104">104</th><td><i>//</i></td></tr>
+<tr><th id="105">105</th><td><i>// static_cast would cause undefined behavior for the following cases, which</i></td></tr>
+<tr><th id="106">106</th><td><i>// have well-defined behavior for this function:</i></td></tr>
+<tr><th id="107">107</th><td><i>//</i></td></tr>
+<tr><th id="108">108</th><td><i>//  1. If x is NaN, the result is zero.</i></td></tr>
+<tr><th id="109">109</th><td><i>//</i></td></tr>
+<tr><th id="110">110</th><td><i>//  2. If the truncated form of x is above the representable range of IntOut,</i></td></tr>
+<tr><th id="111">111</th><td><i>//     the result is std::numeric_limits&lt;IntOut&gt;::max().</i></td></tr>
+<tr><th id="112">112</th><td><i>//</i></td></tr>
+<tr><th id="113">113</th><td><i>//  3. If the truncated form of x is below the representable range of IntOut,</i></td></tr>
+<tr><th id="114">114</th><td><i>//     the result is std::numeric_limits&lt;IntOut&gt;::min().</i></td></tr>
+<tr><th id="115">115</th><td><i>//</i></td></tr>
+<tr><th id="116">116</th><td><i>// Note that cases #2 and #3 cover infinities as well as finite numbers.</i></td></tr>
+<tr><th id="117">117</th><td><i>//</i></td></tr>
+<tr><th id="118">118</th><td><i>// The range of FloatIn must include the range of IntOut, otherwise</i></td></tr>
+<tr><th id="119">119</th><td><i>// the results are undefined.</i></td></tr>
+<tr><th id="120">120</th><td><i>// TODO(sfeuz): Replace by absl::SafeCast once available.</i></td></tr>
+<tr><th id="121">121</th><td><b>template</b> &lt;<b>class</b> IntOut, <b>class</b> FloatIn&gt;</td></tr>
+<tr><th id="122">122</th><td>IntOut <dfn class="decl def" id="_ZN6tflite8SafeCastET0_" title='tflite::SafeCast' data-ref="_ZN6tflite8SafeCastET0_">SafeCast</dfn>(FloatIn <dfn class="local col6 decl" id="56x" title='x' data-type='FloatIn' data-ref="56x">x</dfn>) {</td></tr>
+<tr><th id="123">123</th><td>  <b>static_assert</b>(!<span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;FloatIn&gt;::is_integer,</td></tr>
+<tr><th id="124">124</th><td>                <q>"FloatIn is integer"</q>);</td></tr>
+<tr><th id="125">125</th><td>  <b>static_assert</b>(<span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;IntOut&gt;::is_integer,</td></tr>
+<tr><th id="126">126</th><td>                <q>"IntOut is not integer"</q>);</td></tr>
+<tr><th id="127">127</th><td>  <b>static_assert</b>(<span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;IntOut&gt;::radix == <var>2</var>, <q>"IntOut is base 2"</q>);</td></tr>
+<tr><th id="128">128</th><td></td></tr>
+<tr><th id="129">129</th><td>  <i>// Special case NaN, for which the logic below doesn't work.</i></td></tr>
+<tr><th id="130">130</th><td>  <b>if</b> (<span class="namespace">std::</span>isnan(<a class="local col6 ref" href="#56x" title='x' data-ref="56x">x</a>)) {</td></tr>
+<tr><th id="131">131</th><td>    <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="132">132</th><td>  }</td></tr>
+<tr><th id="133">133</th><td></td></tr>
+<tr><th id="134">134</th><td>  <i>// Negative values all clip to zero for unsigned results.</i></td></tr>
+<tr><th id="135">135</th><td>  <b>if</b> (!<span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;IntOut&gt;::is_signed &amp;&amp; <a class="local col6 ref" href="#56x" title='x' data-ref="56x">x</a> &lt; <var>0</var>) {</td></tr>
+<tr><th id="136">136</th><td>    <b>return</b> <var>0</var>;</td></tr>
+<tr><th id="137">137</th><td>  }</td></tr>
+<tr><th id="138">138</th><td></td></tr>
+<tr><th id="139">139</th><td>  <i>// Handle infinities.</i></td></tr>
+<tr><th id="140">140</th><td>  <b>if</b> (<span class="namespace">std::</span>isinf(<a class="local col6 ref" href="#56x" title='x' data-ref="56x">x</a>)) {</td></tr>
+<tr><th id="141">141</th><td>    <b>return</b> <a class="local col6 ref" href="#56x" title='x' data-ref="56x">x</a> &lt; <var>0</var> ? <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;IntOut&gt;::min()</td></tr>
+<tr><th id="142">142</th><td>                 : <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;IntOut&gt;::max();</td></tr>
+<tr><th id="143">143</th><td>  }</td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td>  <i>// Set exp such that x == f * 2^exp for some f with |f| in [0.5, 1.0),</i></td></tr>
+<tr><th id="146">146</th><td><i>  // unless x is zero in which case exp == 0. Note that this implies that the</i></td></tr>
+<tr><th id="147">147</th><td><i>  // magnitude of x is strictly less than 2^exp.</i></td></tr>
+<tr><th id="148">148</th><td>  <em>int</em> <dfn class="local col7 decl" id="57exp" title='exp' data-type='int' data-ref="57exp">exp</dfn> = <var>0</var>;</td></tr>
+<tr><th id="149">149</th><td>  <span class="namespace">std::</span>frexp(<a class="local col6 ref" href="#56x" title='x' data-ref="56x">x</a>, &amp;<a class="local col7 ref" href="#57exp" title='exp' data-ref="57exp">exp</a>);</td></tr>
+<tr><th id="150">150</th><td></td></tr>
+<tr><th id="151">151</th><td>  <i>// Let N be the number of non-sign bits in the representation of IntOut. If</i></td></tr>
+<tr><th id="152">152</th><td><i>  // the magnitude of x is strictly less than 2^N, the truncated version of x</i></td></tr>
+<tr><th id="153">153</th><td><i>  // is representable as IntOut. The only representable integer for which this</i></td></tr>
+<tr><th id="154">154</th><td><i>  // is not the case is kMin for signed types (i.e. -2^N), but that is covered</i></td></tr>
+<tr><th id="155">155</th><td><i>  // by the fall-through below.</i></td></tr>
+<tr><th id="156">156</th><td>  <b>if</b> (<a class="local col7 ref" href="#57exp" title='exp' data-ref="57exp">exp</a> &lt;= <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;IntOut&gt;::digits) {</td></tr>
+<tr><th id="157">157</th><td>    <b>return</b> <a class="local col6 ref" href="#56x" title='x' data-ref="56x">x</a>;</td></tr>
+<tr><th id="158">158</th><td>  }</td></tr>
+<tr><th id="159">159</th><td></td></tr>
+<tr><th id="160">160</th><td>  <i>// Handle numbers with magnitude &gt;= 2^N.</i></td></tr>
+<tr><th id="161">161</th><td>  <b>return</b> <a class="local col6 ref" href="#56x" title='x' data-ref="56x">x</a> &lt; <var>0</var> ? <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;IntOut&gt;::min()</td></tr>
+<tr><th id="162">162</th><td>               : <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;IntOut&gt;::max();</td></tr>
+<tr><th id="163">163</th><td>}</td></tr>
+<tr><th id="164">164</th><td></td></tr>
+<tr><th id="165">165</th><td><i>// Decompose a double multiplier into a Q0.31 int32 representation of its</i></td></tr>
+<tr><th id="166">166</th><td><i>// significand, and shift representation of NEGATIVE its exponent ---</i></td></tr>
+<tr><th id="167">167</th><td><i>// this is intended as a RIGHT-shift.</i></td></tr>
+<tr><th id="168">168</th><td><i>//</i></td></tr>
+<tr><th id="169">169</th><td><i>// Restricted to the case where the multiplier &lt; 1 (and non-negative).</i></td></tr>
+<tr><th id="170">170</th><td><em>void</em> <a class="decl" href="quantization_util.cc.html#_ZN6tflite32QuantizeMultiplierSmallerThanOneEdPiS0_" title='tflite::QuantizeMultiplierSmallerThanOne' data-ref="_ZN6tflite32QuantizeMultiplierSmallerThanOneEdPiS0_" id="_ZN6tflite32QuantizeMultiplierSmallerThanOneEdPiS0_">QuantizeMultiplierSmallerThanOne</a>(<em>double</em> <dfn class="local col8 decl" id="58double_multiplier" title='double_multiplier' data-type='double' data-ref="58double_multiplier">double_multiplier</dfn>,</td></tr>
+<tr><th id="171">171</th><td>                                      <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a>* <dfn class="local col9 decl" id="59quantized_multiplier" title='quantized_multiplier' data-type='int32_t *' data-ref="59quantized_multiplier">quantized_multiplier</dfn>,</td></tr>
+<tr><th id="172">172</th><td>                                      <em>int</em>* <dfn class="local col0 decl" id="60right_shift" title='right_shift' data-type='int *' data-ref="60right_shift">right_shift</dfn>);</td></tr>
+<tr><th id="173">173</th><td></td></tr>
+<tr><th id="174">174</th><td><i>// Decompose a double multiplier into a Q0.31 int32 representation of its</i></td></tr>
+<tr><th id="175">175</th><td><i>// significand, and shift representation of its exponent.</i></td></tr>
+<tr><th id="176">176</th><td><i>//</i></td></tr>
+<tr><th id="177">177</th><td><i>// Restricted to the case where the multiplier &gt; 1.</i></td></tr>
+<tr><th id="178">178</th><td><em>void</em> <a class="decl" href="quantization_util.cc.html#_ZN6tflite32QuantizeMultiplierGreaterThanOneEdPiS0_" title='tflite::QuantizeMultiplierGreaterThanOne' data-ref="_ZN6tflite32QuantizeMultiplierGreaterThanOneEdPiS0_" id="_ZN6tflite32QuantizeMultiplierGreaterThanOneEdPiS0_">QuantizeMultiplierGreaterThanOne</a>(<em>double</em> <dfn class="local col1 decl" id="61double_multiplier" title='double_multiplier' data-type='double' data-ref="61double_multiplier">double_multiplier</dfn>,</td></tr>
+<tr><th id="179">179</th><td>                                      <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a>* <dfn class="local col2 decl" id="62quantized_multiplier" title='quantized_multiplier' data-type='int32_t *' data-ref="62quantized_multiplier">quantized_multiplier</dfn>,</td></tr>
+<tr><th id="180">180</th><td>                                      <em>int</em>* <dfn class="local col3 decl" id="63left_shift" title='left_shift' data-type='int *' data-ref="63left_shift">left_shift</dfn>);</td></tr>
+<tr><th id="181">181</th><td></td></tr>
+<tr><th id="182">182</th><td><i>// Decompose a double multiplier into a Q0.31 int32 representation of its</i></td></tr>
+<tr><th id="183">183</th><td><i>// significand, and shift representation of its exponent.</i></td></tr>
+<tr><th id="184">184</th><td><i>//</i></td></tr>
+<tr><th id="185">185</th><td><i>// Handles an arbitrary positive multiplier. The 'shift' output-value is</i></td></tr>
+<tr><th id="186">186</th><td><i>// basically the 'floating-point exponent' of the multiplier:</i></td></tr>
+<tr><th id="187">187</th><td><i>// Negative for a right-shift (when the multiplier is &lt;1), positive for a</i></td></tr>
+<tr><th id="188">188</th><td><i>// left-shift (when the multiplier is &gt;1)</i></td></tr>
+<tr><th id="189">189</th><td><em>void</em> <a class="decl" href="quantization_util.cc.html#_ZN6tflite18QuantizeMultiplierEdPiS0_" title='tflite::QuantizeMultiplier' data-ref="_ZN6tflite18QuantizeMultiplierEdPiS0_" id="_ZN6tflite18QuantizeMultiplierEdPiS0_">QuantizeMultiplier</a>(<em>double</em> <dfn class="local col4 decl" id="64double_multiplier" title='double_multiplier' data-type='double' data-ref="64double_multiplier">double_multiplier</dfn>, <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a>* <dfn class="local col5 decl" id="65quantized_multiplier" title='quantized_multiplier' data-type='int32_t *' data-ref="65quantized_multiplier">quantized_multiplier</dfn>,</td></tr>
+<tr><th id="190">190</th><td>                        <em>int</em>* <dfn class="local col6 decl" id="66shift" title='shift' data-type='int *' data-ref="66shift">shift</dfn>);</td></tr>
+<tr><th id="191">191</th><td></td></tr>
+<tr><th id="192">192</th><td><i>// This first creates a multiplier in a double equivalent of</i></td></tr>
+<tr><th id="193">193</th><td><i>// Q(input_integer_bits).(31-input_integer_bits) representation, with extra</i></td></tr>
+<tr><th id="194">194</th><td><i>// precision in the double's fractional bits.  It then splits the result into</i></td></tr>
+<tr><th id="195">195</th><td><i>// significand and exponent.</i></td></tr>
+<tr><th id="196">196</th><td><em>void</em> <a class="decl" href="quantization_util.cc.html#_ZN6tflite24PreprocessSoftmaxScalingEddiPiS0_" title='tflite::PreprocessSoftmaxScaling' data-ref="_ZN6tflite24PreprocessSoftmaxScalingEddiPiS0_" id="_ZN6tflite24PreprocessSoftmaxScalingEddiPiS0_">PreprocessSoftmaxScaling</a>(<em>double</em> <dfn class="local col7 decl" id="67beta" title='beta' data-type='double' data-ref="67beta">beta</dfn>, <em>double</em> <dfn class="local col8 decl" id="68input_scale" title='input_scale' data-type='double' data-ref="68input_scale">input_scale</dfn>,</td></tr>
+<tr><th id="197">197</th><td>                              <em>int</em> <dfn class="local col9 decl" id="69input_integer_bits" title='input_integer_bits' data-type='int' data-ref="69input_integer_bits">input_integer_bits</dfn>,</td></tr>
+<tr><th id="198">198</th><td>                              <a class="typedef" href="../../../../../../include/x86_64-linux-gnu/sys/types.h.html#196" title='int32_t' data-type='int' data-ref="int32_t">int32_t</a>* <dfn class="local col0 decl" id="70quantized_multiplier" title='quantized_multiplier' data-type='int32_t *' data-ref="70quantized_multiplier">quantized_multiplier</dfn>, <em>int</em>* <dfn class="local col1 decl" id="71left_shift" title='left_shift' data-type='int *' data-ref="71left_shift">left_shift</dfn>);</td></tr>
+<tr><th id="199">199</th><td></td></tr>
+<tr><th id="200">200</th><td><i>// Calculate the largest input that will result in a within-bounds intermediate</i></td></tr>
+<tr><th id="201">201</th><td><i>// result within MultiplyByQuantizedMultiplierGreaterThanOne.  In other words,</i></td></tr>
+<tr><th id="202">202</th><td><i>// it must not overflow before we reduce the value by multiplication by the</i></td></tr>
+<tr><th id="203">203</th><td><i>// input multiplier.  The negative radius is used as the minimum difference in</i></td></tr>
+<tr><th id="204">204</th><td><i>// Softmax.</i></td></tr>
+<tr><th id="205">205</th><td><em>int</em> <a class="decl" href="quantization_util.cc.html#_ZN6tflite20CalculateInputRadiusEii" title='tflite::CalculateInputRadius' data-ref="_ZN6tflite20CalculateInputRadiusEii" id="_ZN6tflite20CalculateInputRadiusEii">CalculateInputRadius</a>(<em>int</em> <dfn class="local col2 decl" id="72input_integer_bits" title='input_integer_bits' data-type='int' data-ref="72input_integer_bits">input_integer_bits</dfn>, <em>int</em> <dfn class="local col3 decl" id="73input_left_shift" title='input_left_shift' data-type='int' data-ref="73input_left_shift">input_left_shift</dfn>);</td></tr>
+<tr><th id="206">206</th><td></td></tr>
+<tr><th id="207">207</th><td>}  <i>// namespace tflite</i></td></tr>
+<tr><th id="208">208</th><td></td></tr>
+<tr><th id="209">209</th><td><u>#<span data-ppcond="15">endif</span>  // TENSORFLOW_CONTRIB_LITE_KERNELS_INTERNAL_QUANTIZATION_UTIL_H_</u></td></tr>
+<tr><th id="210">210</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='quantization_util.cc.html'>tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

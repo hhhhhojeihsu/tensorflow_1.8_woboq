@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/lib/io/path.h' l='83' type='void tensorflow::io::ParseURI(tensorflow::StringPiece uri, tensorflow::StringPiece * scheme, tensorflow::StringPiece * host, tensorflow::StringPiece * path)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/path.h' l='75'>// Populates the scheme, host, and path from a URI. scheme, host, and path are
+// guaranteed by this function to point into the contents of uri, even if
+// empty.
+//
+// Corner cases:
+// - If the URI is invalid, scheme and host are set to empty strings and the
+//   passed string is assumed to be a path
+// - If the URI omits the path (e.g. file://host), then the path is left empty.</doc>
+<use f='tensorflow/tensorflow/core/lib/io/path.cc' l='73' u='c' c='_ZN10tensorflow2io8internal9SplitPathENS_11StringPieceE'/>
+<def f='tensorflow/tensorflow/core/lib/io/path.cc' l='207' ll='236' type='void tensorflow::io::ParseURI(tensorflow::StringPiece remaining, tensorflow::StringPiece * scheme, tensorflow::StringPiece * host, tensorflow::StringPiece * path)'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='94' u='c' c='_ZN10tensorflow3Env20GetFileSystemForFileERKSsPPNS_10FileSystemE'/>
+<use f='tensorflow/tensorflow/core/platform/env.cc' l='168' u='c' c='_ZN10tensorflow3Env10FilesExistERKSt6vectorISsSaISsEEPS1_INS_6StatusESaIS6_EE'/>
+<use f='tensorflow/tensorflow/core/platform/file_system.cc' l='140' u='c' c='_ZN10tensorflow10FileSystem20RecursivelyCreateDirERKSs'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.h' l='72' u='c' c='_ZNK10tensorflow20LocalPosixFileSystem13TranslateNameERKSs'/>

@@ -1,0 +1,28 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/simple_orc_jit.h' l='46' ll='110'/>
+<size>912</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/simple_orc_jit.h' l='38'>// Simplified LLVM JIT based on the new Orc API.
+//
+// This class wraps Orc&apos;s functionality into a single interface that only
+// exposes what we need for XLA.
+//
+// Supports JIT-ing multiple modules but without cross-module linking.
+// Implements eager compilation - the module is lowered to binary as soon as
+// it&apos;s added to the JIT.</doc>
+<fun r='_ZN3xla3cpu12SimpleOrcJITC1ERKN4llvm13TargetOptionsENS2_10CodeGenOpt5LevelEbbbSt8functionIFN10tensorflow6StatusERKNS2_6ModuleEEESF_'/>
+<fun r='_ZNK3xla3cpu12SimpleOrcJIT11data_layoutEv'/>
+<fun r='_ZNK3xla3cpu12SimpleOrcJIT13target_tripleEv'/>
+<fun r='_ZN3xla3cpu12SimpleOrcJIT9AddModuleESt10unique_ptrIN4llvm6ModuleESt14default_deleteIS4_EE'/>
+<fun r='_ZN3xla3cpu12SimpleOrcJIT12RemoveModuleEm'/>
+<fun r='_ZN3xla3cpu12SimpleOrcJIT18FindCompiledSymbolERKSs'/>
+<fun r='_ZNK3xla3cpu12SimpleOrcJIT14target_machineEv'/>
+<fun r='_ZN3xla3cpu12SimpleOrcJIT22external_constant_poolEv'/>
+<fun r='_ZN3xla3cpu12SimpleOrcJIT20ResolveRuntimeSymbolERKSs'/>
+<mbr r='xla::cpu::SimpleOrcJIT::module_keys_' o='0' t='std::vector&lt;VModuleKeyT&gt;'/>
+<mbr r='xla::cpu::SimpleOrcJIT::target_machine_' o='192' t='std::unique_ptr&lt;llvm::TargetMachine&gt;'/>
+<mbr r='xla::cpu::SimpleOrcJIT::disassembler_' o='256' t='const xla::cpu::Disassembler'/>
+<mbr r='xla::cpu::SimpleOrcJIT::data_layout_' o='640' t='const llvm::DataLayout'/>
+<mbr r='xla::cpu::SimpleOrcJIT::execution_session_' o='4352' t='llvm::orc::ExecutionSession'/>
+<mbr r='xla::cpu::SimpleOrcJIT::symbol_resolver_' o='4800' t='std::shared_ptr&lt;llvm::orc::SymbolResolver&gt;'/>
+<mbr r='xla::cpu::SimpleOrcJIT::object_layer_' o='4928' t='ObjLayerT'/>
+<mbr r='xla::cpu::SimpleOrcJIT::compile_layer_' o='6208' t='CompileLayerT'/>
+<mbr r='xla::cpu::SimpleOrcJIT::external_constant_pool_' o='6784' t='xla::cpu::ExternalConstantPool'/>

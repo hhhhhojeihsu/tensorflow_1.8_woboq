@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/contrib/boosted_trees/lib/quantiles/weighted_quantiles_stream.h' l='157' ll='162' type='std::vector&lt;ValueType&gt; tensorflow::boosted_trees::quantiles::WeightedQuantilesStream::GenerateBoundaries(int64 num_boundaries) const'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='175' u='c' c='_ZN10tensorflow12_GLOBAL__N_118GenerateBoundariesERKNS_13boosted_trees9quantiles23WeightedQuantilesStreamIffSt4lessIfEEEi'/>
+<doc f='tensorflow/tensorflow/contrib/boosted_trees/lib/quantiles/weighted_quantiles_stream.h' l='149'>// Generates requested number of boundaries after finalizing stream.
+  // The returned boundaries can be queried using std::lower_bound to get
+  // the bucket for a given value.
+  // The boundaries, while still guaranteeing approximation bounds, don&apos;t
+  // necessarily represent the actual quantiles of the distribution.
+  // Boundaries are preferable over quantiles when the caller is less
+  // interested in the actual quantiles distribution and more interested in
+  // getting a representative sample of boundary values.</doc>

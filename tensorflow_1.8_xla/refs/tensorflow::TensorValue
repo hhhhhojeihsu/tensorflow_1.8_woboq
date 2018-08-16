@@ -1,0 +1,11 @@
+<def f='tensorflow/tensorflow/core/framework/op_kernel.h' l='458' ll='468'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='456'>// Holds a tensor or tensor reference. For tensor references, we need
+// a mutex to prevent concurrent access to the tensor.</doc>
+<fun r='_ZN10tensorflow11TensorValueC1Ev'/>
+<fun r='_ZN10tensorflow11TensorValueC1EPNS_6TensorE'/>
+<fun r='_ZN10tensorflow11TensorValueC1EPNS_5mutexEPNS_6TensorE'/>
+<fun r='_ZNK10tensorflow11TensorValueptEv'/>
+<fun r='_ZNK10tensorflow11TensorValue6is_refEv'/>
+<mbr r='tensorflow::TensorValue::mutex_if_ref' o='0' t='tensorflow::mutex *'/>
+<mbr r='tensorflow::TensorValue::tensor' o='64' t='tensorflow::Tensor *'/>

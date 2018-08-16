@@ -1,0 +1,33 @@
+<inh f='tensorflow/tensorflow/core/framework/allocator.h' l='68' c='tensorflow::Allocator'/>
+<def f='tensorflow/tensorflow/core/common_runtime/scoped_allocator.h' l='87' ll='121'/>
+<size>40</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/scoped_allocator.h' l='81'>// An Allocator that will return a pointer into the backing buffer of
+// a previously allocated tensor, allowing creation of an alias
+// tensor.  There is a one-to-one mapping between the fields of a
+// ScopedAllocator and ScopedAllocatorInstances.  There is also a one-to-one
+// mapping between scope_ids and ScopedAllocatorInstances.  It should be
+// discarded immediately after a single use.</doc>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstanceC1EPNS_15ScopedAllocatorEi'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstanceD1Ev'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance13DropFromTableEv'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance11AllocateRawEmm'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance13DeallocateRawEPv'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance21TracksAllocationSizesEv'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance26ShouldAllocateEmptyTensorsEv'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance13RequestedSizeEPKv'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance13AllocatedSizeEPKv'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance12AllocationIdEPKv'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance17AllocatedSizeSlowEPKv'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance4NameEv'/>
+<mbr r='tensorflow::ScopedAllocatorInstance::mu_' o='64' t='tensorflow::mutex'/>
+<mbr r='tensorflow::ScopedAllocatorInstance::scoped_allocator_' o='192' t='tensorflow::ScopedAllocator *'/>
+<mbr r='tensorflow::ScopedAllocatorInstance::field_index_' o='256' t='int32'/>
+<mbr r='tensorflow::ScopedAllocatorInstance::allocated_' o='288' t='bool'/>
+<mbr r='tensorflow::ScopedAllocatorInstance::deallocated_' o='296' t='bool'/>
+<mbr r='tensorflow::ScopedAllocatorInstance::in_table_' o='304' t='bool'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstanceC1EPNS_15ScopedAllocatorEi'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance13DropFromTableEv'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance11AllocateRawEmm'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance13DeallocateRawEPv'/>
+<fun r='_ZN10tensorflow23ScopedAllocatorInstance4NameEv'/>

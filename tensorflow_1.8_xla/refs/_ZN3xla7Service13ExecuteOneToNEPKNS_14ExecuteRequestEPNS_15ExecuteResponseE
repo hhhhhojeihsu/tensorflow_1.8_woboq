@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='397' type='tensorflow::Status xla::Service::ExecuteOneToN(const xla::ExecuteRequest * arg, xla::ExecuteResponse * result)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='394'>// Executes a single computation which has more than one target device.
+  // The N devices are expected to all return an empty tuple, but one, which
+  // will be the result of this computation.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1014' ll='1021' type='tensorflow::Status xla::Service::ExecuteOneToN(const xla::ExecuteRequest * arg, xla::ExecuteResponse * result)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1071' u='c' c='_ZN3xla7Service7ExecuteEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>

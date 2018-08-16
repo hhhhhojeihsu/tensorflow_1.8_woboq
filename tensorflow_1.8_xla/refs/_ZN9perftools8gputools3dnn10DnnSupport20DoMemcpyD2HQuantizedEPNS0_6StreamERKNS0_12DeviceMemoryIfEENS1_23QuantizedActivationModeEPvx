@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/stream_executor/dnn.h' l='1947' type='bool perftools::gputools::dnn::DnnSupport::DoMemcpyD2HQuantized(perftools::gputools::Stream * stream, const DeviceMemory&lt;float&gt; &amp; gpu_unquantized_src, perftools::gputools::dnn::QuantizedActivationMode mode, void * host_dst, int64 size)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1930'>// Enqueues an asynchronous memcpy of the *quantized* output of a layer (that
+  // is, bytes instead of scaled floats) into &apos;host_dst&apos; if they are available
+  // for the underlying DNN implementation. If this quantized output is not
+  // available, false is returned, which will place &apos;stream&apos; into an error
+  // state.
+  //
+  // Arguments (all borrowed):
+  //  stream: borrowed pointer to the stream that the &apos;quantized memcpy&apos;
+  //    operation should be enqueued onto.
+  //  gpu_unquantized_src: the device memory that contains the unquantized data
+  //    -- this data should also have a corresponding quantized representation
+  //    on the device for this operation to succeed.
+  //  mode: Type of quantization of the data to write into host_dst.
+  //  host_dst: un-owned host memory region that is mutated in place,
+  //    it is clobbered by the values in &apos;gpu_unquantized_src&apos; when the enqueued
+  //    (asynchronous) memcpy operation is performed.
+  //  size: size in bytes of the host_dst host memory region.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='1837' u='c' c='_ZN9perftools8gputools6Stream22ThenMemcpyD2HQuantizedERKNS0_12DeviceMemoryIfEENS0_3dnn23QuantizedActivationModeEPvy'/>

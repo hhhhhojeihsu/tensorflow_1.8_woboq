@@ -1,0 +1,5 @@
+<def f='tensorflow/tensorflow/core/platform/stacktrace_handler.cc' l='45' ll='59' type='void tensorflow::testing::SafePrintStackTrace()'/>
+<use f='tensorflow/tensorflow/core/platform/stacktrace_handler.cc' l='83' u='c' c='_ZN10tensorflow7testingL17StacktraceHandlerEiP9siginfo_tPv'/>
+<doc f='tensorflow/tensorflow/core/platform/stacktrace_handler.cc' l='42'>// This function will print stacktrace to STDERR.
+// It avoids using malloc, so it makes sure to dump the stack even when the heap
+// is corrupted. However, it can dump mangled symbols.</doc>

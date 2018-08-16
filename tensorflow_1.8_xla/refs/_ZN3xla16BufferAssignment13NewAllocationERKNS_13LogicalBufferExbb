@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='434' type='xla::BufferAllocation * xla::BufferAssignment::NewAllocation(const xla::LogicalBuffer &amp; buffer, int64 size, bool is_thread_local, bool is_reusable)'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='606' ll='614' type='xla::BufferAllocation * xla::BufferAssignment::NewAllocation(const xla::LogicalBuffer &amp; buffer, int64 size, bool is_thread_local, bool is_reusable)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1025' u='c' c='_ZN3xla14BufferAssigner27AssignBuffersForComputationEPKNS_14HloComputationERKNS_12DebugOptionsEbRKN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS7_44467117'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1038' u='c' c='_ZN3xla14BufferAssigner27AssignBuffersForComputationEPKNS_14HloComputationERKNS_12DebugOptionsEbRKN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS7_44467117'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1048' u='c' c='_ZN3xla14BufferAssigner27AssignBuffersForComputationEPKNS_14HloComputationERKNS_12DebugOptionsEbRKN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS7_44467117'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1132' u='c' c='_ZN3xla14BufferAssigner27AssignBuffersForComputationEPKNS_14HloComputationERKNS_12DebugOptionsEbRKN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS7_44467117'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1579' u='c' c='_ZN3xla14BufferAssigner25AssignColocatedBufferSetsERKSt6vectorIN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS2_4hashIS7_EESt8equal_toIS7_EEESaISC_E5531270'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='432'>// Helper that calls NewEmptyAllocation and AddAssignment in one call,
+  // creating an allocation containing a single LogicalBuffer.</doc>

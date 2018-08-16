@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.h' l='108' type='static void tensorflow::GPUUtil::CopyGPUTensorToSameGPU(tensorflow::Device * gpu_device, const tensorflow::DeviceContext * device_context, const tensorflow::Tensor * src_gpu_tensor, tensorflow::Tensor * dst_gpu_tensor, StatusCallback done)'/>
+<def f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='426' ll='451' type='static void tensorflow::GPUUtil::CopyGPUTensorToSameGPU(tensorflow::Device * gpu_device, const tensorflow::DeviceContext * device_context, const tensorflow::Tensor * src_gpu_tensor, tensorflow::Tensor * dst_gpu_tensor, StatusCallback done)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='425'>// static</doc>
+<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.h' l='104'>// Deep-copying of GPU tensor on the same device.
+  // &apos;src_gpu_tensor&apos;&apos;s and &apos;dst_gpu_tensor&apos;&apos;s backing memory must be on
+  // &apos;gpu_device&apos; and &apos;dst_cpu_tensor&apos; must be allocated to be of the same
+  // size as &apos;src_gpu_tensor&apos;.</doc>

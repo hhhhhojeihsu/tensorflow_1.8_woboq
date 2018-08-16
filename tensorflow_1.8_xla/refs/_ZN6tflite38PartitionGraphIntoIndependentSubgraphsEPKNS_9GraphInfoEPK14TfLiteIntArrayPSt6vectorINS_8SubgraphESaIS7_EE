@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/contrib/lite/graph_info.h' l='73' type='TfLiteStatus tflite::PartitionGraphIntoIndependentSubgraphs(const tflite::GraphInfo * info, const TfLiteIntArray * nodes_to_partition, std::vector&lt;Subgraph&gt; * subgraphs)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/graph_info.h' l='70'>// Partitions a list of node indices `nodes_to_partition` into subgraphs.
+// Each subgraph is in dependency order (i.e. all members of the subgraph).
+// `subgraphs` is assumed to be empty.</doc>
+<def f='tensorflow/tensorflow/contrib/lite/graph_info.cc' l='215' ll='222' type='TfLiteStatus tflite::PartitionGraphIntoIndependentSubgraphs(const tflite::GraphInfo * info, const TfLiteIntArray * nodes_to_partition, std::vector&lt;Subgraph&gt; * subgraphs)'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='224' u='c' c='_ZN6tflite11Interpreter35ReplaceSubgraphsWithDelegateKernelsE19_TfLiteRegistrationPK14TfLiteIntArrayP15_TfLiteDelegate'/>

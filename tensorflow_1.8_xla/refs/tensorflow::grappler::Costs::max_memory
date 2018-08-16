@@ -1,0 +1,24 @@
+<dec f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='102' type='int64'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='136' u='w' c='_ZN10tensorflow8grappler5CostsC1Ev'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='148' u='w' c='_ZN10tensorflow8grappler5Costs9ZeroCostsEv'/>
+<offset>192</offset>
+<doc f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='99'>// This field can be a very pessimistic estimate of the main memory
+  // requirements of a graph. For example, it might assume that all activations
+  // are live for all of a graph&apos;s execution.</doc>
+<doc f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='102'>// Maximum main memory requirement in bytes over all ops.</doc>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='440' u='w' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator23PredictOpCountBasedCostEdRKNS_6OpInfoE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1092' u='w' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator15PredictIdentityERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1126' u='w' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator15PredictMetadataERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1171' u='w' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator20PredictGatherOrSliceERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1312' u='w' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator14PredictMaxPoolERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1354' u='w' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator18PredictMaxPoolGradERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1386' u='w' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator14PredictAvgPoolERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1438' u='w' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator18PredictAvgPoolGradERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1484' u='w' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator21PredictFusedBatchNormERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='1517' u='w' c='_ZNK10tensorflow8grappler20OpLevelCostEstimator25PredictFusedBatchNormGradERKNS0_9OpContextE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='41' u='r' c='_ZN10tensorflow8grappler12_GLOBAL__N_112CombineCostsERKNS0_5CostsES4_'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='52' u='r' c='_ZN10tensorflow8grappler12_GLOBAL__N_112CombineCostsERKNS0_5CostsES4_'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='53' u='w' c='_ZN10tensorflow8grappler12_GLOBAL__N_112CombineCostsERKNS0_5CostsES4_'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='53' u='r' c='_ZN10tensorflow8grappler12_GLOBAL__N_112CombineCostsERKNS0_5CostsES4_'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='64' u='r' c='_ZN10tensorflow8grappler12_GLOBAL__N_112CombineCostsERKNS0_5CostsES4_'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='848' u='r' c='_ZNK10tensorflow8grappler16VirtualScheduler7SummaryEv'/>

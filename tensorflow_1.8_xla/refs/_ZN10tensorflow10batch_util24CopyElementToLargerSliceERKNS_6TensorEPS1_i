@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/kernels/batch_util.h' l='42' type='tensorflow::Status tensorflow::batch_util::CopyElementToLargerSlice(const tensorflow::Tensor &amp; element, tensorflow::Tensor * parent, int index)'/>
+<def f='tensorflow/tensorflow/core/kernels/batch_util.cc' l='188' ll='215' type='tensorflow::Status tensorflow::batch_util::CopyElementToLargerSlice(const tensorflow::Tensor &amp; element, tensorflow::Tensor * parent, int index)'/>
+<doc f='tensorflow/tensorflow/core/kernels/batch_util.h' l='39'>// Copies `element` into a (0th dimension) slice of `parent`, assuming
+// the shape of `element` is strictly not larger along any axis than a
+// slice.</doc>
+<use f='tensorflow/tensorflow/core/kernels/data/padded_batch_dataset_op.cc' l='302' u='c' c='_ZN10tensorflow12_GLOBAL__N_120PaddedBatchDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/data/tensor_queue_dataset_op.cc' l='230' u='c' c='_ZN10tensorflow12_GLOBAL__N_137PrependFromQueueAndPaddedBatchDataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS6_EEPb'/>

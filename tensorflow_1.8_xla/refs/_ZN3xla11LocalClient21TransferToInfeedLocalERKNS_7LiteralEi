@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='152' type='tensorflow::Status xla::LocalClient::TransferToInfeedLocal(const xla::Literal &amp; literal, int device_ordinal)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='148'>// Transfer the given literal to the infeed queue of the given device.
+  // TODO(b/69670845): Remove the &apos;Local&apos; from the name when LocalClient does
+  // not inherit from Client and there is no possibility of confusion with
+  // Client::TransferToInfeed.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='311' ll='317' type='tensorflow::Status xla::LocalClient::TransferToInfeedLocal(const xla::Literal &amp; literal, int device_ordinal)'/>

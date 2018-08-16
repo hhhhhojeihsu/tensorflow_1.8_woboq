@@ -1,0 +1,120 @@
+<dec f='tensorflow/tensorflow/core/framework/function.h' l='654'/>
+<doc f='tensorflow/tensorflow/core/framework/function.h' l='609'>// To register a gradient function for a builtin op, one should use
+//   REGISTER_OP_GRADIENT(&lt;op_name&gt;, &lt;c++ grad factory&gt;);
+//
+// Typically, the c++ grad factory is a plan function that can be
+// converted into ::tensorflow::gradient::Creator, which is
+//   std::function&lt;Status(const AttrSlice&amp;, FunctionDef*)&gt;.
+//
+// A ::tensorflow::gradient::Creator should populate in FunctionDef* with a
+// definition of a brain function which compute the gradient for the
+// &lt;op_name&gt; when the &lt;op_name&gt; is instantiated with the given attrs.
+//
+// E.g.,
+//
+// Status MatMulGrad(const AttrSlice&amp; attrs, FunctionDef* g) {
+//   bool transpose_a;
+//   TF_RETURN_IF_ERROR(attrs.Get(&quot;transpose_a&quot;, &amp;transpose_a));
+//   bool transpose_b;
+//   TF_RETURN_IF_ERROR(attrs.Get(&quot;transpose_b&quot;, &amp;transpose_b));
+//   DataType dtype;
+//   TF_RETURN_IF_ERROR(attrs.Get(&quot;dtype&quot;, &amp;dtype));
+//   if (!transpose_a &amp;&amp; !transpose_b) {
+//     *g = FunctionDefHelper::Define(
+//       &quot;MatMulGrad&quot;,
+//       {&quot;x:T &quot;, &quot;y:T&quot;, &quot;dz:T&quot;},    // Inputs to this function
+//       {&quot;dx:T&quot;, &quot;dy:T&quot;},           // Outputs from this function
+//       {&quot;T: {float, double}&quot;},     // Attributes needed by this function
+//       {
+//         {{&quot;x_t&quot;}, &quot;Transpose&quot;, {&quot;x&quot;}, {{&quot;T&quot;, &quot;$T&quot;}}},
+//         {{&quot;y_t&quot;}, &quot;Transpose&quot;, {&quot;y&quot;}, {{&quot;T&quot;, &quot;$T&quot;}}},
+//         {{&quot;dx&quot;}, &quot;MatMul&quot;, {&quot;dz&quot;, &quot;y_t&quot;}, {{&quot;T&quot;, &quot;$T&quot;}}},
+//         {{&quot;dy&quot;}, &quot;MatMul&quot;, {&quot;x_&quot;, &quot;dz&quot;}, {{&quot;T&quot;, &quot;$T&quot;}}},
+//       });
+//   } else {
+//     ... ...
+//   }
+//   return Status::OK();
+// }
+//
+// NOTE: $T is substituted with the type variable &quot;T&quot; when the
+// gradient function MatMul is instantiated.
+//
+// TODO(zhifengc): Better documentation somewhere.
+
+// Macros to define a gradient function factory for a primitive
+// operation.</doc>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='51' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='52' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='71' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='90' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='116' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='140' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='224' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='225' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='245' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='272' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='292' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='315' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='334' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='353' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='371' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='395' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='430' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='467' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='509' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/functional_grad.cc' l='56' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='51' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='60' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='72' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='73' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='85' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='99' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='114' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='124' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='134' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='144' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='156' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='166' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='176' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='190' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='201' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='212' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='226' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='240' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='252' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='262' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='273' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='289' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='304' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='318' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='330' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='340' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='350' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='364' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='373' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='422' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='432' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='454' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='467' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='480' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='521' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='538' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='543' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='553' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='571' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='635' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='650' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='693' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='698' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='760' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_grad.cc' l='765' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='50' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='68' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='86' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='115' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='151' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='182' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='208' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='239' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/nn_grad.cc' l='260' u='c'/>

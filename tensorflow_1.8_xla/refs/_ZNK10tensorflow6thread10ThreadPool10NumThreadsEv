@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/lib/core/threadpool.h' l='95' type='int tensorflow::thread::ThreadPool::NumThreads() const'/>
+<doc f='tensorflow/tensorflow/core/lib/core/threadpool.h' l='94'>// Returns the number of threads in the pool.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/eigen_thread_pool.h' l='34' u='c' c='_ZNK10tensorflow22EigenThreadPoolWrapper10NumThreadsEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='331' u='c' c='_ZN3xla7Service18CreateModuleConfigERKNS_12ProgramShapeEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEEPKNS_16ExecutionOptionsEPKNS_15UserComputationE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/prediction_ops.cc' l='417' u='c' c='_ZN10tensorflow13boosted_trees32GradientTreesPartitionExamplesOp9DoComputeEPNS_15OpKernelContextEPNS0_6models28DecisionTreeEnsembleResourceE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='286' u='c' c='_ZN10tensorflow33QuantileAccumulatorAddSummariesOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/quantile_ops.cc' l='699' u='c' c='_ZN10tensorflow31QuantileAccumulatorGetBucketsOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/stats_accumulator_ops.cc' l='444' u='c' c='_ZN10tensorflow13boosted_trees27StatsAccumulatorScalarAddOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/kernels/stats_accumulator_ops.cc' l='508' u='c' c='_ZN10tensorflow13boosted_trees27StatsAccumulatorTensorAddOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/contrib/boosted_trees/lib/models/multiple_additive_trees.cc' l='76' u='c' c='_ZN10tensorflow13boosted_trees6models21MultipleAdditiveTrees7PredictERKNS0_5trees26DecisionTreeEnsembleConfigERKSt6vectorIiSaIiEERKNS0_5utils13BatchFe2852152'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='66' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_122EigenThreadPoolWrapper10NumThreadsEv'/>
+<use f='tensorflow/tensorflow/core/kernels/bincount_op.cc' l='57' u='c' c='_ZN10tensorflow7functor15BincountFunctorIN5Eigen16ThreadPoolDeviceET_E7ComputeEPNS_15OpKernelContextERKNS2_9TensorMapINS2_6TensorIKiLi1ELi1ElEELi16ENS5362374'/>
+<use f='tensorflow/tensorflow/core/kernels/boosted_trees/prediction_ops.cc' l='163' u='c' c='_ZN10tensorflow29BoostedTreesTrainingPredictOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/boosted_trees/prediction_ops.cc' l='250' u='c' c='_ZN10tensorflow21BoostedTreesPredictOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/lib/core/threadpool.cc' l='147' type='int tensorflow::thread::ThreadPool::NumThreads() const'/>
+<use f='tensorflow/tensorflow/core/util/work_sharder.cc' l='34' u='c' c='_ZN10tensorflow5ShardEiPNS_6thread10ThreadPoolExxSt8functionIFvxxEE'/>

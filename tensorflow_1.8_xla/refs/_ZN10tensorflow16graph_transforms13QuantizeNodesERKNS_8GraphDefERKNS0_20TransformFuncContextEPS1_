@@ -1,0 +1,5 @@
+<def f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='590' ll='946' type='tensorflow::Status tensorflow::graph_transforms::QuantizeNodes(const tensorflow::GraphDef &amp; input_graph_def, const tensorflow::graph_transforms::TransformFuncContext &amp; context, tensorflow::GraphDef * output_graph_def)'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='948' u='r'/>
+<doc f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='587'>// Converts any float ops that have eight-bit equivalents into their quantized
+// forms, so that as much calculation as possible is done in the lower-precision
+// format.</doc>

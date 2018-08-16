@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.h' l='86' type='void tensorflow::TensorHandle::SetTensorAndDevice(const tensorflow::Tensor &amp; tensor, tensorflow::Device * device, tensorflow::Device * op_device)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/copy_to_device_node.h' l='53' u='c' c='_ZN10tensorflow16CopyToDeviceNode3RunEv'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.h' l='84'>// Note that this can be called at most once, and only on non-ready handles,
+  // and makes them ready.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/execute.cc' l='101' u='c' c='_ZN10tensorflow12EagerExecuteEPNS_12EagerContextEPNS_6DeviceERKNS_3gtl13InlinedVectorIPNS_12TensorHandleELi4EEEPNS_15KernelAndDeviceEPNS_13NodeExecStatsEPS7_i'/>
+<def f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='96' ll='107' type='void tensorflow::TensorHandle::SetTensorAndDevice(const tensorflow::Tensor &amp; tensor, tensorflow::Device * device, tensorflow::Device * op_device)'/>

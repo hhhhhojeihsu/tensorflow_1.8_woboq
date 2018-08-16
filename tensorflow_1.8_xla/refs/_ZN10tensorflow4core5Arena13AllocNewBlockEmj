@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/lib/core/arena.h' l='90' type='tensorflow::core::Arena::AllocatedBlock * tensorflow::core::Arena::AllocNewBlock(const size_t block_size, const uint32 alignment)'/>
+<doc f='tensorflow/tensorflow/core/lib/core/arena.h' l='86'>// Allocate new block of at least block_size, with the specified
+  // alignment.
+  // The returned AllocatedBlock* is valid until the next call to AllocNewBlock
+  // or Reset (i.e. anything that might affect overflow_blocks_).</doc>
+<use f='tensorflow/tensorflow/core/lib/core/arena.cc' l='111' u='c' c='_ZN10tensorflow4core5Arena12MakeNewBlockEj'/>
+<def f='tensorflow/tensorflow/core/lib/core/arena.cc' l='135' ll='182' type='Arena::AllocatedBlock * tensorflow::core::Arena::AllocNewBlock(const size_t block_size, const uint32 alignment)'/>
+<use f='tensorflow/tensorflow/core/lib/core/arena.cc' l='205' u='c' c='_ZN10tensorflow4core5Arena17GetMemoryFallbackEmi'/>
+<doc f='tensorflow/tensorflow/core/lib/core/arena.cc' l='127'>// -------------------------------------------------------------
+// Arena::AllocNewBlock()
+//    Adds and returns an AllocatedBlock.
+//    The returned AllocatedBlock* is valid until the next call
+//    to AllocNewBlock or Reset.  (i.e. anything that might
+//    affect overflow_blocks_).
+// -------------------------------------------------------------</doc>

@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/node_def_util.h' l='146' type='bool tensorflow::AttrSlice::EqualAttrs(tensorflow::AttrSlice other, tensorflow::AttrSlice::Scratch * scratch) const'/>
+<doc f='tensorflow/tensorflow/core/framework/node_def_util.h' l='137'>// Check if all attrs and attr values match.  Does not take defaults into
+  // account.
+  //
+  // TODO(irving): There is a bug in this routine inherited from its
+  // OptimizerCSE::EqualAttrs precedecessor.  The same tensor attr can be
+  // represented in more than one way as an AttrValue, since TensorProto is
+  // not 1-1.  This bug will go away once I replace everything with NodeInfo,
+  // which stores a Tensor object directly.  The Scratch object will also go
+  // away.</doc>
+<def f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='141' ll='155' type='bool tensorflow::AttrSlice::EqualAttrs(tensorflow::AttrSlice other, tensorflow::AttrSlice::Scratch * scratch) const'/>
+<use f='tensorflow/tensorflow/core/graph/optimizer_cse.cc' l='145' u='c' c='_ZN10tensorflow12OptimizerCSE10EquivalentEPKNS_4NodeES3_PNS_9AttrSlice7ScratchE'/>

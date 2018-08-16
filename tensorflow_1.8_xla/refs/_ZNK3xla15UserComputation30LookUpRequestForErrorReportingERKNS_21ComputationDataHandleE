@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='340' type='StatusOr&lt;const xla::OperationRequest *&gt; xla::UserComputation::LookUpRequestForErrorReporting(const xla::ComputationDataHandle &amp; handle) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='334'>// Warning: typically we don&apos;t want to look up computation data handles until
+  // the computation is finished being built, for consistency purposes. We
+  // expose this routine for error reporting purposes so that we can provide
+  // more meaningful error messages from the XLA service layer.
+  //
+  // Returns the operation request that the handle comes from.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1483' u='c' c='_ZN3xla7Service15ComputeConstantEPKNS_22ComputeConstantRequestEPNS_23ComputeConstantResponseE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2218' ll='2223' type='StatusOr&lt;const xla::OperationRequest *&gt; xla::UserComputation::LookUpRequestForErrorReporting(const xla::ComputationDataHandle &amp; handle) const'/>

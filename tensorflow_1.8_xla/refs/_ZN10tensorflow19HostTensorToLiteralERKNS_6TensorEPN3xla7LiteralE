@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/literal_util.h' l='30' type='tensorflow::Status tensorflow::HostTensorToLiteral(const tensorflow::Tensor &amp; host_tensor, xla::Literal * literal)'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='63' u='c' c='_ZNK10tensorflow18XlaTransferManager23TransferLiteralToDeviceERKNS_6TensorEPS1_'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/literal_util.h' l='28'>// Copies &apos;host_tensor&apos; to an XLA Literal. Fails if host_tensor is of an
+// unsupported type.</doc>
+<def f='tensorflow/tensorflow/compiler/tf2xla/literal_util.cc' l='25' ll='41' type='tensorflow::Status tensorflow::HostTensorToLiteral(const tensorflow::Tensor &amp; host_tensor, xla::Literal * literal)'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='225' u='c' c='_ZN10tensorflow10XlaHelpers4IotaEPN3xla18ComputationBuilderENS_8DataTypeExPNS1_21ComputationDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='263' u='c' c='_ZN10tensorflow10XlaHelpers6OneHotEPN3xla18ComputationBuilderExiNS_8DataTypeERKNS_11TensorShapeERKNS1_21ComputationDataHandleESA_SA_PS8_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='100' u='c' c='_ZN10tensorflow18XlaOpKernelContext21ConstantInputReshapedEiNS_3gtl10ArraySliceIxEEPN3xla7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='106' u='c' c='_ZN10tensorflow18XlaOpKernelContext21ConstantInputReshapedEiNS_3gtl10ArraySliceIxEEPN3xla7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='366' u='c' c='_ZN10tensorflow18XlaOpKernelContext17SetConstantOutputEiRKNS_6TensorE'/>

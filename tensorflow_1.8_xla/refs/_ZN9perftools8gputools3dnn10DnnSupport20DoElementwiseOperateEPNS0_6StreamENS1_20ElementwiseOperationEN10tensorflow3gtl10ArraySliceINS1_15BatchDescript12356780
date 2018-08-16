@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/stream_executor/dnn.h' l='1815' type='bool perftools::gputools::dnn::DnnSupport::DoElementwiseOperate(perftools::gputools::Stream * stream, perftools::gputools::dnn::ElementwiseOperation operation, port::ArraySlice&lt;dnn::BatchDescriptor&gt; input_dimensions, port::ArraySlice&lt;const DeviceMemory&lt;float&gt; *&gt; input_data, const dnn::BatchDescriptor &amp; output_dimensions, DeviceMemory&lt;float&gt; * output_data)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1799'>// Computes the specified operation (e.g. addition or multiplication)
+  // between corresponding elements in the inputs and stores the result in the
+  // output element.
+  // The inputs and output must all have the same dimensions, but may have
+  // different quantization parameters (min_value and max_value).
+  //
+  // Arguments (all borrowed):
+  //  stream: borrowed pointer to the stream that the &apos;elementwise operation&apos;
+  // should be enqueued onto.
+  //  operation: The operation to perform.
+  //  input_dimensions: The dimensions of each input.
+  //  input_data: un-owned device memory region which contains the
+  //    input data for each input layer.
+  //  output_dimensions: The dimensions of the output.
+  //  output_data: un-owned device memory region in which to place the
+  //    operation result.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='1738' u='c' c='_ZN9perftools8gputools6Stream22ThenElementwiseOperateENS0_3dnn20ElementwiseOperationEN10tensorflow3gtl10ArraySliceINS2_15BatchDescriptorEEENS6_IPKNS0_6075574'/>

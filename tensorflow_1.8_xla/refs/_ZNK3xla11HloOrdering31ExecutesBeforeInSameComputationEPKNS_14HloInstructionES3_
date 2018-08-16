@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='86' type='bool xla::HloOrdering::ExecutesBeforeInSameComputation(const xla::HloInstruction * a, const xla::HloInstruction * b) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='79'>// Returns true if instruction &apos;a&apos; executes before instruction &apos;b&apos;.
+  // Precondition: &apos;a&apos; and &apos;b&apos; are in the same computation.
+  //
+  // Derived classes should implement this method for determining order of
+  // instructions in the same computation. ExecutesBefore() analyzes the
+  // callgraph and uses this method to determine ordering of instructions in
+  // different computations.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='91' u='c' c='_ZNK3xla11HloOrdering14ExecutesBeforeEPKNS_14HloInstructionES3_'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='289' c='_ZNK3xla22PredecessorHloOrdering31ExecutesBeforeInSameComputationEPKNS_14HloInstructionES3_'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='346' c='_ZNK3xla21SequentialHloOrdering31ExecutesBeforeInSameComputationEPKNS_14HloInstructionES3_'/>

@@ -1,0 +1,21 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1159' type='std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CloneWithNewOperands(const xla::Shape &amp; shape, tensorflow::gtl::ArraySlice&lt;HloInstruction *&gt; operands, xla::HloModule * module = nullptr) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1155'>// Clones the HLO instruction as above but with new shape and operands.
+  // If the module pointer is not nullptr, it will be the module where
+  // the cloned computations will be added to (in order to support deep
+  // cloning).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='456' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1474' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor60TryToSinkReshapeOrBroadcastAfterOpWithUniqueNonScalarOperandEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/call_inliner.cc' l='50' u='c' c='_ZN3xla12_GLOBAL__N_130SubcomputationInsertionVisitor13DefaultActionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='775' u='c' c='_ZN3xla14HloComputation21CloneWithReplacementsESt13unordered_mapIPKNS_14HloInstructionESt10unique_ptrIS2_St14default_deleteIS2_EESt4hashIS4_ESt8equal_10373642'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='182' u='c' c='_ZN3xla23HloElementTypeConverter3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='188' u='c' c='_ZN3xla23HloElementTypeConverter3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='194' u='c' c='_ZN3xla23HloElementTypeConverter3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2330' u='c' c='_ZN3xla12HloEvaluator25EvaluateWithSubstitutionsEPKNS_14HloInstructionERKSt13unordered_mapIS3_PKNS_7LiteralESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S7_EEE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1212' ll='1472' type='std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CloneWithNewOperands(const xla::Shape &amp; shape, tensorflow::gtl::ArraySlice&lt;HloInstruction *&gt; new_operands, xla::HloModule * module = nullptr) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1479' u='c' c='_ZNK3xla14HloInstruction5CloneERKSsPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1554' u='c' c='_ZNK3xla14HloInstruction26CloneFusionWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/inliner.cc' l='90' u='c' c='_ZN3xla14InlinerVisitor9HandleMapEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='173' u='c' c='_ZN3xla12_GLOBAL__N_113UpdateOperandEPKNS_14HloInstructionERKNS_5ShapeEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='183' u='c' c='_ZN3xla12_GLOBAL__N_113UpdateOperandEPKNS_14HloInstructionERKNS_5ShapeEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='233' u='c' c='_ZN3xla12_GLOBAL__N_129PerformSinkReshapeOrTransposeEPNS_14HloInstructionEPKS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_invariant_code_motion.cc' l='72' u='c' c='_ZN3xlaL23CreateLoopInvariantCopyEPN10tensorflow3gtl7FlatMapIPNS_14HloInstructionES4_NS0_4hashIS4_EESt8equal_toIS4_EEEPNS1_7FlatSetIS4_S6_S8_EES4_S4_'/>

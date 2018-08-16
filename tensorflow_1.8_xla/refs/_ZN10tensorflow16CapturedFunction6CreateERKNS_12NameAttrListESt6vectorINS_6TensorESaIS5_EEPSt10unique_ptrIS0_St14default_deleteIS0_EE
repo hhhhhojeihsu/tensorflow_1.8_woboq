@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/core/kernels/data/captured_function.h' l='45' type='static tensorflow::Status tensorflow::CapturedFunction::Create(const tensorflow::NameAttrList &amp; func, std::vector&lt;Tensor&gt; captured_inputs, std::unique_ptr&lt;CapturedFunction&gt; * out_function)'/>
+<def f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='28' ll='33' type='static tensorflow::Status tensorflow::CapturedFunction::Create(const tensorflow::NameAttrList &amp; func, std::vector&lt;Tensor&gt; captured_inputs, std::unique_ptr&lt;CapturedFunction&gt; * out_function)'/>
+<doc f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='27'>/* static */</doc>
+<doc f='tensorflow/tensorflow/core/kernels/data/captured_function.h' l='43'>// NOTE(mrry): The `captured_inputs` are passed by value. For
+  // efficiency, you are recommended to move this argument into the call.</doc>
+<use f='tensorflow/tensorflow/core/kernels/data/filter_dataset_op.cc' l='65' u='c' c='_ZN10tensorflow12_GLOBAL__N_115FilterDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/flat_map_dataset_op.cc' l='51' u='c' c='_ZN10tensorflow12_GLOBAL__N_116FlatMapDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/generator_dataset_op.cc' l='53' u='c' c='_ZN10tensorflow12_GLOBAL__N_118GeneratorDatasetOp11MakeDatasetEPNS_15OpKernelContextEPPNS_11DatasetBaseE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/generator_dataset_op.cc' l='66' u='c' c='_ZN10tensorflow12_GLOBAL__N_118GeneratorDatasetOp11MakeDatasetEPNS_15OpKernelContextEPPNS_11DatasetBaseE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/generator_dataset_op.cc' l='78' u='c' c='_ZN10tensorflow12_GLOBAL__N_118GeneratorDatasetOp11MakeDatasetEPNS_15OpKernelContextEPPNS_11DatasetBaseE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='75' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='80' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/group_by_window_dataset_op.cc' l='85' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GroupByWindowDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/interleave_dataset_op.cc' l='70' u='c' c='_ZN10tensorflow12_GLOBAL__N_119InterleaveDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/map_and_batch_dataset_op.cc' l='74' u='c' c='_ZN10tensorflow12_GLOBAL__N_120MapAndBatchDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/map_dataset_op.cc' l='50' u='c' c='_ZN10tensorflow12_GLOBAL__N_112MapDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/parallel_interleave_dataset_op.cc' l='83' u='c' c='_ZN10tensorflow12_GLOBAL__N_127ParallelInterleaveDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/parallel_map_dataset_op.cc' l='61' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ParallelMapDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/scan_dataset_op.cc' l='63' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ScanDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>

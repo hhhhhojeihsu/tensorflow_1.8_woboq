@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/framework/allocator.h' l='58' type='int64'/>
+<offset>256</offset>
+<doc f='tensorflow/tensorflow/core/framework/allocator.h' l='55'>// The upper limit what the allocator can allocate, if such a limit
+  // is known. Certain allocator may return 0 to indicate the limit is
+  // unknown.</doc>
+<use f='tensorflow/tensorflow/contrib/memory_stats/kernels/memory_stats_ops.cc' l='74' u='r' c='_ZNK10tensorflow12BytesLimitOp21ExtractAllocatorStatsERKNS_14AllocatorStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.cc' l='49' u='w' c='_ZN10tensorflow12BFCAllocatorC1EPNS_12SubAllocatorEmbRKSs'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.cc' l='33' u='w' c='_ZN10tensorflow14AllocatorStats5ClearEv'/>
+<use f='tensorflow/tensorflow/core/framework/allocator.cc' l='43' u='r' c='_ZNK10tensorflow14AllocatorStats11DebugStringEv'/>
+<use f='tensorflow/tensorflow/core/kernels/stack_ops.cc' l='288' u='r' c='_ZN10tensorflow11StackPushOp12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE'/>

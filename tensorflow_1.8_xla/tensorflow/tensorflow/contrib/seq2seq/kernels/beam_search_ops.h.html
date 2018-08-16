@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>beam_search_ops.h source code [tensorflow/tensorflow/contrib/seq2seq/kernels/beam_search_ops.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::functor::GatherTree "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/contrib/seq2seq/kernels/beam_search_ops.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>contrib</a>/<a href='..'>seq2seq</a>/<a href='./'>kernels</a>/<a href='beam_search_ops.h.html'>beam_search_ops.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CONTRIB_SEQ2SEQ_KERNELS_BEAM_SEARCH_OPS_H_">TENSORFLOW_CONTRIB_SEQ2SEQ_KERNELS_BEAM_SEARCH_OPS_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CONTRIB_SEQ2SEQ_KERNELS_BEAM_SEARCH_OPS_H_" data-ref="_M/TENSORFLOW_CONTRIB_SEQ2SEQ_KERNELS_BEAM_SEARCH_OPS_H_">TENSORFLOW_CONTRIB_SEQ2SEQ_KERNELS_BEAM_SEARCH_OPS_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../third_party/eigen3/unsupported/Eigen/CXX11/Tensor.html">"third_party/eigen3/unsupported/Eigen/CXX11/Tensor"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../core/framework/tensor_types.h.html">"tensorflow/core/framework/tensor_types.h"</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../core/kernels/eigen_activations.h.html">"tensorflow/core/kernels/eigen_activations.h"</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../core/platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="23">23</th><td></td></tr>
+<tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="25">25</th><td><b>class</b> <a class="type" href="../../../core/framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext" id="tensorflow::OpKernelContext">OpKernelContext</a>;</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><b>namespace</b> <span class="namespace">functor</span> {</td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T&gt;</td></tr>
+<tr><th id="30">30</th><td><b>struct</b> <dfn class="type def" id="tensorflow::functor::GatherTree" title='tensorflow::functor::GatherTree' data-ref="tensorflow::functor::GatherTree">GatherTree</dfn> {</td></tr>
+<tr><th id="31">31</th><td>  <em>void</em> <dfn class="decl" id="_ZN10tensorflow7functor10GatherTreeclEPNS_15OpKernelContextERKT_NS_6TTypesIT0_Li3ElE11ConstTensorESA_N5Eigen9TensorMapINSB_6TensorIKiLi1ELi1ElEELi16EN15006834" title='tensorflow::functor::GatherTree::operator()' data-ref="_ZN10tensorflow7functor10GatherTreeclEPNS_15OpKernelContextERKT_NS_6TTypesIT0_Li3ElE11ConstTensorESA_N5Eigen9TensorMapINSB_6TensorIKiLi1ELi1ElEELi16EN15006834"><b>operator</b>()</dfn>(<a class="type" href="../../../core/framework/op_kernel.h.html#tensorflow::OpKernelContext" title='tensorflow::OpKernelContext' data-ref="tensorflow::OpKernelContext">OpKernelContext</a>* <dfn class="local col1 decl" id="1ctx" title='ctx' data-type='tensorflow::OpKernelContext *' data-ref="1ctx">ctx</dfn>, <em>const</em> Device&amp; <dfn class="local col2 decl" id="2d" title='d' data-type='const Device &amp;' data-ref="2d">d</dfn>,</td></tr>
+<tr><th id="32">32</th><td>                  <b>typename</b> <a class="type" href="../../../core/framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>3</var>&gt;::ConstTensor <dfn class="local col3 decl" id="3step_ids" title='step_ids' data-type='typename TTypes&lt;T, 3&gt;::ConstTensor' data-ref="3step_ids">step_ids</dfn>,</td></tr>
+<tr><th id="33">33</th><td>                  <b>typename</b> <a class="type" href="../../../core/framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>3</var>&gt;::ConstTensor <dfn class="local col4 decl" id="4parent_ids" title='parent_ids' data-type='typename TTypes&lt;T, 3&gt;::ConstTensor' data-ref="4parent_ids">parent_ids</dfn>,</td></tr>
+<tr><th id="34">34</th><td>                  <a class="type" href="../../../core/framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;<a class="typedef" href="../../../core/platform/default/integral_types.h.html#tensorflow::int32" title='tensorflow::int32' data-type='int' data-ref="tensorflow::int32">int32</a>&gt;::<a class="typedef" href="../../../core/framework/tensor_types.h.html#tensorflow::TTypes{int,1,long}::ConstVec" title='tensorflow::TTypes&lt;int, 1, long&gt;::ConstVec' data-type='Eigen::TensorMap&lt;Eigen::Tensor&lt;const int, 1, Eigen::RowMajor, long&gt;, Eigen::Aligned&gt;' data-ref="tensorflow::TTypes{int,1,long}::ConstVec">ConstVec</a> <dfn class="local col5 decl" id="5max_sequence_lengths" title='max_sequence_lengths' data-type='TTypes&lt;int32&gt;::ConstVec' data-ref="5max_sequence_lengths">max_sequence_lengths</dfn>,</td></tr>
+<tr><th id="35">35</th><td>                  <em>const</em> T <dfn class="local col6 decl" id="6end_token" title='end_token' data-type='const T' data-ref="6end_token">end_token</dfn>, <b>typename</b> <a class="type" href="../../../core/framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>3</var>&gt;::Tensor <dfn class="local col7 decl" id="7beams" title='beams' data-type='typename TTypes&lt;T, 3&gt;::Tensor' data-ref="7beams">beams</dfn>);</td></tr>
+<tr><th id="36">36</th><td>};</td></tr>
+<tr><th id="37">37</th><td></td></tr>
+<tr><th id="38">38</th><td>}  <i>// namespace functor</i></td></tr>
+<tr><th id="39">39</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="40">40</th><td></td></tr>
+<tr><th id="41">41</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CONTRIB_SEQ2SEQ_KERNELS_BEAM_SEARCH_OPS_H_</u></td></tr>
+<tr><th id="42">42</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='beam_search_ops.cc.html'>tensorflow/tensorflow/contrib/seq2seq/kernels/beam_search_ops.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

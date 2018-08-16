@@ -1,0 +1,29 @@
+<dec f='tensorflow/tensorflow/core/grappler/utils.h' l='46' type='void tensorflow::grappler::NodeMap::AddNode(const string &amp; name, tensorflow::NodeDef * node)'/>
+<doc f='tensorflow/tensorflow/core/grappler/utils.h' l='44'>// This method doesn&apos;t record the outputs of the added node; the outputs need
+  // to be explicitly added by the AddOutput method.</doc>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1382' u='c' c='_ZN10tensorflow8grappler19ArithmeticOptimizer7AddNodeERKSsPKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='226' u='c' c='_ZN10tensorflow8grappler15ConstantFolding20AddControlDependencyERKSsPNS_8GraphDefEPNS0_7NodeMapE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='420' u='c' c='_ZN10tensorflow8grappler15ConstantFolding17MaterializeShapesERKNS0_15GraphPropertiesE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='604' u='c' c='_ZN10tensorflow8grappler15ConstantFolding32MaterializeBroadcastGradientArgsERKNS_7NodeDefERKNS0_15GraphPropertiesE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='716' u='c' c='_ZN10tensorflow8grappler15ConstantFolding27MaterializeReductionIndicesEPNS_7NodeDefERKNS0_15GraphPropertiesE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1099' u='c' c='_ZN10tensorflow8grappler15ConstantFolding8FoldNodeEPNS_7NodeDefEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1112' u='c' c='_ZN10tensorflow8grappler15ConstantFolding8FoldNodeEPNS_7NodeDefEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1194' u='c' c='_ZN10tensorflow8grappler15ConstantFolding8FoldNodeEPNS_7NodeDefEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1772' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1866' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='1867' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2036' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2231' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2331' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.cc' l='79' u='c' c='_ZN10tensorflow8grappler11AddCopyNodeERKNS0_21GraphOptimizerContextERKSsPKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.cc' l='88' u='c' c='_ZN10tensorflow8grappler12AddEmptyNodeERKNS0_21GraphOptimizerContextERKSs'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='408' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_114GraphProcessor16AddNodePermConstERKSsS4_RKSt6vectorIiSaIiEE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='434' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_114GraphProcessor18AddNodeConstScalarERKSsS4_NS_8DataTypeEi'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='619' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_113NodeProcessor22UpdateAttrValueOfInputEib'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='815' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_113NodeProcessor16AddNodeTransposeERKSsS4_S4_NS_8DataTypeERKNS_16TensorShapeProtoEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='936' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_113NodeProcessor19AddNodeDataFormatOpERKSsS4_S4_NS_8DataTypeEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='1305' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_117BinaryOpProcessor17AddNodeShapeConstERKSsiS4_'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='1333' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_117BinaryOpProcessor14AddNodeReshapeERKSsS4_S4_NS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='130' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_132LoopInvariantNodeMotionOptimizer11HandleConstEPNS_7NodeDefEii'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='239' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_132LoopInvariantNodeMotionOptimizer19HandleInvariantNodeEPNS_7NodeDefEii'/>
+<def f='tensorflow/tensorflow/core/grappler/utils.cc' l='98' ll='102' type='void tensorflow::grappler::NodeMap::AddNode(const string &amp; node_name, tensorflow::NodeDef * node)'/>

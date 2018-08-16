@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/execution_tracker.h' l='74' type='xla::ExecutionHandle xla::ExecutionTracker::Register(xla::Backend * backend, std::vector&lt;Backend::StreamPtr&gt; stream, const xla::ExecutionProfile &amp; profile, xla::GlobalDataHandle data)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/execution_tracker.h' l='72'>// Registers an execution with its backend, streams, and data handle to the
+  // execution result. Returns a handle for the registered execution.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/execution_tracker.cc' l='49' ll='62' type='xla::ExecutionHandle xla::ExecutionTracker::Register(xla::Backend * backend, std::vector&lt;Backend::StreamPtr&gt; streams, const xla::ExecutionProfile &amp; profile, xla::GlobalDataHandle result)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1271' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>

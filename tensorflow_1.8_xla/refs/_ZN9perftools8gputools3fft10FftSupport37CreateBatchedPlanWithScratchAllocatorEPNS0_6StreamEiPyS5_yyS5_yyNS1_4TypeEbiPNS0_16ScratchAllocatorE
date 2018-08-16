@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/stream_executor/fft.h' l='163' type='std::unique_ptr&lt;Plan&gt; perftools::gputools::fft::FftSupport::CreateBatchedPlanWithScratchAllocator(perftools::gputools::Stream * stream, int rank, uint64 * elem_count, uint64 * input_embed, uint64 input_stride, uint64 input_distance, uint64 * output_embed, uint64 output_stride, uint64 output_distance, perftools::gputools::fft::Type type, bool in_place_fft, int batch_count, perftools::gputools::ScratchAllocator * scratch_allocator)'/>
+<doc f='tensorflow/tensorflow/stream_executor/fft.h' l='146'>// Creates a batched FFT plan with scratch allocator.
+  //
+  // stream:          The GPU stream in which the FFT runs.
+  // rank:            Dimensionality of the transform (1, 2, or 3).
+  // elem_count:      Array of size rank, describing the size of each dimension.
+  // input_embed, output_embed:
+  //                  Pointer of size rank that indicates the storage dimensions
+  //                  of the input/output data in memory. If set to null_ptr all
+  //                  other advanced data layout parameters are ignored.
+  // input_stride:    Indicates the distance (number of elements; same below)
+  //                  between two successive input elements.
+  // input_distance:  Indicates the distance between the first element of two
+  //                  consecutive signals in a batch of the input data.
+  // output_stride:   Indicates the distance between two successive output
+  //                  elements.
+  // output_distance: Indicates the distance between the first element of two
+  //                  consecutive signals in a batch of the output data.</doc>

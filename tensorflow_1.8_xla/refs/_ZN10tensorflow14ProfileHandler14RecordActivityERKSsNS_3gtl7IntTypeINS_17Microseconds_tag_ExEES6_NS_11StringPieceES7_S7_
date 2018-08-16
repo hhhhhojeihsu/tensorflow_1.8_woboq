@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/profile_handler.h' l='44' type='void tensorflow::ProfileHandler::RecordActivity(const string &amp; device, Microseconds start, Microseconds limit, tensorflow::StringPiece label, tensorflow::StringPiece op_type, tensorflow::StringPiece details)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/profile_handler.h' l='32'>// Records that a miscellaneous activity occurred in the current step.
+  //
+  // Implementations of this method must be thread-safe.
+  //
+  // Args:
+  // - device: The device on which the activity occurred.
+  // - start: The time at which the activity started.
+  // - limit: The time at which the activity finished.
+  // - label: A label for the op, which may be used in visualization.
+  // - op_type: A type string for the op, which may be used in visualization.
+  // - details: A details string, which may be used in visualization.
+  // from time &quot;start&quot; to &quot;limit&quot; with &quot;op_type&quot; and &quot;details&quot;.</doc>

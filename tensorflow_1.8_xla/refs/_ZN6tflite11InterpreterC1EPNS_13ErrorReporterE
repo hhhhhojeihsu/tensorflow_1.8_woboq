@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='96' type='void tflite::Interpreter::Interpreter(tflite::ErrorReporter * error_reporter = DefaultErrorReporter())'/>
+<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='91'>// Instantiate an interpreter. All errors associated with reading and
+  // processing this model will be forwarded to the error_reporter object.
+  //
+  // Note, if error_reporter is nullptr, then a default StderrReporter is
+  // used.</doc>
+<def f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='87' ll='110' type='void tflite::Interpreter::Interpreter(tflite::ErrorReporter * error_reporter = DefaultErrorReporter())'/>
+<use f='tensorflow/tensorflow/contrib/lite/model.cc' l='873' u='c' c='_ZN6tflite18InterpreterBuilderclEPSt10unique_ptrINS_11InterpreterESt14default_deleteIS2_EEi'/>

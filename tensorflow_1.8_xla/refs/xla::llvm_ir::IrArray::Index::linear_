@@ -1,0 +1,20 @@
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='92' u='r' c='_ZNK3xla7llvm_ir7IrArray5Index6linearEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='156' u='w' c='_ZN3xla7llvm_ir7IrArray5Index8multidimEv'/>
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='173' type='llvm::Value *'/>
+<offset>192</offset>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='162'>// These values are purely for efficiency; `multidim_` is enough to find the
+    // element at a given `Index`, but if a loop is emitted with a linear index
+    // space, that linear index can be saved in `linear_`, and the layout and
+    // dimensions of the shape the loop was emitted for in `layout_` and
+    // `dims_`, and if the `Index` is used in another array, and its layout and
+    // dimensions match, the linear index can be used, sparing the cost of
+    // computing `multidim_`, which LLVM DCE could potentially so delete.
+    // Modifying `multidim_` after construction nullifies `linear_`, lest it
+    // be used wrongly, as it would be valid no more.
+    // If a loop is emitted with a multidimensional index space, `linear_` would
+    // be null and `layout_` and `dims_` would be ignored.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='65' u='w' c='_ZN3xla7llvm_ir7IrArray5IndexC1EPN4llvm5ValueERKNS_5ShapeEPNS3_9IRBuilderINS3_14ConstantFolderENS3_24IRBuilderDefaultInserterEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='77' u='w' c='_ZN3xla7llvm_ir7IrArray5IndexC1EN10tensorflow3gtl10ArraySliceIPN4llvm5ValueEEES8_RKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='119' u='r' c='_ZNK3xla7llvm_ir7IrArray5Index18LinearValidOnShapeERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='253' u='r' c='_ZNK3xla7llvm_ir7IrArray5Index22SourceIndexOfBroadcastERKNS_5ShapeES5_N10tensorflow3gtl10ArraySliceIxEEPN4llvm9IRBuilderINSA_14ConstantFolderENSA_24IR6925640'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='288' u='r' c='_ZNK3xla7llvm_ir7IrArray5Index22SourceIndexOfBroadcastERKNS_5ShapeES5_N10tensorflow3gtl10ArraySliceIxEEPN4llvm9IRBuilderINSA_14ConstantFolderENSA_24IR6925640'/>

@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/lib/io/record_reader.h' l='63' type='void tensorflow::io::RecordReader::RecordReader(tensorflow::RandomAccessFile * file, const tensorflow::io::RecordReaderOptions &amp; options = tensorflow::io::RecordReaderOptions())'/>
+<doc f='tensorflow/tensorflow/core/lib/io/record_reader.h' l='61'>// Create a reader that will return log records from &quot;*file&quot;.
+  // &quot;*file&quot; must remain live while this Reader is in use.</doc>
+<use f='tensorflow/tensorflow/core/kernels/record_yielder.cc' l='212' u='c' c='_ZN10tensorflow13RecordYielder9ShardLoopEPNS0_5ShardE'/>
+<use f='tensorflow/tensorflow/core/kernels/tf_record_reader_op.cc' l='43' u='c' c='_ZN10tensorflow14TFRecordReader19OnWorkStartedLockedEv'/>
+<def f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='57' ll='79' type='void tensorflow::io::RecordReader::RecordReader(tensorflow::RandomAccessFile * file, const tensorflow::io::RecordReaderOptions &amp; options = tensorflow::io::RecordReaderOptions())'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='216' u='c' c='_ZN10tensorflow2io22SequentialRecordReaderC1EPNS_16RandomAccessFileERKNS0_19RecordReaderOptionsE'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_reader.cc' l='49' u='c' c='_ZN10tensorflow2io14PyRecordReader3NewERKSsyS3_P9TF_Status'/>

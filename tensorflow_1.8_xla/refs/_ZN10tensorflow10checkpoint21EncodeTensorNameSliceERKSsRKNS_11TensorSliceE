@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/util/saved_tensor_slice_util.h' l='46' type='string tensorflow::checkpoint::EncodeTensorNameSlice(const string &amp; name, const tensorflow::TensorSlice &amp; slice)'/>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_reader.h' l='171' u='c' c='_ZNK10tensorflow10checkpoint17TensorSliceReader13CopySliceDataERKSsRKNS_11TensorSliceEPT_'/>
+<use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='127' u='c' c='_ZN10tensorflow10checkpoint16CheckpointReader14BuildV2VarMapsEv'/>
+<doc f='tensorflow/tensorflow/core/util/saved_tensor_slice_util.h' l='36'>// Encode a tensor name + a tensor slice into an ordered code and outputs it as
+// a string.
+// The format is
+//  &lt;0&gt;
+//  &lt;tensor_name&gt;
+//  &lt;rank&gt;
+//  &lt;dim-0-start&gt;&lt;dim-0-length&gt;
+//  &lt;dim-1-start&gt;&lt;dim-1-length&gt;
+//  ...</doc>
+<use f='tensorflow/tensorflow/core/util/tensor_slice_writer.h' l='149' u='c' c='_ZN10tensorflow10checkpoint17TensorSliceWriter3AddERKSsRKNS_11TensorShapeERKNS_11TensorSliceEPKT_'/>
+<def f='tensorflow/tensorflow/core/util/saved_tensor_slice_util.cc' l='28' ll='43' type='string tensorflow::checkpoint::EncodeTensorNameSlice(const string &amp; name, const tensorflow::TensorSlice &amp; slice)'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='467' u='c' c='_ZN10tensorflow12BundleWriter8AddSliceENS_11StringPieceERKNS_11TensorShapeERKNS_11TensorSliceERKNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='963' u='c' c='_ZN10tensorflow12BundleReader13GetSliceValueENS_11StringPieceERKNS_16BundleEntryProtoERKNS_11TensorSliceEPNS_6TensorE'/>

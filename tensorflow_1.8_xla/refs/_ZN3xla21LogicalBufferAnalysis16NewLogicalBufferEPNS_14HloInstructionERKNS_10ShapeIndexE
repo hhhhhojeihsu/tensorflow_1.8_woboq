@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.h' l='56' type='void xla::LogicalBufferAnalysis::NewLogicalBuffer(xla::HloInstruction * instruction, const xla::ShapeIndex &amp; index)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.h' l='53'>// Create a new logical buffer and return a reference to it. The newly created
+  // buffer is stored in an internal vector of LogicalBuffers and can be
+  // accessed with GetBuffer.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.cc' l='88' ll='97' type='void xla::LogicalBufferAnalysis::NewLogicalBuffer(xla::HloInstruction * instruction, const xla::ShapeIndex &amp; index)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.cc' l='104' u='c' c='_ZN3xla21LogicalBufferAnalysis13DefaultActionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.cc' l='118' u='c' c='_ZN3xla21LogicalBufferAnalysis10HandleCopyEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.cc' l='138' u='c' c='_ZN3xla21LogicalBufferAnalysis10HandleSendEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.cc' l='139' u='c' c='_ZN3xla21LogicalBufferAnalysis10HandleSendEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.cc' l='145' u='c' c='_ZN3xla21LogicalBufferAnalysis11HandleTupleEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer_analysis.cc' l='152' u='c' c='_ZN3xla21LogicalBufferAnalysis12HandleSelectEPNS_14HloInstructionE'/>

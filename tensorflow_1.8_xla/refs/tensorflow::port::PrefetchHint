@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/core/platform/prefetch.h' l='33' ll='38'/>
+<doc f='tensorflow/tensorflow/core/platform/prefetch.h' l='24'>// Prefetching support
+//
+// Defined behavior on some of the uarchs:
+// PREFETCH_HINT_T0:
+//   prefetch to all levels of the hierarchy (except on p4: prefetch to L2)
+// PREFETCH_HINT_NTA:
+//   p4: fetch to L2, but limit to 1 way (out of the 8 ways)
+//   core: skip L2, go directly to L1
+//   k8 rev E and later: skip L2, can go to either of the 2-ways in L1</doc>

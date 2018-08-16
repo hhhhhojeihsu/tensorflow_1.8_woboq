@@ -1,0 +1,6 @@
+<def f='tensorflow/tensorflow/stream_executor/device_memory.h' l='223' type='const DeviceMemory&lt;ElemT&gt; &amp; perftools::gputools::ScopedDeviceMemory::cref() const'/>
+<use f='tensorflow/tensorflow/stream_executor/device_memory.h' l='234' u='c' c='_ZNK9perftools8gputools18ScopedDeviceMemorydeEv'/>
+<doc f='tensorflow/tensorflow/stream_executor/device_memory.h' l='219'>// Returns the memory that backs this scoped allocation converted to
+  // DeviceMemory&lt;T&gt; apparent type. This is useful for cases where the
+  // DeviceMemory must be passed by const-ref, as the ScopedDeviceMemory doesn&apos;t
+  // allow copying, for scoped-object-lifetime reasons.</doc>

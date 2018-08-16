@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/graph/algorithm.h' l='99' type='bool tensorflow::PruneForReverseReachability(tensorflow::Graph * g, std::unordered_set&lt;const Node *&gt; nodes)'/>
+<doc f='tensorflow/tensorflow/core/graph/algorithm.h' l='96'>// Prune nodes in &quot;g&quot; that are not in some path from the source node
+// to any node in &apos;nodes&apos;. Returns true if changes were made to the graph.
+// Does not fix up source and sink edges.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='621' u='c' c='_ZN10tensorflow12_GLOBAL__N_117PruneFunctionBodyEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1012' u='c' c='_ZN10tensorflow15RemoveDeadNodesEPNS_5GraphE'/>
+<def f='tensorflow/tensorflow/core/graph/algorithm.cc' l='175' ll='212' type='bool tensorflow::PruneForReverseReachability(tensorflow::Graph * g, std::unordered_set&lt;const Node *&gt; visited)'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='204' u='c' c='_ZN10tensorflow8subgraph12_GLOBAL__N_115PruneForTargetsEPNS_5GraphERKSt13unordered_mapINS_11StringPieceEPNS_4NodeENS_4hashIS5_EESt8equal_toIS5_ESaISt413726270'/>

@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='408' type='void tensorflow::Graph::Graph(const tensorflow::FunctionLibraryDefinition &amp; flib_def)'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='400'>// Constructs a graph with a single SOURCE (always id kSourceId) and a
+  // single SINK (always id kSinkId) node, and an edge from SOURCE-&gt;SINK.
+  //
+  // The graph can hold ops found in `flib_def`. Unlike the constructor taking
+  // an OpRegistryInterface, this constructor copies the function definitions in
+  // `flib_def` so its lifetime may be shorter than that of the graph&apos;s. The
+  // OpRegistryInterface backing `flib_def` must still have the lifetime of the
+  // graph though.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/toco/import_tensorflow.cc' l='1929' u='c' c='_ZN4toco12_GLOBAL__N_118InlineAllFunctionsEPN10tensorflow8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_optimizer.cc' l='97' u='c' c='_ZN10tensorflow14GraphOptimizer8OptimizeEPNS_22FunctionLibraryRuntimeEPNS_3EnvEPNS_6DeviceEPSt10unique_ptrINS_5GraphESt14default_deleteIS8_EEPKSt13uno8191696'/>
+<def f='tensorflow/tensorflow/core/graph/graph.cc' l='294' ll='303' type='void tensorflow::Graph::Graph(const tensorflow::FunctionLibraryDefinition &amp; flib_def)'/>
+<use f='tensorflow/tensorflow/core/grappler/grappler_item_builder.cc' l='128' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_113OptimizeGraphERKNS_8GraphDefEPS2_RKNS0_10ItemConfigE'/>

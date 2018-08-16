@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.h' l='118' type='bool toco::ShapesAgreeUpToBroadcasting(const toco::Shape &amp; shape0, const toco::Shape &amp; shape1)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.h' l='111'>// Given two shapes with potentially different dimensionality and dimension
+// arrays d0 and d1. Without loss of generality, assume that shape0 may have
+// higher dimensionality (length(d0) &gt;= length(d1)). Then shape0 and shape1
+// &quot;agree up to broadcasting&quot; if:
+// - When walking the d0 and d1 from back to front with indices i0, i1,
+//   d0[i0] == d1[i1] or d0[i0] == 1 or d1[i1] == 1, for each dimension until
+//   i1 == 0 (inclusive).</doc>
+<def f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='559' ll='585' type='bool toco::ShapesAgreeUpToBroadcasting(const toco::Shape &amp; shape0, const toco::Shape &amp; shape1)'/>

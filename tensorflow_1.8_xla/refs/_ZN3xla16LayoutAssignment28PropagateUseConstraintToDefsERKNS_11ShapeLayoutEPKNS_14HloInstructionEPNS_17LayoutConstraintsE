@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='345' type='tensorflow::Status xla::LayoutAssignment::PropagateUseConstraintToDefs(const xla::ShapeLayout &amp; shape_layout, const xla::HloInstruction * instruction, xla::LayoutConstraints * constraints)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='342'>// Propagates a layout constraint on the use of the result of the given
+  // instruction to the definitions of the LogicalBuffers which make up the
+  // result.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1137' ll='1160' type='tensorflow::Status xla::LayoutAssignment::PropagateUseConstraintToDefs(const xla::ShapeLayout &amp; shape_layout, const xla::HloInstruction * instruction, xla::LayoutConstraints * constraints)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1168' u='c' c='_ZN3xla16LayoutAssignment26PropagateOperandConstraintERKNS_23OperandLayoutConstraintEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1265' u='c' c='_ZN3xla16LayoutAssignment25PropagateResultConstraintERKNS_22ResultLayoutConstraintEPNS_17LayoutConstraintsE'/>

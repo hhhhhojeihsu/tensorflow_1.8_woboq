@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/cc/saved_model/loader.h' l='60' type='bool tensorflow::MaybeSavedModelDirectory(const string &amp; export_dir)'/>
+<doc f='tensorflow/tensorflow/cc/saved_model/loader.h' l='55'>/// Checks whether the provided directory could contain a SavedModel. Note that
+/// the method does not load any data by itself. If the method returns `false`,
+/// the export directory definitely does not contain a SavedModel. If the method
+/// returns `true`, the export directory may contain a SavedModel but provides
+/// no guarantee that it can be loaded.</doc>
+<use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='238' u='c' c='_ZN10tensorflow12_GLOBAL__N_122LoadSavedModelInternalERKNS_14SessionOptionsERKNS_10RunOptionsERKSsRKSt13unordered_setISsSt4hashISsESt8equal_toISsESaIS11107313'/>
+<def f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='305' ll='312' type='bool tensorflow::MaybeSavedModelDirectory(const string &amp; export_dir)'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_saved_model.cc' l='34' u='c' c='_ZN4toco12_GLOBAL__N_114LoadSavedModelERKNS_15ParsedTocoFlagsE'/>

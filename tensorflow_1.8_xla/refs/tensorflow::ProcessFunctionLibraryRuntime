@@ -1,0 +1,30 @@
+<def f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.h' l='27' ll='192'/>
+<size>224</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.h' l='26'>// A class that stores all the FunctionLibraryRuntime objects, one per device.</doc>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntimeC1EPKNS_9DeviceMgrEPNS_3EnvEiPKNS_25FunctionLibraryDefinitionERKNS_16OptimizerOptionsEPNS_6thread10Threa8271365'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntimeC1EPKNS_9DeviceMgrEPNS_3EnvEiPKNS_25FunctionLibraryDefinitionERKNS_16OptimizerOptionsESt8functionIFNS_6S9247005'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime11SendTensorsERKSsS2_S2_xNS_3gtl10ArraySliceINS_6TensorEEEPNS_13DeviceContextERKSt6vectorINS_19Allocator10204990'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime19ReceiveTensorsAsyncERKSsS2_S2_xxPNS_13DeviceContextERKSt6vectorINS_19AllocatorAttributesESaIS6_EEPNS_112131834'/>
+<smbr r='tensorflow::ProcessFunctionLibraryRuntime::kDefaultFLRDevice' t='const char []'/>
+<fun r='_ZNK10tensorflow29ProcessFunctionLibraryRuntime6GetFLRERKSs'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime20GetDeviceIncarnationERKSsPx'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime9AddHandleERKSsS2_y'/>
+<fun r='_ZNK10tensorflow29ProcessFunctionLibraryRuntime9GetHandleERKSs'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime17GetHandleOnDeviceERKSsy'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime22IsInstantiatedOnDeviceERKSsy'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime11InstantiateERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime13ReleaseHandleEy'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime3RunERKNS_22FunctionLibraryRuntime7OptionsEyNS_3gtl10ArraySliceINS_6TensorEEEPSt6vectorIS7_SaIS7_EESt8fu9248434'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime16GetDeviceContextERKSsPPNS_13DeviceContextE'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime13GetDeviceNameEy'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime12RemoveHandleEy'/>
+<fun r='_ZN10tensorflow29ProcessFunctionLibraryRuntime5CloneEPNS_3EnvEiRKNS_16OptimizerOptionsESt8functionIFNS_6StatusEPNS_22FunctionLibraryRuntimeERKNS_7Node11529170'/>
+<mbr r='tensorflow::ProcessFunctionLibraryRuntime::mu_' o='0' t='tensorflow::mutex'/>
+<mbr r='tensorflow::ProcessFunctionLibraryRuntime::device_mgr_' o='128' t='const tensorflow::DeviceMgr *const'/>
+<mbr r='tensorflow::ProcessFunctionLibraryRuntime::lib_def_' o='192' t='const tensorflow::FunctionLibraryDefinition *'/>
+<mbr r='tensorflow::ProcessFunctionLibraryRuntime::default_thread_pool_' o='256' t='thread::ThreadPool *'/>
+<mbr r='tensorflow::ProcessFunctionLibraryRuntime::table_' o='320' t='std::unordered_map&lt;string, FunctionLibraryRuntime::Handle&gt;'/>
+<mbr r='tensorflow::ProcessFunctionLibraryRuntime::function_data_' o='768' t='std::unordered_map&lt;FunctionLibraryRuntime::Handle, std::unique_ptr&lt;FunctionData&gt; &gt;'/>
+<mbr r='tensorflow::ProcessFunctionLibraryRuntime::flr_map_' o='1216' t='std::unordered_map&lt;Device *, std::unique_ptr&lt;FunctionLibraryRuntime&gt; &gt;'/>
+<mbr r='tensorflow::ProcessFunctionLibraryRuntime::next_handle_' o='1664' t='int'/>
+<mbr r='tensorflow::ProcessFunctionLibraryRuntime::parent_' o='1728' t='tensorflow::DistributedFunctionLibraryRuntime *const'/>

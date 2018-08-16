@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='207' type='std::vector&lt;int&gt;'/>
+<offset>0</offset>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='203'>// Vector that maps from the parameters of the XLA computation to their
+    // original argument positions. To handle compile-time constant inputs and
+    // resources, the parameters to the XLA computation may be a subset of the
+    // original arguments, and are not necessarily in the same order.)</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='129' u='m' c='_ZN10tensorflow27XlaComputationLaunchContext14PopulateInputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultERKSt3mapIiNS_14OptionalTensor4150569'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='236' u='m' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='239' u='m' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='272' u='m' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='677' u='a' c='_ZN10tensorflow11XlaCompiler12CompileGraphERKNS0_14CompileOptionsERKSsSt10unique_ptrINS_5GraphESt14default_deleteIS7_EERKSt6vectorINS0_8ArgumentESaISC11181090'/>

@@ -1,0 +1,21 @@
+<def f='tensorflow/tensorflow/core/lib/gtl/optional.h' l='360' type='void tensorflow::gtl::optional::optional&lt;T&gt;()'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='668' u='c' c='_ZN3xla9ShapeUtil20ForEachIndexInternalERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_S7_RKT_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='938' u='c' c='_ZNK3xla14HloInstruction22sharding_unique_deviceEv'/>
+<doc f='tensorflow/tensorflow/core/lib/gtl/optional.h' l='356'>// [optional.ctor], constructors
+
+  // A default constructed optional holds the empty value, NOT a default
+  // constructed T.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/sharding_util.cc' l='33' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GetShardingFromNodeDefERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/sharding_util.cc' l='58' u='c' c='_ZN10tensorflow23ParseShardingFromDeviceERKSsiNS_3gtl8optionalIN3xla10OpShardingEEE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/sharding_util.cc' l='71' u='c' c='_ZN10tensorflow23ParseShardingFromDeviceERKSsiNS_3gtl8optionalIN3xla10OpShardingEEE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='402' u='c' c='_ZN10tensorflow12_GLOBAL__N_116BuildComputationERKSt6vectorINS_11XlaCompiler8ArgumentESaIS3_EERKS1_IiSaIiEERKS1_INS_13XlaExpressionESaISC_EERKS1_ISt107037535'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='556' u='c' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='564' u='c' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='1129' u='c' c='_ZN3xla3cpu37ProfitableToMakeDotOperandColumnMajorERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='1137' u='c' c='_ZN3xla3cpu37ProfitableToMakeDotOperandColumnMajorERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='1155' u='c' c='_ZN3xla3cpu37ProfitableToMakeDotOperandColumnMajorERKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1693' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='812' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper33GetInstructionNodeInlinedOperandsEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='849' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper33GetInstructionNodeInlinedOperandsEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='82' u='c' c='_ZN3xlaL18GetGTEOperandIndexEPKNS_14HloInstructionES2_'/>
+<use f='tensorflow/tensorflow/core/kernels/serialize_sparse_op.cc' l='436' u='c' c='_ZN10tensorflow19DeserializeSparseOp7ComputeEPNS_15OpKernelContextE'/>

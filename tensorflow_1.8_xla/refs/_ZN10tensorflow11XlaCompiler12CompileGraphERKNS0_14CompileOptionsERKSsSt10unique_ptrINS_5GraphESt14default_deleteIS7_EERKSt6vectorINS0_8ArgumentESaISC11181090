@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='287' type='tensorflow::Status tensorflow::XlaCompiler::CompileGraph(const tensorflow::XlaCompiler::CompileOptions &amp; options, const string &amp; name, std::unique_ptr&lt;Graph&gt; graph, const std::vector&lt;Argument&gt; &amp; args, tensorflow::XlaCompiler::CompilationResult * result)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.h' l='284'>// Compiles a tensorflow::Graph into an xla::Computation.
+  // Similar to CompileFunction, but takes a Graph as input rather than a
+  // function.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='224' u='c' c='_ZN10tensorflow11XlaCompiler15CompileFunctionERKNS0_14CompileOptionsERKNS_12NameAttrListESt6vectorINS0_8ArgumentESaIS8_EEPNS0_17CompilationResultE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='642' u='c' c='_ZN10tensorflow11XlaCompiler15CompileSingleOpERKNS0_14CompileOptionsERKSsPNS_15OpKernelContextERKSt6vectorINS0_8ArgumentESaIS9_EEPNS0_17CompilationResultE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='645' ll='748' type='tensorflow::Status tensorflow::XlaCompiler::CompileGraph(const XlaCompiler::CompileOptions &amp; options, const string &amp; name, std::unique_ptr&lt;Graph&gt; graph, const std::vector&lt;XlaCompiler::Argument&gt; &amp; args, tensorflow::XlaCompiler::CompilationResult * result)'/>

@@ -1,0 +1,31 @@
+<dec f='tensorflow/tensorflow/core/framework/shape_inference.h' l='422' type='tensorflow::Status tensorflow::shape_inference::InferenceContext::Subshape(tensorflow::shape_inference::ShapeHandle s, int64 start, tensorflow::shape_inference::ShapeHandle * out)'/>
+<doc f='tensorflow/tensorflow/core/framework/shape_inference.h' l='419'>// Returns in &lt;*out&gt; a sub-shape of &lt;s&gt; with dimensions [start:].
+  // &lt;start&gt; can be negative to index from the end of the shape. If &lt;start&gt; &gt;
+  // rank of &lt;s&gt;, then an empty subshape is returned.</doc>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='234' u='c' c='_ZN10tensorflow15shape_inference12BiasAddShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1172' u='c' c='_ZN10tensorflow15shape_inference17ConcatShapeHelperEPNS0_16InferenceContextEiii'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1185' u='c' c='_ZN10tensorflow15shape_inference17ConcatShapeHelperEPNS0_16InferenceContextEiii'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1371' u='c' c='_ZN10tensorflow15shape_inference20ScatterNdUpdateShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1374' u='c' c='_ZN10tensorflow15shape_inference20ScatterNdUpdateShapeEPNS0_16InferenceContextE'/>
+<def f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='597' ll='600' type='tensorflow::Status tensorflow::shape_inference::InferenceContext::Subshape(tensorflow::shape_inference::ShapeHandle s, int64 start, tensorflow::shape_inference::ShapeHandle * out)'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1009' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1075' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1112' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='1951' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2136' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SpaceToBatchShapeHelperEPNS_15shape_inference16InferenceContextENS1_11ShapeHandleES4_PKNS_6TensorES4_S7_'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2211' u='c' c='_ZN10tensorflow12_GLOBAL__N_123BatchToSpaceShapeHelperEPNS_15shape_inference16InferenceContextENS1_11ShapeHandleES4_PKNS_6TensorES4_S7_'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2587' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2794' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ScatterNdShapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2797' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ScatterNdShapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/data_flow_ops.cc' l='77' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/data_flow_ops.cc' l='118' u='c' c='_ZN10tensorflow12_GLOBAL__N_126DynamicStitchShapeFunctionEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/data_flow_ops.cc' l='722' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/list_ops.cc' l='167' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_ops.cc' l='866' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SegmentReductionShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/math_ops.cc' l='890' u='c' c='_ZN10tensorflow12_GLOBAL__N_129SparseSegmentReductionShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/math_ops.cc' l='914' u='c' c='_ZN10tensorflow12_GLOBAL__N_133SparseSegmentReductionGradShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/math_ops.cc' l='955' u='c' c='_ZN10tensorflow12_GLOBAL__N_144SparseSegmentReductionWithNumSegmentsShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/math_ops.cc' l='997' u='c' c='_ZN10tensorflow12_GLOBAL__N_131UnsortedSegmentReductionShapeFnEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/resource_variable_ops.cc' l='162' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/resource_variable_ops.cc' l='181' u='c' c='_ZN10tensorflow12_GLOBAL__N_126ResourceScatterUpdateShapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/state_ops.cc' l='123' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ScatterUpdateShapeEPNS_15shape_inference16InferenceContextE'/>

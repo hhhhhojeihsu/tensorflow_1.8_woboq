@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='111' type='void xla::ShapeTree::ShapeTree&lt;T&gt;(xla::Shape shape)'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='492' ll='501' type='void xla::ShapeTree::ShapeTree&lt;T&gt;(xla::Shape shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='105'>// Create ShapeTree with the given shape, and default-constructed T values for
+  // all nodes.
+  //
+  // The version that takes a pointer may be cheaper because it doesn&apos;t require
+  // any Shape copies, but then it&apos;s up to you to ensure that the pointer stays
+  // alive longer than this ShapeTree.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='90' u='c' c='_ZN3xla7LiteralC1ERKNS_5ShapeEb'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='140' u='c' c='_ZN3xla7LiteralC1EOS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='158' u='c' c='_ZN3xla7LiteralaSEOS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='456' u='c' c='_ZN3xla7Literal8MoveFromEOS0_RKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='2140' u='c' c='_ZN3xla11LiteralViewC1ERKNS_7LiteralERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='261' u='c' c='_ZN3xla19InstructionValueSetC1ERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='272' u='c' c='_ZN3xla12_GLOBAL__N_117AddCopiesForWhileERKNS_16HloAliasAnalysisEPNS_14HloInstructionE'/>

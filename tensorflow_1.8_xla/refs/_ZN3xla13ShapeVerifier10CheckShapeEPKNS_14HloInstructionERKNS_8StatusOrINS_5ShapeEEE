@@ -1,0 +1,27 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.h' l='97' type='tensorflow::Status xla::ShapeVerifier::CheckShape(const xla::HloInstruction * instruction, const StatusOr&lt;xla::Shape&gt; &amp; inferred_shape_status)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.h' l='96'>// Overload which takes a StatusOr to reduce boilerplate in the caller.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='46' u='c' c='_ZN3xla13ShapeVerifier17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='52' u='c' c='_ZN3xla13ShapeVerifier13HandleConvertEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='58' u='c' c='_ZN3xla13ShapeVerifier20HandleBitcastConvertEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='97' u='c' c='_ZN3xla13ShapeVerifier21HandleCrossReplicaSumEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='102' u='c' c='_ZN3xla13ShapeVerifier21HandleReducePrecisionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='137' u='c' c='_ZN3xla13ShapeVerifier13HandleReverseEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='151' u='c' c='_ZN3xla13ShapeVerifier21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='158' u='c' c='_ZN3xla13ShapeVerifier12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='214' u='c' c='_ZN3xla13ShapeVerifier15HandleTransposeEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='237' u='c' c='_ZN3xla13ShapeVerifier11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='244' u='c' c='_ZN3xla13ShapeVerifier18HandleDynamicSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='252' u='c' c='_ZN3xla13ShapeVerifier24HandleDynamicUpdateSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='275' u='c' c='_ZN3xla13ShapeVerifier9HandleMapEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='281' u='c' c='_ZN3xla13ShapeVerifier18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='290' u='c' c='_ZN3xla13ShapeVerifier22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='316' u='c' c='_ZN3xla13ShapeVerifier9HandlePadEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='359' u='c' c='_ZN3xla13ShapeVerifier23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='369' u='c' c='_ZN3xla13ShapeVerifier24HandleBatchNormInferenceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='380' u='c' c='_ZN3xla13ShapeVerifier19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='445' u='c' c='_ZN3xla13ShapeVerifier12HandleGatherEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='519' ll='528' type='tensorflow::Status xla::ShapeVerifier::CheckShape(const xla::HloInstruction * instruction, const StatusOr&lt;xla::Shape&gt; &amp; inferred_shape_status)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='531' u='c' c='_ZN3xla13ShapeVerifier15CheckUnaryShapeEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='537' u='c' c='_ZN3xla13ShapeVerifier16CheckBinaryShapeEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='544' u='c' c='_ZN3xla13ShapeVerifier17CheckTernaryShapeEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='551' u='c' c='_ZN3xla13ShapeVerifier18CheckVariadicShapeEPKNS_14HloInstructionE'/>

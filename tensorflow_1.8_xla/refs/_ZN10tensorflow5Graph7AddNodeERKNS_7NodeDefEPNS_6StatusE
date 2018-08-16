@@ -1,0 +1,30 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='421' type='tensorflow::Node * tensorflow::Graph::AddNode(const tensorflow::NodeDef &amp; node_def, tensorflow::Status * status)'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='418'>// Adds a new node to this graph, and returns it. Infers the Op and
+  // input/output types for the node. *this owns the returned instance.
+  // Returns nullptr and sets *status on error.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.cc' l='55' u='c' c='_ZN10tensorflowL15BuildLaunchNodeERKSsS1_RKN6google8protobuf3MapISsNS_9AttrValueEEES1_RKNS_3gtl13InlinedVectorINS_8DataTypeELi4EEEiSE_SE_PNS_5GraphEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='701' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph9RecordArgEPKNS_4EdgeERKSt13unordered_mapIPKNS_4NodeEPS7_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS16493397'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='736' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph12RecordResultEPKNS_4EdgeERKSt13unordered_mapIPKNS_4NodeEPS7_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='832' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph15AddHostComputesERKSsRKSt13unordered_mapIPKNS_4NodeEPS6_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='885' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph18MakeSequencingNodeERKSsPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1064' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph20BuildParallelCheckOpERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1086' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph19AddFunctionCallNodeERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEEbPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1115' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph28AddHostComputeKeyPlaceholderEPNS2_26OutsideCompilationSubgraphEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1158' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph17AddRecvAtHostNodeERKSsS4_S4_S4_PNS2_26OutsideCompilationSubgraphEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1214' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph19AddSendFromHostNodeERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS9970351'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='162' u='c' c='_ZN10tensorflow12_GLOBAL__N_17AddNodeERKNS_7NodeDefEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.cc' l='152' u='c' c='_ZN10tensorflow23AddPlaceholdersForFeedsERKNS_6tf2xla6ConfigEPKNS_19OpRegistryInterfaceEPSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIKSsSsEEEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='613' u='c' c='_ZN10tensorflow11XlaCompiler15CompileSingleOpERKNS0_14CompileOptionsERKSsPNS_15OpKernelContextERKSt6vectorINS0_8ArgumentESaIS9_EEPNS0_17CompilationResultE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='91' u='c' c='_ZN10tensorflowL7AddNoOpEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='104' u='c' c='_ZN10tensorflowL11AddIdentityEPNS_5GraphENS_8EndpointE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='119' u='c' c='_ZN10tensorflowL6AddArgEPNS_5GraphENS_8DataTypeEi'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='134' u='c' c='_ZN10tensorflowL6AddRetEPNS_5GraphENS_8EndpointEi'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1232' u='c' c='_ZN10tensorflow18InlineFunctionBodyERKNS_25FunctionLibraryDefinitionEPNS_5GraphEPNS_4NodeEPKNS_12FunctionBodyE'/>
+<use f='tensorflow/tensorflow/core/graph/gradients.cc' l='74' u='c' c='_ZN10tensorflowL12AddZerosLikeEPNS_5GraphENS_7NodeOutE'/>
+<use f='tensorflow/tensorflow/core/graph/gradients.cc' l='118' u='c' c='_ZN10tensorflowL10AddSymGradEPNS_5GraphEPNS_4NodeENS_3gtl10ArraySliceINS_7NodeOutEEE'/>
+<use f='tensorflow/tensorflow/core/graph/gradients.cc' l='290' u='c' c='_ZN10tensorflow23SymbolicGradientBuilder12SumGradientsERKNS_7NodeOutE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='282' u='c' c='_ZN10tensorflow5GraphC1EPKNS_19OpRegistryInterfaceE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='287' u='c' c='_ZN10tensorflow5GraphC1EPKNS_19OpRegistryInterfaceE'/>
+<def f='tensorflow/tensorflow/core/graph/graph.cc' l='323' ll='340' type='tensorflow::Node * tensorflow::Graph::AddNode(const tensorflow::NodeDef &amp; node_def, tensorflow::Status * status)'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='551' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor8MakeNodeERKNS_7NodeDefEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/node_builder.cc' l='115' u='c' c='_ZNK10tensorflow11NodeBuilder8FinalizeEPNS_5GraphEPPNS_4NodeE'/>

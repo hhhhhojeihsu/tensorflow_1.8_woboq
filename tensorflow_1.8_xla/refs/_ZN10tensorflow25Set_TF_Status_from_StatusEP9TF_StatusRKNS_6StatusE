@@ -1,0 +1,31 @@
+<dec f='tensorflow/tensorflow/c/tf_status_helper.h' l='25' type='void tensorflow::Set_TF_Status_from_Status(TF_Status * tf_status, const tensorflow::Status &amp; status)'/>
+<use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='46' u='c' c='_ZN10tensorflow10checkpoint16CheckpointReaderC1ERKSsP9TF_Status'/>
+<use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='55' u='c' c='_ZN10tensorflow10checkpoint16CheckpointReaderC1ERKSsP9TF_Status'/>
+<use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='106' u='c' c='_ZNK10tensorflow10checkpoint16CheckpointReader9GetTensorERKSsPSt10unique_ptrINS_6TensorESt14default_deleteIS5_EEP9TF_Status'/>
+<doc f='tensorflow/tensorflow/c/tf_status_helper.h' l='24'>// Set the attribute of &quot;tf_status&quot; from the attributes of &quot;status&quot;.</doc>
+<def f='tensorflow/tensorflow/c/tf_status_helper.cc' l='21' ll='81' type='void tensorflow::Set_TF_Status_from_Status(TF_Status * tf_status, const tensorflow::Status &amp; status)'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='53' u='c' c='_ZN10tensorflow21TF_Run_wrapper_helperEP20TF_DeprecatedSessionPKcPK9TF_BufferP7_objectRKNS_3gtl13InlinedVectorIS3_Li8EEESD_P9TF_StatusPNSA_IS8_Li8EEEPS4_'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='71' u='c' c='_ZN10tensorflow21TF_Run_wrapper_helperEP20TF_DeprecatedSessionPKcPK9TF_BufferP7_objectRKNS_3gtl13InlinedVectorIS3_Li8EEESD_P9TF_StatusPNSA_IS8_Li8EEEPS4_'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='80' u='c' c='_ZN10tensorflow21TF_Run_wrapper_helperEP20TF_DeprecatedSessionPKcPK9TF_BufferP7_objectRKNS_3gtl13InlinedVectorIS3_Li8EEESD_P9TF_StatusPNSA_IS8_Li8EEEPS4_'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='133' u='c' c='_ZN10tensorflow21TF_Run_wrapper_helperEP20TF_DeprecatedSessionPKcPK9TF_BufferP7_objectRKNS_3gtl13InlinedVectorIS3_Li8EEESD_P9TF_StatusPNSA_IS8_Li8EEEPS4_'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='166' u='c' c='_ZN10tensorflow12_GLOBAL__N_118MakeCallableHelperEPNS_7SessionEPK9TF_BufferPlP9TF_Status'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='174' u='c' c='_ZN10tensorflow12_GLOBAL__N_118MakeCallableHelperEPNS_7SessionEPK9TF_BufferPlP9TF_Status'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='212' u='c' c='_ZN10tensorflow12_GLOBAL__N_117RunCallableHelperEPNS_7SessionElP7_objectP9TF_StatusPNS_3gtl13InlinedVectorIS4_Li8EEEP9TF_Buffer'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='219' u='c' c='_ZN10tensorflow12_GLOBAL__N_117RunCallableHelperEPNS_7SessionElP7_objectP9TF_StatusPNS_3gtl13InlinedVectorIS4_Li8EEEP9TF_Buffer'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='241' u='c' c='_ZN10tensorflow12_GLOBAL__N_117RunCallableHelperEPNS_7SessionElP7_objectP9TF_StatusPNS_3gtl13InlinedVectorIS4_Li8EEEP9TF_Buffer'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='249' u='c' c='_ZN10tensorflow12_GLOBAL__N_117RunCallableHelperEPNS_7SessionElP7_objectP9TF_StatusPNS_3gtl13InlinedVectorIS4_Li8EEEP9TF_Buffer'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='263' u='c' c='_ZN10tensorflow12_GLOBAL__N_117RunCallableHelperEPNS_7SessionElP7_objectP9TF_StatusPNS_3gtl13InlinedVectorIS4_Li8EEEP9TF_Buffer'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='299' u='c' c='_ZN10tensorflow35TF_DeprecatedSessionReleaseCallableEP20TF_DeprecatedSessionlP9TF_Status'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='304' u='c' c='_ZN10tensorflow25TF_SessionReleaseCallableEP10TF_SessionlP9TF_Status'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='378' u='c' c='_ZN10tensorflow28TF_SessionRun_wrapper_helperEP10TF_SessionPKcPK9TF_BufferRKSt6vectorI9TF_OutputSaIS8_EERKS7_IP7_objectSaISE_EESC_RKS7_IP12TF_Operatio9798407'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='416' u='c' c='_ZN10tensorflow28TF_SessionRun_wrapper_helperEP10TF_SessionPKcPK9TF_BufferRKSt6vectorI9TF_OutputSaIS8_EERKS7_IP7_objectSaISE_EESC_RKS7_IP12TF_Operatio9798407'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='582' u='c' c='_ZN10tensorflow26TF_GraphToFunction_wrapperEPK8TF_GraphPKcbPKSt6vectorIP12TF_OperationSaIS7_EERKS5_I9TF_OutputSaISC_EESG_RKNS_3gtl13InlinedVectorIS4_L3411822'/>
+<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='656' u='c' c='_ZN10tensorflow30TF_TryEvaluateConstant_wrapperEP8TF_Graph9TF_OutputP9TF_Status'/>
+<use f='tensorflow/tensorflow/python/framework/cpp_shape_inference.cc' l='199' u='c' c='_ZN10tensorflow4swig20RunCppShapeInferenceEiRKSsRKSt6vectorISsSaISsEEP7_objectS7_P9TF_Status'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_reader.cc' l='39' u='c' c='_ZN10tensorflow2io14PyRecordReader3NewERKSsyS3_P9TF_Status'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_reader.cc' l='60' u='c' c='_ZN10tensorflow2io14PyRecordReader7GetNextEP9TF_Status'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_reader.cc' l='65' u='c' c='_ZN10tensorflow2io14PyRecordReader7GetNextEP9TF_Status'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_writer.cc' l='36' u='c' c='_ZN10tensorflow2io14PyRecordWriter3NewERKSsS3_P9TF_Status'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_writer.cc' l='61' u='c' c='_ZN10tensorflow2io14PyRecordWriter5FlushEP9TF_Status'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_writer.cc' l='69' u='c' c='_ZN10tensorflow2io14PyRecordWriter5CloseEP9TF_Status'/>
+<use f='tensorflow/tensorflow/python/lib/io/py_record_writer.cc' l='75' u='c' c='_ZN10tensorflow2io14PyRecordWriter5CloseEP9TF_Status'/>

@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/contrib/lite/context.h' l='254' type='TfLiteIntArray *'/>
+<offset>128</offset>
+<doc f='tensorflow/tensorflow/contrib/lite/context.h' l='251'>// Temporary tensors uses during the computations. This usually contains no
+  // tensors, but ops are allowed to change that if they need scratch space of
+  // any sort.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/arena_planner.cc' l='234' u='r' c='_ZN6tflite12ArenaPlanner36CalculateAllocationOfInternalTensorsEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/arena_planner.cc' l='247' u='r' c='_ZN6tflite12ArenaPlanner38CalculateDeallocationOfInternalTensorsEi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='117' u='r' c='_ZN6tflite11InterpreterD1Ev'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='395' u='r' c='_ZN6tflite11Interpreter21AddNodeWithParametersERKSt6vectorIiSaIiEES5_PKcmPvPK19_TfLiteRegistrationPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='395' u='r' c='_ZN6tflite11Interpreter21AddNodeWithParametersERKSt6vectorIiSaIiEES5_PKcmPvPK19_TfLiteRegistrationPi'/>
+<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='402' u='w' c='_ZN6tflite11Interpreter21AddNodeWithParametersERKSt6vectorIiSaIiEES5_PKcmPvPK19_TfLiteRegistrationPi'/>

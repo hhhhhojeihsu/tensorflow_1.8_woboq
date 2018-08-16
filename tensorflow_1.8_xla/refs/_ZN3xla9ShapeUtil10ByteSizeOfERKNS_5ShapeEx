@@ -1,0 +1,22 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='170' type='static int64 xla::ShapeUtil::ByteSizeOf(const xla::Shape &amp; shape, int64 pointer_size = -1)'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='741' u='c' c='_ZNK3xla7Literal5Piece10size_bytesEv'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='163'>// Returns the number of bytes required for an allocation of shape.  The
+  // |pointer_size| parameter is used for calculating the size of tuple
+  // shapes. This includes only the size of the top-level buffer. For example, a
+  // tuple is stored as an array of pointers to other buffers. In this case,
+  // this method only returns the size of the pointer array.
+  // Precondition: (!ShapeUtil::IsTuple(shape) || pointer_size &gt; 0) &amp;&amp;
+  //               !ShapeUtil::IsOpaque(shape)</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='821' u='c' c='_ZNK3xla7Literal9TransposeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='822' u='c' c='_ZNK3xla7Literal9TransposeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='334' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor18ReplaceWithBitcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='335' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor18ReplaceWithBitcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.h' l='83' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable14ShapeSizeBytesERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='509' u='c' c='_ZN3xla3cpu11CpuCompiler10RunBackendESt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EEPN9perftools8gputools14StreamExecutorEPNS_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='360' u='c' c='_ZN3xla3cpu13CpuExecutable14ShapeSizeBytesERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/external_constant_pool.cc' l='35' u='c' c='_ZN3xla3cpu20ExternalConstantPool6InsertESsRKNS_7LiteralEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1950' u='c' c='_ZN3xla3cpu9IrEmitter11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='167' u='c' c='_ZNK3xla22GenericTransferManager22GetByteSizeRequirementERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='613' u='c' c='_ZN3xla7llvm_ir10ByteSizeOfERKNS_5ShapeERKN4llvm10DataLayoutE'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='711' ll='723' type='static int64 xla::ShapeUtil::ByteSizeOf(const xla::Shape &amp; shape, int64 pointer_size = -1)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='711'>/* static */</doc>

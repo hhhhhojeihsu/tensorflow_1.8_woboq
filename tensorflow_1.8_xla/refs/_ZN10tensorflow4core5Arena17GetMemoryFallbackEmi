@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/lib/core/arena.h' l='66' type='void * tensorflow::core::Arena::GetMemoryFallback(const size_t size, const int align)'/>
+<use f='tensorflow/tensorflow/core/lib/core/arena.h' l='75' u='c' c='_ZN10tensorflow4core5Arena9GetMemoryEmi'/>
+<def f='tensorflow/tensorflow/core/lib/core/arena.cc' l='194' ll='220' type='void * tensorflow::core::Arena::GetMemoryFallback(const size_t size, const int alignment)'/>
+<doc f='tensorflow/tensorflow/core/lib/core/arena.cc' l='184'>// ----------------------------------------------------------------------
+// Arena::GetMemoryFallback()
+//    We take memory out of our pool, aligned on the byte boundary
+//    requested.  If we don&apos;t have space in our current pool, we
+//    allocate a new block (wasting the remaining space in the
+//    current block) and give you that.  If your memory needs are
+//    too big for a single block, we make a special your-memory-only
+//    allocation -- this is equivalent to not using the arena at all.
+// ----------------------------------------------------------------------</doc>

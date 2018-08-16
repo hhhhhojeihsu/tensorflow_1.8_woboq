@@ -1,0 +1,11 @@
+<dec f='include/python3.5m/abstract.h' l='502' type='int PyObject_AsWriteBuffer(PyObject * obj, void ** buffer, Py_ssize_t * buffer_len)'/>
+<doc f='include/python3.5m/abstract.h' l='491'>/*
+      Same as PyObject_AsCharBuffer() except that this API expects
+      (readable, single segment) buffer interface and returns a
+      pointer to a read-only memory location which can contain
+      arbitrary data.
+
+      0 is returned on success.  buffer and buffer_len are only
+      set in case no error occurs.  Otherwise, -1 is returned and
+      an exception set.
+       */</doc>

@@ -1,0 +1,23 @@
+<def f='tensorflow/tensorflow/compiler/xla/shape_layout.h' l='62' type='const xla::Shape &amp; xla::ShapeLayout::shape() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/computation_layout.h' l='63' u='c' c='_ZNK3xla17ComputationLayout15parameter_shapeEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/computation_layout.h' l='65' u='c' c='_ZNK3xla17ComputationLayout12result_shapeEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='51' u='c' c='_ZNK3xla15LocalExecutable13result_layoutEv'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_layout.h' l='61'>// Returns the shape (with layouts).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='73' u='c' c='_ZN3xla15LocalExecutable24ValidateExecutionOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEERKNS_20ExecutableRunOptionsERKNS_7BackendE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='239' u='c' c='_ZN3xla9HloModule15CreateFromProtoERKNS_14HloModuleProtoERKNS_15HloModuleConfigERKNS_26VersionedComputationHandleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='249' u='c' c='_ZN3xla9HloModule15CreateFromProtoERKNS_14HloModuleProtoERKNS_15HloModuleConfigERKNS_26VersionedComputationHandleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module_config.cc' l='48' u='c' c='_ZNK3xla15HloModuleConfig21compilation_cache_keyEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='120' u='c' c='_ZN3xla12_GLOBAL__N_126CopyOperandIfLayoutsDifferERKNS_11ShapeLayoutEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='126' u='c' c='_ZN3xla12_GLOBAL__N_126CopyOperandIfLayoutsDifferERKNS_11ShapeLayoutEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='160' u='c' c='_ZN3xla23OperandLayoutConstraintC1ERKNS_11ShapeLayoutEPKNS_14HloInstructionExbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='162' u='c' c='_ZN3xla23OperandLayoutConstraintC1ERKNS_11ShapeLayoutEPKNS_14HloInstructionExbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='501' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='551' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='556' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='669' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='883' u='c' c='_ZN3xla16LayoutAssignment12CheckLayoutsEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1148' u='c' c='_ZN3xla16LayoutAssignment28PropagateUseConstraintToDefsERKNS_11ShapeLayoutEPKNS_14HloInstructionEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1153' u='c' c='_ZN3xla16LayoutAssignment28PropagateUseConstraintToDefsERKNS_11ShapeLayoutEPKNS_14HloInstructionEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1456' u='c' c='_ZN3xla16LayoutAssignment13AssignLayoutsERKNS_17LayoutConstraintsEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_layout.cc' l='29' u='c' c='_ZN3xla11ShapeLayout19CopyLayoutFromShapeERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_layout.cc' l='39' u='c' c='_ZNK3xla11ShapeLayout19AssignLayoutToShapeEPNS_5ShapeE'/>

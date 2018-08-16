@@ -1,0 +1,26 @@
+<dec f='tensorflow/tensorflow/core/util/padding.h' l='39' type='1'/>
+<doc f='tensorflow/tensorflow/core/util/padding.h' l='39'>// No padding.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='63' u='r' c='_ZN10tensorflow12_GLOBAL__N_19PoolingOpC1EPNS_20OpKernelConstructionEiNS_8DataTypeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='343' u='r' c='_ZN10tensorflow12_GLOBAL__N_113MaxPoolGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='469' u='r' c='_ZN10tensorflow12_GLOBAL__N_113AvgPoolGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='653' u='r' c='_ZN10tensorflow12_GLOBAL__N_117MaxPoolGradGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='36' c='_ZN10tensorflow30GetWindowedOutputSizeVerboseV2ExxxxNS_7PaddingEPxS1_S1_'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='139' c='_ZN10tensorflow15shape_inference31GetWindowedOutputSizeFromDimsV2EPNS0_16InferenceContextENS0_15DimensionHandleENS0_19DimensionOrConstantExxNS_7PaddingEPS3_'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='76' u='r' c='_ZN10tensorflow8grappler12_GLOBAL__N_110GetPaddingERKNS_6OpInfoE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='118' u='r' c='_ZN10tensorflow8grappler12_GLOBAL__N_113GetOutputSizeExxxRKNS_7PaddingE'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/op_level_cost_estimator.cc' l='531' u='r' c='_ZN10tensorflow8grappler20OpLevelCostEstimator31ConvolutionDimensionsFromInputsERKNS_16TensorShapeProtoES4_RKNS_6OpInfoEPb'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_grad_ops_3d.cc' l='222' u='r' c='_ZN10tensorflow21Conv3DBackpropInputOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_grad_ops_3d.cc' l='361' u='r' c='_ZN10tensorflow22Conv3DBackpropFilterOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_ops.cc' l='90' u='r' c='_ZN10tensorflow12_GLOBAL__N_113LaunchGenericclEPNS_15OpKernelContextERKNS_6TensorES6_iiiiRKNS_7PaddingEPS4_NS_12TensorFormatE'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_ops_fused.cc' l='294' u='r' c='_ZN10tensorflow12_GLOBAL__N_128FusedResizeAndPadConvFunctorclEPNS_15OpKernelContextERKNS_6TensorEiiiiiiPKT0_iiiiiNS_7PaddingEPT1_iiRKNS_17ImageResizerStateEiiiii'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_ops_using_gemm.cc' l='110' u='r' c='_ZN10tensorflow12_GLOBAL__N_120ReferenceConvFunctorclEPNS_15OpKernelContextEPKT_iiiiPKT0_iiiiiNS_7PaddingEPT1_ii'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_ops_using_gemm.cc' l='252' u='r' c='_ZN10tensorflow12_GLOBAL__N_117Im2ColConvFunctorclEPNS_15OpKernelContextEPKT_iiiiPKT0_iiiiiNS_7PaddingEPT1_ii'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_ops_using_gemm.cc' l='271' u='r' c='_ZN10tensorflow12_GLOBAL__N_117Im2ColConvFunctorclEPNS_15OpKernelContextEPKT_iiiiPKT0_iiiiiNS_7PaddingEPT1_ii'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='663' u='r' c='_ZN10tensorflow15GraphTransferer33RegisterNodeWithPaddingAndStridesERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_12ShapeRefinerERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='694' u='r' c='_ZN10tensorflow15GraphTransferer20RegisterNodeWithRankERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_12ShapeRefinerERKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='1018' c='_ZN10tensorflow15GraphTransferer20ToPaddingDebugStringEi'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/hexagon_control_wrapper.cc' l='294' u='r' c='_ZN10tensorflow21HexagonControlWrapper10SetupGraphEv'/>
+<use f='tensorflow/tensorflow/core/kernels/ops_util.cc' l='29' c='_ZN10tensorflow25BrainPadding2EigenPaddingENS_7PaddingE'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_conv_ops.cc' l='89' u='r' c='_ZN10tensorflow20ReferenceConvFunctorclEPNS_15OpKernelContextEPKT_iiiiiPKT0_iiiiiNS_7PaddingEPT1_iiiii'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_conv_ops.cc' l='234' u='r' c='_ZN10tensorflow17Im2ColConvFunctorclEPNS_15OpKernelContextEPKT_iiiiiPKT0_iiiiiNS_7PaddingEPT1_iiiii'/>
+<use f='tensorflow/tensorflow/core/util/padding.cc' l='31' u='r' c='_ZN10tensorflow11GetNodeAttrERKNS_7NodeDefENS_11StringPieceEPNS_7PaddingE'/>

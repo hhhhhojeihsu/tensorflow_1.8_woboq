@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='256' type='llvm::Value * xla::cpu::VectorSupportLibrary::AvxStyleHorizontalAdd(llvm::Value * lhs, llvm::Value * rhs)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='242'>// Perform an X86 AVX style horizontal add between `lhs` and `rhs`.  The
+  // resulting IR for an 8-float wide vector is expected to lower to a single
+  // vhaddps instruction on a CPU that supports vhaddps, and not be too bad in
+  // other cases.
+  //
+  // For a vector width of 8, the result vector is computed as:
+  //   Result[0] = Lhs[0] + Lhs[1]
+  //   Result[1] = Lhs[2] + Lhs[3]
+  //   Result[2] = Rhs[0] + Rhs[1]
+  //   Result[3] = Rhs[2] + Rhs[3]
+  //   Result[4] = Lhs[4] + Lhs[5]
+  //   Result[5] = Lhs[6] + Lhs[7]
+  //   Result[6] = Rhs[4] + Rhs[5]
+  //   Result[7] = Rhs[6] + Rhs[7]</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='286' ll='325' type='llvm::Value * xla::cpu::VectorSupportLibrary::AvxStyleHorizontalAdd(llvm::Value * lhs, llvm::Value * rhs)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='379' u='c' c='_ZN3xla3cpu20VectorSupportLibrary33ComputeAvxOptimizedHorizontalSumsESt6vectorIPN4llvm5ValueESaIS5_EES5_'/>

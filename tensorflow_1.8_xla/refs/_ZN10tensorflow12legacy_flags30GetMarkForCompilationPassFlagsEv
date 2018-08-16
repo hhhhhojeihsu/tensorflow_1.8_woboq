@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/jit/legacy_flags/mark_for_compilation_pass_flags.h' l='63' type='MarkForCompilationPassFlags * tensorflow::legacy_flags::GetMarkForCompilationPassFlags()'/>
+<def f='tensorflow/tensorflow/compiler/jit/legacy_flags/mark_for_compilation_pass_flags.cc' l='80' ll='83' type='MarkForCompilationPassFlags * tensorflow::legacy_flags::GetMarkForCompilationPassFlags()'/>
+<doc f='tensorflow/tensorflow/compiler/jit/legacy_flags/mark_for_compilation_pass_flags.cc' l='77'>// Return a pointer to the MarkForCompilationPassFlags struct;
+// repeated calls return the same pointer.
+// This should be called only after Flags::Parse() has returned.</doc>
+<doc f='tensorflow/tensorflow/compiler/jit/legacy_flags/mark_for_compilation_pass_flags.h' l='60'>// Return a pointer to the MarkForCompilationPassFlags struct;
+// repeated calls return the same pointer.
+// This should be called only after Flags::Parse() has returned.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='348' u='c' c='_ZN10tensorflow12_GLOBAL__N_125FindCompilationCandidatesERKNS_5GraphEPNS_25FunctionLibraryDefinitionEPNS_3EnvERKSt8functionIFbPKNS_4NodeERKNS_10Device15558984'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='488' u='c' c='_ZN10tensorflow22MarkForCompilationPass3RunERKNS_28GraphOptimizationPassOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='660' u='c' c='_ZN10tensorflow22MarkForCompilationPass7RunImplERKNS_28GraphOptimizationPassOptionsERKSt8functionIFbPKNS_4NodeERKNS_10DeviceTypeEEE'/>

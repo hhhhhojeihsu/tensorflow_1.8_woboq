@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='108' type='int64 xla::TransferManager::GetByteSizeRequirement(const xla::Shape &amp; shape) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='105'>// Determines the byte size requirement for the given shape on the underlying
+  // architecture. This will be used to allocate an appropriately sized memory
+  // region for a host-to-device transfer.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='62' u='c' c='_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='166' c='_ZNK3xla22GenericTransferManager22GetByteSizeRequirementERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='51' u='c' c='_ZN3xla15TransferManager21TransferArrayToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='55' u='c' c='_ZN3xla15TransferManager21TransferArrayToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='70' u='c' c='_ZN3xla15TransferManager23TransferArrayFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_5ShapeERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='74' u='c' c='_ZN3xla15TransferManager23TransferArrayFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_5ShapeERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='126' u='c' c='_ZN3xla15TransferManager21WriteTupleIndexTablesEPN9perftools8gputools14StreamExecutorERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='206' u='c' c='_ZN3xla15TransferManager20AllocateShapedBufferERKNS_5ShapeEPNS_21DeviceMemoryAllocatorEi'/>

@@ -1,0 +1,37 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='97' type='tensorflow::Status tensorflow::XlaOpKernelContext::ConstantInput(int index, xla::Literal * constant_literal)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='92'>// Helper methods for constant inputs.
+
+  // Evaluates input &apos;index&apos; and stores it in &apos;*constant_literal&apos;. If the
+  // expression cannot be evaluated, e.g., because it depends on unbound
+  // parameters, returns a non-OK status.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/bcast_ops.cc' l='97' u='c' c='_ZN10tensorflow12_GLOBAL__N_115BCastGradArgsOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/concat_op.cc' l='53' u='c' c='_ZN10tensorflow12_GLOBAL__N_112ConcatBaseOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/concat_op.cc' l='164' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ConcatOffsetOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/concat_op.cc' l='168' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ConcatOffsetOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/concat_op.cc' l='184' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ConcatOffsetOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reshape_op.cc' l='44' u='c' c='_ZN10tensorflow12_GLOBAL__N_19ReshapeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/retval_op.cc' l='60' u='c' c='_ZN10tensorflow12_GLOBAL__N_18RetvalOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/sequence_ops.cc' l='34' u='c' c='_ZN10tensorflow12_GLOBAL__N_18GetValueEiPNS_18XlaOpKernelContextEPT_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/sequence_ops.cc' l='41' u='c' c='_ZN10tensorflow12_GLOBAL__N_111GetIntValueEiPNS_18XlaOpKernelContextEPx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/sequence_ops.cc' l='112' u='c' c='_ZN10tensorflow12_GLOBAL__N_17RangeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/sequence_ops.cc' l='113' u='c' c='_ZN10tensorflow12_GLOBAL__N_17RangeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/sequence_ops.cc' l='114' u='c' c='_ZN10tensorflow12_GLOBAL__N_17RangeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/split_op.cc' l='41' u='c' c='_ZN10tensorflow12_GLOBAL__N_17SplitOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/split_op.cc' l='153' u='c' c='_ZN10tensorflow12_GLOBAL__N_18SplitVOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='53' u='c' c='_ZN10tensorflow12_GLOBAL__N_114StridedSliceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='54' u='c' c='_ZN10tensorflow12_GLOBAL__N_114StridedSliceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='55' u='c' c='_ZN10tensorflow12_GLOBAL__N_114StridedSliceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='137' u='c' c='_ZN10tensorflow12_GLOBAL__N_118StridedSliceGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='138' u='c' c='_ZN10tensorflow12_GLOBAL__N_118StridedSliceGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='139' u='c' c='_ZN10tensorflow12_GLOBAL__N_118StridedSliceGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='245' u='c' c='_ZN10tensorflow12_GLOBAL__N_120StridedSliceAssignOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='246' u='c' c='_ZN10tensorflow12_GLOBAL__N_120StridedSliceAssignOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='247' u='c' c='_ZN10tensorflow12_GLOBAL__N_120StridedSliceAssignOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tile_ops.cc' l='62' u='c' c='_ZN10tensorflow12_GLOBAL__N_16TileOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='72' ll='76' type='tensorflow::Status tensorflow::XlaOpKernelContext::ConstantInput(int index, xla::Literal * constant_literal)'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='189' u='c' c='_ZN10tensorflow18XlaOpKernelContext24ConstantInputAsIntScalarEiPx'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='195' u='c' c='_ZN10tensorflow18XlaOpKernelContext26ConstantInputAsFloatScalarEiPd'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='223' u='c' c='_ZN10tensorflow18XlaOpKernelContext24ConstantInputAsIntVectorEiPSt6vectorIxSaIxEE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='230' u='c' c='_ZN10tensorflow18XlaOpKernelContext27ConstantInputAsInt64LiteralEiPN3xla7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='256' u='c' c='_ZN10tensorflow18XlaOpKernelContext20ConstantInputAsShapeEiPNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='283' u='c' c='_ZN10tensorflow18XlaOpKernelContext17ConstantInputListENS_11StringPieceEPSt6vectorIN3xla7LiteralESaIS4_EE'/>

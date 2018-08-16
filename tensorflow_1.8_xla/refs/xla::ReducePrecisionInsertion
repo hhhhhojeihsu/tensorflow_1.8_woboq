@@ -1,0 +1,24 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_interface.h' l='29' c='xla::HloPassInterface'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/reduce_precision_insertion.h' l='32' ll='150'/>
+<size>56</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/reduce_precision_insertion.h' l='29'>// HLO pass which inserts reduce-precision instructions into the HLO graph, for
+// purposes of experimenting with the effects of reduced-precision storage of
+// intermediate values.</doc>
+<fun r='_ZN3xla24ReducePrecisionInsertionC1EiiNS_34HloReducePrecisionOptions_LocationERKSt8functionIFbPKNS_14HloInstructionEEE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertionC1ERKNS_25HloReducePrecisionOptionsE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertionD1Ev'/>
+<fun r='_ZNK3xla24ReducePrecisionInsertion4nameEv'/>
+<fun r='_ZN3xla24ReducePrecisionInsertion3RunEPNS_9HloModuleE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertion20make_filter_functionERKNS_25HloReducePrecisionOptionsE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertion18make_options_protoENS_34HloReducePrecisionOptions_LocationEiiRKSt8functionIFbNS_9HloOpcodeEEERKSt6vectorISsSaISsEE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertion9AddPassesEPNS_15HloPassPipelineERKNS_12DebugOptionsENS0_10PassTimingE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertion22instructions_to_modifyEPKNS_14HloComputationE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertion12insert_afterEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertion16insert_on_inputsERKSt6vectorIPNS_14HloInstructionESaIS3_EE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertion17insert_on_outputsERKSt6vectorIPNS_14HloInstructionESaIS3_EE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertion14is_valid_shapeERKNS_5ShapeE'/>
+<fun r='_ZN3xla24ReducePrecisionInsertion12is_redundantEPKNS_14HloInstructionE'/>
+<mbr r='xla::ReducePrecisionInsertion::exponent_bits_' o='64' t='const int'/>
+<mbr r='xla::ReducePrecisionInsertion::mantissa_bits_' o='96' t='const int'/>
+<mbr r='xla::ReducePrecisionInsertion::location_' o='128' t='const HloReducePrecisionOptions::Location'/>
+<mbr r='xla::ReducePrecisionInsertion::instruction_filter_function_' o='192' t='const InstructionFilterFunction'/>

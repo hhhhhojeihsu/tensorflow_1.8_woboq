@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/stream_executor/device_description.h' l='379' type='uint64 perftools::gputools::CalculateOccupancy(const perftools::gputools::DeviceDescription &amp; device_description, uint64 registers_per_thread, uint64 shared_memory_per_block, const perftools::gputools::ThreadDim &amp; thread_dims)'/>
+<doc f='tensorflow/tensorflow/stream_executor/device_description.h' l='376'>// Compute and return maximum blocks per core (occupancy) based on the
+// device description, some kernel characteristics and the number of threads per
+// block.  If unable to compute occupancy, zero is returned.</doc>
+<def f='tensorflow/tensorflow/stream_executor/device_description.cc' l='166' ll='216' type='uint64 perftools::gputools::CalculateOccupancy(const perftools::gputools::DeviceDescription &amp; device_description, uint64 registers_per_thread, uint64 shared_memory_per_block, const perftools::gputools::ThreadDim &amp; thread_dims)'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.cc' l='228' u='c' c='_ZN9perftools8gputools40CalculateRegisterLimitForTargetOccupancyERKNS0_17DeviceDescriptionEyRKNS0_9ThreadDimEy'/>

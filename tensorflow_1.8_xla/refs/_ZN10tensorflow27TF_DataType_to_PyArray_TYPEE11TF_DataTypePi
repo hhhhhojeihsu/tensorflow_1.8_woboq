@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.h' l='46' type='tensorflow::Status tensorflow::TF_DataType_to_PyArray_TYPE(TF_DataType tf_datatype, int * out_pyarray_type)'/>
+<doc f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.h' l='45'>// Converts TF_DataType to the corresponding numpy type.</doc>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tensor.cc' l='239' u='c' c='EagerTensor_init'/>
+<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='309' u='c' c='_ZN10tensorflow12_GLOBAL__N_124GetPyArrayDescrForTensorEPK9TF_TensorPP14_PyArray_Descr'/>
+<def f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.cc' l='109' ll='186' type='tensorflow::Status tensorflow::TF_DataType_to_PyArray_TYPE(TF_DataType tf_datatype, int * out_pyarray_type)'/>
+<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.cc' l='201' u='c' c='_ZN10tensorflow15ArrayFromMemoryEiPlPvNS_8DataTypeESt8functionIFvvEEPP7_object'/>
+<use f='tensorflow/tensorflow/python/lib/core/py_func.cc' l='386' u='c' c='_ZN10tensorflow22ConvertTensorToNdarrayERKNS_6TensorEPP7_object'/>

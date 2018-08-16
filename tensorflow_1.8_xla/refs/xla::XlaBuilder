@@ -1,0 +1,183 @@
+<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='75' ll='890'/>
+<size>592</size>
+<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='70'>// A convenient interface for building up computations.
+//
+// Thread-compatible.
+//
+// TODO(b/74197823): Replace xla::ComputationBuilder with this one.</doc>
+<fun r='_ZN3xla10XlaBuilderC1ERKSs'/>
+<fun r='_ZN3xla10XlaBuilderC1ERKS0_'/>
+<fun r='_ZN3xla10XlaBuilderaSERKS0_'/>
+<fun r='_ZN3xla10XlaBuilderD1Ev'/>
+<fun r='_ZNK3xla10XlaBuilder4nameEv'/>
+<fun r='_ZN3xla10XlaBuilder13SetOpMetadataERKNS_10OpMetadataE'/>
+<fun r='_ZN3xla10XlaBuilder15ClearOpMetadataEv'/>
+<fun r='_ZN3xla10XlaBuilder11SetShardingERKNS_10OpShardingE'/>
+<fun r='_ZN3xla10XlaBuilder13ClearShardingEv'/>
+<fun r='_ZNK3xla10XlaBuilder8shardingEv'/>
+<fun r='_ZN3xla10XlaBuilder28set_die_immediately_on_errorEb'/>
+<fun r='_ZN3xla10XlaBuilder9ParameterExRKNS_5ShapeERKSs'/>
+<fun r='_ZN3xla10XlaBuilder15ConstantLiteralERKNS_7LiteralE'/>
+<fun r='_ZN3xla10XlaBuilder10ConstantR0ET_'/>
+<fun r='_ZN3xla10XlaBuilder10ConstantR1EN10tensorflow3gtl10ArraySliceIT_EE'/>
+<fun r='_ZN3xla10XlaBuilder10ConstantR1ERKN10tensorflow4core6BitmapE'/>
+<fun r='_ZN3xla10XlaBuilder10ConstantR2ESt16initializer_listIS1_IT_EE'/>
+<fun r='_ZN3xla10XlaBuilder27ConstantFromArrayWithLayoutERKNS_5ArrayIT_EERKNS_6LayoutE'/>
+<fun r='_ZN3xla10XlaBuilder17ConstantFromArrayERKNS_5ArrayIT_EE'/>
+<fun r='_ZN3xla10XlaBuilder31ConstantR2FromArray2DWithLayoutERKNS_7Array2DIT_EERKNS_6LayoutE'/>
+<fun r='_ZN3xla10XlaBuilder21ConstantR2FromArray2DERKNS_7Array2DIT_EE'/>
+<fun r='_ZN3xla10XlaBuilder31ConstantR3FromArray3DWithLayoutERKNS_7Array3DIT_EERKNS_6LayoutE'/>
+<fun r='_ZN3xla10XlaBuilder21ConstantR3FromArray3DERKNS_7Array3DIT_EE'/>
+<fun r='_ZN3xla10XlaBuilder31ConstantR4FromArray4DWithLayoutERKNS_7Array4DIT_EERKNS_6LayoutE'/>
+<fun r='_ZN3xla10XlaBuilder21ConstantR4FromArray4DERKNS_7Array4DIT_EE'/>
+<fun r='_ZN3xla10XlaBuilder10ConstantR1ExT_'/>
+<fun r='_ZN3xla10XlaBuilder9BroadcastERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3PadERKNS_5XlaOpES3_RKNS_13PaddingConfigE'/>
+<fun r='_ZN3xla10XlaBuilder7ReshapeERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEES7_'/>
+<fun r='_ZN3xla10XlaBuilder7ReshapeERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder8CollapseERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder5SliceERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEES7_S7_'/>
+<fun r='_ZN3xla10XlaBuilder10SliceInDimERKNS_5XlaOpExxxx'/>
+<fun r='_ZN3xla10XlaBuilder12DynamicSliceERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder18DynamicUpdateSliceERKNS_5XlaOpES3_S3_'/>
+<fun r='_ZN3xla10XlaBuilder11ConcatInDimEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEEx'/>
+<fun r='_ZN3xla10XlaBuilder5TraceERKSsRKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder6SelectERKNS_5XlaOpES3_S3_'/>
+<fun r='_ZN3xla10XlaBuilder5TupleEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEE'/>
+<fun r='_ZN3xla10XlaBuilder15GetTupleElementERKNS_5XlaOpEx'/>
+<fun r='_ZN3xla10XlaBuilder2EqERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder2NeERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder2GeERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder2GtERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder2LtERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder2LeERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3DotERKNS_5XlaOpES3_'/>
+<fun r='_ZN3xla10XlaBuilder10DotGeneralERKNS_5XlaOpES3_RKNS_19DotDimensionNumbersE'/>
+<smbr r='xla::XlaBuilder::kConvBatchDimension' t='const int64'/>
+<smbr r='xla::XlaBuilder::kConvFeatureDimension' t='const int64'/>
+<smbr r='xla::XlaBuilder::kConvFirstSpatialDimension' t='const int64'/>
+<smbr r='xla::XlaBuilder::kConvSecondSpatialDimension' t='const int64'/>
+<smbr r='xla::XlaBuilder::kConvKernelOutputDimension' t='const int64'/>
+<smbr r='xla::XlaBuilder::kConvKernelInputDimension' t='const int64'/>
+<smbr r='xla::XlaBuilder::kConvKernelFirstSpatialDimension' t='const int64'/>
+<smbr r='xla::XlaBuilder::kConvKernelSecondSpatialDimension' t='const int64'/>
+<fun r='_ZN3xla10XlaBuilder33CreateDefaultConvDimensionNumbersEi'/>
+<fun r='_ZN3xla10XlaBuilder8ValidateERKNS_27ConvolutionDimensionNumbersE'/>
+<fun r='_ZN3xla10XlaBuilder4ConvERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEENS_7PaddingE'/>
+<fun r='_ZN3xla10XlaBuilder22ConvWithGeneralPaddingERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEENS6_ISt4pairIxxEEE'/>
+<fun r='_ZN3xla10XlaBuilder25ConvWithGeneralDimensionsERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEENS_7PaddingERKNS_27ConvolutionDimensionNumbersE'/>
+<fun r='_ZN3xla10XlaBuilder11ConvGeneralERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEENS6_ISt4pairIxxEEERKNS_27ConvolutionDimensionNumbersE'/>
+<fun r='_ZN3xla10XlaBuilder18ConvGeneralDilatedERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEENS6_ISt4pairIxxEEES7_S7_RKNS_27ConvolutionDimensionNumbersE'/>
+<fun r='_ZN3xla10XlaBuilder3FftERKNS_5XlaOpENS_7FftTypeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder6InfeedERKNS_5ShapeERKSs'/>
+<fun r='_ZN3xla10XlaBuilder7OutfeedERKNS_5XlaOpERKNS_5ShapeERKSs'/>
+<fun r='_ZN3xla10XlaBuilder4CallERKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEE'/>
+<fun r='_ZN3xla10XlaBuilder10CustomCallERKSsN10tensorflow3gtl10ArraySliceINS_5XlaOpEEERKNS_5ShapeE'/>
+<fun r='_ZN3xla10XlaBuilder11HostComputeEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEERKSsxRKNS_5ShapeE'/>
+<fun r='_ZN3xla10XlaBuilder7ComplexERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder4ConjERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder3AddERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3SubERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3MulERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3DivERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3RemERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3MaxERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3MinERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3AndERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder2OrERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3XorERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3NotERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder9ShiftLeftERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder20ShiftRightArithmeticERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder17ShiftRightLogicalERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder6ReduceERKNS_5XlaOpES3_RKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder9ReduceAllERKNS_5XlaOpES3_RKNS_14XlaComputationE'/>
+<fun r='_ZN3xla10XlaBuilder12ReduceWindowERKNS_5XlaOpES3_RKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIxEESA_NS_7PaddingE'/>
+<fun r='_ZN3xla10XlaBuilder30ReduceWindowWithGeneralPaddingERKNS_5XlaOpES3_RKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIxEESA_NS9_ISt4pairIxxEEE'/>
+<fun r='_ZN3xla10XlaBuilder15CrossReplicaSumERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder16SelectAndScatterERKNS_5XlaOpERKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIxEESA_NS_7PaddingES3_S3_S6_'/>
+<fun r='_ZN3xla10XlaBuilder34SelectAndScatterWithGeneralPaddingERKNS_5XlaOpERKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIxEESA_NS9_ISt4pairIxxEEES3_S3_S6_'/>
+<fun r='_ZN3xla10XlaBuilder3AbsERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder5Atan2ERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3ExpERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder5FloorERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder4CeilERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder5RoundERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder3LogERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder4SignERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder3CosERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder3SinERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder4TanhERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder4RealERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder4ImagERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder7SqrtF32ERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder9SquareF32ERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder3PowERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder8IsFiniteERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder18ConvertElementTypeERKNS_5XlaOpENS_13PrimitiveTypeE'/>
+<fun r='_ZN3xla10XlaBuilder18BitcastConvertTypeERKNS_5XlaOpENS_13PrimitiveTypeE'/>
+<fun r='_ZN3xla10XlaBuilder13ReciprocalF32ERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder3NegERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder9TransposeERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder3RevERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder4SortERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder5ClampERKNS_5XlaOpES3_S3_'/>
+<fun r='_ZN3xla10XlaBuilder3MapEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEERKNS_14XlaComputationENS3_IxEES5_'/>
+<fun r='_ZN3xla10XlaBuilder9RngNormalERKNS_5XlaOpES3_RKNS_5ShapeE'/>
+<fun r='_ZN3xla10XlaBuilder10RngUniformERKNS_5XlaOpES3_RKNS_5ShapeE'/>
+<fun r='_ZN3xla10XlaBuilder5WhileERKNS_14XlaComputationES3_RKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder11ConditionalERKNS_5XlaOpES3_RKNS_14XlaComputationES3_S6_'/>
+<fun r='_ZN3xla10XlaBuilder15ReducePrecisionERKNS_5XlaOpEii'/>
+<fun r='_ZN3xla10XlaBuilder6GatherERKNS_5XlaOpES3_RKNS_22GatherDimensionNumbersEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder4SendERKNS_5XlaOpERKNS_13ChannelHandleE'/>
+<fun r='_ZN3xla10XlaBuilder4RecvERKNS_5ShapeERKNS_13ChannelHandleE'/>
+<fun r='_ZN3xla10XlaBuilder10IsConstantERKNS_5XlaOpEx'/>
+<fun r='_ZN3xla10XlaBuilder17BatchNormTrainingERKNS_5XlaOpES3_S3_fx'/>
+<fun r='_ZN3xla10XlaBuilder18BatchNormInferenceERKNS_5XlaOpES3_S3_S3_S3_fx'/>
+<fun r='_ZN3xla10XlaBuilder13BatchNormGradERKNS_5XlaOpES3_S3_S3_S3_fx'/>
+<fun r='_ZN3xla10XlaBuilder15ComputeConstantERKNS_5XlaOpEPKNS_6LayoutEN10tensorflow3gtl10ArraySliceINS_7LiteralEEE'/>
+<fun r='_ZN3xla10XlaBuilder16CreateSubBuilderERKSs'/>
+<fun r='_ZN3xla10XlaBuilder14SetReturnValueERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder5BuildEv'/>
+<fun r='_ZN3xla10XlaBuilder17BuildAndNoteErrorEv'/>
+<fun r='_ZNK3xla10XlaBuilder11first_errorEv'/>
+<fun r='_ZNK3xla10XlaBuilder8GetShapeERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder15GetProgramShapeEv'/>
+<fun r='_ZN3xla10XlaBuilder14AddInstructionEONS_19HloInstructionProtoENS_9HloOpcodeEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEE'/>
+<fun r='_ZN3xla10XlaBuilder20AddCalledComputationERKNS_14XlaComputationEPNS_19HloInstructionProtoE'/>
+<fun r='_ZN3xla10XlaBuilder9NoteErrorERKN10tensorflow6StatusE'/>
+<fun r='_ZN3xla10XlaBuilder17NoteErrorOrReturnERKSt8functionIFNS_8StatusOrINS_5XlaOpEEEvEE'/>
+<fun r='_ZN3xla10XlaBuilder15UnimplementedOpEv'/>
+<fun r='_ZNK3xla10XlaBuilder17LookUpInstructionERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder7UnaryOpENS_9HloOpcodeERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder8BinaryOpENS_9HloOpcodeERKNS_5XlaOpES4_N10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder9TernaryOpENS_9HloOpcodeERKNS_5XlaOpES4_S4_'/>
+<fun r='_ZN3xla10XlaBuilder5RngOpENS_18RandomDistributionEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEERKNS_5ShapeE'/>
+<fun r='_ZN3xla10XlaBuilder14InDimBroadcastERKNS_5ShapeERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>
+<fun r='_ZN3xla10XlaBuilder20AddBroadcastSequenceERKNS_5ShapeERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder7ReshapeERKNS_5ShapeERKNS_5XlaOpE'/>
+<fun r='_ZN3xla10XlaBuilder15GetProgramShapeEPx'/>
+<mbr r='xla::XlaBuilder::name_' o='0' t='string'/>
+<mbr r='xla::XlaBuilder::unique_id_' o='64' t='int64'/>
+<mbr r='xla::XlaBuilder::first_error_' o='128' t='tensorflow::Status'/>
+<mbr r='xla::XlaBuilder::first_error_backtrace_' o='192' t='tensorflow::SavedStackTrace'/>
+<mbr r='xla::XlaBuilder::instructions_' o='2240' t='std::vector&lt;HloInstructionProto&gt;'/>
+<mbr r='xla::XlaBuilder::embedded_' o='2432' t='std::map&lt;int64, HloComputationProto&gt;'/>
+<mbr r='xla::XlaBuilder::parameter_numbers_' o='2816' t='tensorflow::gtl::FlatSet&lt;int64&gt;'/>
+<mbr r='xla::XlaBuilder::metadata_' o='3328' t='xla::OpMetadata'/>
+<mbr r='xla::XlaBuilder::sharding_' o='3712' t='tensorflow::gtl::optional&lt;OpSharding&gt;'/>
+<mbr r='xla::XlaBuilder::die_immediately_on_error_' o='4608' t='bool'/>
+<mbr r='xla::XlaBuilder::parent_builder_' o='4672' t='xla::XlaBuilder *'/>
+<fun r='_ZN3xla10XlaBuilder10ConstantR0ET_'/>
+<fun r='_ZN3xla10XlaBuilder10ConstantR1EN10tensorflow3gtl10ArraySliceIT_EE'/>
+<fun r='_ZN3xla10XlaBuilder10ConstantR1ExT_'/>
+<fun r='_ZN3xla10XlaBuilder10ConstantR1ERKN10tensorflow4core6BitmapE'/>
+<fun r='_ZN3xla10XlaBuilder10ConstantR2ESt16initializer_listIS1_IT_EE'/>
+<fun r='_ZN3xla10XlaBuilder27ConstantFromArrayWithLayoutERKNS_5ArrayIT_EERKNS_6LayoutE'/>
+<fun r='_ZN3xla10XlaBuilder17ConstantFromArrayERKNS_5ArrayIT_EE'/>
+<fun r='_ZN3xla10XlaBuilder31ConstantR2FromArray2DWithLayoutERKNS_7Array2DIT_EERKNS_6LayoutE'/>
+<fun r='_ZN3xla10XlaBuilder21ConstantR2FromArray2DERKNS_7Array2DIT_EE'/>
+<fun r='_ZN3xla10XlaBuilder31ConstantR3FromArray3DWithLayoutERKNS_7Array3DIT_EERKNS_6LayoutE'/>
+<fun r='_ZN3xla10XlaBuilder21ConstantR3FromArray3DERKNS_7Array3DIT_EE'/>
+<fun r='_ZN3xla10XlaBuilder31ConstantR4FromArray4DWithLayoutERKNS_7Array4DIT_EERKNS_6LayoutE'/>
+<fun r='_ZN3xla10XlaBuilder21ConstantR4FromArray4DERKNS_7Array4DIT_EE'/>

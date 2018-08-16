@@ -1,0 +1,9 @@
+<def f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='286' type='fft::FftSupport * perftools::gputools::internal::StreamExecutorInterface::CreateFft()'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='280'>// Creates a new fft::FftSupport object, ownership is transferred to the
+  // caller.
+  // If SupportsFft() is false, this will always return null.
+  //
+  // If SupportsFft() is true, this may return null, for example, if the FFT
+  // initialization fails.</doc>
+<ovr f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='233' c='_ZN9perftools8gputools4host12HostExecutor9CreateFftEv'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='421' u='c' c='_ZN9perftools8gputools14StreamExecutor5AsFftEv'/>

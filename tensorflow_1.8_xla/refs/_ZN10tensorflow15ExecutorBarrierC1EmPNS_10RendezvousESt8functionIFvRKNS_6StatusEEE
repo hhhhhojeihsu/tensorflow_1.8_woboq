@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/core/common_runtime/executor.h' l='165' ll='166' type='void tensorflow::ExecutorBarrier::ExecutorBarrier(size_t num, tensorflow::Rendezvous * r, StatusCallback done)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/executor.h' l='157'>// Create an ExecutorBarrier for &apos;num&apos; different executors.
+  //
+  // &apos;r&apos; is the shared Rendezvous object that is used to communicate
+  // state.  If any of the executors experiences an error, the
+  // rendezvous object will be aborted exactly once.
+  //
+  // &apos;done&apos; is called after the last executor completes, and
+  // ExecutorBarrier is deleted.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='449' u='c' c='_ZN10tensorflow13DirectSession11RunInternalExRKNS_10RunOptionsEPNS_18CallFrameInterfaceEPNS0_16ExecutorsAndKeysEPNS_11RunMetadataE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='760' u='c' c='_ZN10tensorflow13DirectSession9PRunSetupERKSt6vectorISsSaISsEES5_S5_PSs'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='461' u='c' c='_ZN10tensorflow8GraphMgr22StartParallelExecutorsERKSsxPNS0_4ItemEPNS_10RendezvousEPNS_18StepStatsCollectorEPNS_12CostGraphDefEPNS_19CancellationManage4842781'/>

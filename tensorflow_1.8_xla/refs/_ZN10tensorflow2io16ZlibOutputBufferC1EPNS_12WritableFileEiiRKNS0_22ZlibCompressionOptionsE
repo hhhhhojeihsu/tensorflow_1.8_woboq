@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.h' l='45' type='void tensorflow::io::ZlibOutputBuffer::ZlibOutputBuffer(tensorflow::WritableFile * file, int32 input_buffer_bytes, int32 output_buffer_bytes, const tensorflow::io::ZlibCompressionOptions &amp; zlib_options)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.h' l='39'>// Create an ZlibOutputBuffer for `file` with two buffers that cache the
+  // 1. input data to be deflated
+  // 2. the deflated output
+  // with sizes `input_buffer_bytes` and `output_buffer_bytes` respectively.
+  // Does not take ownership of `file`.
+  // output_buffer_bytes should be greater than 1.</doc>
+<use f='tensorflow/tensorflow/core/lib/io/record_writer.cc' l='65' u='c' c='_ZN10tensorflow2io12RecordWriterC1EPNS_12WritableFileERKNS0_19RecordWriterOptionsE'/>
+<def f='tensorflow/tensorflow/core/lib/io/zlib_outputbuffer.cc' l='23' ll='36' type='void tensorflow::io::ZlibOutputBuffer::ZlibOutputBuffer(tensorflow::WritableFile * file, int32 input_buffer_bytes, int32 output_buffer_bytes, const tensorflow::io::ZlibCompressionOptions &amp; zlib_options)'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_code.cc' l='295' u='c' c='_ZN10tensorflow6tfprof12_GLOBAL__N_116PprofProfileImpl17WritePprofProfileERKSs'/>

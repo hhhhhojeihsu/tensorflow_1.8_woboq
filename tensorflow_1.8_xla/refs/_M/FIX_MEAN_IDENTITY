@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/kernels/reduction_ops.h' l='49'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops.h' l='56' u='c'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops.h' l='57' u='c'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops.h' l='58' u='c'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops.h' l='59' u='c'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops.h' l='60' u='c'/>
+<use f='tensorflow/tensorflow/core/kernels/reduction_ops.h' l='61' u='w'/>
+<doc f='tensorflow/tensorflow/core/kernels/reduction_ops.h' l='46'>// MeanReducer is a special case, since it doesn&apos;t technically have an identity.
+// Thus, ideally we&apos;d return nan.  However, mean is instantiated for integer
+// types as well, so we do the nan override only for floating point types.</doc>

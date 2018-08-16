@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.h' l='68' type='StatusOr&lt;xla::Shape&gt; xla::CpuTransferManager::TransferBuffersFromOutfeedInternal(perftools::gputools::StreamExecutor * executor, tensorflow::gtl::ArraySlice&lt;std::pair&lt;void *, int64&gt; &gt; buffer_data, bool is_tuple)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='246' u='c' c='_ZN3xla18CpuTransferManager31TransferTupleBuffersFromOutfeedEPN9perftools8gputools14StreamExecutorEN10tensorflow3gtl10ArraySliceISt4pairIPvxEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='253' u='c' c='_ZN3xla18CpuTransferManager30TransferArrayBufferFromOutfeedEPN9perftools8gputools14StreamExecutorEPvx'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='257' ll='300' type='StatusOr&lt;xla::Shape&gt; xla::CpuTransferManager::TransferBuffersFromOutfeedInternal(perftools::gputools::StreamExecutor * executor, tensorflow::gtl::ArraySlice&lt;std::pair&lt;void *, int64&gt; &gt; buffer_data, bool is_tuple)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.h' l='65'>// On success, returns the shape that was transferred from the outfeed -- if
+  // is_tuple is true, the returned shape will be a tuple of the returned shapes
+  // for the given buffers.</doc>

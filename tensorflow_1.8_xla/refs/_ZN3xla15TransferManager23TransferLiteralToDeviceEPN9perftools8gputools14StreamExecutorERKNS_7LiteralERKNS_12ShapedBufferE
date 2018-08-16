@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='68' type='tensorflow::Status xla::TransferManager::TransferLiteralToDevice(perftools::gputools::StreamExecutor * executor, const xla::Literal &amp; literal, const xla::ShapedBuffer &amp; device_buffer)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='64'>// Transfers the given literal into the previously allocated device memory
+  // represented by the given ShapedBuffer using the given executor. The shape
+  // of the ShapedBuffer and DeviceShape(literal.shape()) must be compatible,
+  // but need not have the same layout</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='68' u='c' c='_ZNK10tensorflow18XlaTransferManager23TransferLiteralToDeviceERKNS_6TensorEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='297' u='c' c='_ZN3xla11LocalClient21LiteralToShapedBufferERKNS_7LiteralEiPNS_21DeviceMemoryAllocatorE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='93' c='_ZN3xla22GenericTransferManager23TransferLiteralToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1367' u='c' c='_ZN3xla7Service16TransferToServerEPKNS_23TransferToServerRequestEPNS_24TransferToServerResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='60' u='c' c='_ZN3xla15TransferManager21TransferArrayToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS2_16DeviceMemoryBaseE'/>

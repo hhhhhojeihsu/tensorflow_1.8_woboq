@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/core/framework/shape_inference.h' l='518' type='tensorflow::Status tensorflow::shape_inference::InferenceContext::Divide(tensorflow::shape_inference::DimensionHandle dividend, tensorflow::shape_inference::DimensionOrConstant divisor, bool evenly_divisible, tensorflow::shape_inference::DimensionHandle * out)'/>
+<doc f='tensorflow/tensorflow/core/framework/shape_inference.h' l='515'>// Returns in &lt;out&gt; the result of dividing &lt;dividend&gt; by &lt;divisor&gt;.
+  // Returns an error if &lt;divisor&gt;  is not positive or if &lt;evenly_divisible&gt;
+  // and &lt;divisor&gt; does not evenly divide &lt;dividend&gt;.</doc>
+<use f='tensorflow/tensorflow/contrib/rnn/ops/lstm_ops.cc' l='209' u='c'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='152' u='c' c='_ZN10tensorflow15shape_inference31GetWindowedOutputSizeFromDimsV2EPNS0_16InferenceContextENS0_15DimensionHandleENS0_19DimensionOrConstantExxNS_7PaddingEPS3_'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='157' u='c' c='_ZN10tensorflow15shape_inference31GetWindowedOutputSizeFromDimsV2EPNS0_16InferenceContextENS0_15DimensionHandleENS0_19DimensionOrConstantExxNS_7PaddingEPS3_'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='359' u='c' c='_ZN10tensorflow15shape_inference19ShapeFromDimensionsENS0_15DimensionHandleENS_3gtl10ArraySliceIS1_EES1_NS_12TensorFormatEPNS0_16InferenceContextEPNS0_11ShapeHandleE'/>
+<def f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='967' ll='990' type='tensorflow::Status tensorflow::shape_inference::InferenceContext::Divide(tensorflow::shape_inference::DimensionHandle dividend, tensorflow::shape_inference::DimensionOrConstant divisor, bool evenly_divisible, tensorflow::shape_inference::DimensionHandle * out)'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='237' u='c' c='_ZN10tensorflow12_GLOBAL__N_124SetOutputShapeForReshapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='247' u='c' c='_ZN10tensorflow12_GLOBAL__N_124SetOutputShapeForReshapeEPNS_15shape_inference16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='513' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2127' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SpaceToBatchShapeHelperEPNS_15shape_inference16InferenceContextENS1_11ShapeHandleES4_PKNS_6TensorES4_S7_'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2176' u='c' c='_ZN10tensorflow12_GLOBAL__N_123BatchToSpaceShapeHelperEPNS_15shape_inference16InferenceContextENS1_11ShapeHandleES4_PKNS_6TensorES4_S7_'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2338' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2341' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='2396' u='c'/>
+<use f='tensorflow/tensorflow/core/ops/math_ops.cc' l='1525' u='c'/>

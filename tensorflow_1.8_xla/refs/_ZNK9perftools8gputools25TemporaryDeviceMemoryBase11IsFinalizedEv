@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/stream_executor/temporary_device_memory.h' l='80' type='bool perftools::gputools::TemporaryDeviceMemoryBase::IsFinalized() const'/>
+<doc f='tensorflow/tensorflow/stream_executor/temporary_device_memory.h' l='77'>// Returns true iff the temporary memory is finalized (that is, the user is
+  // done referring to the temporary device memory, and thus it can be released
+  // at the next stream synchronization point).</doc>
+<use f='tensorflow/tensorflow/stream_executor/temporary_device_memory.cc' l='30' u='c' c='_ZN9perftools8gputools25TemporaryDeviceMemoryBase21mutable_device_memoryEv'/>
+<use f='tensorflow/tensorflow/stream_executor/temporary_device_memory.cc' l='36' u='c' c='_ZNK9perftools8gputools25TemporaryDeviceMemoryBase13device_memoryEv'/>
+<use f='tensorflow/tensorflow/stream_executor/temporary_device_memory.cc' l='42' u='c' c='_ZN9perftools8gputools25TemporaryDeviceMemoryBase8FinalizeEv'/>
+<def f='tensorflow/tensorflow/stream_executor/temporary_device_memory.cc' l='48' ll='51' type='bool perftools::gputools::TemporaryDeviceMemoryBase::IsFinalized() const'/>

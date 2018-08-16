@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.h' l='130' type='tensorflow::Status tensorflow::GraphExecutionState::Extend(const tensorflow::GraphDef &amp; extension_def, std::unique_ptr&lt;GraphExecutionState&gt; * out) const'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='384' u='c' c='_ZN10tensorflow13DirectSession12ExtendLockedERKNS_8GraphDefE'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.h' l='116'>// Creates a new GraphExecutionState representing the
+  // concatenation of this graph, and the graph defined by
+  // &quot;extension_def&quot;. The same name may not be used to define a node
+  // in both this graph and &quot;extension_def&quot;.
+  //
+  // If successful, returns OK and the caller takes ownership of &quot;*out&quot;.
+  // Otherwise returns an error and does not modify &quot;*out&quot;.
+  //
+  // After calling `old_state-&gt;Extend()`, `old_state` may no longer be
+  // used.
+  //
+  // NOTE(mrry): This method respects the placement of stateful nodes in
+  // in *this, but currently does not transfer any other placement
+  // or cost model information to the new graph.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='122' ll='219' type='tensorflow::Status tensorflow::GraphExecutionState::Extend(const tensorflow::GraphDef &amp; extension_def, std::unique_ptr&lt;GraphExecutionState&gt; * out) const'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1356' u='c' c='_ZN10tensorflow13MasterSession6ExtendEPKNS_20ExtendSessionRequestEPNS_21ExtendSessionResponseE'/>

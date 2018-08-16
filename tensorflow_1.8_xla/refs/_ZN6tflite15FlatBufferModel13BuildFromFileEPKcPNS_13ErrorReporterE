@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/contrib/lite/model.h' l='63' type='static std::unique_ptr&lt;FlatBufferModel&gt; tflite::FlatBufferModel::BuildFromFile(const char * filename, tflite::ErrorReporter * error_reporter = DefaultErrorReporter())'/>
+<def f='tensorflow/tensorflow/contrib/lite/model.cc' l='86' ll='96' type='static std::unique_ptr&lt;FlatBufferModel&gt; tflite::FlatBufferModel::BuildFromFile(const char * filename, tflite::ErrorReporter * error_reporter = DefaultErrorReporter())'/>
+<doc f='tensorflow/tensorflow/contrib/lite/model.h' l='59'>// Builds a model based on a file.
+  // Caller retains ownership of `error_reporter` and must ensure its lifetime
+  // is longer than the FlatBufferModel instance.
+  // Returns a nullptr in case of failure.</doc>

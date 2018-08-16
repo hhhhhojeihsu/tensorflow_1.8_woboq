@@ -1,0 +1,10 @@
+<use f='tensorflow/tensorflow/core/kernels/tensor_array.h' l='155' u='w' c='_ZN10tensorflow11TensorArrayC1ERKSsRKNS_8DataTypeERKNS_6TensorEiRKNS_18PartialTensorShapeEbbbbib'/>
+<use f='tensorflow/tensorflow/core/kernels/tensor_array.h' l='325' u='r' c='_ZNK10tensorflow11TensorArray25HasIdenticalElementShapesEv'/>
+<dec f='tensorflow/tensorflow/core/kernels/tensor_array.h' l='412' type='const bool'/>
+<use f='tensorflow/tensorflow/core/kernels/tensor_array.h' l='477' u='r' c='_ZN10tensorflow11TensorArray22LockedWriteOrAggregateEPNS_15OpKernelContextEiPNS_16PersistentTensorE'/>
+<offset>960</offset>
+<doc f='tensorflow/tensorflow/core/kernels/tensor_array.h' l='407'>// Whether all elements in the TensorArray have identical shapes.
+  // This allows certain behaviors, like dynamically checking for
+  // consistent shapes on write, and being able to fill in properly
+  // shaped zero tensors on stack -- even if the initial element_shape
+  // was not fully defined.</doc>

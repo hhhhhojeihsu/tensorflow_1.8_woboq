@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='751' type='const xla::Shape &amp; xla::HloInstruction::outfeed_shape() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='749'>// Returns the shape for the Outfeed instruction.
+  // Precondition: opcode() == HloOpcode::kOutfeed</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2949' ll='2953' type='const xla::Shape &amp; xla::HloInstruction::outfeed_shape() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='116' u='c' c='_ZN3xla13ShapeVerifier13HandleOutfeedEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='122' u='c' c='_ZN3xla13ShapeVerifier13HandleOutfeedEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='495' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>

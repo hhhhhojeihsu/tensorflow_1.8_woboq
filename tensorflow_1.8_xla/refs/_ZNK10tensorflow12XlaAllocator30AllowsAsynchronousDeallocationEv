@@ -1,0 +1,9 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/device_memory_allocator.h' l='56' c='_ZNK3xla21DeviceMemoryAllocator30AllowsAsynchronousDeallocationEv'/>
+<def f='tensorflow/tensorflow/compiler/jit/xla_launch_util.h' l='64' type='bool tensorflow::XlaAllocator::AllowsAsynchronousDeallocation() const'/>
+<doc f='tensorflow/tensorflow/compiler/jit/xla_launch_util.h' l='57'>// The Tensorflow BFC allocator used on GPU allows host-side deallocation
+  // before GPU execution takes place. Tensorflow uses the ordering of the main
+  // compute stream to enforce a happens-before relationship between a memory
+  // allocation and code that reuses the same memory. If Tensorflow adds
+  // support for multiple GPU streams or allocators with different ordering
+  // requirements, this code may need to change.
+  // (This attribute has no effect on CPU.)</doc>

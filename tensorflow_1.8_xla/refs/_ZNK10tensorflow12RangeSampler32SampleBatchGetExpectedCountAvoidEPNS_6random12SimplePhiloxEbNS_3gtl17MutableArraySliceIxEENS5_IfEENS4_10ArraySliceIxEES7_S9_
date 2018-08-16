@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='85' type='void tensorflow::RangeSampler::SampleBatchGetExpectedCountAvoid(random::SimplePhilox * rnd, bool unique, gtl::MutableArraySlice&lt;int64&gt; batch, gtl::MutableArraySlice&lt;float&gt; batch_expected_count, gtl::ArraySlice&lt;int64&gt; extras, gtl::MutableArraySlice&lt;float&gt; extras_expected_count, gtl::ArraySlice&lt;int64&gt; avoided_values) const'/>
+<doc f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='81'>// Same as SampleBatchGetExpectedCount (see above), but with avoided values.
+  // We repick to avoid all of the values in &quot;avoided_values&quot;.
+  // &quot;avoided_values&quot; is only supported with unique=true.  If
+  // unique=false, then avoided_values must be empty.</doc>
+<use f='tensorflow/tensorflow/core/kernels/range_sampler.cc' l='49' u='c' c='_ZNK10tensorflow12RangeSampler27SampleBatchGetExpectedCountEPNS_6random12SimplePhiloxEbNS_3gtl17MutableArraySliceIxEENS5_IfEENS4_10ArraySliceIxEES7_'/>
+<def f='tensorflow/tensorflow/core/kernels/range_sampler.cc' l='77' ll='120' type='void tensorflow::RangeSampler::SampleBatchGetExpectedCountAvoid(random::SimplePhilox * rnd, bool unique, MutableArraySlice&lt;int64&gt; batch, MutableArraySlice&lt;float&gt; batch_expected_count, ArraySlice&lt;int64&gt; extras, MutableArraySlice&lt;float&gt; extras_expected_count, ArraySlice&lt;int64&gt; avoided_values) const'/>
+<ovr f='tensorflow/tensorflow/core/kernels/range_sampler.cc' l='124' c='_ZNK10tensorflow10AllSampler32SampleBatchGetExpectedCountAvoidEPNS_6random12SimplePhiloxEbNS_3gtl17MutableArraySliceIxEENS5_IfEENS4_10ArraySliceIxEES7_S9_'/>
+<ovr f='tensorflow/tensorflow/core/kernels/range_sampler.cc' l='216' c='_ZNK10tensorflow14UnigramSampler32SampleBatchGetExpectedCountAvoidEPNS_6random12SimplePhiloxEbNS_3gtl17MutableArraySliceIxEENS5_IfEENS4_10ArraySliceIxEES7_S9_'/>
+<use f='tensorflow/tensorflow/core/kernels/range_sampler.cc' l='222' u='c' c='_ZNK10tensorflow14UnigramSampler32SampleBatchGetExpectedCountAvoidEPNS_6random12SimplePhiloxEbNS_3gtl17MutableArraySliceIxEENS5_IfEENS4_10ArraySliceIxEES7_S9_'/>

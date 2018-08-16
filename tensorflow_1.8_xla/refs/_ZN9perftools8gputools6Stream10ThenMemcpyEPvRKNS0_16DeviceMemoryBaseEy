@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream.h' l='1732' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenMemcpy(void * host_dst, const perftools::gputools::DeviceMemoryBase &amp; gpu_src, uint64 size)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream.h' l='1728'>// Entrain onto the stream: a memcpy to a host destination from a GPU source
+  // of the given target size. host_dst must be a pointer to host memory
+  // allocated by StreamExecutor::HostMemoryAllocate or otherwise allocated and
+  // then registered with StreamExecutor::HostMemoryRegister.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='158' u='c' c='_ZN10tensorflow18XlaTransferManager21CopyDeviceTensorToCPUEPKNS_6TensorENS_11StringPieceEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='164' u='c' c='_ZN10tensorflow7GPUUtil15SetProtoFromGPUERKNS_6TensorEPNS_6DeviceEPKNS_13DeviceContextEPNS_11TensorProtoEbSt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='288' u='c' c='_ZN10tensorflow7GPUUtil18CopyGPUTensorToCPUEPNS_6DeviceEPKNS_13DeviceContextEPKNS_6TensorEPS6_St8functionIFvRKNS_6StatusEEE'/>
+<def f='tensorflow/tensorflow/stream_executor/stream.cc' l='4717' ll='4728' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenMemcpy(void * host_dst, const perftools::gputools::DeviceMemoryBase &amp; gpu_src, uint64 size)'/>

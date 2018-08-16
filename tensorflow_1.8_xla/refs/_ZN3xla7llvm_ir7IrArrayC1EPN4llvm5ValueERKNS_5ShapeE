@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='183' type='void xla::llvm_ir::IrArray::IrArray(llvm::Value * base_ptr, const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='181'>// Construct an IrArray with the given base pointer and shape. base_ptr is a
+  // pointer type pointing to the first element(lowest address) of the array.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2678' u='c' c='_ZN3xla3cpu9IrEmitter13GetIrArrayForEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2875' u='c' c='_ZN3xla3cpu9IrEmitter21EmitTargetElementLoopEPNS_14HloInstructionEN10tensorflow11StringPieceERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_ir7IrArray5IndexEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/fused_ir_emitter.cc' l='84' u='c' c='_ZN3xla14FusedIrEmitter14HandleConstantEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/fused_ir_emitter.cc' l='112' u='c' c='_ZN3xla14FusedIrEmitter21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='95' ll='113' type='void xla::llvm_ir::IrArray::IrArray(llvm::Value * base_ptr, const xla::Shape &amp; shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='404' u='c' c='_ZNK3xla7llvm_ir7IrArray11CastToShapeERKNS_5ShapeEPN4llvm9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEE'/>

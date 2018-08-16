@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.h' l='122' type='void __xla_cpu_runtime_ReleaseOutfeedBufferAfterPopulation(xla::int32 buffer_length, void * buffer_ptr, const void * shape_ptr, xla::int32 shape_length)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.h' l='113'>// Relinquishes the outfeed buffer after it has been populated.
+// buffer_ptr must have been previously returned by
+// __xla_cpu_runtime_AcquireOutfeedBufferForPopulation.
+// Once this call completes, buffer_ptr may no longer be accessed.
+// buffer_length must match the length passed to the call to
+// __xla_cpu_runtime_AcquireInfeedBufferForDequeue that returned
+// buffer_ptr. This function must be called before the next buffer is
+// acquired, i.e., there may only be one outstanding outfeed buffer in
+// use by the runtime.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='143' ll='155' type='void __xla_cpu_runtime_ReleaseOutfeedBufferAfterPopulation(xla::int32 buffer_length, void * buffer_ptr, const void * shape_ptr, xla::int32 shape_length)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/simple_orc_jit.cc' l='198' macro='1' u='r'/>

@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='146' type='tensorflow::Status xla::Service::GetDeviceHandles(const xla::GetDeviceHandlesRequest * arg, xla::GetDeviceHandlesResponse * result)'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/compile_only_service.h' l='67' c='_ZN3xla18CompileOnlyService16GetDeviceHandlesEPKNS_23GetDeviceHandlesRequestEPNS_24GetDeviceHandlesResponseE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='138'>// Requests one or more device handles from the target.
+  //
+  // When N device handles are requested and the number of replicas is R, at
+  // least N * R devices must be available. The devices are assigned based on
+  // the device ordinals such that the first R available devices are assigned to
+  // the first set of replicas, and the next R devices to the second set of
+  // replicas, etc. Each returned device handle represents the device with the
+  // replica id 0.</doc>
+<inh f='tensorflow/tensorflow/compiler/xla/service_interface.h' l='94' c='_ZN3xla16ServiceInterface16GetDeviceHandlesEPKNS_23GetDeviceHandlesRequestEPNS_24GetDeviceHandlesResponseE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='990' ll='1012' type='tensorflow::Status xla::Service::GetDeviceHandles(const xla::GetDeviceHandlesRequest * arg, xla::GetDeviceHandlesResponse * result)'/>

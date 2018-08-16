@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.h' l='59' type='tensorflow::Status tensorflow::io::BufferedInputStream::Seek(int64 position)'/>
+<use f='tensorflow/tensorflow/core/kernels/data/reader_dataset_ops.cc' l='201' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TextLineDatasetOp7Dataset8Iterator15RestoreInternalEPNS_15IteratorContextEPNS_19IteratorStateReaderE'/>
+<doc f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.h' l='50'>// Seek to this offset within the file.
+  //
+  // If we seek to somewhere within our pre-buffered data, we will re-use what
+  // data we can.  Otherwise, Seek() throws out the current buffer and the next
+  // read will trigger an underlying read.
+  //
+  // Note: When seeking backwards in a stream, this implementation uses
+  // Reset() + SkipNBytes(), so its performance will be dependent
+  // largely on the performance of SkipNBytes().</doc>
+<def f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.cc' l='153' ll='168' type='tensorflow::Status tensorflow::io::BufferedInputStream::Seek(int64 position)'/>

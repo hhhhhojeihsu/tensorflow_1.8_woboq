@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/framework/function.h' l='369' type='tensorflow::FunctionDefLibrary tensorflow::FunctionLibraryDefinition::ToProto() const'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='752' u='c' c='_ZN10tensorflow24ExtendSessionGraphHelperEP10TF_SessionP9TF_Status'/>
+<doc f='tensorflow/tensorflow/core/framework/function.h' l='368'>// Returns a proto representation of the state of this function library.</doc>
+<use f='tensorflow/tensorflow/c/c_api_function.cc' l='572' u='c' c='TF_GraphGetFunctions'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/dump_graph.cc' l='80' u='c' c='_ZN10tensorflow10dump_graph15DumpGraphToFileERKSsRKNS_5GraphEPKNS_25FunctionLibraryDefinitionE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='129' u='c' c='_ZNK10tensorflow19GraphExecutionState6ExtendERKNS_8GraphDefEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/cluster_function_library_runtime.cc' l='144' u='c' c='_ZN10tensorflow29ClusterFunctionLibraryRuntime11InstantiateERKSsRKNS_25FunctionLibraryDefinitionENS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<def f='tensorflow/tensorflow/core/framework/function.cc' l='1140' ll='1151' type='tensorflow::FunctionDefLibrary tensorflow::FunctionLibraryDefinition::ToProto() const'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='297' u='c' c='_ZN10tensorflow5GraphC1ERKNS_25FunctionLibraryDefinitionE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='534' u='c' c='_ZNK10tensorflow5Graph18ToGraphDefSubRangeEPNS_8GraphDefEi'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='1181' u='c' c='_ZN10tensorflow9PartitionERKNS_16PartitionOptionsEPNS_5GraphEPSt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_toISsESaISt4pairIKSsS6_EEE'/>

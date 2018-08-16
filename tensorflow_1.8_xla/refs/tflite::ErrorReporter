@@ -1,0 +1,20 @@
+<def f='tensorflow/tensorflow/contrib/lite/error_reporter.h' l='36' ll='42'/>
+<ovr f='tensorflow/tensorflow/contrib/lite/error_reporter.h' l='45' c='tflite::StderrReporter'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/contrib/lite/error_reporter.h' l='23'>// A functor that reports error to supporting system. Invoked similar to
+// printf.
+//
+// Usage:
+//  ErrorReporter foo;
+//  foo.Report(&quot;test %d&quot;, 5);
+// or
+//  va_list args;
+//  foo.Report(&quot;test %d&quot;, args); // where args is va_list
+//
+// Subclass ErrorReporter to provide another reporting destination.
+// For example, if you have a GUI program, you might redirect to a buffer
+// that drives a GUI error log box.</doc>
+<fun r='_ZN6tflite13ErrorReporterD1Ev'/>
+<fun r='_ZN6tflite13ErrorReporter6ReportEPKcP13__va_list_tag'/>
+<fun r='_ZN6tflite13ErrorReporter6ReportEPKcz'/>
+<fun r='_ZN6tflite13ErrorReporter11ReportErrorEPvPKcz'/>

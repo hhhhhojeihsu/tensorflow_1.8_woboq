@@ -1,0 +1,62 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.h' l='176' ll='184' type='const xla::Literal &amp; xla::HloEvaluator::GetEvaluatedLiteralFor(const xla::HloInstruction * hlo)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.h' l='172'>// Returns the already-evaluated literal result for the instruction.
+  // A Constant instruction is considered evaluated and its literal will be
+  // returned directly without looking up the cache.
+  // Crash with log if the given instruction has not been evaluated previously.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='292' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor9HandleAbsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='340' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='390' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor13HandleConvertEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='406' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor20HandleBitcastConvertEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='962' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor13HandleReverseEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1014' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1015' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1156' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor9HandleDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1157' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor9HandleDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1277' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor9HandlePadEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1283' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor9HandlePadEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1341' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor18HandleDynamicSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1343' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor18HandleDynamicSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1397' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor24HandleDynamicUpdateSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1398' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor24HandleDynamicUpdateSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1400' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor24HandleDynamicUpdateSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1453' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor7MapImplEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1550' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1552' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1651' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1671' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1672' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1766' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1769' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1839' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2080' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor18ElementWiseUnaryOpEPNS_14HloInstructionERKSt8functionIFT0_S5_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2109' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor19ElementWiseBinaryOpEPNS_14HloInstructionERKSt8functionIFT0_S5_S5_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2110' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor19ElementWiseBinaryOpEPNS_14HloInstructionERKSt8functionIFT0_S5_S5_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2146' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor20ElementwiseTernaryOpEPNS_14HloInstructionERKSt8functionIFT_T_T0_T1_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2147' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor20ElementwiseTernaryOpEPNS_14HloInstructionERKSt8functionIFT_T_T0_T1_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2148' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor20ElementwiseTernaryOpEPNS_14HloInstructionERKSt8functionIFT_T_T0_T1_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2224' u='c' c='_ZN3xla12HloEvaluator8EvaluateERKNS_9HloModuleEN10tensorflow3gtl10ArraySliceIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2242' u='c' c='_ZN3xla12HloEvaluator8EvaluateERKNS_14HloComputationEN10tensorflow3gtl10ArraySliceIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2273' u='c' c='_ZN3xla12HloEvaluator8EvaluateEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2294' u='c' c='_ZN3xla12HloEvaluator8EvaluateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2360' u='c' c='_ZN3xla12HloEvaluator13HandleReshapeEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2366' u='c' c='_ZN3xla12HloEvaluator15HandleTransposeEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2402' u='c' c='_ZN3xla12HloEvaluator17HandleConcatenateEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2427' u='c' c='_ZN3xla12HloEvaluator14HandleIsFiniteEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2435' u='c' c='_ZN3xla12HloEvaluator14HandleIsFiniteEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2465' u='c' c='_ZN3xla12HloEvaluator13HandleCompareEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2466' u='c' c='_ZN3xla12HloEvaluator13HandleCompareEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2537' u='c' c='_ZN3xla12HloEvaluator11HandleTupleEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2812' u='c' c='_ZN3xla12HloEvaluator12HandleGatherEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2817' u='c' c='_ZN3xla12HloEvaluator12HandleGatherEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2900' u='c' c='_ZN3xla12HloEvaluator21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2912' u='c' c='_ZN3xla12HloEvaluator10HandleCopyEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2924' u='c' c='_ZN3xla12HloEvaluator10HandleCallEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2954' u='c' c='_ZN3xla12HloEvaluator12HandleFusionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2969' u='c' c='_ZN3xla12HloEvaluator17HandleConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2971' u='c' c='_ZN3xla12HloEvaluator17HandleConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2973' u='c' c='_ZN3xla12HloEvaluator17HandleConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2997' u='c' c='_ZN3xla12HloEvaluator12HandleSelectEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2998' u='c' c='_ZN3xla12HloEvaluator12HandleSelectEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2999' u='c' c='_ZN3xla12HloEvaluator12HandleSelectEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='3020' u='c' c='_ZN3xla12HloEvaluator11HandleWhileEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='3053' u='c' c='_ZN3xla12HloEvaluator11PostprocessEPNS_14HloInstructionE'/>

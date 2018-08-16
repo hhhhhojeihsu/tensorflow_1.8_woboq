@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/memory_types.h' l='43' type='tensorflow::Status tensorflow::MemoryTypeForOutput(const tensorflow::DeviceType &amp; device_type, const tensorflow::Graph * g, const tensorflow::Node * n, int index, tensorflow::MemoryType * memory_type)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='489' u='c' c='_ZN10tensorflow12_GLOBAL__N_125ReplaceTensorWithConstantEPNS_5GraphEPNS_6DeviceESt4pairIPNS_4NodeEiERKNS_6TensorERKNS_3gtl7FlatSetIS7_NS_4hashIS7_EESt657287'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/memory_types.h' l='41'>// Get the memory type for &apos;index&apos;th output of node &apos;n&apos; in graph &apos;g&apos;, when
+// running on &apos;device_type&apos;.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/memory_types.cc' l='204' ll='217' type='tensorflow::Status tensorflow::MemoryTypeForOutput(const tensorflow::DeviceType &amp; device_type, const tensorflow::Graph * g, const tensorflow::Node * n, int index, tensorflow::MemoryType * memory_type)'/>
+<use f='tensorflow/tensorflow/core/debug/debug_graph_utils.cc' l='145' u='c' c='_ZN10tensorflow17DebugNodeInserter11InsertNodesERKN6google8protobuf16RepeatedPtrFieldINS_16DebugTensorWatchEEEPNS_5GraphEPNS_6DeviceE'/>

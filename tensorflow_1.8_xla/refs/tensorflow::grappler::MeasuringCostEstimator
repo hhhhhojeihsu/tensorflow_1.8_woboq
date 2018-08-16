@@ -1,0 +1,19 @@
+<inh f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='159' c='tensorflow::grappler::CostEstimator'/>
+<def f='tensorflow/tensorflow/core/grappler/costs/measuring_cost_estimator.h' l='43' ll='71'/>
+<size>80</size>
+<doc f='tensorflow/tensorflow/core/grappler/costs/measuring_cost_estimator.h' l='40'>// Estimate the cost of running a Grappler item by actually running the
+// corresponding TensorFlow graph on the specified cluster and measuring the
+// runtimes.</doc>
+<fun r='_ZN10tensorflow8grappler22MeasuringCostEstimatorC1EPNS0_7ClusterEii'/>
+<fun r='_ZN10tensorflow8grappler22MeasuringCostEstimatorD1Ev'/>
+<fun r='_ZN10tensorflow8grappler22MeasuringCostEstimator10InitializeERKNS0_12GrapplerItemE'/>
+<fun r='_ZNK10tensorflow8grappler22MeasuringCostEstimator12PredictCostsERKNS_8GraphDefEPNS_12CostGraphDefEPNS0_5CostsE'/>
+<mbr r='tensorflow::grappler::MeasuringCostEstimator::cluster_' o='64' t='tensorflow::grappler::Cluster *'/>
+<mbr r='tensorflow::grappler::MeasuringCostEstimator::measurement_steps_' o='128' t='int'/>
+<mbr r='tensorflow::grappler::MeasuringCostEstimator::measurement_threads_' o='160' t='int'/>
+<mbr r='tensorflow::grappler::MeasuringCostEstimator::feed_' o='192' t='std::vector&lt;std::pair&lt;string, Tensor&gt; &gt;'/>
+<mbr r='tensorflow::grappler::MeasuringCostEstimator::fetch_' o='384' t='std::vector&lt;string&gt;'/>
+<mbr r='tensorflow::grappler::MeasuringCostEstimator::thread_pool_' o='576' t='std::unique_ptr&lt;thread::ThreadPool&gt;'/>
+<fun r='_ZN10tensorflow8grappler22MeasuringCostEstimatorC1EPNS0_7ClusterEii'/>
+<fun r='_ZN10tensorflow8grappler22MeasuringCostEstimator10InitializeERKNS0_12GrapplerItemE'/>
+<fun r='_ZNK10tensorflow8grappler22MeasuringCostEstimator12PredictCostsERKNS_8GraphDefEPNS_12CostGraphDefEPNS0_5CostsE'/>

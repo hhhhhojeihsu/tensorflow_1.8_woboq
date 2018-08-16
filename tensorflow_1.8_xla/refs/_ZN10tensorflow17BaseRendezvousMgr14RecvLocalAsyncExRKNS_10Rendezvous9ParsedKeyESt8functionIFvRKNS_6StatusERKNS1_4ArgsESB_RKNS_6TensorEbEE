@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.h' l='78' type='void tensorflow::BaseRendezvousMgr::RecvLocalAsync(int64 step_id, const Rendezvous::ParsedKey &amp; parsed, Rendezvous::DoneCallback done)'/>
+<inh f='tensorflow/tensorflow/core/distributed_runtime/rendezvous_mgr_interface.h' l='80' c='_ZN10tensorflow22RendezvousMgrInterface14RecvLocalAsyncExRKNS_10Rendezvous9ParsedKeyESt8functionIFvRKNS_6StatusERKNS1_4ArgsESB_RKNS_6TensorEbEE'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='68' ll='83' type='void tensorflow::BaseRendezvousMgr::RecvLocalAsync(int64 step_id, const Rendezvous::ParsedKey &amp; parsed, Rendezvous::DoneCallback done)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='90' u='c' c='_ZN10tensorflow17BaseRendezvousMgr9RecvLocalExRKNS_10Rendezvous9ParsedKeyEPNS_6TensorEPb'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.h' l='74'>// Finds the local rendezvous instance for the &quot;step_id&quot;.  Runs
+  // &quot;done&quot; when the tensor for &quot;key&quot; is produced or an error occurs.
+  //
+  // This method is used by the rpc handler of RecvTensor.</doc>

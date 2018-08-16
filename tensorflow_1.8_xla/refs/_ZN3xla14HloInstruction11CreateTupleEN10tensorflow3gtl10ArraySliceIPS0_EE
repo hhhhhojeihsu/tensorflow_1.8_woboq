@@ -1,0 +1,22 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='491' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateTuple(tensorflow::gtl::ArraySlice&lt;HloInstruction *&gt; elements)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='489'>// Creates a tuple instruction with the given elements. This is a convenience
+  // wrapper around CreateVariadic.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='510' u='c' c='_ZN3xlaL18BuildTupleConstantEPNS_14HloComputationERKNS_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='219' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='283' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='517' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='580' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='493' u='c' c='_ZN3xla14HloComputation14DeepCopyHelperEPNS_14HloInstructionEPKNS_9ShapeTreeIbEEPNS3_IS2_EEPNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='103' u='c' c='_ZN3xla12_GLOBAL__N_120ConvertTupleElementsEPNS_14HloInstructionERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1058' u='c' c='_ZN3xla14HloInstruction20CloneAndFuseInternalEPS0_b'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1168' ll='1176' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateTuple(tensorflow::gtl::ArraySlice&lt;HloInstruction *&gt; elements)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1391' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1168'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='90' u='c' c='_ZN3xla12_GLOBAL__N_123CreateCopyWithNewLayoutERKNS_5ShapeEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_util.cc' l='38' u='c' c='_ZN3xla9TupleUtil13ExtractPrefixEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_util.cc' l='58' u='c' c='_ZN3xla9TupleUtil12AppendSuffixEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIS2_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='490' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='506' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='548' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='191' u='c' c='_ZN3xlaL30MakeCountedLoopBodyComputationERKNS_5ShapeERKSt8functionIFNS_8StatusOrISt6vectorIPNS_14HloInstructionESaIS7_EEEES7_RKS9_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='206' u='c' c='_ZN3xlaL27MakeInitTupleFromInitValuesEPNS_14HloComputationERKSt6vectorIPNS_14HloInstructionESaIS4_EE'/>

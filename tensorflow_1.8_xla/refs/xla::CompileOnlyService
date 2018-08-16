@@ -1,0 +1,22 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/service.h' l='78' c='xla::Service'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/compile_only_service.h' l='31' ll='114'/>
+<size>480</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/compile_only_service.h' l='28'>// An XLA Service specialization for ahead-of-time compilation.  This only
+// instantiates a Compiler object for the relevant platform; it does not
+// instantiate or require an execution backend.</doc>
+<fun r='_ZN3xla18CompileOnlyService10NewServiceEPN9perftools8gputools8PlatformE'/>
+<fun r='_ZN3xla18CompileOnlyService10NewServiceERKNS_14ServiceOptionsE'/>
+<fun r='_ZN3xla18CompileOnlyService18CompileAheadOfTimeEN10tensorflow3gtl10ArraySliceINS0_22AotComputationInstanceEEERKNS_21AotCompilationOptionsE'/>
+<fun r='_ZN3xla18CompileOnlyService7ExecuteEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>
+<fun r='_ZN3xla18CompileOnlyService15ExecuteParallelEPKNS_22ExecuteParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<fun r='_ZN3xla18CompileOnlyService16GetDeviceHandlesEPKNS_23GetDeviceHandlesRequestEPNS_24GetDeviceHandlesResponseE'/>
+<fun r='_ZN3xla18CompileOnlyService12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>
+<fun r='_ZN3xla18CompileOnlyService16WaitForExecutionEPKNS_23WaitForExecutionRequestEPNS_24WaitForExecutionResponseE'/>
+<fun r='_ZN3xla18CompileOnlyService16TransferToServerEPKNS_23TransferToServerRequestEPNS_24TransferToServerResponseE'/>
+<fun r='_ZN3xla18CompileOnlyService16TransferToInfeedEPKNS_23TransferToInfeedRequestEPNS_24TransferToInfeedResponseE'/>
+<fun r='_ZN3xla18CompileOnlyService19TransferFromOutfeedEPKNS_26TransferFromOutfeedRequestEPNS_27TransferFromOutfeedResponseE'/>
+<fun r='_ZN3xla18CompileOnlyService11ResetDeviceEPKNS_18ResetDeviceRequestEPNS_19ResetDeviceResponseE'/>
+<fun r='_ZN3xla18CompileOnlyServiceC1ERKNS_14ServiceOptionsEPNS_8CompilerE'/>
+<fun r='_ZN3xla18CompileOnlyServiceC1ERKS0_'/>
+<fun r='_ZN3xla18CompileOnlyServiceaSERKS0_'/>
+<mbr r='xla::CompileOnlyService::compiler_' o='3776' t='xla::Compiler *'/>

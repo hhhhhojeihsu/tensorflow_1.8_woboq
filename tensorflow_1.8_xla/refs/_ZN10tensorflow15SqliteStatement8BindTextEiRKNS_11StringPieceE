@@ -1,0 +1,20 @@
+<def f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='231' ll='236' type='void tensorflow::SqliteStatement::BindText(int parameter, const tensorflow::StringPiece &amp; text)'/>
+<use f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='238' u='c' c='_ZN10tensorflow15SqliteStatement8BindTextEPKcRKNS_11StringPieceE'/>
+<doc f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='223'>/// \brief Copies UTF-8 text to 1-indexed query parameter.
+  ///
+  /// If NUL characters are present, they will still go in the DB and
+  /// be successfully retrieved by ColumnString(); however, the
+  /// behavior of these values with SQLite functions is undefined.
+  ///
+  /// When using the unsafe methods, the data must not be changed or
+  /// freed until this statement is Reset() or finalized.</doc>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='165' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SetDescriptionEPNS_6SqliteExRKNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='335' u='c' c='_ZN10tensorflow12_GLOBAL__N_111GraphWriter9SaveNodesEv'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='336' u='c' c='_ZN10tensorflow12_GLOBAL__N_111GraphWriter9SaveNodesEv'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='337' u='c' c='_ZN10tensorflow12_GLOBAL__N_111GraphWriter9SaveNodesEv'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='510' u='c' c='_ZN10tensorflow12_GLOBAL__N_111RunMetadata14InitializeUserEPNS_6SqliteEy'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='528' u='c' c='_ZN10tensorflow12_GLOBAL__N_111RunMetadata14InitializeUserEPNS_6SqliteEy'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='552' u='c' c='_ZN10tensorflow12_GLOBAL__N_111RunMetadata20InitializeExperimentEPNS_6SqliteEyd'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='575' u='c' c='_ZN10tensorflow12_GLOBAL__N_111RunMetadata20InitializeExperimentEPNS_6SqliteEyd'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='621' u='c' c='_ZN10tensorflow12_GLOBAL__N_111RunMetadata13InitializeRunEPNS_6SqliteEyd'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='804' u='c' c='_ZN10tensorflow12_GLOBAL__N_112SeriesWriter6UpdateEPNS_6SqliteExdRKNS_6TensorERKNS_11StringPieceEx'/>

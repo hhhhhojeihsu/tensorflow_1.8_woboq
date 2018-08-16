@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/grappler/costs/graph_properties.h' l='73' type='void tensorflow::grappler::GraphProperties::ClearInputProperties(const string &amp; node_name)'/>
+<doc f='tensorflow/tensorflow/core/grappler/costs/graph_properties.h' l='70'>// Invalidate input/output properties for nodes modified during graph
+  // optimization pass, to prevent potential optimizations, based on incorrect
+  // shape information.</doc>
+<def f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='1185' ll='1187' type='void tensorflow::grappler::GraphProperties::ClearInputProperties(const string &amp; node_name)'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1044' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_118MinimizeBroadcasts12UpdateInputsERKSsS4_PNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2256' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2364' u='c' c='_ZN10tensorflow8grappler15ConstantFolding13SimplifyGraphEPNS_8GraphDefEPNS0_15GraphPropertiesEb'/>

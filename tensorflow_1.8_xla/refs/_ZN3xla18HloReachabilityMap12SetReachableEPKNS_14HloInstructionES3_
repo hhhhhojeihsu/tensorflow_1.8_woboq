@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.h' l='66' type='void xla::HloReachabilityMap::SetReachable(const xla::HloInstruction * a, const xla::HloInstruction * b)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.h' l='60'>// Sets entry so that IsReachable(a, b) will return true
+  //
+  // !!! THIS FUNCTION DOES NOT COMPUTE REACHABILITY !!! It sets the adjacency
+  // matrix in the internal graph of this HloReachabilityMap to have an edge
+  // from a to b and does not transitively update any other part of the
+  // adjacency matrix.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.cc' l='49' ll='52' type='void xla::HloReachabilityMap::SetReachable(const xla::HloInstruction * a, const xla::HloInstruction * b)'/>

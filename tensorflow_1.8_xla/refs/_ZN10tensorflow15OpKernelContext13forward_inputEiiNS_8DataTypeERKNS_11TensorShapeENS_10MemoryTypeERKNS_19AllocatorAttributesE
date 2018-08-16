@@ -1,0 +1,35 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='742' type='std::unique_ptr&lt;Tensor&gt; tensorflow::OpKernelContext::forward_input(int input_index, int output_index, tensorflow::DataType output_dtype, const tensorflow::TensorShape &amp; output_shape, tensorflow::MemoryType output_memory_type, const tensorflow::AllocatorAttributes &amp; output_attr)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='714'>// Returns a pointer to a Tensor aliasing the underlying buffer backing
+  // input[input_index] iff
+  //   * input[input_index] is not a ref,
+  //   * the data type, shape, memory type, and allocator attributes of
+  //     input[input_index] are compatible with those given in dtype, shape,
+  //     memory_type, and attr,
+  //   * refcount on the underlying buffer is one.
+  //   * Either there is no forwarding reservation for either input_index
+  //     or output_index or the specified input is reserved for the specified
+  //     output. More precisely:
+  //
+  //     These cases mean neither input nor output has a reservation:
+  //        forward_from_array = nullptr
+  //     OR (input_index is not in forward_from_array AND
+  //         (output_index == kNoReservation OR
+  //          forward_from_array[output_index] == kNoReservation))
+  //
+  //     This case means that input_index is reserved for output_index:
+  //        forward_from_array[output_index] == input_index
+  //
+  //     This case means the output is reserved to always be allocated,
+  //     never assigned a forwarded input:
+  //        forward_from_array[output_index] == kNeverForward
+  //
+  // Otherwise returns nullptr.
+  // NOTE: For Cuda kernels that read inputs using the __ldg() intrinsic,
+  // forwarding is only safe if there are no reads via __ldg() after writes
+  // to the same address.</doc>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='422' u='c' c='_ZN10tensorflow15OpKernelContext34forward_input_to_output_with_shapeEiiRKNS_11TensorShapeEPPNS_6TensorE'/>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='463' ll='531' type='std::unique_ptr&lt;Tensor&gt; tensorflow::OpKernelContext::forward_input(int input_index, int output_index, tensorflow::DataType output_dtype, const tensorflow::TensorShape &amp; output_shape, tensorflow::MemoryType output_memory_type, const tensorflow::AllocatorAttributes &amp; output_attr)'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='539' u='c' c='_ZN10tensorflow15OpKernelContext30forward_input_or_allocate_tempENS_3gtl10ArraySliceIiEENS_8DataTypeERKNS_11TensorShapeERKNS_19AllocatorAttributesEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/assign_op.h' l='79' u='c' c='_ZN10tensorflow8AssignOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/resource_variable_ops.cc' l='253' u='c' c='_ZN10tensorflow16AssignVariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/resource_variable_ops.cc' l='320' u='c' c='_ZN10tensorflow16AssignVariableOpIT_NS_7VariantEE7ComputeEPNS_15OpKernelContextE'/>

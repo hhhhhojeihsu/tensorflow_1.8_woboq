@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.h' l='56' type='bool xla::HloReachabilityMap::SetReachabilityToUnion(tensorflow::gtl::ArraySlice&lt;const HloInstruction *&gt; inputs, const xla::HloInstruction * instruction)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.h' l='46'>// Set the reachability set of &apos;instruction&apos; to the union of the reachability
+  // sets of &apos;inputs&apos;. Upon return, IsReachable(x, instruction) where
+  // &apos;x&apos; is not &apos;instruction&apos; will return true iff IsReachable(x, input) is true
+  // for some &apos;input&apos; in &apos;inputs&apos;. Also sets &apos;instruction&apos; to be reachable from
+  // itself. Returns whether the reachability set of &apos;instruction&apos; changed.
+  //
+  // !!! THIS FUNCTION DOES NOT COMPUTE REACHABILITY !!! It sets the adjacency
+  // vector in the internal graph of this HloReachabilityMap for the given
+  // instruction and does not transitively update any other part of the
+  // adjacency matrix.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='592' u='c' c='_ZNK3xla14HloComputation19ComputeReachabilityEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='612' u='c' c='_ZN3xla14HloComputation36UpdateReachabilityThroughInstructionEPKNS_14HloInstructionEPNS_18HloReachabilityMapE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.cc' l='31' ll='47' type='bool xla::HloReachabilityMap::SetReachabilityToUnion(tensorflow::gtl::ArraySlice&lt;const HloInstruction *&gt; inputs, const xla::HloInstruction * instruction)'/>

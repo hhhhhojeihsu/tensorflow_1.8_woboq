@@ -1,0 +1,52 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.h' l='43' ll='207'/>
+<size>192</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.h' l='42'>// Analysis which identifies all HLO values and their uses in an HLO module.</doc>
+<fun r='_ZN3xla19HloDataflowAnalysis3RunERKNS_9HloModuleEbb'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis16ValueIsDefinedAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis17GetValueDefinedAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis17GetValueDefinedAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis22GetInstructionValueSetEPKNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis22GetInstructionValueSetEPKNS_14HloInstructionE'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis11GetValueSetEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis11GetValueSetERKNS_11HloPositionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis11GetValueSetERKNS_11HloPositionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis11GetValueSetEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis16GetUniqueValueAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis16GetUniqueValueAtEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis8GetValueEx'/>
+<fun r='_ZN3xla19HloDataflowAnalysis8GetValueEx'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis11value_countEv'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis6valuesEv'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis10call_graphEv'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis8ToStringEv'/>
+<fun r='_ZN3xla19HloDataflowAnalysisC1ERKNS_9HloModuleEbb'/>
+<fun r='_ZN3xla19HloDataflowAnalysis11NewHloValueEPNS_14HloInstructionERKNS_10ShapeIndexEb'/>
+<fun r='_ZN3xla19HloDataflowAnalysis20MarkValueForDeletionEx'/>
+<fun r='_ZN3xla19HloDataflowAnalysis18DeleteMarkedValuesEv'/>
+<fun r='_ZN3xla19HloDataflowAnalysis30InitializeInstructionValueSetsEv'/>
+<fun r='_ZN3xla19HloDataflowAnalysis25UpdateInstructionValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis21UpdateBitcastValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis19UpdateSliceValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis18UpdateCallValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis25UpdateConditionalValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis18UpdateCopyValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis29UpdateGetTupleElementValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis23UpdateParameterValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis22UpdateRecvDoneValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis20UpdateSelectValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis18UpdateSendValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis19UpdateTupleValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis19UpdateWhileValueSetEPNS_14HloInstructionE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis9PropagateEv'/>
+<fun r='_ZN3xla19HloDataflowAnalysis3PhiEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIPKNS_19InstructionValueSetEEE'/>
+<fun r='_ZN3xla19HloDataflowAnalysis25UpdatePositionsOfValuesAtEPNS_14HloInstructionERKNS_19InstructionValueSetEPS4_'/>
+<fun r='_ZNK3xla19HloDataflowAnalysis6VerifyEv'/>
+<mbr r='xla::HloDataflowAnalysis::module_' o='0' t='const xla::HloModule &amp;'/>
+<mbr r='xla::HloDataflowAnalysis::ssa_form_' o='64' t='const bool'/>
+<mbr r='xla::HloDataflowAnalysis::bitcast_defines_value_' o='72' t='const bool'/>
+<mbr r='xla::HloDataflowAnalysis::call_graph_' o='128' t='std::unique_ptr&lt;CallGraph&gt;'/>
+<mbr r='xla::HloDataflowAnalysis::values_' o='192' t='std::unordered_map&lt;HloValue::Id, HloValue&gt;'/>
+<mbr r='xla::HloDataflowAnalysis::value_sets_' o='640' t='std::unordered_map&lt;const HloInstruction *, InstructionValueSet&gt;'/>
+<mbr r='xla::HloDataflowAnalysis::value_ids_to_delete_' o='1088' t='std::vector&lt;HloValue::Id&gt;'/>
+<mbr r='xla::HloDataflowAnalysis::values_vector_' o='1280' t='std::vector&lt;const HloValue *&gt;'/>
+<mbr r='xla::HloDataflowAnalysis::next_value_id_' o='1472' t='HloValue::Id'/>

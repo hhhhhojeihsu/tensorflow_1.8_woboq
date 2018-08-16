@@ -1,0 +1,42 @@
+<def f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='252' ll='340'/>
+<size>944</size>
+<doc f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='250'>// The virtual scheduler emulates execution of nodes in a graph, considering
+// dependencies, device, etc.</doc>
+<fun r='_ZN10tensorflow8grappler16VirtualSchedulerC1EPKNS0_12GrapplerItemEbPNS0_7ClusterEPNS0_16ReadyNodeManagerE'/>
+<fun r='_ZN10tensorflow8grappler16VirtualScheduler4InitEv'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler11GetCurrNodeEv'/>
+<fun r='_ZN10tensorflow8grappler16VirtualScheduler20MarkCurrNodeExecutedERKNS0_5CostsE'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler7SummaryEv'/>
+<fun r='_ZN10tensorflow8grappler16VirtualScheduler7SummaryEPNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow8grappler16VirtualScheduler23ReadyNodeManagerFactoryERKSs'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler18GetPeakMemoryUsageEv'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler15GetDeviceStatesEv'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler13GetNodeStatesEv'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler19CalculateOutputSizeERKSt6vectorINS_23OpInfo_TensorPropertiesESaIS3_EEi'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::kAttrInputSrc' o='0' t='const string'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::kAttrSrcDevice' o='64' t='const string'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::kAttrDstDevice' o='128' t='const string'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::kChannelDevice' o='192' t='const string'/>
+<fun r='_ZN10tensorflow8grappler16VirtualScheduler22MaybeUpdateInputOutputEPKNS_7NodeDefE'/>
+<fun r='_ZN10tensorflow8grappler16VirtualScheduler22GetNodeStateOrCreateItEPKNS_7NodeDefE'/>
+<fun r='_ZN10tensorflow8grappler16VirtualScheduler14CreateSendRecvEPKNS_7NodeDefES4_RKSs'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler10DeviceNameEPKNS_7NodeDefE'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler19SanitizedDeviceNameEPKNS_7NodeDefE'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler17ChannelDeviceNameEPKNS_7NodeDefES4_'/>
+<fun r='_ZN10tensorflow8grappler16VirtualScheduler16FindOrCreateZeroERKSsPSt3mapISsNS0_5CostsESt4lessISsESaISt4pairIS2_S5_EEE'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler6Round2Ef'/>
+<fun r='_ZNK10tensorflow8grappler16VirtualScheduler16IsPersistentNodeEPKNS_7NodeDefE'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::ready_nodes_' o='256' t='tensorflow::grappler::ReadyNodeManager *'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::node_map_' o='320' t='std::unordered_map&lt;const NodeDef *, NodeState&gt;'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::device_' o='768' t='std::unordered_map&lt;string, DeviceState&gt;'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::additional_nodes_' o='1216' t='std::vector&lt;std::unique_ptr&lt;NodeDef&gt; &gt;'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::op_counts_' o='1408' t='std::map&lt;string, int&gt;'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::op_costs_' o='1792' t='std::map&lt;string, std::pair&lt;int, bool&gt; &gt;'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::graph_costs_' o='2176' t='tensorflow::grappler::Costs'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::op_to_cost_' o='3200' t='std::map&lt;string, Costs&gt;'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::graph_properties_' o='3584' t='tensorflow::grappler::GraphProperties'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::cluster_' o='6336' t='tensorflow::grappler::Cluster *'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::grappler_item_' o='6400' t='const tensorflow::grappler::GrapplerItem *'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::use_static_shapes_' o='6464' t='bool'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::initialized_' o='6472' t='bool'/>
+<mbr r='tensorflow::grappler::VirtualScheduler::placer_' o='6528' t='tensorflow::grappler::VirtualPlacer'/>

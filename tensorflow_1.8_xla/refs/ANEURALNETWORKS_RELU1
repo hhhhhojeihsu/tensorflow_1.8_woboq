@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='812' type='20'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='794'>/** Computes rectified linear 1 activation on the input tensor element-wise.
+   *
+   * The output is calculated using this formula:
+   *
+   *     output = min(1.f, max(-1.f, input))
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   * * {@link ANEURALNETWORKS_TENSOR_QUANT8_ASYMM}
+   *
+   * Supported tensor rank: up to 4.
+   *
+   * Inputs:
+   * * 0: A tensor, specifying the input.
+   *
+   * Outputs:
+   * * 0: The output tensor of same shape as input0.
+   */</doc>

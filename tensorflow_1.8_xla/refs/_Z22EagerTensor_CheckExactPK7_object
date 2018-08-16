@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/python/eager/pywrap_tensor.h' l='22' type='bool EagerTensor_CheckExact(const PyObject * o)'/>
+<dec f='tensorflow/tensorflow/python/eager/pywrap_tfe.h' l='104' type='bool EagerTensor_CheckExact(const PyObject * o)'/>
+<def f='tensorflow/tensorflow/python/eager/pywrap_tensor.cc' l='607' ll='609' type='bool EagerTensor_CheckExact(const PyObject * o)'/>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tensor.cc' l='636' u='c' c='_Z14EagerTensor_idPK7_object'/>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tensor.cc' l='731' u='c' c='_Z23TFE_Py_TensorShapeSliceP7_objecti'/>
+<doc f='tensorflow/tensorflow/python/eager/pywrap_tfe.h' l='102'>// Returns true if o is an instance of EagerTensor, but not a subclass. Else
+// returns false.</doc>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='761' u='c' c='_ZL12FastTensorIdP7_object'/>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1012' u='c' c='_ZL20TapeTensorFromTensorP7_object'/>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1422' u='c' c='_ZN12_GLOBAL__N_113CheckInputsOkEP7_objectiRKN10tensorflow5OpDefE'/>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1433' u='c' c='_ZN12_GLOBAL__N_113CheckInputsOkEP7_objectiRKN10tensorflow5OpDefE'/>
+<use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1636' u='c' c='_ZN12_GLOBAL__N_114ReadVariableOpERKNS_18FastPathOpExecInfoEP7_objectPSt10unique_ptrIS3_N10tensorflow6detail15PyDecrefDeleterEEP9TF_Status'/>
+<use f='tensorflow/tensorflow/python/lib/core/py_func.cc' l='222' u='c' c='_ZN10tensorflow12_GLOBAL__N_112DoCallPyFuncEPNS0_6PyCallEPb'/>
+<use f='tensorflow/tensorflow/python/lib/core/py_func.cc' l='240' u='c' c='_ZN10tensorflow12_GLOBAL__N_112DoCallPyFuncEPNS0_6PyCallEPb'/>

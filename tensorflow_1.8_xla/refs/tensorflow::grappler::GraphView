@@ -1,0 +1,29 @@
+<def f='tensorflow/tensorflow/core/grappler/graph_view.h' l='29' ll='90'/>
+<size>232</size>
+<doc f='tensorflow/tensorflow/core/grappler/graph_view.h' l='28'>// A utility class to simplify the traversal of a GraphDef.</doc>
+<fun r='_ZN10tensorflow8grappler9GraphViewC1EPNS_8GraphDefE'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView8GetGraphEv'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView7GetNodeERKSs'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView12GetInputPortERKSsi'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView13GetOutputPortERKSsi'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView9GetFanoutERKNS1_10OutputPortE'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView8GetFaninERKNS1_9InputPortE'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView15GetRegularFaninERKNS1_9InputPortE'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView10GetFanoutsERKNS_7NodeDefEb'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView9GetFaninsERKNS_7NodeDefEb'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView9NumFaninsERKNS_7NodeDefEb'/>
+<mbr r='tensorflow::grappler::GraphView::graph_' o='0' t='tensorflow::GraphDef *'/>
+<mbr r='tensorflow::grappler::GraphView::nodes_' o='64' t='std::unordered_map&lt;string, NodeDef *&gt;'/>
+<mbr r='tensorflow::grappler::GraphView::empty_set_' o='512' t='std::unordered_set&lt;InputPort, HashPort&gt;'/>
+<mbr r='tensorflow::grappler::GraphView::fanouts_' o='960' t='std::unordered_map&lt;OutputPort, std::unordered_set&lt;InputPort, HashPort&gt;, HashPort&gt;'/>
+<mbr r='tensorflow::grappler::GraphView::num_regular_outputs_' o='1408' t='std::unordered_map&lt;const NodeDef *, int&gt;'/>
+<fun r='_ZN10tensorflow8grappler9GraphViewC1EPNS_8GraphDefE'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView7GetNodeERKSs'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView12GetInputPortERKSsi'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView13GetOutputPortERKSsi'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView9GetFanoutERKNS1_10OutputPortE'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView8GetFaninERKNS1_9InputPortE'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView15GetRegularFaninERKNS1_9InputPortE'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView10GetFanoutsERKNS_7NodeDefEb'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView9GetFaninsERKNS_7NodeDefEb'/>
+<fun r='_ZNK10tensorflow8grappler9GraphView9NumFaninsERKNS_7NodeDefEb'/>

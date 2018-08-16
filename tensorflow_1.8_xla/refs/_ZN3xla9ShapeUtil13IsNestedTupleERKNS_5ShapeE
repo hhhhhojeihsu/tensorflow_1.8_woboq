@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='415' type='static bool xla::ShapeUtil::IsNestedTuple(const xla::Shape &amp; shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.h' l='88' u='c' c='_ZN3xla11HloSharding5TupleERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIS0_EE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='413'>// Returns whether the shape is a tuple with at least one element which is
+  // also a tuple.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.cc' l='141' u='c' c='_ZN3xla17AllocationTracker16DeconstructTupleERKNS_16GlobalDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='104' u='c' c='_ZN3xla18CpuTransferManager23TransferLiteralToInfeedEPN9perftools8gputools14StreamExecutorERKNS_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='201' u='c' c='_ZN3xla18CpuTransferManager26TransferLiteralFromOutfeedEPN9perftools8gputools14StreamExecutorERKNS_5ShapeEPNS_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='341' u='c' c='_ZN3xla3cpu9IrEmitter12HandleInfeedEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='467' u='c' c='_ZN3xla3cpu9IrEmitter13HandleOutfeedEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='320' ll='323' type='static bool xla::ShapeUtil::IsNestedTuple(const xla::Shape &amp; shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='320'>/* static */</doc>

@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/lib/io/inputstream_interface.h' l='35' type='tensorflow::Status tensorflow::io::InputStreamInterface::ReadNBytes(int64 bytes_to_read, string * result)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/inputstream_interface.h' l='32'>// Reads the next bytes_to_read from the file. Typical return codes:
+  //  * OK - in case of success.
+  //  * OUT_OF_RANGE - not enough bytes remaining before end of file.</doc>
+<ovr f='tensorflow/tensorflow/core/kernels/decode_compressed_op.cc' l='37' c='_ZN10tensorflow12_GLOBAL__N_117MemoryInputStream10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/kernels/fixed_length_record_reader_op.cc' l='108' u='c' c='_ZN10tensorflow23FixedLengthRecordReader10ReadLockedEPSsS1_PbS2_'/>
+<use f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.cc' l='49' u='c' c='_ZN10tensorflow2io19BufferedInputStream10FillBufferEv'/>
+<ovr f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.cc' l='88' c='_ZN10tensorflow2io19BufferedInputStream10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/inputstream_interface.cc' l='35' u='c' c='_ZN10tensorflow2io20InputStreamInterface10SkipNBytesEx'/>
+<ovr f='tensorflow/tensorflow/core/lib/io/random_inputstream.cc' l='32' c='_ZN10tensorflow2io23RandomAccessInputStream10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='126' u='c' c='_ZN10tensorflow2io12RecordReader15ReadChecksummedEymPNS_11StringPieceEPSs'/>
+<ovr f='tensorflow/tensorflow/core/lib/io/snappy/snappy_inputbuffer.cc' l='32' c='_ZN10tensorflow2io17SnappyInputBuffer10ReadNBytesExPSs'/>
+<use f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.cc' l='94' u='c' c='_ZN10tensorflow2io15ZlibInputStream14ReadFromStreamEv'/>
+<ovr f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.cc' l='142' c='_ZN10tensorflow2io15ZlibInputStream10ReadNBytesExPSs'/>

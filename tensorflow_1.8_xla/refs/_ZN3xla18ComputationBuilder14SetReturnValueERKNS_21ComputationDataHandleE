@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='826' type='tensorflow::Status xla::ComputationBuilder::SetReturnValue(const xla::ComputationDataHandle &amp; operand)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='821'>// Modifies the computation being built so that executions of it
+  // will return the value associated with operand, rather than the
+  // last expression enqueued on the ComputationBuilder. Any subsequent
+  // operations added to the ComputationBuilder will not have any effect unless
+  // SetReturnValue is called again.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1105' ll='1125' type='tensorflow::Status xla::ComputationBuilder::SetReturnValue(const xla::ComputationDataHandle &amp; operand)'/>

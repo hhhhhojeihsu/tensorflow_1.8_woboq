@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/c/eager/tape.h' l='113' type='void tensorflow::eager::VSpace::ReleaseBackwardFunction(BackwardFunction * backward_function) const'/>
+<ovr f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1294' c='_ZNK8PyVSpace23ReleaseBackwardFunctionEP7_object'/>
+<doc f='tensorflow/tensorflow/c/eager/tape.h' l='110'>// Lets this VSpace know that it can release resources held by the
+  // `backward_function`, It will not be called again.
+  // `backward_function` must not be null.</doc>

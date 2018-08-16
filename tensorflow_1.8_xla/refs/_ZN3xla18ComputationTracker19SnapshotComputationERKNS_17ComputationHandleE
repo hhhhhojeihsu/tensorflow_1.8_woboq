@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.h' l='65' type='StatusOr&lt;std::unique_ptr&lt;SessionModule&gt; &gt; xla::ComputationTracker::SnapshotComputation(const xla::ComputationHandle &amp; computation)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.h' l='62'>// Snapshots a computation (referenced by the provided handle) at its latest
+  // version, returning a module where it is the entry, and any referred-to
+  // computations are entrained as &quot;embedded&quot; (non-entry) computations.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/compile_only_service.cc' l='82' u='c' c='_ZN3xla18CompileOnlyService18CompileAheadOfTimeEN10tensorflow3gtl10ArraySliceINS0_22AotComputationInstanceEEERKNS_21AotCompilationOptionsE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.cc' l='89' ll='110' type='StatusOr&lt;std::unique_ptr&lt;SessionModule&gt; &gt; xla::ComputationTracker::SnapshotComputation(const xla::ComputationHandle &amp; computation)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='369' u='c' c='_ZN3xla7Service16BuildExecutablesESt6vectorINS_26VersionedComputationHandleESaIS2_EES1_ISt10unique_ptrINS_15HloModuleConfigESt14default_deleteIS6_EESa337873'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='459' u='c' c='_ZN3xla7Service15BuildExecutableERKNS_26VersionedComputationHandleESt10unique_ptrINS_15HloModuleConfigESt14default_deleteIS5_EEPNS_7BackendEPN9perftoo7048551'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1883' u='c' c='_ZN3xla7Service19SnapshotComputationEPKNS_26SnapshotComputationRequestEPNS_27SnapshotComputationResponseE'/>

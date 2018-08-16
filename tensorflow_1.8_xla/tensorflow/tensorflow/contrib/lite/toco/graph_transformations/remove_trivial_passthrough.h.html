@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>remove_trivial_passthrough.h source code [tensorflow/tensorflow/contrib/lite/toco/graph_transformations/remove_trivial_passthrough.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/contrib/lite/toco/graph_transformations/remove_trivial_passthrough.h'; var root_path = '../../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../../..'>tensorflow</a>/<a href='../../../..'>tensorflow</a>/<a href='../../..'>contrib</a>/<a href='../..'>lite</a>/<a href='..'>toco</a>/<a href='./'>graph_transformations</a>/<a href='remove_trivial_passthrough.h.html'>remove_trivial_passthrough.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2017 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><u>#<span data-ppcond="15">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CONTRIB_LITE_TOCO_GRAPH_TRANSFORMATIONS_REMOVE_TRIVIAL_PASSTHROUGH_H_">TENSORFLOW_CONTRIB_LITE_TOCO_GRAPH_TRANSFORMATIONS_REMOVE_TRIVIAL_PASSTHROUGH_H_</span></u></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CONTRIB_LITE_TOCO_GRAPH_TRANSFORMATIONS_REMOVE_TRIVIAL_PASSTHROUGH_H_" data-ref="_M/TENSORFLOW_CONTRIB_LITE_TOCO_GRAPH_TRANSFORMATIONS_REMOVE_TRIVIAL_PASSTHROUGH_H_">TENSORFLOW_CONTRIB_LITE_TOCO_GRAPH_TRANSFORMATIONS_REMOVE_TRIVIAL_PASSTHROUGH_H_</dfn></u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#include <a href="graph_transformations.h.html">"tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h"</a></u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../model.h.html">"tensorflow/contrib/lite/toco/model.h"</a></u></td></tr>
+<tr><th id="20">20</th><td></td></tr>
+<tr><th id="21">21</th><td><b>namespace</b> <span class="namespace">toco</span> {</td></tr>
+<tr><th id="22">22</th><td></td></tr>
+<tr><th id="23">23</th><td><i>// A "passthrough op" is an op that satisfies the following conditions:</i></td></tr>
+<tr><th id="24">24</th><td><i>//   1. One of its inputs is (per the semantics of that op) its "main input"</i></td></tr>
+<tr><th id="25">25</th><td><i>//      for some notion of "main input" that is operator-specific; for example,</i></td></tr>
+<tr><th id="26">26</th><td><i>//      for a Reshape op, the main input is the array being reshaped, not the</i></td></tr>
+<tr><th id="27">27</th><td><i>//      other input which gives the new shape.</i></td></tr>
+<tr><th id="28">28</th><td><i>//   2. It has exactly one output.</i></td></tr>
+<tr><th id="29">29</th><td><i>//   3. It forwards exactly its main input to its single output.</i></td></tr>
+<tr><th id="30">30</th><td><i>//</i></td></tr>
+<tr><th id="31">31</th><td><i>// Examples include:</i></td></tr>
+<tr><th id="32">32</th><td><i>//   1. TensorFlow Identity ops. (Have one input).</i></td></tr>
+<tr><th id="33">33</th><td><i>//   2. TensorFlow Reshape ops when the input and output shapes agree.</i></td></tr>
+<tr><th id="34">34</th><td><i>//   3. Any binary operator, one of whose two inputs is a constant and is the</i></td></tr>
+<tr><th id="35">35</th><td><i>//      neutral value for that operation. For example, a binary Add operator</i></td></tr>
+<tr><th id="36">36</th><td><i>//      where one of its inputs is a constant array filled with zeros.</i></td></tr>
+<tr><th id="37">37</th><td><i>//</i></td></tr>
+<tr><th id="38">38</th><td><i>// A passthrough op is "trivial" and can be removed when it is possible to</i></td></tr>
+<tr><th id="39">39</th><td><i>// discard either its main input or output array, rerouting any</i></td></tr>
+<tr><th id="40">40</th><td><i>// edge involving it to the other of these two arrays.</i></td></tr>
+<tr><th id="41">41</th><td><i>//</i></td></tr>
+<tr><th id="42">42</th><td><i>// It is only possible to discard such an array if it is not explicitly</i></td></tr>
+<tr><th id="43">43</th><td><i>// designated as a global input/output array of the graph, e.g. the model's</i></td></tr>
+<tr><th id="44">44</th><td><i>// input arrays, output arrays, and any array involved in a RNN back-edge</i></td></tr>
+<tr><th id="45">45</th><td><i>// specified by the model.</i></td></tr>
+<tr><th id="46">46</th><td><i>//</i></td></tr>
+<tr><th id="47">47</th><td><i>// This function does not check that the given operator is a passthrough op:</i></td></tr>
+<tr><th id="48">48</th><td><i>// that's the responsibility of the caller.</i></td></tr>
+<tr><th id="49">49</th><td><i>// Given that it is a passthrough op, this function checks whether it is trivial</i></td></tr>
+<tr><th id="50">50</th><td><i>// and then discards it and returns true, or, if it's not trivial (if neither</i></td></tr>
+<tr><th id="51">51</th><td><i>// the input nor the output may be discarded), returns false.</i></td></tr>
+<tr><th id="52">52</th><td><em>bool</em> <dfn class="decl" id="_ZN4toco26RemoveTrivialPassthroughOpEPNS_19GraphTransformationEPNS_5ModelEm" title='toco::RemoveTrivialPassthroughOp' data-ref="_ZN4toco26RemoveTrivialPassthroughOpEPNS_19GraphTransformationEPNS_5ModelEm">RemoveTrivialPassthroughOp</dfn>(<a class="type" href="graph_transformations.h.html#toco::GraphTransformation" title='toco::GraphTransformation' data-ref="toco::GraphTransformation">GraphTransformation</a>* <dfn class="local col1 decl" id="1transformation" title='transformation' data-type='toco::GraphTransformation *' data-ref="1transformation">transformation</dfn>,</td></tr>
+<tr><th id="53">53</th><td>                                <a class="type" href="../model.h.html#toco::Model" title='toco::Model' data-ref="toco::Model">Model</a>* <dfn class="local col2 decl" id="2model" title='model' data-type='toco::Model *' data-ref="2model">model</dfn>, <span class="namespace">std::</span><a class="typedef" href="../../../../../../include/x86_64-linux-gnu/c++/5/bits/c++config.h.html#std::size_t" title='std::size_t' data-type='unsigned long' data-ref="std::size_t">size_t</a> <dfn class="local col3 decl" id="3op_index" title='op_index' data-type='std::size_t' data-ref="3op_index">op_index</dfn>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td>}  <i>// namespace toco</i></td></tr>
+<tr><th id="56">56</th><td></td></tr>
+<tr><th id="57">57</th><td><u>#<span data-ppcond="15">endif</span>  // TENSORFLOW_CONTRIB_LITE_TOCO_GRAPH_TRANSFORMATIONS_REMOVE_TRIVIAL_PASSTHROUGH_H_</u></td></tr>
+<tr><th id="58">58</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='dequantize.cc.html'>tensorflow/tensorflow/contrib/lite/toco/graph_transformations/dequantize.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

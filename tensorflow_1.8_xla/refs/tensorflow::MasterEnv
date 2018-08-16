@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/core/distributed_runtime/master_env.h' l='61' ll='92'/>
+<size>112</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/master_env.h' l='57'>// The master environment class, which holds a bag of pointers to
+// per-master state.
+//
+// MasterEnv does not own its member pointers.</doc>
+<mbr r='tensorflow::MasterEnv::env' o='0' t='tensorflow::Env *'/>
+<mbr r='tensorflow::MasterEnv::worker_cache' o='64' t='tensorflow::WorkerCacheInterface *'/>
+<mbr r='tensorflow::MasterEnv::ops' o='128' t='const tensorflow::OpRegistryInterface *'/>
+<mbr r='tensorflow::MasterEnv::local_devices' o='192' t='std::vector&lt;Device *&gt;'/>
+<mbr r='tensorflow::MasterEnv::master_session_factory' o='384' t='std::function&lt;MasterSession *(SessionOptions, MasterEnv *, std::unique_ptr&lt;std::vector&lt;std::unique_ptr&lt;Device&gt; &gt; &gt;, std::unique_ptr&lt;WorkerCacheInterface&gt;, std::unique_ptr&lt;DeviceSet&gt;)&gt;'/>
+<mbr r='tensorflow::MasterEnv::worker_cache_factory' o='640' t='std::function&lt;Status (const WorkerCacheFactoryOptions &amp;, WorkerCacheInterface **)&gt;'/>

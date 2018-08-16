@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='237' type='bool xla::CallGraph::IsFlattened() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='232'>// Returns whether the call graph is flattened. A call graph is flattened if
+  // every computation called in a sequential context (eg, kWhile or kCall) has
+  // zero or one callsite, and no computation is called from both a parallel and
+  // sequential context. The call graph of a module can be flattened with
+  // FlattenCallGraph.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='312' ll='323' type='bool xla::CallGraph::IsFlattened() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='1129' u='c' c='_ZN3xla13CopyInsertion3RunEPNS_9HloModuleE'/>

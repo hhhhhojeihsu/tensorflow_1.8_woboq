@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/platform/default/thread_annotations.h' l='134'/>
+<use f='tensorflow/tensorflow/core/platform/default/mutex.h' l='46' u='c'/>
+<doc f='tensorflow/tensorflow/core/platform/default/thread_annotations.h' l='128'>// Document functions that try to acquire a lock, and return success or failure
+// (or a non-boolean value that can be interpreted as a boolean).
+// The first argument should be true for functions that return true on success,
+// or false for functions that return false on success. The second argument
+// specifies the mutex that is locked on success. If unspecified, it is assumed
+// to be &apos;this&apos;.</doc>

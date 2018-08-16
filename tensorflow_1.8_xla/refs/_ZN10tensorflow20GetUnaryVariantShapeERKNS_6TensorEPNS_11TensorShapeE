@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='238' type='tensorflow::Status tensorflow::GetUnaryVariantShape(const tensorflow::Tensor &amp; variant_tensor, tensorflow::TensorShape * shape)'/>
+<doc f='tensorflow/tensorflow/core/framework/variant_op_registry.h' l='230'>// Gets a TensorShape from a Tensor containing a scalar Variant.
+// Returns an Internal error if the Variant does not have a registered shape
+// function, or if it&apos;s a serialized Variant that cannot be decoded.
+//
+// REQUIRES:
+//   variant_tensor.dtype() == DT_VARIANT
+//   variant_tensor.dims() == 0
+//</doc>
+<def f='tensorflow/tensorflow/core/framework/variant_op_registry.cc' l='58' ll='70' type='tensorflow::Status tensorflow::GetUnaryVariantShape(const tensorflow::Tensor &amp; variant_tensor, tensorflow::TensorShape * shape)'/>
+<use f='tensorflow/tensorflow/core/kernels/aggregate_ops.cc' l='183' u='c' c='_ZN10tensorflow6AddNOpIT_NS_7VariantEE7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/aggregate_ops.cc' l='187' u='c' c='_ZN10tensorflow6AddNOpIT_NS_7VariantEE7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/shape_ops.h' l='40' u='c' c='_ZN10tensorflow16shape_op_helpers24GetRegularOrVariantShapeEPNS_15OpKernelContextEiPNS_11TensorShapeE'/>

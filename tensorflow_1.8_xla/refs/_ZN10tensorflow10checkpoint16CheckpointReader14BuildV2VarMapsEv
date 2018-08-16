@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/c/checkpoint_reader.h' l='67' type='std::pair&lt;std::unique_ptr&lt;TensorSliceReader::VarToShapeMap&gt;, std::unique_ptr&lt;TensorSliceReader::VarToDataTypeMap&gt; &gt; tensorflow::checkpoint::CheckpointReader::BuildV2VarMaps()'/>
+<use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='49' u='c' c='_ZN10tensorflow10checkpoint16CheckpointReaderC1ERKSsP9TF_Status'/>
+<def f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='110' ll='152' type='std::pair&lt;std::unique_ptr&lt;TensorSliceReader::VarToShapeMap&gt;, std::unique_ptr&lt;TensorSliceReader::VarToDataTypeMap&gt; &gt; tensorflow::checkpoint::CheckpointReader::BuildV2VarMaps()'/>
+<doc f='tensorflow/tensorflow/c/checkpoint_reader.h' l='62'>// Uses &quot;v2_reader_&quot; to build &quot;var name -&gt; shape&quot; and &quot;var name -&gt; data type&quot;
+  // maps; both owned by caller.
+  // REQUIRES: &quot;v2_reader_ != nullptr &amp;&amp; v2_reader_.status().ok()&quot;.</doc>

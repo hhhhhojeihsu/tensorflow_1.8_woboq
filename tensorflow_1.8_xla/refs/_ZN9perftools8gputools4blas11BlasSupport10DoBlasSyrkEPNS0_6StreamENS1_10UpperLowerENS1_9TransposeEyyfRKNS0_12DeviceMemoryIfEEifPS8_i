@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='1219' type='bool perftools::gputools::blas::BlasSupport::DoBlasSyrk(perftools::gputools::Stream * stream, blas::UpperLower uplo, blas::Transpose trans, uint64 n, uint64 k, float alpha, const DeviceMemory&lt;float&gt; &amp; a, int lda, float beta, DeviceMemory&lt;float&gt; * c, int ldc)'/>
+<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='1211'>// Performs a symmetric rank-k update.
+  //
+  //     c &lt;- alpha * a * a&apos; + beta * c,
+  // or
+  //     c &lt;- alpha * a&apos; * a + beta * c,
+  //
+  // alpha and beta are scalars; c is a n-by-n symmetric matrix; a is an n-by-k
+  // matrix in the first case and a k-by-n matrix in the second case.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4212' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasSyrkENS0_4blas10UpperLowerENS2_9TransposeEyyfRKNS0_12DeviceMemoryIfEEifPS6_i'/>

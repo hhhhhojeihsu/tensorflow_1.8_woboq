@@ -1,0 +1,17 @@
+<inh f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='274' c='toco::Operator'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1423' ll='1429'/>
+<size>144</size>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1413'>// BatchToSpaceND operator. Rearranges data from batch into blocks of
+// spatial data. Currently, only 2-d blocks are supported. Cropping is not
+// supported, either, and the crops array should be all zero.
+//
+// Inputs:
+//   inputs[0]: required: the input array
+//   inputs[1]: required: the block shape
+//   inputs[2]: required: the crops
+//
+// TensorFlow equivalent: BatchToSpaceND</doc>
+<fun r='_ZN4toco22BatchToSpaceNDOperatorC1Ev'/>
+<mbr r='toco::BatchToSpaceNDOperator::block_shape' o='576' t='std::vector&lt;int&gt;'/>
+<mbr r='toco::BatchToSpaceNDOperator::before_crops' o='768' t='std::vector&lt;int&gt;'/>
+<mbr r='toco::BatchToSpaceNDOperator::after_crops' o='960' t='std::vector&lt;int&gt;'/>

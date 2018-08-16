@@ -1,0 +1,21 @@
+<dec f='tensorflow/tensorflow/stream_executor/dnn.h' l='1270' type='bool perftools::gputools::dnn::DnnSupport::DoConvolveBackwardData(perftools::gputools::Stream * stream, const perftools::gputools::dnn::FilterDescriptor &amp; filter_descriptor, const DeviceMemory&lt;float&gt; &amp; filter_data, const perftools::gputools::dnn::BatchDescriptor &amp; output_descriptor, DeviceMemory&lt;float&gt; backward_output_data, const perftools::gputools::dnn::ConvolutionDescriptor &amp; convolution_descriptor, const perftools::gputools::dnn::BatchDescriptor &amp; input_descriptor, DeviceMemory&lt;float&gt; * backward_input_data, perftools::gputools::ScratchAllocator * scratch_allocator, const dnn::AlgorithmConfig &amp; algorithm_config, perftools::gputools::dnn::ProfileResult * output_profile_result)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1252'>// Enqueues a single-precision backward convolution (for data) operation onto
+  // the stream.
+  //
+  // Arguments:
+  //  stream: borrowed pointer to the stream that the &apos;convolve&apos; operation
+  //    should be enqueued onto.
+  //  filter_descriptor: dimensions of the convolution filter.
+  //  filter_data: coefficients for the convolution filter.
+  //  output_descriptor: dimensions of the output gradients, which is the same
+  //    as the dimensions of the output.
+  //  backward_output_data: un-owned device memory region which contains the
+  //    backprop of the output.
+  //  convolution_descriptor: stride of the convolution filter.
+  //  input_descriptor: dimensions of the input layer.
+  //  backward_input_data: un-owned device memory region in which to place the
+  //    backprop of the input.
+  //  scratch_allocator: un-owned, may-be-null object that may allocate scratch
+  //    space in order to speed up the convolution operation.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='915' u='c' c='_ZN9perftools8gputools6Stream35ThenConvolveBackwardDataWithScratchERKNS0_3dnn16FilterDescriptorERKNS0_12DeviceMemoryIfEERKNS2_15BatchDescriptorES7_RKN9227138'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='978' u='c' c='_ZN9perftools8gputools6Stream37ThenConvolveBackwardDataWithAlgorithmERKNS0_3dnn16FilterDescriptorERKNS0_12DeviceMemoryIfEERKNS2_15BatchDescriptorES7_R4292778'/>

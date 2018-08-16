@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.h' l='104' type='void __xla_cpu_runtime_ReleaseInfeedBufferAfterDequeue(xla::int32 buffer_length, void * buffer_ptr, const void * shape_ptr, xla::int32 shape_length)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.h' l='92'>// Relinquishes the next infeed buffer that was returned by
+// __xla_cpu_runtime_AcquireInfeedBufferForDequeue. Once this call
+// completes the data at buffer_ptr may no longer be
+// accessed. buffer_length must match the length passed to the call to
+// __xla_cpu_runtime_AcquireInfeedBufferForDequeue that returned
+// buffer_ptr. This function must be called before the next buffer is
+// acquired, i.e., there may only be one outstanding infeed buffer in
+// use by the runtime.  TODO(b/31340454) investigate whether or not it
+// is worth supporting zero-copy infeed where the buffer is retained
+// by the compiled code until it has been used. If zero-copy infeed is
+// implemented we will add support for multiple outstanding buffers
+// that can be returned out of order.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='111' ll='123' type='void __xla_cpu_runtime_ReleaseInfeedBufferAfterDequeue(xla::int32 buffer_length, void * buffer_ptr, const void * shape_ptr, xla::int32 shape_length)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/simple_orc_jit.cc' l='197' macro='1' u='r'/>

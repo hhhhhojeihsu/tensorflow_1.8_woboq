@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.h' l='35' type='bool xla::llvm_ir::CanUpdateDynamicSliceInPlace(xla::HloInstruction * dynamic_update_slice, const xla::BufferAssignment &amp; assignment)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1976' u='c' c='_ZN3xla3cpu9IrEmitter24HandleDynamicUpdateSliceEPNS_14HloInstructionE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.h' l='30'>// Checks if we can emit code for the given DynamicUpdateSlice node that updates
+// its input in place.  Returns true if the dynamic-update-slice&apos;s
+// array-to-be-updated and output share the same BufferAllocation::Slice.
+//
+// dynamic_update_slice must be a DynamicUpdateSlice op.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.cc' l='26' ll='33' type='bool xla::llvm_ir::CanUpdateDynamicSliceInPlace(xla::HloInstruction * dynamic_update_slice, const xla::BufferAssignment &amp; assignment)'/>

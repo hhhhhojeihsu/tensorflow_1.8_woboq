@@ -1,0 +1,6 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='91' ll='95' type='tensorflow::Status xla::Executable::PopulateExecutionProfile(xla::HloExecutionProfile * hlo_execution_profile, perftools::gputools::StreamExecutor * executor)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='87'>// Populates `hlo_execution_profile` from `executor`. This is implicit in any
+  // Execute* API call that takes a hlo_execution_profile argument, but must be
+  // called explicitly for other (async, for example) variants after the stream
+  // has completed.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='629' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>

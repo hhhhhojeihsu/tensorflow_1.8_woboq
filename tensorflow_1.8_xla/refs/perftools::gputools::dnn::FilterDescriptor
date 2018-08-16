@@ -1,0 +1,54 @@
+<def f='tensorflow/tensorflow/stream_executor/dnn.h' l='387' ll='458'/>
+<size>56</size>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='362'>// Describes a filter for the convolution. This is the &quot;window&quot; from
+// height-by-width patches of each of the feature maps in the input layer to the
+// cells within the output feature map.
+//
+// Uses the named argument construction form:
+//
+//  FilterDescriptor filter_dimensions;
+//  filter_dimensions
+//    .set_output_feature_map_count(42)
+//    .set_input_feature_map_count(7)
+//    ...
+//
+// Arguments:
+// - output_feature_map_count: number of feature maps in the output layer.
+// - input_feature_map_count: number of feature maps in the input layer (from
+//      which the filter patch is taken).
+// - input_filter_height: &quot;height&quot; number of neurons used in the sliding window
+//      over the input layer.
+// - input_filter_width: &quot;width&quot; number of neurons used in the sliding window
+//      over the input layer.
+//
+// Sometimes names like &quot;filter input height&quot; are referred to by synonymous
+// terminology, such as &quot;kernel y size&quot;.
+//
+// If unspecified, layout defaults to kOutputInputYX.</doc>
+<fun r='_ZN9perftools8gputools3dnn16FilterDescriptorC1Ev'/>
+<fun r='_ZN9perftools8gputools3dnn16FilterDescriptorC1Ei'/>
+<fun r='_ZN9perftools8gputools3dnn16FilterDescriptorD1Ev'/>
+<fun r='_ZN9perftools8gputools3dnn16FilterDescriptor28set_output_feature_map_countEx'/>
+<fun r='_ZN9perftools8gputools3dnn16FilterDescriptor27set_input_feature_map_countEx'/>
+<fun r='_ZN9perftools8gputools3dnn16FilterDescriptor23set_input_filter_heightEx'/>
+<fun r='_ZN9perftools8gputools3dnn16FilterDescriptor22set_input_filter_widthEx'/>
+<fun r='_ZN9perftools8gputools3dnn16FilterDescriptor10set_layoutENS1_12FilterLayoutE'/>
+<fun r='_ZN9perftools8gputools3dnn16FilterDescriptor15set_spatial_dimENS1_8DimIndexEx'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor5ndimsEv'/>
+<fun r='_ZN9perftools8gputools3dnn16FilterDescriptor9CloneFromERKS2_'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor8ToStringEv'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor13ToShortStringEv'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor18ComputeWeightCountEv'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor10bias_countEv'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor24output_feature_map_countEv'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor23input_feature_map_countEv'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor19input_filter_heightEv'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor18input_filter_widthEv'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor16input_filter_dimENS1_8DimIndexE'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor6layoutEv'/>
+<fun r='_ZNK9perftools8gputools3dnn16FilterDescriptor17input_filter_dimsEv'/>
+<mbr r='perftools::gputools::dnn::FilterDescriptor::output_feature_map_count_' o='0' t='int64'/>
+<mbr r='perftools::gputools::dnn::FilterDescriptor::input_feature_map_count_' o='64' t='int64'/>
+<mbr r='perftools::gputools::dnn::FilterDescriptor::input_filter_dims_' o='128' t='std::vector&lt;int64&gt;'/>
+<mbr r='perftools::gputools::dnn::FilterDescriptor::ndims_' o='320' t='int'/>
+<mbr r='perftools::gputools::dnn::FilterDescriptor::layout_' o='384' t='perftools::gputools::dnn::FilterLayout'/>

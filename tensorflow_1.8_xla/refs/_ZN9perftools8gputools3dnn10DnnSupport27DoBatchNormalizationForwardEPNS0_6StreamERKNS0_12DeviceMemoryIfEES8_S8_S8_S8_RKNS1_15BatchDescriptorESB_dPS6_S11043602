@@ -1,0 +1,33 @@
+<def f='tensorflow/tensorflow/stream_executor/dnn.h' l='926' ll='939' type='bool perftools::gputools::dnn::DnnSupport::DoBatchNormalizationForward(perftools::gputools::Stream * stream, const DeviceMemory&lt;float&gt; &amp; x, const DeviceMemory&lt;float&gt; &amp; scale, const DeviceMemory&lt;float&gt; &amp; offset, const DeviceMemory&lt;float&gt; &amp; estimated_mean, const DeviceMemory&lt;float&gt; &amp; estimated_variance, const dnn::BatchDescriptor &amp; x_desc, const dnn::BatchDescriptor &amp; scale_offset_desc, const double epsilon, DeviceMemory&lt;float&gt; * y, DeviceMemory&lt;float&gt; * batch_mean, DeviceMemory&lt;float&gt; * batch_var, DeviceMemory&lt;float&gt; * reserve_space_1, DeviceMemory&lt;float&gt; * reserve_space_2, bool is_training, std::function&lt;const DeviceMemory&lt;float&gt; &amp;()&gt; var_to_inv_var, std::function&lt;void ()&gt; inv_var_to_var)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='895'>// Performs a single-precision forward batch normalization operation onto
+  // the stream.
+  //
+  // Arguments:
+  //  stream: borrowed pointer to the stream that the batch normalization
+  //    operation should be enqueued onto.
+  //  x: input data.
+  //  scale: scaling parameters.
+  //  offset: offset parameters.
+  //  estimated_mean: population mean estimated during training.
+  //    Used for inference only; empty for training.
+  //  estimated_variance: population variance estimated during training,
+  //    used for inference only; empty for training.
+  //  x_desc: dimensions of the input data, which is the same as the dimensions
+  //    of the output.
+  //  scale_offset_desc: dimensions of scale and offset.
+  //  epsilon: a small floating point number added to the variance of x.
+  //  y: output data.
+  //  batch_mean: batch mean, to be used to compute the running mean.
+  //  batch_variance: batch variance, to be used to compute
+  //    the running variance.
+  //  reserve_space_1: saved mean, to be reused in the backward gradient
+  //    computation.
+  //  reserve_space_2: saved inv_var (1/sqrt(epsilon + variance), to be reused
+  //    in the backward gradient computation.
+  //  is_training: Set to true for training, false for inference.
+  //  var_to_inv_var: a function to convert the variance to inverted variance
+  //    for cuDNN v4 forward inference.
+  //  inv_var_to_var: a function to convert the inverted variance to
+  //    variance for cuDNN v4 forward training, to be used for TensorFlow
+  //    to calculate the running variance.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='333' u='c' c='_ZN9perftools8gputools6Stream29ThenBatchNormalizationForwardERKNS0_12DeviceMemoryIfEES5_S5_S5_S5_RKNS0_3dnn15BatchDescriptorES9_dPS3_SA_SA_SA_SA_bSt8f5706864'/>

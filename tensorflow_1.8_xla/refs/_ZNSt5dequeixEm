@@ -1,0 +1,16 @@
+<def f='include/c++/5/bits/stl_deque.h' l='1364' ll='1366' type='reference std::deque::operator[](size_type __n)'/>
+<doc f='include/c++/5/bits/stl_deque.h' l='1353'>/**
+       *  @brief Subscript access to the data contained in the %deque.
+       *  @param __n The index of the element for which data should be
+       *  accessed.
+       *  @return  Read/write reference to data.
+       *
+       *  This operator allows for easy, array-style, data access.
+       *  Note that data access with this operator is unchecked and
+       *  out_of_range lookups are not defined. (For checked lookups
+       *  see at().)
+       */</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.cc' l='54' u='c' c='_ZN10tensorflow8EventMgrD1Ev'/>
+<use f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='45' u='c' c='_ZN10tensorflow9FIFOQueue13DequeueLockedEPNS_15OpKernelContextEPSt6vectorINS_6TensorESaIS4_EE'/>
+<use f='tensorflow/tensorflow/core/kernels/spectrogram.cc' l='195' u='c' c='_ZN10tensorflow11Spectrogram14ProcessCoreFFTEv'/>
+<use f='tensorflow/tensorflow/core/kernels/stage_op.cc' l='159' u='c' c='_ZN10tensorflow12_GLOBAL__N_16Buffer4PeekEmPSt6vectorINS_6TensorESaIS3_EE'/>

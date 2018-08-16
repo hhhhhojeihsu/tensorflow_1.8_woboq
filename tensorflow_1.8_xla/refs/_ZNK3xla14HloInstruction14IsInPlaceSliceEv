@@ -1,0 +1,7 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1030' type='bool xla::HloInstruction::IsInPlaceSlice() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1028'>// Returns the flag that describes whether a slice must be lowered into an
+  // offset into the original operand.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='291' u='c' c='_ZN3xla19HloDataflowAnalysis19UpdateSliceValueSetEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='729' u='c' c='_ZN3xla19HloDataflowAnalysis30InitializeInstructionValueSetsEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='279' u='c' c='_ZN3xla21TuplePointsToAnalysis11HandleSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='443' u='c' c='_ZNK3xla21TuplePointsToAnalysis12VerifyBufferERKNS_13LogicalBufferE'/>

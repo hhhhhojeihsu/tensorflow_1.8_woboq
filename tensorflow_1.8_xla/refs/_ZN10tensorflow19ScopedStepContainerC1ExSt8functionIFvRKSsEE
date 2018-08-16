@@ -1,0 +1,11 @@
+<def f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='91' ll='93' type='void tensorflow::ScopedStepContainer::ScopedStepContainer(const int64 step_id, std::function&lt;void (const string &amp;)&gt; cleanup)'/>
+<doc f='tensorflow/tensorflow/core/framework/resource_mgr.h' l='88'>// step_id: the unique ID of this step. Doesn&apos;t have to be sequential, just
+  // has to be unique.
+  // cleanup: callback to delete a container of this name.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1521' u='c' c='_ZN10tensorflow13DirectSession8RunStateC1ERKSt6vectorISsSaISsEES6_xPKS2_IPNS_6DeviceESaIS8_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='456' u='c' c='_ZN10tensorflow8GraphMgr22StartParallelExecutorsERKSsxPNS0_4ItemEPNS_10RendezvousEPNS_18StepStatsCollectorEPNS_12CostGraphDefEPNS_19CancellationManage4842781'/>
+<use f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='198' u='c' c='_ZN10tensorflow16CapturedFunction3RunEPNS_15IteratorContextEOSt6vectorINS_6TensorESaIS4_EEPS6_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='232' u='c' c='_ZN10tensorflow16CapturedFunction19RunWithBorrowedArgsEPNS_15IteratorContextERKSt6vectorINS_6TensorESaIS4_EEPS6_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='288' u='c' c='_ZN10tensorflow16CapturedFunction15RunInstantiatedERKSt6vectorINS_6TensorESaIS2_EEPS4_'/>
+<use f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='334' u='c' c='_ZN10tensorflow16CapturedFunction8RunAsyncEPNS_15IteratorContextEOSt6vectorINS_6TensorESaIS4_EEPS6_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/iterator_ops.cc' l='784' u='c' c='_ZN10tensorflow12_GLOBAL__N_117OneShotIteratorOp7TryInitEPNS_15OpKernelContextEPPNS0_16IteratorResourceEPNS_13ContainerInfoE'/>

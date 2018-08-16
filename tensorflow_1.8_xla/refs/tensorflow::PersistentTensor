@@ -1,0 +1,16 @@
+<def f='tensorflow/tensorflow/core/framework/op_kernel.h' l='211' ll='231'/>
+<size>32</size>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='205'>// Wraps a tensor that is held by an Op across calls to Compute(). For
+// memory safety when using asynchronous devices like GPUs, the system
+// must be notified when a Tensor is used inside an Op execution. The
+// wrapper ensures that all uses of the Tensor are tracked, because in
+// order to retrieve the Tensor the caller must use AccessTensor which
+// notifies the context.</doc>
+<fun r='_ZN10tensorflow16PersistentTensorC1Ev'/>
+<fun r='_ZN10tensorflow16PersistentTensorC1ERKNS_6TensorE'/>
+<fun r='_ZN10tensorflow16PersistentTensor12AccessTensorEPNS_20OpKernelConstructionE'/>
+<fun r='_ZN10tensorflow16PersistentTensor12AccessTensorEPNS_15OpKernelContextE'/>
+<fun r='_ZNK10tensorflow16PersistentTensor13IsInitializedEv'/>
+<fun r='_ZNK10tensorflow16PersistentTensor11NumElementsEv'/>
+<fun r='_ZNK10tensorflow16PersistentTensor14AllocatedBytesEv'/>
+<mbr r='tensorflow::PersistentTensor::tensor_' o='0' t='tensorflow::Tensor'/>

@@ -1,0 +1,17 @@
+<dec f='include/python3.5m/pymem.h' l='181' type='void PyMem_SetupDebugHooks()'/>
+<doc f='include/python3.5m/pymem.h' l='165'>/* Setup hooks to detect bugs in the following Python memory allocator
+   functions:
+
+   - PyMem_RawMalloc(), PyMem_RawRealloc(), PyMem_RawFree()
+   - PyMem_Malloc(), PyMem_Realloc(), PyMem_Free()
+   - PyObject_Malloc(), PyObject_Realloc() and PyObject_Free()
+
+   Newly allocated memory is filled with the byte 0xCB, freed memory is filled
+   with the byte 0xDB. Additionnal checks:
+
+   - detect API violations, ex: PyObject_Free() called on a buffer allocated
+     by PyMem_Malloc()
+   - detect write before the start of the buffer (buffer underflow)
+   - detect write after the end of the buffer (buffer overflow)
+
+   The function does nothing if Python is not compiled is debug mode. */</doc>

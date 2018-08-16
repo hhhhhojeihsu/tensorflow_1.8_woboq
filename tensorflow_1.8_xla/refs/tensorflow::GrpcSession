@@ -1,0 +1,61 @@
+<inh f='tensorflow/tensorflow/core/public/session.h' l='83' c='tensorflow::Session'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.h' l='49' ll='138'/>
+<size>264</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.h' l='43'>// A Session instance lets the caller drive a TensorFlow graph
+// computation on potentially remote sets of devices. This is a thin
+// wrapper around tensorflow::grpc::MasterService.
+//
+// Multiple threads must synchronize their accesses to a single
+// session.</doc>
+<fun r='_ZN10tensorflow11GrpcSessionC1ERKNS_14SessionOptionsE'/>
+<fun r='_ZN10tensorflow11GrpcSession6CreateERKNS_14SessionOptionsEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<fun r='_ZN10tensorflow11GrpcSession5ResetERKNS_14SessionOptionsERKSt6vectorISsSaISsEE'/>
+<fun r='_ZN10tensorflow11GrpcSessionD1Ev'/>
+<fun r='_ZN10tensorflow11GrpcSession6CreateERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession6CreateERKNS_10RunOptionsERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession3RunERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EERKS1_ISsSaISsEESC_PS1_IS3_SaIS3_EE'/>
+<fun r='_ZN10tensorflow11GrpcSession3RunERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow11GrpcSession6ExtendERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession6ExtendERKNS_10RunOptionsERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession5CloseEv'/>
+<fun r='_ZN10tensorflow11GrpcSession9PRunSetupERKSt6vectorISsSaISsEES5_S5_PSs'/>
+<fun r='_ZN10tensorflow11GrpcSession4PRunERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS6_EERKS3_ISsSaISsEEPS3_IS5_SaIS5_EE'/>
+<fun r='_ZN10tensorflow11GrpcSession11ListDevicesEPSt6vectorINS_16DeviceAttributesESaIS2_EE'/>
+<fun r='_ZN10tensorflow11GrpcSession12MakeCallableERKNS_15CallableOptionsEPx'/>
+<fun r='_ZN10tensorflow11GrpcSession11RunCallableExRKSt6vectorINS_6TensorESaIS2_EEPS4_PNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow11GrpcSession15ReleaseCallableEx'/>
+<fun r='_ZN10tensorflow11GrpcSession15SetRemoteMasterESt10unique_ptrINS_15MasterInterfaceESt14default_deleteIS2_EE'/>
+<mbr r='tensorflow::GrpcSession::options_' o='64' t='tensorflow::SessionOptions'/>
+<mbr r='tensorflow::GrpcSession::master_' o='1792' t='std::unique_ptr&lt;MasterInterface&gt;'/>
+<mbr r='tensorflow::GrpcSession::mu_' o='1856' t='tensorflow::mutex'/>
+<mbr r='tensorflow::GrpcSession::handle_' o='1984' t='string'/>
+<mbr r='tensorflow::GrpcSession::current_graph_version_' o='2048' t='int64'/>
+<fun r='_ZN10tensorflow11GrpcSession6HandleEPSs'/>
+<fun r='_ZN10tensorflow11GrpcSession9RunHelperERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataERKSs'/>
+<fun r='_ZN10tensorflow11GrpcSession8RunProtoEPNS_11CallOptionsEPNS_28MutableRunStepRequestWrapperEPNS_29MutableRunStepResponseWrapperE'/>
+<fun r='_ZN10tensorflow11GrpcSession10CreateImplEPNS_11CallOptionsERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession10ExtendImplEPNS_11CallOptionsERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSessionC1ERKS0_'/>
+<fun r='_ZN10tensorflow11GrpcSessionC1ERKNS_14SessionOptionsE'/>
+<fun r='_ZN10tensorflow11GrpcSessionD1Ev'/>
+<fun r='_ZN10tensorflow11GrpcSession6CreateERKNS_14SessionOptionsEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<fun r='_ZN10tensorflow11GrpcSession6HandleEPSs'/>
+<fun r='_ZN10tensorflow11GrpcSession10CreateImplEPNS_11CallOptionsERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession6CreateERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession6CreateERKNS_10RunOptionsERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession10ExtendImplEPNS_11CallOptionsERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession6ExtendERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession6ExtendERKNS_10RunOptionsERKNS_8GraphDefE'/>
+<fun r='_ZN10tensorflow11GrpcSession9RunHelperERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataERKSs'/>
+<fun r='_ZN10tensorflow11GrpcSession3RunERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow11GrpcSession3RunERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EERKS1_ISsSaISsEESC_PS1_IS3_SaIS3_EE'/>
+<fun r='_ZN10tensorflow11GrpcSession8RunProtoEPNS_11CallOptionsEPNS_28MutableRunStepRequestWrapperEPNS_29MutableRunStepResponseWrapperE'/>
+<fun r='_ZN10tensorflow11GrpcSession9PRunSetupERKSt6vectorISsSaISsEES5_S5_PSs'/>
+<fun r='_ZN10tensorflow11GrpcSession4PRunERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS6_EERKS3_ISsSaISsEEPS3_IS5_SaIS5_EE'/>
+<fun r='_ZN10tensorflow11GrpcSession5CloseEv'/>
+<fun r='_ZN10tensorflow11GrpcSession11ListDevicesEPSt6vectorINS_16DeviceAttributesESaIS2_EE'/>
+<fun r='_ZN10tensorflow11GrpcSession15SetRemoteMasterESt10unique_ptrINS_15MasterInterfaceESt14default_deleteIS2_EE'/>
+<fun r='_ZN10tensorflow11GrpcSession5ResetERKNS_14SessionOptionsERKSt6vectorISsSaISsEE'/>
+<fun r='_ZN10tensorflow11GrpcSession12MakeCallableERKNS_15CallableOptionsEPx'/>
+<fun r='_ZN10tensorflow11GrpcSession11RunCallableExRKSt6vectorINS_6TensorESaIS2_EEPS4_PNS_11RunMetadataE'/>
+<fun r='_ZN10tensorflow11GrpcSession15ReleaseCallableEx'/>

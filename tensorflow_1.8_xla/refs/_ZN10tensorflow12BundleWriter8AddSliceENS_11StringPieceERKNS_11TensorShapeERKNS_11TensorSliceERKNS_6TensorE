@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='139' type='tensorflow::Status tensorflow::BundleWriter::AddSlice(tensorflow::StringPiece full_tensor_key, const tensorflow::TensorShape &amp; full_tensor_shape, const tensorflow::TensorSlice &amp; slice_spec, const tensorflow::Tensor &amp; slice_tensor)'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='123'>// Partitioned variables support.
+  // A slice of a full tensor is stored in two entries in the metadata table:
+  //
+  //   full_tensor_key   -&gt; BundleEntryProto, describing all stored slices
+  //                        of this full tensor.  Does not append to the data
+  //                        file.
+  //   encoded slice key -&gt; BundleEntryProto, describing one particular slice.
+  //                        Appends values of this slice to the data file.
+  //
+  // Slices of a full tensor can be added in any order.
+  //
+  // If a full tensor has slices placed on N devices and N BundleWriter&apos;s are
+  // concurrently used, the caller must use MergeBundles() to ensure that a
+  // consistent entry for &quot;full_tensor_key&quot; is produced.
+  //
+  // Returns an error if the same slice is added the second time.</doc>
+<use f='tensorflow/tensorflow/core/kernels/save_restore_v2_ops.cc' l='132' u='c' c='_ZN10tensorflow6SaveV27ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='431' ll='470' type='tensorflow::Status tensorflow::BundleWriter::AddSlice(tensorflow::StringPiece full_tensor_key, const tensorflow::TensorShape &amp; full_tensor_shape, const tensorflow::TensorSlice &amp; slice_spec, const tensorflow::Tensor &amp; slice_tensor)'/>

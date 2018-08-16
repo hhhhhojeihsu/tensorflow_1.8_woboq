@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/platform/strong_hash.h' l='35' type='uint64 tensorflow::StrongKeyedHash(const uint64 (&amp;)[2] , const string &amp; )'/>
+<def f='tensorflow/tensorflow/core/platform/default/strong_hash.h' l='24' ll='26' type='uint64 tensorflow::StrongKeyedHash(const uint64 (&amp;)[2] key, const string &amp; s)'/>
+<use f='tensorflow/tensorflow/core/kernels/string_to_hash_bucket_op.cc' l='69'/>
+<doc f='tensorflow/tensorflow/core/platform/strong_hash.h' l='24'>// This is a strong keyed hash function interface for strings.
+// The hash function is deterministic on the content of the string within the
+// process. The key of the hash is an array of 2 uint64 elements.
+// A strong hash make it dificult, if not infeasible, to compute inputs that
+// hash to the same bucket.
+//
+// Usage:
+//   uint64 key[2] = {123, 456};
+//   string input = &quot;input string&quot;;
+//   uint64 hash_value = StrongKeyedHash(key, input);
+//</doc>

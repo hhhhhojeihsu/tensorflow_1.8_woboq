@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/grappler/optimizers/graph_rewriter.h' l='70' type='bool tensorflow::grappler::GraphRewriter::RemovalIncreasesEdgeCount(const tensorflow::NodeDef &amp; node) const'/>
+<def f='tensorflow/tensorflow/core/grappler/optimizers/graph_rewriter.cc' l='115' ll='123' type='bool tensorflow::grappler::GraphRewriter::RemovalIncreasesEdgeCount(const tensorflow::NodeDef &amp; node) const'/>
+<doc f='tensorflow/tensorflow/core/grappler/optimizers/graph_rewriter.h' l='67'>// Returns true if removal of this degree would increase edge count, i.e. if
+  // in-degree * out-degree &gt; in-degree + out-degree or if the condition could
+  // not be verified.</doc>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/model_pruner.cc' l='108' u='c' c='_ZN10tensorflow8grappler11ModelPruner8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>

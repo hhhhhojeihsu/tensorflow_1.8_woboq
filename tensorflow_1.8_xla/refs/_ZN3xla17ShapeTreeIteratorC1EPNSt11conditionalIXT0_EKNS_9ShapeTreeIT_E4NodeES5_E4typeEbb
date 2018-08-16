@@ -1,0 +1,6 @@
+<def f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='342' ll='359' type='void xla::ShapeTreeIterator::ShapeTreeIterator&lt;T, is_const&gt;(NodeType * node, bool iterate_leaves_only, bool reverse)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='337'>// Construct an iterator pointing at node. Node must either be the tree root
+  // or nullptr (which is equivalent to end() and should not be dereferenced or
+  // incremented). If iterate_leaves_only is true, the iterator will not include
+  // interior tree nodes, only leaves. If reverse is true, the iterator will
+  // visit nodes in the reverse of pre-order traversal.</doc>

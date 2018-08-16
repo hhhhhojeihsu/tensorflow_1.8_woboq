@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/graph/gradients.h' l='50' type='tensorflow::Status tensorflow::AddSymbolicGradients(gtl::ArraySlice&lt;NodeOut&gt; y_node_outputs, gtl::ArraySlice&lt;NodeOut&gt; x_node_outputs, gtl::ArraySlice&lt;NodeOut&gt; y_grad_node_outputs, std::vector&lt;NodeOut&gt; * x_grad_node_outputs, tensorflow::Graph * graph)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1576' u='c' c='_ZN10tensorflow22SymbolicGradientHelper7ComputeEv'/>
+<doc f='tensorflow/tensorflow/core/graph/gradients.h' l='36'>// NOTE: This API is a work in progress and will likely be changing frequently.
+//
+// Given initial gradient-node outputs &apos;y_grad_node_outputs&apos; (which compute the
+// symbolic partial derivatives of some loss function &apos;L&apos; w.r.t the node outputs
+// &apos;y_node_outputs&apos;), adds gradient nodes to &apos;graph&apos; that compute the symbolic
+// partial derivatives of &apos;L&apos; w.r.t the node outputs &apos;x_node_outputs&apos;.
+//
+// REQUIRES: Each node in &apos;x_node_outputs&apos; to be unique, and so to have a single
+// output (this restriction will be removed in a subsequent change).
+
+// TODO(andydavis) Add symbolic gradient support for general graphs (the current
+// implementation only supports gradients for functions). In particular,
+// the nodes in &apos;x_nodes&apos; are currently restricted to have one output.</doc>
+<def f='tensorflow/tensorflow/core/graph/gradients.cc' l='370' ll='379' type='tensorflow::Status tensorflow::AddSymbolicGradients(gtl::ArraySlice&lt;NodeOut&gt; y_node_outputs, gtl::ArraySlice&lt;NodeOut&gt; x_node_outputs, gtl::ArraySlice&lt;NodeOut&gt; y_grad_node_outputs, std::vector&lt;NodeOut&gt; * x_grad_node_outputs, tensorflow::Graph * graph)'/>

@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/cc/saved_model/loader.h' l='50' type='tensorflow::Status tensorflow::LoadSavedModel(const tensorflow::SessionOptions &amp; session_options, const tensorflow::RunOptions &amp; run_options, const string &amp; export_dir, const std::unordered_set&lt;string&gt; &amp; tags, tensorflow::SavedModelBundle *const bundle)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2521' u='c' c='TF_LoadSessionFromSavedModel'/>
+<doc f='tensorflow/tensorflow/cc/saved_model/loader.h' l='46'>/// Loads a SavedModel from the specified export directory. The meta graph def
+/// to be loaded is identified by the supplied tags, corresponding exactly to
+/// the set of tags used at SavedModel build time. Returns a SavedModel bundle
+/// with a session and the requested meta graph def, if found.</doc>
+<def f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='276' ll='303' type='tensorflow::Status tensorflow::LoadSavedModel(const tensorflow::SessionOptions &amp; session_options, const tensorflow::RunOptions &amp; run_options, const string &amp; export_dir, const std::unordered_set&lt;string&gt; &amp; tags, tensorflow::SavedModelBundle *const bundle)'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_saved_model.cc' l='48' u='c' c='_ZN4toco12_GLOBAL__N_114LoadSavedModelERKNS_15ParsedTocoFlagsE'/>

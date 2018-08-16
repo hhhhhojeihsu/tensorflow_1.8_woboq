@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.h' l='99' type='FunctionLibraryRuntime::LocalHandle tensorflow::ProcessFunctionLibraryRuntime::GetHandleOnDevice(const string &amp; device_name, FunctionLibraryRuntime::Handle handle)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.h' l='96'>// For the given handle instantiated on device `device_name` returns the local
+  // index of instantiation of that function. If the function was not
+  // instantiated on `device_name` returns kInvalidLocalHandle.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='348' u='c' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl15GetFunctionBodyEy'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='505' u='c' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl11InstantiateERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='552' u='c' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl11InstantiateERKSsNS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPy'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='570' u='c' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl13ReleaseHandleEy'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='681' u='c' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl15GetOrCreateItemEyPPNS0_4ItemE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.cc' l='207' u='c' c='_ZN10tensorflow29ProcessFunctionLibraryRuntime22IsInstantiatedOnDeviceERKSsy'/>
+<def f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.cc' l='210' ll='222' type='FunctionLibraryRuntime::LocalHandle tensorflow::ProcessFunctionLibraryRuntime::GetHandleOnDevice(const string &amp; device_name, FunctionLibraryRuntime::Handle handle)'/>

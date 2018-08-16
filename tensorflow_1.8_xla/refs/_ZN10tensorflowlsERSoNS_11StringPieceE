@@ -1,0 +1,43 @@
+<dec f='tensorflow/tensorflow/core/lib/core/stringpiece.h' l='165' type='std::ostream &amp; tensorflow::operator&lt;&lt;(std::ostream &amp; o, tensorflow::StringPiece piece)'/>
+<doc f='tensorflow/tensorflow/core/lib/core/stringpiece.h' l='164'>// allow StringPiece to be logged</doc>
+<use f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.h' l='348' u='c' c='_ZN10tensorflow10monitoring21MetricCollectorGetter3GetEPKNS0_9MetricDefIXT_ET0_XT1_EEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_pipeline.cc' l='63' u='c' c='_ZN3xla15HloPassPipeline3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_pipeline.cc' l='77' u='c' c='_ZN3xla15HloPassPipeline3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_pipeline.cc' l='79' u='c' c='_ZN3xla15HloPassPipeline3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_pipeline.cc' l='107' u='c' c='_ZN3xla15HloPassPipeline3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_pipeline.cc' l='112' u='c' c='_ZN3xla15HloPassPipeline3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/kernel_support_library.cc' l='90' u='c' c='_ZN3xla20KernelSupportLibrary25EmitAndCallOutlinedKernelEbbPN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEN10tensorflow11Stri9590450'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/kernel_support_library.cc' l='128' u='c' c='_ZN3xla20KernelSupportLibrary25EmitAndCallOutlinedKernelEbbPN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEN10tensorflow11Stri9590450'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.cc' l='90' u='c' c='_ZN3xla7llvm_ir29EmitDynamicUpdateSliceInPlaceEN10tensorflow3gtl10ArraySliceINS0_7IrArrayEEERKS4_NS1_11StringPieceEPN4llvm9IRBuilderINS9_14ConstantFol1728067'/>
+<use f='tensorflow/tensorflow/core/common_runtime/copy_tensor.cc' l='241' u='c' c='_ZN10tensorflow10CopyTensor6ViaDMAENS_11StringPieceEPNS_13DeviceContextES3_PNS_6DeviceES5_NS_19AllocatorAttributesES6_PKNS_6TensorEPS7_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/device_mgr.cc' l='97' u='c' c='_ZNK10tensorflow9DeviceMgr12LookupDeviceENS_11StringPieceEPPNS_6DeviceE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='584' u='c' c='_ZN10tensorflow9DumpGraphENS_11StringPieceEPKNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.cc' l='42' u='c' c='_ZN10tensorflow22IntraProcessRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.cc' l='119' u='c' c='_ZN10tensorflow22IntraProcessRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='190' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='295' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<use f='tensorflow/tensorflow/core/framework/function.cc' l='1294' u='c' c='_ZN10tensorflow17FunctionDefHelper6DefineERKSsNS_3gtl10ArraySliceISsEES5_S5_NS4_INS0_4NodeEEE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='1288' u='c' c='_ZN10tensorflow20OpKernelConstruction10CtxFailureEPKciRKNS_6StatusE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='1295' u='c' c='_ZN10tensorflow20OpKernelConstruction21CtxFailureWithWarningEPKciRKNS_6StatusE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='1311' u='c' c='_ZN10tensorflow15OpKernelContext10CtxFailureEPKciRKNS_6StatusE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='1318' u='c' c='_ZN10tensorflow15OpKernelContext21CtxFailureWithWarningEPKciRKNS_6StatusE'/>
+<use f='tensorflow/tensorflow/core/framework/rendezvous.cc' l='156' u='c' c='_ZN10tensorflow19LocalRendezvousImpl4SendERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsERKNS_6TensorEb'/>
+<use f='tensorflow/tensorflow/core/framework/rendezvous.cc' l='199' u='c' c='_ZN10tensorflow19LocalRendezvousImpl9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<def f='tensorflow/tensorflow/core/lib/core/stringpiece.cc' l='23' ll='26' type='std::ostream &amp; tensorflow::operator&lt;&lt;(std::ostream &amp; o, tensorflow::StringPiece piece)'/>
+<use f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.cc' l='78' u='c' c='_ZN10tensorflow10monitoring18CollectionRegistry8RegisterEPKNS0_17AbstractMetricDefERKSt8functionIFvNS0_21MetricCollectorGetterEEE'/>
+<use f='tensorflow/tensorflow/core/util/command_line_flags.cc' l='52' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ParseInt32FlagENS_11StringPieceES1_RKSt8functionIFbiEEPb'/>
+<use f='tensorflow/tensorflow/core/util/command_line_flags.cc' l='52' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ParseInt32FlagENS_11StringPieceES1_RKSt8functionIFbiEEPb'/>
+<use f='tensorflow/tensorflow/core/util/command_line_flags.cc' l='74' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ParseInt64FlagENS_11StringPieceES1_RKSt8functionIFbxEEPb'/>
+<use f='tensorflow/tensorflow/core/util/command_line_flags.cc' l='74' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ParseInt64FlagENS_11StringPieceES1_RKSt8functionIFbxEEPb'/>
+<use f='tensorflow/tensorflow/core/util/command_line_flags.cc' l='104' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ParseBoolFlagENS_11StringPieceES1_RKSt8functionIFbbEEPb'/>
+<use f='tensorflow/tensorflow/core/util/command_line_flags.cc' l='104' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ParseBoolFlagENS_11StringPieceES1_RKSt8functionIFbbEEPb'/>
+<use f='tensorflow/tensorflow/core/util/command_line_flags.cc' l='124' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ParseFloatFlagENS_11StringPieceES1_RKSt8functionIFbfEEPb'/>
+<use f='tensorflow/tensorflow/core/util/command_line_flags.cc' l='124' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ParseFloatFlagENS_11StringPieceES1_RKSt8functionIFbfEEPb'/>
+<use f='tensorflow/tensorflow/core/util/device_name_utils.cc' l='367' u='c' c='_ZN10tensorflow15DeviceNameUtils9LocalNameENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/example_proto_fast_parsing.cc' l='471' u='c' c='_ZN10tensorflow7example12_GLOBAL__N_123LogDenseFeatureDataLossENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/example_proto_fast_parsing.cc' l='482' u='c' c='_ZN10tensorflow7example12_GLOBAL__N_124LogSparseFeatureDataLossENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='550' u='c' c='_ZN10tensorflowL14MergeOneBundleEPNS_3EnvENS_11StringPieceEPNS_10MergeStateE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='687' u='c' c='_ZN10tensorflow12MergeBundlesEPNS_3EnvENS_3gtl10ArraySliceISsEENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='142' u='c' c='_ZN9perftools8gputools8internal9DsoLoader12GetDsoHandleEN10tensorflow11StringPieceEPPvNS2_8LoadKindE'/>
+<use f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='152' u='c' c='_ZN9perftools8gputools8internal9DsoLoader12GetDsoHandleEN10tensorflow11StringPieceEPPvNS2_8LoadKindE'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='143' u='c' c='_ZN10tensorflow16graph_transforms17RemoveUnusedNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>

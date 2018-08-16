@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1393' type='std::vector&lt;int64&gt;'/>
+<offset>2816</offset>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1391'>// Dimensions present for some operations that require reshaping or
+  // broadcasting, including Reshape, Reduce, ReduceWindow, and Reverse.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='120' u='m' c='_ZN3xla14HloInstruction15CreateFromProtoEPNS_9HloModuleERKNS_19HloInstructionProtoERKN10tensorflow3gtl7FlatMapIxPS0_NS6_4hashIxEESt8equal_toIxEEERKNS816766634'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='478' u='m' c='_ZN3xla14HloInstruction13CreateReverseERKNS_5ShapeEPS0_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='562' u='m' c='_ZN3xla14HloInstruction17CreateConcatenateERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='589' u='m' c='_ZN3xla14HloInstruction12CreateReduceERKNS_5ShapeEPS0_S4_N10tensorflow3gtl10ArraySliceIxEEPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='681' u='m' c='_ZN3xla14HloInstruction15CreateBroadcastERKNS_5ShapeEPS0_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='782' u='m' c='_ZN3xla14HloInstruction15CreateTransposeERKNS_5ShapeEPS0_N10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1285' u='r' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1347' u='r' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1363' u='r' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1388' u='r' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1618' u='a' c='_ZNK3xla14HloInstruction10dimensionsEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1627' u='m' c='_ZNK3xla14HloInstruction21concatenate_dimensionEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1888' u='r' c='_ZNK3xla14HloInstruction16IsRank2TransposeEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2369' c='_ZNK3xla14HloInstruction7ToProtoEv'/>

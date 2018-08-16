@@ -1,0 +1,15 @@
+<inh f='tensorflow/tensorflow/compiler/xla/service/hlo_pass_interface.h' l='29' c='xla::HloPassInterface'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.h' l='29' ll='51'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.h' l='26'>// A pass which rewrites batch norm operations into more operations. Breaking a
+// big operation into smaller operations helps leverage our generic fusion
+// logic.</doc>
+<fun r='_ZN3xla17BatchNormExpanderC1Ebbbb'/>
+<fun r='_ZN3xla17BatchNormExpanderD1Ev'/>
+<fun r='_ZNK3xla17BatchNormExpander4nameEv'/>
+<fun r='_ZN3xla17BatchNormExpander3RunEPNS_9HloModuleE'/>
+<mbr r='xla::BatchNormExpander::rewrite_training_op_' o='64' t='bool'/>
+<mbr r='xla::BatchNormExpander::rewrite_inference_op_' o='72' t='bool'/>
+<mbr r='xla::BatchNormExpander::rewrite_grad_op_' o='80' t='bool'/>
+<mbr r='xla::BatchNormExpander::use_fusion_' o='88' t='bool'/>
+<fun r='_ZN3xla17BatchNormExpander3RunEPNS_9HloModuleE'/>

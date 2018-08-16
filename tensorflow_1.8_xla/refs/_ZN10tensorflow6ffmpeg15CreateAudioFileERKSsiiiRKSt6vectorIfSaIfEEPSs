@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/ffmpeg/ffmpeg_lib.h' l='52' type='tensorflow::Status tensorflow::ffmpeg::CreateAudioFile(const string &amp; audio_format_id, int32 bits_per_second, int32 samples_per_second, int32 channel_count, const std::vector&lt;float&gt; &amp; samples, string * output_data)'/>
+<doc f='tensorflow/tensorflow/contrib/ffmpeg/ffmpeg_lib.h' l='47'>// Creates an audio file using ffmpeg in a specific format. The samples are in
+// [-1.0, 1.0]. If there are multiple channels in the audio then each frame will
+// contain a separate sample for each channel. Frames are ordered by time.
+// Currently, the implementation only supports wav files, and ffmpeg is not used
+// to create them.</doc>
+<def f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='353' ll='362' type='tensorflow::Status tensorflow::ffmpeg::CreateAudioFile(const string &amp; audio_format_id, int32 bits_per_second, int32 samples_per_second, int32 channel_count, const std::vector&lt;float&gt; &amp; samples, string * output_data)'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/encode_audio_op.cc' l='42' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_16EncodeEPNS_15OpKernelContextERKNS_6TensorERKSsii'/>

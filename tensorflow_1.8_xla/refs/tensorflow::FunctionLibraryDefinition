@@ -1,0 +1,34 @@
+<inh f='tensorflow/tensorflow/core/framework/op.h' l='41' c='tensorflow::OpRegistryInterface'/>
+<def f='tensorflow/tensorflow/core/framework/function.h' l='287' ll='405'/>
+<size>144</size>
+<doc f='tensorflow/tensorflow/core/framework/function.h' l='285'>// Helper to maintain a map between function names in a given
+// FunctionDefLibrary and function definitions.</doc>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinitionC1ERKS0_'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinitionC1EPKNS_19OpRegistryInterfaceERKNS_18FunctionDefLibraryE'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinitionD1Ev'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinitionaSERKS0_'/>
+<fun r='_ZNK10tensorflow25FunctionLibraryDefinition4FindERKSs'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinition14AddFunctionDefERKNS_11FunctionDefE'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinition14AddGradientDefERKNS_11GradientDefE'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinition14RemoveFunctionERKSs'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinition14RemoveGradientERKSs'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinition10AddLibraryERKS0_'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinition10AddLibraryERKNS_18FunctionDefLibraryE'/>
+<fun r='_ZNK10tensorflow25FunctionLibraryDefinition12FindGradientERKSs'/>
+<fun r='_ZNK10tensorflow25FunctionLibraryDefinition6LookUpERKSsPPKNS_18OpRegistrationDataE'/>
+<smbr r='tensorflow::FunctionLibraryDefinition::kArgOp' t='const char *const'/>
+<smbr r='tensorflow::FunctionLibraryDefinition::kRetOp' t='const char *const'/>
+<smbr r='tensorflow::FunctionLibraryDefinition::kGradientOp' t='const char *const'/>
+<smbr r='tensorflow::FunctionLibraryDefinition::kFuncAttr' t='const char *const'/>
+<fun r='_ZNK10tensorflow25FunctionLibraryDefinition7GetAttrERKNS_7NodeDefERKSsPT_'/>
+<fun r='_ZNK10tensorflow25FunctionLibraryDefinition7GetAttrERKNS_4NodeERKSsPT_'/>
+<fun r='_ZNK10tensorflow25FunctionLibraryDefinition7ToProtoEv'/>
+<fun r='_ZNK10tensorflow25FunctionLibraryDefinition13num_functionsEv'/>
+<fun r='_ZNK10tensorflow25FunctionLibraryDefinition16default_registryEv'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinition20AddFunctionDefHelperERKNS_11FunctionDefEPb'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinition20AddGradientDefHelperERKNS_11GradientDefEPb'/>
+<mbr r='tensorflow::FunctionLibraryDefinition::default_registry_' o='64' t='const tensorflow::OpRegistryInterface *const'/>
+<mbr r='tensorflow::FunctionLibraryDefinition::function_defs_' o='128' t='gtl::FlatMap&lt;string, std::unique_ptr&lt;FunctionDefAndOpRegistration&gt; &gt;'/>
+<mbr r='tensorflow::FunctionLibraryDefinition::func_grad_' o='640' t='gtl::FlatMap&lt;string, string&gt;'/>
+<fun r='_ZNK10tensorflow25FunctionLibraryDefinition11GetAttrImplERKNS_7NodeDefE'/>
+<fun r='_ZN10tensorflow25FunctionLibraryDefinition6RemoveERKSt6vectorISsSaISsEES5_'/>

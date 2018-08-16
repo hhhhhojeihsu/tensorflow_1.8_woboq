@@ -1,0 +1,52 @@
+<inh f='tensorflow/tensorflow/core/distributed_runtime/server_lib.h' l='36' c='tensorflow::ServerInterface'/>
+<def f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.h' l='53' ll='146'/>
+<size>336</size>
+<fun r='_ZN10tensorflow10GrpcServerC1ERKNS_9ServerDefEPNS_3EnvE'/>
+<fun r='_ZN10tensorflow10GrpcServer6CreateERKNS_9ServerDefEPNS_3EnvEPSt10unique_ptrINS_15ServerInterfaceESt14default_deleteIS7_EE'/>
+<fun r='_ZN10tensorflow10GrpcServerD1Ev'/>
+<fun r='_ZN10tensorflow10GrpcServer5StartEv'/>
+<fun r='_ZN10tensorflow10GrpcServer4StopEv'/>
+<fun r='_ZN10tensorflow10GrpcServer4JoinEv'/>
+<fun r='_ZNK10tensorflow10GrpcServer6targetEv'/>
+<fun r='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
+<fun r='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr2250748'/>
+<fun r='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EE'/>
+<fun r='_ZN10tensorflow10GrpcServer4InitEv'/>
+<fun r='_ZNK10tensorflow10GrpcServer20GetServerCredentialsERKNS_9ServerDefE'/>
+<fun r='_ZNK10tensorflow10GrpcServer26GetChannelCreationFunctionEv'/>
+<fun r='_ZN10tensorflow10GrpcServer12CreateMasterEPNS_9MasterEnvE'/>
+<fun r='_ZN10tensorflow10GrpcServer18WorkerCacheFactoryERKNS_25WorkerCacheFactoryOptionsEPPNS_20WorkerCacheInterfaceE'/>
+<fun r='_ZN10tensorflow10GrpcServer16ParseChannelSpecERKNS_25WorkerCacheFactoryOptionsEPNS_15GrpcChannelSpecE'/>
+<fun r='_ZNK10tensorflow10GrpcServer10bound_portEv'/>
+<fun r='_ZN10tensorflow10GrpcServer10worker_envEv'/>
+<fun r='_ZNK10tensorflow10GrpcServer10server_defEv'/>
+<mbr r='tensorflow::GrpcServer::server_def_' o='64' t='const tensorflow::ServerDef'/>
+<mbr r='tensorflow::GrpcServer::env_' o='512' t='tensorflow::Env *'/>
+<mbr r='tensorflow::GrpcServer::bound_port_' o='576' t='int'/>
+<mbr r='tensorflow::GrpcServer::mu_' o='640' t='tensorflow::mutex'/>
+<mbr r='tensorflow::GrpcServer::state_' o='768' t='tensorflow::GrpcServer::State'/>
+<mbr r='tensorflow::GrpcServer::master_env_' o='832' t='tensorflow::MasterEnv'/>
+<mbr r='tensorflow::GrpcServer::master_impl_' o='1728' t='std::unique_ptr&lt;Master&gt;'/>
+<mbr r='tensorflow::GrpcServer::master_service_' o='1792' t='tensorflow::AsyncServiceInterface *'/>
+<mbr r='tensorflow::GrpcServer::master_thread_' o='1856' t='std::unique_ptr&lt;Thread&gt;'/>
+<mbr r='tensorflow::GrpcServer::worker_env_' o='1920' t='tensorflow::WorkerEnv'/>
+<mbr r='tensorflow::GrpcServer::worker_impl_' o='2432' t='std::unique_ptr&lt;GrpcWorker&gt;'/>
+<mbr r='tensorflow::GrpcServer::worker_service_' o='2496' t='tensorflow::AsyncServiceInterface *'/>
+<mbr r='tensorflow::GrpcServer::worker_thread_' o='2560' t='std::unique_ptr&lt;Thread&gt;'/>
+<mbr r='tensorflow::GrpcServer::server_' o='2624' t='std::unique_ptr&lt; ::grpc::Server&gt;'/>
+<fun r='_ZN10tensorflow10GrpcServerC1ERKNS_9ServerDefEPNS_3EnvE'/>
+<fun r='_ZN10tensorflow10GrpcServerD1Ev'/>
+<fun r='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
+<fun r='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr2250748'/>
+<fun r='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EE'/>
+<fun r='_ZN10tensorflow10GrpcServer4InitEv'/>
+<fun r='_ZN10tensorflow10GrpcServer16ParseChannelSpecERKNS_25WorkerCacheFactoryOptionsEPNS_15GrpcChannelSpecE'/>
+<fun r='_ZN10tensorflow10GrpcServer18WorkerCacheFactoryERKNS_25WorkerCacheFactoryOptionsEPPNS_20WorkerCacheInterfaceE'/>
+<fun r='_ZN10tensorflow10GrpcServer5StartEv'/>
+<fun r='_ZN10tensorflow10GrpcServer4StopEv'/>
+<fun r='_ZN10tensorflow10GrpcServer4JoinEv'/>
+<fun r='_ZNK10tensorflow10GrpcServer6targetEv'/>
+<fun r='_ZNK10tensorflow10GrpcServer20GetServerCredentialsERKNS_9ServerDefE'/>
+<fun r='_ZNK10tensorflow10GrpcServer26GetChannelCreationFunctionEv'/>
+<fun r='_ZN10tensorflow10GrpcServer12CreateMasterEPNS_9MasterEnvE'/>
+<fun r='_ZN10tensorflow10GrpcServer6CreateERKNS_9ServerDefEPNS_3EnvEPSt10unique_ptrINS_15ServerInterfaceESt14default_deleteIS7_EE'/>

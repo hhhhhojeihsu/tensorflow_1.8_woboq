@@ -1,0 +1,34 @@
+<def f='tensorflow/tensorflow/compiler/xla/client/client.h' l='39' ll='250'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='111' c='xla::LocalClient'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/client/compile_only_client.h' l='32' c='xla::CompileOnlyClient'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/compiler/xla/client/client.h' l='37'>// XLA service&apos;s client object -- wraps the service with convenience and
+// lifetime-oriented methods.</doc>
+<fun r='_ZN3xla6ClientC1EPNS_16ServiceInterfaceE'/>
+<fun r='_ZN3xla6ClientD1Ev'/>
+<fun r='_ZN3xla6Client7ExecuteERKNS_11ComputationEN10tensorflow3gtl10ArraySliceIPNS_10GlobalDataEEEPKNS_16ExecutionOptionsEPNS_16ExecutionProfileE'/>
+<fun r='_ZN3xla6Client7ExecuteERKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIPNS_10GlobalDataEEEPKNS_16ExecutionOptionsEPNS_16ExecutionProfileE'/>
+<fun r='_ZN3xla6Client15ExecuteParallelEN10tensorflow3gtl10ArraySliceINS0_19ComputationInstanceEEE'/>
+<fun r='_ZN3xla6Client15ExecuteParallelEN10tensorflow3gtl10ArraySliceINS0_22XlaComputationInstanceEEE'/>
+<fun r='_ZN3xla6Client16GetDeviceHandlesEx'/>
+<fun r='_ZN3xla6Client8TransferERKNS_10GlobalDataEPKNS_5ShapeE'/>
+<fun r='_ZN3xla6Client16TransferToServerERKNS_7LiteralEPKNS_12DeviceHandleE'/>
+<fun r='_ZN3xla6Client16TransferToInfeedERKNS_7LiteralExPKNS_12DeviceHandleE'/>
+<fun r='_ZN3xla6Client19TransferFromOutfeedEPKNS_5ShapeExPKNS_12DeviceHandleE'/>
+<fun r='_ZN3xla6Client11ResetDeviceEv'/>
+<fun r='_ZN3xla6Client18ExecuteAndTransferERKNS_11ComputationEN10tensorflow3gtl10ArraySliceIPNS_10GlobalDataEEEPKNS_16ExecutionOptionsEPNS_16ExecutionProfileE'/>
+<fun r='_ZN3xla6Client18ExecuteAndTransferERKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIPNS_10GlobalDataEEEPKNS_16ExecutionOptionsEPNS_16ExecutionProfileE'/>
+<fun r='_ZN3xla6Client10UnregisterERKNS_10GlobalDataE'/>
+<fun r='_ZN3xla6Client16DeconstructTupleERKNS_10GlobalDataE'/>
+<fun r='_ZNK3xla6Client19GetComputationStatsERKNS_11ComputationERKNS_12DebugOptionsE'/>
+<fun r='_ZNK3xla6Client19GetComputationStatsERKNS_14XlaComputationERKNS_12DebugOptionsE'/>
+<fun r='_ZN3xla6Client8GetShapeERKNS_10GlobalDataE'/>
+<fun r='_ZN3xla6Client19GetComputationShapeERKNS_11ComputationE'/>
+<fun r='_ZN3xla6Client19GetComputationShapeERKNS_14XlaComputationE'/>
+<fun r='_ZN3xla6Client19CreateChannelHandleEv'/>
+<fun r='_ZN3xla6Client12LoadSnapshotERKNS_13SessionModuleE'/>
+<fun r='_ZN3xla6Client4stubEv'/>
+<fun r='_ZN3xla6Client22ExecutionStatsAsStringERKNS_11ComputationERKNS_16ExecutionProfileE'/>
+<fun r='_ZN3xla6Client22ExecutionStatsAsStringERKNS_14XlaComputationERKNS_16ExecutionProfileE'/>
+<mbr r='xla::Client::stub_' o='64' t='xla::ServiceInterface *'/>
+<fun r='_ZN3xla6ClientC1ERKS0_'/>

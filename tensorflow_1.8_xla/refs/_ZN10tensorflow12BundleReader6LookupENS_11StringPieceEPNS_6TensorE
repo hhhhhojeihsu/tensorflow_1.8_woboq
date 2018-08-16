@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='219' type='tensorflow::Status tensorflow::BundleReader::Lookup(tensorflow::StringPiece key, tensorflow::Tensor * val)'/>
+<use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='101' u='c' c='_ZNK10tensorflow10checkpoint16CheckpointReader9GetTensorERKSsPSt10unique_ptrINS_6TensorESt14default_deleteIS5_EEP9TF_Status'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='207'>// Looks up the tensor keyed by &quot;key&quot;.  If &quot;key&quot; refers to a partitioned
+  // tensor, attempts to look up the full contents using all stored slices.
+  //
+  // Caller must make sure &quot;val&quot; has the same shape and dtype as the
+  // corresponding contents, so that its buffer can be filled without needing
+  // extra allocation.  These can be queried via &quot;LookupDtypeAndShape()&quot;.
+  //
+  // On error, &quot;val&quot; may contain nonsense data.  Returns a NotFound error if
+  // tensor keyed by &quot;key&quot; does not exist in this bundle.
+  //
+  // Validates the stored crc32c checksum against the restored bytes.
+  // REQUIRES: status().ok()</doc>
+<use f='tensorflow/tensorflow/core/kernels/save_restore_tensor.cc' l='265' u='c' c='_ZN10tensorflow16RestoreTensorsV2EPNS_15OpKernelContextERKNS_6TensorES4_S4_NS_3gtl10ArraySliceINS_8DataTypeEEE'/>
+<def f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='861' ll='873' type='tensorflow::Status tensorflow::BundleReader::Lookup(tensorflow::StringPiece key, tensorflow::Tensor * val)'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/sparsify_gather.cc' l='177' u='c' c='_ZN10tensorflow16graph_transforms24ReadTensorFromCheckpointERKSsRKSt10unique_ptrINS_12BundleReaderESt14default_deleteIS4_EES2_PNS_6TensorE'/>

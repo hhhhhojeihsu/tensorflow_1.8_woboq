@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/contrib/lite/allocation.h' l='80' type='void tflite::MemoryAllocation::MemoryAllocation(const void * ptr, size_t num_bytes, tflite::ErrorReporter * error_reporter)'/>
+<def f='tensorflow/tensorflow/contrib/lite/allocation.cc' l='107' ll='112' type='void tflite::MemoryAllocation::MemoryAllocation(const void * ptr, size_t num_bytes, tflite::ErrorReporter * error_reporter)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/allocation.h' l='77'>// Allocates memory with the pointer and the number of bytes of the memory.
+  // The pointer has to remain alive and unchanged until the destructor is
+  // called.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/model.cc' l='122' u='c' c='_ZN6tflite15FlatBufferModel15BuildFromBufferEPKcmPNS_13ErrorReporterE'/>

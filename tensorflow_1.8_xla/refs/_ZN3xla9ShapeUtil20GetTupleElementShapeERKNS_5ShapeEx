@@ -1,0 +1,27 @@
+<dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='429' type='static const xla::Shape &amp; xla::ShapeUtil::GetTupleElementShape(const xla::Shape &amp; shape, int64 index)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='427'>// Returns the tuple element shape at given index.
+  // Precondition: IsTuple(shape) &amp;&amp; TupleElementCount(shape) &gt; index</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='86' u='c' c='_ZN10tensorflow12_GLOBAL__N_122ExtractSubShapedBufferEPN3xla12ShapedBufferEiPNS1_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='88' u='c' c='_ZN10tensorflow12_GLOBAL__N_122ExtractSubShapedBufferEPN3xla12ShapedBufferEiPNS1_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stack_ops.cc' l='49' u='c' c='_ZN10tensorflow12_GLOBAL__N_113GetStackShapeEPN3xla18ComputationBuilderEPNS_11XlaResourceEPNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='741' u='c' c='_ZN10tensorflow11XlaCompiler12CompileGraphERKNS0_14CompileOptionsERKSsSt10unique_ptrINS_5GraphESt14default_deleteIS7_EERKSt6vectorINS0_8ArgumentESaISC11181090'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='675' u='c' c='_ZN3xla10XlaBuilder15GetTupleElementERKNS_5XlaOpEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.cc' l='150' u='c' c='_ZN3xla17AllocationTracker16DeconstructTupleERKNS_16GlobalDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.cc' l='151' u='c' c='_ZN3xla17AllocationTracker16DeconstructTupleERKNS_16GlobalDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='210' u='c' c='_ZN3xla18CpuTransferManager26TransferLiteralFromOutfeedEPN9perftools8gputools14StreamExecutorERKNS_5ShapeEPNS_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='353' u='c' c='_ZN3xla3cpu9IrEmitter12HandleInfeedEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='471' u='c' c='_ZN3xla3cpu9IrEmitter13HandleOutfeedEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='95' u='c' c='_ZN3xla3cpuL25MarkLiveAddressesInOutputEPKvRKNS_5ShapeEPSt13unordered_setIS2_St4hashIS2_ESt8equal_toIS2_ESaIS2_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='483' u='c' c='_ZN3xla14HloComputation14DeepCopyHelperEPNS_14HloInstructionEPKNS_9ShapeTreeIbEEPNS3_IS2_EEPNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='489' u='c' c='_ZN3xla15HloCostAnalysis9HandleFftEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='70' u='c' c='_ZN3xla12_GLOBAL__N_122GetConvertedTupleShapeERKNS_5ShapeENS_13PrimitiveTypeES4_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='91' u='c' c='_ZN3xla12_GLOBAL__N_120ConvertTupleElementsEPNS_14HloInstructionERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_element_type_converter.cc' l='94' u='c' c='_ZN3xla12_GLOBAL__N_120ConvertTupleElementsEPNS_14HloInstructionERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2903' u='c' c='_ZN3xla12HloEvaluator21HandleGetTupleElementEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='465' u='c' c='_ZN3xla14HloInstruction14CreateRecvDoneEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1452' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='526' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='360' u='c' c='_ZN3xla15UserComputation29AddGetTupleElementInstructionERKNS_22GetTupleElementRequestE'/>
+<def f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='338' ll='344' type='static const xla::Shape &amp; xla::ShapeUtil::GetTupleElementShape(const xla::Shape &amp; shape, int64 index)'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='918' u='c' c='_ZN3xla12_GLOBAL__N_121ForEachSubshapeHelperERKNS_5ShapeERKSt8functionIFN10tensorflow6StatusES3_RKNS_10ShapeIndexEEEPS7_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='338'>/* static */</doc>

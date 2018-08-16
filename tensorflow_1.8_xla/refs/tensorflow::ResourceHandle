@@ -1,0 +1,31 @@
+<def f='tensorflow/tensorflow/core/framework/resource_handle.h' l='31' ll='75'/>
+<size>40</size>
+<doc f='tensorflow/tensorflow/core/framework/resource_handle.h' l='25'>// Class representing a handle to a tensorflow resource. Handles are
+// not valid across executions, but can be serialized back and forth from within
+// a single run.
+//
+// This is the native C++ class equivalent of ResourceHandleProto.  They are
+// separate so that kernels do not need to depend on protos.</doc>
+<fun r='_ZN10tensorflow14ResourceHandleC1Ev'/>
+<fun r='_ZN10tensorflow14ResourceHandleC1ERKNS_19ResourceHandleProtoE'/>
+<fun r='_ZN10tensorflow14ResourceHandleD1Ev'/>
+<fun r='_ZNK10tensorflow14ResourceHandle6deviceEv'/>
+<fun r='_ZN10tensorflow14ResourceHandle10set_deviceERKSs'/>
+<fun r='_ZNK10tensorflow14ResourceHandle9containerEv'/>
+<fun r='_ZN10tensorflow14ResourceHandle13set_containerERKSs'/>
+<fun r='_ZNK10tensorflow14ResourceHandle4nameEv'/>
+<fun r='_ZN10tensorflow14ResourceHandle8set_nameERKSs'/>
+<fun r='_ZNK10tensorflow14ResourceHandle9hash_codeEv'/>
+<fun r='_ZN10tensorflow14ResourceHandle13set_hash_codeEy'/>
+<fun r='_ZNK10tensorflow14ResourceHandle15maybe_type_nameEv'/>
+<fun r='_ZN10tensorflow14ResourceHandle19set_maybe_type_nameERKSs'/>
+<fun r='_ZNK10tensorflow14ResourceHandle7AsProtoEPNS_19ResourceHandleProtoE'/>
+<fun r='_ZN10tensorflow14ResourceHandle9FromProtoERKNS_19ResourceHandleProtoE'/>
+<fun r='_ZNK10tensorflow14ResourceHandle17SerializeAsStringEv'/>
+<fun r='_ZN10tensorflow14ResourceHandle15ParseFromStringERKSs'/>
+<fun r='_ZNK10tensorflow14ResourceHandle11DebugStringEv'/>
+<mbr r='tensorflow::ResourceHandle::device_' o='0' t='string'/>
+<mbr r='tensorflow::ResourceHandle::container_' o='64' t='string'/>
+<mbr r='tensorflow::ResourceHandle::name_' o='128' t='string'/>
+<mbr r='tensorflow::ResourceHandle::hash_code_' o='192' t='uint64'/>
+<mbr r='tensorflow::ResourceHandle::maybe_type_name_' o='256' t='string'/>

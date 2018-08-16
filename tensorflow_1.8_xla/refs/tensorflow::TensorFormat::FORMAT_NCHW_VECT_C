@@ -1,0 +1,32 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_format.h' l='47' type='2'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='92' u='r' c='_ZN10tensorflow20GetTensorSpatialDimsEiNS_12TensorFormatE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='111' u='r' c='_ZN10tensorflow28GetTensorDimsFromSpatialDimsEiNS_12TensorFormatE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='134' c='_ZN10tensorflow22GetTensorBatchDimIndexEiNS_12TensorFormatE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='150' c='_ZN10tensorflow24GetTensorFeatureDimIndexEiNS_12TensorFormatE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='160' u='r' c='_ZN10tensorflow29GetTensorInnerFeatureDimIndexEiNS_12TensorFormatE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='173' c='_ZN10tensorflow24GetTensorSpatialDimIndexEiNS_12TensorFormatEi'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='263' u='r' c='_ZN10tensorflow17GetTensorDimIndexENS_12TensorFormatEc'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='421' u='r' c='_ZN10tensorflow15ShapeFromFormatENS_12TensorFormatExNS_3gtl10ArraySliceIxEEx'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='480' u='r' c='_ZN10tensorflow15ShapeFromFormatENS_12TensorFormatERKNS_11TensorShapeES0_'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_format.h' l='39'>// NCHW_VECT_C is the most performant tensor format for cudnn6&apos;s quantized
+  // int8 convolution and fused convolution. It is laid out in the same order
+  // as NCHW, except that the size of the Channels dimension is divided by 4,
+  // and a new dimension of size 4 is appended, which packs 4 adjacent channel
+  // activations for the same pixel into an int32. Thus an NCHW format tensor
+  // with dimensions [N, C, H, W] would have dimensions [N, C/4, H, W, 4] in
+  // NCHW_VECT_C format.
+  // A pre-condition of this format is that C must be a multiple of 4.</doc>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_common.h' l='299' c='_ZN10tensorflow14MaxPoolingV2OpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/contrib/fused_conv/kernels/fused_conv2d_bias_activation_op.cc' l='123' c='_ZN10tensorflow27FusedConv2DBiasActivationOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='282' u='r' c='_ZN10tensorflow15shape_inference29CheckFormatConstraintsOnShapeENS_12TensorFormatENS0_11ShapeHandleERKSsPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='303' u='r' c='_ZN10tensorflow15shape_inference19MakeShapeFromFormatENS_12TensorFormatENS0_19DimensionOrConstantERKSt6vectorIS2_SaIS2_EES2_PNS0_11ShapeHandleEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='331' u='r' c='_ZN10tensorflow15shape_inference19DimensionsFromShapeENS0_11ShapeHandleENS_12TensorFormatEPNS0_15DimensionHandleENS_3gtl17MutableArraySliceIS3_EES4_PN12275446'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='356' u='r' c='_ZN10tensorflow15shape_inference19ShapeFromDimensionsENS0_15DimensionHandleENS_3gtl10ArraySliceIS1_EES1_NS_12TensorFormatEPNS0_16InferenceContextEPNS0_11ShapeHandleE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='637' u='r' c='_ZN10tensorflow15shape_inference12AvgPoolShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='787' u='r' c='_ZN10tensorflow15shape_inference12MaxPoolShapeEPNS0_16InferenceContextE'/>
+<use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='857' u='r' c='_ZN10tensorflow15shape_inference14MaxPoolV2ShapeEPNS0_16InferenceContextEi'/>
+<use f='tensorflow/tensorflow/core/kernels/depthtospace_op.cc' l='71' c='_ZN10tensorflow14DepthToSpaceOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_common.cc' l='47' u='r' c='_ZN10tensorflow14PoolParametersC1EPNS_15OpKernelContextERKSt6vectorIiSaIiEES7_NS_7PaddingENS_12TensorFormatERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/core/kernels/spacetodepth_op.cc' l='71' c='_ZN10tensorflow14SpaceToDepthOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.cc' l='42' c='_ZN10tensorflow8ToStringENS_12TensorFormatE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_format.cc' l='74' u='r' c='_ZN10tensorflow16FormatFromStringERKSsPNS_12TensorFormatE'/>

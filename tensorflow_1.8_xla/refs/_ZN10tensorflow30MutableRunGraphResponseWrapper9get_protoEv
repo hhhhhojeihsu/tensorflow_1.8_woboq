@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='486' type='tensorflow::RunGraphResponse * tensorflow::MutableRunGraphResponseWrapper::get_proto()'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker_interface.h' l='169' u='c' c='_ZN10tensorflow15WorkerInterface22get_proto_from_wrapperEPNS_30MutableRunGraphResponseWrapperE'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='475'>// Returns a mutable protobuf message that represents the contents of
+  // this wrapper, for passing to an RPC subsystem that will populate
+  // the message.
+  //
+  // NOTE: Only `WorkerInterface` subclasses may call this method. The
+  // `InMemoryRunGraphResponse` subclass does not implement this
+  // method, and attempts to call it will fail with a fatal
+  // error. However, as long as callers always call
+  // `WorkerInterface::RunGraphAsync()` with a wrapper object returned
+  // from `WorkerInterface::CreateRunGraphResponse()` called on the
+  // *same* WorkerInterface object, this error will never trigger.</doc>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='603' c='_ZN10tensorflow24InMemoryRunGraphResponse9get_protoEv'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='672' c='_ZN10tensorflow26OwnedProtoRunGraphResponse9get_protoEv'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='743' c='_ZN10tensorflow29NonOwnedProtoRunGraphResponse9get_protoEv'/>

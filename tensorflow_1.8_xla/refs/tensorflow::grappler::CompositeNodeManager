@@ -1,0 +1,21 @@
+<inh f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='126' c='tensorflow::grappler::ReadyNodeManager'/>
+<def f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='220' ll='248'/>
+<size>272</size>
+<doc f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='214'>// CompositeNodeManager has a few other NodeManagers: per-device LIFO for normal
+// ops (neither _Send nor _Recv) and FirstyReadyManagers for _Send ops and _Recv
+// ops, and then it chooses FirstReady among the ops chosen from each
+// internal NodeManagers. The objective is to maximize producer-consumer
+// locality within device, while processing nodes across devices, including
+// _Send and _Recv, fairly, in terms of their time_ready.</doc>
+<fun r='_ZN10tensorflow8grappler20CompositeNodeManagerC1Ev'/>
+<fun r='_ZN10tensorflow8grappler20CompositeNodeManagerD1Ev'/>
+<fun r='_ZN10tensorflow8grappler20CompositeNodeManager4InitEPKSt13unordered_mapIPKNS_7NodeDefENS0_9NodeStateESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEE'/>
+<fun r='_ZN10tensorflow8grappler20CompositeNodeManager7AddNodeEPKNS_7NodeDefE'/>
+<fun r='_ZN10tensorflow8grappler20CompositeNodeManager11GetCurrNodeEv'/>
+<fun r='_ZN10tensorflow8grappler20CompositeNodeManager14RemoveCurrNodeEv'/>
+<fun r='_ZNK10tensorflow8grappler20CompositeNodeManager5EmptyEv'/>
+<mbr r='tensorflow::grappler::CompositeNodeManager::ops_lifo_map_' o='64' t='std::unordered_map&lt;string, LIFOManager&gt;'/>
+<mbr r='tensorflow::grappler::CompositeNodeManager::send_manager_' o='512' t='tensorflow::grappler::FirstReadyManager'/>
+<mbr r='tensorflow::grappler::CompositeNodeManager::recv_manager_' o='1280' t='tensorflow::grappler::FirstReadyManager'/>
+<mbr r='tensorflow::grappler::CompositeNodeManager::node_state_' o='2048' t='const std::unordered_map&lt;const NodeDef *, NodeState&gt; *'/>
+<mbr r='tensorflow::grappler::CompositeNodeManager::curr_node_' o='2112' t='const tensorflow::NodeDef *'/>

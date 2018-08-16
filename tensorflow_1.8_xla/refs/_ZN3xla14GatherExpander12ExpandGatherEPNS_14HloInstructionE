@@ -1,0 +1,37 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/gather_expander.h' l='32' type='StatusOr&lt;xla::HloInstruction *&gt; xla::GatherExpander::ExpandGather(xla::HloInstruction * gather_instr)'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='302' ll='369' type='StatusOr&lt;xla::HloInstruction *&gt; xla::GatherExpander::ExpandGather(xla::HloInstruction * gather_instr)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='386' u='c' c='_ZN3xla14GatherExpander3RunEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/gather_expander.cc' l='267'>// High Level Algorithm
+//
+// We follow the following steps in sequence:
+//
+//  1. We canonicalize the gather_indices tensor such that it has rank
+//     2 (i.e. is a matrix) where each row is an index vector into the
+//     operand.
+//  2. We iterate over the set of indices in the canonicalized
+//     gather_indices tensor using a while loop, accumulating slices
+//     of the operand tensor into an accumulator using
+//     DynamicUpdateSlice.
+//  3. The accumulator result from the while loop from (2) is then
+//     reshaped to split out all the individual gather dimensions and
+//     then transposed to give the final result.
+//
+// As an example, if we started with the following operation:
+//
+//   HloModule TensorFlowGatherMultipleBatchDims
+//
+//   ENTRY main {
+//     operand = s32[3,3] parameter(0)
+//     indices = s32[2,2] parameter(1)
+//     ROOT gather = s32[2,3,2] gather(operand, indices),
+//         output_window_dims={1},
+//         elided_window_dims={1},
+//         gather_dims_to_operand_dims={1},
+//         index_vector_dim=2,
+//         window_bounds={3, 1}
+//   }
+//
+// We&apos;d first reshape indices to s32[4,1], where each row is an index
+// into operand.  We&apos;d then run a loop to slice out 4 tensors of shape
+// [3,1] out of operand into an accumulator of shape [4,3,1].  We then
+// reshape this result to [2,2,3] and finally transpose it to [2,3,2].</doc>

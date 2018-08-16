@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1257' type='void xla::HloInstruction::set_parent(xla::HloComputation * computation)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1254'>// Set/get the computation containing this instruction. set_parent should only
+  // be called by HloComputation methods which add/remove instructions to
+  // computations.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='105' u='c' c='_ZN3xla14HloComputation22AddInstructionInternalESt10unique_ptrINS_14HloInstructionESt14default_deleteIS2_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='117' u='c' c='_ZN3xla14HloComputation12AddParameterESt10unique_ptrINS_14HloInstructionESt14default_deleteIS2_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='236' u='c' c='_ZN3xla14HloComputation17RemoveInstructionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='803' u='c' c='_ZN3xla14HloInstruction12CreateFusionERKNS_5ShapeENS0_10FusionKindEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1470' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1557' u='c' c='_ZNK3xla14HloInstruction26CloneFusionWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>one_hot_op.h source code [tensorflow/tensorflow/core/kernels/one_hot_op.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::functor::OneHot,tensorflow::generator::OneGenerator "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/kernels/one_hot_op.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>kernels</a>/<a href='one_hot_op.h.html'>one_hot_op.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// See docs in ../ops/array_ops.cc</i></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_KERNELS_ONE_HOT_OP_H_">TENSORFLOW_KERNELS_ONE_HOT_OP_H_</span></u></td></tr>
+<tr><th id="19">19</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_KERNELS_ONE_HOT_OP_H_" data-ref="_M/TENSORFLOW_KERNELS_ONE_HOT_OP_H_">TENSORFLOW_KERNELS_ONE_HOT_OP_H_</dfn></u></td></tr>
+<tr><th id="20">20</th><td><i>// Generator definition for OneHotOp, must be compilable by nvcc.</i></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../../../third_party/eigen3/unsupported/Eigen/CXX11/Tensor.html">"third_party/eigen3/unsupported/Eigen/CXX11/Tensor"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../framework/tensor_types.h.html">"tensorflow/core/framework/tensor_types.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../platform/types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><b>namespace</b> <span class="namespace">generator</span> {</td></tr>
+<tr><th id="29">29</th><td></td></tr>
+<tr><th id="30">30</th><td><b>template</b> &lt;<b>typename</b> T, <b>typename</b> TI&gt;</td></tr>
+<tr><th id="31">31</th><td><b>class</b> <dfn class="type def" id="tensorflow::generator::OneGenerator" title='tensorflow::generator::OneGenerator' data-ref="tensorflow::generator::OneGenerator">OneGenerator</dfn> {</td></tr>
+<tr><th id="32">32</th><td> <b>public</b>:</td></tr>
+<tr><th id="33">33</th><td>  <span class="macro" title="" data-ref="_M/EIGEN_DEVICE_FUNC">EIGEN_DEVICE_FUNC</span> <span class="macro" title="__attribute__((always_inline)) inline" data-ref="_M/EIGEN_ALWAYS_INLINE">EIGEN_ALWAYS_INLINE</span></td></tr>
+<tr><th id="34">34</th><td>  <dfn class="decl def" id="_ZN10tensorflow9generator12OneGeneratorC1ERKNS_6TTypesIT0_Li1ElE11ConstMatrixERKNS2_IT_Li1ElE11ConstScalarESC_" title='tensorflow::generator::OneGenerator::OneGenerator&lt;T, TI&gt;' data-ref="_ZN10tensorflow9generator12OneGeneratorC1ERKNS_6TTypesIT0_Li1ElE11ConstMatrixERKNS2_IT_Li1ElE11ConstScalarESC_">OneGenerator</dfn>(<em>const</em> <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;TI&gt;::ConstMatrix&amp; <dfn class="local col1 decl" id="1indices" title='indices' data-type='const typename TTypes&lt;TI&gt;::ConstMatrix &amp;' data-ref="1indices">indices</dfn>,</td></tr>
+<tr><th id="35">35</th><td>               <em>const</em> <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T&gt;::ConstScalar&amp; <dfn class="local col2 decl" id="2on_value" title='on_value' data-type='const typename TTypes&lt;T&gt;::ConstScalar &amp;' data-ref="2on_value">on_value</dfn>,</td></tr>
+<tr><th id="36">36</th><td>               <em>const</em> <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T&gt;::ConstScalar&amp; <dfn class="local col3 decl" id="3off_value" title='off_value' data-type='const typename TTypes&lt;T&gt;::ConstScalar &amp;' data-ref="3off_value">off_value</dfn>)</td></tr>
+<tr><th id="37">37</th><td>      : <a class="member" href="#tensorflow::generator::OneGenerator::indices_" title='tensorflow::generator::OneGenerator::indices_' data-ref="tensorflow::generator::OneGenerator::indices_">indices_</a>(<a class="local col1 ref" href="#1indices" title='indices' data-ref="1indices">indices</a>), <a class="member" href="#tensorflow::generator::OneGenerator::on_value_" title='tensorflow::generator::OneGenerator::on_value_' data-ref="tensorflow::generator::OneGenerator::on_value_">on_value_</a>(<a class="local col2 ref" href="#2on_value" title='on_value' data-ref="2on_value">on_value</a>), <a class="member" href="#tensorflow::generator::OneGenerator::off_value_" title='tensorflow::generator::OneGenerator::off_value_' data-ref="tensorflow::generator::OneGenerator::off_value_">off_value_</a>(<a class="local col3 ref" href="#3off_value" title='off_value' data-ref="3off_value">off_value</a>) {}</td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td>  <span class="macro" title="" data-ref="_M/EIGEN_DEVICE_FUNC">EIGEN_DEVICE_FUNC</span> <span class="macro" title="__attribute__((always_inline)) inline" data-ref="_M/EIGEN_ALWAYS_INLINE">EIGEN_ALWAYS_INLINE</span> T</td></tr>
+<tr><th id="40">40</th><td>  <dfn class="decl def" id="_ZNK10tensorflow9generator12OneGeneratorclERKN5Eigen5arrayIlLm3EEE" title='tensorflow::generator::OneGenerator::operator()' data-ref="_ZNK10tensorflow9generator12OneGeneratorclERKN5Eigen5arrayIlLm3EEE"><b>operator</b>()</dfn>(<em>const</em> <span class="namespace">Eigen::</span><span class='type' title='Eigen::array' data-ref="Eigen::array">array</span>&lt;<span class="namespace">Eigen::</span><span class='typedef' title='Eigen::DenseIndex' data-type='std::ptrdiff_t' data-ref="Eigen::DenseIndex">DenseIndex</span>, <var>3</var>&gt;&amp; <dfn class="local col4 decl" id="4pre_depth_suff" title='pre_depth_suff' data-type='const Eigen::array&lt;Eigen::DenseIndex, 3&gt; &amp;' data-ref="4pre_depth_suff">pre_depth_suff</dfn>) <em>const</em> {</td></tr>
+<tr><th id="41">41</th><td>    <b>return</b> (<a class="member" href="#tensorflow::generator::OneGenerator::indices_" title='tensorflow::generator::OneGenerator::indices_' data-ref="tensorflow::generator::OneGenerator::indices_">indices_</a>(<a class="local col4 ref" href="#4pre_depth_suff" title='pre_depth_suff' data-ref="4pre_depth_suff">pre_depth_suff</a><span class='ref' title='Eigen::array::operator[]' data-ref="_ZNK5Eigen5arrayixEm">[<var>0</var>]</span>, <a class="local col4 ref" href="#4pre_depth_suff" title='pre_depth_suff' data-ref="4pre_depth_suff">pre_depth_suff</a><span class='ref' title='Eigen::array::operator[]' data-ref="_ZNK5Eigen5arrayixEm">[<var>2</var>]</span>) == <a class="local col4 ref" href="#4pre_depth_suff" title='pre_depth_suff' data-ref="4pre_depth_suff">pre_depth_suff</a><span class='ref' title='Eigen::array::operator[]' data-ref="_ZNK5Eigen5arrayixEm">[<var>1</var>]</span>)</td></tr>
+<tr><th id="42">42</th><td>               ? <a class="member" href="#tensorflow::generator::OneGenerator::on_value_" title='tensorflow::generator::OneGenerator::on_value_' data-ref="tensorflow::generator::OneGenerator::on_value_">on_value_</a>()</td></tr>
+<tr><th id="43">43</th><td>               : <a class="member" href="#tensorflow::generator::OneGenerator::off_value_" title='tensorflow::generator::OneGenerator::off_value_' data-ref="tensorflow::generator::OneGenerator::off_value_">off_value_</a>();</td></tr>
+<tr><th id="44">44</th><td>  }</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td> <b>private</b>:</td></tr>
+<tr><th id="47">47</th><td>  <em>const</em> <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;TI&gt;::ConstMatrix <dfn class="decl" id="tensorflow::generator::OneGenerator::indices_" title='tensorflow::generator::OneGenerator::indices_' data-ref="tensorflow::generator::OneGenerator::indices_">indices_</dfn>;</td></tr>
+<tr><th id="48">48</th><td>  <em>const</em> <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T&gt;::ConstScalar <dfn class="decl" id="tensorflow::generator::OneGenerator::on_value_" title='tensorflow::generator::OneGenerator::on_value_' data-ref="tensorflow::generator::OneGenerator::on_value_">on_value_</dfn>;</td></tr>
+<tr><th id="49">49</th><td>  <em>const</em> <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T&gt;::ConstScalar <dfn class="decl" id="tensorflow::generator::OneGenerator::off_value_" title='tensorflow::generator::OneGenerator::off_value_' data-ref="tensorflow::generator::OneGenerator::off_value_">off_value_</dfn>;</td></tr>
+<tr><th id="50">50</th><td>};</td></tr>
+<tr><th id="51">51</th><td></td></tr>
+<tr><th id="52">52</th><td>}  <i>// namespace generator</i></td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td><b>namespace</b> <span class="namespace">functor</span> {</td></tr>
+<tr><th id="55">55</th><td></td></tr>
+<tr><th id="56">56</th><td><b>template</b> &lt;<b>typename</b> Device, <b>typename</b> T, <b>typename</b> TI&gt;</td></tr>
+<tr><th id="57">57</th><td><b>struct</b> <dfn class="type def" id="tensorflow::functor::OneHot" title='tensorflow::functor::OneHot' data-ref="tensorflow::functor::OneHot">OneHot</dfn> {</td></tr>
+<tr><th id="58">58</th><td>  <span class="macro" title="__attribute__((always_inline)) inline" data-ref="_M/EIGEN_ALWAYS_INLINE">EIGEN_ALWAYS_INLINE</span> <em>static</em> <em>void</em> <dfn class="decl def" id="_ZN10tensorflow7functor6OneHot7ComputeERKT_RKNS_6TTypesIT1_Li1ElE11ConstMatrixERKNS5_IT0_Li1ElE11ConstScalarESF_PNS5_ISB_Li3ElE6TensorE" title='tensorflow::functor::OneHot::Compute' data-ref="_ZN10tensorflow7functor6OneHot7ComputeERKT_RKNS_6TTypesIT1_Li1ElE11ConstMatrixERKNS5_IT0_Li1ElE11ConstScalarESF_PNS5_ISB_Li3ElE6TensorE">Compute</dfn>(</td></tr>
+<tr><th id="59">59</th><td>      <em>const</em> Device&amp; <dfn class="local col5 decl" id="5d" title='d' data-type='const Device &amp;' data-ref="5d">d</dfn>, <em>const</em> <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;TI&gt;::ConstMatrix&amp; <dfn class="local col6 decl" id="6indices" title='indices' data-type='const typename TTypes&lt;TI&gt;::ConstMatrix &amp;' data-ref="6indices">indices</dfn>,</td></tr>
+<tr><th id="60">60</th><td>      <em>const</em> <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T&gt;::ConstScalar&amp; <dfn class="local col7 decl" id="7on_value" title='on_value' data-type='const typename TTypes&lt;T&gt;::ConstScalar &amp;' data-ref="7on_value">on_value</dfn>,</td></tr>
+<tr><th id="61">61</th><td>      <em>const</em> <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T&gt;::ConstScalar&amp; <dfn class="local col8 decl" id="8off_value" title='off_value' data-type='const typename TTypes&lt;T&gt;::ConstScalar &amp;' data-ref="8off_value">off_value</dfn>,</td></tr>
+<tr><th id="62">62</th><td>      <b>typename</b> <a class="type" href="../framework/tensor_types.h.html#tensorflow::TTypes" title='tensorflow::TTypes' data-ref="tensorflow::TTypes">TTypes</a>&lt;T, <var>3</var>&gt;::Tensor* <dfn class="local col9 decl" id="9output" title='output' data-type='typename TTypes&lt;T, 3&gt;::Tensor *' data-ref="9output">output</dfn>) {</td></tr>
+<tr><th id="63">63</th><td>    <span class="namespace">generator::</span><a class="type" href="#tensorflow::generator::OneGenerator" title='tensorflow::generator::OneGenerator' data-ref="tensorflow::generator::OneGenerator">OneGenerator</a>&lt;T, TI&gt; <dfn class="local col0 decl" id="10generator" title='generator' data-type='generator::OneGenerator&lt;T, TI&gt;' data-ref="10generator">generator</dfn>(<a class="local col6 ref" href="#6indices" title='indices' data-ref="6indices">indices</a>, <a class="local col7 ref" href="#7on_value" title='on_value' data-ref="7on_value">on_value</a>, <a class="local col8 ref" href="#8off_value" title='off_value' data-ref="8off_value">off_value</a>);</td></tr>
+<tr><th id="64">64</th><td>    <a class="local col9 ref" href="#9output" title='output' data-ref="9output">output</a>-&gt;device(<a class="local col5 ref" href="#5d" title='d' data-ref="5d">d</a>) = <a class="local col9 ref" href="#9output" title='output' data-ref="9output">output</a>-&gt;generate(<a class="local col0 ref" href="#10generator" title='generator' data-ref="10generator">generator</a>);</td></tr>
+<tr><th id="65">65</th><td>  }</td></tr>
+<tr><th id="66">66</th><td>};</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>}  <i>// namespace functor</i></td></tr>
+<tr><th id="69">69</th><td></td></tr>
+<tr><th id="70">70</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="71">71</th><td></td></tr>
+<tr><th id="72">72</th><td><u>#<span data-ppcond="18">endif</span>  // TENSORFLOW_KERNELS_ONE_HOT_OP_H_</u></td></tr>
+<tr><th id="73">73</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='one_hot_op.cc.html'>tensorflow/tensorflow/core/kernels/one_hot_op.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

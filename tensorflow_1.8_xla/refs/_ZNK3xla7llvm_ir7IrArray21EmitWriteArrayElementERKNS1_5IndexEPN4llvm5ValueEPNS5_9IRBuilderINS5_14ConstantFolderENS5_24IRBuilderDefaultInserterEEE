@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='225' type='void xla::llvm_ir::IrArray::EmitWriteArrayElement(const xla::llvm_ir::IrArray::Index &amp; index, llvm::Value * value, llvm::IRBuilder&lt;&gt; * ir_builder) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.h' l='224'>// Emit IR to write the given value to the array element at the given index.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='873' u='c' c='_ZN3xla3cpu12DotOpEmitter4EmitEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='906' u='c' c='_ZN3xla3cpu12DotOpEmitter13EmitScalarDotEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='793' u='c' c='_ZN3xla3cpu9IrEmitter22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2050' u='c' c='_ZN3xla3cpu9IrEmitter9HandlePadEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ir_array.cc' l='393' ll='398' type='void xla::llvm_ir::IrArray::EmitWriteArrayElement(const xla::llvm_ir::IrArray::Index &amp; index, llvm::Value * value, llvm::IRBuilder&lt;&gt; * ir_builder) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/loop_emitter.cc' l='47' u='c' c='_ZN3xla7llvm_ir11LoopEmitterC1ERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS0_7IrArray5IndexEEERKS8_PNS4_9IRBuilderINS4_14ConstantFolderENS4_24IRBu12728267'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/loop_emitter.cc' l='67' u='c' c='_ZN3xla7llvm_irL35MakeBodyEmitterForMultiOutputFusionERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS0_7IrArray5IndexEEERKSt6vectorIS7_SaIS7_EEPNS3_9148679'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.cc' l='73' u='c' c='_ZN3xla7llvm_irL33EmitDynamicUpdateSliceInPlaceImplERKNS_5ShapeERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS0_7IrArray5IndexEEESF_RKSA_PKNS_3gpu161361560'/>

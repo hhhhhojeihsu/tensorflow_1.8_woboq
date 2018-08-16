@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/stream_executor/platform.h' l='153' type='port::StatusOr&lt;StreamExecutor *&gt; perftools::gputools::Platform::GetExecutor(const perftools::gputools::StreamExecutorConfig &amp; config)'/>
+<doc f='tensorflow/tensorflow/stream_executor/platform.h' l='151'>// Returns a device constructed with the options specified in &quot;config&quot;.
+  // Ownership of the executor is NOT transferred to the caller.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='230' u='c' c='_ZN3xla12PlatformUtil18GetStreamExecutorsEPN9perftools8gputools8PlatformE'/>
+<ovr f='tensorflow/tensorflow/stream_executor/host/host_platform.cc' l='64' c='_ZN9perftools8gputools4host12HostPlatform11GetExecutorERKNS0_20StreamExecutorConfigE'/>

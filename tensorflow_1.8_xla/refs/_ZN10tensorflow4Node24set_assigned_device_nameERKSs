@@ -1,0 +1,26 @@
+<dec f='tensorflow/tensorflow/core/graph/graph.h' l='114' type='void tensorflow::Node::set_assigned_device_name(const string &amp; device_name)'/>
+<def f='tensorflow/tensorflow/core/graph/graph.h' l='820' ll='822' type='void tensorflow::Node::set_assigned_device_name(const string &amp; device_name)'/>
+<use f='tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.cc' l='88' u='c' c='_ZN10tensorflowL24ReplaceNodeWithXlaLaunchEPNS_5GraphEPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1066' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph20BuildParallelCheckOpERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1090' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph19AddFunctionCallNodeERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEEbPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1117' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph28AddHostComputeKeyPlaceholderEPNS2_26OutsideCompilationSubgraphEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/sharding_util.cc' l='106' u='c' c='_ZN10tensorflow35SetShardingDeviceAssignmentFromNodeERKNS_4NodeEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.cc' l='285' u='c' c='_ZN10tensorflow28SetNodeShardingFromNeighborsEPNS_4NodeEb'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='546' u='c' c='_ZN10tensorflow12_GLOBAL__N_125ReplaceTensorWithConstantEPNS_5GraphEPNS_6DeviceESt4pairIPNS_4NodeEiERKNS_6TensorERKNS_3gtl7FlatSetIS7_NS_4hashIS7_EESt657287'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='235' u='c' c='_ZN10tensorflow19GraphExecutionState20RestoreStatefulNodesEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='275' u='c' c='_ZN10tensorflow12_GLOBAL__N_128TensorConnectionPruneRewrite7AddNodeEPNS_5GraphENS_11NodeBuilder7NodeOutEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='506' u='c' c='_ZN10tensorflow19GraphExecutionState13OptimizeGraphERKNS_17BuildGraphOptionsEPSt10unique_ptrINS_5GraphESt14default_deleteIS5_EE'/>
+<use f='tensorflow/tensorflow/core/graph/graph.cc' l='346' u='c' c='_ZN10tensorflow5Graph8CopyNodeEPKNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='554' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor8MakeNodeERKNS_7NodeDefEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='335' u='c' c='_ZN10tensorflow12_GLOBAL__N_129OptimizeControlFlowColocationEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='344' u='c' c='_ZN10tensorflow12_GLOBAL__N_129OptimizeControlFlowColocationEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='361' u='c' c='_ZN10tensorflow12_GLOBAL__N_129OptimizeControlFlowColocationEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='390' u='c' c='_ZN10tensorflow12_GLOBAL__N_115AddControlEnterEPNS_5GraphERKSsS4_S4_iPNS_6StatusE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='403' u='c' c='_ZN10tensorflow12_GLOBAL__N_115AddControlMergeERKSsS2_PNS_5GraphES2_S2_PNS_6StatusE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='414' u='c' c='_ZN10tensorflow12_GLOBAL__N_116AddControlSwitchENS_11NodeBuilder7NodeOutES2_RKSsRKNS_15GraphDefBuilder7OptionsE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='423' u='c' c='_ZN10tensorflow12_GLOBAL__N_114AddControlNextENS_11NodeBuilder7NodeOutERKSsRKNS_15GraphDefBuilder7OptionsE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='445' u='c' c='_ZN10tensorflow12_GLOBAL__N_115AddControlConstERKSsRKNS_15GraphDefBuilder7OptionsE'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='227' u='c' c='_ZN10tensorflow8subgraph14ArgFeedRewrite7AddNodeEPNS_5GraphENS_11NodeBuilder7NodeOutEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='247' u='c' c='_ZN10tensorflow8subgraph15RecvFeedRewrite7AddNodeEPNS_5GraphENS_11NodeBuilder7NodeOutEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='266' u='c' c='_ZN10tensorflow8subgraph18RetvalFetchRewrite7AddNodeEPNS_5GraphENS_11NodeBuilder7NodeOutEPPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/graph/subgraph.cc' l='284' u='c' c='_ZN10tensorflow8subgraph16SendFetchRewrite7AddNodeEPNS_5GraphENS_11NodeBuilder7NodeOutEPPNS_4NodeE'/>

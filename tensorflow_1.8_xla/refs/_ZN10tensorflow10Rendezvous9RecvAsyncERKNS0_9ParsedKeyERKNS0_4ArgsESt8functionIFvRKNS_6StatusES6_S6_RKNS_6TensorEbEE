@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/core/framework/rendezvous.h' l='108' type='void tensorflow::Rendezvous::RecvAsync(const tensorflow::Rendezvous::ParsedKey &amp; key, const tensorflow::Rendezvous::Args &amp; args, DoneCallback done)'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='67' c='_ZN10tensorflow12_GLOBAL__N_116SimpleRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS2_4ArgsESt8functionIFvRKNS_6StatusES8_S8_RKNS_6TensorEbEE'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.cc' l='116' c='_ZN10tensorflow22IntraProcessRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.cc' l='122' u='c' c='_ZN10tensorflow22IntraProcessRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/rendezvous_util.cc' l='103' u='c' c='_ZN10tensorflow30RecvOutputsFromRendezvousAsyncEPNS_10RendezvousEPNS_13DeviceContextERKSt6vectorINS_19AllocatorAttributesESaIS5_EERKS4_ISsSaISsEEPS4_I11147497'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='292' c='_ZN10tensorflow20BaseRemoteRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='306' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='358' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous22RecvLocalAsyncInternalERKNS_10Rendezvous9ParsedKeyESt8functionIFvRKNS_6StatusERKNS1_4ArgsESB_RKNS_6TensorEbEE'/>
+<use f='tensorflow/tensorflow/core/framework/rendezvous.cc' l='121' u='c' c='_ZN10tensorflow10Rendezvous4RecvERKNS0_9ParsedKeyERKNS0_4ArgsEPNS_6TensorEPbx'/>
+<ovr f='tensorflow/tensorflow/core/framework/rendezvous.cc' l='196' c='_ZN10tensorflow19LocalRendezvousImpl9RecvAsyncERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsESt8functionIFvRKNS_6StatusES7_S7_RKNS_6TensorEbEE'/>
+<use f='tensorflow/tensorflow/core/kernels/sendrecv_ops.cc' l='184' u='c' c='_ZN10tensorflow6RecvOp12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE'/>
+<use f='tensorflow/tensorflow/core/kernels/sendrecv_ops.cc' l='192' u='c' c='_ZN10tensorflow6RecvOp12ComputeAsyncEPNS_15OpKernelContextESt8functionIFvvEE'/>

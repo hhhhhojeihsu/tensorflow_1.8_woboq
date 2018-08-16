@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='906' type='const std::vector&lt;HloInstruction *&gt; &amp; xla::HloInstruction::fused_parameters() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='903'>// Returns the vector of fused parameters inside this fusion instruction.
+  //
+  // Precondition: opcode() == HloOpcode::kFusion</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2514' ll='2517' type='const std::vector&lt;HloInstruction *&gt; &amp; xla::HloInstruction::fused_parameters() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='648' u='c' c='_ZNK3xla11HloVerifier22CheckFusionInstructionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='45' u='c' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='45' u='c' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='49' u='c' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='147' u='c' c='_ZN3xla12_GLOBAL__N_128HasUniqueFusedUseOfOperandAtEPNS_14HloInstructionERKNS_10ShapeIndexES2_xRKNS_21TuplePointsToAnalysisE'/>

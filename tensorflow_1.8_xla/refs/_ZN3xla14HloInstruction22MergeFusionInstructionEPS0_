@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='960' type='void xla::HloInstruction::MergeFusionInstruction(xla::HloInstruction * instruction_to_merge)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='955'>// Merges the fused instructions from &apos;instruction_to_merge&apos; into the
+  // fused instruction set of &apos;this&apos;, updating operands as necessary.
+  //
+  // Precondition: opcode() == HloOpcode::kFusion
+  // Predondition: &apos;instruction_to_merge&apos; must be an operand of &apos;this&apos;.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='840' ll='877' type='void xla::HloInstruction::MergeFusionInstruction(xla::HloInstruction * instruction_to_merge)'/>

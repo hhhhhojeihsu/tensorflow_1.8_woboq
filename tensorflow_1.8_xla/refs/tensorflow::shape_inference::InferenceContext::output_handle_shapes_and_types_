@@ -1,0 +1,15 @@
+<use f='tensorflow/tensorflow/core/framework/shape_inference.h' l='593' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext30output_handle_shapes_and_typesEi'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.h' l='604' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext34set_output_handle_shapes_and_typesEiRKSt6vectorINS0_12ShapeAndTypeESaIS3_EE'/>
+<dec f='tensorflow/tensorflow/core/framework/shape_inference.h' l='746' type='std::vector&lt;std::unique_ptr&lt;std::vector&lt;ShapeAndType&gt; &gt; &gt;'/>
+<offset>1984</offset>
+<doc f='tensorflow/tensorflow/core/framework/shape_inference.h' l='741'>// output_handle_shapes_and_types_[i] is the list of shape/type pairs
+  // available through the resource handle passed along output i of the node.
+  //
+  // Values may be NULL.</doc>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='235' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext12PreInputInitERKNS_5OpDefERKSt6vectorIPKNS_6TensorESaIS8_EERKS5_INS0_11ShapeHandleESaISD_EE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='1188' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext31MergeOutputHandleShapesAndTypesEiRKSt6vectorINS0_12ShapeAndTypeESaIS3_EE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='1189' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext31MergeOutputHandleShapesAndTypesEiRKSt6vectorINS0_12ShapeAndTypeESaIS3_EE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='1194' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext31MergeOutputHandleShapesAndTypesEiRKSt6vectorINS0_12ShapeAndTypeESaIS3_EE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='1244' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext36RelaxOutputHandleShapesAndMergeTypesEiRKSt6vectorINS0_12ShapeAndTypeESaIS3_EE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='1245' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext36RelaxOutputHandleShapesAndMergeTypesEiRKSt6vectorINS0_12ShapeAndTypeESaIS3_EE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='1250' u='m' c='_ZN10tensorflow15shape_inference16InferenceContext36RelaxOutputHandleShapesAndMergeTypesEiRKSt6vectorINS0_12ShapeAndTypeESaIS3_EE'/>

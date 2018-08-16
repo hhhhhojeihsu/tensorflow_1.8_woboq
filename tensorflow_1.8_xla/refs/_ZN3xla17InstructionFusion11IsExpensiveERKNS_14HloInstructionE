@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.h' l='48' type='static bool xla::InstructionFusion::IsExpensive(const xla::HloInstruction &amp; instruction)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_instruction_fusion.h' l='28' u='r' c='_ZN3xla3cpu20CpuInstructionFusionC1Ev'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.h' l='45'>// Returns true if the computation of the given instruction is significantly
+  // more expensive than just writing all the values of the instructions&apos; result
+  // array. Expensive operations will not be duplicated.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='31' ll='129' type='static bool xla::InstructionFusion::IsExpensive(const xla::HloInstruction &amp; instruction)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/instruction_fusion.cc' l='31'>/*static*/</doc>

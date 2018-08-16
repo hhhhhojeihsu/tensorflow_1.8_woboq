@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/core/graph/graph_constructor.h' l='91' type='std::map&lt;TensorId, TensorId&gt;'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1994' u='m' c='TF_ImportGraphDefOptionsAddInputMapping'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1999' u='m' c='TF_ImportGraphDefOptionsRemapControlDependency'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2202' u='m' c='(anonymousnamespace)::CopyGraph'/>
+<offset>128</offset>
+<doc f='tensorflow/tensorflow/core/graph/graph_constructor.h' l='80'>// Maps tensors in `gdef` to existing tensors in `g`. Inputs in `gdef`
+  // corresponding to `input_map` keys will be remapped to the nodes in `g`
+  // corresponding to the values.
+  //
+  // Keys should not include `prefix`, i.e., a key TensorId&apos;s name should be the
+  // name as it originally appears in `gdef`.
+  //
+  // If this is non-empty, ImportGraphDef must be called with the shape refiner
+  // used to create the existing nodes referenced in `input_map`.
+  // TODO(skyewm): can we remove this requirement? How do we access the original
+  // shape refiner?</doc>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='82' u='r' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor7OptionsC1ERKNS_21ImportGraphDefOptionsE'/>

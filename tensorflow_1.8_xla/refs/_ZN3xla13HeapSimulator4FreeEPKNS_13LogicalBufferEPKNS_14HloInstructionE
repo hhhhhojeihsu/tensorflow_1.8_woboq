@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='132' type='void xla::HeapSimulator::Free(const xla::LogicalBuffer * buffer, const xla::HloInstruction * instruction)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='253' u='c' c='_ZN3xla13HeapSimulator14RunComputationERKNS_14HloComputationERKSt6vectorIPKNS_14HloInstructionESaIS7_EERKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='257' u='c' c='_ZN3xla13HeapSimulator14RunComputationERKNS_14HloComputationERKSt6vectorIPKNS_14HloInstructionESaIS7_EERKNS_21TuplePointsToAnalysisE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='280' u='c' c='_ZN3xla13HeapSimulator14RunComputationERKNS_14HloComputationERKSt6vectorIPKNS_14HloInstructionESaIS7_EERKNS_21TuplePointsToAnalysisE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='334' ll='359' type='void xla::HeapSimulator::Free(const xla::LogicalBuffer * buffer, const xla::HloInstruction * instruction)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='330'>// Free calls the underlying algorithm for non-shared buffers, and for shared
+// buffers whose group liveness has expired.  Shared group liveness is tracked
+// by maintaining a refcount; the Free call on the last buffer in the group
+// causes Free to be called on the underlying algorithm.</doc>

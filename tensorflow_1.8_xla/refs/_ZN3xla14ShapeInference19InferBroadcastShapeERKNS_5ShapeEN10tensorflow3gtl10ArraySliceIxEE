@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='211' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferBroadcastShape(const xla::Shape &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_sizes)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='438' u='c' c='_ZN3xla10XlaBuilder9BroadcastERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='210'>// Infers the shape produced by a broadcast operation.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2294' ll='2310' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferBroadcastShape(const xla::Shape &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_sizes)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2294'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='845' u='c' c='_ZN3xla15UserComputation23AddBroadcastInstructionERKNS_16BroadcastRequestE'/>

@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='434' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateTranspose(const xla::Shape &amp; shape, xla::HloInstruction * operand, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='433'>// Creates a transpose instruction which permutes the operand dimensions.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='972' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9HandleDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1146' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleBroadcastEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1895' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor15HandleTransposeEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/conv_canonicalization.cc' l='74' u='c' c='_ZN3xla3cpu20ConvCanonicalization3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/conv_canonicalization.cc' l='96' u='c' c='_ZN3xla3cpu20ConvCanonicalization3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/conv_canonicalization.cc' l='137' u='c' c='_ZN3xla3cpu20ConvCanonicalization3RunEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/dot_decomposer.cc' l='122' u='c' c='_ZN3xla12_GLOBAL__N_117DecomposeBatchDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/dot_decomposer.cc' l='129' u='c' c='_ZN3xla12_GLOBAL__N_117DecomposeBatchDotEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='80' u='c' c='_ZN3xla16MakeTransposeHloEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIxEE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='768' ll='784' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateTranspose(const xla::Shape &amp; shape, xla::HloInstruction * operand, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1388' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='768'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='165' u='c' c='_ZN3xla12_GLOBAL__N_113UpdateOperandEPKNS_14HloInstructionERKNS_5ShapeEPS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reshape_mover.cc' l='255' u='c' c='_ZN3xla12_GLOBAL__N_129PerformSinkReshapeOrTransposeEPNS_14HloInstructionEPKS1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3191' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3206' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

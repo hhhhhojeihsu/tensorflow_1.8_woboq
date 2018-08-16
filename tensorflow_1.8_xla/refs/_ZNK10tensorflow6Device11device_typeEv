@@ -1,0 +1,24 @@
+<def f='tensorflow/tensorflow/core/common_runtime/device.h' l='71' type='const string &amp; tensorflow::Device::device_type() const'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/device.h' l='67'>// Describes what kind of device this is.  This is intended to be
+  // human-readable and not computer-parsed, except that two devices
+  // with the same device_type() are expected to perform similarly
+  // (both from a computation and communication perspective).</doc>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='575' u='c' c='_ZN12_GLOBAL__N_112SelectDeviceERKN10tensorflow7NodeDefEP11TFE_ContextP9TF_Status'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='469' u='c' c='_ZN10tensorflow12IsCompilableEPNS_22FunctionLibraryRuntimeERKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='207' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext15PopulateOutputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultESt10unique_ptrIN3xla18Scoped494850'/>
+<use f='tensorflow/tensorflow/core/common_runtime/constant_folding.cc' l='485' u='c' c='_ZN10tensorflow12_GLOBAL__N_125ReplaceTensorWithConstantEPNS_5GraphEPNS_6DeviceESt4pairIPNS_4NodeEiERKNS_6TensorERKNS_3gtl7FlatSetIS7_NS_4hashIS7_EESt657287'/>
+<use f='tensorflow/tensorflow/core/common_runtime/device_mgr.cc' l='42' u='c' c='_ZN10tensorflow9DeviceMgrC1ERKSt6vectorIPNS_6DeviceESaIS3_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/device_set.cc' l='78' u='c' c='_ZNK10tensorflow9DeviceSet25PrioritizedDeviceTypeListEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1177' u='c' c='_ZN10tensorflow13DirectSession15CreateExecutorsERKNS_15CallableOptionsEPSt10unique_ptrINS0_16ExecutorsAndKeysESt14default_deleteIS5_EEPS4_INS0_12Funct10670497'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/kernel_and_device.cc' l='36' u='c' c='_ZN10tensorflow15KernelAndDevice6InitOpEPNS_6DeviceERKNS_7NodeDefEPS0_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='644' u='c' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl10CreateItemEyPPNS0_4ItemE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='110' u='c' c='_ZN10tensorflow11GraphRunner3RunEPNS_5GraphEPNS_22FunctionLibraryRuntimeERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPS5_IS7_SaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='110' u='c' c='_ZN10tensorflow11GraphRunner3RunEPNS_5GraphEPNS_22FunctionLibraryRuntimeERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPS5_IS7_SaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='115' u='c' c='_ZN10tensorflow11GraphRunner3RunEPNS_5GraphEPNS_22FunctionLibraryRuntimeERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPS5_IS7_SaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='117' u='c' c='_ZN10tensorflow11GraphRunner3RunEPNS_5GraphEPNS_22FunctionLibraryRuntimeERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPS5_IS7_SaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='60' u='c' c='_ZN10tensorflow12_GLOBAL__N_122FilterSupportedDevicesERKSt6vectorIPNS_6DeviceESaIS3_EERKNS_3gtl13InlinedVectorINS_10DeviceTypeELi4EEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='61' u='c' c='_ZN10tensorflow12_GLOBAL__N_122FilterSupportedDevicesERKSt6vectorIPNS_6DeviceESaIS3_EERKNS_3gtl13InlinedVectorINS_10DeviceTypeELi4EEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='559' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ColocationGraph16InitializeMemberERKNS_4NodeEPNS1_6MemberE'/>
+<use f='tensorflow/tensorflow/core/debug/debug_graph_utils.cc' l='101' u='c' c='_ZN10tensorflow17DebugNodeInserter11InsertNodesERKN6google8protobuf16RepeatedPtrFieldINS_16DebugTensorWatchEEEPNS_5GraphEPNS_6DeviceE'/>
+<use f='tensorflow/tensorflow/core/debug/debug_graph_utils.cc' l='465' u='c' c='_ZN10tensorflow17DebugNodeInserter15CreateDebugNodeEPNS_5GraphERKNS_6DeviceERKSsNS_8DataTypeES7_RKSt6vectorISsSaISsEEiS7_PPNS_4NodeE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='267' u='c' c='_ZN10tensorflow8GraphMgr8InitItemERKSsRKNS_8GraphDefERKNS_12GraphOptionsERKNS_12DebugOptionsEPNS_33DistributedFunctionLibraryRuntimeEPNS0_4ItemE'/>

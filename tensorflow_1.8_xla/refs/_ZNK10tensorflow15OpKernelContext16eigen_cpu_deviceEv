@@ -1,0 +1,33 @@
+<def f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1005' ll='1007' type='const Eigen::ThreadPoolDevice &amp; tensorflow::OpKernelContext::eigen_cpu_device() const'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1001'>// Execution.
+  //
+  // OpKernels can use these eigen devices to carry out their
+  // numerical computation.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='184' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='69' u='c' c='_ZN10tensorflow20XlaCompileOnDemandOp3RunEPNS_15OpKernelContextERKNS_9XlaDevice8MetadataEPKNS_11XlaCompiler17CompilationResultEPN3xla15LocalExecutableE'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='1261' u='c' c='_ZNK10tensorflow15OpKernelContext12eigen_deviceEv'/>
+<use f='tensorflow/tensorflow/core/kernels/attention_ops.cc' l='98' u='c' c='_ZN10tensorflow16ExtractGlimpseOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/batch_matmul_op_impl.h' l='69' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ParallelMatMulKernel9ConjugateEPKNS_15OpKernelContextEPNS_6TensorE'/>
+<use f='tensorflow/tensorflow/core/kernels/batch_matmul_op_impl.h' l='88' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ParallelMatMulKernel3RunEPKNS_15OpKernelContextERKNS_6TensorES5_bbPS5_ii'/>
+<use f='tensorflow/tensorflow/core/kernels/batch_matmul_op_impl.h' l='118' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ParallelMatMulKernelIT_Lb0EE3RunEPKNS_15OpKernelContextERKNS_6TensorES9_bbPS7_ii'/>
+<use f='tensorflow/tensorflow/core/kernels/bincount_op.cc' l='47' u='c' c='_ZN10tensorflow7functor15BincountFunctorIN5Eigen16ThreadPoolDeviceET_E7ComputeEPNS_15OpKernelContextERKNS2_9TensorMapINS2_6TensorIKiLi1ELi1ElEELi16ENS5362374'/>
+<use f='tensorflow/tensorflow/core/kernels/bincount_op.cc' l='82' u='c' c='_ZN10tensorflow7functor15BincountFunctorIN5Eigen16ThreadPoolDeviceET_E7ComputeEPNS_15OpKernelContextERKNS2_9TensorMapINS2_6TensorIKiLi1ELi1ElEELi16ENS5362374'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_grad_filter_ops.cc' l='490' u='c' c='_ZN10tensorflow28Conv2DCustomBackpropFilterOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/conv_grad_input_ops.cc' l='508' u='c' c='_ZN10tensorflow27Conv2DCustomBackpropInputOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/map_and_batch_dataset_op.cc' l='79' u='c' c='_ZN10tensorflow12_GLOBAL__N_120MapAndBatchDatasetOp11MakeDatasetEPNS_15OpKernelContextEPNS_11DatasetBaseEPS5_'/>
+<use f='tensorflow/tensorflow/core/kernels/lrn_op.cc' l='104' u='c' c='_ZN10tensorflow9LaunchLRNIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextEPNS_8OpKernelERKNS_6TensorEPS9_'/>
+<use f='tensorflow/tensorflow/core/kernels/lrn_op.cc' l='107' u='c' c='_ZN10tensorflow9LaunchLRNIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextEPNS_8OpKernelERKNS_6TensorEPS9_'/>
+<use f='tensorflow/tensorflow/core/kernels/lrn_op.cc' l='109' u='c' c='_ZN10tensorflow9LaunchLRNIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextEPNS_8OpKernelERKNS_6TensorEPS9_'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='270' u='c' c='_ZN10tensorflow24LaunchMaxPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_6TensorES9_S9_RKSt5arrayIxLm3EESD_SD_SD_NS_12TensorFormatEPS7_'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='275' u='c' c='_ZN10tensorflow24LaunchMaxPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_6TensorES9_S9_RKSt5arrayIxLm3EESD_SD_SD_NS_12TensorFormatEPS7_'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='280' u='c' c='_ZN10tensorflow24LaunchMaxPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_6TensorES9_S9_RKSt5arrayIxLm3EESD_SD_SD_NS_12TensorFormatEPS7_'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='295' u='c' c='_ZN10tensorflow24LaunchMaxPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_6TensorES9_S9_RKSt5arrayIxLm3EESD_SD_SD_NS_12TensorFormatEPS7_'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='441' u='c' c='_ZN10tensorflow24LaunchAvgPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_11TensorShapeERKNS_6TensorERKSt5arrayIxLm3EE12816150'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='449' u='c' c='_ZN10tensorflow24LaunchAvgPooling3dGradOpIN5Eigen16ThreadPoolDeviceET_E6launchEPNS_15OpKernelContextERKNS_11TensorShapeERKNS_6TensorERKSt5arrayIxLm3EE12816150'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_activation_ops.cc' l='47' u='c' c='_ZN10tensorflow15QuantizedReluOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_activation_ops.cc' l='82' u='c' c='_ZN10tensorflow16QuantizedRelu6Op7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_ops.cc' l='198' u='c' c='_ZN10tensorflow12_GLOBAL__N_19DoComputeERKNS0_14ComputeOptionsEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_ops.cc' l='258' u='c' c='_ZN10tensorflow12SdcaShrinkL17ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/set_kernels.cc' l='271' u='c' c='_ZN10tensorflow9SetSizeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_reduce_op.cc' l='136' u='c' c='_ZN10tensorflow5SumOp3RunEPNS_15OpKernelContextERNS_6TTypesIT_Li1ElE6ScalarERKNS5_12UnalignedVecE'/>
+<use f='tensorflow/tensorflow/core/kernels/sparse_reduce_op.cc' l='146' u='c' c='_ZN10tensorflow5MaxOp3RunEPNS_15OpKernelContextERNS_6TTypesIT_Li1ElE6ScalarERKNS5_12UnalignedVecE'/>

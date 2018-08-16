@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='110' type='bool toco::ReorderElementwiseUnary::Run(toco::Model * model, std::size_t op_index)'/>
+<inh f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='30' c='_ZN4toco19GraphTransformation3RunEPNS_5ModelEm'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/reorder_elementwise_unary.cc' l='66' ll='151' type='bool toco::ReorderElementwiseUnary::Run(toco::Model * model, std::size_t op_index)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/reorder_elementwise_unary.cc' l='64'>// Swap elementwise operators such that all value operators occur before all
+// element move operators, e.g. negation then transpose.</doc>

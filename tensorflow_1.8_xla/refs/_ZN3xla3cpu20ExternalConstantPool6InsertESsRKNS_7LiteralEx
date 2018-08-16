@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/external_constant_pool.h' l='46' type='void xla::cpu::ExternalConstantPool::Insert(string name, const xla::Literal &amp; literal, int64 alignment)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/external_constant_pool.h' l='38'>// Inserts a buffer with the contents of `literal` into the constant pool with
+  // the name `name`.  It is an error to try to insert two constants with the
+  // same `name` into the same constant pool.  The buffer for literal is aligned
+  // to `aligment` bytes, and `alignment` must be a power of 2.
+  //
+  // The constant pool copies out the contents of `literal` into a buffer it
+  // owns -- it does not keep pointers to `literal`, or to memory owned by
+  // `literal`.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/external_constant_pool.cc' l='29' ll='43' type='void xla::cpu::ExternalConstantPool::Insert(string name, const xla::Literal &amp; literal, int64 alignment)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='187' u='c' c='_ZN3xla3cpu9IrEmitter14HandleConstantEPNS_14HloInstructionE'/>

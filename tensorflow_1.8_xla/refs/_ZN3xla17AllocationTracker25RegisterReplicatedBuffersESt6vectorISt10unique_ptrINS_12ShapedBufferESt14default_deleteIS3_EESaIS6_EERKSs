@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.h' l='53' type='StatusOr&lt;xla::GlobalDataHandle&gt; xla::AllocationTracker::RegisterReplicatedBuffers(std::vector&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; replicated_buffers, const string &amp; tag)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.h' l='51'>// Registers a vector of shaped buffers of device memory, one per replica, and
+  // returns a corresponding handle that can be used for talking to XLA clients.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.cc' l='42' ll='48' type='StatusOr&lt;xla::GlobalDataHandle&gt; xla::AllocationTracker::RegisterReplicatedBuffers(std::vector&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; replicated_buffers, const string &amp; tag)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='605' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='726' u='c' c='_ZN3xla7Service24ExecuteAndRegisterResultEPNS_10ExecutableEN10tensorflow3gtl10ArraySliceISt6vectorIPKNS_12ShapedBufferESaIS9_EEEEPNS_7BackendERKSsPNS_16ExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1268' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1372' u='c' c='_ZN3xla7Service16TransferToServerEPKNS_23TransferToServerRequestEPNS_24TransferToServerResponseE'/>

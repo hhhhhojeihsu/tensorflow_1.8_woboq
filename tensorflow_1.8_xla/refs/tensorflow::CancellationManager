@@ -1,0 +1,16 @@
+<def f='tensorflow/tensorflow/core/framework/cancellation.h' l='45' ll='133'/>
+<size>136</size>
+<smbr r='tensorflow::CancellationManager::kInvalidToken' t='const CancellationToken'/>
+<fun r='_ZN10tensorflow19CancellationManagerC1Ev'/>
+<fun r='_ZN10tensorflow19CancellationManagerD1Ev'/>
+<fun r='_ZN10tensorflow19CancellationManager11StartCancelEv'/>
+<fun r='_ZN10tensorflow19CancellationManager11IsCancelledEv'/>
+<fun r='_ZN10tensorflow19CancellationManager22get_cancellation_tokenEv'/>
+<fun r='_ZN10tensorflow19CancellationManager16RegisterCallbackExSt8functionIFvvEE'/>
+<fun r='_ZN10tensorflow19CancellationManager18DeregisterCallbackEx'/>
+<mbr r='tensorflow::CancellationManager::is_cancelling_' o='0' t='bool'/>
+<mbr r='tensorflow::CancellationManager::is_cancelled_' o='8' t='std::atomic_bool'/>
+<mbr r='tensorflow::CancellationManager::mu_' o='64' t='tensorflow::mutex'/>
+<mbr r='tensorflow::CancellationManager::cancelled_notification_' o='192' t='tensorflow::Notification'/>
+<mbr r='tensorflow::CancellationManager::next_cancellation_token_' o='512' t='CancellationToken'/>
+<mbr r='tensorflow::CancellationManager::callbacks_' o='576' t='gtl::FlatMap&lt;CancellationToken, CancelCallback&gt;'/>

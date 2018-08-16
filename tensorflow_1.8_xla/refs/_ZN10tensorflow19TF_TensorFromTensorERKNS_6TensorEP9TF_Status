@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/c/c_api_internal.h' l='195' type='TF_Tensor * tensorflow::TF_TensorFromTensor(const tensorflow::Tensor &amp; src, TF_Status * status)'/>
+<def f='tensorflow/tensorflow/c/c_api.cc' l='537' ll='620' type='TF_Tensor * tensorflow::TF_TensorFromTensor(const tensorflow::Tensor &amp; src, TF_Status * status)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='842' u='c' c='_ZL13TF_Run_HelperPN10tensorflow7SessionEPKcPK9TF_BufferRKSt6vectorISt4pairISsNS_6TensorEESaISA_EERKS7_ISsSaISsEEPP9TF_TensorSI_PS4_P9TF_Status'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1855' u='c' c='TF_OperationGetAttrTensor'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='1866' u='c' c='TF_OperationGetAttrTensorList'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2702' u='c' c='TF_TryEvaluateConstant'/>
+<doc f='tensorflow/tensorflow/c/c_api.cc' l='536'>// Non-static for testing.</doc>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='217' u='c' c='TFE_TensorHandleResolve'/>
+<dec f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='426' type='TF_Tensor * tensorflow::TF_TensorFromTensor(const tensorflow::Tensor &amp; src, TF_Status * status)'/>
+<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='440' u='c' c='_ZN10tensorflow15TensorToNdarrayERKNS_6TensorEPP7_object'/>

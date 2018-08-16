@@ -1,0 +1,99 @@
+<!doctype html>
+<head><title>tensorflow_1.8_woboq//tensorflow/tensorflow/contrib/lite/toco/graph_transformations/ Source Tree - Woboq Code Browser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://code.woboq.org/data/indexstyle.css"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var path = 'tensorflow/tensorflow/contrib/lite/toco/graph_transformations/'; var root_path = '../../../../../../'; var project='tensorflow_1.8_woboq/'; </script>
+<script src='https://code.woboq.org/data/indexscript.js'></script>
+</head>
+<body>
+<div id='header'><div id='toprightlogo'><a href='https://code.woboq.org'></a></div>
+<p><input id='searchline' placeholder='Search for a file or function'  type='text'/></p>
+<h1 id='title'>Browse the source code of <a href='../../../../../../'>tensorflow_1.8_woboq/</a>/<a href='../../../../../'>tensorflow</a>/<a href='../../../../'>tensorflow</a>/<a href='../../../'>contrib</a>/<a href='../../'>lite</a>/<a href='../'>toco</a>/<a href=''>graph_transformations/</a> online</h1>
+</div><hr/><table id='tree'>
+ <tr><td class='parent'>    <a href='../'>../</a></td><td></td></tr>
+<tr><td class='file'>    <a href='convert_expanddims_to_reshape.cc.html'>convert_expanddims_to_reshape.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='convert_pure_conv_to_depthwise.cc.html'>convert_pure_conv_to_depthwise.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='convert_reorder_axes.cc.html'>convert_reorder_axes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='convert_squeeze_to_reshape.cc.html'>convert_squeeze_to_reshape.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='convert_trivial_addn_to_add.cc.html'>convert_trivial_addn_to_add.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='convert_trivial_stack_to_reshape.cc.html'>convert_trivial_stack_to_reshape.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='convert_trivial_transpose_to_reshape.cc.html'>convert_trivial_transpose_to_reshape.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='create_im2col_arrays.cc.html'>create_im2col_arrays.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='dequantize.cc.html'>dequantize.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='drop_fake_quant.cc.html'>drop_fake_quant.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='drop_im2col_arrays.cc.html'>drop_im2col_arrays.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='ensure_bias_vectors.cc.html'>ensure_bias_vectors.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='fuse_activation_functions.cc.html'>fuse_activation_functions.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='fuse_binary_into_following_affine.cc.html'>fuse_binary_into_following_affine.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='fuse_binary_into_preceding_affine.cc.html'>fuse_binary_into_preceding_affine.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='graph_transformations.cc.html'>graph_transformations.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='graph_transformations.h.html'>graph_transformations.h</a><span class='meta'><ul><li><a href='graph_transformations.h.html#toco::GraphTransformation' title='toco::GraphTransformation'>GraphTransformation</a></li><li><a href='graph_transformations.h.html#toco::GraphTransformationsSet' title='toco::GraphTransformationsSet'>GraphTransformationsSet</a></li><li><a href='graph_transformations.h.html#toco::RemoveTrivialReshape' title='toco::RemoveTrivialReshape'>RemoveTrivialReshape</a></li><li><a href='graph_transformations.h.html#toco::ResolveReshapeAttributes' title='toco::ResolveReshapeAttributes'>ResolveReshapeAttributes</a></li></ul></span></td></tr>
+<tr><td class='file'>    <a href='hardcode_min_max.cc.html'>hardcode_min_max.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='identify_dilated_conv.cc.html'>identify_dilated_conv.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='identify_l2_normalization.cc.html'>identify_l2_normalization.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='identify_l2_pool.cc.html'>identify_l2_pool.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='identify_lstm.cc.html'>identify_lstm.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='identify_lstm_merge_inputs.cc.html'>identify_lstm_merge_inputs.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='identify_lstm_split_inputs.cc.html'>identify_lstm_split_inputs.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='identify_prelu.cc.html'>identify_prelu.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='identify_relu1.cc.html'>identify_relu1.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='lstm_utils.cc.html'>lstm_utils.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='lstm_utils.h.html'>lstm_utils.h</a><span class='meta'><ul><li><a href='lstm_utils.h.html#toco::ExtendedLstmCellInputs' title='toco::ExtendedLstmCellInputs'>ExtendedLstmCellInputs</a></li><li><a href='lstm_utils.h.html#toco::ExtendedLstmCellOutputs' title='toco::ExtendedLstmCellOutputs'>ExtendedLstmCellOutputs</a></li></ul></span></td></tr>
+<tr><td class='file'>    <a href='make_initial_dequantize_operator.cc.html'>make_initial_dequantize_operator.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='merge_reshape_into_preceding_transpose.cc.html'>merge_reshape_into_preceding_transpose.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='propagate_activation_function_into_constants.cc.html'>propagate_activation_function_into_constants.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='propagate_array_data_types.cc.html'>propagate_array_data_types.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='propagate_fixed_sizes.cc.html'>propagate_fixed_sizes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='quantize.cc.html'>quantize.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='read_fake_quant_min_max.cc.html'>read_fake_quant_min_max.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_final_dequantize_op.cc.html'>remove_final_dequantize_op.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_tensorflow_assert.cc.html'>remove_tensorflow_assert.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_tensorflow_identity.cc.html'>remove_tensorflow_identity.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_trivial_binary.cc.html'>remove_trivial_binary.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_trivial_concatenation.cc.html'>remove_trivial_concatenation.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_trivial_concatenation_input.cc.html'>remove_trivial_concatenation_input.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_trivial_passthrough.cc.html'>remove_trivial_passthrough.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_trivial_passthrough.h.html'>remove_trivial_passthrough.h</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_trivial_quantized_activation_func.cc.html'>remove_trivial_quantized_activation_func.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_trivial_reshape.cc.html'>remove_trivial_reshape.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_trivial_slice.cc.html'>remove_trivial_slice.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='remove_unused_op.cc.html'>remove_unused_op.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='reorder_elementwise_unary.cc.html'>reorder_elementwise_unary.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='reorder_reshape_transpose.cc.html'>reorder_reshape_transpose.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_batch_normalization.cc.html'>resolve_batch_normalization.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_batch_to_space_nd_attributes.cc.html'>resolve_batch_to_space_nd_attributes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_binary.cc.html'>resolve_constant_binary.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_concatenation.cc.html'>resolve_constant_concatenation.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_fake_quant.cc.html'>resolve_constant_fake_quant.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_fill.cc.html'>resolve_constant_fill.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_gather.cc.html'>resolve_constant_gather.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_random_uniform.cc.html'>resolve_constant_random_uniform.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_range.cc.html'>resolve_constant_range.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_shape_or_rank.cc.html'>resolve_constant_shape_or_rank.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_stack.cc.html'>resolve_constant_stack.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_strided_slice.cc.html'>resolve_constant_strided_slice.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_transpose.cc.html'>resolve_constant_transpose.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_constant_unary.cc.html'>resolve_constant_unary.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_mean_attributes.cc.html'>resolve_mean_attributes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_multiply_by_zero.cc.html'>resolve_multiply_by_zero.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_pad_attributes.cc.html'>resolve_pad_attributes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_reorder_axes.cc.html'>resolve_reorder_axes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_reshape_attributes.cc.html'>resolve_reshape_attributes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_slice_attributes.cc.html'>resolve_slice_attributes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_space_to_batch_nd_attributes.cc.html'>resolve_space_to_batch_nd_attributes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_squeeze_attributes.cc.html'>resolve_squeeze_attributes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_strided_slice_attributes.cc.html'>resolve_strided_slice_attributes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_tensorflow_concat.cc.html'>resolve_tensorflow_concat.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_tensorflow_matmul.cc.html'>resolve_tensorflow_matmul.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_tensorflow_merge.cc.html'>resolve_tensorflow_merge.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_tensorflow_switch.cc.html'>resolve_tensorflow_switch.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_tensorflow_tile.cc.html'>resolve_tensorflow_tile.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='resolve_transpose_attributes.cc.html'>resolve_transpose_attributes.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='unfuse_activation_functions.cc.html'>unfuse_activation_functions.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='unpartition_embedding_lookup.cc.html'>unpartition_embedding_lookup.cc</a><span class='meta'></span></td></tr>
+<tr><td class='file'>    <a href='unroll_batch_matmul.cc.html'>unroll_batch_matmul.cc</a><span class='meta'></span></td></tr>
+</table><hr/><p id='footer'>
+Generated on <em>2018-Aug-11</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license</p>
+</body></html>

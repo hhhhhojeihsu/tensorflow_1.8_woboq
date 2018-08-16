@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/source_map_util.h' l='33' type='tensorflow::Status xla::source_map_util::InvalidParameterArgument(xla::Executable * executable, int parameter_number, const char * format)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='68' u='c' c='_ZN3xla15LocalExecutable24ValidateExecutionOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEERKNS_20ExecutableRunOptionsERKNS_7BackendE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/source_map_util.h' l='26'>// Creates an INVALID_ARUGMENT status with the given format string.
+//
+// Also, attempts to extract the OpMetadata for parameter_number on executable
+// and append it to the status message for source mapping to user code.
+//
+// executable may be nullptr, but parameter_number should not be out of bounds
+// or a CHECK-failure may occur.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/source_map_util.cc' l='47' ll='63' type='tensorflow::Status xla::source_map_util::InvalidParameterArgument(xla::Executable * executable, int parameter_number, const char * format)'/>

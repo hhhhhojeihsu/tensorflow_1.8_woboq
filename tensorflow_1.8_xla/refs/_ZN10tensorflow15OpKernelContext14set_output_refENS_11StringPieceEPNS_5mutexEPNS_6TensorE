@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='899' type='tensorflow::Status tensorflow::OpKernelContext::set_output_ref(tensorflow::StringPiece name, tensorflow::mutex * mu, tensorflow::Tensor * tensor_for_ref)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='896'>// To output a reference.  Caller retains ownership of mu and tensor_for_ref,
+  // and they must outlive all uses within the step. See comment above.
+  // REQUIRES: IsRefType(expected_output_dtype(index))</doc>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='799' ll='811' type='tensorflow::Status tensorflow::OpKernelContext::set_output_ref(tensorflow::StringPiece name, tensorflow::mutex * mu, tensorflow::Tensor * tensor_for_ref)'/>

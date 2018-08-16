@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/compiler/xla/index_util.h' l='37' type='static int64 xla::IndexUtil::MultidimensionalIndexToLinearIndex(const xla::Shape &amp; shape, tensorflow::gtl::ArraySlice&lt;int64&gt; multi_index)'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='877' u='c' c='_ZNK3xla7Literal5Piece3GetEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='885' u='c' c='_ZN3xla7Literal5Piece3SetEN10tensorflow3gtl10ArraySliceIxEET_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1313' u='c' c='_ZN3xla7Literal16PopulateInternalERKT0_b'/>
+<doc f='tensorflow/tensorflow/compiler/xla/index_util.h' l='34'>// Converts a multidimensional index (eg {x, y, z}) into a linear index based
+  // on the shape and its layout. The first index in the multi_index is
+  // dimension 0.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/index_util.cc' l='29' ll='93' type='static int64 xla::IndexUtil::MultidimensionalIndexToLinearIndex(const xla::Shape &amp; shape, tensorflow::gtl::ArraySlice&lt;int64&gt; multi_index)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/index_util.cc' l='29'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='199' u='c' c='_ZN3xla7Literal21CopySliceFromInternalERKS0_N10tensorflow3gtl10ArraySliceIxEES6_S6_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='255' u='c' c='_ZN3xla7Literal15CopyElementFromERKS0_N10tensorflow3gtl10ArraySliceIxEES6_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='258' u='c' c='_ZN3xla7Literal15CopyElementFromERKS0_N10tensorflow3gtl10ArraySliceIxEES6_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='331' u='c' c='_ZN3xla12_GLOBAL__N_119CopyElementsBetweenEN10tensorflow3gtl17MutableArraySliceIT_EENS2_10ArraySliceIS4_EERKNS_5ShapeESA_'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='332' u='c' c='_ZN3xla12_GLOBAL__N_119CopyElementsBetweenEN10tensorflow3gtl17MutableArraySliceIT_EENS2_10ArraySliceIS4_EERKNS_5ShapeESA_'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1261' u='c' c='_ZN3xla9ShapeUtil16ReshapeIsBitcastERKNS_5ShapeES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1269' u='c' c='_ZN3xla9ShapeUtil16ReshapeIsBitcastERKNS_5ShapeES3_'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='1271' u='c' c='_ZN3xla9ShapeUtil16ReshapeIsBitcastERKNS_5ShapeES3_'/>

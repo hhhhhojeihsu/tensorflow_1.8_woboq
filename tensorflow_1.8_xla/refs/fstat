@@ -1,0 +1,7 @@
+<dec f='include/x86_64-linux-gnu/sys/stat.h' l='213' type='int fstat(int __fd, struct stat * __buf)'/>
+<def f='include/x86_64-linux-gnu/sys/stat.h' l='465' ll='469' macro='1' type='int fstat(int __fd, struct stat * __statbuf)'/>
+<doc f='include/x86_64-linux-gnu/sys/stat.h' l='211'>/* Get file attributes for the file, device, pipe, or socket
+   that file descriptor FD is open on and put them in BUF.  */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/allocation.cc' l='42' u='c' c='_ZN6tflite14MMAPAllocationC1EPKcPNS_13ErrorReporterE'/>
+<use f='tensorflow/tensorflow/contrib/lite/allocation.cc' l='78' u='c' c='_ZN6tflite18FileCopyAllocationC1EPKcPNS_13ErrorReporterE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='190' u='c' c='_ZN10tensorflow15PosixFileSystem31NewReadOnlyMemoryRegionFromFileERKSsPSt10unique_ptrINS_20ReadOnlyMemoryRegionESt14default_deleteIS4_EE'/>

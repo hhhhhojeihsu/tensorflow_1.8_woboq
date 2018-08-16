@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='277' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateReducePrecision(const xla::Shape &amp; shape, xla::HloInstruction * operand, const int exponent_bits, const int mantissa_bits)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='274'>// Creates a reduce-precision op, where operand is the data to reduce in
+  // precision, and exponent_bits and mantissa_bits describe the precision to
+  // reduce it to.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='387' ll='398' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateReducePrecision(const xla::Shape &amp; shape, xla::HloInstruction * operand, const int exponent_bits, const int mantissa_bits)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1314' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='387'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/reduce_precision_insertion.cc' l='97' u='c' c='_ZN3xla24ReducePrecisionInsertion12insert_afterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/reduce_precision_insertion.cc' l='150' u='c' c='_ZN3xla24ReducePrecisionInsertion16insert_on_inputsERKSt6vectorIPNS_14HloInstructionESaIS3_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3484' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

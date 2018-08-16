@@ -1,0 +1,35 @@
+<inh f='tensorflow/tensorflow/core/framework/device_base.h' l='221' c='_ZNK10tensorflow10DeviceBase10attributesEv'/>
+<def f='tensorflow/tensorflow/core/common_runtime/device.h' l='74' ll='76' type='const tensorflow::DeviceAttributes &amp; tensorflow::Device::attributes() const'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/device.h' l='73'>// Returns an aggregation of device attributes.</doc>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='63' u='c' c='_ZN12_GLOBAL__N_15IsXLAEPKN10tensorflow6DeviceE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/collective_rma_local.cc' l='89' u='c' c='_ZN10tensorflow27CollectiveRemoteAccessLocal11MemCpyAsyncEPNS_13DeviceContextES2_PNS_6DeviceES4_RKNS_19AllocatorAttributesES7_PKNS_6TensorEPS8_RKSt8fu3769309'/>
+<use f='tensorflow/tensorflow/core/common_runtime/collective_rma_local.cc' l='91' u='c' c='_ZN10tensorflow27CollectiveRemoteAccessLocal11MemCpyAsyncEPNS_13DeviceContextES2_PNS_6DeviceES4_RKNS_19AllocatorAttributesES7_PKNS_6TensorEPS8_RKSt8fu3769309'/>
+<use f='tensorflow/tensorflow/core/common_runtime/copy_tensor.cc' l='244' u='c' c='_ZN10tensorflow10CopyTensor6ViaDMAENS_11StringPieceEPNS_13DeviceContextES3_PNS_6DeviceES5_NS_19AllocatorAttributesES6_PKNS_6TensorEPS7_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/copy_tensor.cc' l='246' u='c' c='_ZN10tensorflow10CopyTensor6ViaDMAENS_11StringPieceEPNS_13DeviceContextES3_PNS_6DeviceES5_NS_19AllocatorAttributesES6_PKNS_6TensorEPS7_St8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/device_mgr.cc' l='62' u='c' c='_ZNK10tensorflow9DeviceMgr20ListDeviceAttributesEPSt6vectorINS_16DeviceAttributesESaIS2_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/device_mgr.cc' l='81' u='c' c='_ZNK10tensorflow9DeviceMgr19DeviceMappingStringEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/device_mgr.cc' l='83' u='c' c='_ZNK10tensorflow9DeviceMgr19DeviceMappingStringEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/device_resolver_local.cc' l='32' u='c' c='_ZN10tensorflow19DeviceResolverLocal24GetDeviceLocalitiesAsyncERKNS_18CollInstanceParamsEPSt6vectorINS_14DeviceLocalityESaIS5_EERKSt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/device_resolver_local.cc' l='44' u='c' c='_ZN10tensorflow19DeviceResolverLocal16GetLocalityAsyncERKSsS2_PNS_14DeviceLocalityERKSt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1213' u='c' c='_ZN10tensorflow13DirectSession15CreateExecutorsERKNS_15CallableOptionsEPSt10unique_ptrINS0_16ExecutorsAndKeysESt14default_deleteIS5_EEPS4_INS0_12Funct10670497'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1218' u='c' c='_ZN10tensorflow13DirectSession15CreateExecutorsERKNS_15CallableOptionsEPSt10unique_ptrINS0_16ExecutorsAndKeysESt14default_deleteIS5_EEPS4_INS0_12Funct10670497'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1494' u='c' c='_ZN10tensorflow13DirectSession11ListDevicesEPSt6vectorINS_16DeviceAttributesESaIS2_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='2644' u='c' c='_ZN10tensorflow21CreateNonCachedKernelEPNS_6DeviceEPNS_22FunctionLibraryRuntimeERKNS_7NodeDefEiPPNS_8OpKernelE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='417' u='c' c='_ZN10tensorflow26FunctionLibraryRuntimeImpl12CreateKernelERKNS_7NodeDefEPKNS_25FunctionLibraryDefinitionEPPNS_8OpKernelE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='294' u='c' c='_ZN10tensorflow19GraphExecutionState10PruneGraphERKNS_17BuildGraphOptionsEPNS_5GraphEPNS_8subgraph20RewriteGraphMetadataE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='147' u='c' c='_ZN10tensorflow11GraphRunner3RunEPNS_5GraphEPNS_22FunctionLibraryRuntimeERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPS5_IS7_SaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='53' u='c' c='_ZN10tensorflow12_GLOBAL__N_122FilterSupportedDevicesERKSt6vectorIPNS_6DeviceESaIS3_EERKNS_3gtl13InlinedVectorINS_10DeviceTypeELi4EEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='540' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ColocationGraph16InitializeMemberERKNS_4NodeEPNS1_6MemberE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.cc' l='134' u='c' c='_ZN10tensorflow29ProcessFunctionLibraryRuntime20GetDeviceIncarnationERKSsPx'/>
+<use f='tensorflow/tensorflow/core/common_runtime/renamed_device.cc' l='37' u='c' c='_ZN10tensorflow13RenamedDevice16NewRenamedDeviceERKSsPNS_6DeviceEbb'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='159' u='c' c='_ZN10tensorflow8GraphMgr8InitItemERKSsRKNS_8GraphDefERKNS_12GraphOptionsERKNS_12DebugOptionsEPNS_33DistributedFunctionLibraryRuntimeEPNS0_4ItemE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='545' u='c' c='_ZN10tensorflow6Master11ListDevicesEPKNS_18ListDevicesRequestEPNS_19ListDevicesResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='548' u='c' c='_ZN10tensorflow6Master11ListDevicesEPKNS_18ListDevicesRequestEPNS_19ListDevicesResponseESt8functionIFvRKNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1323' u='c' c='_ZNK10tensorflow13MasterSession11ListDevicesEPNS_19ListDevicesResponseE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1326' u='c' c='_ZNK10tensorflow13MasterSession11ListDevicesEPNS_19ListDevicesResponseE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1329' u='c' c='_ZNK10tensorflow13MasterSession11ListDevicesEPNS_19ListDevicesResponseE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1332' u='c' c='_ZNK10tensorflow13MasterSession11ListDevicesEPNS_19ListDevicesResponseE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1515' u='c' c='_ZN10tensorflow13MasterSession26BuildAndRegisterPartitionsEPNS0_17ReffedClientGraphE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='320' u='c' c='_ZN10tensorflow6Worker17PrepareRecvTensorERKNS_10Rendezvous9ParsedKeyEPPNS_6DeviceE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='323' u='c' c='_ZN10tensorflow6Worker17PrepareRecvTensorERKNS_10Rendezvous9ParsedKeyEPPNS_6DeviceE'/>
+<use f='tensorflow/tensorflow/core/kernels/pooling_ops_common.cc' l='91' u='c' c='_ZN10tensorflow14PoolParametersC1EPNS_15OpKernelContextERKSt6vectorIiSaIiEES7_NS_7PaddingENS_12TensorFormatERKNS_11TensorShapeE'/>

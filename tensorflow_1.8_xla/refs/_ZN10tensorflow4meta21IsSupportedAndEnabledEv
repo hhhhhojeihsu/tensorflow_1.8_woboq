@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/kernels/meta_support.h' l='58' type='bool tensorflow::meta::IsSupportedAndEnabled()'/>
+<use f='tensorflow/tensorflow/core/kernels/dequantize_op.cc' l='89' u='c' c='_ZN10tensorflow12DequantizeOp7ComputeEPNS_15OpKernelContextE'/>
+<doc f='tensorflow/tensorflow/core/kernels/meta_support.h' l='55'>// Returns true if the codepath is supported and is enabled. Use this call
+// before calling the compute functions. If the codepath is not supported, and
+// any of the compute function is called, the library will log a FATAL error.</doc>
+<def f='tensorflow/tensorflow/core/kernels/meta_support.cc' l='218' type='bool tensorflow::meta::IsSupportedAndEnabled()'/>
+<use f='tensorflow/tensorflow/core/kernels/quantize_down_and_shrink_range.cc' l='83' u='c' c='_ZN10tensorflow28QuantizeDownAndShrinkRangeOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/quantize_op.cc' l='172' u='c' c='_ZN10tensorflow12QuantizeV2Op7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_activation_ops.cc' l='42' u='c' c='_ZN10tensorflow15QuantizedReluOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_activation_ops.cc' l='76' u='c' c='_ZN10tensorflow16QuantizedRelu6Op7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_bias_add_op.cc' l='67' u='c' c='_ZN10tensorflow18QuantizedBiasAddOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_conv_ops.cc' l='387' u='c' c='_ZN10tensorflow17Im2ColConvFunctorclEPNS_15OpKernelContextEPKT_iiiiiPKT0_iiiiiNS_7PaddingEPT1_iiiii'/>
+<use f='tensorflow/tensorflow/core/kernels/quantized_matmul_op.cc' l='135' u='c' c='_ZN10tensorflow17QuantizedMatMulOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/requantize.cc' l='77' u='c' c='_ZN10tensorflow12RequantizeOp7ComputeEPNS_15OpKernelContextE'/>

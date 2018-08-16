@@ -1,0 +1,38 @@
+<def f='tensorflow/tensorflow/contrib/lite/model.h' l='160' ll='193'/>
+<size>80</size>
+<doc f='tensorflow/tensorflow/contrib/lite/model.h' l='146'>// Build an interpreter capable of interpreting `model`.
+//
+// model: a scoped model whose lifetime must be at least as long as
+//   the interpreter. In principle multiple interpreters can be made from
+//   a single model.
+// op_resolver: An instance that implements the Resolver interface which maps
+//   custom op names and builtin op codes to op registrations.
+// reportError: a functor that is called to report errors that handles
+//   printf var arg semantics. The lifetime of the reportError object must
+//   be greater than or equal to the Interpreter created by operator().
+//
+// Returns a kTfLiteOk when successful and sets interpreter to a valid
+// Interpreter. Note: the user must ensure the model lifetime is at least as
+// long as interpreter&apos;s lifetime.</doc>
+<fun r='_ZN6tflite18InterpreterBuilderC1ERKNS_15FlatBufferModelERKNS_10OpResolverE'/>
+<fun r='_ZN6tflite18InterpreterBuilderC1EPKNS_5ModelERKNS_10OpResolverEPNS_13ErrorReporterE'/>
+<fun r='_ZN6tflite18InterpreterBuilderC1ERKS0_'/>
+<fun r='_ZN6tflite18InterpreterBuilderaSERKS0_'/>
+<fun r='_ZN6tflite18InterpreterBuilderclEPSt10unique_ptrINS_11InterpreterESt14default_deleteIS2_EE'/>
+<fun r='_ZN6tflite18InterpreterBuilderclEPSt10unique_ptrINS_11InterpreterESt14default_deleteIS2_EEi'/>
+<fun r='_ZN6tflite18InterpreterBuilder36BuildLocalIndexToRegistrationMappingEv'/>
+<fun r='_ZN6tflite18InterpreterBuilder10ParseNodesEPKN11flatbuffers6VectorINS1_6OffsetINS_8OperatorEEEEEPNS_11InterpreterE'/>
+<fun r='_ZN6tflite18InterpreterBuilder12ParseTensorsEPKN11flatbuffers6VectorINS1_6OffsetINS_6BufferEEEEEPKNS2_INS3_INS_6TensorEEEEEPNS_11InterpreterE'/>
+<mbr r='tflite::InterpreterBuilder::model_' o='0' t='const ::tflite::Model *'/>
+<mbr r='tflite::InterpreterBuilder::op_resolver_' o='64' t='const tflite::OpResolver &amp;'/>
+<mbr r='tflite::InterpreterBuilder::error_reporter_' o='128' t='tflite::ErrorReporter *'/>
+<mbr r='tflite::InterpreterBuilder::flatbuffer_op_index_to_registration_' o='192' t='std::vector&lt;TfLiteRegistration *&gt;'/>
+<mbr r='tflite::InterpreterBuilder::flatbuffer_op_index_to_registration_types_' o='384' t='std::vector&lt;BuiltinOperator&gt;'/>
+<mbr r='tflite::InterpreterBuilder::allocation_' o='576' t='const tflite::Allocation *'/>
+<fun r='_ZN6tflite18InterpreterBuilderC1ERKNS_15FlatBufferModelERKNS_10OpResolverE'/>
+<fun r='_ZN6tflite18InterpreterBuilderC1EPKNS_5ModelERKNS_10OpResolverEPNS_13ErrorReporterE'/>
+<fun r='_ZN6tflite18InterpreterBuilder36BuildLocalIndexToRegistrationMappingEv'/>
+<fun r='_ZN6tflite18InterpreterBuilder10ParseNodesEPKN11flatbuffers6VectorINS1_6OffsetINS_8OperatorEEEEEPNS_11InterpreterE'/>
+<fun r='_ZN6tflite18InterpreterBuilder12ParseTensorsEPKN11flatbuffers6VectorINS1_6OffsetINS_6BufferEEEEEPKNS2_INS3_INS_6TensorEEEEEPNS_11InterpreterE'/>
+<fun r='_ZN6tflite18InterpreterBuilderclEPSt10unique_ptrINS_11InterpreterESt14default_deleteIS2_EE'/>
+<fun r='_ZN6tflite18InterpreterBuilderclEPSt10unique_ptrINS_11InterpreterESt14default_deleteIS2_EEi'/>

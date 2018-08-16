@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.h' l='59' type='static std::vector&lt;TensorShape&gt; tensorflow::PaddingFIFOQueue::ConvertShapesPartialDimensionsToZero(const gtl::ArraySlice&lt;PartialTensorShape&gt; &amp; partial_shapes)'/>
+<use f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.cc' l='40' u='c' c='_ZN10tensorflow16PaddingFIFOQueueC1EiRKNS_3gtl13InlinedVectorINS_8DataTypeELi4EEERKSt6vectorINS_18PartialTensorShapeESaIS8_EERKSs'/>
+<def f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.cc' l='398' ll='407' type='static std::vector&lt;TensorShape&gt; tensorflow::PaddingFIFOQueue::ConvertShapesPartialDimensionsToZero(const gtl::ArraySlice&lt;PartialTensorShape&gt; &amp; partial_shapes)'/>
+<doc f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.h' l='55'>// Convert a list of PartialTensorShape to a list of
+  // TensorShape.
+  // Any unknown dimension sizes are converted to 0.
+  // REQUIRED: All the input shapes have well defined rank.</doc>

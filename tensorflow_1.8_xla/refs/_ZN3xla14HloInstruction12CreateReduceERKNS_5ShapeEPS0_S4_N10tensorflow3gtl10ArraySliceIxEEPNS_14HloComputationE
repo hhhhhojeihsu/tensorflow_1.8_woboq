@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='363' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateReduce(const xla::Shape &amp; shape, xla::HloInstruction * operand, xla::HloInstruction * init_value, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions_to_reduce, xla::HloComputation * reduce_computation)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='356'>// Creates a reduce instruction, where the computation (given by the handle)
+  // is applied successively to every element in operand. That is, if f is the
+  // function to apply (which either takes 2 [accumulator, value] or 3
+  // [accumulator, index, value] arguments) and init is a reduction operator
+  // specified initial value (for example, 0 for addition), then this operation
+  // will compute:
+  //   f(f(init, [index0], value0), [index1], value1), ...)</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='221' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9AddReduceEPNS_14HloInstructionEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1654' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1698' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='208' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='213' u='c' c='_ZN3xla24BatchNormExpanderVisitor23HandleBatchNormTrainingEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='507' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/batchnorm_expander.cc' l='512' u='c' c='_ZN3xla24BatchNormExpanderVisitor19HandleBatchNormGradEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='582' ll='593' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateReduce(const xla::Shape &amp; shape, xla::HloInstruction * arg, xla::HloInstruction * init_value, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions_to_reduce, xla::HloComputation * reduce_computation)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1347' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='582'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3051' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

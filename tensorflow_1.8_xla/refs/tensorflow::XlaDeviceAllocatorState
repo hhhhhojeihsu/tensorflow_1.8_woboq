@@ -1,0 +1,7 @@
+<def f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='62' ll='82'/>
+<size>72</size>
+<doc f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='57'>// Caches a XlaDeviceAllocator per &lt;backend, device ordinal&gt; pair. A
+// XlaDeviceAllocator is created on demand and is associated with a
+// XlaDevice. It outlives the device itself (for instance, the buffer
+// backing a tensor holds a pointer to the allocator for book-keeping,
+// and this buffer can outlast the device).</doc>

@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/stream_executor/host/host_platform.h' l='52' type='int perftools::gputools::host::HostPlatform::VisibleDeviceCount() const'/>
+<inh f='tensorflow/tensorflow/stream_executor/platform.h' l='122' c='_ZNK9perftools8gputools8Platform18VisibleDeviceCountEv'/>
+<def f='tensorflow/tensorflow/stream_executor/host/host_platform.cc' l='41' ll='43' type='int perftools::gputools::host::HostPlatform::VisibleDeviceCount() const'/>
+<doc f='tensorflow/tensorflow/stream_executor/host/host_platform.h' l='49'>// Device count is less clear-cut for CPUs than accelerators. This call
+  // currently returns the number of thread units in the host, as reported by
+  // base::NumCPUs().</doc>

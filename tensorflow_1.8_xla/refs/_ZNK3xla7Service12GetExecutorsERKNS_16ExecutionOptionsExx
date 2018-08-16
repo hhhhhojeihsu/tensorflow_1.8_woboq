@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='286' type='StatusOr&lt;std::vector&lt;perftools::gputools::StreamExecutor *&gt; &gt; xla::Service::GetExecutors(const xla::ExecutionOptions &amp; execution_options, int64 requests_size, int64 request_index) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='285'>// Prepare the executors for executing parallel.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='737' ll='760' type='StatusOr&lt;std::vector&lt;perftools::gputools::StreamExecutor *&gt; &gt; xla::Service::GetExecutors(const xla::ExecutionOptions &amp; execution_options, int64 requests_size, int64 request_index) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='808' u='c' c='_ZN3xla7Service15ExecuteParallelEPKNS_22ExecuteParallelRequestEPNS_23ExecuteParallelResponseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='923' u='c' c='_ZN3xla7Service20ExecuteGraphParallelEPKNS_27ExecuteGraphParallelRequestEPNS_23ExecuteParallelResponseE'/>

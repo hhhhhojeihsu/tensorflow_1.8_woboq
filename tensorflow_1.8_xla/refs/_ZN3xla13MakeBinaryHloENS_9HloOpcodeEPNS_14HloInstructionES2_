@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='31' type='StatusOr&lt;xla::HloInstruction *&gt; xla::MakeBinaryHlo(xla::HloOpcode opcode, xla::HloInstruction * lhs, xla::HloInstruction * rhs)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='388' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor9HandleAddEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='639' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleDivideEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='642' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleDivideEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='645' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleDivideEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='655' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleDivideEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='664' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor12HandleDivideEPNS_14HloInstructionE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.h' l='25'>// Some lightweight utilities intended to make HLO instruction creation more
+// ergonomic.  We don&apos;t have a complete set of helpers yet -- I expect we&apos;ll
+// expand this interface as needed on an ad-hoc basis.
+
+// Creates a binary HLO instruction and adds it to the computation containing
+// `lhs` and `rhs` (`lhs` and `rhs` must be in the same computation).</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='26' ll='34' type='StatusOr&lt;xla::HloInstruction *&gt; xla::MakeBinaryHlo(xla::HloOpcode opcode, xla::HloInstruction * lhs, xla::HloInstruction * rhs)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='161' u='c' c='_ZN3xlaL35MakeCountedLoopConditionComputationERKNS_5ShapeEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_util.cc' l='179' u='c' c='_ZN3xlaL30MakeCountedLoopBodyComputationERKNS_5ShapeERKSt8functionIFNS_8StatusOrISt6vectorIPNS_14HloInstructionESaIS7_EEEES7_RKS9_EE'/>

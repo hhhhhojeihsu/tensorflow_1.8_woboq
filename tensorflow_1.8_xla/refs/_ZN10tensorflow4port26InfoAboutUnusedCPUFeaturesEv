@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/platform/cpu_feature_guard.h' l='27' type='void tensorflow::port::InfoAboutUnusedCPUFeatures()'/>
+<use f='tensorflow/tensorflow/core/common_runtime/local_device.cc' l='67' u='c' c='_ZN10tensorflow11LocalDeviceC1ERKNS_14SessionOptionsERKNS_16DeviceAttributesE'/>
+<doc f='tensorflow/tensorflow/core/platform/cpu_feature_guard.h' l='22'>// Called by the framework when we expect heavy CPU computation and we want to
+// be sure that the code has been compiled to run optimally on the current
+// hardware. The first time it&apos;s called it will run lightweight checks of
+// available SIMD acceleration features and log warnings about any that aren&apos;t
+// used.</doc>
+<def f='tensorflow/tensorflow/core/platform/cpu_feature_guard.cc' l='97' ll='144' type='void tensorflow::port::InfoAboutUnusedCPUFeatures()'/>

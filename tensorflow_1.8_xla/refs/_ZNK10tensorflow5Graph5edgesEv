@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/core/graph/graph.h' l='536' type='tensorflow::GraphEdgesIterable tensorflow::Graph::edges() const'/>
+<doc f='tensorflow/tensorflow/core/graph/graph.h' l='534'>// Access to the set of all edges.  Example usage:
+  //   for (const Edge* e : graph.edges()) { ... }</doc>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1312' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator17CopySubgraphEdgesERKSt13unordered_mapIPKNS_4NodeEPS3_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEEPSt1623000'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1663' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator21AddEdgesToOutputGraphERKSt13unordered_mapIPKNS_4NodeEPS3_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEEbPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='608' u='c' c='_ZN10tensorflow22MarkForCompilationPass7RunImplERKNS_28GraphOptimizationPassOptionsERKSt8functionIFbPKNS_4NodeERKNS_10DeviceTypeEEE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1262' u='c' c='_ZN10tensorflow18InlineFunctionBodyERKNS_25FunctionLibraryDefinitionEPNS_5GraphEPNS_4NodeEPKNS_12FunctionBodyE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1512' u='c' c='_ZN10tensorflow22SymbolicGradientHelper4CopyEv'/>
+<use f='tensorflow/tensorflow/core/common_runtime/memory_types.cc' l='77' u='c' c='_ZN10tensorflowL18ProcessMemoryTypesERKNS_10DeviceTypeEPKNS_5GraphERKSt8functionIFNS_6StatusEPKNS_4EdgeENS_10MemoryTypeESB_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/placer.cc' l='685' u='c' c='_ZN10tensorflow6Placer3RunEv'/>
+<use f='tensorflow/tensorflow/core/graph/costmodel.cc' l='425' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L11AssignSizesERKNS_5GraphEPNS_9CostModelE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='1293' u='c' c='_ZN10tensorflow9CopyGraphERKNS_5GraphEPS0_'/>

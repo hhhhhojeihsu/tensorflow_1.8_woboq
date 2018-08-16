@@ -1,0 +1,5 @@
+<dec f='tensorflow/tensorflow/contrib/lite/model.h' l='167' type='void tflite::InterpreterBuilder::InterpreterBuilder(const ::tflite::Model * model, const tflite::OpResolver &amp; op_resolver, tflite::ErrorReporter * error_reporter = DefaultErrorReporter())'/>
+<def f='tensorflow/tensorflow/contrib/lite/model.cc' l='173' ll='178' type='void tflite::InterpreterBuilder::InterpreterBuilder(const ::tflite::Model * model, const tflite::OpResolver &amp; op_resolver, tflite::ErrorReporter * error_reporter = DefaultErrorReporter())'/>
+<doc f='tensorflow/tensorflow/contrib/lite/model.h' l='164'>// Builds an interpreter given only the raw flatbuffer Model object (instead
+  // of a FlatBufferModel). Mostly used for testing.
+  // If `error_reporter` is null, then DefaultErrorReporter() is used.</doc>

@@ -1,0 +1,26 @@
+<def f='tensorflow/tensorflow/core/common_runtime/session_factory.h' l='58' ll='61' type='tensorflow::Status tensorflow::SessionFactory::Reset(const tensorflow::SessionOptions &amp; options, const std::vector&lt;string&gt; &amp; containers)'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='167' c='_ZN10tensorflow20DirectSessionFactory5ResetERKNS_14SessionOptionsERKSt6vectorISsSaISsEE'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/session_factory.h' l='36'>// Abort and close all existing sessions, disconnecting their resources from
+  // future sessions.
+  //
+  // Reset() allows misbehaving or slow sessions to be aborted and closed, and
+  // causes their resources eventually to be released.  Reset() does not wait
+  // for the computations in old sessions to cease; it merely starts the
+  // process of tearing them down.  However, if a new session is started after
+  // a Reset(), the new session is isolated from changes that old sessions
+  // (started prior to the Reset()) may continue to make to resources, provided
+  // all those resources are in containers listed in &quot;containers&quot;.
+  //
+  // Old sessions may continue to have side-effects on resources not in
+  // containers listed in &quot;containers&quot;, and thus may affect future
+  // sessions&apos; results in ways that are hard to predict.  Thus, if well-defined
+  // behavior is desired, is it recommended that all containers be listed in
+  // &quot;containers&quot;.
+  //
+  // If the &quot;containers&quot; vector is empty, the default container is assumed.
+  // If the &quot;containers&quot; vector is non-empty, the default container should be
+  // listed explicitly.
+  //
+  // Sessions that support resource containers should override this function.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/session.cc' l='83' u='c' c='_ZN10tensorflow5ResetERKNS_14SessionOptionsERKSt6vectorISsSaISsEE'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='467' c='_ZN10tensorflow18GrpcSessionFactory5ResetERKNS_14SessionOptionsERKSt6vectorISsSaISsEE'/>

@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/dfs_hlo_visitor.h' l='306' type='tensorflow::Status xla::DfsHloVisitorBase::Postprocess(HloInstructionPtr hlo)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/dfs_hlo_visitor.h' l='300'>// This method should be overridden by subclasses that wish to run some
+  // operation on an op after its Handle* visitor method is called. See
+  // Preprocess for more details.
+  //
+  // Overriding methods should call DfsHloVisitor::Postprocess after doing their
+  // own postprocessing.</doc>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2668' c='_ZN3xla3cpu9IrEmitter11PostprocessEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/dfs_hlo_visitor.cc' l='69' ll='72' type='tensorflow::Status xla::DfsHloVisitorBase::Postprocess(HloInstructionPtr )'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_cost_analysis.cc' l='61' c='_ZN3xla15HloCostAnalysis11PostprocessEPKNS_14HloInstructionE'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='3051' c='_ZN3xla12HloEvaluator11PostprocessEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2943' u='c' c='_ZN3xla14HloInstruction13AcceptOrderedEPNS_17DfsHloVisitorBaseIPS0_EERKSt6vectorIPKS0_SaIS7_EE'/>

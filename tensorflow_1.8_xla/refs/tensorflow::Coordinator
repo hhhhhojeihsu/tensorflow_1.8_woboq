@@ -1,0 +1,58 @@
+<def f='tensorflow/tensorflow/cc/training/coordinator.h' l='70' ll='127'/>
+<size>160</size>
+<doc f='tensorflow/tensorflow/cc/training/coordinator.h' l='47'>/// Coordinator class manages the termination of a collection of QueueRunners.
+/// Without a coordinator, QueueRunners have to be joined in a specific order;
+/// otherwise the QueueRunner::Join() could sometimes hang. The
+/// Coordinator::RequestStop() plays the key role which notifies all running
+/// threads under a coordinator to stop. This function could be called by any
+/// thread or any client.
+/// Usage, in the client:
+///   Coordinator coord;
+///   std::unique_ptr&lt;QueueRunner&gt; qr(&amp;coord, ...);
+///   qr.Start(session);
+///   coord.RegisterRunner(std::move(qr));
+///   /// do some work
+///   TF_CHECK_OK(coord.Join());
+/// In each thread of QueueRunner, the coordinator needs to be used as:
+///   void Run() {
+///     while (!coord-&gt;ShouldStop()) {
+///       /// do some work
+///       if (error) {
+///         coord-&gt;RequestStop();
+///         coord-&gt;ReportStatus(error_status);
+///       }
+///     }
+///   }</doc>
+<fun r='_ZN10tensorflow11CoordinatorC1Ev'/>
+<fun r='_ZN10tensorflow11CoordinatorC1ERKSt6vectorINS_5error4CodeESaIS3_EE'/>
+<fun r='_ZN10tensorflow11CoordinatorD1Ev'/>
+<fun r='_ZN10tensorflow11Coordinator14RegisterRunnerESt10unique_ptrINS_15RunnerInterfaceESt14default_deleteIS2_EE'/>
+<fun r='_ZN10tensorflow11Coordinator17AllRunnersStoppedEv'/>
+<fun r='_ZN10tensorflow11Coordinator11RequestStopEv'/>
+<fun r='_ZN10tensorflow11Coordinator10ShouldStopEv'/>
+<fun r='_ZN10tensorflow11Coordinator4JoinEv'/>
+<fun r='_ZN10tensorflow11Coordinator12ReportStatusERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow11Coordinator9GetStatusEv'/>
+<fun r='_ZN10tensorflow11Coordinator11WaitForStopEv'/>
+<fun r='_ZNK10tensorflow11Coordinator15ExportCostGraphEPNS_12CostGraphDefE'/>
+<mbr r='tensorflow::Coordinator::clean_stop_errors_' o='0' t='std::unordered_set&lt;int&gt;'/>
+<mbr r='tensorflow::Coordinator::wait_for_stop_' o='448' t='tensorflow::condition_variable'/>
+<mbr r='tensorflow::Coordinator::mu_' o='576' t='tensorflow::mutex'/>
+<mbr r='tensorflow::Coordinator::should_stop_' o='704' t='bool'/>
+<mbr r='tensorflow::Coordinator::status_lock_' o='768' t='tensorflow::mutex'/>
+<mbr r='tensorflow::Coordinator::status_' o='896' t='tensorflow::Status'/>
+<mbr r='tensorflow::Coordinator::runners_lock_' o='960' t='tensorflow::mutex'/>
+<mbr r='tensorflow::Coordinator::runners_' o='1088' t='std::vector&lt;std::unique_ptr&lt;RunnerInterface&gt; &gt;'/>
+<fun r='_ZN10tensorflow11CoordinatorC1ERKS0_'/>
+<fun r='_ZN10tensorflow11CoordinatorC1Ev'/>
+<fun r='_ZN10tensorflow11CoordinatorC1ERKSt6vectorINS_5error4CodeESaIS3_EE'/>
+<fun r='_ZN10tensorflow11CoordinatorD1Ev'/>
+<fun r='_ZN10tensorflow11Coordinator14RegisterRunnerESt10unique_ptrINS_15RunnerInterfaceESt14default_deleteIS2_EE'/>
+<fun r='_ZN10tensorflow11Coordinator17AllRunnersStoppedEv'/>
+<fun r='_ZN10tensorflow11Coordinator11RequestStopEv'/>
+<fun r='_ZN10tensorflow11Coordinator10ShouldStopEv'/>
+<fun r='_ZN10tensorflow11Coordinator4JoinEv'/>
+<fun r='_ZN10tensorflow11Coordinator12ReportStatusERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow11Coordinator9GetStatusEv'/>
+<fun r='_ZN10tensorflow11Coordinator11WaitForStopEv'/>
+<fun r='_ZNK10tensorflow11Coordinator15ExportCostGraphEPNS_12CostGraphDefE'/>

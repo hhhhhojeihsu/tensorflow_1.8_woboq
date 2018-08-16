@@ -1,0 +1,78 @@
+<def f='tensorflow/tensorflow/core/kernels/eigen_volume_patch.h' l='28' ll='632'/>
+<smbr r='Eigen::CustomTensorEvaluator::NumInputDims' t='const int'/>
+<smbr r='Eigen::CustomTensorEvaluator::NumDims' t='const int'/>
+<smbr r='Eigen::CustomTensorEvaluator::PacketSize' t='const Index'/>
+<fun r='_ZN5Eigen21CustomTensorEvaluatorC1ERKNS_19TensorVolumePatchOpIXT_EXT0_EXT1_ET2_EERKT3_'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator10dimensionsEv'/>
+<fun r='_ZN5Eigen21CustomTensorEvaluator20evalSubExprsIfNeededEPNS_8internal12remove_constINS_19TensorVolumePatchOpIXT_EXT0_EXT1_ET2_E6ScalarEE4typeE'/>
+<fun r='_ZN5Eigen21CustomTensorEvaluator7cleanupEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator5coeffENS_19TensorVolumePatchOpIXT_EXT0_EXT1_ET2_E5IndexE'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator6packetENS_19TensorVolumePatchOpIXT_EXT0_EXT1_ET2_E5IndexE'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator12costPerCoeffEb'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator4dataEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator4implEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator15planePaddingTopEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator13rowPaddingTopEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator14colPaddingLeftEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator12outputPlanesEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator10outputRowsEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator10outputColsEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator15userPlaneStrideEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator13userRowStrideEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator13userColStrideEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator17userInPlaneStrideEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator15userInRowStrideEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator15userInColStrideEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator18planeInflateStrideEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator16rowInflateStrideEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator16colInflateStrideEv'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator5coeffERKNS_5arrayINS_19TensorVolumePatchOpIXT_EXT0_EXT1_ET2_E5IndexEL_ZNS0_7NumDimsEEEE'/>
+<fun r='_ZNK5Eigen21CustomTensorEvaluator22packetWithPossibleZeroENS_19TensorVolumePatchOpIXT_EXT0_EXT1_ET2_E5IndexE'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_dimensions' t='Dimensions'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_plane_strides' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_row_strides' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_col_strides' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_outputPlanes' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_outputRows' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_outputCols' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_planePaddingTop' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_rowPaddingTop' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_colPaddingLeft' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_in_plane_strides' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_in_row_strides' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_in_col_strides' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_plane_inflate_strides' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_row_inflate_strides' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_col_inflate_strides' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_inputDepth' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_inputPlanes' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_inputRows' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_inputCols' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_outputPlanesRows' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_input_planes_eff' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_input_rows_eff' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_input_cols_eff' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_patch_planes_eff' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_patch_rows_eff' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_patch_cols_eff' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_otherStride' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_patchStride' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_rowStride' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_colStride' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_planeInputStride' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_rowInputStride' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_colInputStride' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_otherInputStride' t='Index'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastOtherStride' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastPatchStride' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastColStride' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastRowStride' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastInputPlaneStride' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastInputRowStride' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastInputColStride' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastInputColsEff' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastOutputPlanesRows' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastOutputPlanes' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_fastOutputDepth' t='internal::TensorIntDivisor&lt;Index&gt;'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_paddingValue' t='Scalar'/>
+<mbr r='Eigen::CustomTensorEvaluator::m_impl' t='TensorEvaluator&lt;ArgType, Device&gt;'/>

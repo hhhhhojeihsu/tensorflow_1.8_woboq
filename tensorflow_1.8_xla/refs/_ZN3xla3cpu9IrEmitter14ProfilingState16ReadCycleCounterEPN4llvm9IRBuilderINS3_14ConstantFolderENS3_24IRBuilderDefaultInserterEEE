@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='467' type='llvm::Value * xla::cpu::IrEmitter::ProfilingState::ReadCycleCounter(llvm::IRBuilder&lt;&gt; * ir_builder)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='465'>// Convenience function to generate a call to an intrinsic which reads the
+    // CPU cycle counter.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2603' ll='2630' type='llvm::Value * xla::cpu::IrEmitter::ProfilingState::ReadCycleCounter(llvm::IRBuilder&lt;&gt; * ir_builder)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2634' u='c' c='_ZN3xla3cpu9IrEmitter14ProfilingState16RecordCycleStartEPN4llvm9IRBuilderINS3_14ConstantFolderENS3_24IRBuilderDefaultInserterEEEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2645' u='c' c='_ZN3xla3cpu9IrEmitter14ProfilingState16RecordCycleDeltaEPN4llvm9IRBuilderINS3_14ConstantFolderENS3_24IRBuilderDefaultInserterEEEPNS_14HloInstructionEPNS3_5ValueE'/>

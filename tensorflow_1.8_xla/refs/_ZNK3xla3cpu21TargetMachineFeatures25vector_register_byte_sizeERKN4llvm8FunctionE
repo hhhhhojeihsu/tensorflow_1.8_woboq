@@ -1,0 +1,7 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/target_machine_features.h' l='49' ll='52' type='int xla::cpu::TargetMachineFeatures::vector_register_byte_size(const llvm::Function &amp; function) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/target_machine_features.h' l='60' u='c' c='_ZNK3xla3cpu21TargetMachineFeatures28vector_register_num_elementsERKN4llvm8FunctionENS_13PrimitiveTypeE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/target_machine_features.h' l='45'>// Return the size of the largest vector size in bytes.  We need to pass in
+  // &quot;function&quot; since llvm functions can contain annotations for specializing
+  // them to specific micro-architectures (though currently XLA does not use
+  // this functionality).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1435' u='c' c='_ZN3xla3cpu9IrEmitter23CreateShardedVectorTypeENS_13PrimitiveTypeEj'/>

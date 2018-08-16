@@ -1,0 +1,16 @@
+<dec f='tensorflow/tensorflow/core/lib/io/snappy/snappy_inputbuffer.h' l='57' type='tensorflow::Status tensorflow::io::SnappyInputBuffer::ReadNBytes(int64 bytes_to_read, string * result)'/>
+<inh f='tensorflow/tensorflow/core/lib/io/inputstream_interface.h' l='35' c='_ZN10tensorflow2io20InputStreamInterface10ReadNBytesExPSs'/>
+<def f='tensorflow/tensorflow/core/lib/io/snappy/snappy_inputbuffer.cc' l='32' ll='48' type='tensorflow::Status tensorflow::io::SnappyInputBuffer::ReadNBytes(int64 bytes_to_read, string * result)'/>
+<doc f='tensorflow/tensorflow/core/lib/io/snappy/snappy_inputbuffer.h' l='44'>// Reads bytes_to_read bytes into *result, overwriting *result.
+  //
+  // Return Status codes:
+  // OK:
+  //   If successful.
+  // OUT_OF_RANGE:
+  //   If there are not enough bytes to read before the end of the file.
+  // DATA_LOSS:
+  //   If uncompression failed or if the file is corrupted.
+  // RESOURCE_EXHAUSTED:
+  //   If input_buffer_ is smaller in size than a compressed block.
+  // others:
+  //   If reading from file failed.</doc>

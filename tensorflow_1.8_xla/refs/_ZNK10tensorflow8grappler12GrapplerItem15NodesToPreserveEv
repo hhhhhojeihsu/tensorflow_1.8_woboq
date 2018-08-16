@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/core/grappler/grappler_item.h' l='76' type='std::unordered_set&lt;string&gt; tensorflow::grappler::GrapplerItem::NodesToPreserve() const'/>
+<doc f='tensorflow/tensorflow/core/grappler/grappler_item.h' l='74'>// Return a set of node names that must be preserved. This includes feed and
+  // fetch nodes, keep_ops, init_ops.</doc>
+<def f='tensorflow/tensorflow/core/grappler/grappler_item.cc' l='73' ll='111' type='std::unordered_set&lt;string&gt; tensorflow::grappler::GrapplerItem::NodesToPreserve() const'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='1988' u='c' c='_ZN10tensorflow8grappler19ArithmeticOptimizer8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='2419' u='c' c='_ZN10tensorflow8grappler15ConstantFolding8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/dependency_optimizer.cc' l='569' u='c' c='_ZN10tensorflow8grappler19DependencyOptimizer8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/layout_optimizer.cc' l='2179' u='c' c='_ZN10tensorflow8grappler15LayoutOptimizer8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/loop_optimizer.cc' l='470' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_114RemoveStackOpsERKNS0_12GrapplerItemEPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/model_pruner.cc' l='53' u='c' c='_ZN10tensorflow8grappler11ModelPruner8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>

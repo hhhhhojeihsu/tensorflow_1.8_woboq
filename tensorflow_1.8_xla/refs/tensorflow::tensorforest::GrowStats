@@ -1,0 +1,35 @@
+<def f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.h' l='35' ll='111'/>
+<ovr f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.h' l='115' c='tensorflow::tensorforest::SimpleStats'/>
+<ovr f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.h' l='168' c='tensorflow::tensorforest::ClassificationStats'/>
+<ovr f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.h' l='527' c='tensorflow::tensorforest::LeastSquaresRegressionGrowStats'/>
+<size>88</size>
+<doc f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.h' l='33'>// Base class for tracking stats necessary to split a leaf.
+// Holds and tracks stats for every candidate split.</doc>
+<fun r='_ZN10tensorflow12tensorforest9GrowStatsD1Ev'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStats10InitializeEv'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStats10AddExampleERKSt10unique_ptrINS0_13TensorDataSetESt14default_deleteIS3_EEPKNS0_11InputTargetEi'/>
+<fun r='_ZNK10tensorflow12tensorforest9GrowStats9BestSplitEPNS0_14SplitCandidateE'/>
+<fun r='_ZNK10tensorflow12tensorforest9GrowStats10IsFinishedEv'/>
+<fun r='_ZNK10tensorflow12tensorforest9GrowStats5SplitEi'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStats5ClearEv'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStats16ExtractFromProtoERKNS0_11FertileSlotE'/>
+<fun r='_ZNK10tensorflow12tensorforest9GrowStats11PackToProtoEPNS0_11FertileSlotE'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStats8AddSplitERKNS_14decision_trees10BinaryNodeERKSt10unique_ptrINS0_13TensorDataSetESt14default_deleteIS7_EEPKNS0_11InputTargetEi'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStats31AdditionalInitializationExampleERKSt10unique_ptrINS0_13TensorDataSetESt14default_deleteIS3_EEPKNS0_11InputTargetEi'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStats11RemoveSplitEi'/>
+<fun r='_ZNK10tensorflow12tensorforest9GrowStats10num_splitsEv'/>
+<fun r='_ZNK10tensorflow12tensorforest9GrowStats10weight_sumEv'/>
+<fun r='_ZNK10tensorflow12tensorforest9GrowStats13IsInitializedEv'/>
+<fun r='_ZNK10tensorflow12tensorforest9GrowStats5depthEv'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStatsC1ERKNS0_18TensorForestParamsEi'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStats13AddSplitStatsEPKNS0_11InputTargetEi'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStats16RemoveSplitStatsEi'/>
+<fun r='_ZN10tensorflow12tensorforest9GrowStats13ClearInternalEv'/>
+<mbr r='tensorflow::tensorforest::GrowStats::splits_' o='64' t='std::vector&lt;decision_trees::BinaryNode&gt;'/>
+<mbr r='tensorflow::tensorforest::GrowStats::evaluators_' o='256' t='std::vector&lt;std::unique_ptr&lt;DecisionNodeEvaluator&gt; &gt;'/>
+<mbr r='tensorflow::tensorforest::GrowStats::weight_sum_' o='448' t='float'/>
+<mbr r='tensorflow::tensorforest::GrowStats::depth_' o='480' t='const int32'/>
+<mbr r='tensorflow::tensorforest::GrowStats::params_' o='512' t='const tensorflow::tensorforest::TensorForestParams &amp;'/>
+<mbr r='tensorflow::tensorforest::GrowStats::split_after_samples_' o='576' t='const int'/>
+<mbr r='tensorflow::tensorforest::GrowStats::num_splits_to_consider_' o='608' t='const int'/>
+<mbr r='tensorflow::tensorforest::GrowStats::num_outputs_' o='640' t='const int32'/>

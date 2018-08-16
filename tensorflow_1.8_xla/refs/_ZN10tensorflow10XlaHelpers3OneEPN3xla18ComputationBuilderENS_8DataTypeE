@@ -1,0 +1,45 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.h' l='48' type='static xla::ComputationDataHandle tensorflow::XlaHelpers::One(xla::ComputationBuilder * b, tensorflow::DataType data_type)'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.h' l='46'>// Returns a handle representing the one value of a scalar
+  // element of data_type.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='73' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L12FloorDivImplEPN3xla18ComputationBuilderENS_8DataTypeENS1_21ComputationDataHandleES5_RKNS_5BCastE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='152' u='c' c='_ZN10tensorflow12_GLOBAL__N_113SigmoidGradOp11ComputationEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleERKNS_3gtl10ArraySliceIxEES7_SC_RKNS_699473'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='156' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SoftplusGradOp11ComputationEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleERKNS_3gtl10ArraySliceIxEES7_SC_RKNS703071'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='160' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SoftsignGradOp11ComputationEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleERKNS_3gtl10ArraySliceIxEES7_SC_RKNS13231853'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='163' u='c' c='_ZN10tensorflow12_GLOBAL__N_110TanhGradOp11ComputationEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleERKNS_3gtl10ArraySliceIxEES7_SC_RKNS_5BC12311535'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/categorical_op.cc' l='70' u='c' c='_ZN10tensorflow12_GLOBAL__N_113CategoricalOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/elu_op.cc' l='37' u='c' c='_ZN10tensorflow12_GLOBAL__N_15EluOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/elu_op.cc' l='52' u='c' c='_ZN10tensorflow12_GLOBAL__N_19EluGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/elu_op.cc' l='71' u='c' c='_ZN10tensorflow12_GLOBAL__N_16SeluOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/elu_op.cc' l='91' u='c' c='_ZN10tensorflow12_GLOBAL__N_110SeluGradOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_ops.cc' l='31' u='c' c='_ZN10tensorflow12_GLOBAL__N_18RGBToHSVEPNS_18XlaOpKernelContextEPN3xla18ComputationBuilderERKSt5arrayINS3_21ComputationDataHandleELm3EENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_ops.cc' l='196' u='c' c='_ZN10tensorflow12_GLOBAL__N_118AdjustContrastOpV27CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_ops.cc' l='245' u='c' c='_ZN10tensorflow12_GLOBAL__N_118AdjustSaturationOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_ops.cc' l='295' u='c' c='_ZN10tensorflow12_GLOBAL__N_111AdjustHueOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='216' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L20AvgPoolDivideByCountEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS3_7Padd1983718'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/random_ops.cc' l='46' u='c' c='_ZN10tensorflow12_GLOBAL__N_115RandomUniformOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/random_ops.cc' l='107' u='c' c='_ZN10tensorflow12_GLOBAL__N_122RandomStandardNormalOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/random_ops.cc' l='135' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TruncatedNormalOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/random_ops.cc' l='173' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TruncatedNormalOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reduction_ops.cc' l='54' u='c' c='_ZN10tensorflow12_GLOBAL__N_16ProdOp12InitialValueEPN3xla18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reverse_sequence_op.cc' l='145' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReverseSequenceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reverse_sequence_op.cc' l='145' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReverseSequenceOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/scan_ops.cc' l='100' u='c' c='_ZN10tensorflow12_GLOBAL__N_16ScanOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/shape_op.cc' l='238' u='c' c='_ZN10tensorflow12_GLOBAL__N_110OnesLikeOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='201' u='c' c='_ZN10tensorflow12_GLOBAL__N_129SparseSoftmaxXentWithLogitsOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='57' u='c' c='_ZN10tensorflow12_GLOBAL__N_16AcosOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='60' u='c' c='_ZN10tensorflow12_GLOBAL__N_16AcosOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='67' u='c' c='_ZN10tensorflow12_GLOBAL__N_17AcoshOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='68' u='c' c='_ZN10tensorflow12_GLOBAL__N_17AcoshOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='75' u='c' c='_ZN10tensorflow12_GLOBAL__N_16AsinOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='76' u='c' c='_ZN10tensorflow12_GLOBAL__N_16AsinOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='85' u='c' c='_ZN10tensorflow12_GLOBAL__N_17AsinhOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='88' u='c' c='_ZN10tensorflow12_GLOBAL__N_16AtanOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='92' u='c' c='_ZN10tensorflow12_GLOBAL__N_17AtanhOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='93' u='c' c='_ZN10tensorflow12_GLOBAL__N_17AtanhOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='104' u='c' c='_ZN10tensorflow12_GLOBAL__N_17Expm1Op7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='114' u='c' c='_ZN10tensorflow12_GLOBAL__N_15InvOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='115' u='c' c='_ZN10tensorflow12_GLOBAL__N_112ReciprocalOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='119' u='c' c='_ZN10tensorflow12_GLOBAL__N_17Log1pOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='181' u='c' c='_ZN10tensorflow12_GLOBAL__N_1L8SoftplusEPN3xla18ComputationBuilderENS_8DataTypeERKNS1_21ComputationDataHandleE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/unary_ops.cc' l='189' u='c' c='_ZN10tensorflow12_GLOBAL__N_110SoftsignOp7CompileEPNS_18XlaOpKernelContextE'/>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='115' ll='120' type='static xla::ComputationDataHandle tensorflow::XlaHelpers::One(xla::ComputationBuilder * b, tensorflow::DataType data_type)'/>

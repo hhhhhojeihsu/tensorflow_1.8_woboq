@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/core/lib/strings/stringprintf.h' l='47' type='void tensorflow::strings::Appendv(string * dst, const char * format, __va_list_tag * ap)'/>
+<doc f='tensorflow/tensorflow/core/lib/strings/stringprintf.h' l='45'>// Lower-level routine that takes a va_list and appends to a specified
+// string.  All other routines are just convenience wrappers around it.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/source_map_util.cc' l='27' u='c' c='_ZN3xla15source_map_util12_GLOBAL__N_125InvalidParameterArgumentVERKNS_10OpMetadataEPKcP13__va_list_tag'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='74' u='c' c='_ZN3xla16InvalidArgumentVEPKcP13__va_list_tag'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='90' u='c' c='_ZN3xla13UnimplementedEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='99' u='c' c='_ZN3xla13InternalErrorEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='108' u='c' c='_ZN3xla18FailedPreconditionEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='117' u='c' c='_ZN3xla9CancelledEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='126' u='c' c='_ZN3xla17ResourceExhaustedEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='135' u='c' c='_ZN3xla8NotFoundEPKcz'/>
+<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='144' u='c' c='_ZN3xla11UnavailableEPKcz'/>
+<def f='tensorflow/tensorflow/core/lib/strings/stringprintf.cc' l='31' ll='80' type='void tensorflow::strings::Appendv(string * dst, const char * format, __va_list_tag * ap)'/>
+<use f='tensorflow/tensorflow/core/lib/strings/stringprintf.cc' l='86' u='c' c='_ZN10tensorflow7strings6PrintfEPKcz'/>
+<use f='tensorflow/tensorflow/core/lib/strings/stringprintf.cc' l='94' u='c' c='_ZN10tensorflow7strings7AppendfEPSsPKcz'/>

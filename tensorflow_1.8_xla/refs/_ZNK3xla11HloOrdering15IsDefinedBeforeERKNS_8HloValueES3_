@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='48' type='bool xla::HloOrdering::IsDefinedBefore(const xla::HloValue &amp; a, const xla::HloValue &amp; b) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.h' l='46'>// Returns whether the value &apos;a&apos; is defined before the value &apos;b&apos; under the
+  // given ordering.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='491' u='c' c='_ZN3xla12_GLOBAL__N_111CopyRemover18BufferValueTrackerC1ERKNS_9HloModuleERKNS_16HloAliasAnalysisERKNS_11HloOrderingE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='818' u='c' c='_ZN3xla12_GLOBAL__N_111CopyRemover18BufferValueTracker15LiveRangeBeforeERKNS2_9ValueNodeES5_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='503' u='c' c='_ZNK3xla16HloAliasAnalysis24HasLiveRangeInterferenceERKNS_11HloOrderingE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='505' u='c' c='_ZNK3xla16HloAliasAnalysis24HasLiveRangeInterferenceERKNS_11HloOrderingE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='522' u='c' c='_ZNK3xla16HloAliasAnalysis24HasLiveRangeInterferenceERKNS_11HloOrderingE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='94' ll='156' type='bool xla::HloOrdering::IsDefinedBefore(const xla::HloValue &amp; a, const xla::HloValue &amp; b) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_ordering.cc' l='247' u='c' c='_ZNK3xla11HloOrdering23LiveRangeStrictlyBeforeERKNS_8HloValueES3_RKNS_19HloDataflowAnalysisE'/>

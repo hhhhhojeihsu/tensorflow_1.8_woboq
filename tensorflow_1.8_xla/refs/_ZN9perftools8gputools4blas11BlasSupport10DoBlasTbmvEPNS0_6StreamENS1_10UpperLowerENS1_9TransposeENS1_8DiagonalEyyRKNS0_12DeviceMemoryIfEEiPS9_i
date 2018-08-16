@@ -1,0 +1,12 @@
+<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='783' type='bool perftools::gputools::blas::BlasSupport::DoBlasTbmv(perftools::gputools::Stream * stream, blas::UpperLower uplo, blas::Transpose trans, blas::Diagonal diag, uint64 n, uint64 k, const DeviceMemory&lt;float&gt; &amp; a, int lda, DeviceMemory&lt;float&gt; * x, int incx)'/>
+<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='773'>// Computes a matrix-vector product using a triangular band matrix.
+  //
+  //     x &lt;- a * x,
+  // or
+  //     x &lt;- a&apos; * x,
+  // or
+  //     x &lt;- conj(a&apos;) * x,
+  //
+  // a is an n-by-n unit, or non-unit, upper or lower triangular band matrix,
+  // with k+1 diagonals; x is a n-element vector.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='3266' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasTbmvENS0_4blas10UpperLowerENS2_9TransposeENS2_8DiagonalEyyRKNS0_12DeviceMemoryIfEEiPS7_i'/>

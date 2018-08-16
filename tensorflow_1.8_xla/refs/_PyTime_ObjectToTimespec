@@ -1,0 +1,4 @@
+<dec f='include/python3.5m/pytime.h' l='62' type='int _PyTime_ObjectToTimespec(PyObject * obj, time_t * sec, long * nsec, _PyTime_round_t )'/>
+<doc f='include/python3.5m/pytime.h' l='59'>/* Convert a number of seconds, int or float, to a timespec structure.
+   nsec is in the range [0; 999999999] and rounded towards zero.
+   For example, -1.2 is converted to (-2, 800000000). */</doc>

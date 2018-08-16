@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/core/distributed_runtime/worker_env.h' l='38' ll='62'/>
+<size>64</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/worker_env.h' l='34'>// The worker environment class, which holds a bag of pointers to
+// per-worker singletons.
+//
+// WorkerEnv does not own its member pointers.</doc>
+<mbr r='tensorflow::WorkerEnv::env' o='0' t='tensorflow::Env *'/>
+<mbr r='tensorflow::WorkerEnv::session_mgr' o='64' t='tensorflow::SessionMgr *'/>
+<mbr r='tensorflow::WorkerEnv::local_devices' o='128' t='std::vector&lt;Device *&gt;'/>
+<mbr r='tensorflow::WorkerEnv::device_mgr' o='320' t='tensorflow::DeviceMgr *'/>
+<mbr r='tensorflow::WorkerEnv::rendezvous_mgr' o='384' t='tensorflow::RendezvousMgrInterface *'/>
+<mbr r='tensorflow::WorkerEnv::compute_pool' o='448' t='thread::ThreadPool *'/>

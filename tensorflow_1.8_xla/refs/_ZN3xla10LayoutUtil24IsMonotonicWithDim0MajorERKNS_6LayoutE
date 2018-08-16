@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='94' type='static bool xla::LayoutUtil::IsMonotonicWithDim0Major(const xla::Layout &amp; layout)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='90'>// Returns whether the layout is monotonic and dim 0 is major in the layout.
+  // * R0 and R1: this is always trivially true.
+  // * R2+: equivalent to row-major. Dimension 0 is the major, dimension 1 is
+  //        more minor, and so on until dimension N-1 which is the minor.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='259' ll='263' type='static bool xla::LayoutUtil::IsMonotonicWithDim0Major(const xla::Layout &amp; layout)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='259'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='767' u='c' c='_ZNK3xla7Literal7ReshapeEN10tensorflow3gtl10ArraySliceIxEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='864' u='c' c='_ZN3xla3cpu9IrEmitter17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='865' u='c' c='_ZN3xla3cpu9IrEmitter17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='866' u='c' c='_ZN3xla3cpu9IrEmitter17HandleConvolutionEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1151' u='c' c='_ZN3xla3cpu9IrEmitter9HandleFftEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1152' u='c' c='_ZN3xla3cpu9IrEmitter9HandleFftEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='695' u='c' c='_ZN3xla12_GLOBAL__N_121CheckCustomCallLayoutEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='699' u='c' c='_ZN3xla12_GLOBAL__N_121CheckCustomCallLayoutEPNS_14HloInstructionE'/>

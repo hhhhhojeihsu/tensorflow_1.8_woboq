@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>fileutils.h source code [include/python3.5m/fileutils.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'include/python3.5m/fileutils.h'; var root_path = '../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>include</a>/<a href='./'>python3.5m</a>/<a href='fileutils.h.html'>fileutils.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/Py_FILEUTILS_H">Py_FILEUTILS_H</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#define <dfn class="macro" id="_M/Py_FILEUTILS_H" data-ref="_M/Py_FILEUTILS_H">Py_FILEUTILS_H</dfn></u></td></tr>
+<tr><th id="3">3</th><td></td></tr>
+<tr><th id="4">4</th><td><u>#<span data-ppcond="4">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="5">5</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="6">6</th><td><u>#<span data-ppcond="4">endif</span></u></td></tr>
+<tr><th id="7">7</th><td></td></tr>
+<tr><th id="8">8</th><td><a class="macro" href="pyport.h.html#768" title="PyObject *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *) <dfn class="decl" id="_Py_device_encoding" title='_Py_device_encoding' data-ref="_Py_device_encoding">_Py_device_encoding</dfn>(<em>int</em>);</td></tr>
+<tr><th id="9">9</th><td></td></tr>
+<tr><th id="10">10</th><td><a class="macro" href="pyport.h.html#768" title="wchar_t *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>wchar_t</em> *) <dfn class="decl" id="Py_DecodeLocale" title='Py_DecodeLocale' data-ref="Py_DecodeLocale">Py_DecodeLocale</dfn>(</td></tr>
+<tr><th id="11">11</th><td>    <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="1319arg" title='arg' data-type='const char *' data-ref="1319arg">arg</dfn>,</td></tr>
+<tr><th id="12">12</th><td>    <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> *<dfn class="local col0 decl" id="1320size" title='size' data-type='size_t *' data-ref="1320size">size</dfn>);</td></tr>
+<tr><th id="13">13</th><td></td></tr>
+<tr><th id="14">14</th><td><a class="macro" href="pyport.h.html#768" title="char*" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>char</em>*) <dfn class="decl" id="Py_EncodeLocale" title='Py_EncodeLocale' data-ref="Py_EncodeLocale">Py_EncodeLocale</dfn>(</td></tr>
+<tr><th id="15">15</th><td>    <em>const</em> <em>wchar_t</em> *<dfn class="local col1 decl" id="1321text" title='text' data-type='const wchar_t *' data-ref="1321text">text</dfn>,</td></tr>
+<tr><th id="16">16</th><td>    <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> *<dfn class="local col2 decl" id="1322error_pos" title='error_pos' data-type='size_t *' data-ref="1322error_pos">error_pos</dfn>);</td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><u>#<span data-ppcond="18">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#<span data-ppcond="20">ifdef</span> <span class="macro" data-ref="_M/MS_WINDOWS">MS_WINDOWS</span></u></td></tr>
+<tr><th id="21">21</th><td><b>struct</b> _Py_stat_struct {</td></tr>
+<tr><th id="22">22</th><td>    <em>unsigned</em> <em>long</em> st_dev;</td></tr>
+<tr><th id="23">23</th><td>    __int64 st_ino;</td></tr>
+<tr><th id="24">24</th><td>    <em>unsigned</em> <em>short</em> st_mode;</td></tr>
+<tr><th id="25">25</th><td>    <em>int</em> st_nlink;</td></tr>
+<tr><th id="26">26</th><td>    <em>int</em> st_uid;</td></tr>
+<tr><th id="27">27</th><td>    <em>int</em> st_gid;</td></tr>
+<tr><th id="28">28</th><td>    <em>unsigned</em> <em>long</em> st_rdev;</td></tr>
+<tr><th id="29">29</th><td>    __int64 st_size;</td></tr>
+<tr><th id="30">30</th><td>    time_t st_atime;</td></tr>
+<tr><th id="31">31</th><td>    <em>int</em> st_atime_nsec;</td></tr>
+<tr><th id="32">32</th><td>    time_t st_mtime;</td></tr>
+<tr><th id="33">33</th><td>    <em>int</em> st_mtime_nsec;</td></tr>
+<tr><th id="34">34</th><td>    time_t st_ctime;</td></tr>
+<tr><th id="35">35</th><td>    <em>int</em> st_ctime_nsec;</td></tr>
+<tr><th id="36">36</th><td>    <em>unsigned</em> <em>long</em> st_file_attributes;</td></tr>
+<tr><th id="37">37</th><td>};</td></tr>
+<tr><th id="38">38</th><td><u>#<span data-ppcond="20">else</span></u></td></tr>
+<tr><th id="39">39</th><td><u>#  define <dfn class="macro" id="_M/_Py_stat_struct" data-ref="_M/_Py_stat_struct">_Py_stat_struct</dfn> <a class="type" href="../x86_64-linux-gnu/bits/stat.h.html#stat" title='stat' data-ref="stat">stat</a></u></td></tr>
+<tr><th id="40">40</th><td><u>#<span data-ppcond="20">endif</span></u></td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_fstat" title='_Py_fstat' data-ref="_Py_fstat">_Py_fstat</dfn>(</td></tr>
+<tr><th id="43">43</th><td>    <em>int</em> <dfn class="local col3 decl" id="1323fd" title='fd' data-type='int' data-ref="1323fd">fd</dfn>,</td></tr>
+<tr><th id="44">44</th><td>    <b>struct</b> <a class="macro" href="#39" title="stat" data-ref="_M/_Py_stat_struct">_Py_stat_struct</a> *<dfn class="local col4 decl" id="1324status" title='status' data-type='struct stat *' data-ref="1324status">status</dfn>);</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_fstat_noraise" title='_Py_fstat_noraise' data-ref="_Py_fstat_noraise">_Py_fstat_noraise</dfn>(</td></tr>
+<tr><th id="47">47</th><td>    <em>int</em> <dfn class="local col5 decl" id="1325fd" title='fd' data-type='int' data-ref="1325fd">fd</dfn>,</td></tr>
+<tr><th id="48">48</th><td>    <b>struct</b> <a class="macro" href="#39" title="stat" data-ref="_M/_Py_stat_struct">_Py_stat_struct</a> *<dfn class="local col6 decl" id="1326status" title='status' data-type='struct stat *' data-ref="1326status">status</dfn>);</td></tr>
+<tr><th id="49">49</th><td><u>#<span data-ppcond="18">endif</span>   /* Py_LIMITED_API */</u></td></tr>
+<tr><th id="50">50</th><td></td></tr>
+<tr><th id="51">51</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_stat" title='_Py_stat' data-ref="_Py_stat">_Py_stat</dfn>(</td></tr>
+<tr><th id="52">52</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col7 decl" id="1327path" title='path' data-type='PyObject *' data-ref="1327path">path</dfn>,</td></tr>
+<tr><th id="53">53</th><td>    <b>struct</b> <a class="type" href="../x86_64-linux-gnu/bits/stat.h.html#stat" title='stat' data-ref="stat">stat</a> *<dfn class="local col8 decl" id="1328status" title='status' data-type='struct stat *' data-ref="1328status">status</dfn>);</td></tr>
+<tr><th id="54">54</th><td></td></tr>
+<tr><th id="55">55</th><td><u>#<span data-ppcond="55">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="56">56</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_open" title='_Py_open' data-ref="_Py_open">_Py_open</dfn>(</td></tr>
+<tr><th id="57">57</th><td>    <em>const</em> <em>char</em> *<dfn class="local col9 decl" id="1329pathname" title='pathname' data-type='const char *' data-ref="1329pathname">pathname</dfn>,</td></tr>
+<tr><th id="58">58</th><td>    <em>int</em> <dfn class="local col0 decl" id="1330flags" title='flags' data-type='int' data-ref="1330flags">flags</dfn>);</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_open_noraise" title='_Py_open_noraise' data-ref="_Py_open_noraise">_Py_open_noraise</dfn>(</td></tr>
+<tr><th id="61">61</th><td>    <em>const</em> <em>char</em> *<dfn class="local col1 decl" id="1331pathname" title='pathname' data-type='const char *' data-ref="1331pathname">pathname</dfn>,</td></tr>
+<tr><th id="62">62</th><td>    <em>int</em> <dfn class="local col2 decl" id="1332flags" title='flags' data-type='int' data-ref="1332flags">flags</dfn>);</td></tr>
+<tr><th id="63">63</th><td><u>#<span data-ppcond="55">endif</span></u></td></tr>
+<tr><th id="64">64</th><td></td></tr>
+<tr><th id="65">65</th><td><a class="macro" href="pyport.h.html#768" title="FILE *" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="../stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a> *) <dfn class="decl" id="_Py_wfopen" title='_Py_wfopen' data-ref="_Py_wfopen">_Py_wfopen</dfn>(</td></tr>
+<tr><th id="66">66</th><td>    <em>const</em> <em>wchar_t</em> *<dfn class="local col3 decl" id="1333path" title='path' data-type='const wchar_t *' data-ref="1333path">path</dfn>,</td></tr>
+<tr><th id="67">67</th><td>    <em>const</em> <em>wchar_t</em> *<dfn class="local col4 decl" id="1334mode" title='mode' data-type='const wchar_t *' data-ref="1334mode">mode</dfn>);</td></tr>
+<tr><th id="68">68</th><td></td></tr>
+<tr><th id="69">69</th><td><a class="macro" href="pyport.h.html#768" title="FILE*" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="../stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a>*) <dfn class="decl" id="_Py_fopen" title='_Py_fopen' data-ref="_Py_fopen">_Py_fopen</dfn>(</td></tr>
+<tr><th id="70">70</th><td>    <em>const</em> <em>char</em> *<dfn class="local col5 decl" id="1335pathname" title='pathname' data-type='const char *' data-ref="1335pathname">pathname</dfn>,</td></tr>
+<tr><th id="71">71</th><td>    <em>const</em> <em>char</em> *<dfn class="local col6 decl" id="1336mode" title='mode' data-type='const char *' data-ref="1336mode">mode</dfn>);</td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><a class="macro" href="pyport.h.html#768" title="FILE*" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="../stdio.h.html#FILE" title='FILE' data-type='struct _IO_FILE' data-ref="FILE">FILE</a>*) <dfn class="decl" id="_Py_fopen_obj" title='_Py_fopen_obj' data-ref="_Py_fopen_obj">_Py_fopen_obj</dfn>(</td></tr>
+<tr><th id="74">74</th><td>    <a class="typedef" href="object.h.html#PyObject" title='PyObject' data-type='struct _object' data-ref="PyObject">PyObject</a> *<dfn class="local col7 decl" id="1337path" title='path' data-type='PyObject *' data-ref="1337path">path</dfn>,</td></tr>
+<tr><th id="75">75</th><td>    <em>const</em> <em>char</em> *<dfn class="local col8 decl" id="1338mode" title='mode' data-type='const char *' data-ref="1338mode">mode</dfn>);</td></tr>
+<tr><th id="76">76</th><td></td></tr>
+<tr><th id="77">77</th><td><a class="macro" href="pyport.h.html#768" title="Py_ssize_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="pyport.h.html#Py_ssize_t" title='Py_ssize_t' data-type='ssize_t' data-ref="Py_ssize_t">Py_ssize_t</a>) <dfn class="decl" id="_Py_read" title='_Py_read' data-ref="_Py_read">_Py_read</dfn>(</td></tr>
+<tr><th id="78">78</th><td>    <em>int</em> <dfn class="local col9 decl" id="1339fd" title='fd' data-type='int' data-ref="1339fd">fd</dfn>,</td></tr>
+<tr><th id="79">79</th><td>    <em>void</em> *<dfn class="local col0 decl" id="1340buf" title='buf' data-type='void *' data-ref="1340buf">buf</dfn>,</td></tr>
+<tr><th id="80">80</th><td>    <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col1 decl" id="1341count" title='count' data-type='size_t' data-ref="1341count">count</dfn>);</td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><a class="macro" href="pyport.h.html#768" title="Py_ssize_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="pyport.h.html#Py_ssize_t" title='Py_ssize_t' data-type='ssize_t' data-ref="Py_ssize_t">Py_ssize_t</a>) <dfn class="decl" id="_Py_write" title='_Py_write' data-ref="_Py_write">_Py_write</dfn>(</td></tr>
+<tr><th id="83">83</th><td>    <em>int</em> <dfn class="local col2 decl" id="1342fd" title='fd' data-type='int' data-ref="1342fd">fd</dfn>,</td></tr>
+<tr><th id="84">84</th><td>    <em>const</em> <em>void</em> *<dfn class="local col3 decl" id="1343buf" title='buf' data-type='const void *' data-ref="1343buf">buf</dfn>,</td></tr>
+<tr><th id="85">85</th><td>    <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col4 decl" id="1344count" title='count' data-type='size_t' data-ref="1344count">count</dfn>);</td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><a class="macro" href="pyport.h.html#768" title="Py_ssize_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="pyport.h.html#Py_ssize_t" title='Py_ssize_t' data-type='ssize_t' data-ref="Py_ssize_t">Py_ssize_t</a>) <dfn class="decl" id="_Py_write_noraise" title='_Py_write_noraise' data-ref="_Py_write_noraise">_Py_write_noraise</dfn>(</td></tr>
+<tr><th id="88">88</th><td>    <em>int</em> <dfn class="local col5 decl" id="1345fd" title='fd' data-type='int' data-ref="1345fd">fd</dfn>,</td></tr>
+<tr><th id="89">89</th><td>    <em>const</em> <em>void</em> *<dfn class="local col6 decl" id="1346buf" title='buf' data-type='const void *' data-ref="1346buf">buf</dfn>,</td></tr>
+<tr><th id="90">90</th><td>    <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col7 decl" id="1347count" title='count' data-type='size_t' data-ref="1347count">count</dfn>);</td></tr>
+<tr><th id="91">91</th><td></td></tr>
+<tr><th id="92">92</th><td><u>#<span data-ppcond="92">ifdef</span> <a class="macro" href="../x86_64-linux-gnu/python3.5m/pyconfig.h.html#704" data-ref="_M/HAVE_READLINK">HAVE_READLINK</a></u></td></tr>
+<tr><th id="93">93</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_wreadlink" title='_Py_wreadlink' data-ref="_Py_wreadlink">_Py_wreadlink</dfn>(</td></tr>
+<tr><th id="94">94</th><td>    <em>const</em> <em>wchar_t</em> *<dfn class="local col8 decl" id="1348path" title='path' data-type='const wchar_t *' data-ref="1348path">path</dfn>,</td></tr>
+<tr><th id="95">95</th><td>    <em>wchar_t</em> *<dfn class="local col9 decl" id="1349buf" title='buf' data-type='wchar_t *' data-ref="1349buf">buf</dfn>,</td></tr>
+<tr><th id="96">96</th><td>    <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col0 decl" id="1350bufsiz" title='bufsiz' data-type='size_t' data-ref="1350bufsiz">bufsiz</dfn>);</td></tr>
+<tr><th id="97">97</th><td><u>#<span data-ppcond="92">endif</span></u></td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td><u>#<span data-ppcond="99">ifdef</span> <a class="macro" href="../x86_64-linux-gnu/python3.5m/pyconfig.h.html#713" data-ref="_M/HAVE_REALPATH">HAVE_REALPATH</a></u></td></tr>
+<tr><th id="100">100</th><td><a class="macro" href="pyport.h.html#768" title="wchar_t*" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>wchar_t</em>*) <dfn class="decl" id="_Py_wrealpath" title='_Py_wrealpath' data-ref="_Py_wrealpath">_Py_wrealpath</dfn>(</td></tr>
+<tr><th id="101">101</th><td>    <em>const</em> <em>wchar_t</em> *<dfn class="local col1 decl" id="1351path" title='path' data-type='const wchar_t *' data-ref="1351path">path</dfn>,</td></tr>
+<tr><th id="102">102</th><td>    <em>wchar_t</em> *<dfn class="local col2 decl" id="1352resolved_path" title='resolved_path' data-type='wchar_t *' data-ref="1352resolved_path">resolved_path</dfn>,</td></tr>
+<tr><th id="103">103</th><td>    <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col3 decl" id="1353resolved_path_size" title='resolved_path_size' data-type='size_t' data-ref="1353resolved_path_size">resolved_path_size</dfn>);</td></tr>
+<tr><th id="104">104</th><td><u>#<span data-ppcond="99">endif</span></u></td></tr>
+<tr><th id="105">105</th><td></td></tr>
+<tr><th id="106">106</th><td><a class="macro" href="pyport.h.html#768" title="wchar_t*" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>wchar_t</em>*) <dfn class="decl" id="_Py_wgetcwd" title='_Py_wgetcwd' data-ref="_Py_wgetcwd">_Py_wgetcwd</dfn>(</td></tr>
+<tr><th id="107">107</th><td>    <em>wchar_t</em> *<dfn class="local col4 decl" id="1354buf" title='buf' data-type='wchar_t *' data-ref="1354buf">buf</dfn>,</td></tr>
+<tr><th id="108">108</th><td>    <span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col5 decl" id="1355size" title='size' data-type='size_t' data-ref="1355size">size</dfn>);</td></tr>
+<tr><th id="109">109</th><td></td></tr>
+<tr><th id="110">110</th><td><u>#<span data-ppcond="110">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="111">111</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_get_inheritable" title='_Py_get_inheritable' data-ref="_Py_get_inheritable">_Py_get_inheritable</dfn>(<em>int</em> <dfn class="local col6 decl" id="1356fd" title='fd' data-type='int' data-ref="1356fd">fd</dfn>);</td></tr>
+<tr><th id="112">112</th><td></td></tr>
+<tr><th id="113">113</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_set_inheritable" title='_Py_set_inheritable' data-ref="_Py_set_inheritable">_Py_set_inheritable</dfn>(<em>int</em> <dfn class="local col7 decl" id="1357fd" title='fd' data-type='int' data-ref="1357fd">fd</dfn>, <em>int</em> <dfn class="local col8 decl" id="1358inheritable" title='inheritable' data-type='int' data-ref="1358inheritable">inheritable</dfn>,</td></tr>
+<tr><th id="114">114</th><td>                                    <em>int</em> *<dfn class="local col9 decl" id="1359atomic_flag_works" title='atomic_flag_works' data-type='int *' data-ref="1359atomic_flag_works">atomic_flag_works</dfn>);</td></tr>
+<tr><th id="115">115</th><td></td></tr>
+<tr><th id="116">116</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_dup" title='_Py_dup' data-ref="_Py_dup">_Py_dup</dfn>(<em>int</em> <dfn class="local col0 decl" id="1360fd" title='fd' data-type='int' data-ref="1360fd">fd</dfn>);</td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td><u>#<span data-ppcond="118">ifndef</span> <span class="macro" data-ref="_M/MS_WINDOWS">MS_WINDOWS</span></u></td></tr>
+<tr><th id="119">119</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_get_blocking" title='_Py_get_blocking' data-ref="_Py_get_blocking">_Py_get_blocking</dfn>(<em>int</em> <dfn class="local col1 decl" id="1361fd" title='fd' data-type='int' data-ref="1361fd">fd</dfn>);</td></tr>
+<tr><th id="120">120</th><td></td></tr>
+<tr><th id="121">121</th><td><a class="macro" href="pyport.h.html#768" title="int" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<em>int</em>) <dfn class="decl" id="_Py_set_blocking" title='_Py_set_blocking' data-ref="_Py_set_blocking">_Py_set_blocking</dfn>(<em>int</em> <dfn class="local col2 decl" id="1362fd" title='fd' data-type='int' data-ref="1362fd">fd</dfn>, <em>int</em> <dfn class="local col3 decl" id="1363blocking" title='blocking' data-type='int' data-ref="1363blocking">blocking</dfn>);</td></tr>
+<tr><th id="122">122</th><td><u>#<span data-ppcond="118">endif</span>   /* !MS_WINDOWS */</u></td></tr>
+<tr><th id="123">123</th><td></td></tr>
+<tr><th id="124">124</th><td><u>#<span data-ppcond="124">if</span> defined <span class="macro" data-ref="_M/_MSC_VER">_MSC_VER</span> &amp;&amp; _MSC_VER &gt;= 1400 &amp;&amp; _MSC_VER &lt; 1900</u></td></tr>
+<tr><th id="125">125</th><td><i>/* A routine to check if a file descriptor is valid on Windows.  Returns 0</i></td></tr>
+<tr><th id="126">126</th><td><i> * and sets errno to EBADF if it isn't.  This is to avoid Assertions</i></td></tr>
+<tr><th id="127">127</th><td><i> * from various functions in the Windows CRT beginning with</i></td></tr>
+<tr><th id="128">128</th><td><i> * Visual Studio 2005</i></td></tr>
+<tr><th id="129">129</th><td><i> */</i></td></tr>
+<tr><th id="130">130</th><td><em>int</em> _PyVerify_fd(<em>int</em> fd);</td></tr>
+<tr><th id="131">131</th><td></td></tr>
+<tr><th id="132">132</th><td><u>#<span data-ppcond="124">else</span></u></td></tr>
+<tr><th id="133">133</th><td><u>#define <dfn class="macro" id="_M/_PyVerify_fd" data-ref="_M/_PyVerify_fd">_PyVerify_fd</dfn>(A) (1) /* dummy */</u></td></tr>
+<tr><th id="134">134</th><td><u>#<span data-ppcond="124">endif</span></u></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><u>#<span data-ppcond="110">endif</span>   /* Py_LIMITED_API */</u></td></tr>
+<tr><th id="137">137</th><td></td></tr>
+<tr><th id="138">138</th><td><u>#<span data-ppcond="138">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="139">139</th><td>}</td></tr>
+<tr><th id="140">140</th><td><u>#<span data-ppcond="138">endif</span></u></td></tr>
+<tr><th id="141">141</th><td></td></tr>
+<tr><th id="142">142</th><td><u>#<span data-ppcond="1">endif</span> /* !Py_FILEUTILS_H */</u></td></tr>
+<tr><th id="143">143</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc.html'>tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc</a><br/>Generated on <em>2018-Aug-09</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

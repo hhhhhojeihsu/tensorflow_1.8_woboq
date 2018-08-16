@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/python/client/tf_session_helper.h' l='138' type='tensorflow::gtl::InlinedVector&lt;int64_t, 6&gt; tensorflow::TF_GraphGetTensorShapeHelper(TF_Graph * graph, TF_Output output, TF_Status * status, bool * unknown_shape)'/>
+<def f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='479' ll='503' type='tensorflow::gtl::InlinedVector&lt;int64_t, 6&gt; tensorflow::TF_GraphGetTensorShapeHelper(TF_Graph * graph, TF_Output output, TF_Status * out_status, bool * unknown_shape)'/>
+<doc f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='478'>// Return value set to 6 inlined elements so it fits in a 64-byte cache line.</doc>
+<doc f='tensorflow/tensorflow/python/client/tf_session_helper.h' l='132'>// Gets shape from C API Graph object.
+//
+// If shape is known, returns shape vector where -1 means &quot;unknown
+// dimension&quot;.  Sets unknown_shape to false.
+//
+// If shape is unknown, sets unknown_shape to true.</doc>

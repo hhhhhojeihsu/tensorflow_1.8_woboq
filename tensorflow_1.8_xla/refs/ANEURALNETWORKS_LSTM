@@ -1,0 +1,100 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='703' type='16'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='605'>/**
+   * Long short-term memory unit (LSTM) recurrent network layer.
+   *
+   * The default non-peephole implementation is based on:
+   * http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf
+   * S. Hochreiter and J. Schmidhuber. &quot;Long Short-Term Memory&quot;. Neural
+   * Computation, 9(8):1735-1780, 1997.
+   *
+   * The peephole implementation is based on:
+   * https://research.google.com/pubs/archive/43905.pdf
+   * Hasim Sak, Andrew Senior, and Francoise Beaufays. &quot;Long short-term memory
+   * recurrent neural network architectures for large scale acoustic modeling.&quot;
+   * INTERSPEECH, 2014.
+   *
+   * The coupling of input and forget gate (CIFG) is based on:
+   * http://arxiv.org/pdf/1503.04069.pdf
+   * Greff et al. &quot;LSTM: A Search Space Odyssey&quot;
+   *
+   * The class has the following independently optional inputs:
+   * * If input gate (if CIFG): “input_to_forget_weights”,
+   *   “recurrent_to_input_weights”, “cell_to_input_weights”, “input_gate_bias”.
+   * * If no peephole connections: “cell_to_input_weights”,
+   *   “cell_to_forget_weights”, “cell_to_output_weights”.
+   * * If no projection layer: “projection_weights” and “projection_bias”.
+   * * If no projection bias: “projection_bias”.
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   *
+   * Inputs:
+   * * 0: Input.
+   *      A 2-D tensor of type T, of shape [batch_size, input_size], where
+   *      “batch_size” corresponds to the batching dimension, and “input_size”
+   *      is the size of the input.
+   * * 1: input_to_input_weights.
+   *      A 2-D tensor of type T, of shape [num_units, input_size], where
+   *      “num_units” corresponds to the number of cell units.
+   * * 2: input_to_forget_weights.
+   *      A 2-D tensor of type T, of shape [num_units, input_size].
+   * * 3: input_to_cell_weights.
+   *      A 2-D tensor of type T, of shape [num_units, input_size].
+   * * 4: input_to_output_weights.
+   *      A 2-D tensor of type T, of shape [num_units, input_size].
+   * * 5: recurrent_to_input_weights.
+   *      A 2-D tensor of type T, of shape [num_units, output_size], where
+   *      “output_size” corresponds to either the number of cell units (i.e.,
+   *      “num_units”), or the second dimension of the “projection_weights”, if
+   *      defined.
+   * * 6: recurrent_to_forget_weights.
+   *      A 2-D tensor of type T, of shape [num_units, output_size].
+   * * 7: recurrent_to_cell_weights.
+   *      A 2-D tensor of type T, of shape [num_units, output_size].
+   * * 8: recurrent_to_output_weights.
+   *      A 2-D tensor of type T, of shape [num_units, output_size].
+   * * 9: cell_to_input_weights.
+   *      A 1-D tensor of type T, of shape [num_units].
+   * * 10:cell_to_forget_weights.
+   *      A 1-D tensor of type T, of shape [num_units].
+   * * 11:cell_to_output_weights.
+   *      A 1-D tensor of type T, of shape [num_units].
+   * * 12:input_gate_bias.
+   *      A 1-D tensor of type T, of shape [num_units].
+   * * 13:forget_gate_bias.
+   *      A 1-D tensor of type T, of shape [num_units].
+   * * 14:cell_bias.
+   *      A 1-D tensor of type T, of shape [num_units].
+   * * 15:output_gate_bias.
+   *      A 1-D tensor of type T, of shape [num_units].
+   * * 16:projection_weights.
+   *      A 2-D tensor of type T, of shape [output_size, num_units].
+   * * 17:projection_bias.
+   *      A 1-D tensor of type T, of shape [output_size].
+   *
+   * Parameters:
+   * * 18:fused_activation_function.
+   *      An (optional) ActivationFunctionType indicating the activation
+   *      function.
+   *      If “NONE” is specified then it results in a linear activation.
+   * * 19:cell_clip.
+   *      A clipping threshold for the cell state, such that values are bound
+   *      within [-cell_clip, cell_clip]. If set to 0.0 then clipping is
+   *      disabled.
+   * * 20:proj_clip.
+   *      A clipping threshold for the output from the projection layer, such
+   *      that values are bound within [-proj_clip, proj_clip]. If set to 0.0
+   *      then clipping is disabled.
+   *
+   * Outputs:
+   * * 0: scratch_buffer.
+   *      A 3-D tensor of type T, of shape [batch_size, num_cell, 4].
+   * * 1: output_state.
+   *      A 2-D tensor of type T, of shape [batch_size, output_size].
+   * * 2: cell_state.
+   *      A 2-D tensor of type T, of shape [batch_size, num_units].
+   * * 3: output.
+   *      A 2-D tensor of type T, of shape [batch_size, output_size]. This is
+   *      effectively the same as the current “output_state” value.
+   */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='314' u='r' c='_ZN6tflite15AddOpsAndParamsEPNS_11InterpreterEP20ANeuralNetworksModelj'/>

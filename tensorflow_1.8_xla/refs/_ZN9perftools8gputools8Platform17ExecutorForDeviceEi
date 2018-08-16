@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/stream_executor/platform.h' l='143' type='port::StatusOr&lt;StreamExecutor *&gt; perftools::gputools::Platform::ExecutorForDevice(int ordinal)'/>
+<doc f='tensorflow/tensorflow/stream_executor/platform.h' l='136'>// Returns a device with the given ordinal on this platform with a default
+  // plugin configuration or, if none can be found with the given ordinal or
+  // there is an error in opening a context to communicate with the device, an
+  // error status is returned.
+  //
+  // Ownership of the executor is NOT transferred to the caller --
+  // the Platform owns the executors in a singleton-like fashion.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_id_utils.h' l='35' u='c' c='_ZN10tensorflow9GpuIdUtil20ExecutorForCudaGpuIdEPN9perftools8gputools8PlatformENS_3gtl7IntTypeINS_14CudaGpuId_tag_EiEE'/>
+<ovr f='tensorflow/tensorflow/stream_executor/host/host_platform.cc' l='47' c='_ZN9perftools8gputools4host12HostPlatform17ExecutorForDeviceEi'/>
+<use f='tensorflow/tensorflow/stream_executor/platform.cc' l='110' u='c' c='_ZN9perftools8gputools8Platform16GetPeerAccessMapEv'/>
+<use f='tensorflow/tensorflow/stream_executor/platform.cc' l='111' u='c' c='_ZN9perftools8gputools8Platform16GetPeerAccessMapEv'/>
+<use f='tensorflow/tensorflow/stream_executor/platform.cc' l='124' u='c' c='_ZN9perftools8gputools8Platform16EnablePeerAccessEv'/>
+<use f='tensorflow/tensorflow/stream_executor/platform.cc' l='125' u='c' c='_ZN9perftools8gputools8Platform16EnablePeerAccessEv'/>

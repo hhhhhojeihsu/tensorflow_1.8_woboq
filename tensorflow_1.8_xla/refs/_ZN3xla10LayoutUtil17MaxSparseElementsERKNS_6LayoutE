@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='123' type='static int64 xla::LayoutUtil::MaxSparseElements(const xla::Layout &amp; layout)'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1177' u='c' c='_ZN3xla7Literal19AppendSparseElementEN10tensorflow3gtl10ArraySliceIxEET_RKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1279' u='c' c='_ZN3xla7Literal14PopulateSparseENS_16SparseIndexArrayEN10tensorflow3gtl10ArraySliceIT_EEb'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='121'>// Returns the maximum number of elements that can be stored in a sparse
+  // layout.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='306' ll='309' type='static int64 xla::LayoutUtil::MaxSparseElements(const xla::Layout &amp; layout)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='306'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='103' u='c' c='_ZN3xla7LiteralC1ERKNS_5ShapeEb'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='739' u='c' c='_ZN3xla9ShapeUtil18ByteSizeOfElementsERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='761' u='c' c='_ZN3xla9ShapeUtil23ByteSizeOfSparseIndicesERKNS_5ShapeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/sparse_index_array.cc' l='87' u='c' c='_ZNK3xla16SparseIndexArray8ValidateERKNS_5ShapeE'/>

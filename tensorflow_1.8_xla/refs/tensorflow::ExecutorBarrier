@@ -1,0 +1,17 @@
+<def f='tensorflow/tensorflow/core/common_runtime/executor.h' l='153' ll='224'/>
+<size>72</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/executor.h' l='148'>// A class to help run multiple executors in parallel and wait until
+// all of them are complete.
+//
+// ExecutorBarrier deletes itself after the function returned by Get()
+// is called.</doc>
+<fun r='_ZN10tensorflow15ExecutorBarrierC1EmPNS_10RendezvousESt8functionIFvRKNS_6StatusEEE'/>
+<fun r='_ZN10tensorflow15ExecutorBarrierD1Ev'/>
+<fun r='_ZN10tensorflow15ExecutorBarrier3GetEv'/>
+<mbr r='tensorflow::ExecutorBarrier::rendez_' o='0' t='tensorflow::Rendezvous *'/>
+<mbr r='tensorflow::ExecutorBarrier::done_cb_' o='64' t='StatusCallback'/>
+<mbr r='tensorflow::ExecutorBarrier::mu_' o='320' t='tensorflow::mutex'/>
+<mbr r='tensorflow::ExecutorBarrier::pending_' o='448' t='int'/>
+<mbr r='tensorflow::ExecutorBarrier::status_' o='512' t='tensorflow::Status'/>
+<fun r='_ZN10tensorflow15ExecutorBarrier8WhenDoneERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow15ExecutorBarrierC1ERKS0_'/>

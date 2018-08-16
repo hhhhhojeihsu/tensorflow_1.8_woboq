@@ -1,0 +1,25 @@
+<def f='tensorflow/tensorflow/stream_executor/trace_listener.h' l='46' ll='70'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/stream_executor/trace_listener.h' l='31'>// Traces StreamExecutor PIMPL-level events.
+// The few StreamExecutor interfaces that are synchronous have both Begin and
+// Complete versions of their trace calls. Asynchronous operations only have
+// Submit calls, as execution of the underlying operations is device-specific.
+// As all tracing calls mirror StreamExecutor routines, documentation here is
+// minimal.
+//
+// All calls have default implementations that perform no work; subclasses
+// should override functionality of interest. Keep in mind that these routines
+// are not called on a dedicated thread, so callbacks should execute quickly.
+//
+// Note: This API is constructed on an as-needed basis. Users should add
+// support for further StreamExecutor operations as required. By enforced
+// convention (see SCOPED_TRACE in stream_executor_pimpl.cc), synchronous
+// tracepoints should be named NameBegin and NameComplete.</doc>
+<fun r='_ZN9perftools8gputools13TraceListenerD1Ev'/>
+<fun r='_ZN9perftools8gputools13TraceListener12LaunchSubmitEPNS0_6StreamERKNS0_9ThreadDimERKNS0_8BlockDimERKNS0_10KernelBaseERKNS0_19KernelArgsArrayBaseE'/>
+<fun r='_ZN9perftools8gputools13TraceListener25SynchronousMemcpyH2DBeginExPKvxPNS0_16DeviceMemoryBaseE'/>
+<fun r='_ZN9perftools8gputools13TraceListener28SynchronousMemcpyH2DCompleteExPKN10tensorflow6StatusE'/>
+<fun r='_ZN9perftools8gputools13TraceListener25SynchronousMemcpyD2HBeginExRKNS0_16DeviceMemoryBaseExPv'/>
+<fun r='_ZN9perftools8gputools13TraceListener28SynchronousMemcpyD2HCompleteExPKN10tensorflow6StatusE'/>
+<fun r='_ZN9perftools8gputools13TraceListener23BlockHostUntilDoneBeginExPNS0_6StreamE'/>
+<fun r='_ZN9perftools8gputools13TraceListener26BlockHostUntilDoneCompleteExPKN10tensorflow6StatusE'/>

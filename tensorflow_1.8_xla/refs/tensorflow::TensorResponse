@@ -1,0 +1,24 @@
+<def f='tensorflow/tensorflow/core/distributed_runtime/tensor_coding.h' l='35' ll='103'/>
+<size>120</size>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/tensor_coding.h' l='32'>// TensorResponse can be used as the destination of an RPC that returns
+// a RecvTensorResponse.  It efficiently decodes the incoming data
+// into Tensor contents as well as associated metadata.</doc>
+<fun r='_ZN10tensorflow14TensorResponseC1Ev'/>
+<fun r='_ZN10tensorflow14TensorResponse5ClearEv'/>
+<fun r='_ZN10tensorflow14TensorResponse11ClearTensorEv'/>
+<fun r='_ZN10tensorflow14TensorResponse9InitAllocEPNS_10DeviceBaseERKNS_19AllocatorAttributesE'/>
+<fun r='_ZN10tensorflow14TensorResponse9ParseFromEPNS0_6SourceE'/>
+<fun r='_ZN10tensorflow14TensorResponse8InitFromEPNS_18RecvTensorResponseE'/>
+<fun r='_ZN10tensorflow14TensorResponse11InitPartialERKNS_18RecvTensorResponseE'/>
+<fun r='_ZNK10tensorflow14TensorResponse6tensorEv'/>
+<fun r='_ZNK10tensorflow14TensorResponse8metadataEv'/>
+<fun r='_ZN10tensorflow14TensorResponse21ParseTensorSubmessageEPN6google8protobuf2io16CodedInputStreamEPNS_11TensorProtoE'/>
+<fun r='_ZN10tensorflow14TensorResponse9ParseFastEPNS0_6SourceE'/>
+<fun r='_ZN10tensorflow14TensorResponse9ParseSlowEPNS0_6SourceE'/>
+<mbr r='tensorflow::TensorResponse::on_host_' o='0' t='bool'/>
+<mbr r='tensorflow::TensorResponse::device_' o='64' t='tensorflow::DeviceBase *'/>
+<mbr r='tensorflow::TensorResponse::alloc_attrs_' o='128' t='tensorflow::AllocatorAttributes'/>
+<mbr r='tensorflow::TensorResponse::allocator_' o='192' t='tensorflow::Allocator *'/>
+<mbr r='tensorflow::TensorResponse::already_used_' o='256' t='bool'/>
+<mbr r='tensorflow::TensorResponse::tensor_' o='320' t='tensorflow::Tensor'/>
+<mbr r='tensorflow::TensorResponse::meta_' o='576' t='tensorflow::RecvTensorResponse'/>

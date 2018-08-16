@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/framework/tensor.h' l='156' type='size_t tensorflow::Tensor::AllocatedBytes() const'/>
+<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='227' u='c' c='_ZNK10tensorflow16PersistentTensor14AllocatedBytesEv'/>
+<doc f='tensorflow/tensorflow/core/framework/tensor.h' l='155'>// Returns the size of sallocated memory for this tensor.</doc>
+<def f='tensorflow/tensorflow/core/framework/tensor.cc' l='866' ll='876' type='size_t tensorflow::Tensor::AllocatedBytes() const'/>
+<use f='tensorflow/tensorflow/core/kernels/constant_op.cc' l='86' u='c' c='_ZN10tensorflow10ConstantOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='79' u='c' c='_ZN10tensorflow10VariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='111' u='c' c='_ZN10tensorflow19TemporaryVariableOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/variable_ops.cc' l='155' u='c' c='_ZN10tensorflow26DestroyTemporaryVariableOp7ComputeEPNS_15OpKernelContextE'/>

@@ -1,0 +1,51 @@
+<dec f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='925' type='24'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='875'>/**
+   * A basic recurrent neural network layer.
+   *
+   * This layer implements the operation:
+   * outputs = state = activation(inputs * input_weights + state *
+   * recurrent_weights + bias)
+   *
+   * Where:
+   * * “input_weights” is a weight matrix that multiplies the inputs;
+   * * “recurrent_weights” is a weight matrix that multiplies the current
+   *    “state” which itself is the output from the previous time step
+   *    computation;
+   * * “bias” is a bias vector (added to each output vector in the batch);
+   * * “activation” is the function passed as the “fused_activation_function”
+   *   argument (if not “NONE”).
+   *
+   * Supported tensor types:
+   * * {@link ANEURALNETWORKS_TENSOR_FLOAT32}
+   *
+   * Inputs:
+   * * 0: input.
+   *      A 2-D tensor of type T, of shape [batch_size, input_size], where
+   *      “batch_size” corresponds to the batching dimension, and “input_size”
+   * is the size of the input.
+   * * 1: weights.
+   *      A 2-D tensor of type T, of shape [num_units, input_size], where
+   *      “num_units” corresponds to the number of units.
+   * * 2: recurrent_weights.
+   *      A 2-D tensor of type T, of shape [num_units, num_units], with columns
+   *      corresponding to the weights from each unit.
+   * * 3: bias.
+   *      A 1-D tensor of type T, of shape [num_units].
+   *
+   *    For FLOAT32 input tensor, bias must also be FLOAT32.
+   *    For UINT8 input tensor, bias must be INT32.
+   *
+   * Parameters
+   * * 4: fused_activation_function.
+   *      An (optional) ActivationFunctionType indicating the activation
+   *      function. If “NONE” is specified then it results in a linear
+   *      activation.
+   *
+   * * 5: Hidden state.
+   *      A 2-D tensor of type T, of shape [batch_size, num_units].
+   *
+   * Outputs:
+   * * 0: output.
+   *      A 2-D tensor of type T, of shape [batch_size, num_units]. This is
+   *      effectively the same as the current state value.
+   */</doc>

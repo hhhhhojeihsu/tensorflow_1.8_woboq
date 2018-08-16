@@ -1,0 +1,13 @@
+<inh f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='37' c='tensorflow::RangeSampler'/>
+<def f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='181' ll='205'/>
+<size>64</size>
+<doc f='tensorflow/tensorflow/core/kernels/range_sampler.h' l='180'>// Thread-safe unigram sampler</doc>
+<fun r='_ZN10tensorflow14UnigramSamplerC1Ex'/>
+<fun r='_ZN10tensorflow14UnigramSamplerD1Ev'/>
+<fun r='_ZNK10tensorflow14UnigramSampler6SampleEPNS_6random12SimplePhiloxE'/>
+<fun r='_ZNK10tensorflow14UnigramSampler11ProbabilityEx'/>
+<fun r='_ZNK10tensorflow14UnigramSampler32SampleBatchGetExpectedCountAvoidEPNS_6random12SimplePhiloxEbNS_3gtl17MutableArraySliceIxEENS5_IfEENS4_10ArraySliceIxEES7_S9_'/>
+<fun r='_ZNK10tensorflow14UnigramSampler12NeedsUpdatesEv'/>
+<fun r='_ZN10tensorflow14UnigramSampler6UpdateENS_3gtl10ArraySliceIxEE'/>
+<mbr r='tensorflow::UnigramSampler::unsafe_sampler_' o='128' t='tensorflow::ThreadUnsafeUnigramSampler'/>
+<mbr r='tensorflow::UnigramSampler::mu_' o='384' t='tensorflow::mutex'/>

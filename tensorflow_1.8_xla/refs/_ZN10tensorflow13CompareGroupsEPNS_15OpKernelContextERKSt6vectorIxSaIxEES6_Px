@@ -1,0 +1,9 @@
+<def f='tensorflow/tensorflow/core/kernels/set_kernels.cc' l='567' ll='589' type='void tensorflow::CompareGroups(tensorflow::OpKernelContext * ctx, const std::vector&lt;int64&gt; &amp; set1_group_indices, const std::vector&lt;int64&gt; &amp; set2_group_indices, int64 * result)'/>
+<use f='tensorflow/tensorflow/core/kernels/set_kernels.cc' l='639' u='c' c='_ZNK10tensorflow14SetOperationOp21ComputeSparseToSparseEPNS_15OpKernelContextE'/>
+<doc f='tensorflow/tensorflow/core/kernels/set_kernels.cc' l='560'>// This is used to determine which group iterator is less than the other, based
+// on row-major ordering of indices.
+// An empty index list indicates end of iteration, which is interpreted as &quot;max&quot;
+// for the purposes of comparison; i.e., non-empty &lt; empty.
+// Return 0 if both groups are empty, or both non-empty with the same values.
+// Return &lt;0 if set1 &lt;= set2, or set2 is empty.
+// Return &gt;0 if set2 &lt;= set1, or set1 is empty.</doc>

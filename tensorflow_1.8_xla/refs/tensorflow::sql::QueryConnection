@@ -1,0 +1,21 @@
+<def f='tensorflow/tensorflow/core/kernels/data/sql/query_connection.h' l='39' ll='63'/>
+<ovr f='tensorflow/tensorflow/core/kernels/data/sql/sqlite_query_connection.h' l='28' c='tensorflow::sql::SqliteQueryConnection'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/core/kernels/data/sql/query_connection.h' l='25'>// This interface allows a user to connect to a database, execute a query, and
+// iterate over the result set, putting the results into an output tensor.
+// A subclass implementation is required for each type of database
+// (e.g. sqlite3, mysql, etc.)
+//
+// Presently, a `QueryConnection` instance can only handle one query at a time.
+// In a future extension, this class may be refactored so that it creates
+// instances of a new class (named, say, `Statement`) which could have a
+// one-to-one correspondence with queries. This would make `QueryConnection`
+// more consistent with `Connection` classes of other database APIs.
+// `QueryConnection` would then be renamed simply `Connection`.
+//
+// This class is not thread safe. Access to it is guarded by a mutex in
+// `SqlDatasetOp::Dataset::Iterator`.</doc>
+<fun r='_ZN10tensorflow3sql15QueryConnectionD1Ev'/>
+<fun r='_ZN10tensorflow3sql15QueryConnection4OpenERKSsS3_RKNS_3gtl13InlinedVectorINS_8DataTypeELi4EEE'/>
+<fun r='_ZN10tensorflow3sql15QueryConnection5CloseEv'/>
+<fun r='_ZN10tensorflow3sql15QueryConnection7GetNextEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS5_EEPb'/>

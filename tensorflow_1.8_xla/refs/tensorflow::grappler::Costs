@@ -1,0 +1,19 @@
+<def f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='36' ll='117'/>
+<size>128</size>
+<doc f='tensorflow/tensorflow/core/grappler/costs/cost_estimator.h' l='33'>// Holds the set of things we might want to estimate or measure in Grappler.
+// Always produce execution time. Other fields are optional depending on the
+// estimator being used.</doc>
+<fun r='_ZN10tensorflow8grappler5CostsC1Ev'/>
+<fun r='_ZN10tensorflow8grappler5Costs9ZeroCostsEv'/>
+<mbr r='tensorflow::grappler::Costs::execution_time' o='0' t='Duration'/>
+<mbr r='tensorflow::grappler::Costs::compute_time' o='64' t='Duration'/>
+<mbr r='tensorflow::grappler::Costs::memory_time' o='128' t='Duration'/>
+<mbr r='tensorflow::grappler::Costs::max_memory' o='192' t='int64'/>
+<mbr r='tensorflow::grappler::Costs::persistent_memory' o='256' t='int64'/>
+<mbr r='tensorflow::grappler::Costs::temporary_memory' o='320' t='int64'/>
+<mbr r='tensorflow::grappler::Costs::max_per_op_buffers' o='384' t='int64'/>
+<mbr r='tensorflow::grappler::Costs::max_per_op_streaming' o='448' t='int64'/>
+<mbr r='tensorflow::grappler::Costs::inaccurate' o='512' t='bool'/>
+<mbr r='tensorflow::grappler::Costs::estimated_max_memory_per_device' o='576' t='std::unordered_map&lt;string, uint64&gt;'/>
+<fun r='_ZN10tensorflow8grappler5CostsC1Ev'/>
+<fun r='_ZN10tensorflow8grappler5Costs9ZeroCostsEv'/>

@@ -1,0 +1,7 @@
+<def f='tensorflow/tensorflow/core/lib/strings/ordered_code.cc' l='144' ll='153' type='const char * tensorflow::strings::SkipToNextSpecialByte(const char * start, const char * limit)'/>
+<use f='tensorflow/tensorflow/core/lib/strings/ordered_code.cc' l='158' u='c' c='_ZN10tensorflow7strings11OrderedCode26TEST_SkipToNextSpecialByteEPKcS3_'/>
+<use f='tensorflow/tensorflow/core/lib/strings/ordered_code.cc' l='168' u='c' c='_ZN10tensorflow7stringsL20EncodeStringFragmentEPSsNS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/core/lib/strings/ordered_code.cc' l='224' u='c' c='_ZN10tensorflow7stringsL18ReadStringInternalEPNS_11StringPieceEPSs'/>
+<doc f='tensorflow/tensorflow/core/lib/strings/ordered_code.cc' l='141'>// Return a pointer to the first byte in the range &quot;[start..limit)&quot;
+// whose value is 0 or 255 (kEscape1 or kEscape2).  If no such byte
+// exists in the range, returns &quot;limit&quot;.</doc>

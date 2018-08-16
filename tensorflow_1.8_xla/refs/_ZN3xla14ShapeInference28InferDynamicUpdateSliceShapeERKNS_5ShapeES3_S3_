@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='185' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferDynamicUpdateSliceShape(const xla::Shape &amp; operand_shape, const xla::Shape &amp; update_shape, const xla::Shape &amp; start_indices_shape)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='522' u='c' c='_ZN3xla10XlaBuilder18DynamicUpdateSliceERKNS_5XlaOpES3_S3_'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='183'>// Infers the shape produced by a dynamic update slice operation based
+  // on the shape of operand and update.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='118' u='c' c='_ZN3xla25MakeDynamicUpdateSliceHloEPNS_14HloInstructionES1_S1_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1387' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor24HandleDynamicUpdateSliceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='253' u='c' c='_ZN3xla13ShapeVerifier24HandleDynamicUpdateSliceEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2089' ll='2161' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferDynamicUpdateSliceShape(const xla::Shape &amp; operand_shape, const xla::Shape &amp; update_shape, const xla::Shape &amp; start_indices_shape)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2089'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='992' u='c' c='_ZN3xla15UserComputation32AddDynamicUpdateSliceInstructionERKNS_25DynamicUpdateSliceRequestE'/>

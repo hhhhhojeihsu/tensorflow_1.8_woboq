@@ -1,0 +1,45 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='103' ll='188'/>
+<size>72</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_value.h' l='83'>// Class describing a value used by the dataflow analysis. XLA arrays are
+// trivially a single HloValue. Tuples are made up of more than one HloValue: an
+// HloValue for the pointer vector, and an HloValue for each child element.
+//
+// Every HloValue is defined by a particular instruction and most instructions
+// define only a single HloValue. Instructions which define a single HloValue
+// include array-shaped instructions such as Add but also includes Tuple-shaped
+// instructions such as Tuple. The Tuple instruction defines a single HloValue
+// which is a vector of pointers to the values containing the Tuple
+// instruction&apos;s operands. Though the result of the Tuple instruction includes
+// multiple values only the top-level HloValue (the vector of pointers) is
+// defined by the Tuple instruction. The values containing the tuple elements
+// are defined by earlier instructions, usually the operands of the Tuple
+// instruction.
+//
+// Instructions which construct both the tuple *and* the tuple elements define
+// more than one HloValue. This includes (at least) tuple-shaped Constant,
+// Parameter, Infeed and While instructions. These tuple-shaped instructions do
+// not assemble a tuple from existing HloValues like the Tuple instruction does,
+// but rather define all the HloValues in the tuple.</doc>
+<fun r='_ZN3xla8HloValue10IdLessThanEPKS0_S2_'/>
+<fun r='_ZN3xla8HloValue7IdEqualEPKS0_S2_'/>
+<fun r='_ZN3xla8HloValueC1ExPNS_14HloInstructionERKNS_10ShapeIndexEb'/>
+<fun r='_ZN3xla8HloValue26SetPositionsAndComputeUsesEN10tensorflow3gtl10ArraySliceINS_11HloPositionEEE'/>
+<fun r='_ZNK3xla8HloValue2idEv'/>
+<fun r='_ZNK3xla8HloValue6is_phiEv'/>
+<fun r='_ZNK3xla8HloValue17defining_positionEv'/>
+<fun r='_ZNK3xla8HloValue20defining_instructionEv'/>
+<fun r='_ZNK3xla8HloValue14defining_indexEv'/>
+<fun r='_ZNK3xla8HloValue5shapeEv'/>
+<fun r='_ZNK3xla8HloValue9positionsEv'/>
+<fun r='_ZNK3xla8HloValue4usesEv'/>
+<fun r='_ZNK3xla8HloValue18live_out_of_moduleEv'/>
+<fun r='_ZNK3xla8HloValueeqERKS0_'/>
+<fun r='_ZNK3xla8HloValueneERKS0_'/>
+<fun r='_ZNK3xla8HloValue13ToShortStringEv'/>
+<fun r='_ZNK3xla8HloValue8ToStringEi'/>
+<mbr r='xla::HloValue::id_' o='0' t='const Id'/>
+<mbr r='xla::HloValue::is_phi_' o='64' t='const bool'/>
+<mbr r='xla::HloValue::positions_' o='128' t='std::vector&lt;HloPosition&gt;'/>
+<mbr r='xla::HloValue::uses_' o='320' t='std::vector&lt;HloUse&gt;'/>
+<mbr r='xla::HloValue::live_out_of_module_' o='512' t='bool'/>
+<mbr r='xla::HloValue::live_out_of_computation_' o='520' t='bool'/>

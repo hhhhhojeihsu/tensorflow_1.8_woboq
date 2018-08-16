@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/core/util/tensor_slice_writer.h' l='188' type='tensorflow::Status tensorflow::checkpoint::CreateTableTensorSliceBuilder(const string &amp; filename, TensorSliceWriter::Builder ** builder)'/>
+<doc f='tensorflow/tensorflow/core/util/tensor_slice_writer.h' l='184'>// Create a table builder that will write to &quot;filename&quot; in
+// tensorflow::io::Table format.  If successful, return OK
+// and set &quot;*builder&quot; to the allocated builder.  Otherwise, return a
+// non-OK status.</doc>
+<use f='tensorflow/tensorflow/core/kernels/save_op.cc' l='34' u='a' c='_ZN10tensorflow6SaveOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/kernels/save_op.cc' l='45' u='a' c='_ZN10tensorflow12SaveSlicesOp7ComputeEPNS_15OpKernelContextE'/>
+<def f='tensorflow/tensorflow/core/util/tensor_slice_writer.cc' l='71' ll='82' type='tensorflow::Status tensorflow::checkpoint::CreateTableTensorSliceBuilder(const string &amp; name, TensorSliceWriter::Builder ** builder)'/>

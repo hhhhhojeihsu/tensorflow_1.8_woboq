@@ -1,0 +1,29 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='40' ll='191'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='36'>// The TransferManager interface lets backends provide platform-specific
+// mechanisms for constructing literals from given device memory handles.
+// This lets each platform customize how literals are transferred to/from the
+// device in terms of padding, leading dimension, etc.</doc>
+<fun r='_ZN3xla15TransferManagerD1Ev'/>
+<fun r='_ZNK3xla15TransferManager10PlatformIdEv'/>
+<fun r='_ZNK3xla15TransferManager22HostShapeToDeviceShapeERKNS_5ShapeE'/>
+<fun r='_ZN3xla15TransferManager25TransferLiteralFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_12ShapedBufferE'/>
+<fun r='_ZN3xla15TransferManager23TransferLiteralToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS_12ShapedBufferE'/>
+<fun r='_ZN3xla15TransferManager21TransferArrayToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS2_16DeviceMemoryBaseE'/>
+<fun r='_ZN3xla15TransferManager23TransferArrayFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_5ShapeERKNS2_16DeviceMemoryBaseE'/>
+<fun r='_ZN3xla15TransferManager23TransferLiteralToInfeedEPN9perftools8gputools14StreamExecutorERKNS_7LiteralE'/>
+<fun r='_ZN3xla15TransferManager26TransferLiteralFromOutfeedEPN9perftools8gputools14StreamExecutorERKNS_5ShapeEPNS_7LiteralE'/>
+<fun r='_ZN3xla15TransferManager12ResetDevicesEN10tensorflow3gtl10ArraySliceIPN9perftools8gputools14StreamExecutorEEE'/>
+<fun r='_ZN3xla15TransferManager21WriteTupleIndexTablesEPN9perftools8gputools14StreamExecutorERKNS_12ShapedBufferE'/>
+<fun r='_ZNK3xla15TransferManager22GetByteSizeRequirementERKNS_5ShapeE'/>
+<fun r='_ZN3xla15TransferManager20AllocateShapedBufferERKNS_5ShapeEPNS_21DeviceMemoryAllocatorEi'/>
+<fun r='_ZN3xla15TransferManager26AllocateScopedShapedBufferERKNS_5ShapeEPNS_21DeviceMemoryAllocatorEi'/>
+<fun r='_ZN3xla15TransferManager23RegisterTransferManagerEPvPFSt10unique_ptrIS0_St14default_deleteIS0_EEvE'/>
+<fun r='_ZN3xla15TransferManager14GetForPlatformEPKN9perftools8gputools8PlatformE'/>
+<fun r='_ZN3xla15TransferManager22TransferBufferToInfeedEPN9perftools8gputools14StreamExecutorExPKv'/>
+<fun r='_ZN3xla15TransferManager24TransferBufferFromDeviceEPN9perftools8gputools14StreamExecutorERKNS2_16DeviceMemoryBaseExPv'/>
+<fun r='_ZN3xla15TransferManager22TransferBufferToDeviceEPN9perftools8gputools14StreamExecutorExPKvPNS2_16DeviceMemoryBaseE'/>
+<fun r='_ZN3xla15TransferManager26WriteSingleTupleIndexTableEPN9perftools8gputools14StreamExecutorEN10tensorflow3gtl10ArraySliceINS2_16DeviceMemoryBaseEEERKNS_5ShapeEPS8_'/>
+<smbr r='xla::TransferManager::platform_transfer_manager_mutex_' t='tensorflow::mutex'/>
+<fun r='_ZN3xla15TransferManager27GetPlatformTransferManagersEv'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.h' l='37' c='xla::GenericTransferManager'/>

@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/fertile-stats-resource.h' l='67' type='void tensorflow::tensorforest::FertileStatsResource::AddExampleToStatsAndInitialize(const std::unique_ptr&lt;TensorDataSet&gt; &amp; input_data, const tensorflow::tensorforest::InputTarget * target, const std::vector&lt;int&gt; &amp; examples, int32 node_id, bool * is_finished)'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/stats_ops.cc' l='186' u='c' c='_ZN10tensorflow12tensorforest11UpdateStatsEPNS0_20FertileStatsResourceERKSt10unique_ptrINS0_13TensorDataSetESt14default_deleteIS4_EERKNS0_17TensorInpu15134702'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/stats_ops.cc' l='213' u='c' c='_ZN10tensorflow12tensorforest19UpdateStatsCollatedEPNS0_20FertileStatsResourceEPNS0_20DecisionTreeResourceERKSt10unique_ptrINS0_13TensorDataSetESt14de2393814'/>
+<doc f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/fertile-stats-resource.h' l='63'>// Applies the example to the given leaf&apos;s statistics. Also applies it to the
+  // node&apos;s fertile slot&apos;s statistics if or initializes a split candidate,
+  // where applicable.  Returns if the node is finished or if it&apos;s ready to
+  // allocate to a fertile slot.</doc>
+<def f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/fertile-stats-resource.cc' l='22' ll='41' type='void tensorflow::tensorforest::FertileStatsResource::AddExampleToStatsAndInitialize(const std::unique_ptr&lt;TensorDataSet&gt; &amp; input_data, const tensorflow::tensorforest::InputTarget * target, const std::vector&lt;int&gt; &amp; examples, int32 node_id, bool * is_finished)'/>

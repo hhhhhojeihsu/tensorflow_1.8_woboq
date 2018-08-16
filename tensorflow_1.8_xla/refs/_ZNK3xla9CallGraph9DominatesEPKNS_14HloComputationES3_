@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='196' type='bool xla::CallGraph::Dominates(const xla::HloComputation * a, const xla::HloComputation * b) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='203' u='c' c='_ZNK3xla9CallGraph21InstructionIsNestedInEPKNS_14HloInstructionEPKNS_14HloComputationE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='192'>// Returns true if &apos;a&apos; dominates &apos;b&apos; in the call graph. Computation &apos;a&apos;
+  // dominates computation &apos;b&apos; iff all callgraph paths in the caller-to-callee
+  // direction from a root computation to &apos;b&apos; pass through computation
+  // &apos;a&apos;. Trivially, a computation dominates itself.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='162' ll='166' type='bool xla::CallGraph::Dominates(const xla::HloComputation * a, const xla::HloComputation * b) const'/>

@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/contrib/lite/model.h' l='90' type='static std::unique_ptr&lt;FlatBufferModel&gt; tflite::FlatBufferModel::BuildFromModel(const tflite::Model * model_spec, tflite::ErrorReporter * error_reporter = DefaultErrorReporter())'/>
+<def f='tensorflow/tensorflow/contrib/lite/model.cc' l='128' ll='136' type='static std::unique_ptr&lt;FlatBufferModel&gt; tflite::FlatBufferModel::BuildFromModel(const tflite::Model * model_spec, tflite::ErrorReporter * error_reporter = DefaultErrorReporter())'/>
+<doc f='tensorflow/tensorflow/contrib/lite/model.h' l='85'>// Builds a model directly from a flatbuffer pointer. The caller retains
+  // ownership of the buffer and should keep it alive until the returned object
+  // is destroyed. Caller retains ownership of `error_reporter` and must ensure
+  // its lifetime is longer than the FlatBufferModel instance.
+  // Returns a nullptr in case of failure.</doc>

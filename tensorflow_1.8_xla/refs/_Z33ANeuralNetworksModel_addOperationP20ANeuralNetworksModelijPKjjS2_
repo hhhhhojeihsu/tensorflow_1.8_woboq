@@ -1,0 +1,22 @@
+<def f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='1562' ll='1571' type='int ANeuralNetworksModel_addOperation(ANeuralNetworksModel * model, ANeuralNetworksOperationType type, uint32_t inputCount, const uint32_t * inputs, uint32_t outputCount, const uint32_t * outputs)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/nnapi/NeuralNetworksShim.h' l='1542'>/**
+ * Add an operation to a model.
+ *
+ * @param model The model to be modified.
+ * @param type The type of the operation.
+ * @param inputCount The number of entries in the inputs array.
+ * @param inputs An array of indexes identifying each operand.
+ * @param outputCount The number of entries in the outputs array.
+ * @param outputs An array of indexes identifying each operand.
+ *
+ * The operands specified by inputs and outputs must have been
+ * previously added by calls to {@link ANeuralNetworksModel_addOperand}.
+ *
+ * Attempting to modify a model once {@link ANeuralNetworksModel_finish} has
+ * been called will return an error.
+ *
+ * See {@link ANeuralNetworksModel} for information on multithreaded usage.
+ *
+ * @return ANEURALNETWORKS_NO_ERROR if successful.
+ */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='364' u='c' c='_ZN6tflite15AddOpsAndParamsEPNS_11InterpreterEP20ANeuralNetworksModelj'/>

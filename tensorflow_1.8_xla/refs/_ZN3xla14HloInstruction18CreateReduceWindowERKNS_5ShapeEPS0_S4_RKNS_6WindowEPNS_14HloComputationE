@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='371' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateReduceWindow(const xla::Shape &amp; shape, xla::HloInstruction * operand, xla::HloInstruction * init_value, const xla::Window &amp; window, xla::HloComputation * reduce_computation)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='368'>// Creates a reduce-window instruction, where the computation (given
+  // by the handle) is applied window-wise at each valid window
+  // position in the operand.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1877' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor18HandleReduceWindowEPNS_14HloInstructionE'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='595' ll='605' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateReduceWindow(const xla::Shape &amp; shape, xla::HloInstruction * operand, xla::HloInstruction * init_value, const xla::Window &amp; window, xla::HloComputation * reduce_computation)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1352' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='595'>/* static */</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3069' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

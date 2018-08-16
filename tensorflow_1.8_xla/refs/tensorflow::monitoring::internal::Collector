@@ -1,0 +1,21 @@
+<def f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.h' l='250' ll='289'/>
+<size>32</size>
+<doc f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.h' l='241'>// Used by the CollectionRegistry class to collect all the values of all the
+// metrics in the registry. This is an implementation detail of the
+// CollectionRegistry class, please do not depend on this.
+//
+// This cannot be a private nested class because we need to forward declare this
+// so that the MetricCollector and MetricCollectorGetter classes can be friends
+// with it.
+//
+// This class is thread-safe.</doc>
+<fun r='_ZN10tensorflow10monitoring8internal9CollectorC1Ey'/>
+<fun r='_ZN10tensorflow10monitoring8internal9Collector18GetMetricCollectorEPKNS0_9MetricDefIXT_ET0_XT1_EEEyPS2_'/>
+<fun r='_ZNK10tensorflow10monitoring8internal9Collector22collection_time_millisEv'/>
+<fun r='_ZN10tensorflow10monitoring8internal9Collector23CollectMetricDescriptorEPKNS0_17AbstractMetricDefE'/>
+<fun r='_ZN10tensorflow10monitoring8internal9Collector19CollectMetricValuesERKNS0_18CollectionRegistry14CollectionInfoE'/>
+<fun r='_ZN10tensorflow10monitoring8internal9Collector23ConsumeCollectedMetricsEv'/>
+<mbr r='tensorflow::monitoring::internal::Collector::mu_' o='0' t='tensorflow::mutex'/>
+<mbr r='tensorflow::monitoring::internal::Collector::collected_metrics_' o='128' t='std::unique_ptr&lt;CollectedMetrics&gt;'/>
+<mbr r='tensorflow::monitoring::internal::Collector::collection_time_millis_' o='192' t='const uint64'/>
+<fun r='_ZN10tensorflow10monitoring8internal9CollectorC1ERKS2_'/>

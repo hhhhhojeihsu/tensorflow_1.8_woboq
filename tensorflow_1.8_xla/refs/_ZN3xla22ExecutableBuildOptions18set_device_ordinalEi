@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/compiler/xla/client/executable_build_options.h' l='36' type='xla::ExecutableBuildOptions &amp; xla::ExecutableBuildOptions::set_device_ordinal(int device_ordinal)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/client/executable_build_options.h' l='30'>// If set, this is the device to build the computation for. Valid
+  // device_ordinal values are: 0 to # of devices - 1. These values are
+  // identical to the device ordinal values used by StreamExecutor. The built
+  // executable will be executable on any device equivalent to the specified
+  // device as determined by Backend::devices_equivalent(). A value of -1
+  // indicates this option has not been set.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='197' u='c' c='_ZN10tensorflow19XlaCompilationCache15BuildExecutableERKNS_11XlaCompiler7OptionsERKNS1_17CompilationResultEPSt10unique_ptrIN3xla15LocalExecutableESt14default_deleteISA_EE'/>
+<def f='tensorflow/tensorflow/compiler/xla/client/executable_build_options.cc' l='33' ll='38' type='xla::ExecutableBuildOptions &amp; xla::ExecutableBuildOptions::set_device_ordinal(int device_ordinal)'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='255' u='c' c='_ZN3xla11LocalClient7CompileERKNS_11ComputationEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEERKNS_22ExecutableBuildOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='274' u='c' c='_ZN3xla11LocalClient7CompileERKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEERKNS_22ExecutableBuildOptionsE'/>

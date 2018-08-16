@@ -1,0 +1,17 @@
+<dec f='include/python3.5m/traceback.h' l='51' type='void _Py_DumpTraceback(int fd, PyThreadState * tstate)'/>
+<doc f='include/python3.5m/traceback.h' l='34'>/* Write the Python traceback into the file &apos;fd&apos;. For example:
+
+       Traceback (most recent call first):
+         File &quot;xxx&quot;, line xxx in &lt;xxx&gt;
+         File &quot;xxx&quot;, line xxx in &lt;xxx&gt;
+         ...
+         File &quot;xxx&quot;, line xxx in &lt;xxx&gt;
+
+   This function is written for debug purpose only, to dump the traceback in
+   the worst case: after a segmentation fault, at fatal error, etc. That&apos;s why,
+   it is very limited. Strings are truncated to 100 characters and encoded to
+   ASCII with backslashreplace. It doesn&apos;t write the source code, only the
+   function name, filename and line number of each frame. Write only the first
+   100 frames: if the traceback is truncated, write the line &quot; ...&quot;.
+
+   This function is signal safe. */</doc>

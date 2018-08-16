@@ -1,0 +1,101 @@
+<inh f='tensorflow/tensorflow/core/common_runtime/visitable_allocator.h' l='28' c='tensorflow::VisitableAllocator'/>
+<def f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='45' ll='440'/>
+<size>1416</size>
+<doc f='tensorflow/tensorflow/core/common_runtime/bfc_allocator.h' l='37'>// A memory allocator that implements a &apos;best-fit with coalescing&apos;
+// algorithm.  This is essentially a very simple version of Doug Lea&apos;s
+// malloc (dlmalloc).
+//
+// The goal of this allocator is to support defragmentation via
+// coalescing.  One assumption we make is that the process using this
+// allocator owns pretty much all of the memory, and that nearly
+// all requests to allocate memory go through this interface.</doc>
+<fun r='_ZN10tensorflow12BFCAllocatorC1EPNS_12SubAllocatorEmbRKSs'/>
+<fun r='_ZN10tensorflow12BFCAllocatorD1Ev'/>
+<fun r='_ZN10tensorflow12BFCAllocator4NameEv'/>
+<fun r='_ZN10tensorflow12BFCAllocator11AllocateRawEmm'/>
+<fun r='_ZN10tensorflow12BFCAllocator11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<fun r='_ZN10tensorflow12BFCAllocator13DeallocateRawEPv'/>
+<fun r='_ZN10tensorflow12BFCAllocator15AddAllocVisitorESt8functionIFvPvmEE'/>
+<fun r='_ZN10tensorflow12BFCAllocator14AddFreeVisitorESt8functionIFvPvmEE'/>
+<fun r='_ZN10tensorflow12BFCAllocator21TracksAllocationSizesEv'/>
+<fun r='_ZN10tensorflow12BFCAllocator13RequestedSizeEPKv'/>
+<fun r='_ZN10tensorflow12BFCAllocator13AllocatedSizeEPKv'/>
+<fun r='_ZN10tensorflow12BFCAllocator12AllocationIdEPKv'/>
+<fun r='_ZN10tensorflow12BFCAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<fun r='_ZN10tensorflow12BFCAllocator10ClearStatsEv'/>
+<fun r='_ZN10tensorflow12BFCAllocator19AllocateRawInternalEmmb'/>
+<fun r='_ZN10tensorflow12BFCAllocator21DeallocateRawInternalEPv'/>
+<smbr r='tensorflow::BFCAllocator::kInvalidChunkHandle' t='const int'/>
+<smbr r='tensorflow::BFCAllocator::kInvalidBinNum' t='const int'/>
+<smbr r='tensorflow::BFCAllocator::kNumBins' t='const int'/>
+<smbr r='tensorflow::BFCAllocator::kMinAllocationBits' t='const size_t'/>
+<smbr r='tensorflow::BFCAllocator::kMinAllocationSize' t='const size_t'/>
+<fun r='_ZN10tensorflow12BFCAllocator12RoundedBytesEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator6ExtendEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator12FindChunkPtrEimm'/>
+<fun r='_ZN10tensorflow12BFCAllocator10SplitChunkEmm'/>
+<fun r='_ZN10tensorflow12BFCAllocator5MergeEmm'/>
+<fun r='_ZN10tensorflow12BFCAllocator20FreeAndMaybeCoalesceEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator22InsertFreeChunkIntoBinEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator26RemoveFreeChunkIterFromBinEPSt3setImNS0_3Bin15ChunkComparatorESaImEERKSt23_Rb_tree_const_iteratorImE'/>
+<fun r='_ZN10tensorflow12BFCAllocator22RemoveFreeChunkFromBinEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator11DeleteChunkEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator15RenderOccupancyEv'/>
+<fun r='_ZN10tensorflow12BFCAllocator13DumpMemoryLogEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator13AllocateChunkEv'/>
+<fun r='_ZN10tensorflow12BFCAllocator15DeallocateChunkEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator15ChunkFromHandleEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator18get_bin_debug_infoEv'/>
+<mbr r='tensorflow::BFCAllocator::retry_helper_' o='64' t='tensorflow::AllocatorRetry'/>
+<mbr r='tensorflow::BFCAllocator::memory_limit_' o='384' t='size_t'/>
+<fun r='_ZN10tensorflow12BFCAllocator20Log2FloorNonZeroSlowEy'/>
+<fun r='_ZN10tensorflow12BFCAllocator16Log2FloorNonZeroEy'/>
+<fun r='_ZN10tensorflow12BFCAllocator12BinFromIndexEi'/>
+<fun r='_ZN10tensorflow12BFCAllocator12BinNumToSizeEi'/>
+<fun r='_ZN10tensorflow12BFCAllocator13BinNumForSizeEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator10BinForSizeEm'/>
+<mbr r='tensorflow::BFCAllocator::bins_space_' o='448' t='char [1176]'/>
+<mbr r='tensorflow::BFCAllocator::curr_region_allocation_bytes_' o='9856' t='size_t'/>
+<mbr r='tensorflow::BFCAllocator::total_region_allocated_bytes_' o='9920' t='size_t'/>
+<mbr r='tensorflow::BFCAllocator::started_backpedal_' o='9984' t='bool'/>
+<mbr r='tensorflow::BFCAllocator::suballocator_' o='10048' t='std::unique_ptr&lt;SubAllocator&gt;'/>
+<mbr r='tensorflow::BFCAllocator::name_' o='10112' t='string'/>
+<mbr r='tensorflow::BFCAllocator::lock_' o='10176' t='tensorflow::mutex'/>
+<mbr r='tensorflow::BFCAllocator::region_manager_' o='10304' t='tensorflow::BFCAllocator::RegionManager'/>
+<mbr r='tensorflow::BFCAllocator::chunks_' o='10496' t='std::vector&lt;Chunk&gt;'/>
+<mbr r='tensorflow::BFCAllocator::free_chunks_list_' o='10688' t='ChunkHandle'/>
+<mbr r='tensorflow::BFCAllocator::region_visitors_' o='10752' t='std::vector&lt;Visitor&gt;'/>
+<mbr r='tensorflow::BFCAllocator::next_allocation_id_' o='10944' t='int64'/>
+<mbr r='tensorflow::BFCAllocator::stats_' o='11008' t='tensorflow::AllocatorStats'/>
+<fun r='_ZN10tensorflow12BFCAllocatorC1ERKS0_'/>
+<fun r='_ZN10tensorflow12BFCAllocatorC1EPNS_12SubAllocatorEmbRKSs'/>
+<fun r='_ZN10tensorflow12BFCAllocatorD1Ev'/>
+<fun r='_ZN10tensorflow12BFCAllocator15ChunkFromHandleEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator6ExtendEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator13AllocateChunkEv'/>
+<fun r='_ZN10tensorflow12BFCAllocator15DeallocateChunkEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator11AllocateRawEmm'/>
+<fun r='_ZN10tensorflow12BFCAllocator11AllocateRawEmmRKNS_20AllocationAttributesE'/>
+<fun r='_ZN10tensorflow12BFCAllocator12RoundedBytesEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator19AllocateRawInternalEmmb'/>
+<fun r='_ZN10tensorflow12BFCAllocator12FindChunkPtrEimm'/>
+<fun r='_ZN10tensorflow12BFCAllocator10SplitChunkEmm'/>
+<fun r='_ZN10tensorflow12BFCAllocator13DeallocateRawEPv'/>
+<fun r='_ZN10tensorflow12BFCAllocator21DeallocateRawInternalEPv'/>
+<fun r='_ZN10tensorflow12BFCAllocator5MergeEmm'/>
+<fun r='_ZN10tensorflow12BFCAllocator11DeleteChunkEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator22InsertFreeChunkIntoBinEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator26RemoveFreeChunkIterFromBinEPSt3setImNS0_3Bin15ChunkComparatorESaImEERKSt23_Rb_tree_const_iteratorImE'/>
+<fun r='_ZN10tensorflow12BFCAllocator22RemoveFreeChunkFromBinEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator20FreeAndMaybeCoalesceEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator15AddAllocVisitorESt8functionIFvPvmEE'/>
+<fun r='_ZN10tensorflow12BFCAllocator21TracksAllocationSizesEv'/>
+<fun r='_ZN10tensorflow12BFCAllocator13RequestedSizeEPKv'/>
+<fun r='_ZN10tensorflow12BFCAllocator13AllocatedSizeEPKv'/>
+<fun r='_ZN10tensorflow12BFCAllocator12AllocationIdEPKv'/>
+<fun r='_ZN10tensorflow12BFCAllocator15RenderOccupancyEv'/>
+<fun r='_ZN10tensorflow12BFCAllocator13DumpMemoryLogEm'/>
+<fun r='_ZN10tensorflow12BFCAllocator8GetStatsEPNS_14AllocatorStatsE'/>
+<fun r='_ZN10tensorflow12BFCAllocator10ClearStatsEv'/>
+<fun r='_ZN10tensorflow12BFCAllocator18get_bin_debug_infoEv'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.h' l='38' c='tensorflow::GPUBFCAllocator'/>

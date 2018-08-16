@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1282' type='void xla::HloInstruction::RelayoutConstant(const xla::Layout &amp; new_layout, const xla::ShapeIndex &amp; shape_index = {})'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1279'>// Change the layout for an Constant Hlo instruction to match new_layout.  For
+  // tuple shaped constants shape_index is the path to the internal array
+  // subshape whose layout needs to be changed.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3443' ll='3458' type='void xla::HloInstruction::RelayoutConstant(const xla::Layout &amp; new_layout, const xla::ShapeIndex &amp; shape_index = {})'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1412' u='c' c='_ZN3xla16LayoutAssignment13AssignLayoutsERKNS_17LayoutConstraintsEPNS_14HloComputationE'/>

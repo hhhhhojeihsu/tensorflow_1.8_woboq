@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.h' l='70' type='xla::cpu::runtime::XfeedManager * xla::cpu::runtime::GetXfeedManager()'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.h' l='69'>// Returns the infeed manager used by the CPU runtime.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='29' ll='32' type='xla::cpu::runtime::XfeedManager * xla::cpu::runtime::GetXfeedManager()'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='99' u='c' c='__xla_cpu_runtime_AcquireInfeedBufferForDequeue'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='118' u='c' c='__xla_cpu_runtime_ReleaseInfeedBufferAfterDequeue'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='131' u='c' c='__xla_cpu_runtime_AcquireOutfeedBufferForPopulation'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_runtime.cc' l='150' u='c' c='__xla_cpu_runtime_ReleaseOutfeedBufferAfterPopulation'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='131' u='c' c='_ZN3xla18CpuTransferManager23TransferLiteralToInfeedEPN9perftools8gputools14StreamExecutorERKNS_7LiteralE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='144' u='c' c='_ZN3xla18CpuTransferManager22TransferBufferToInfeedEPN9perftools8gputools14StreamExecutorExPKv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='287' u='c' c='_ZN3xla18CpuTransferManager34TransferBuffersFromOutfeedInternalEPN9perftools8gputools14StreamExecutorEN10tensorflow3gtl10ArraySliceISt4pairIPvxEEEb'/>

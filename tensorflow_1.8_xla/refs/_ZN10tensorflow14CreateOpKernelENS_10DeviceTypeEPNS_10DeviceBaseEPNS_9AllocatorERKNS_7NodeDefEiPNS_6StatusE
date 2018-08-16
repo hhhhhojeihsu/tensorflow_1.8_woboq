@@ -1,0 +1,37 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1193' type='std::unique_ptr&lt;OpKernel&gt; tensorflow::CreateOpKernel(tensorflow::DeviceType device_type, tensorflow::DeviceBase * device, tensorflow::Allocator * allocator, const tensorflow::NodeDef &amp; def, int graph_def_version, tensorflow::Status * status)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1160'>// Register your OpKernel by specifying the Op&apos;s name, the device the
+// kernel runs on, any type attr constraints for this kernel, any
+// host-memory args, and the class to instantiate.  Examples:
+//
+//  // A kernel that supports all types.
+//  REGISTER_KERNEL_BUILDER(Name(&quot;Save&quot;).Device(DEVICE_CPU), SaveOp);
+//
+//  // The following are equivalent ways of specifying that the kernel only
+//  // works if the &quot;T&quot; type attr is set to DT_FLOAT.
+//  REGISTER_KERNEL_BUILDER(
+//      Name(&quot;Sub&quot;).Device(DEVICE_CPU).TypeConstraint&lt;float&gt;(&quot;T&quot;),
+//      SubOp&lt;float&gt;);
+//  // (You would then repeat this for every type supported by &quot;Sub&quot;.)
+//
+//  // This form allows you to specify a list of types as the constraint.
+//  REGISTER_KERNEL_BUILDER(Name(&quot;Sub&quot;)
+//                              .Device(DEVICE_CPU)
+//                              .TypeConstraint(&quot;T&quot;, {DT_FLOAT}),
+//                          SubOp&lt;float&gt;);
+//
+//  // A kernel that expects one of the input tensors in host memory.
+//  REGISTER_KERNEL_BUILDER(
+//      Name(&quot;Reshape&quot;).Device(DEVICE_GPU).HostMemory(&quot;shape&quot;), ReshapeOp);
+//
+// See kernel_def_builder for details.
+
+// Instantiate an OpKernel that has been registered.  Returns nullptr
+// if no operation for that type of device / input signature combination
+// (and a NOT_FOUND *status), or there is an error in construction (and
+// an INVALID_ARGUMENT *status).  Otherwise, the caller takes ownership
+// of the returned pointer.
+// EXPECTED USAGE: unique_ptr&lt;OpKernel&gt; op = CreateOpKernel(...);
+// REQUIRES: def has all attrs specified (e.g. using AddDefaultsToNodeDef()).</doc>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='1144' ll='1151' type='std::unique_ptr&lt;OpKernel&gt; tensorflow::CreateOpKernel(tensorflow::DeviceType device_type, tensorflow::DeviceBase * device, tensorflow::Allocator * allocator, const tensorflow::NodeDef &amp; node_def, int graph_def_version, tensorflow::Status * status)'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/constant_folding.cc' l='963' u='c' c='_ZNK10tensorflow8grappler15ConstantFolding12EvaluateNodeERKNS_7NodeDefERKNS_3gtl13InlinedVectorINS_11TensorValueELi4EEEPS8_'/>
+<use f='tensorflow/tensorflow/core/kernels/collective_ops.cc' l='116' u='c' c='_ZN10tensorflow12_GLOBAL__N_124CollectiveReduceOpKernel13BuildOpKernelEPNS_20OpKernelConstructionERKSsPNS_7NodeDefE'/>

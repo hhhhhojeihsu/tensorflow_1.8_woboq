@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>pydebug.h source code [include/python3.5m/pydebug.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'include/python3.5m/pydebug.h'; var root_path = '../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>include</a>/<a href='./'>python3.5m</a>/<a href='pydebug.h.html'>pydebug.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="2">2</th><td><u>#<span data-ppcond="2">ifndef</span> <span class="macro" data-ref="_M/Py_PYDEBUG_H">Py_PYDEBUG_H</span></u></td></tr>
+<tr><th id="3">3</th><td><u>#define <dfn class="macro" id="_M/Py_PYDEBUG_H" data-ref="_M/Py_PYDEBUG_H">Py_PYDEBUG_H</dfn></u></td></tr>
+<tr><th id="4">4</th><td><u>#<span data-ppcond="4">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="5">5</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="6">6</th><td><u>#<span data-ppcond="4">endif</span></u></td></tr>
+<tr><th id="7">7</th><td></td></tr>
+<tr><th id="8">8</th><td><i>/* These global variable are defined in pylifecycle.c */</i></td></tr>
+<tr><th id="9">9</th><td><i>/* XXX (ncoghlan): move these declarations to pylifecycle.h? */</i></td></tr>
+<tr><th id="10">10</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_DebugFlag" title='Py_DebugFlag' data-ref="Py_DebugFlag">Py_DebugFlag</dfn>;</td></tr>
+<tr><th id="11">11</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_VerboseFlag" title='Py_VerboseFlag' data-ref="Py_VerboseFlag">Py_VerboseFlag</dfn>;</td></tr>
+<tr><th id="12">12</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_QuietFlag" title='Py_QuietFlag' data-ref="Py_QuietFlag">Py_QuietFlag</dfn>;</td></tr>
+<tr><th id="13">13</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_InteractiveFlag" title='Py_InteractiveFlag' data-ref="Py_InteractiveFlag">Py_InteractiveFlag</dfn>;</td></tr>
+<tr><th id="14">14</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_InspectFlag" title='Py_InspectFlag' data-ref="Py_InspectFlag">Py_InspectFlag</dfn>;</td></tr>
+<tr><th id="15">15</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_OptimizeFlag" title='Py_OptimizeFlag' data-ref="Py_OptimizeFlag">Py_OptimizeFlag</dfn>;</td></tr>
+<tr><th id="16">16</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_NoSiteFlag" title='Py_NoSiteFlag' data-ref="Py_NoSiteFlag">Py_NoSiteFlag</dfn>;</td></tr>
+<tr><th id="17">17</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_BytesWarningFlag" title='Py_BytesWarningFlag' data-ref="Py_BytesWarningFlag">Py_BytesWarningFlag</dfn>;</td></tr>
+<tr><th id="18">18</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_UseClassExceptionsFlag" title='Py_UseClassExceptionsFlag' data-ref="Py_UseClassExceptionsFlag">Py_UseClassExceptionsFlag</dfn>;</td></tr>
+<tr><th id="19">19</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_FrozenFlag" title='Py_FrozenFlag' data-ref="Py_FrozenFlag">Py_FrozenFlag</dfn>;</td></tr>
+<tr><th id="20">20</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_IgnoreEnvironmentFlag" title='Py_IgnoreEnvironmentFlag' data-ref="Py_IgnoreEnvironmentFlag">Py_IgnoreEnvironmentFlag</dfn>;</td></tr>
+<tr><th id="21">21</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_DontWriteBytecodeFlag" title='Py_DontWriteBytecodeFlag' data-ref="Py_DontWriteBytecodeFlag">Py_DontWriteBytecodeFlag</dfn>;</td></tr>
+<tr><th id="22">22</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_NoUserSiteDirectory" title='Py_NoUserSiteDirectory' data-ref="Py_NoUserSiteDirectory">Py_NoUserSiteDirectory</dfn>;</td></tr>
+<tr><th id="23">23</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_UnbufferedStdioFlag" title='Py_UnbufferedStdioFlag' data-ref="Py_UnbufferedStdioFlag">Py_UnbufferedStdioFlag</dfn>;</td></tr>
+<tr><th id="24">24</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_HashRandomizationFlag" title='Py_HashRandomizationFlag' data-ref="Py_HashRandomizationFlag">Py_HashRandomizationFlag</dfn>;</td></tr>
+<tr><th id="25">25</th><td><a class="macro" href="pyport.h.html#771" title="extern int" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<em>int</em>) <dfn class="decl" id="Py_IsolatedFlag" title='Py_IsolatedFlag' data-ref="Py_IsolatedFlag">Py_IsolatedFlag</dfn>;</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><i>/* this is a wrapper around getenv() that pays attention to</i></td></tr>
+<tr><th id="28">28</th><td><i>   Py_IgnoreEnvironmentFlag.  It should be used for getting variables like</i></td></tr>
+<tr><th id="29">29</th><td><i>   PYTHONPATH and PYTHONHOME from the environment */</i></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/Py_GETENV" data-ref="_M/Py_GETENV">Py_GETENV</dfn>(s) (Py_IgnoreEnvironmentFlag ? NULL : getenv(s))</u></td></tr>
+<tr><th id="31">31</th><td></td></tr>
+<tr><th id="32">32</th><td><u>#<span data-ppcond="32">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="33">33</th><td>}</td></tr>
+<tr><th id="34">34</th><td><u>#<span data-ppcond="32">endif</span></u></td></tr>
+<tr><th id="35">35</th><td><u>#<span data-ppcond="2">endif</span> /* !Py_PYDEBUG_H */</u></td></tr>
+<tr><th id="36">36</th><td><u>#<span data-ppcond="1">endif</span> /* Py_LIMITED_API */</u></td></tr>
+<tr><th id="37">37</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc.html'>tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc</a><br/>Generated on <em>2018-Aug-09</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

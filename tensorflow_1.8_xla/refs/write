@@ -1,0 +1,13 @@
+<dec f='include/unistd.h' l='369' type='ssize_t write(int __fd, const void * __buf, size_t __n)'/>
+<doc f='include/unistd.h' l='365'>/* Write N bytes of BUF to FD.  Return the number written, or -1.
+
+   This function is a cancellation point and therefore not marked with
+   __THROW.  */</doc>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_port.cc' l='201' u='c' c='_ZN4toco4port4file11SetContentsERKSsS3_RKNS1_7OptionsE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/subprocess.cc' l='436' u='c' c='_ZN10tensorflow10SubProcess11CommunicateEPKSsPSsS3_'/>
+<use f='tensorflow/tensorflow/core/platform/stacktrace_handler.cc' l='47' u='c' c='_ZN10tensorflow7testing19SafePrintStackTraceEv'/>
+<use f='tensorflow/tensorflow/core/platform/stacktrace_handler.cc' l='58' u='c' c='_ZN10tensorflow7testing19SafePrintStackTraceEv'/>
+<use f='tensorflow/tensorflow/core/platform/stacktrace_handler.cc' l='80' u='c' c='_ZN10tensorflow7testingL17StacktraceHandlerEiP9siginfo_tPv'/>
+<use f='tensorflow/tensorflow/core/platform/stacktrace_handler.cc' l='90' u='c' c='_ZN10tensorflow7testingL17StacktraceHandlerEiP9siginfo_tPv'/>
+<use f='tensorflow/tensorflow/core/platform/stacktrace_handler.cc' l='118' u='c' c='_ZN10tensorflow7testing24InstallStacktraceHandlerEv'/>
+<use f='tensorflow/tensorflow/core/platform/stacktrace_handler.cc' l='125' u='c' c='_ZN10tensorflow7testing24InstallStacktraceHandlerEv'/>

@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/public/session.h' l='187' type='tensorflow::Status tensorflow::Session::Close()'/>
+<use f='tensorflow/tensorflow/cc/saved_model/loader.h' l='39' u='c' c='_ZN10tensorflow16SavedModelBundleD1Ev'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='353' u='c' c='TF_CloseDeprecatedSession'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='2552' u='c' c='TF_CloseSession'/>
+<doc f='tensorflow/tensorflow/core/public/session.h' l='182'>/// \brief Closes this session.
+  ///
+  /// Closing a session releases the resources used by this session
+  /// on the TensorFlow runtime (specified during session creation by
+  /// the `SessionOptions::target` field).</doc>
+<ovr f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1506' c='_ZN10tensorflow13DirectSession5CloseEv'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='326' c='_ZN10tensorflow11GrpcSession5CloseEv'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/single_machine.cc' l='299' u='c' c='_ZN10tensorflow8grappler13SingleMachine12CloseSessionEb'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/single_machine.cc' l='303' u='c' c='_ZN10tensorflow8grappler13SingleMachine12CloseSessionEb'/>

@@ -1,0 +1,35 @@
+<dec f='tensorflow/tensorflow/core/public/session_options.h' l='55' type='string'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='303' u='w' c='TF_SetTarget'/>
+<offset>64</offset>
+<doc f='tensorflow/tensorflow/core/public/session_options.h' l='32'>/// \brief The TensorFlow runtime to connect to.
+  ///
+  /// If &apos;target&apos; is empty or unspecified, the local TensorFlow runtime
+  /// implementation will be used.  Otherwise, the TensorFlow engine
+  /// defined by &apos;target&apos; will be used to perform all computations.
+  ///
+  /// &quot;target&quot; can be either a single entry or a comma separated list
+  /// of entries. Each entry is a resolvable address of the
+  /// following format:
+  ///   local
+  ///   ip:port
+  ///   host:port
+  ///   ... other system-specific formats to identify tasks and jobs ...
+  ///
+  /// NOTE: at the moment &apos;local&apos; maps to an in-process service-based
+  /// runtime.
+  ///
+  /// Upon creation, a single session affines itself to one of the
+  /// remote processes, with possible load balancing choices when the
+  /// &quot;target&quot; resolves to a list of possible processes.
+  ///
+  /// If the session disconnects from the remote process during its
+  /// lifetime, session calls may fail immediately.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='142' u='m' c='_ZN10tensorflow20DirectSessionFactory14AcceptsOptionsERKNS_14SessionOptionsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/session_factory.cc' l='63' u='r' c='_ZN10tensorflow12_GLOBAL__N_122SessionOptionsToStringERKNS_14SessionOptionsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/session_factory.cc' l='76' u='r' c='_ZN10tensorflow14SessionFactory10GetFactoryERKNS_14SessionOptionsEPPS0_'/>
+<use f='tensorflow/tensorflow/core/common_runtime/session_factory.cc' l='80' u='r' c='_ZN10tensorflow14SessionFactory10GetFactoryERKNS_14SessionOptionsEPPS0_'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='51' u='r' c='_ZN10tensorflow11GrpcSession6CreateERKNS_14SessionOptionsEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='56' u='m' c='_ZN10tensorflow11GrpcSession6CreateERKNS_14SessionOptionsEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='114' u='r' c='_ZN10tensorflow11GrpcSession10CreateImplEPNS_11CallOptionsERKNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='388' u='m' c='_ZN10tensorflow11GrpcSession5ResetERKNS_14SessionOptionsERKSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='452' u='r' c='_ZN10tensorflow18GrpcSessionFactory14AcceptsOptionsERKNS_14SessionOptionsE'/>

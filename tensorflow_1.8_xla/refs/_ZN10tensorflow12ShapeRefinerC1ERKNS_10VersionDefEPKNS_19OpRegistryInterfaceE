@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='94' type='void tensorflow::ShapeRefiner::ShapeRefiner(const tensorflow::VersionDef &amp; versions, const tensorflow::OpRegistryInterface * ops)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/shape_refiner.h' l='93'>// Same as ShapeRefiner(versions.producer(), ops)</doc>
+<use f='tensorflow/tensorflow/cc/framework/scope.cc' l='65' u='c' c='_ZN10tensorflow5Scope12NewRootScopeEv'/>
+<use f='tensorflow/tensorflow/cc/framework/scope.cc' l='73' u='c' c='_ZN10tensorflow5Scope27DisabledShapeInferenceScopeEv'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2003' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator38GetShapeInfoForOutsideCompilationSendsEPNS_5GraphEPNS_25FunctionLibraryDefinitionE'/>
+<def f='tensorflow/tensorflow/core/common_runtime/shape_refiner.cc' l='48' ll='50' type='void tensorflow::ShapeRefiner::ShapeRefiner(const tensorflow::VersionDef &amp; versions, const tensorflow::OpRegistryInterface * ops)'/>
+<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='926' u='c' c='_ZN10tensorflow8grappler15GraphProperties15InferStaticallyEb'/>
+<use f='tensorflow/tensorflow/core/kernels/hexagon/graph_transferer.cc' l='90' u='c' c='_ZN10tensorflow15GraphTransferer18LoadGraphFromProtoERKNS_31IRemoteFusedGraphOpsDefinitionsERKNS_8GraphDefERKSt6vectorISt4pairISsNS_6TensorEESaISA_EERKS7_ISsSaISsEEb'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='587' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23BuildAndAddTensorShapesERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EEbPNS_8GraphDefE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='730' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils15ClusterizeNodesERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEERKNS_8GraphDefEPSt6vectorISt5tup10877082'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='835' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils23BuildClusterSubgraphDefERKSt5tupleIJSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEESt6vectorISsS716399687'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='889' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils20BuildClusterByBorderERKSt6vectorISsSaISsEES5_RKNS_8GraphDefEPSt5tupleIJSt13unordered_setISsSt4hashISsES5911363'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='961' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils11FuseClusterERKNS_8GraphDefERKSt6vectorISsSaISsEES8_RKSsRKSt5tupleIJSt13unordered_setISsSt4hashISsESt8eq13319887'/>
+<use f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='194' u='c' c='_ZN10tensorflow16graph_transforms13FoldConstantsERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>

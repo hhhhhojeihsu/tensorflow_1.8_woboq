@@ -1,0 +1,93 @@
+<def f='tensorflow/tensorflow/cc/framework/scope.h' l='95' ll='229'/>
+<size>8</size>
+<doc f='tensorflow/tensorflow/cc/framework/scope.h' l='36'>/// @addtogroup core
+/// @{
+
+/// A `Scope` object represents a set of related TensorFlow ops that have the
+/// same properties such as a common name prefix.
+///
+/// A Scope object is a container for TensorFlow Op properties. Op constructors
+/// get a Scope object as a mandatory first argument and the constructed op
+/// acquires the properties in the object.
+///
+/// A simple example:
+///
+///     using namespace ops;
+///     Scope root = Scope::NewRootScope();
+///     auto c1 = Const(root, { {1, 1} });
+///     auto m = MatMul(root, c1, { {41}, {1} });
+///     GraphDef gdef;
+///     Status s = root.ToGraphDef(&amp;gdef);
+///     if (!s.ok()) { ... }
+///
+/// Scope hierarchy:
+///
+/// The Scope class provides various With&lt;&gt; functions that create a new scope.
+/// The new scope typically has one property changed while other properties are
+/// inherited from the parent scope.
+/// NewSubScope(name) method appends `name` to the prefix of names for ops
+/// created within the scope, and WithOpName() changes the suffix which
+/// otherwise defaults to the type of the op.
+///
+/// Name examples:
+///
+///     Scope root = Scope::NewRootScope();
+///     Scope linear = root.NewSubScope(&quot;linear&quot;);
+///     // W will be named &quot;linear/W&quot;
+///     auto W = Variable(linear.WithOpName(&quot;W&quot;),
+///                       {2, 2}, DT_FLOAT);
+///     // b will be named &quot;linear/b&quot;
+///     auto b = Variable(linear.WithOpName(&quot;b&quot;),
+///                       {2}, DT_FLOAT);
+///     auto x = Const(linear, {...});  // name: &quot;linear/Const&quot;
+///     auto m = MatMul(linear, x, W);  // name: &quot;linear/MatMul&quot;
+///     auto r = BiasAdd(linear, m, b); // name: &quot;linear/BiasAdd&quot;
+///
+/// Scope lifetime:
+///
+/// A new scope is created by calling Scope::NewRootScope. This creates some
+/// resources that are shared by all the child scopes that inherit from this
+/// scope, directly or transitively. For instance, a new scope creates a new
+/// Graph object to which operations are added when the new scope or its
+/// children are used by an Op constructor. The new scope also has a Status
+/// object which will be used to indicate errors by Op-constructor functions
+/// called on any child scope. The Op-constructor functions have to check the
+/// scope&apos;s status by calling the ok() method before proceeding to construct the
+/// op.
+///
+/// Thread safety:
+///
+/// A `Scope` object is NOT thread-safe. Threads cannot concurrently call
+/// op-constructor functions on the same `Scope` object.</doc>
+<fun r='_ZN10tensorflow5ScopeC1ERKS0_'/>
+<fun r='_ZN10tensorflow5ScopeD1Ev'/>
+<fun r='_ZN10tensorflow5ScopeaSERKS0_'/>
+<fun r='_ZN10tensorflow5Scope12NewRootScopeEv'/>
+<fun r='_ZNK10tensorflow5Scope11NewSubScopeERKSs'/>
+<fun r='_ZNK10tensorflow5Scope10WithOpNameERKSs'/>
+<fun r='_ZNK10tensorflow5Scope23WithControlDependenciesERKNS_3gtl10ArraySliceINS_9OperationEEE'/>
+<fun r='_ZNK10tensorflow5Scope23WithControlDependenciesERKNS_6OutputE'/>
+<fun r='_ZNK10tensorflow5Scope25WithNoControlDependenciesEv'/>
+<fun r='_ZNK10tensorflow5Scope10WithDeviceERKSs'/>
+<fun r='_ZNK10tensorflow5Scope12ColocateWithERKNS_9OperationE'/>
+<fun r='_ZNK10tensorflow5Scope12ColocateWithERKNS_6OutputE'/>
+<fun r='_ZNK10tensorflow5Scope15ClearColocationEv'/>
+<fun r='_ZNK10tensorflow5Scope11ExitOnErrorEv'/>
+<fun r='_ZNK10tensorflow5Scope15WithKernelLabelERKSs'/>
+<fun r='_ZNK10tensorflow5Scope18GetUniqueNameForOpERKSs'/>
+<fun r='_ZNK10tensorflow5Scope12UpdateStatusENS_6StatusE'/>
+<fun r='_ZNK10tensorflow5Scope13UpdateBuilderEPNS_11NodeBuilderE'/>
+<fun r='_ZNK10tensorflow5Scope20GetCompositeOpScopesERKSs'/>
+<fun r='_ZNK10tensorflow5Scope2okEv'/>
+<fun r='_ZNK10tensorflow5Scope5graphEv'/>
+<fun r='_ZNK10tensorflow5Scope19graph_as_shared_ptrEv'/>
+<fun r='_ZNK10tensorflow5Scope6statusEv'/>
+<fun r='_ZNK10tensorflow5Scope10ToGraphDefEPNS_8GraphDefE'/>
+<fun r='_ZNK10tensorflow5Scope7ToGraphEPNS_5GraphE'/>
+<fun r='_ZNK10tensorflow5Scope16DoShapeInferenceEPNS_4NodeE'/>
+<fun r='_ZN10tensorflow5Scope27DisabledShapeInferenceScopeEv'/>
+<fun r='_ZNK10tensorflow5Scope12control_depsEv'/>
+<fun r='_ZN10tensorflow5Scope4implEv'/>
+<fun r='_ZNK10tensorflow5Scope4implEv'/>
+<mbr r='tensorflow::Scope::impl_' o='0' t='std::unique_ptr&lt;Impl&gt;'/>
+<fun r='_ZN10tensorflow5ScopeC1EPNS0_4ImplE'/>

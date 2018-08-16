@@ -1,0 +1,24 @@
+<def f='tensorflow/tensorflow/stream_executor/device_memory.h' l='71' type='uint64 perftools::gputools::DeviceMemoryBase::size() const'/>
+<use f='tensorflow/tensorflow/stream_executor/device_memory.h' l='84' u='c' c='_ZNK9perftools8gputools16DeviceMemoryBase8IsSameAsERKS1_'/>
+<use f='tensorflow/tensorflow/stream_executor/device_memory.h' l='84' u='c' c='_ZNK9perftools8gputools16DeviceMemoryBase8IsSameAsERKS1_'/>
+<use f='tensorflow/tensorflow/stream_executor/device_memory.h' l='120' u='c' c='_ZN9perftools8gputools12DeviceMemoryC1ERKNS0_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/stream_executor/device_memory.h' l='124' u='c' c='_ZNK9perftools8gputools12DeviceMemory12ElementCountEv'/>
+<use f='tensorflow/tensorflow/stream_executor/device_memory.h' l='171' u='c' c='_ZNK9perftools8gputools18SharedDeviceMemory12ElementCountEv'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='251' u='c' c='_ZN9perftools8gputools14StreamExecutor20SynchronousMemcpyH2DEN10tensorflow3gtl10ArraySliceIT_EEPNS0_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='251' u='c' c='_ZN9perftools8gputools14StreamExecutor20SynchronousMemcpyH2DEN10tensorflow3gtl10ArraySliceIT_EEPNS0_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.h' l='133' u='c' c='_ZN10tensorflow15XlaTensorBuffer10MakeTensorENS_8DataTypeERKNS_11TensorShapeEN9perftools8gputools16DeviceMemoryBaseEPNS_9AllocatorE'/>
+<doc f='tensorflow/tensorflow/stream_executor/device_memory.h' l='70'>// Returns the size, in bytes, for the backing memory.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='279' u='c' c='_ZN3xla3cpu13CpuExecutable24CreateResultShapedBufferEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIN9perftools8gputools16DeviceMemo12922924'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='496' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='118' u='c' c='_ZN3xla22GenericTransferManager23TransferLiteralToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shaped_buffer.cc' l='97' u='c' c='_ZNK3xla12ShapedBuffer8ToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='51' u='c' c='_ZN3xla15TransferManager21TransferArrayToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='55' u='c' c='_ZN3xla15TransferManager21TransferArrayToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='70' u='c' c='_ZN3xla15TransferManager23TransferArrayFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_5ShapeERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='74' u='c' c='_ZN3xla15TransferManager23TransferArrayFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_5ShapeERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='127' u='c' c='_ZN3xla15TransferManager21WriteTupleIndexTablesEPN9perftools8gputools14StreamExecutorERKNS_12ShapedBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='148' u='c' c='_ZN3xla15TransferManager24TransferBufferFromDeviceEPN9perftools8gputools14StreamExecutorERKNS2_16DeviceMemoryBaseExPv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='152' u='c' c='_ZN3xla15TransferManager24TransferBufferFromDeviceEPN9perftools8gputools14StreamExecutorERKNS2_16DeviceMemoryBaseExPv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='167' u='c' c='_ZN3xla15TransferManager22TransferBufferToDeviceEPN9perftools8gputools14StreamExecutorExPKvPNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='171' u='c' c='_ZN3xla15TransferManager22TransferBufferToDeviceEPN9perftools8gputools14StreamExecutorExPKvPNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='226' u='c' c='_ZN9perftools8gputools14StreamExecutor10DeallocateEPNS0_16DeviceMemoryBaseE'/>

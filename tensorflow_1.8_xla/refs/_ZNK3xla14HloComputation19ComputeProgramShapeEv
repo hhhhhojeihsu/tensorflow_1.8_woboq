@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='244' type='xla::ProgramShape xla::HloComputation::ComputeProgramShape() const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='242'>// Computes and returns the ProgramShape of this computation (shape of
+  // parameters and result with layout).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='370' u='c' c='_ZNK3xla14HloComputation8ToStringERKNS_15HloPrintOptionsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='399' u='c' c='_ZNK3xla14HloComputation7ToProtoEv'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='522' ll='532' type='xla::ProgramShape xla::HloComputation::ComputeProgramShape() const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1544' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1757' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='63' u='c' c='_ZN3xla9HloModule22AddComputationInternalESt10unique_ptrINS_14HloComputationESt14default_deleteIS2_EEbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='162' u='c' c='_ZN3xla13ShapeVerifier12HandleReduceEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='229' u='c' c='_ZN3xla13ShapeVerifier10HandleCallEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='277' u='c' c='_ZN3xla13ShapeVerifier9HandleMapEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='286' u='c' c='_ZN3xla13ShapeVerifier18HandleReduceWindowEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='294' u='c' c='_ZN3xla13ShapeVerifier22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='296' u='c' c='_ZN3xla13ShapeVerifier22HandleSelectAndScatterEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='303' u='c' c='_ZN3xla13ShapeVerifier11HandleWhileEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='309' u='c' c='_ZN3xla13ShapeVerifier17HandleConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='312' u='c' c='_ZN3xla13ShapeVerifier17HandleConditionalEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1580' u='c' c='_ZN3xla16LayoutAssignment3RunEPNS_9HloModuleE'/>

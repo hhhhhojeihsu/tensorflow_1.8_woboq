@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='458' type='bool perftools::gputools::blas::BlasSupport::DoBlasGemv(perftools::gputools::Stream * stream, blas::Transpose trans, uint64 m, uint64 n, float alpha, const DeviceMemory&lt;float&gt; &amp; a, int lda, const DeviceMemory&lt;float&gt; &amp; x, int incx, float beta, DeviceMemory&lt;float&gt; * y, int incy)'/>
+<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='447'>// Computes a matrix-vector product using a general matrix.
+  //
+  //     y &lt;- alpha * a * x + beta * y,
+  // or
+  //     y &lt;- alpha * a&apos; * x + beta * y,
+  // or
+  //     y &lt;- alpha * conj(a&apos;) * x + beta * y,
+  //
+  // alpha and beta are scalars; a is an m-by-n general matrix; x is a vector
+  // with n(trans==kNoTranspose)/m(otherwise) elements;
+  // y is a vector with m(trans==kNoTranspose)/n(otherwise) elements.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='2681' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasGemvENS0_4blas9TransposeEyyfRKNS0_12DeviceMemoryIfEEiS7_ifPS5_i'/>

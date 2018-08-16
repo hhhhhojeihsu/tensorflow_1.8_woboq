@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.h' l='76' type='void tensorflow::StepStatsCollector::BuildCostModel(tensorflow::CostModelManager * cost_model_manager, const std::unordered_map&lt;string, const Graph *&gt; &amp; device_map)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='598' u='c' c='_ZN10tensorflow13DirectSession11RunInternalExRKNS_10RunOptionsEPNS_18CallFrameInterfaceEPNS0_16ExecutorsAndKeysEPNS_11RunMetadataE'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.h' l='73'>// BuildCostModel builds or updates a CostModel managed by cost_model_manager,
+  // using the currently collected DeviceStats associated with the devices in
+  // device_map.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='134' ll='257' type='void tensorflow::StepStatsCollector::BuildCostModel(tensorflow::CostModelManager * cost_model_manager, const std::unordered_map&lt;string, const Graph *&gt; &amp; device_map)'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='511' u='c' c='_ZN10tensorflow8GraphMgr14BuildCostModelEPNS0_4ItemEPNS_18StepStatsCollectorEPNS_12CostGraphDefE'/>

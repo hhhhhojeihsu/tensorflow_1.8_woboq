@@ -1,0 +1,11 @@
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='193' c='_ZN10tensorflow6tfprof8ExecStep7ToProtoEv'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='236' u='m' c='_ZN10tensorflow6tfprof8ExecStep9FromProtoERKNS0_11ExecProfileE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='244' u='m' c='_ZN10tensorflow6tfprof8ExecStep9FromProtoERKNS0_11ExecProfileE'/>
+<dec f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='273' type='std::map&lt;string, std::vector&lt;std::pair&lt;int64, int64&gt; &gt; &gt;'/>
+<offset>2112</offset>
+<doc f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='269'>// device -&gt; vector of {op_start_micros, op_exec_micros} pairs.
+  // accelerator_execs: gpu:id/stream:all -&gt; {op_start_micros, op_exec_micros}
+  // For accelerator, vector size can be larger than 1, multiple kernel fires
+  // or in tf.while_loop.</doc>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.cc' l='69' u='m' c='_ZN10tensorflow6tfprof8ExecStep12AddTimeStatsERKSsRKNS_13NodeExecStatsE'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.cc' l='243' c='_ZNK10tensorflow6tfprof8ExecStep23accelerator_exec_microsEv'/>

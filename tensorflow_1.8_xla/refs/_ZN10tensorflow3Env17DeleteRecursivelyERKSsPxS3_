@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/platform/env.h' l='179' type='tensorflow::Status tensorflow::Env::DeleteRecursively(const string &amp; dirname, int64 * undeleted_files, int64 * undeleted_dirs)'/>
+<doc f='tensorflow/tensorflow/core/platform/env.h' l='168'>/// \brief Deletes the specified directory and all subdirectories and files
+  /// underneath it. undeleted_files and undeleted_dirs stores the number of
+  /// files and directories that weren&apos;t deleted (unspecified if the return
+  /// status is not OK).
+  /// REQUIRES: undeleted_files, undeleted_dirs to be not null.
+  /// Typical return codes
+  ///  * OK - dirname exists and we were able to delete everything underneath.
+  ///  * NOT_FOUND - dirname doesn&apos;t exist
+  ///  * PERMISSION_DENIED - dirname or some descendant is not writable
+  ///  * UNIMPLEMENTED - Some underlying functions (like Delete) are not
+  ///                    implemented</doc>
+<def f='tensorflow/tensorflow/core/platform/env.cc' l='258' ll='263' type='tensorflow::Status tensorflow::Env::DeleteRecursively(const string &amp; dirname, int64 * undeleted_files, int64 * undeleted_dirs)'/>

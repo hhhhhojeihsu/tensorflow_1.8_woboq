@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/platform/env.h' l='193' type='tensorflow::Status tensorflow::Env::CreateDir(const string &amp; dirname)'/>
+<doc f='tensorflow/tensorflow/core/platform/env.h' l='189'>/// \brief Creates the specified directory. Typical return codes
+  ///  * OK - successfully created the directory.
+  ///  * ALREADY_EXISTS - directory already exists.
+  ///  * PERMISSION_DENIED - dirname is not writable.</doc>
+<use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='662' u='c' c='_ZN10tensorflow11DebugFileIO18RecursiveCreateDirEPNS_3EnvERKSs'/>
+<def f='tensorflow/tensorflow/core/platform/env.cc' l='234' ll='238' type='tensorflow::Status tensorflow::Env::CreateDir(const string &amp; dirname)'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='380' u='c' c='_ZN10tensorflow12BundleWriterC1EPNS_3EnvENS_11StringPieceERKNS0_7OptionsE'/>
+<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='652' u='c' c='_ZN10tensorflow12MergeBundlesEPNS_3EnvENS_3gtl10ArraySliceISsEENS_11StringPieceE'/>

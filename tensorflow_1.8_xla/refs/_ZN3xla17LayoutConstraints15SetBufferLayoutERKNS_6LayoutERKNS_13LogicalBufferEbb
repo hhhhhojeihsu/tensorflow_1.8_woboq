@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='167' type='tensorflow::Status xla::LayoutConstraints::SetBufferLayout(const xla::Layout &amp; layout, const xla::LogicalBuffer &amp; buffer, bool mandatory = true, bool dfs = true)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='164'>// Add a constraint on the layout of a LogicalBuffer, the layout of the
+  // operand of the instruction, or the layout of the result of the computation,
+  // respectively.</doc>
+<def f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='229' ll='282' type='tensorflow::Status xla::LayoutConstraints::SetBufferLayout(const xla::Layout &amp; layout, const xla::LogicalBuffer &amp; buffer, bool mandatory = true, bool dfs = true)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='401' u='c' c='_ZN3xla17LayoutConstraints20SetInstructionLayoutERKNS_5ShapeEPKNS_14HloInstructionEbb'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='535' u='c' c='_ZN3xla16LayoutAssignment23AddMandatoryConstraintsERKNS_17ComputationLayoutEPKNS_24ChannelLayoutConstraintsEPNS_14HloComputationEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1152' u='c' c='_ZN3xla16LayoutAssignment28PropagateUseConstraintToDefsERKNS_11ShapeLayoutEPKNS_14HloInstructionEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1198' u='c' c='_ZN3xla16LayoutAssignment26PropagateOperandConstraintERKNS_23OperandLayoutConstraintEPNS_17LayoutConstraintsE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1506' u='c' c='_ZN3xla16LayoutAssignment16RunOnComputationERKNS_17ComputationLayoutERKNS_21TuplePointsToAnalysisEPNS_14HloComputationEPNS_24ChannelLayoutConstraintsE'/>

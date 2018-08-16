@@ -1,0 +1,36 @@
+<inh f='tensorflow/tensorflow/core/lib/core/refcount.h' l='25' c='tensorflow::core::RefCounted'/>
+<def f='tensorflow/tensorflow/core/framework/rendezvous.h' l='46' ll='125'/>
+<size>16</size>
+<doc f='tensorflow/tensorflow/core/framework/rendezvous.h' l='30'>// A Rendezvous is an abstraction for passing tensors from producers
+// to consumers. A rendezvous is a table of channels. Each channel is
+// keyed by a rendezvous key. The key encodes a pair of &lt;producer,
+// consumer&gt;, where the producer and the consumer are tensorflow
+// devices.
+//
+// The producer calls the Send() method to send one tensor over one
+// named channel. The consumer calls the Recv() method to receive one
+// tensor from a named channel. A sequence of tensors can be passed
+// from the producer to the consumer.  The consumer receives them in
+// the order as the producer sends them.
+//
+// A consumer may safely request the tensor before or after it has
+// been produced.  A consumer has the choice of making a blocking call
+// or providing a callback: in either case, the consumer receives the
+// Tensor as soon as it is available.  A producer never blocks.</doc>
+<fun r='_ZN10tensorflow10Rendezvous9CreateKeyERKSsyS2_S2_RKNS_12FrameAndIterE'/>
+<fun r='_ZN10tensorflow10Rendezvous8ParseKeyENS_11StringPieceEPNS0_9ParsedKeyE'/>
+<fun r='_ZN10tensorflow10Rendezvous4SendERKNS0_9ParsedKeyERKNS0_4ArgsERKNS_6TensorEb'/>
+<fun r='_ZN10tensorflow10Rendezvous9RecvAsyncERKNS0_9ParsedKeyERKNS0_4ArgsESt8functionIFvRKNS_6StatusES6_S6_RKNS_6TensorEbEE'/>
+<fun r='_ZN10tensorflow10Rendezvous4RecvERKNS0_9ParsedKeyERKNS0_4ArgsEPNS_6TensorEPbx'/>
+<fun r='_ZN10tensorflow10Rendezvous4RecvERKNS0_9ParsedKeyERKNS0_4ArgsEPNS_6TensorEPb'/>
+<fun r='_ZN10tensorflow10Rendezvous10StartAbortERKNS_6StatusE'/>
+<fun r='_ZN10tensorflow10RendezvousD1Ev'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.h' l='40' c='tensorflow::IntraProcessRendezvous'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='48' c='tensorflow::(anonymousnamespace)::SimpleRendezvous'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rendezvous_mgr_interface.h' l='39' c='tensorflow::RemoteRendezvous'/>
+<ovr f='tensorflow/tensorflow/core/framework/rendezvous.cc' l='149' c='tensorflow::LocalRendezvousImpl'/>
+<fun r='_ZN10tensorflow10Rendezvous9CreateKeyERKSsyS2_S2_RKNS_12FrameAndIterE'/>
+<fun r='_ZN10tensorflow10Rendezvous8ParseKeyENS_11StringPieceEPNS0_9ParsedKeyE'/>
+<fun r='_ZN10tensorflow10RendezvousD1Ev'/>
+<fun r='_ZN10tensorflow10Rendezvous4RecvERKNS0_9ParsedKeyERKNS0_4ArgsEPNS_6TensorEPbx'/>
+<fun r='_ZN10tensorflow10Rendezvous4RecvERKNS0_9ParsedKeyERKNS0_4ArgsEPNS_6TensorEPb'/>

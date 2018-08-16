@@ -1,0 +1,17 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/lstm_utils.h' l='82' type='void toco::CopyArrayData(const Buffer&lt;ArrayDataType::kFloat&gt; &amp; src_buffer, int src_stride, int src_start_idx1, int src_start_idx2, Buffer&lt;ArrayDataType::kFloat&gt; * dst_buffer, int dst_stride, int dst_start_idx1, int dst_start_idx2, int dim1_copy_size, int dim2_copy_size)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/lstm_utils.h' l='69'>// Copy data from one array to the other one (supports 1D and 2D array),
+// for 1D array, the 2nd dim&apos;s size is 1.
+// Arguments:
+//   src_buffer: the source buffer
+//   src_stride: the stride of source buffer, i.e., 2nd dim&apos;s size
+//   src_start_idx1: the 1st dim index of start point in src matrix
+//   src_start_idx2: the 2nd dim index of start point in src matrix
+//   dst_buffer: the destination buffer
+//   dst_stride: the stride of destination buffer, i.e., 2nd dim&apos;s size
+//   dst_start_idx1: the 1st dim index of start point in dst matrix
+//   dst_start_idx2: the 2nd dim index of start point in dst matrix
+//   dim1_copy_size: 1st dim size of copy data
+//   dim2_copy_size: 2nd dim size of copy data</doc>
+<def f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/lstm_utils.cc' l='25' ll='39' type='void toco::CopyArrayData(const Buffer&lt;ArrayDataType::kFloat&gt; &amp; src_buffer, int src_stride, int src_start_idx1, int src_start_idx2, Buffer&lt;ArrayDataType::kFloat&gt; * dst_buffer, int dst_stride, int dst_start_idx1, int dst_start_idx2, int dim1_copy_size, int dim2_copy_size)'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/lstm_utils.cc' l='66' u='c' c='_ZN4toco19CopySubArrayToArrayEPNS_5ModelEPSsRKSsiiRKNS_5ArrayEii'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/lstm_utils.cc' l='81' u='c' c='_ZN4toco19CopyArrayToSubArrayERNS_6BufferILNS_13ArrayDataTypeE2EEEiRKNS_5ArrayEii'/>

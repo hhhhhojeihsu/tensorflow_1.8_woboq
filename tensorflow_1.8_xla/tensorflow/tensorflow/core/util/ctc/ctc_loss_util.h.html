@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ctc_loss_util.h source code [tensorflow/tensorflow/core/util/ctc/ctc_loss_util.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/util/ctc/ctc_loss_util.h'; var root_path = '../../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../../..'>tensorflow</a>/<a href='../../..'>tensorflow</a>/<a href='../..'>core</a>/<a href='..'>util</a>/<a href='./'>ctc</a>/<a href='ctc_loss_util.h.html'>ctc_loss_util.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2016 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td></td></tr>
+<tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CORE_UTIL_CTC_CTC_LOSS_UTIL_H_">TENSORFLOW_CORE_UTIL_CTC_CTC_LOSS_UTIL_H_</span></u></td></tr>
+<tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CORE_UTIL_CTC_CTC_LOSS_UTIL_H_" data-ref="_M/TENSORFLOW_CORE_UTIL_CTC_CTC_LOSS_UTIL_H_">TENSORFLOW_CORE_UTIL_CTC_CTC_LOSS_UTIL_H_</dfn></u></td></tr>
+<tr><th id="18">18</th><td></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../../../../include/c++/5/cmath.html">&lt;cmath&gt;</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../../include/c++/5/limits.html">&lt;limits&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">ctc</span> {</td></tr>
+<tr><th id="24">24</th><td></td></tr>
+<tr><th id="25">25</th><td><em>const</em> <em>float</em> <dfn class="decl def" id="tensorflow::ctc::kLogZero" title='tensorflow::ctc::kLogZero' data-ref="tensorflow::ctc::kLogZero">kLogZero</dfn> = -<span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/limits.html#std::numeric_limits" title='std::numeric_limits' data-ref="std::numeric_limits">numeric_limits</a>&lt;<em>float</em>&gt;::<a class="ref" href="../../../../../include/c++/5/limits.html#_ZNSt14numeric_limitsIfE8infinityEv" title='std::numeric_limits&lt;float&gt;::infinity' data-ref="_ZNSt14numeric_limitsIfE8infinityEv">infinity</a>();</td></tr>
+<tr><th id="26">26</th><td></td></tr>
+<tr><th id="27">27</th><td><i>// Add logarithmic probabilities using:</i></td></tr>
+<tr><th id="28">28</th><td><i>// ln(a + b) = ln(a) + ln(1 + exp(ln(b) - ln(a)))</i></td></tr>
+<tr><th id="29">29</th><td><i>// The two inputs are assumed to be log probabilities.</i></td></tr>
+<tr><th id="30">30</th><td><i>// (GravesTh) Eq. 7.18</i></td></tr>
+<tr><th id="31">31</th><td><b>inline</b> <em>float</em> <dfn class="decl def" id="_ZN10tensorflow3ctc9LogSumExpEff" title='tensorflow::ctc::LogSumExp' data-ref="_ZN10tensorflow3ctc9LogSumExpEff">LogSumExp</dfn>(<em>float</em> <dfn class="local col1 decl" id="1log_prob_1" title='log_prob_1' data-type='float' data-ref="1log_prob_1">log_prob_1</dfn>, <em>float</em> <dfn class="local col2 decl" id="2log_prob_2" title='log_prob_2' data-type='float' data-ref="2log_prob_2">log_prob_2</dfn>) {</td></tr>
+<tr><th id="32">32</th><td>  <i>// Always have 'b' be the smaller number to avoid the exponential from</i></td></tr>
+<tr><th id="33">33</th><td><i>  // blowing up.</i></td></tr>
+<tr><th id="34">34</th><td>  <b>if</b> (<a class="local col1 ref" href="#1log_prob_1" title='log_prob_1' data-ref="1log_prob_1">log_prob_1</a> == <a class="ref" href="#tensorflow::ctc::kLogZero" title='tensorflow::ctc::kLogZero' data-ref="tensorflow::ctc::kLogZero">kLogZero</a> &amp;&amp; <a class="local col2 ref" href="#2log_prob_2" title='log_prob_2' data-ref="2log_prob_2">log_prob_2</a> == <a class="ref" href="#tensorflow::ctc::kLogZero" title='tensorflow::ctc::kLogZero' data-ref="tensorflow::ctc::kLogZero">kLogZero</a>) {</td></tr>
+<tr><th id="35">35</th><td>    <b>return</b> <a class="ref" href="#tensorflow::ctc::kLogZero" title='tensorflow::ctc::kLogZero' data-ref="tensorflow::ctc::kLogZero">kLogZero</a>;</td></tr>
+<tr><th id="36">36</th><td>  } <b>else</b> {</td></tr>
+<tr><th id="37">37</th><td>    <b>return</b> (<a class="local col1 ref" href="#1log_prob_1" title='log_prob_1' data-ref="1log_prob_1">log_prob_1</a> &gt; <a class="local col2 ref" href="#2log_prob_2" title='log_prob_2' data-ref="2log_prob_2">log_prob_2</a>)</td></tr>
+<tr><th id="38">38</th><td>               ? <a class="local col1 ref" href="#1log_prob_1" title='log_prob_1' data-ref="1log_prob_1">log_prob_1</a> + <a class="ref" href="../../../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#131" title='log1pf' data-ref="log1pf">log1pf</a>(<a class="ref" href="../../../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#100" title='expf' data-ref="expf">expf</a>(<a class="local col2 ref" href="#2log_prob_2" title='log_prob_2' data-ref="2log_prob_2">log_prob_2</a> - <a class="local col1 ref" href="#1log_prob_1" title='log_prob_1' data-ref="1log_prob_1">log_prob_1</a>))</td></tr>
+<tr><th id="39">39</th><td>               : <a class="local col2 ref" href="#2log_prob_2" title='log_prob_2' data-ref="2log_prob_2">log_prob_2</a> + <a class="ref" href="../../../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#131" title='log1pf' data-ref="log1pf">log1pf</a>(<a class="ref" href="../../../../../include/x86_64-linux-gnu/bits/mathcalls.h.html#100" title='expf' data-ref="expf">expf</a>(<a class="local col1 ref" href="#1log_prob_1" title='log_prob_1' data-ref="1log_prob_1">log_prob_1</a> - <a class="local col2 ref" href="#2log_prob_2" title='log_prob_2' data-ref="2log_prob_2">log_prob_2</a>));</td></tr>
+<tr><th id="40">40</th><td>  }</td></tr>
+<tr><th id="41">41</th><td>}</td></tr>
+<tr><th id="42">42</th><td></td></tr>
+<tr><th id="43">43</th><td>}  <i>// namespace ctc</i></td></tr>
+<tr><th id="44">44</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CORE_UTIL_CTC_CTC_LOSS_UTIL_H_</u></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../kernels/ctc_decoder_ops.cc.html'>tensorflow/tensorflow/core/kernels/ctc_decoder_ops.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

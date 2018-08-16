@@ -1,0 +1,19 @@
+<dec f='tensorflow/tensorflow/stream_executor/stream.h' l='1712' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenSetRngSeed(const uint8 * seed, uint64 seed_bytes)'/>
+<doc f='tensorflow/tensorflow/stream_executor/stream.h' l='1695'>// Makes the RNG use the provided value as the basis for further generation.
+  // /dev/urandom (good) and /dev/random (better, but sometimes slow) are good
+  // sources of seed data if the default (high quality) sources are not
+  // desired.
+  // For most use cases, this function will not be necessary; each provided
+  // back-end implementation will be appropriately seeded by default.
+  // At a minimum 16 bytes of data are required in the seed buffer.
+  //
+  // To seed with good (non-reproducible) data:
+  //   File* f = File::Open(&quot;/dev/random&quot;, &quot;r&quot;);
+  //   int64 bytes_read = f-&gt;Read(seed_data, bytes_to_read);
+  //   &lt; error checking &gt;
+  //   stream.ThenSetRngSeed(seed_data, bytes_read);
+  //
+  // To seed with reproducible data:
+  //   uint64_t seed_data[2] = { &lt;data&gt; };
+  //   stream.ThenSetRngSeed(seed_data, 16);</doc>
+<def f='tensorflow/tensorflow/stream_executor/stream.cc' l='4604' ll='4620' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenSetRngSeed(const uint8 * seed, uint64 seed_bytes)'/>

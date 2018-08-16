@@ -1,0 +1,18 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1152' type='std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::Clone(const string &amp; suffix = &quot;clone&quot;, xla::HloModule * module = nullptr) const'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1145'>// Clones the HLO instruction. The clone will have the same opcode, shape, and
+  // operands. After creation the clone has no uses. &quot;this&quot; (the instruction
+  // cloned from) is not changed. Suffix is the string to append to the name of
+  // the instruction to form the name of the cloned instruction.
+  // If the module pointer is not nullptr, it will be the module where
+  // the cloned computations will be added to (in order to support deep
+  // cloning).</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2316' u='c' c='_ZN3xla12HloEvaluator25EvaluateWithSubstitutionsEPKNS_14HloInstructionERKSt13unordered_mapIS3_PKNS_7LiteralESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S7_EEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='847' u='c' c='_ZN3xla14HloInstruction22MergeFusionInstructionEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='906' u='c' c='_ZN3xla14HloInstruction37MergeFusionInstructionIntoMultiOutputEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='963' u='c' c='_ZN3xla14HloInstruction20CloneAndFuseInternalEPS0_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='969' u='c' c='_ZN3xla14HloInstruction20CloneAndFuseInternalEPS0_b'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1476' ll='1514' type='std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::Clone(const string &amp; suffix = &quot;clone&quot;, xla::HloModule * module = nullptr) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1536' u='c' c='_ZNK3xla14HloInstruction26CloneFusionWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_module.cc' l='354' u='c' c='_ZN3xla9HloModule32OutlineExpressionFromComputationEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEERKSsPNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/inliner.cc' l='96' u='c' c='_ZN3xla14InlinerVisitor9HandleMapEPNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='666' u='c' c='_ZN3xlaL20TryPropagateConstantEPNS_14HloInstructionE'/>

@@ -1,0 +1,8 @@
+<use f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='100' u='c' c='_ZN10tensorflow17PresizedCuckooMap12InsertUniqueEyRKT_'/>
+<use f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='130' u='c' c='_ZNK10tensorflow17PresizedCuckooMap4FindEyPT_'/>
+<def f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='227' ll='229' type='uint64 tensorflow::PresizedCuckooMap::key_transform(const key_type k) const'/>
+<doc f='tensorflow/tensorflow/core/util/presized_cuckoo_map.h' l='222'>// Callers are expected to have pre-hashed the keys into a uint64
+  // and are expected to be able to handle (a very low rate) of
+  // collisions, OR must ensure that their keys are always in
+  // the range 0 - (uint64max - 1).  This transforms &apos;not found flag&apos;
+  // keys into something else.</doc>

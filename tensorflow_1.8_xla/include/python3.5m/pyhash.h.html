@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>pyhash.h source code [include/python3.5m/pyhash.h] - Woboq Code Browser</title>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'include/python3.5m/pyhash.h'; var root_path = '../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='..'>include</a>/<a href='./'>python3.5m</a>/<a href='pyhash.h.html'>pyhash.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><u>#<span data-ppcond="1">ifndef</span> <span class="macro" data-ref="_M/Py_HASH_H">Py_HASH_H</span></u></td></tr>
+<tr><th id="2">2</th><td></td></tr>
+<tr><th id="3">3</th><td><u>#define <dfn class="macro" id="_M/Py_HASH_H" data-ref="_M/Py_HASH_H">Py_HASH_H</dfn></u></td></tr>
+<tr><th id="4">4</th><td><u>#<span data-ppcond="4">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="5">5</th><td><b>extern</b> <q>"C"</q> {</td></tr>
+<tr><th id="6">6</th><td><u>#<span data-ppcond="4">endif</span></u></td></tr>
+<tr><th id="7">7</th><td></td></tr>
+<tr><th id="8">8</th><td><i>/* Helpers for hash functions */</i></td></tr>
+<tr><th id="9">9</th><td><u>#<span data-ppcond="9">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="10">10</th><td><a class="macro" href="pyport.h.html#768" title="Py_hash_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="pyport.h.html#Py_hash_t" title='Py_hash_t' data-type='Py_ssize_t' data-ref="Py_hash_t">Py_hash_t</a>) <dfn class="decl" id="_Py_HashDouble" title='_Py_HashDouble' data-ref="_Py_HashDouble">_Py_HashDouble</dfn>(<em>double</em>);</td></tr>
+<tr><th id="11">11</th><td><a class="macro" href="pyport.h.html#768" title="Py_hash_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="pyport.h.html#Py_hash_t" title='Py_hash_t' data-type='Py_ssize_t' data-ref="Py_hash_t">Py_hash_t</a>) <dfn class="decl" id="_Py_HashPointer" title='_Py_HashPointer' data-ref="_Py_HashPointer">_Py_HashPointer</dfn>(<em>void</em>*);</td></tr>
+<tr><th id="12">12</th><td><a class="macro" href="pyport.h.html#768" title="Py_hash_t" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="pyport.h.html#Py_hash_t" title='Py_hash_t' data-type='Py_ssize_t' data-ref="Py_hash_t">Py_hash_t</a>) <dfn class="decl" id="_Py_HashBytes" title='_Py_HashBytes' data-ref="_Py_HashBytes">_Py_HashBytes</dfn>(<em>const</em> <em>void</em>*, <a class="typedef" href="pyport.h.html#Py_ssize_t" title='Py_ssize_t' data-type='ssize_t' data-ref="Py_ssize_t">Py_ssize_t</a>);</td></tr>
+<tr><th id="13">13</th><td><u>#<span data-ppcond="9">endif</span></u></td></tr>
+<tr><th id="14">14</th><td></td></tr>
+<tr><th id="15">15</th><td><i>/* Prime multiplier used in string and various other hashes. */</i></td></tr>
+<tr><th id="16">16</th><td><u>#define <dfn class="macro" id="_M/_PyHASH_MULTIPLIER" data-ref="_M/_PyHASH_MULTIPLIER">_PyHASH_MULTIPLIER</dfn> 1000003UL  /* 0xf4243 */</u></td></tr>
+<tr><th id="17">17</th><td></td></tr>
+<tr><th id="18">18</th><td><i>/* Parameters used for the numeric hash implementation.  See notes for</i></td></tr>
+<tr><th id="19">19</th><td><i>   _Py_HashDouble in Objects/object.c.  Numeric hashes are based on</i></td></tr>
+<tr><th id="20">20</th><td><i>   reduction modulo the prime 2**_PyHASH_BITS - 1. */</i></td></tr>
+<tr><th id="21">21</th><td></td></tr>
+<tr><th id="22">22</th><td><u>#<span data-ppcond="22">if</span> <a class="macro" href="../x86_64-linux-gnu/python3.5m/pyconfig.h.html#1297" title="8" data-ref="_M/SIZEOF_VOID_P">SIZEOF_VOID_P</a> &gt;= 8</u></td></tr>
+<tr><th id="23">23</th><td><u>#  define <dfn class="macro" id="_M/_PyHASH_BITS" data-ref="_M/_PyHASH_BITS">_PyHASH_BITS</dfn> 61</u></td></tr>
+<tr><th id="24">24</th><td><u>#<span data-ppcond="22">else</span></u></td></tr>
+<tr><th id="25">25</th><td><u>#  define _PyHASH_BITS 31</u></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="22">endif</span></u></td></tr>
+<tr><th id="27">27</th><td></td></tr>
+<tr><th id="28">28</th><td><u>#define <dfn class="macro" id="_M/_PyHASH_MODULUS" data-ref="_M/_PyHASH_MODULUS">_PyHASH_MODULUS</dfn> (((size_t)1 &lt;&lt; _PyHASH_BITS) - 1)</u></td></tr>
+<tr><th id="29">29</th><td><u>#define <dfn class="macro" id="_M/_PyHASH_INF" data-ref="_M/_PyHASH_INF">_PyHASH_INF</dfn> 314159</u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/_PyHASH_NAN" data-ref="_M/_PyHASH_NAN">_PyHASH_NAN</dfn> 0</u></td></tr>
+<tr><th id="31">31</th><td><u>#define <dfn class="macro" id="_M/_PyHASH_IMAG" data-ref="_M/_PyHASH_IMAG">_PyHASH_IMAG</dfn> _PyHASH_MULTIPLIER</u></td></tr>
+<tr><th id="32">32</th><td></td></tr>
+<tr><th id="33">33</th><td></td></tr>
+<tr><th id="34">34</th><td><i>/* hash secret</i></td></tr>
+<tr><th id="35">35</th><td><i> *</i></td></tr>
+<tr><th id="36">36</th><td><i> * memory layout on 64 bit systems</i></td></tr>
+<tr><th id="37">37</th><td><i> *   cccccccc cccccccc cccccccc  uc -- unsigned char[24]</i></td></tr>
+<tr><th id="38">38</th><td><i> *   pppppppp ssssssss ........  fnv -- two Py_hash_t</i></td></tr>
+<tr><th id="39">39</th><td><i> *   k0k0k0k0 k1k1k1k1 ........  siphash -- two PY_UINT64_T</i></td></tr>
+<tr><th id="40">40</th><td><i> *   ........ ........ ssssssss  djbx33a -- 16 bytes padding + one Py_hash_t</i></td></tr>
+<tr><th id="41">41</th><td><i> *   ........ ........ eeeeeeee  pyexpat XML hash salt</i></td></tr>
+<tr><th id="42">42</th><td><i> *</i></td></tr>
+<tr><th id="43">43</th><td><i> * memory layout on 32 bit systems</i></td></tr>
+<tr><th id="44">44</th><td><i> *   cccccccc cccccccc cccccccc  uc</i></td></tr>
+<tr><th id="45">45</th><td><i> *   ppppssss ........ ........  fnv -- two Py_hash_t</i></td></tr>
+<tr><th id="46">46</th><td><i> *   k0k0k0k0 k1k1k1k1 ........  siphash -- two PY_UINT64_T (*)</i></td></tr>
+<tr><th id="47">47</th><td><i> *   ........ ........ ssss....  djbx33a -- 16 bytes padding + one Py_hash_t</i></td></tr>
+<tr><th id="48">48</th><td><i> *   ........ ........ eeee....  pyexpat XML hash salt</i></td></tr>
+<tr><th id="49">49</th><td><i> *</i></td></tr>
+<tr><th id="50">50</th><td><i> * (*) The siphash member may not be available on 32 bit platforms without</i></td></tr>
+<tr><th id="51">51</th><td><i> *     an unsigned int64 data type.</i></td></tr>
+<tr><th id="52">52</th><td><i> */</i></td></tr>
+<tr><th id="53">53</th><td><u>#<span data-ppcond="53">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="54">54</th><td><b>typedef</b> <b>union</b> {</td></tr>
+<tr><th id="55">55</th><td>    <i>/* ensure 24 bytes */</i></td></tr>
+<tr><th id="56">56</th><td>    <em>unsigned</em> <em>char</em> <dfn class="decl" id="(anonymous)::uc" title='(anonymous union)::uc' data-ref="(anonymous)::uc">uc</dfn>[<var>24</var>];</td></tr>
+<tr><th id="57">57</th><td>    <i>/* two Py_hash_t for FNV */</i></td></tr>
+<tr><th id="58">58</th><td>    <b>struct</b> {</td></tr>
+<tr><th id="59">59</th><td>        <a class="typedef" href="pyport.h.html#Py_hash_t" title='Py_hash_t' data-type='Py_ssize_t' data-ref="Py_hash_t">Py_hash_t</a> <dfn class="decl" id="(anonymousunion)::(anonymous)::prefix" title='(anonymous union)::(anonymous struct)::prefix' data-ref="(anonymousunion)::(anonymous)::prefix">prefix</dfn>;</td></tr>
+<tr><th id="60">60</th><td>        <a class="typedef" href="pyport.h.html#Py_hash_t" title='Py_hash_t' data-type='Py_ssize_t' data-ref="Py_hash_t">Py_hash_t</a> <dfn class="decl" id="(anonymousunion)::(anonymous)::suffix" title='(anonymous union)::(anonymous struct)::suffix' data-ref="(anonymousunion)::(anonymous)::suffix">suffix</dfn>;</td></tr>
+<tr><th id="61">61</th><td>    } <dfn class="decl" id="(anonymous)::fnv" title='(anonymous union)::fnv' data-ref="(anonymous)::fnv">fnv</dfn>;</td></tr>
+<tr><th id="62">62</th><td><u>#<span data-ppcond="62">ifdef</span> <a class="macro" href="pyport.h.html#109" data-ref="_M/PY_UINT64_T">PY_UINT64_T</a></u></td></tr>
+<tr><th id="63">63</th><td>    <i>/* two uint64 for SipHash24 */</i></td></tr>
+<tr><th id="64">64</th><td>    <b>struct</b> {</td></tr>
+<tr><th id="65">65</th><td>        <a class="macro" href="pyport.h.html#109" title="uint64_t" data-ref="_M/PY_UINT64_T">PY_UINT64_T</a> <dfn class="decl" id="(anonymousunion)::(anonymous)::k0" title='(anonymous union)::(anonymous struct)::k0' data-ref="(anonymousunion)::(anonymous)::k0">k0</dfn>;</td></tr>
+<tr><th id="66">66</th><td>        <a class="macro" href="pyport.h.html#109" title="uint64_t" data-ref="_M/PY_UINT64_T">PY_UINT64_T</a> <dfn class="decl" id="(anonymousunion)::(anonymous)::k1" title='(anonymous union)::(anonymous struct)::k1' data-ref="(anonymousunion)::(anonymous)::k1">k1</dfn>;</td></tr>
+<tr><th id="67">67</th><td>    } <dfn class="decl" id="(anonymous)::siphash" title='(anonymous union)::siphash' data-ref="(anonymous)::siphash">siphash</dfn>;</td></tr>
+<tr><th id="68">68</th><td><u>#<span data-ppcond="62">endif</span></u></td></tr>
+<tr><th id="69">69</th><td>    <i>/* a different (!) Py_hash_t for small string optimization */</i></td></tr>
+<tr><th id="70">70</th><td>    <b>struct</b> {</td></tr>
+<tr><th id="71">71</th><td>        <em>unsigned</em> <em>char</em> <dfn class="decl" id="(anonymousunion)::(anonymous)::padding" title='(anonymous union)::(anonymous struct)::padding' data-ref="(anonymousunion)::(anonymous)::padding">padding</dfn>[<var>16</var>];</td></tr>
+<tr><th id="72">72</th><td>        <a class="typedef" href="pyport.h.html#Py_hash_t" title='Py_hash_t' data-type='Py_ssize_t' data-ref="Py_hash_t">Py_hash_t</a> <dfn class="decl" id="(anonymousunion)::(anonymous)::suffix" title='(anonymous union)::(anonymous struct)::suffix' data-ref="(anonymousunion)::(anonymous)::suffix">suffix</dfn>;</td></tr>
+<tr><th id="73">73</th><td>    } <dfn class="decl" id="(anonymous)::djbx33a" title='(anonymous union)::djbx33a' data-ref="(anonymous)::djbx33a">djbx33a</dfn>;</td></tr>
+<tr><th id="74">74</th><td>    <b>struct</b> {</td></tr>
+<tr><th id="75">75</th><td>        <em>unsigned</em> <em>char</em> <dfn class="decl" id="(anonymousunion)::(anonymous)::padding" title='(anonymous union)::(anonymous struct)::padding' data-ref="(anonymousunion)::(anonymous)::padding">padding</dfn>[<var>16</var>];</td></tr>
+<tr><th id="76">76</th><td>        <a class="typedef" href="pyport.h.html#Py_hash_t" title='Py_hash_t' data-type='Py_ssize_t' data-ref="Py_hash_t">Py_hash_t</a> <dfn class="decl" id="(anonymousunion)::(anonymous)::hashsalt" title='(anonymous union)::(anonymous struct)::hashsalt' data-ref="(anonymousunion)::(anonymous)::hashsalt">hashsalt</dfn>;</td></tr>
+<tr><th id="77">77</th><td>    } <dfn class="decl" id="(anonymous)::expat" title='(anonymous union)::expat' data-ref="(anonymous)::expat">expat</dfn>;</td></tr>
+<tr><th id="78">78</th><td>} <dfn class="typedef" id="_Py_HashSecret_t" title='_Py_HashSecret_t' data-type='union _Py_HashSecret_t' data-ref="_Py_HashSecret_t">_Py_HashSecret_t</dfn>;</td></tr>
+<tr><th id="79">79</th><td><a class="macro" href="pyport.h.html#771" title="extern _Py_HashSecret_t" data-ref="_M/PyAPI_DATA">PyAPI_DATA</a>(<a class="typedef" href="#_Py_HashSecret_t" title='_Py_HashSecret_t' data-type='union _Py_HashSecret_t' data-ref="_Py_HashSecret_t">_Py_HashSecret_t</a>) <dfn class="decl" id="_Py_HashSecret" title='_Py_HashSecret' data-ref="_Py_HashSecret">_Py_HashSecret</dfn>;</td></tr>
+<tr><th id="80">80</th><td><u>#<span data-ppcond="53">endif</span></u></td></tr>
+<tr><th id="81">81</th><td></td></tr>
+<tr><th id="82">82</th><td><u>#<span data-ppcond="82">ifdef</span> <span class="macro" data-ref="_M/Py_DEBUG">Py_DEBUG</span></u></td></tr>
+<tr><th id="83">83</th><td>PyAPI_DATA(<em>int</em>) _Py_HashSecret_Initialized;</td></tr>
+<tr><th id="84">84</th><td><u>#<span data-ppcond="82">endif</span></u></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+<tr><th id="86">86</th><td></td></tr>
+<tr><th id="87">87</th><td><i>/* hash function definition */</i></td></tr>
+<tr><th id="88">88</th><td><u>#<span data-ppcond="88">ifndef</span> <span class="macro" data-ref="_M/Py_LIMITED_API">Py_LIMITED_API</span></u></td></tr>
+<tr><th id="89">89</th><td><b>typedef</b> <b>struct</b> {</td></tr>
+<tr><th id="90">90</th><td>    <a class="typedef" href="pyport.h.html#Py_hash_t" title='Py_hash_t' data-type='Py_ssize_t' data-ref="Py_hash_t">Py_hash_t</a> (*<em>const</em> <dfn class="decl" id="(anonymous)::hash" title='(anonymous struct)::hash' data-ref="(anonymous)::hash">hash</dfn>)(<em>const</em> <em>void</em> *, <a class="typedef" href="pyport.h.html#Py_ssize_t" title='Py_ssize_t' data-type='ssize_t' data-ref="Py_ssize_t">Py_ssize_t</a>);</td></tr>
+<tr><th id="91">91</th><td>    <em>const</em> <em>char</em> *<dfn class="decl" id="(anonymous)::name" title='(anonymous struct)::name' data-ref="(anonymous)::name">name</dfn>;</td></tr>
+<tr><th id="92">92</th><td>    <em>const</em> <em>int</em> <dfn class="decl" id="(anonymous)::hash_bits" title='(anonymous struct)::hash_bits' data-ref="(anonymous)::hash_bits">hash_bits</dfn>;</td></tr>
+<tr><th id="93">93</th><td>    <em>const</em> <em>int</em> <dfn class="decl" id="(anonymous)::seed_bits" title='(anonymous struct)::seed_bits' data-ref="(anonymous)::seed_bits">seed_bits</dfn>;</td></tr>
+<tr><th id="94">94</th><td>} <dfn class="typedef" id="PyHash_FuncDef" title='PyHash_FuncDef' data-type='struct PyHash_FuncDef' data-ref="PyHash_FuncDef">PyHash_FuncDef</dfn>;</td></tr>
+<tr><th id="95">95</th><td></td></tr>
+<tr><th id="96">96</th><td><a class="macro" href="pyport.h.html#768" title="PyHash_FuncDef*" data-ref="_M/PyAPI_FUNC">PyAPI_FUNC</a>(<a class="typedef" href="#PyHash_FuncDef" title='PyHash_FuncDef' data-type='struct PyHash_FuncDef' data-ref="PyHash_FuncDef">PyHash_FuncDef</a>*) <dfn class="decl" id="PyHash_GetFuncDef" title='PyHash_GetFuncDef' data-ref="PyHash_GetFuncDef">PyHash_GetFuncDef</dfn>(<em>void</em>);</td></tr>
+<tr><th id="97">97</th><td><u>#<span data-ppcond="88">endif</span></u></td></tr>
+<tr><th id="98">98</th><td></td></tr>
+<tr><th id="99">99</th><td></td></tr>
+<tr><th id="100">100</th><td><i>/* cutoff for small string DJBX33A optimization in range [1, cutoff).</i></td></tr>
+<tr><th id="101">101</th><td><i> *</i></td></tr>
+<tr><th id="102">102</th><td><i> * About 50% of the strings in a typical Python application are smaller than</i></td></tr>
+<tr><th id="103">103</th><td><i> * 6 to 7 chars. However DJBX33A is vulnerable to hash collision attacks.</i></td></tr>
+<tr><th id="104">104</th><td><i> * NEVER use DJBX33A for long strings!</i></td></tr>
+<tr><th id="105">105</th><td><i> *</i></td></tr>
+<tr><th id="106">106</th><td><i> * A Py_HASH_CUTOFF of 0 disables small string optimization. 32 bit platforms</i></td></tr>
+<tr><th id="107">107</th><td><i> * should use a smaller cutoff because it is easier to create colliding</i></td></tr>
+<tr><th id="108">108</th><td><i> * strings. A cutoff of 7 on 64bit platforms and 5 on 32bit platforms should</i></td></tr>
+<tr><th id="109">109</th><td><i> * provide a decent safety margin.</i></td></tr>
+<tr><th id="110">110</th><td><i> */</i></td></tr>
+<tr><th id="111">111</th><td><u>#<span data-ppcond="111">ifndef</span> <span class="macro" data-ref="_M/Py_HASH_CUTOFF">Py_HASH_CUTOFF</span></u></td></tr>
+<tr><th id="112">112</th><td><u>#  define <dfn class="macro" id="_M/Py_HASH_CUTOFF" data-ref="_M/Py_HASH_CUTOFF">Py_HASH_CUTOFF</dfn> 0</u></td></tr>
+<tr><th id="113">113</th><td><u>#<span data-ppcond="111">elif</span> (Py_HASH_CUTOFF &gt; 7 || Py_HASH_CUTOFF &lt; 0)</u></td></tr>
+<tr><th id="114">114</th><td><u>#  error Py_HASH_CUTOFF must in range 0...7.</u></td></tr>
+<tr><th id="115">115</th><td><u>#<span data-ppcond="111">endif</span> /* Py_HASH_CUTOFF */</u></td></tr>
+<tr><th id="116">116</th><td></td></tr>
+<tr><th id="117">117</th><td></td></tr>
+<tr><th id="118">118</th><td><i>/* hash algorithm selection</i></td></tr>
+<tr><th id="119">119</th><td><i> *</i></td></tr>
+<tr><th id="120">120</th><td><i> * The values for Py_HASH_SIPHASH24 and Py_HASH_FNV are hard-coded in the</i></td></tr>
+<tr><th id="121">121</th><td><i> * configure script.</i></td></tr>
+<tr><th id="122">122</th><td><i> *</i></td></tr>
+<tr><th id="123">123</th><td><i> * - FNV is available on all platforms and architectures.</i></td></tr>
+<tr><th id="124">124</th><td><i> * - SIPHASH24 only works on plaforms that provide PY_UINT64_T and doesn't</i></td></tr>
+<tr><th id="125">125</th><td><i> *   require aligned memory for integers.</i></td></tr>
+<tr><th id="126">126</th><td><i> * - With EXTERNAL embedders can provide an alternative implementation with::</i></td></tr>
+<tr><th id="127">127</th><td><i> *</i></td></tr>
+<tr><th id="128">128</th><td><i> *     PyHash_FuncDef PyHash_Func = {...};</i></td></tr>
+<tr><th id="129">129</th><td><i> *</i></td></tr>
+<tr><th id="130">130</th><td><i> * XXX: Figure out __declspec() for extern PyHash_FuncDef.</i></td></tr>
+<tr><th id="131">131</th><td><i> */</i></td></tr>
+<tr><th id="132">132</th><td><u>#define <dfn class="macro" id="_M/Py_HASH_EXTERNAL" data-ref="_M/Py_HASH_EXTERNAL">Py_HASH_EXTERNAL</dfn> 0</u></td></tr>
+<tr><th id="133">133</th><td><u>#define <dfn class="macro" id="_M/Py_HASH_SIPHASH24" data-ref="_M/Py_HASH_SIPHASH24">Py_HASH_SIPHASH24</dfn> 1</u></td></tr>
+<tr><th id="134">134</th><td><u>#define <dfn class="macro" id="_M/Py_HASH_FNV" data-ref="_M/Py_HASH_FNV">Py_HASH_FNV</dfn> 2</u></td></tr>
+<tr><th id="135">135</th><td></td></tr>
+<tr><th id="136">136</th><td><u>#<span data-ppcond="136">ifndef</span> <span class="macro" data-ref="_M/Py_HASH_ALGORITHM">Py_HASH_ALGORITHM</span></u></td></tr>
+<tr><th id="137">137</th><td><u>#  <span data-ppcond="137">if</span> (defined(<a class="macro" href="pyport.h.html#109" data-ref="_M/PY_UINT64_T">PY_UINT64_T</a>) &amp;&amp; defined(<a class="macro" href="pyport.h.html#96" data-ref="_M/PY_UINT32_T">PY_UINT32_T</a>) \</u></td></tr>
+<tr><th id="138">138</th><td><u>       &amp;&amp; !defined(<span class="macro" data-ref="_M/HAVE_ALIGNED_REQUIRED">HAVE_ALIGNED_REQUIRED</span>))</u></td></tr>
+<tr><th id="139">139</th><td><u>#    define <dfn class="macro" id="_M/Py_HASH_ALGORITHM" data-ref="_M/Py_HASH_ALGORITHM">Py_HASH_ALGORITHM</dfn> Py_HASH_SIPHASH24</u></td></tr>
+<tr><th id="140">140</th><td><u>#  <span data-ppcond="137">else</span></u></td></tr>
+<tr><th id="141">141</th><td><u>#    define Py_HASH_ALGORITHM Py_HASH_FNV</u></td></tr>
+<tr><th id="142">142</th><td><u>#  <span data-ppcond="137">endif</span> /* uint64_t &amp;&amp; uint32_t &amp;&amp; aligned */</u></td></tr>
+<tr><th id="143">143</th><td><u>#<span data-ppcond="136">endif</span> /* Py_HASH_ALGORITHM */</u></td></tr>
+<tr><th id="144">144</th><td></td></tr>
+<tr><th id="145">145</th><td><u>#<span data-ppcond="145">ifdef</span> <span class="macro" data-ref="_M/__cplusplus">__cplusplus</span></u></td></tr>
+<tr><th id="146">146</th><td>}</td></tr>
+<tr><th id="147">147</th><td><u>#<span data-ppcond="145">endif</span></u></td></tr>
+<tr><th id="148">148</th><td></td></tr>
+<tr><th id="149">149</th><td><u>#<span data-ppcond="1">endif</span> /* !Py_HASH_H */</u></td></tr>
+<tr><th id="150">150</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='../../tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc.html'>tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc</a><br/>Generated on <em>2018-Aug-09</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

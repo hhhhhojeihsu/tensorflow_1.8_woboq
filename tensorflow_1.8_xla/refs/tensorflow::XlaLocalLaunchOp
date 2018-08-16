@@ -1,0 +1,26 @@
+<inh f='tensorflow/tensorflow/core/framework/op_kernel.h' l='74' c='tensorflow::OpKernel'/>
+<def f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.h' l='38' ll='59'/>
+<size>416</size>
+<doc f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.h' l='29'>// XlaLocalLaunchOp is used to replace a region of the TensorFlow graph
+// which will be compiled and executed using XLA.  The XlaLocalLaunchOp is
+// responsible for handling interactions with the TensorFlow executor.
+// Once all inputs are present, and their shapes are known, the op can
+// use a &apos;XlaCompilationCache&apos; to compile and execute code which is specific
+// to the shapes of input Tensors.
+// XlaLocalLaunchOp uses xla::LocalClient::Compile() and
+// xla::LocalExecutable::Run(), and passes arguments into/out of XLA in device
+// memory.</doc>
+<fun r='_ZN10tensorflow16XlaLocalLaunchOpC1EPNS_20OpKernelConstructionE'/>
+<fun r='_ZN10tensorflow16XlaLocalLaunchOpD1Ev'/>
+<fun r='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<fun r='_ZN10tensorflow16XlaLocalLaunchOp21BuildCompilationCacheEPNS_15OpKernelContextEPPNS_19XlaCompilationCacheE'/>
+<mbr r='tensorflow::XlaLocalLaunchOp::device_type_' o='2304' t='tensorflow::DeviceType'/>
+<mbr r='tensorflow::XlaLocalLaunchOp::function_' o='2368' t='tensorflow::NameAttrList'/>
+<mbr r='tensorflow::XlaLocalLaunchOp::num_constant_args_' o='3200' t='int'/>
+<mbr r='tensorflow::XlaLocalLaunchOp::num_resource_args_' o='3232' t='int'/>
+<mbr r='tensorflow::XlaLocalLaunchOp::platform_id_' o='3264' t='perftools::gputools::Platform::Id'/>
+<fun r='_ZN10tensorflow16XlaLocalLaunchOpC1ERKS0_'/>
+<fun r='_ZN10tensorflow16XlaLocalLaunchOpC1EPNS_20OpKernelConstructionE'/>
+<fun r='_ZN10tensorflow16XlaLocalLaunchOp21BuildCompilationCacheEPNS_15OpKernelContextEPPNS_19XlaCompilationCacheE'/>
+<fun r='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<fun r='_ZN10tensorflow16XlaLocalLaunchOpD1Ev'/>

@@ -1,0 +1,15 @@
+<inh f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='274' c='toco::Operator'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1030' ll='1033'/>
+<size>72</size>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1020'>// Stacks a list of rank-R tensors into one rank-(R+1) tensor.
+//
+// Packs the list of tensors in values into a tensor with rank one higher than
+// each tensor in values, by packing them along the axis dimension. Given a list
+// of length N of tensors of shape (A, B, C);.
+//
+// Inputs: this operator accepts any number &gt;= 1 of inputs.
+//   inputs[i]: the i-th array to merge.
+//
+// TensorFlow equivalent: Stack or Pack</doc>
+<fun r='_ZN4toco13StackOperatorC1Ev'/>
+<mbr r='toco::StackOperator::axis' o='544' t='int'/>

@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/eager/execute.h' l='30' type='tensorflow::Status tensorflow::EagerExecute(tensorflow::EagerContext * ctx, tensorflow::Device * device, const gtl::InlinedVector&lt;TensorHandle *, 4&gt; &amp; op_inputs, tensorflow::KernelAndDevice * kernel, tensorflow::NodeExecStats * maybe_stats, tensorflow::TensorHandle ** retvals, int num_retvals)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/execute_node.h' l='65' u='c' c='_ZN10tensorflow11ExecuteNode3RunEv'/>
+<use f='tensorflow/tensorflow/c/eager/c_api.cc' l='945' u='c' c='TFE_Execute'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/eager/execute.h' l='28'>// Low-level utility to execute the kernel specified by kernel on device device,
+// with the inputs op_inputs, in the context ctx.</doc>
+<def f='tensorflow/tensorflow/core/common_runtime/eager/execute.cc' l='35' ll='105' type='tensorflow::Status tensorflow::EagerExecute(tensorflow::EagerContext * ctx, tensorflow::Device * device, const gtl::InlinedVector&lt;TensorHandle *, 4&gt; &amp; op_inputs, tensorflow::KernelAndDevice * kernel, tensorflow::NodeExecStats * maybe_stats, tensorflow::TensorHandle ** retvals, int num_retvals)'/>

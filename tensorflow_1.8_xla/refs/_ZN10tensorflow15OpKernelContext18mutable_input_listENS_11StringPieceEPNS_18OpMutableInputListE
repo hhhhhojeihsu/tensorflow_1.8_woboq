@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='659' type='tensorflow::Status tensorflow::OpKernelContext::mutable_input_list(tensorflow::StringPiece name, tensorflow::OpMutableInputList * list)'/>
+<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='653'>// Returns the named list-valued mutable input in &quot;list&quot;, as defined
+  // in the OpDef.  If the named input is not list-valued, returns a
+  // one-element list. Must be used to access Ref inputs. The values
+  // stored in the Tensor buffer may be modified, and modifications
+  // will be visible to other Ops reading the same ref tensor.
+  // REQUIRES: the named input must be a ref tensor.</doc>
+<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='611' ll='617' type='tensorflow::Status tensorflow::OpKernelContext::mutable_input_list(tensorflow::StringPiece name, tensorflow::OpMutableInputList * list)'/>
+<use f='tensorflow/tensorflow/core/kernels/sdca_ops.cc' l='253' u='c' c='_ZN10tensorflow12SdcaShrinkL17ComputeEPNS_15OpKernelContextE'/>

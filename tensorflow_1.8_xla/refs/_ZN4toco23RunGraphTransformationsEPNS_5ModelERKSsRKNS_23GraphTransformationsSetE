@@ -1,0 +1,15 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='104' type='void toco::RunGraphTransformations(toco::Model * model, const string &amp; message, const toco::GraphTransformationsSet &amp; transformations)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='97'>// Run the given list of graph transformations on the model.
+// The message is only for logging purposes.
+// The transformations is a rvalue reference, indicating that
+// nothing else will use these pointers. The user is supposed to
+// construct GraphTransformation objects by using &apos;new&apos;, pass us
+// the resulting raw pointers, and this RunGraphTransformations
+// takes care of delete&apos;ing these pointers.</doc>
+<def f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.cc' l='189' ll='201' type='void toco::RunGraphTransformations(toco::Model * model, const string &amp; msg, const toco::GraphTransformationsSet &amp; transformations)'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_tooling.cc' l='228' u='c' c='_ZN4toco9TransformERKNS_9TocoFlagsEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_tooling.cc' l='263' u='c' c='_ZN4toco9TransformERKNS_9TocoFlagsEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_tooling.cc' l='267' u='c' c='_ZN4toco9TransformERKNS_9TocoFlagsEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_tooling.cc' l='277' u='c' c='_ZN4toco9TransformERKNS_9TocoFlagsEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_tooling.cc' l='282' u='c' c='_ZN4toco9TransformERKNS_9TocoFlagsEPNS_5ModelE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/toco_tooling.cc' l='294' u='c' c='_ZN4toco9TransformERKNS_9TocoFlagsEPNS_5ModelE'/>

@@ -1,0 +1,11 @@
+<dec f='tensorflow/tensorflow/core/graph/graph_def_builder.h' l='74' type='void tensorflow::GraphDefBuilder::Options::Options(tensorflow::Graph * graph, tensorflow::Status * status)'/>
+<use f='tensorflow/tensorflow/core/graph/graph_def_builder.h' l='147' u='c' c='_ZN10tensorflow15GraphDefBuilderC1EPKNS_19OpRegistryInterfaceE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_def_builder.h' l='155' u='c' c='_ZN10tensorflow15GraphDefBuilderC1ENS0_23TestFailImmediatelyTypeEPKNS_19OpRegistryInterfaceE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1104' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph28AddHostComputeKeyPlaceholderEPNS2_26OutsideCompilationSubgraphEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1724' u='c' c='_ZN10tensorflow12_GLOBAL__N_112_GLOBAL__N_118AddDummyShapedNodeENS_8DataTypeERKNS_16TensorShapeProtoEPNS_5GraphE'/>
+<doc f='tensorflow/tensorflow/core/graph/graph_def_builder.h' l='71'>// Sets the Graph (that Nodes will be added to) and the status.  The
+    // status may be set to nullptr, in which case errors cause CHECK
+    // failures.  The graph and status must outlive *this.</doc>
+<def f='tensorflow/tensorflow/core/graph/graph_def_builder.cc' l='25' ll='26' type='void tensorflow::GraphDefBuilder::Options::Options(tensorflow::Graph * graph, tensorflow::Status * status)'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='483' u='c' c='_ZN10tensorflow12_GLOBAL__N_114AddControlLoopERKNS_16PartitionOptionsEPNS_5GraphEPKNS_4NodeEPKNS_4EdgeEPS6_PSt6vectorINS_15ControlFlowInfoESaISE_EEPNS0_11ControlLoopE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_partition.cc' l='596' u='c' c='_ZN10tensorflow12_GLOBAL__N_114AddControlFlowERKNS_16PartitionOptionsEPNS_5GraphEPNS0_9GraphInfoE'/>

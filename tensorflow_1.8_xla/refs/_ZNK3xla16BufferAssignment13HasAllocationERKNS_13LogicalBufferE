@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='315' type='bool xla::BufferAssignment::HasAllocation(const xla::LogicalBuffer &amp; buffer) const'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='456' ll='459' type='bool xla::BufferAssignment::HasAllocation(const xla::LogicalBuffer &amp; buffer) const'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='463' u='c' c='_ZNK3xla16BufferAssignment21GetAssignedAllocationERKNS_13LogicalBufferE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='476' u='c' c='_ZNK3xla16BufferAssignment12GetAllSlicesEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='519' u='c' c='_ZNK3xla16BufferAssignment14GetUniqueSliceEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='789' u='c' c='_ZNK3xla16BufferAssignment7ToProtoEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='836' u='c' c='_ZN3xla14BufferAssigner17MaybeAssignBufferEPNS_16BufferAllocationERKNS_13LogicalBufferEPNS_16BufferAssignmentE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1004' u='c' c='_ZN3xla14BufferAssigner27AssignBuffersForComputationEPKNS_14HloComputationERKNS_12DebugOptionsEbRKN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS7_44467117'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1087' u='c' c='_ZN3xla14BufferAssigner27AssignBuffersForComputationEPKNS_14HloComputationERKNS_12DebugOptionsEbRKN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS7_44467117'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1114' u='c' c='_ZN3xla14BufferAssigner27AssignBuffersForComputationEPKNS_14HloComputationERKNS_12DebugOptionsEbRKN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS7_44467117'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1131' u='c' c='_ZN3xla14BufferAssigner27AssignBuffersForComputationEPKNS_14HloComputationERKNS_12DebugOptionsEbRKN10tensorflow3gtl7FlatSetIPKNS_13LogicalBufferENS7_44467117'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1679' u='c' c='_ZN3xla14BufferAssigner16CreateAssignmentEPKNS_9HloModuleESt10unique_ptrINS_11HloOrderingESt14default_deleteIS5_EESt8functionIFxRKNS_13LogicalBufferEE7316938'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='314'>// Returns whether the given buffer has been assigned an allocation.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/alias_analysis.cc' l='169' u='c' c='_ZN3xla7llvm_ir13AliasAnalysis27GetNoaliasMetadataForBufferERKNS_16BufferAllocation5SliceEPN4llvm6MDNodeERKNS_16BufferAssignmentERKNS_14HloInstructionE'/>

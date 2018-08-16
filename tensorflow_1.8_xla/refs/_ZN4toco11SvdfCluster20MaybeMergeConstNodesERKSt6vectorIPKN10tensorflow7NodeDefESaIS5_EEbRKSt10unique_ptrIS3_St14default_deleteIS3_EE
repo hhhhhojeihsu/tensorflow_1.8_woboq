@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.h' l='54' type='void toco::SvdfCluster::MaybeMergeConstNodes(const std::vector&lt;const tensorflow::NodeDef *&gt; &amp; const_node_parts, bool transpose_tensor_value, const std::unique_ptr&lt;tensorflow::NodeDef&gt; &amp; merged_node)'/>
+<doc f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.h' l='51'>// Receives a vector of Const nodes, merge them (if necessary) and returns
+  // only one Const node holding all the arrays contents. It transposes it if
+  // needed.</doc>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='160' u='c' c='_ZN4toco11SvdfCluster15CreateConstNodeERKSs'/>
+<def f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='164' ll='249' type='void toco::SvdfCluster::MaybeMergeConstNodes(const std::vector&lt;const NodeDef *&gt; &amp; const_node_parts, bool transpose_tensor_value, const std::unique_ptr&lt;tensorflow::NodeDef&gt; &amp; merged_node)'/>

@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/core/framework/allocator.h' l='148' type='bool tensorflow::Allocator::ShouldAllocateEmptyTensors()'/>
+<ovr f='tensorflow/tensorflow/core/framework/allocator.h' l='311' c='_ZN10tensorflow16AllocatorWrapper26ShouldAllocateEmptyTensorsEv'/>
+<doc f='tensorflow/tensorflow/core/framework/allocator.h' l='144'>// Returns true if this allocator requires tensors with 0 elements
+  // to allocate buffers. This is false for most allocators, but may
+  // be used by special-case allocators that want to track tensor
+  // usage.</doc>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.cc' l='60' c='_ZN10tensorflow23XlaCompilationAllocator26ShouldAllocateEmptyTensorsEv'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/scoped_allocator.h' l='107' c='_ZN10tensorflow23ScopedAllocatorInstance26ShouldAllocateEmptyTensorsEv'/>
+<use f='tensorflow/tensorflow/core/framework/tensor.cc' l='717' u='c' c='_ZN10tensorflow6TensorC1EPNS_9AllocatorENS_8DataTypeERKNS_11TensorShapeE'/>
+<use f='tensorflow/tensorflow/core/framework/tensor.cc' l='731' u='c' c='_ZN10tensorflow6TensorC1EPNS_9AllocatorENS_8DataTypeERKNS_11TensorShapeERKNS_20AllocationAttributesE'/>

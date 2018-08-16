@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/core/public/session.h' l='170' type='tensorflow::Status tensorflow::Session::PRun(const string &amp; handle, const std::vector&lt;std::pair&lt;string, Tensor&gt; &gt; &amp; inputs, const std::vector&lt;string&gt; &amp; output_names, std::vector&lt;Tensor&gt; * outputs)'/>
+<use f='tensorflow/tensorflow/c/c_api.cc' l='827' u='c' c='_ZL13TF_Run_HelperPN10tensorflow7SessionEPKcPK9TF_BufferRKSt6vectorISt4pairISsNS_6TensorEESaISA_EERKS7_ISsSaISsEEPP9TF_TensorSI_PS4_P9TF_Status'/>
+<doc f='tensorflow/tensorflow/core/public/session.h' l='166'>/// \brief Continues the pending execution specified by `handle` with the
+  /// provided input tensors and fills `outputs` for the endpoints specified
+  /// in `output_names`.
+  /// NOTE: This API is still experimental and may change.</doc>
+<ovr f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='795' c='_ZN10tensorflow13DirectSession4PRunERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS6_EERKS3_ISsSaISsEEPS3_IS5_SaIS5_EE'/>
+<def f='tensorflow/tensorflow/core/common_runtime/session.cc' l='46' ll='52' type='tensorflow::Status tensorflow::Session::PRun(const string &amp; handle, const std::vector&lt;std::pair&lt;string, Tensor&gt; &gt; &amp; inputs, const std::vector&lt;string&gt; &amp; output_names, std::vector&lt;Tensor&gt; * outputs)'/>
+<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='316' c='_ZN10tensorflow11GrpcSession4PRunERKSsRKSt6vectorISt4pairISsNS_6TensorEESaIS6_EERKS3_ISsSaISsEEPS3_IS5_SaIS5_EE'/>

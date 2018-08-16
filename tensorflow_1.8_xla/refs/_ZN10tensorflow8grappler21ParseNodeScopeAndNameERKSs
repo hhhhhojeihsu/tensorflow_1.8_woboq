@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.h' l='34' type='const tensorflow::grappler::NodeScopeAndName tensorflow::grappler::ParseNodeScopeAndName(const string &amp; node_name)'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='570' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_118AddOpsRewriteStage26RewriteOptimizedNodesGroupERKNS1_34ArithmeticNodesGroupOptimizerStage19OptimizedNodesGroupE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='778' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_133HoistCommonFactorOutOfAggregation16OuterMulNodeNameEPKNS_7NodeDefE'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/arithmetic_optimizer.cc' l='784' u='c' c='_ZNK10tensorflow8grappler12_GLOBAL__N_133HoistCommonFactorOutOfAggregation16InnerAddNodeNameEPKNS_7NodeDefE'/>
+<doc f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.h' l='33'>// Parse scope and name: &quot;a/b/c/Add_1&quot; -&gt; {&quot;a/b/c&quot;, &quot;Add_1&quot;}</doc>
+<def f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.cc' l='21' ll='28' type='const tensorflow::grappler::NodeScopeAndName tensorflow::grappler::ParseNodeScopeAndName(const string &amp; node_name)'/>
+<use f='tensorflow/tensorflow/core/grappler/optimizers/graph_optimizer_stage.cc' l='117' u='c' c='_ZN10tensorflow8grappler21MakeOptimizedNodeNameERKNS0_16NodeScopeAndNameESt6vectorISsSaISsEERKSsS8_'/>

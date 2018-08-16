@@ -1,0 +1,121 @@
+<dec f='tensorflow/tensorflow/core/lib/strings/strcat.h' l='166' type='string tensorflow::strings::StrCat(const tensorflow::strings::AlphaNum &amp; a)'/>
+<doc f='tensorflow/tensorflow/core/lib/strings/strcat.h' l='142'>// ----------------------------------------------------------------------
+// StrCat()
+//    This merges the given strings or numbers, with no delimiter.  This
+//    is designed to be the fastest possible way to construct a string out
+//    of a mix of raw C strings, StringPieces, strings, bool values,
+//    and numeric values.
+//
+//    Don&apos;t use this for user-visible strings.  The localization process
+//    works poorly on strings built up out of fragments.
+//
+//    For clarity and performance, don&apos;t use StrCat when appending to a
+//    string.  In particular, avoid using any of these (anti-)patterns:
+//      str.append(StrCat(...))
+//      str += StrCat(...)
+//      str = StrCat(str, ...)
+//    where the last is the worse, with the potential to change a loop
+//    from a linear time operation with O(1) dynamic allocations into a
+//    quadratic time operation with O(n) dynamic allocations.  StrAppend
+//    is a better choice than any of the above, subject to the restriction
+//    of StrAppend(&amp;str, a, b, c, ...) that none of the a, b, c, ... may
+//    be a reference into str.
+// ----------------------------------------------------------------------
+
+// For performance reasons, we have specializations for &lt;= 4 args.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='916' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='918' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='920' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='922' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='924' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='926' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='928' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='930' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='932' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='934' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='936' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='939' u='c' c='_ZNK3xla7Literal11GetAsStringEN10tensorflow3gtl10ArraySliceIxEERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='959' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='961' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='964' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='967' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='970' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='973' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='976' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='979' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='982' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='985' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='988' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='991' u='c' c='_ZNK3xla7Literal24GetSparseElementAsStringExRKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1213' u='c' c='_ZN3xla12_GLOBAL__N_114ToStringHelperERKNS_7LiteralERKNS_10ShapeIndexEbPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/metric_table_report.cc' l='245' u='c' c='_ZN3xla17MetricTableReport12MetricStringEd'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='893' u='c' c='_ZNK3xla12_GLOBAL__N_111CopyRemover18BufferValueTracker8ToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='338' u='c' c='_ZN3xla16hlo_graph_dumper12_GLOBAL__N_112HloDotDumper13InstructionIdEPKNS_14HloInstructionE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_graph_dumper.cc' l='1446' u='c' c='_ZN3xla16hlo_graph_dumper8DumpTextERKNS_9HloModuleERKSsS5_b'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3340' u='c' c='_ZNK3xla14HloInstruction35ConvolutionDimensionNumbersToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3347' u='c' c='_ZNK3xla14HloInstruction35ConvolutionDimensionNumbersToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3354' u='c' c='_ZNK3xla14HloInstruction35ConvolutionDimensionNumbersToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.cc' l='168' u='c' c='_ZNK3xla11HloSharding13ValidateTupleERKNS_5ShapeEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.cc' l='220' u='c' c='_ZNK3xla11HloSharding16ValidateNonTupleERKNS_5ShapeEx'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_loop.cc' l='254' u='c' c='_ZN3xla7llvm_ir11ForLoopNest28AddLoopsForShapeOnDimensionsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEENS5_11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/window_util.cc' l='94' u='c' c='_ZN3xla11window_util8ToStringERKNS_6WindowE'/>
+<use f='tensorflow/tensorflow/compiler/xla/window_util.cc' l='97' u='c' c='_ZN3xla11window_util8ToStringERKNS_6WindowE'/>
+<use f='tensorflow/tensorflow/compiler/xla/window_util.cc' l='106' u='c' c='_ZN3xla11window_util8ToStringERKNS_6WindowE'/>
+<use f='tensorflow/tensorflow/compiler/xla/window_util.cc' l='111' u='c' c='_ZN3xla11window_util8ToStringERKNS_6WindowE'/>
+<use f='tensorflow/tensorflow/compiler/xla/window_util.cc' l='116' u='c' c='_ZN3xla11window_util8ToStringERKNS_6WindowE'/>
+<use f='tensorflow/tensorflow/contrib/data/kernels/unique_dataset_op.cc' l='74' u='c' c='_ZN10tensorflow12_GLOBAL__N_115UniqueDatasetOp7Dataset11DebugStringEv'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='53' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegAudioCommandLineERKSsS3_S3_iiS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='58' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegAudioCommandLineERKSsS3_S3_iiS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='58' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegAudioCommandLineERKSsS3_S3_iiS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='53' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegAudioCommandLineERKSsS3_S3_iiS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='58' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegAudioCommandLineERKSsS3_S3_iiS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='58' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegAudioCommandLineERKSsS3_S3_iiS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='68' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegAudioCommandLineERKSsS3_S3_iiS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='78' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegVideoCommandLineERKSsS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='85' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegVideoCommandLineERKSsS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='78' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegVideoCommandLineERKSsS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='85' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegVideoCommandLineERKSsS3_'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='328' u='c' c='_ZN10tensorflow6ffmpeg13ReadAudioFileERKSsS2_iiS2_PSt6vectorIfSaIfEE'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='367' u='c' c='_ZN10tensorflow6ffmpeg13ReadVideoFileERKSsPSt6vectorIhSaIhEEPjS7_S7_'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/input_data.h' l='54' u='c' c='_ZN10tensorflow12tensorforest13TensorDataSetC1ERKNS0_20TensorForestDataSpecEi'/>
+<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/input_data.cc' l='143' u='c' c='_ZNK10tensorflow12tensorforest13TensorDataSet12RandomSampleEiPNS_14decision_trees9FeatureIdEPfPi'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='1206' u='c' c='_ZN10tensorflow12_GLOBAL__N_115SummaryDbWriter12MigrateImageEPKNS_5EventEPNS_13Summary_ValueEy'/>
+<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='1207' u='c' c='_ZN10tensorflow12_GLOBAL__N_115SummaryDbWriter12MigrateImageEPKNS_5EventEPNS_13Summary_ValueEy'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_remote_master.cc' l='124' u='c' c='_ZN10tensorflow16GrpcRemoteMaster8TraceRpcENS_11StringPieceEPN4grpc13ClientContextE'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='78' u='c' c='_ZN10tensorflow18SummarizeAttrValueERKNS_9AttrValueE'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='80' u='c' c='_ZN10tensorflow18SummarizeAttrValueERKNS_9AttrValueE'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='97' u='c' c='_ZN10tensorflow18SummarizeAttrValueERKNS_9AttrValueE'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='101' u='c' c='_ZN10tensorflow18SummarizeAttrValueERKNS_9AttrValueE'/>
+<use f='tensorflow/tensorflow/core/framework/collective.cc' l='84' u='c' c='_ZNK10tensorflow14CollTaskParams8ToStringEv'/>
+<use f='tensorflow/tensorflow/core/framework/op_def_util.cc' l='473' u='c' c='_ZN10tensorflow12_GLOBAL__N_16MinStrERKNS_13OpDef_AttrDefE'/>
+<use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='331' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext11DebugStringENS0_15DimensionHandleE'/>
+<use f='tensorflow/tensorflow/core/grappler/clusters/utils.cc' l='48' u='c' c='_ZN10tensorflow8grappler15GetLocalCPUInfoEv'/>
+<use f='tensorflow/tensorflow/core/kernels/data/iterator_ops.cc' l='426' u='c' c='_ZNK10tensorflow12_GLOBAL__N_120IteratorStateVariant11DebugStringEv'/>
+<use f='tensorflow/tensorflow/core/kernels/data/slide_dataset_op.cc' l='196' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SlideDatasetOp7Dataset8Iterator12SaveInternalEPNS_19IteratorStateWriterE'/>
+<use f='tensorflow/tensorflow/core/kernels/data/slide_dataset_op.cc' l='219' u='c' c='_ZN10tensorflow12_GLOBAL__N_114SlideDatasetOp7Dataset8Iterator15RestoreInternalEPNS_15IteratorContextEPNS_19IteratorStateReaderE'/>
+<use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='1478' u='c' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils17BuildNodeTypeAttrENS_36RemoteFusedGraphExecuteInfo_NodeTypeE'/>
+<use f='tensorflow/tensorflow/core/lib/gif/gif_io.cc' l='81' u='c' c='_ZN10tensorflow3gif6DecodeEPKviRKSt8functionIFPhiiiiEEPSs'/>
+<use f='tensorflow/tensorflow/core/lib/gif/gif_io.cc' l='108' u='c' c='_ZN10tensorflow3gif6DecodeEPKviRKSt8functionIFPhiiiiEEPSs'/>
+<def f='tensorflow/tensorflow/core/lib/strings/strcat.cc' l='85' type='string tensorflow::strings::StrCat(const tensorflow::strings::AlphaNum &amp; a)'/>
+<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_timeline.cc' l='121' u='c' c='_ZN10tensorflow6tfprof20ChromeTraceFormatter11EmitCounterERKSsS3_xxS3_xRKSt3mapIxSt6vectorISsSaISsEESt4lessIxESaISt4pairIKxS7_EEE'/>
+<use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='434' u='c' c='_ZN10tensorflow22python_op_gen_internal17AttrValueToPythonERKSsRKNS_9AttrValueES2_'/>
+<use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='439' u='c' c='_ZN10tensorflow22python_op_gen_internal17AttrValueToPythonERKSsRKNS_9AttrValueES2_'/>
+<use f='tensorflow/tensorflow/python/lib/core/bfloat16.cc' l='298' u='c' c='_ZN10tensorflow12_GLOBAL__N_114PyBfloat16_StrEP7_object'/>
+<use f='tensorflow/tensorflow/python/util/util.cc' l='152' u='c' c='_ZN10tensorflow4swig12_GLOBAL__N_116IsSequenceHelperEP7_object'/>
+<use f='tensorflow/tensorflow/python/util/util.cc' l='407' u='c' c='_ZN10tensorflow4swig12IsNamedtupleEP7_objectb'/>
+<use f='tensorflow/tensorflow/stream_executor/blas.cc' l='72' u='c' c='_ZNK9perftools8gputools4blas15AlgorithmConfig8ToStringEv'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.cc' l='81' u='c' c='_ZNK9perftools8gputools17DeviceDescription5ToMapEv'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.cc' l='82' u='c' c='_ZNK9perftools8gputools17DeviceDescription5ToMapEv'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.cc' l='84' u='c' c='_ZNK9perftools8gputools17DeviceDescription5ToMapEv'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.cc' l='86' u='c' c='_ZNK9perftools8gputools17DeviceDescription5ToMapEv'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.cc' l='97' u='c' c='_ZNK9perftools8gputools17DeviceDescription5ToMapEv'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.cc' l='102' u='c' c='_ZNK9perftools8gputools17DeviceDescription5ToMapEv'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.cc' l='103' u='c' c='_ZNK9perftools8gputools17DeviceDescription5ToMapEv'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.cc' l='104' u='c' c='_ZNK9perftools8gputools17DeviceDescription5ToMapEv'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='122' u='c' c='_ZN9perftools8gputools12_GLOBAL__N_112ToVlogStringERKN5Eigen4halfE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='125' u='c' c='_ZN9perftools8gputools12_GLOBAL__N_112ToVlogStringEi'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='127' u='c' c='_ZN9perftools8gputools12_GLOBAL__N_112ToVlogStringEj'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='129' u='c' c='_ZN9perftools8gputools12_GLOBAL__N_112ToVlogStringEy'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='131' u='c' c='_ZN9perftools8gputools12_GLOBAL__N_112ToVlogStringEx'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='133' u='c' c='_ZN9perftools8gputools12_GLOBAL__N_112ToVlogStringEf'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='135' u='c' c='_ZN9perftools8gputools12_GLOBAL__N_112ToVlogStringEd'/>

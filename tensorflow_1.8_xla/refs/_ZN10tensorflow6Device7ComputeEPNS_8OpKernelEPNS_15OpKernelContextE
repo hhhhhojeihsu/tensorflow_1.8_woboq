@@ -1,0 +1,12 @@
+<def f='tensorflow/tensorflow/core/common_runtime/device.h' l='82' ll='84' type='void tensorflow::Device::Compute(tensorflow::OpKernel * op_kernel, tensorflow::OpKernelContext * context)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/device.h' l='78'>// Performs the actual compute function.
+  //
+  // Subclasses may override this function if they wish to perform
+  // some initialization before each compute.</doc>
+<ovr f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='93' c='_ZN10tensorflow13RenamedDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='94' u='c' c='_ZN10tensorflow13RenamedDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<ovr f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='239' c='_ZN10tensorflow9XlaDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<ovr f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.cc' l='92' c='_ZN10tensorflow20XlaCompilationDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/eager/kernel_and_device.cc' l='99' u='c' c='_ZN10tensorflow15KernelAndDevice3RunEPSt6vectorINS_6TensorESaIS2_EES5_PNS_13NodeExecStatsE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='1677' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ExecutorState7ProcessENS1_10TaggedNodeEx'/>
+<ovr f='tensorflow/tensorflow/core/common_runtime/threadpool_device.cc' l='50' c='_ZN10tensorflow16ThreadPoolDevice7ComputeEPNS_8OpKernelEPNS_15OpKernelContextE'/>

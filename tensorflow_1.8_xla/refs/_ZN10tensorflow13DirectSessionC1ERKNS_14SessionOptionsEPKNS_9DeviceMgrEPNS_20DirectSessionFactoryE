@@ -1,0 +1,7 @@
+<dec f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='62' type='void tensorflow::DirectSession::DirectSession(const tensorflow::SessionOptions &amp; options, const tensorflow::DeviceMgr * device_mgr, tensorflow::DirectSessionFactory * factory)'/>
+<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='159' u='c' c='_ZN10tensorflow20DirectSessionFactory10NewSessionERKNS_14SessionOptionsE'/>
+<def f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='240' ll='298' type='void tensorflow::DirectSession::DirectSession(const tensorflow::SessionOptions &amp; options, const tensorflow::DeviceMgr * device_mgr, tensorflow::DirectSessionFactory *const factory)'/>
+<doc f='tensorflow/tensorflow/core/common_runtime/direct_session.h' l='58'>// Takes ownership of &apos;device_mgr&apos;.
+  // &apos;factory&apos; is used to unregister the DirectSession with &apos;factory&apos; when its
+  // closed. This ensures that Reset requests from the &apos;factory&apos; don&apos;t get sent
+  // to sessions that are already closed.</doc>

@@ -1,0 +1,14 @@
+<dec f='tensorflow/tensorflow/compiler/xla/service/shaped_buffer.h' l='43' type='void xla::ShapedBuffer::ShapedBuffer(const xla::Shape &amp; on_host_shape, const xla::Shape &amp; on_device_shape, const perftools::gputools::Platform * platform, int device_ordinal)'/>
+<doc f='tensorflow/tensorflow/compiler/xla/service/shaped_buffer.h' l='37'>// Construct a ShapedBuffer with null DeviceMemoryBases at each index. The
+  // shape of the data on the host and the device may differ because the device
+  // may have a different representation for different data types. Therefore,
+  // both the on-host and on-device shape are required. The on-device shape
+  // determines the number of device allocations (DeviceMemoryBase) held by the
+  // ShapedBuffer.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='91' u='c' c='_ZN10tensorflow12_GLOBAL__N_122ExtractSubShapedBufferEPN3xla12ShapedBufferEiPNS1_21DeviceMemoryAllocatorE'/>
+<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='56' u='c' c='_ZN10tensorflow9XlaTensor20AllocateShapedBufferENS_8DataTypeERKNS_11TensorShapeEPN3xla11LocalClientEi'/>
+<def f='tensorflow/tensorflow/compiler/xla/service/shaped_buffer.cc' l='37' ll='44' type='void xla::ShapedBuffer::ShapedBuffer(const xla::Shape &amp; on_host_shape, const xla::Shape &amp; on_device_shape, const se::Platform * platform, int device_ordinal)'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/shaped_buffer.cc' l='123' u='c' c='_ZN3xla18ScopedShapedBufferC1ERKNS_5ShapeES3_PNS_21DeviceMemoryAllocatorEi'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='57' u='c' c='_ZN3xla15TransferManager21TransferArrayToDeviceEPN9perftools8gputools14StreamExecutorERKNS_7LiteralERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='76' u='c' c='_ZN3xla15TransferManager23TransferArrayFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_5ShapeERKNS2_16DeviceMemoryBaseE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='195' u='c' c='_ZN3xla15TransferManager20AllocateShapedBufferERKNS_5ShapeEPNS_21DeviceMemoryAllocatorEi'/>

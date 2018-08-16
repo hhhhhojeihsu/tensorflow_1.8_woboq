@@ -1,0 +1,13 @@
+<dec f='tensorflow/tensorflow/core/framework/rendezvous.h' l='56' type='static string tensorflow::Rendezvous::CreateKey(const string &amp; src_device, uint64 src_incarnation, const string &amp; dst_device, const string &amp; name, const tensorflow::FrameAndIter &amp; frame_iter)'/>
+<doc f='tensorflow/tensorflow/core/framework/rendezvous.h' l='53'>// Constructs a rendezvous key for the tensor of &quot;name&quot; sent from
+  // &quot;src_device&quot; to &quot;dst_device&quot;. The tensor is generated in the frame
+  // and iteration specified by &quot;frame_iter&quot;.</doc>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='135' u='c' c='_ZN10tensorflow11GraphRunner3RunEPNS_5GraphEPNS_22FunctionLibraryRuntimeERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPS5_IS7_SaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/graph_runner.cc' l='186' u='c' c='_ZN10tensorflow11GraphRunner3RunEPNS_5GraphEPNS_22FunctionLibraryRuntimeERKSt6vectorISt4pairISsNS_6TensorEESaIS8_EERKS5_ISsSaISsEEPS5_IS7_SaIS7_EE'/>
+<use f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.cc' l='100' u='c' c='_ZN10tensorflow29ProcessFunctionLibraryRuntime11SendTensorsERKSsS2_S2_xNS_3gtl10ArraySliceINS_6TensorEEEPNS_13DeviceContextERKSt6vectorINS_19Allocator10204990'/>
+<use f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.cc' l='119' u='c' c='_ZN10tensorflow29ProcessFunctionLibraryRuntime19ReceiveTensorsAsyncERKSsS2_S2_xxPNS_13DeviceContextERKSt6vectorINS_19AllocatorAttributesESaIS6_EEPNS_112131834'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/cluster_function_library_runtime.cc' l='60' u='c' c='_ZN10tensorflow29ClusterFunctionLibraryRuntime22ConstructFunctionGraphERKNS_5OpDefENS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPNS15775531'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/cluster_function_library_runtime.cc' l='105' u='c' c='_ZN10tensorflow29ClusterFunctionLibraryRuntime22ConstructFunctionGraphERKNS_5OpDefENS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPNS15775531'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='371' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20TrackFeedsAndFetchesEPNS1_4PartERKNS_8GraphDefERKNS_16PartitionOptionsE'/>
+<def f='tensorflow/tensorflow/core/framework/rendezvous.cc' l='52' ll='66' type='static string tensorflow::Rendezvous::CreateKey(const string &amp; src_device, uint64 src_incarnation, const string &amp; dst_device, const string &amp; name, const tensorflow::FrameAndIter &amp; frame_iter)'/>
+<doc f='tensorflow/tensorflow/core/framework/rendezvous.cc' l='51'>/*  static */</doc>

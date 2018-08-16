@@ -1,0 +1,10 @@
+<def f='tensorflow/tensorflow/stream_executor/dnn.h' l='2029' ll='2034' type='port::StatusOr&lt;std::unique_ptr&lt;dnn::RnnSequenceTensorDescriptor&gt; &gt; perftools::gputools::dnn::DnnSupport::createRnnSequenceTensorDescriptor(int seq_length, int batch_size, int data_size, dnn::DataType data_type)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='2021'>// Create a RNN sequence descriptor that specifies either the input or output
+  // sequence. The caller retains the ownership of the returned descriptor.
+  //
+  // Arguments:
+  //  seq_length: the length of the sequence.
+  //  batch_size: the size of a minibatch.
+  //  data_size: the size of the state.
+  //  data_type: an enum to specify the type for the underlying data.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='378' u='c' c='_ZN9perftools8gputools14StreamExecutor33createRnnSequenceTensorDescriptorEiiiNS0_3dnn8DataTypeE'/>

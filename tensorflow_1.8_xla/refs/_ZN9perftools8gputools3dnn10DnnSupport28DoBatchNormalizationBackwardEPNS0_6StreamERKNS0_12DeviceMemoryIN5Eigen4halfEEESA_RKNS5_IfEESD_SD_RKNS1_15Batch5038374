@@ -1,0 +1,5 @@
+<def f='tensorflow/tensorflow/stream_executor/dnn.h' l='989' ll='999' type='bool perftools::gputools::dnn::DnnSupport::DoBatchNormalizationBackward(perftools::gputools::Stream * stream, const DeviceMemory&lt;Eigen::half&gt; &amp; y_backprop, const DeviceMemory&lt;Eigen::half&gt; &amp; x, const DeviceMemory&lt;float&gt; &amp; scale, const DeviceMemory&lt;float&gt; &amp; mean, const DeviceMemory&lt;float&gt; &amp; inv_var, const dnn::BatchDescriptor &amp; x_desc, const dnn::BatchDescriptor &amp; scale_offset_desc, const double epsilon, DeviceMemory&lt;Eigen::half&gt; * x_backprop, DeviceMemory&lt;float&gt; * scale_backprop, DeviceMemory&lt;float&gt; * offset_backprop)'/>
+<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='986'>// Performs a half-precision backward batch normalization gradient computation
+  // operation onto the stream. See DoBatchNormalizationBackward above for
+  // argument details.</doc>
+<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='408' u='c' c='_ZN9perftools8gputools6Stream30ThenBatchNormalizationBackwardERKNS0_12DeviceMemoryIN5Eigen4halfEEES7_RKNS2_IfEESA_SA_RKNS0_3dnn15BatchDescriptorESE_dPS5_PS8_SG_'/>

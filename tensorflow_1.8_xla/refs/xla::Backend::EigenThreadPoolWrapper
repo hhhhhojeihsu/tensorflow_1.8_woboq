@@ -1,0 +1,8 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='65' ll='76'/>
+<size>24</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='63'>// Define this in .cc file to avoid having to include eigen or forward declare
+// these types in the header.</doc>
+<fun r='_ZN3xla7Backend22EigenThreadPoolWrapperC1Ei'/>
+<mbr r='xla::Backend::EigenThreadPoolWrapper::pool' o='0' t='std::unique_ptr&lt;tensorflow::thread::ThreadPool&gt;'/>
+<mbr r='xla::Backend::EigenThreadPoolWrapper::wrapper' o='64' t='std::unique_ptr&lt;tensorflow::EigenThreadPoolWrapper&gt;'/>
+<mbr r='xla::Backend::EigenThreadPoolWrapper::device' o='128' t='std::unique_ptr&lt;Eigen::ThreadPoolDevice&gt;'/>
