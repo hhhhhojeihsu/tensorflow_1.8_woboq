@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='290' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferSelectShape(const xla::Shape &amp; pred, const xla::Shape &amp; on_true, const xla::Shape &amp; on_false)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='289'>// Helper for inferring the shape of Select ops.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1059' u='c' c='_ZN3xla14ShapeInference19InferTernaryOpShapeENS_16TernaryOperationERKNS_5ShapeES4_S4_'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2401' ll='2435' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferSelectShape(const xla::Shape &amp; pred, const xla::Shape &amp; on_true, const xla::Shape &amp; on_false)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2398'>// TODO(b/36794510): Make broadcast semantics more consistent, by supporting
-// &quot;degenerate&quot; cases, as with binary elementwise ops, as well as scalar
-// broadcast from all operands, not just the predicate.</doc>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2401'>/* static */</doc>

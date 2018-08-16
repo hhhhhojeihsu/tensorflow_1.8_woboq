@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/util/ctc/ctc_decoder.h' l='55' type='tensorflow::Status tensorflow::ctc::CTCDecoder::Decode(const SequenceLength &amp; seq_len, const std::vector&lt;Input&gt; &amp; input, std::vector&lt;Output&gt; * output, ScoreOutput * scores)'/>
-<ovr f='tensorflow/tensorflow/core/util/ctc/ctc_decoder.h' l='76' c='_ZN10tensorflow3ctc16CTCGreedyDecoder6DecodeERKN5Eigen3MapIKNS2_5ArrayIiLin1ELi1ELi0ELin1ELi1EEELi0ENS2_6StrideILi0ELi0EEEEERKSt6vectorINS3_IKNS2_6Mat4015726'/>
-<ovr f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='157' c='_ZN10tensorflow3ctc20CTCBeamSearchDecoder6DecodeERKN5Eigen3MapIKNS2_5ArrayIiLin1ELi1ELi0ELin1ELi1EEELi0ENS2_6StrideILi0ELi0EEEEERKSt6vectorINS3_IKNS2_15907997'/>
-<doc f='tensorflow/tensorflow/core/util/ctc/ctc_decoder.h' l='50'>// Dimensionality of the input/output is expected to be:
-  //  - seq_len[b] - b = 0 to batch_size_
-  //  - input[t].rows(b) - t = 0 to timesteps; b = 0 t batch_size_
-  //  - output.size() specifies the number of beams to be returned.
-  //  - scores(b, i) - b = 0 to batch_size; i = 0 to output.size()</doc>

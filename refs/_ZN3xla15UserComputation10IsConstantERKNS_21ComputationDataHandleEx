@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='284' type='StatusOr&lt;bool&gt; xla::UserComputation::IsConstant(const xla::ComputationDataHandle &amp; handle, int64 num_parameters)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='281'>// Returns true if the given data handle does not depend on any parameter with
-  // index higher then num_parameters. That is, the value can be computed at
-  // compile time if we know the first num_parameters arguments.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1460' u='c' c='_ZN3xla7Service10IsConstantEPKNS_17IsConstantRequestEPNS_18IsConstantResponseE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1480' u='c' c='_ZN3xla7Service15ComputeConstantEPKNS_22ComputeConstantRequestEPNS_23ComputeConstantResponseE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2076' ll='2092' type='StatusOr&lt;bool&gt; xla::UserComputation::IsConstant(const xla::ComputationDataHandle &amp; handle, int64 num_parameters)'/>

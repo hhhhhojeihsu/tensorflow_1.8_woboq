@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='678' type='bool perftools::gputools::blas::BlasSupport::DoBlasSbmv(perftools::gputools::Stream * stream, blas::UpperLower uplo, uint64 n, uint64 k, float alpha, const DeviceMemory&lt;float&gt; &amp; a, int lda, const DeviceMemory&lt;float&gt; &amp; x, int incx, float beta, DeviceMemory&lt;float&gt; * y, int incy)'/>
-<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='672'>// Computes a matrix-vector product using a symmetric band matrix.
-  //
-  //     y &lt;- alpha * a * x + beta * y,
-  //
-  // alpha and beta are scalars; a is an n-by-n symmetric band matrix, with k
-  // super-diagonals; x and y are n-element vectors.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='3080' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasSbmvENS0_4blas10UpperLowerEyyfRKNS0_12DeviceMemoryIfEEiS7_ifPS5_i'/>

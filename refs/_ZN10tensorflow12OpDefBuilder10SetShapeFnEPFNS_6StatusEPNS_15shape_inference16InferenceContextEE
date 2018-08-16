@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/op_def_builder.h' l='141' type='tensorflow::OpDefBuilder &amp; tensorflow::OpDefBuilder::SetShapeFn(tensorflow::Status (*)(shape_inference::InferenceContext *) fn)'/>
-<use f='tensorflow/tensorflow/core/framework/op.h' l='250' u='c' c='_ZN10tensorflow11register_op19OpDefBuilderWrapperILb1EE10SetShapeFnEPFNS_6StatusEPNS_15shape_inference16InferenceContextEE'/>
-<doc f='tensorflow/tensorflow/core/framework/op_def_builder.h' l='136'>// Sets the shape function to be used for shape inference.
-  //
-  // Note that currently (October 2016), python code still requires a
-  // RegisterShape call to invoke this; see call_cpp_shape_fn in
-  // python/framework/common_shapes.py</doc>
-<def f='tensorflow/tensorflow/core/framework/op_def_builder.cc' l='592' ll='601' type='tensorflow::OpDefBuilder &amp; tensorflow::OpDefBuilder::SetShapeFn(tensorflow::Status (*)(shape_inference::InferenceContext *) fn)'/>

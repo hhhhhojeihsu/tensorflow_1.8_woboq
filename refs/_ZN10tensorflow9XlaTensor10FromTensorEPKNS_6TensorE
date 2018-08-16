@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='40' type='static const tensorflow::XlaTensor * tensorflow::XlaTensor::FromTensor(const tensorflow::Tensor * tensor)'/>
-<doc f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='38'>// Downcast from a Tensor to an XlaTensor. Return nullptr if the downcast
-  // fails.</doc>
-<use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='110' u='c' c='_ZN10tensorflow20XlaCompileOnDemandOp7CompileEPNS_15OpKernelContextERKNS_9XlaDevice8MetadataEPPKNS_11XlaCompiler17CompilationResultEPPN3xla15LocalExecutableE'/>
-<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='75' u='c' c='_ZNK10tensorflow18XlaTransferManager25TransferLiteralFromDeviceEPNS_6TensorERKS1_'/>
-<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='141' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext14PopulateInputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultERKSt3mapIiNS_14OptionalTensor4150569'/>
-<def f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='30' ll='32' type='static const tensorflow::XlaTensor * tensorflow::XlaTensor::FromTensor(const tensorflow::Tensor * tensor)'/>
-<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='36' u='c' c='_ZN10tensorflow9XlaTensor22DeviceMemoryFromTensorERKNS_6TensorE'/>
-<doc f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='30'>/*static*/</doc>

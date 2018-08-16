@@ -1,5 +1,0 @@
-<dec f='include/python3.5m/unicodeobject.h' l='535'/>
-<doc f='include/python3.5m/unicodeobject.h' l='531'>/* PyUnicode_READ_CHAR() is less efficient than PyUnicode_READ() because it
-   calls PyUnicode_KIND() and might call it twice.  For single reads, use
-   PyUnicode_READ_CHAR, for multiple consecutive reads callers should
-   cache kind and use PyUnicode_READ instead. */</doc>

@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.h' l='78' type='const std::vector&lt;HloBuffer&gt; &amp; xla::HloAliasAnalysis::buffers() const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='416' u='c' c='_ZNK3xla12_GLOBAL__N_111CopyRemover8ToStringEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.cc' l='469' u='c' c='_ZN3xla12_GLOBAL__N_111CopyRemover18BufferValueTrackerC1ERKNS_9HloModuleERKNS_16HloAliasAnalysisERKNS_11HloOrderingE'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.h' l='75'>// Return a vector of all HloBuffers stabily sorted by HloBuffer::Id. This
-  // vector is lazily computed. Mutating operations on HloAliasAnalysis may
-  // invalidate the underlying vector requiring recomputation.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='442' u='c' c='_ZNK3xla16HloAliasAnalysis8ToStringEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_alias_analysis.cc' l='495' u='c' c='_ZNK3xla16HloAliasAnalysis24HasLiveRangeInterferenceERKNS_11HloOrderingE'/>

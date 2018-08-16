@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='203' type='void tensorflow::SqliteStatement::Reset()'/>
-<doc f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='197'>/// \brief Resets statement so it can be executed again.
-  ///
-  /// Implementation note: This method diverges from canonical API
-  /// behavior by calling sqlite3_clear_bindings() in addition to
-  /// sqlite3_reset(). That makes the veneer safer; we haven&apos;t found a
-  /// super compelling reason yet to call them independently.</doc>
-<use f='tensorflow/tensorflow/core/lib/db/sqlite.cc' l='226' u='c' c='_ZN10tensorflow15SqliteStatement12StepAndResetEv'/>
-<def f='tensorflow/tensorflow/core/lib/db/sqlite.cc' l='232' ll='239' type='void tensorflow::SqliteStatement::Reset()'/>

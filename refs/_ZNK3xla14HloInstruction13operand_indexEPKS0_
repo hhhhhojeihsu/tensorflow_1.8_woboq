@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='536' type='int64 xla::HloInstruction::operand_index(const xla::HloInstruction * target) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='534'>// Returns the index of &apos;target&apos; in the operands sequence.
-  // Precondition: target must be an operand (or a fatal error will occur).</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1645' ll='1652' type='int64 xla::HloInstruction::operand_index(const xla::HloInstruction * target) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='82' u='c' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_19HloDataflowAnalysisE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='294' u='c' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_19HloDataflowAnalysisE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/while_loop_simplifier.cc' l='355' u='c' c='_ZN3xlaL24TryRemoveDeadWhileParamsEPNS_14HloInstructionE'/>

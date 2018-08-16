@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/stream.h' l='1767' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenMemcpy(perftools::gputools::DeviceMemoryBase * gpu_dst, const perftools::gputools::DeviceMemoryBase &amp; gpu_src, uint64 size)'/>
-<use f='tensorflow/tensorflow/stream_executor/stream.h' l='1775' u='c' c='_ZN9perftools8gputools6Stream13ThenMemcpyD2DEPNS0_16DeviceMemoryBaseERKS2_y'/>
-<doc f='tensorflow/tensorflow/stream_executor/stream.h' l='1764'>// Entrain onto the stream: a memcpy to a GPU destination from a GPU source
-  // of the given target size. gpu_src/dst must be pointers to GPU memory and
-  // peer access must be enabled between their owning StreamExecutors.</doc>
-<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='236' u='c' c='_ZN10tensorflow7GPUUtil18DeviceToDeviceCopyEPNS_13DeviceContextES2_PNS_6DeviceES4_NS_19AllocatorAttributesES5_PKNS_6TensorEPS6_St8functionIFvRKNS_6StatusEEE'/>
-<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='447' u='c' c='_ZN10tensorflow7GPUUtil22CopyGPUTensorToSameGPUEPNS_6DeviceEPKNS_13DeviceContextEPKNS_6TensorEPS6_St8functionIFvRKNS_6StatusEEE'/>
-<def f='tensorflow/tensorflow/stream_executor/stream.cc' l='4743' ll='4754' type='perftools::gputools::Stream &amp; perftools::gputools::Stream::ThenMemcpy(perftools::gputools::DeviceMemoryBase * gpu_dst, const perftools::gputools::DeviceMemoryBase &amp; gpu_src, uint64 size)'/>

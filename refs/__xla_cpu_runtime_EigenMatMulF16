@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/runtime_matmul.h' l='29' type='void __xla_cpu_runtime_EigenMatMulF16(const void * run_options_ptr, Eigen::half * out, Eigen::half * lhs, Eigen::half * rhs, tensorflow::int64 m, tensorflow::int64 n, tensorflow::int64 k, tensorflow::int32 transpose_lhs, tensorflow::int32 transpose_rhs)'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/cpu/runtime_matmul.cc' l='80' ll='87' type='void __xla_cpu_runtime_EigenMatMulF16(const void * run_options_ptr, Eigen::half * out, Eigen::half * lhs, Eigen::half * rhs, int64 m, int64 n, int64 k, int32 transpose_lhs, int32 transpose_rhs)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/runtime_matmul.h' l='24'>// Performs a multi-threaded matrix multiplication using Eigen. &apos;lhs&apos; and &apos;rhs&apos;
-// are pointers to buffers containing input matrices in column-major
-// order. &apos;out&apos; is a pointer to a buffer sufficiently large to hold the result
-// of the operation. Following standard nomenclature: lhs is m x k,
-// rhs is k x n, and out is m x n.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/simple_orc_jit.cc' l='184' macro='1' u='r'/>

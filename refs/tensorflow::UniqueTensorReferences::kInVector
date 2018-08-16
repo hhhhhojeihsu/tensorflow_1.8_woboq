@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/unique_tensor_references.h' l='52' type='const int'/>
-<doc f='tensorflow/tensorflow/core/framework/unique_tensor_references.h' l='48'>// Up to kInVector elements are stored in reference_tensors_vector_
-  // to avoid any allocations or hash computations in the common
-  // case. When more unique elements are added they move to
-  // referenced_tensors_set_ to avoid an N^2 algorithm on insert.</doc>
-<doc f='tensorflow/tensorflow/core/framework/unique_tensor_references.h' l='52'>// Must be &gt;= 1.</doc>
-<use f='tensorflow/tensorflow/core/framework/unique_tensor_references.cc' l='53' u='r' c='_ZN10tensorflow22UniqueTensorReferences3AddERKNS_6TensorE'/>
-<use f='tensorflow/tensorflow/core/framework/unique_tensor_references.cc' l='59' u='r' c='_ZN10tensorflow22UniqueTensorReferences3AddERKNS_6TensorE'/>
-<use f='tensorflow/tensorflow/core/framework/unique_tensor_references.cc' l='62' u='r' c='_ZN10tensorflow22UniqueTensorReferences3AddERKNS_6TensorE'/>

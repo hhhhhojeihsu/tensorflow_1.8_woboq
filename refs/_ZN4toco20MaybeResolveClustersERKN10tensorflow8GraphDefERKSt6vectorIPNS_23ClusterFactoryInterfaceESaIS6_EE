@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.h' l='34' type='std::unique_ptr&lt;tensorflow::GraphDef&gt; toco::MaybeResolveClusters(const tensorflow::GraphDef &amp; graph_def, const std::vector&lt;ClusterFactoryInterface *&gt; &amp; cluster_factories)'/>
-<doc f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.h' l='29'>// Given a graph info and a list of cluster classes (cluster_factories), it
-// partitions the graph to clusters, and then collapses each cluster into their
-// corresponding composite ops. It generates a new graph using the newly
-// generated composite ops. Each cluster factory is responsible to recognize a
-// cluster of nodes into a cluster using a name-based pattern matching approach.</doc>
-<def f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.cc' l='87' ll='134' type='std::unique_ptr&lt;GraphDef&gt; toco::MaybeResolveClusters(const tensorflow::GraphDef &amp; graph_def, const std::vector&lt;ClusterFactoryInterface *&gt; &amp; cluster_factories)'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_cluster.cc' l='144' u='c' c='_ZN4toco29MaybeReplaceCompositeSubgraphERKN10tensorflow8GraphDefE'/>

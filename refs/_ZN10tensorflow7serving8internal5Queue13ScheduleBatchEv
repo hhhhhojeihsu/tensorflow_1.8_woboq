@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='258' type='std::unique_ptr&lt;Batch&lt;TaskType&gt; &gt; tensorflow::serving::internal::Queue::ScheduleBatch()'/>
-<def f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='589' ll='614' type='std::unique_ptr&lt;Batch&lt;TaskType&gt; &gt; tensorflow::serving::internal::Queue::ScheduleBatch()'/>
-<doc f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='254'>// Called by a thread that is ready to process a batch, to request one from
-  // this queue. Either returns a batch that is ready to be processed, or
-  // nullptr if the queue declines to schedule a batch at this time. If it
-  // returns a batch, the batch is guaranteed to be closed.</doc>

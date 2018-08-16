@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/execution_tracker.h' l='85' type='StatusOr&lt;const xla::AsyncExecution *&gt; xla::ExecutionTracker::Resolve(const xla::ExecutionHandle &amp; handle)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/execution_tracker.h' l='82'>// Resolves the given ExecutionHandle to an AsyncExecution. Returns an
-  // error status if the given handle is not found, which means that the
-  // execution is not yet registered or already unregistered.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/execution_tracker.cc' l='75' ll='84' type='StatusOr&lt;const xla::AsyncExecution *&gt; xla::ExecutionTracker::Resolve(const xla::ExecutionHandle &amp; handle)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1282' u='c' c='_ZN3xla7Service16WaitForExecutionEPKNS_23WaitForExecutionRequestEPNS_24WaitForExecutionResponseE'/>

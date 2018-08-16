@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/computation_placer.h' l='70' type='StatusOr&lt;int&gt; xla::ComputationPlacer::DeviceId(int replica, int computation, int replica_count, int computation_count)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/computation_placer.h' l='67'>// Returns the device id assigned to the given replica and computation
-  // instance for [replica_count x computation_count] setup. The returned device
-  // id must match the assignement from PlaceReplicatedComputation().</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/computation_placer.cc' l='76' ll='83' type='StatusOr&lt;int&gt; xla::ComputationPlacer::DeviceId(int replica, int computation, int replica_count, int computation_count)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/computation_placer.cc' l='92' u='c' c='_ZN3xla17ComputationPlacer13AssignDevicesEii'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/local_service.cc' l='260' u='c' c='_ZN3xla12LocalService28ReplicaNumberToDeviceOrdinalEi'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1913' u='c' c='_ZNK3xla7Service8ReplicasERKNS_7BackendERKNS_12DeviceHandleE'/>

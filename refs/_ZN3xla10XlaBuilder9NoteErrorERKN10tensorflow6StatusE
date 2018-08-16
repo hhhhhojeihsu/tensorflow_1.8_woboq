@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='813' type='void xla::XlaBuilder::NoteError(const tensorflow::Status &amp; error)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='809'>// Notes that the error occurred by:
-  // * storing it internally and capturing a backtrace if it&apos;s the first error
-  //   (this deferred value will be produced on the call to Build())
-  // * dying if die_immediately_on_error_ is true</doc>
-<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='89' ll='99' type='void xla::XlaBuilder::NoteError(const tensorflow::Status &amp; error)'/>
-<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='108' u='c' c='_ZN3xla10XlaBuilder17NoteErrorOrReturnERKSt8functionIFNS_8StatusOrINS_5XlaOpEEEvEE'/>
-<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='167' u='c' c='_ZN3xla10XlaBuilder17BuildAndNoteErrorEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1407' u='c' c='_ZN3xla10XlaBuilder15UnimplementedOpEv'/>

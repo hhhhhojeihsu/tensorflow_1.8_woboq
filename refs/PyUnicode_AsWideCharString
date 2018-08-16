@@ -1,8 +1,0 @@
-<dec f='include/python3.5m/unicodeobject.h' l='1051' type='wchar_t * PyUnicode_AsWideCharString(PyObject * unicode, Py_ssize_t * size)'/>
-<doc f='include/python3.5m/unicodeobject.h' l='1043'>/* Convert the Unicode object to a wide character string. The output string
-   always ends with a nul character. If size is not NULL, write the number of
-   wide characters (excluding the null character) into *size.
-
-   Returns a buffer allocated by PyMem_Malloc() (use PyMem_Free() to free it)
-   on success. On error, returns NULL, *size is undefined and raises a
-   MemoryError. */</doc>

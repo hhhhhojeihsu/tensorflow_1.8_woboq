@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='117' type='llvm::Value * xla::llvm_ir::EmitFloatMin(llvm::Value * lhs_value, llvm::Value * rhs_value, llvm::IRBuilder&lt;&gt; * ir_builder)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='115'>// Emit float min. Emit minnum intrinsic is fast math is disabled, or
-// fcmp+select otherwise</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='113' u='c' c='_ZN3xla3cpu20VectorSupportLibrary5ClampEPN4llvm5ValueERKNS2_7APFloatES7_'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/elemental_ir_emitter.cc' l='867' u='c' c='_ZNK3xla18ElementalIrEmitter12EmitFloatMinEPN4llvm5ValueES3_'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.cc' l='117' ll='128' type='llvm::Value * xla::llvm_ir::EmitFloatMin(llvm::Value * lhs_value, llvm::Value * rhs_value, llvm::IRBuilder&lt;&gt; * ir_builder)'/>

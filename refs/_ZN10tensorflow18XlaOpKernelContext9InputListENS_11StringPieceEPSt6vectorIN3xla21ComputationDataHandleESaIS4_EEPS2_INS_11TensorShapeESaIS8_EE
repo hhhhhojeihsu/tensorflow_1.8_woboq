@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='88' type='tensorflow::Status tensorflow::XlaOpKernelContext::InputList(tensorflow::StringPiece name, std::vector&lt;xla::ComputationDataHandle&gt; * handles, std::vector&lt;TensorShape&gt; * shapes)'/>
-<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.h' l='85'>// Returns the named list-valued immutable input in &quot;list&quot;, as
-  // defined in the OpDef.  If the named output is not list-valued,
-  // returns a one-element list.</doc>
-<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/concat_op.cc' l='59' u='c' c='_ZN10tensorflow12_GLOBAL__N_112ConcatBaseOp7CompileEPNS_18XlaOpKernelContextE'/>
-<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/dynamic_stitch_op.cc' l='61' u='c' c='_ZN10tensorflow12_GLOBAL__N_115DynamicStitchOp7CompileEPNS_18XlaOpKernelContextE'/>
-<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pack_op.cc' l='48' u='c' c='_ZN10tensorflow12_GLOBAL__N_16PackOp7CompileEPNS_18XlaOpKernelContextE'/>
-<def f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='263' ll='275' type='tensorflow::Status tensorflow::XlaOpKernelContext::InputList(tensorflow::StringPiece name, std::vector&lt;xla::ComputationDataHandle&gt; * handles, std::vector&lt;TensorShape&gt; * shapes)'/>

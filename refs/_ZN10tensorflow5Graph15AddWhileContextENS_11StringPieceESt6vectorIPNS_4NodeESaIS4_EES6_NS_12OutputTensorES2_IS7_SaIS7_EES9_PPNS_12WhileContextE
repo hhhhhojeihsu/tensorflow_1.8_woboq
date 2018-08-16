@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/core/graph/graph.h' l='580' type='tensorflow::Status tensorflow::Graph::AddWhileContext(tensorflow::StringPiece frame_name, std::vector&lt;Node *&gt; enter_nodes, std::vector&lt;Node *&gt; exit_nodes, tensorflow::OutputTensor cond_output, std::vector&lt;OutputTensor&gt; body_inputs, std::vector&lt;OutputTensor&gt; body_outputs, tensorflow::WhileContext ** result)'/>
-<doc f='tensorflow/tensorflow/core/graph/graph.h' l='577'>// Create and return a new WhileContext owned by this graph. This is called
-  // when a new while loop is created. `frame_name` must be unique among
-  // WhileContexts in this graph.</doc>
-<use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='235' u='c' c='_ZN10tensorflow3ops14BuildWhileLoopERKNS_5ScopeERKSt6vectorINS_6OutputESaIS5_EERKSt8functionIFNS_6StatusES3_S9_PS5_EERKSA_IFSB_S3_S9_PS7_EERKSsSH_bSC_'/>
-<def f='tensorflow/tensorflow/core/graph/graph.cc' l='689' ll='708' type='tensorflow::Status tensorflow::Graph::AddWhileContext(tensorflow::StringPiece frame_name, std::vector&lt;Node *&gt; enter_nodes, std::vector&lt;Node *&gt; exit_nodes, tensorflow::OutputTensor cond_output, std::vector&lt;OutputTensor&gt; body_inputs, std::vector&lt;OutputTensor&gt; body_outputs, tensorflow::WhileContext ** result)'/>

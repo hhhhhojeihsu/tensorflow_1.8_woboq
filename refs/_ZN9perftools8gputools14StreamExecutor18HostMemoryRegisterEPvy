@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='206' type='bool perftools::gputools::StreamExecutor::HostMemoryRegister(void * location, uint64 size)'/>
-<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='200'>// Registers a region of host memory with the platform API. Registered memory
-  // (or memory allocated with HostMemoryAllocate) is required for use with
-  // asynchronous memcpy operations, such as Stream::ThenMemcpy. This method
-  // is used to register memory allocated outside the StreamExecutor;
-  // HostMemoryAllocate implicitly registers its allocations and
-  // HostMemoryDeallocate implicitly deregisters on deallocation.</doc>
-<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='481' ll='489' type='bool perftools::gputools::StreamExecutor::HostMemoryRegister(void * location, uint64 size)'/>

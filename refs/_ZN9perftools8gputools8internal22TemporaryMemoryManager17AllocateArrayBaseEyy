@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='108' type='port::StatusOr&lt;std::unique_ptr&lt;TemporaryDeviceMemoryBase&gt; &gt; perftools::gputools::internal::TemporaryMemoryManager::AllocateArrayBase(uint64 element_count, uint64 element_size)'/>
-<use f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='139' u='c' c='_ZN9perftools8gputools8internal22TemporaryMemoryManager13AllocateArrayEy'/>
-<doc f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='104'>// Allocates an array without type parameterization, so that the
-  // implementation can live in the source file. Without this base allocation
-  // method, we incur a circular dependency between the StreamExecutor
-  // definition and this class&apos; definition.</doc>
-<def f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.cc' l='93' ll='124' type='port::StatusOr&lt;std::unique_ptr&lt;TemporaryDeviceMemoryBase&gt; &gt; perftools::gputools::internal::TemporaryMemoryManager::AllocateArrayBase(uint64 element_count, uint64 element_size)'/>

@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='251' type='tensorflow::Status xla::CallGraph::VisitNodesInternal(const VisitorFunction &amp; visitor_func, const xla::CallGraphNode &amp; node, tensorflow::gtl::FlatSet&lt;const CallGraphNode *&gt; * visited) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='247'>// Helper method for VisitNodes(). Traverses the call graph from &apos;node&apos; in DFS
-  // post order (callee before caller) calling visitor_func on each node. Adds
-  // nodes to &apos;visited&apos; as each node is visited. Skips nodes already in
-  // &apos;visited&apos;.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='276' ll='291' type='tensorflow::Status xla::CallGraph::VisitNodesInternal(const VisitorFunction &amp; visitor_func, const xla::CallGraphNode &amp; node, tensorflow::gtl::FlatSet&lt;const CallGraphNode *&gt; * visited) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='287' u='c' c='_ZNK3xla9CallGraph18VisitNodesInternalERKSt8functionIFN10tensorflow6StatusERKNS_13CallGraphNodeEEES6_PNS2_3gtl7FlatSetIPS5_NS2_4hashISD_EESt8equal_toISD_EEE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='300' u='c' c='_ZNK3xla9CallGraph10VisitNodesERKSt8functionIFN10tensorflow6StatusERKNS_13CallGraphNodeEEEb'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='305' u='c' c='_ZNK3xla9CallGraph10VisitNodesERKSt8functionIFN10tensorflow6StatusERKNS_13CallGraphNodeEEEb'/>

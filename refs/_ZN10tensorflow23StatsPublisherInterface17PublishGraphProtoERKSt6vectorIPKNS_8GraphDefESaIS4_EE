@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/common_runtime/stats_publisher_interface.h' l='41' type='void tensorflow::StatsPublisherInterface::PublishGraphProto(const std::vector&lt;const GraphDef *&gt; &amp; graph_defs)'/>
-<ovr f='tensorflow/tensorflow/core/common_runtime/stats_publisher_interface.cc' l='31' c='_ZN10tensorflow12_GLOBAL__N_118NoOpStatsPublisher17PublishGraphProtoERKSt6vectorIPKNS_8GraphDefESaIS5_EE'/>
-<doc f='tensorflow/tensorflow/core/common_runtime/stats_publisher_interface.h' l='37'>// PublishGraphProto publishes the graph_defs corresponding to each partition
-  // in the session.
-  // When PublishGraphProto is called multiple times, only the graph_defs
-  // corresponding to the latest call will be published.</doc>
-<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='320' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph18RegisterPartitionsERKNS_16PartitionOptionsE'/>

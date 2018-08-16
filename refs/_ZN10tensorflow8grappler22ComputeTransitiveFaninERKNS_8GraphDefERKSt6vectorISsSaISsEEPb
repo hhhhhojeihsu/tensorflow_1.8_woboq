@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/grappler/grappler_item.h' l='86' type='std::vector&lt;const NodeDef *&gt; tensorflow::grappler::ComputeTransitiveFanin(const tensorflow::GraphDef &amp; graph, const std::vector&lt;string&gt; &amp; terminal_nodes, bool * ill_formed)'/>
-<doc f='tensorflow/tensorflow/core/grappler/grappler_item.h' l='83'>// Return the transitive fanin of a set of terminal nodes. Sets &apos;ill_formed&apos; to
-// true if one of the node is missing in the graph, or some node inputs don&apos;t
-// exist.</doc>
-<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='331' u='c' c='_ZN10tensorflow8grappler16VirtualScheduler4InitEv'/>
-<use f='tensorflow/tensorflow/core/grappler/grappler_item.cc' l='117' u='c' c='_ZN10tensorflow8grappler22ComputeTransitiveFaninERKNS_8GraphDefERKSt6vectorISsSaISsEE'/>
-<def f='tensorflow/tensorflow/core/grappler/grappler_item.cc' l='122' ll='178' type='std::vector&lt;const NodeDef *&gt; tensorflow::grappler::ComputeTransitiveFanin(const tensorflow::GraphDef &amp; graph, const std::vector&lt;string&gt; &amp; terminal_nodes, bool * ill_formed)'/>
-<use f='tensorflow/tensorflow/core/grappler/optimizers/model_pruner.cc' l='65' u='c' c='_ZN10tensorflow8grappler11ModelPruner8OptimizeEPNS0_7ClusterERKNS0_12GrapplerItemEPNS_8GraphDefE'/>

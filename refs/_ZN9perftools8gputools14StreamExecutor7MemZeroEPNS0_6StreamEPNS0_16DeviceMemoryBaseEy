@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='279' type='bool perftools::gputools::StreamExecutor::MemZero(perftools::gputools::Stream * stream, perftools::gputools::DeviceMemoryBase * location, uint64 size)'/>
-<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='276'>// Enqueues an operation onto stream to zero out size bytes at the given
-  // device memory location. Neither stream nor location may be null. Returns
-  // whether the operation was successfully enqueued onto the stream.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4760' u='c' c='_ZN9perftools8gputools6Stream11ThenMemZeroEPNS0_16DeviceMemoryBaseEy'/>
-<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='637' ll='640' type='bool perftools::gputools::StreamExecutor::MemZero(perftools::gputools::Stream * stream, perftools::gputools::DeviceMemoryBase * location, uint64 size)'/>

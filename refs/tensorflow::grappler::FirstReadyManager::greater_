@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='207' type='std::function&lt;bool (const NodeDef *, const NodeDef *)&gt;'/>
-<offset>448</offset>
-<doc f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.h' l='205'>// Comparator functor for heap; stl heap is max heap, so we use &quot;greater than&quot;
-  // functor for keeping the smallest time_ready node at the front of heap.</doc>
-<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='130' u='w' c='_ZN10tensorflow8grappler17FirstReadyManager4InitEPKSt13unordered_mapIPKNS_7NodeDefENS0_9NodeStateESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEE'/>
-<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='157' u='r' c='_ZN10tensorflow8grappler17FirstReadyManager14RemoveCurrNodeEv'/>
-<use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='171' u='r' c='_ZN10tensorflow8grappler17FirstReadyManager17DrainWaitingQueueEv'/>

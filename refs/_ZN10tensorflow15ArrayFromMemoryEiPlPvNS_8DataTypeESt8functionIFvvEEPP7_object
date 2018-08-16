@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.h' l='42' type='tensorflow::Status tensorflow::ArrayFromMemory(int dim_size, npy_intp * dims, void * data, tensorflow::DataType dtype, std::function&lt;void ()&gt; destructor, PyObject ** result)'/>
-<doc f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.h' l='38'>// Creates a numpy array with shapes specified by dim_size and dims and content
-// in data. The array does not own the memory, and destructor will be called to
-// release it. If the status is not ok the caller is responsible for releasing
-// the memory.</doc>
-<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='335' u='c' c='_ZN10tensorflow18TF_TensorToPyArrayESt10unique_ptrI9TF_TensorNS_6detail15TFTensorDeleterEEPP7_object'/>
-<def f='tensorflow/tensorflow/python/lib/core/ndarray_tensor_bridge.cc' l='188' ll='221' type='tensorflow::Status tensorflow::ArrayFromMemory(int dim_size, npy_intp * dims, void * data, tensorflow::DataType dtype, std::function&lt;void ()&gt; destructor, PyObject ** result)'/>
-<use f='tensorflow/tensorflow/python/lib/core/py_func.cc' l='396' u='c' c='_ZN10tensorflow22ConvertTensorToNdarrayERKNS_6TensorEPP7_object'/>

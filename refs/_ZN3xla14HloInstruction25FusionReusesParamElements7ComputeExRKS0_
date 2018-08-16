@@ -1,6 +1,0 @@
-<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3121' ll='3124' type='static UseKind xla::HloInstruction::FusionReusesParamElements::Compute(int64 i, const xla::HloInstruction &amp; hlo)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3191' u='c' c='_ZNK3xla14HloInstruction17OperandElementUseEx'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3117'>// We could rather iterate backwards through fused_instructions_ here, as it
-  // is in reverse postorder, and compute whether each fused instruction reuses
-  // the value of this parameter, which would save stack space but not allow us
-  // to finish early if we find a reuse.</doc>

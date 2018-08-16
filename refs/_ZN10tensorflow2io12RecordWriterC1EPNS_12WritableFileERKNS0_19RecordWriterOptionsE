@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/lib/io/record_writer.h' l='53' type='void tensorflow::io::RecordWriter::RecordWriter(tensorflow::WritableFile * dest, const tensorflow::io::RecordWriterOptions &amp; options = tensorflow::io::RecordWriterOptions())'/>
-<doc f='tensorflow/tensorflow/core/lib/io/record_writer.h' l='50'>// Create a writer that will append data to &quot;*dest&quot;.
-  // &quot;*dest&quot; must be initially empty.
-  // &quot;*dest&quot; must remain live while this Writer is in use.</doc>
-<def f='tensorflow/tensorflow/core/lib/io/record_writer.cc' l='57' ll='80' type='void tensorflow::io::RecordWriter::RecordWriter(tensorflow::WritableFile * dest, const tensorflow::io::RecordWriterOptions &amp; options = tensorflow::io::RecordWriterOptions())'/>
-<use f='tensorflow/tensorflow/core/util/events_writer.cc' l='75' u='c' c='_ZN10tensorflow12EventsWriter12InitIfNeededEv'/>
-<use f='tensorflow/tensorflow/python/lib/io/py_record_writer.cc' l='45' u='c' c='_ZN10tensorflow2io14PyRecordWriter3NewERKSsS3_P9TF_Status'/>

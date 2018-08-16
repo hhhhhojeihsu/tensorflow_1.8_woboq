@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='1080' type='bool perftools::gputools::blas::BlasSupport::DoBlasGemmBatched(perftools::gputools::Stream * stream, blas::Transpose transa, blas::Transpose transb, uint64 m, uint64 n, uint64 k, float alpha, const port::ArraySlice&lt;DeviceMemory&lt;float&gt; *&gt; &amp; a, int lda, const port::ArraySlice&lt;DeviceMemory&lt;float&gt; *&gt; &amp; b, int ldb, float beta, const port::ArraySlice&lt;DeviceMemory&lt;float&gt; *&gt; &amp; c, int ldc, int batch_count, perftools::gputools::ScratchAllocator * scratch_allocator)'/>
-<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='1076'>// Computes a batch of matrix-matrix product with general matrices.
-  // This is a batched version of DoBlasGemm.
-  // The batched GEMM computes matrix product for each input/output in a, b,
-  // and c, which contain batch_count DeviceMemory objects.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4489' u='a' c='_ZN9perftools8gputools6Stream30ThenBlasGemmBatchedWithScratchENS0_4blas9TransposeES3_yyyfRKN10tensorflow3gtl10ArraySliceIPNS0_12DeviceMemoryIfEEEEiSC_1395520'/>

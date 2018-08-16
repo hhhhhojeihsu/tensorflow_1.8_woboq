@@ -1,6 +1,0 @@
-<def f='tensorflow/tensorflow/compiler/xla/service/cpu/target_machine_features.h' l='58' ll='62' type='int xla::cpu::TargetMachineFeatures::vector_register_num_elements(const llvm::Function &amp; function, xla::PrimitiveType type) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/target_machine_features.h' l='54'>// Return the number of elements of type `type` that can fit into the largest
-  // vector register available.  We need to pass in &quot;function&quot; since llvm
-  // functions can contain annotations for specializing them to specific
-  // micro-architectures (though currently XLA does not use this functionality).</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='632' u='c' c='_ZN3xla3cpu12DotOpEmitter25EmitLlvmIrDotIfProfitableEv'/>

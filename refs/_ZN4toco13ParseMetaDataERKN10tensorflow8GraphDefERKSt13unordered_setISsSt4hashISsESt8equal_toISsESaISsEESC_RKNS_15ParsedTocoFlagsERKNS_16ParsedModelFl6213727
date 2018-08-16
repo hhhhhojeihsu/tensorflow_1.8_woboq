@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/lite/toco/toco_saved_model.h' l='36' type='void toco::ParseMetaData(const tensorflow::GraphDef &amp; graph_def, const std::unordered_set&lt;string&gt; &amp; inputs, const std::unordered_set&lt;string&gt; &amp; outputs, const toco::ParsedTocoFlags &amp; parsed_toco_flags, const toco::ParsedModelFlags &amp; parsed_model_flags, toco::TocoFlags * toco_flags, toco::ModelFlags * model_flags)'/>
-<doc f='tensorflow/tensorflow/contrib/lite/toco/toco_saved_model.h' l='30'>// Parses metadata into `toco_flags` and `model_flags`.
-//
-// Stores `inputs` as input_arrays and `outputs` as output_arrays in
-// `model_flags`. Infers input_shapes from the GraphDef and stores it in
-// `model_flags` as part of the input_arrays. Assumes inference_type is FLOAT
-// and stores it in `toco_flags`.</doc>
-<def f='tensorflow/tensorflow/contrib/lite/toco/toco_saved_model.cc' l='134' ll='162' type='void toco::ParseMetaData(const tensorflow::GraphDef &amp; graph_def, const std::unordered_set&lt;string&gt; &amp; inputs, const std::unordered_set&lt;string&gt; &amp; outputs, const toco::ParsedTocoFlags &amp; parsed_toco_flags, const toco::ParsedModelFlags &amp; parsed_model_flags, toco::TocoFlags * toco_flags, toco::ModelFlags * model_flags)'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/toco_saved_model.cc' l='185' u='c' c='_ZN4toco21GetSavedModelContentsERKNS_15ParsedTocoFlagsERKNS_16ParsedModelFlagsEPNS_9TocoFlagsEPNS_10ModelFlagsEPSs'/>

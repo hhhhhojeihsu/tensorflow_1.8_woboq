@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='859' type='tensorflow::Status tensorflow::OpKernelContext::allocate_temp(tensorflow::DataType type, const tensorflow::TensorShape &amp; shape, tensorflow::Tensor * out_temp, tensorflow::AllocatorAttributes allocator_attr, const tensorflow::AllocationAttributes &amp; allocation_attr)'/>
-<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='864' u='c' c='_ZN10tensorflow15OpKernelContext13allocate_tempENS_8DataTypeERKNS_11TensorShapeEPNS_6TensorENS_19AllocatorAttributesE'/>
-<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='855'>// Allocates a temporary Tensor of the specified type and
-  // shape. Devices such as GPUs that enqueue Ops for lazy execution
-  // may retain references to the temporary tensors after the Op&apos;s
-  // Compute method has run. See comment above.</doc>
-<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='711' ll='725' type='tensorflow::Status tensorflow::OpKernelContext::allocate_temp(tensorflow::DataType type, const tensorflow::TensorShape &amp; shape, tensorflow::Tensor * out_temp, tensorflow::AllocatorAttributes allocator_attr, const tensorflow::AllocationAttributes &amp; allocation_attr)'/>

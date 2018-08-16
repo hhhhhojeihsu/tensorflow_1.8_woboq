@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='88' ll='96' type='void tensorflow::ctc::CTCBeamSearchDecoder::CTCBeamSearchDecoder&lt;CTCBeamState, CTCBeamComparer&gt;(int num_classes, int beam_width, BaseBeamScorer&lt;CTCBeamState&gt; * scorer, int batch_size = 1, bool merge_repeated = false)'/>
-<use f='tensorflow/tensorflow/core/kernels/ctc_decoder_ops.cc' l='291' u='c' c='_ZN10tensorflow22CTCBeamSearchDecoderOp7ComputeEPNS_15OpKernelContextE'/>
-<doc f='tensorflow/tensorflow/core/util/ctc/ctc_beam_search.h' l='82'>// The beam search decoder is constructed specifying the beam_width (number of
-  // candidates to keep at each decoding timestep) and a beam scorer (used for
-  // custom scoring, for example enabling the use of a language model).
-  // The ownership of the scorer remains with the caller. The default
-  // implementation, CTCBeamSearchDecoder&lt;&gt;::DefaultBeamScorer, generates the
-  // standard beam search.</doc>

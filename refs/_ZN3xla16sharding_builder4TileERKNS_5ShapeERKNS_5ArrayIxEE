@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/client/sharding_builder.h' l='45' type='xla::OpSharding xla::sharding_builder::Tile(const xla::Shape &amp; tile_shape, const TileAssignment &amp; tile_assignment)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/client/sharding_builder.h' l='39'>// Creates a tiled sharding with the given tile shape and assignment of tiles
-// to devices.
-//
-// If tile_shape is not evenly divisible by the number of devices in
-// tile_assignment, operations behave as if implicit padding had been inserted.
-// The value of this padding is undefined.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/client/sharding_builder.cc' l='35' ll='47' type='xla::OpSharding xla::sharding_builder::Tile(const xla::Shape &amp; tile_shape, const TileAssignment &amp; tile_assignment)'/>

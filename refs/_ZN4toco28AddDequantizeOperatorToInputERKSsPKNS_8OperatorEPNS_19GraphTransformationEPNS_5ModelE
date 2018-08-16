@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/make_initial_dequantize_operator.cc' l='33' ll='104' type='bool toco::AddDequantizeOperatorToInput(const string &amp; input_name, const toco::Operator * op, toco::GraphTransformation * transformation, toco::Model * model)'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/make_initial_dequantize_operator.cc' l='115' u='c' c='_ZN4toco29MakeInitialDequantizeOperator3RunEPNS_5ModelEm'/>
-<doc f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/make_initial_dequantize_operator.cc' l='28'>// This inserts an operator whose output is a float array (name:
-// flags.input_array()).  It has to wait for any existing operators that
-// generate this output to be removed by graph transformations.  Note that there
-// may be more than one operator that takes the input_array as their input, and
-// that some of these may be removed by graph transformations.</doc>

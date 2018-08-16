@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/device_description.h' l='372' type='void perftools::gputools::CalculateDimensionality(const perftools::gputools::DeviceDescription &amp; device_description, uint64 element_count, uint64 * threads_per_block, uint64 * block_count)'/>
-<doc f='tensorflow/tensorflow/stream_executor/device_description.h' l='368'>// Calculate the number of threads/blocks required to process element_count
-// elements. Note that you can still end up with more threads than
-// element_count due to rounding, so kernels often start with an &quot;is this
-// thread id in the element_count range?&quot; test.</doc>
-<def f='tensorflow/tensorflow/stream_executor/device_description.cc' l='145' ll='154' type='void perftools::gputools::CalculateDimensionality(const perftools::gputools::DeviceDescription &amp; device_description, uint64 element_count, uint64 * threads_per_block, uint64 * block_count)'/>

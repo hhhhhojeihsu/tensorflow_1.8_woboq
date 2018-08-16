@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.h' l='109' type='int32 tensorflow::tensorforest::BestFeatureClassification(const tensorflow::Tensor &amp; total_counts, const tensorflow::Tensor &amp; split_counts, int32 accumulator)'/>
-<doc f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.h' l='105'>// Returns the best split to use based on the (lowest) Gini impurity.
-// Takes in the whole total and per-split count tensors because using
-// Tensor::Slice returns a tensor of the same dimensionality, which makes
-// things a little awkward.</doc>
-<def f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.cc' l='113' ll='123' type='int32 tensorflow::tensorforest::BestFeatureClassification(const tensorflow::Tensor &amp; total_counts, const tensorflow::Tensor &amp; split_counts, int32 accumulator)'/>

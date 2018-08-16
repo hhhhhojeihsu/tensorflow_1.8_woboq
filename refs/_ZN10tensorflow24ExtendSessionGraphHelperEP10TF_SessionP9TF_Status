@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/c/c_api_internal.h' l='218' type='bool tensorflow::ExtendSessionGraphHelper(TF_Session * session, TF_Status * status)'/>
-<def f='tensorflow/tensorflow/c/c_api.cc' l='717' ll='767' type='bool tensorflow::ExtendSessionGraphHelper(TF_Session * session, TF_Status * status)'/>
-<use f='tensorflow/tensorflow/c/c_api.cc' l='2579' u='c' c='TF_SessionRun'/>
-<use f='tensorflow/tensorflow/c/c_api.cc' l='2617' u='c' c='TF_SessionPRunSetup'/>
-<use f='tensorflow/tensorflow/c/c_api.cc' l='2661' u='c' c='TF_SessionPRun'/>
-<doc f='tensorflow/tensorflow/c/c_api.cc' l='714'>// TODO(josh11b,mrry): Change Session to be able to use a Graph*
-// directly, instead of requiring us to serialize to a GraphDef and
-// call Session::Extend().</doc>
-<use f='tensorflow/tensorflow/c/python_api.cc' l='109' u='c' c='_ZN10tensorflow13ExtendSessionEP10TF_SessionP9TF_Status'/>

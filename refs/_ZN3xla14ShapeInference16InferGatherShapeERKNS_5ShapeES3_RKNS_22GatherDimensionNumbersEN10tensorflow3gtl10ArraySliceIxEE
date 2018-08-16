@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='270' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferGatherShape(const xla::Shape &amp; input_shape, const xla::Shape &amp; gather_indices_shape, const xla::GatherDimensionNumbers &amp; gather_dim_numbers, tensorflow::gtl::ArraySlice&lt;int64&gt; window_bounds)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='267'>// Helper that infers the shape of the tensor produced by a gather operation
-  // with the given input shape, gather indices shape and gather dimension
-  // numbers.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='447' u='c' c='_ZN3xla13ShapeVerifier12HandleGatherEPNS_14HloInstructionE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2564' ll='2674' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferGatherShape(const xla::Shape &amp; input_shape, const xla::Shape &amp; gather_indices_shape, const xla::GatherDimensionNumbers &amp; gather_dim_numbers, tensorflow::gtl::ArraySlice&lt;int64&gt; window_bounds)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2564'>/*static*/</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='330' u='c' c='_ZN3xla15UserComputation20AddGatherInstructionERKNS_13GatherRequestE'/>

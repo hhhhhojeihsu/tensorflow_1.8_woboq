@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='679' type='void tensorflow::OpKernelContext::delete_ref_input(int input_index, bool lock_held)'/>
-<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='674'>// Deletes the Tensor object used as the Ref Input at
-  // input_index. This is not usually necessary and should be used
-  // with caution. If !lock_held the input mutex will be acquired
-  // before returning the Tensor.
-  // REQUIRES: IsRefType(input_dtype(input_index)).</doc>
-<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='549' ll='560' type='void tensorflow::OpKernelContext::delete_ref_input(int index, bool lock_held)'/>

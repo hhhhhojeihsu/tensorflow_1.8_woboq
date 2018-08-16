@@ -1,8 +1,0 @@
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.h' l='68' u='a' c='_ZNK3xla3cpu13CpuExecutable16ir_module_stringEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.h' l='71' u='w' c='_ZN3xla3cpu13CpuExecutable20set_ir_module_stringERKSs'/>
-<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.h' l='132' type='string'/>
-<offset>1088</offset>
-<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.h' l='128'>// The LLVM IR, in string format, of the unoptimized module generated for this
-  // CpuExecutable. We save a string instead of an llvm::Module* because leaving
-  // llvm::Module* in a singleton can cause the heap checker to emit false
-  // positives.</doc>

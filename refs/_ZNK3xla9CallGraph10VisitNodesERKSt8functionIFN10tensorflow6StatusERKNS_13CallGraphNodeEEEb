@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='189' type='tensorflow::Status xla::CallGraph::VisitNodes(const VisitorFunction &amp; visitor_func, bool visit_unreachable_nodes = true) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='185'>// Calls the given function on each node in the call graph. Nodes are visited
-  // in post order (callees before callers). If visit_unreachable_nodes is true
-  // then all nodes in the call graph are visited. Otherwise only those nodes
-  // reachable from the entry computation are visited.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='293' ll='310' type='tensorflow::Status xla::CallGraph::VisitNodes(const VisitorFunction &amp; visitor_func, bool visit_unreachable_nodes = true) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/call_inliner.cc' l='143' u='c' c='_ZN3xla11CallInliner3RunEPNS_9HloModuleE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/flatten_call_graph.cc' l='118' u='c' c='_ZN3xla16FlattenCallGraph3RunEPNS_9HloModuleE'/>

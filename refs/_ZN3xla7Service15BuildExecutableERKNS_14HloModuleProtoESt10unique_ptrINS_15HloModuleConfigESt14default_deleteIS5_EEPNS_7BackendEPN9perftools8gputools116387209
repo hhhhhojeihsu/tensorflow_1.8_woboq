@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='335' type='StatusOr&lt;std::unique_ptr&lt;Executable&gt; &gt; xla::Service::BuildExecutable(const xla::HloModuleProto &amp; module_proto, std::unique_ptr&lt;HloModuleConfig&gt; module_config, xla::Backend * backend, perftools::gputools::StreamExecutor * executor, xla::DeviceMemoryAllocator * device_allocator = nullptr)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='332'>// Builds an Executable for the given HLO module proto.
-  //
-  // TODO(b/74197823): This is a part of a NOT YET ready refactor.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/local_service.cc' l='254' u='c' c='_ZN3xla12LocalService17CompileExecutableERKNS_14XlaComputationEN10tensorflow3gtl10ArraySliceIPKNS_5ShapeEEERKNS_22ExecutableBuildOptionsE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1130' ll='1152' type='StatusOr&lt;std::unique_ptr&lt;Executable&gt; &gt; xla::Service::BuildExecutable(const xla::HloModuleProto &amp; module_proto, std::unique_ptr&lt;HloModuleConfig&gt; module_config, xla::Backend * backend, se::StreamExecutor * executor, xla::DeviceMemoryAllocator * device_allocator = nullptr)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1183' u='c' c='_ZN3xla7Service12ExecuteGraphEPKNS_19ExecuteGraphRequestEPNS_15ExecuteResponseE'/>

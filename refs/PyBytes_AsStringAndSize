@@ -1,9 +1,0 @@
-<dec f='include/python3.5m/bytesobject.h' l='89' type='int PyBytes_AsStringAndSize(PyObject * obj, char ** s, Py_ssize_t * len)'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc' l='29' u='c' c='_ZN4toco11TocoConvertEP7_objectS1_S1_'/>
-<doc f='include/python3.5m/bytesobject.h' l='84'>/* Provides access to the internal data buffer and size of a string
-   object or the default encoded version of a Unicode object. Passing
-   NULL as *len parameter will force the string buffer to be
-   0-terminated (passing a string with embedded NULL characters will
-   cause an exception).  */</doc>
-<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='172' u='c' c='_ZN10tensorflow12_GLOBAL__N_115PyBytesArrayMapEP16tagPyArrayObjectT_'/>
-<use f='tensorflow/tensorflow/python/lib/core/py_func.cc' l='320' u='c' c='_ZN10tensorflow22ConvertNdarrayToTensorEP7_objectPNS_6TensorE'/>

@@ -1,5 +1,0 @@
-<dec f='tensorflow/tensorflow/core/lib/io/table.h' l='75' type='tensorflow::Status tensorflow::table::Table::InternalGet(const tensorflow::StringPiece &amp; key, void * arg, void (*)(void *, const tensorflow::StringPiece &amp;, const tensorflow::StringPiece &amp;) handle_result)'/>
-<doc f='tensorflow/tensorflow/core/lib/io/table.h' l='72'>// Calls (*handle_result)(arg, ...) with the entry found after a call
-  // to Seek(key).  May not make such a call if filter policy says
-  // that key is not present.</doc>
-<def f='tensorflow/tensorflow/core/lib/io/table.cc' l='129' ll='150' type='tensorflow::Status tensorflow::table::Table::InternalGet(const tensorflow::StringPiece &amp; k, void * arg, void (*)(void *, const tensorflow::StringPiece &amp;, const tensorflow::StringPiece &amp;) saver)'/>

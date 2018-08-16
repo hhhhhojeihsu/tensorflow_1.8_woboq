@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/compiler/xla/service/computation_placer.h' l='98' ll='101'/>
-<size>16</size>
-<doc f='tensorflow/tensorflow/compiler/xla/service/computation_placer.h' l='95'>// State kept for each kind of ComputationPlacer. Registration functions set
-  // up creation_function, and then we use that to lazily create &quot;placer&quot; the
-  // first time GetForPlatform is invoked for a particular id.</doc>
-<mbr r='xla::ComputationPlacer::State::placer' o='0' t='std::unique_ptr&lt;ComputationPlacer&gt;'/>
-<mbr r='xla::ComputationPlacer::State::creation_function' o='64' t='ComputationPlacerCreationFunction'/>

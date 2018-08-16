@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/c/eager/tape.h' l='149' type='tensorflow::Status tensorflow::eager::GradientTape::ComputeGradient(const VSpace&lt;Gradient, BackwardFunction&gt; &amp; vspace, gtl::ArraySlice&lt;int64&gt; target_tensor_ids, gtl::ArraySlice&lt;int64&gt; source_tensor_id, gtl::ArraySlice&lt;Gradient *&gt; output_gradients, std::vector&lt;Gradient *&gt; * result)'/>
-<def f='tensorflow/tensorflow/c/eager/tape.h' l='439' ll='629' type='tensorflow::Status tensorflow::eager::GradientTape::ComputeGradient(const VSpace&lt;Gradient, BackwardFunction&gt; &amp; vspace, gtl::ArraySlice&lt;int64&gt; target_tensor_ids, gtl::ArraySlice&lt;int64&gt; source_tensor_ids, gtl::ArraySlice&lt;Gradient *&gt; output_gradients, std::vector&lt;Gradient *&gt; * result)'/>
-<use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1363' u='c' c='_Z19TFE_Py_TapeGradientP7_objectS0_S0_S0_S0_P9TF_Status'/>
-<doc f='tensorflow/tensorflow/c/eager/tape.h' l='145'>// Consumes the internal state of the tape (so cannot be called more than
-  // once) and produces the gradient of the target tensors with respect to the
-  // source tensors. The output gradients are used if not empty and not
-  // null. The result is populated with one tensor per target element.</doc>

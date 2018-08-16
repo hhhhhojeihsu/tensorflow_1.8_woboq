@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.h' l='75' type='const xla::HloValue &amp; xla::HloDataflowAnalysis::GetValueDefinedAt(const xla::HloInstruction * instruction, const xla::ShapeIndex &amp; index = {}) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.h' l='71'>// Return the HloValue defined by &apos;instruction&apos; at the given shape index of
-  // its output.
-  //
-  // Precondition: ValueIsDefinedAt is true for this instruction and index.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/hlo_dataflow_analysis.cc' l='57' ll='61' type='const xla::HloValue &amp; xla::HloDataflowAnalysis::GetValueDefinedAt(const xla::HloInstruction * instruction, const xla::ShapeIndex &amp; index = {}) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='85' u='c' c='_ZN3xla23DoesNotUseOperandBufferEPKNS_14HloInstructionERKNS_10ShapeIndexES2_RKNS_19HloDataflowAnalysisE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='297' u='c' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_19HloDataflowAnalysisE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/liveness_util.cc' l='353' u='c' c='_ZN3xla29CanShareOperandBufferWithUserEPNS_14HloInstructionERKNS_10ShapeIndexES1_S4_RKNS_19HloDataflowAnalysisE'/>

@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/rng.h' l='84' type='bool perftools::gputools::rng::RngSupport::SetSeed(perftools::gputools::Stream * stream, const uint8 * seed, uint64 seed_bytes)'/>
-<doc f='tensorflow/tensorflow/stream_executor/rng.h' l='78'>// Specifies the seed used to initialize the RNG.
-  // This call does not transfer ownership of the buffer seed; its data should
-  // not be altered for the lifetime of this call. At least 16 bytes of seed
-  // data must be provided, but not all seed data will necessarily be used.
-  // seed: Pointer to seed data. Must not be null.
-  // seed_bytes: Size of seed buffer in bytes. Must be &gt;= 16.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4609' u='c' c='_ZN9perftools8gputools6Stream14ThenSetRngSeedEPKhy'/>

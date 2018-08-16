@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/lite/context.h' l='233' type='void TfLiteTensorReset(TfLiteType type, const char * name, TfLiteIntArray * dims, TfLiteQuantizationParams quantization, char * buffer, size_t size, TfLiteAllocationType allocation_type, const void * allocation, TfLiteTensor * tensor)'/>
-<doc f='tensorflow/tensorflow/contrib/lite/context.h' l='232'>// Set all of a tensor&apos;s fields (and free any previously allocated data).</doc>
-<def f='tensorflow/tensorflow/contrib/lite/context.c' l='76' ll='89' type='void TfLiteTensorReset(TfLiteType type, const char * name, TfLiteIntArray * dims, TfLiteQuantizationParams quantization, char * buffer, size_t size, TfLiteAllocationType allocation_type, const void * allocation, TfLiteTensor * tensor)'/>
-<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='671' u='c' c='_ZN6tflite11Interpreter27SetTensorParametersReadOnlyEi10TfLiteTypePKciPKi24TfLiteQuantizationParamsS3_mPKNS_10AllocationE'/>
-<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='702' u='c' c='_ZN6tflite11Interpreter28SetTensorParametersReadWriteEi10TfLiteTypePKciPKi24TfLiteQuantizationParams'/>
-<use f='tensorflow/tensorflow/contrib/lite/string_util.cc' l='98' u='c' c='_ZN6tflite13DynamicBuffer13WriteToTensorEP12TfLiteTensor'/>

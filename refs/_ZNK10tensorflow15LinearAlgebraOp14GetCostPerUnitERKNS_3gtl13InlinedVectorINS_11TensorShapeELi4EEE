@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/core/kernels/linalg_ops_common.h' l='100' ll='106' type='int64 tensorflow::LinearAlgebraOp::GetCostPerUnit(const TensorShapes &amp; input_matrix_shapes) const'/>
-<doc f='tensorflow/tensorflow/core/kernels/linalg_ops_common.h' l='94'>// Returns the cost per matrix operation. This is used to determine the
-  // number of threads to use for parallelizing calls to ComputeMatrix in
-  // batch mode. Cost per unit is assumed to be roughly 1ns, based on comments
-  // in core/util/work_sharder.cc. Many linear algebra ops take roughly max(m,n)
-  // * min(m,n)^2, where the first input matrix is m-by-n. We provide that as a
-  // default implementation for convenience.</doc>
-<use f='tensorflow/tensorflow/core/kernels/linalg_ops_common.cc' l='110' u='c' c='_ZN10tensorflow15LinearAlgebraOp7ComputeEPNS_15OpKernelContextE'/>

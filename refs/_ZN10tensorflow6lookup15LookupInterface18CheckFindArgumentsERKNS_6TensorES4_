@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/lookup_interface.h' l='115' type='tensorflow::Status tensorflow::lookup::LookupInterface::CheckFindArguments(const tensorflow::Tensor &amp; keys, const tensorflow::Tensor &amp; default_value)'/>
-<def f='tensorflow/tensorflow/core/framework/lookup_interface.cc' l='74' ll='84' type='tensorflow::Status tensorflow::lookup::LookupInterface::CheckFindArguments(const tensorflow::Tensor &amp; key, const tensorflow::Tensor &amp; default_value)'/>
-<doc f='tensorflow/tensorflow/core/framework/lookup_interface.h' l='110'>// Check the arguments of a find operation. Returns OK if all the following
-  // requirements are satisfied, otherwise it returns InvalidArgument:
-  // - DataType of the tensor keys equals to the table key_dtype
-  // - DataType of the tensor default_value equals to the table value_dtype
-  // - the default_value tensor shape matches the table&apos;s value shape.</doc>
-<use f='tensorflow/tensorflow/core/kernels/lookup_table_op.cc' l='667' u='c' c='_ZN10tensorflow17LookupTableFindOp7ComputeEPNS_15OpKernelContextE'/>

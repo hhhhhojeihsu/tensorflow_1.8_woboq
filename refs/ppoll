@@ -1,8 +1,0 @@
-<dec f='include/x86_64-linux-gnu/sys/poll.h' l='66' type='int ppoll(struct pollfd * __fds, nfds_t __nfds, const struct timespec * __timeout, const __sigset_t * __ss)'/>
-<def f='include/x86_64-linux-gnu/bits/poll2.h' l='64' ll='78' macro='1' type='int ppoll(struct pollfd * __fds, nfds_t __nfds, const struct timespec * __timeout, const __sigset_t * __ss)'/>
-<doc f='include/x86_64-linux-gnu/sys/poll.h' l='60'>/* Like poll, but before waiting the threads signal mask is replaced
-   with that specified in the fourth parameter.  For better usability,
-   the timeout value is specified using a TIMESPEC object.
-
-   This function is a cancellation point and therefore not marked with
-   __THROW.  */</doc>

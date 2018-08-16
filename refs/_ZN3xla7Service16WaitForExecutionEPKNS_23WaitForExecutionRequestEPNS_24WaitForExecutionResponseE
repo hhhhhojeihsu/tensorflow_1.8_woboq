@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='164' type='tensorflow::Status xla::Service::WaitForExecution(const xla::WaitForExecutionRequest * arg, xla::WaitForExecutionResponse * result)'/>
-<ovr f='tensorflow/tensorflow/compiler/xla/service/compile_only_service.h' l='76' c='_ZN3xla18CompileOnlyService16WaitForExecutionEPKNS_23WaitForExecutionRequestEPNS_24WaitForExecutionResponseE'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='160'>// Waits until the specified execution is complete and returns the result.
-  // Calling this API multiple times with the same execution handle returns the
-  // method with an error since the execution handle is destroyed after the
-  // first call.</doc>
-<inh f='tensorflow/tensorflow/compiler/xla/service_interface.h' l='70' c='_ZN3xla16ServiceInterface16WaitForExecutionEPKNS_23WaitForExecutionRequestEPNS_24WaitForExecutionResponseE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1279' ll='1292' type='tensorflow::Status xla::Service::WaitForExecution(const xla::WaitForExecutionRequest * arg, xla::WaitForExecutionResponse * result)'/>

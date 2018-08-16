@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/linalg_ops_common.h' l='126' type='void tensorflow::LinearAlgebraOp::ComputeMatrix(tensorflow::OpKernelContext * context, const ConstMatrixMaps &amp; inputs, MatrixMaps * outputs)'/>
-<doc f='tensorflow/tensorflow/core/kernels/linalg_ops_common.h' l='120'>// Performs a single matrix computation given input matrices, and
-  // stores the result in outputs. For batch operations, this will be called
-  // repeatedly for a single call to Compute() when multiple matrices exist in
-  // input Tensors with rank &gt; 2. In this case the calls to ComputeMatrix are
-  // parallelized. The number of threads used is determined by a cost model from
-  // the value returned by GetCostPerUnit().</doc>
-<use f='tensorflow/tensorflow/core/kernels/linalg_ops_common.cc' l='246' u='c' c='_ZN10tensorflow15LinearAlgebraOp18ComputeTensorSliceEPNS_15OpKernelContextExRKNS_3gtl13InlinedVectorIPKNS_6TensorELi4EEERKNS4_INS_11TensorShapeELi4EEERKNS4_IPS5_Li4EEESE_'/>

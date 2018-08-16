@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='569' type='void perftools::gputools::StreamExecutor::EnqueueOnBackgroundThread(std::function&lt;void ()&gt; task)'/>
-<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='564'>// Adds a task to the port::ThreadPool work queue. These tasks must be
-  // fire-and-forget and have no external data or timing dependencies; their
-  // execution order and completion time have no guarantees.
-  // For an example of an appropriate task, see HostBlas::DoBlasGemmInternal;
-  // there, temporary internal buffers are freed using this method.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='5160' u='c' c='_ZN9perftools8gputools6Stream29ThenEnqueueOnBackgroundThreadESt8functionIFvPNS0_14StreamExecutorEEE'/>
-<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='720' ll='722' type='void perftools::gputools::StreamExecutor::EnqueueOnBackgroundThread(std::function&lt;void ()&gt; task)'/>

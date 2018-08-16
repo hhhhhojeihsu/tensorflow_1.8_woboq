@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='671' type='tensorflow::Status tensorflow::OpKernelContext::replace_ref_input(tensorflow::StringPiece name, const tensorflow::Tensor &amp; tensor, bool lock_held)'/>
-<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='667'>// Replace the corresponding named Ref Input to use the storage
-  // buffer used by tensor. If !lock_held the input mutex will be
-  // acquired before returning the Tensor.
-  // REQUIRES: IsRefType(input_dtype(index)).</doc>
-<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='586' ll='602' type='tensorflow::Status tensorflow::OpKernelContext::replace_ref_input(tensorflow::StringPiece name, const tensorflow::Tensor &amp; tensor, bool lock_held)'/>

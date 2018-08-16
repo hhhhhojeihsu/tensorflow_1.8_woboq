@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='886' type='const tensorflow::gtl::iterator_range&lt;UnwrappingIterator&lt;std::list&lt;std::unique_ptr&lt;HloInstruction&gt; &gt;::const_iterator&gt; &gt; xla::HloInstruction::fused_instructions() const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='880'>// Returns the list of fused instructions inside this fusion instruction.  The
-  // returned type is a range of HloInstruction*s.
-  //
-  // Precondition: opcode() == HloOpcode::kFusion</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='2519' ll='2525' type='const tensorflow::gtl::iterator_range&lt;UnwrappingIterator&lt;std::list&lt;std::unique_ptr&lt;HloInstruction&gt; &gt;::const_iterator&gt; &gt; xla::HloInstruction::fused_instructions() const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='3043' u='c' c='_ZNK3xla14HloInstruction13IsElementwiseEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_tfgraph_builder.cc' l='225' u='c' c='_ZN3xla16hlo_graph_dumper17HloTfGraphBuilder14AddInstructionEPKNS_14HloInstructionE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/tuple_points_to_analysis.cc' l='553' u='c' c='_ZNK3xla21TuplePointsToAnalysis8ToStringEv'/>

@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='359' type='StatusOr&lt;std::shared_ptr&lt;Executable&gt; &gt; xla::Service::BuildAndCacheExecutable(const xla::VersionedComputationHandle &amp; versioned_handle, std::unique_ptr&lt;HloModuleConfig&gt; module_config, xla::Backend * backend, perftools::gputools::StreamExecutor * executor, xla::ExecutionProfile * profile, xla::DeviceMemoryAllocator * device_allocator = nullptr)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='356'>// Similar to BuildExecutable, but look in the compilation cache for the
-  // executable first. If the executable is not in the cache, it is built and
-  // inserted into the cache.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='493' ll='531' type='StatusOr&lt;std::shared_ptr&lt;Executable&gt; &gt; xla::Service::BuildAndCacheExecutable(const xla::VersionedComputationHandle &amp; versioned_handle, std::unique_ptr&lt;HloModuleConfig&gt; module_config, xla::Backend * backend, perftools::gputools::StreamExecutor * executor, xla::ExecutionProfile * profile, xla::DeviceMemoryAllocator * device_allocator = nullptr)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1096' u='c' c='_ZN3xla7Service7ExecuteEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1234' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>

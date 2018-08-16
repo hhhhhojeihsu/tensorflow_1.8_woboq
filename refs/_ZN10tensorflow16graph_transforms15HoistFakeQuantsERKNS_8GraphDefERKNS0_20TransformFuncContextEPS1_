@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='534' ll='585' type='tensorflow::Status tensorflow::graph_transforms::HoistFakeQuants(const tensorflow::GraphDef &amp; input_graph_def, const tensorflow::graph_transforms::TransformFuncContext &amp; context, tensorflow::GraphDef * output_graph_def)'/>
-<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='670' u='c' c='_ZN10tensorflow16graph_transforms13QuantizeNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
-<doc f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='528'>// Sometimes FakeQuantWithMinMaxVars ops are added at the end of a chain of
-// linear ops like Relu, MaxPool, etc, several steps from the Conv2D or BiasAdd
-// op that we want to apply the trained constant conversions to. This pass tries
-// to move FakeQuant ops up the input chain, so they&apos;re as close as possible to
-// the 32-bit conversion, and so can be easily merged into the automatic dynamic
-// Requantizes.</doc>

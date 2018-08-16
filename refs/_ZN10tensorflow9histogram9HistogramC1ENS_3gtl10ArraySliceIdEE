@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/lib/histogram/histogram.h' l='45' type='void tensorflow::histogram::Histogram::Histogram(gtl::ArraySlice&lt;double&gt; custom_bucket_limits)'/>
-<use f='tensorflow/tensorflow/core/lib/histogram/histogram.h' l='113' u='c' c='_ZN10tensorflow9histogram19ThreadSafeHistogramC1ENS_3gtl10ArraySliceIdEE'/>
-<doc f='tensorflow/tensorflow/core/lib/histogram/histogram.h' l='41'>// Create a histogram with a custom set of bucket boundaries,
-  // specified in &quot;custom_bucket_limits[0..custom_bucket_limits.size()-1]&quot;
-  // REQUIRES: custom_bucket_limits[i] values are monotonically increasing.
-  // REQUIRES: custom_bucket_limits is not empty()</doc>
-<def f='tensorflow/tensorflow/core/lib/histogram/histogram.cc' l='57' ll='69' type='void tensorflow::histogram::Histogram::Histogram(gtl::ArraySlice&lt;double&gt; custom_bucket_limits)'/>
-<doc f='tensorflow/tensorflow/core/lib/histogram/histogram.cc' l='55'>// Create a histogram with a custom set of bucket limits,
-// specified in &quot;custom_buckets[0..custom_buckets.size()-1]&quot;</doc>

@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/util/events_writer.h' l='64' type='void tensorflow::EventsWriter::WriteEvent(const tensorflow::Event &amp; event)'/>
-<use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_file_writer.cc' l='151' u='c' c='_ZN10tensorflow12_GLOBAL__N_117SummaryFileWriter13InternalFlushEv'/>
-<doc f='tensorflow/tensorflow/core/util/events_writer.h' l='63'>// Append &quot;event&quot; to the file.  The &quot;tensorflow::&quot; part is for swig happiness.</doc>
-<use f='tensorflow/tensorflow/core/util/events_writer.cc' l='88' u='c' c='_ZN10tensorflow12EventsWriter12InitIfNeededEv'/>
-<def f='tensorflow/tensorflow/core/util/events_writer.cc' l='114' ll='118' type='void tensorflow::EventsWriter::WriteEvent(const tensorflow::Event &amp; event)'/>
-<doc f='tensorflow/tensorflow/core/util/events_writer.cc' l='112'>// NOTE(touts); This is NOT the function called by the Python code.
-// Python calls WriteSerializedEvent(), see events_writer.i.</doc>

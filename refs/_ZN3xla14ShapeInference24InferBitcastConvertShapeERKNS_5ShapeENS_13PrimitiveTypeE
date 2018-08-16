@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='240' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferBitcastConvertShape(const xla::Shape &amp; operand_shape, xla::PrimitiveType new_element_type)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='236'>// Helper that validates the given operand shape can be bitcast converted to
-  // the target output_shape via a bitcast convert instruction -- the
-  // requirement is that the shape is identical except for the element type and
-  // the element types have identical bit-widths.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='58' u='c' c='_ZN3xla13ShapeVerifier20HandleBitcastConvertEPNS_14HloInstructionE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='479' ll='506' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferBitcastConvertShape(const xla::Shape &amp; operand_shape, xla::PrimitiveType new_element_type)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='479'>/* static */</doc>

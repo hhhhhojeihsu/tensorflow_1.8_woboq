@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='565' type='void xla::BufferAssigner::AssignColocatedBufferSets(const std::vector&lt;ColocatedBufferSet&gt; &amp; colocated_buffer_sets, xla::BufferAssignment * assignment, tensorflow::gtl::FlatSet&lt;const LogicalBuffer *&gt; * colocated_buffers, tensorflow::gtl::FlatSet&lt;BufferAllocation::Index&gt; * colocated_allocations)'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1550' ll='1602' type='void xla::BufferAssigner::AssignColocatedBufferSets(const std::vector&lt;ColocatedBufferSet&gt; &amp; colocated_buffer_sets, xla::BufferAssignment * assignment, FlatSet&lt;const xla::LogicalBuffer *&gt; * colocated_buffers, FlatSet&lt;BufferAllocation::Index&gt; * colocated_allocations)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1634' u='c' c='_ZN3xla14BufferAssigner16CreateAssignmentEPKNS_9HloModuleESt10unique_ptrINS_11HloOrderingESt14default_deleteIS5_EESt8functionIFxRKNS_13LogicalBufferEE7316938'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1548'>// Assigns all colocated buffer sets in &apos;colocated_buffer_sets&apos; to the same
-// allocation in &apos;assignment&apos;.</doc>
-<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='563'>// For each buffer set in &apos;colocated_buffer_sets&apos;, assigns all buffers in the
-  // same set to the same buffer allocation in &apos;assignment&apos;.</doc>

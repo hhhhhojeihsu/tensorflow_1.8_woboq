@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/device_memory_allocator.h' l='48' type='tensorflow::Status xla::DeviceMemoryAllocator::Deallocate(int device_ordinal, perftools::gputools::DeviceMemoryBase * mem)'/>
-<ovr f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='73' c='_ZN10tensorflow12XlaAllocator10DeallocateEiPN9perftools8gputools16DeviceMemoryBaseE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.cc' l='226' u='c' c='_ZN3xla17AllocationTracker17DecrementRefCountEN9perftools8gputools16DeviceMemoryBaseEi'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_executable.cc' l='241' u='c' c='_ZN3xla3cpuL21DeallocateTempBuffersEPNS_21DeviceMemoryAllocatorEPN9perftools8gputools6StreamEN10tensorflow3gtl10ArraySliceINS4_16DeviceMemoryBaseEEERKSt6vectorIbSaIbEE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='508' u='c' c='_ZN3xla3cpu21ParallelCpuExecutable15ExecuteOnStreamEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEEPNS_19HloExecutionProfileE'/>
-<ovr f='tensorflow/tensorflow/compiler/xla/service/device_memory_allocator.cc' l='49' c='_ZN3xla29StreamExecutorMemoryAllocator10DeallocateEiPN9perftools8gputools16DeviceMemoryBaseE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/shaped_buffer.cc' l='142' u='c' c='_ZN3xla18ScopedShapedBufferD1Ev'/>

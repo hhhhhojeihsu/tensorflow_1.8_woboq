@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/mfcc.h' l='40' type='void tensorflow::Mfcc::Compute(const std::vector&lt;double&gt; &amp; spectrogram_frame, std::vector&lt;double&gt; * output) const'/>
-<def f='tensorflow/tensorflow/core/kernels/mfcc.cc' l='47' ll='63' type='void tensorflow::Mfcc::Compute(const std::vector&lt;double&gt; &amp; spectrogram_frame, std::vector&lt;double&gt; * output) const'/>
-<doc f='tensorflow/tensorflow/core/kernels/mfcc.h' l='35'>// Input is a single squared-magnitude spectrogram frame. The input spectrum
-  // is converted to linear magnitude and weighted into bands using a
-  // triangular mel filterbank, and a discrete cosine transform (DCT) of the
-  // values is taken. Output is populated with the lowest dct_coefficient_count
-  // of these values.</doc>
-<use f='tensorflow/tensorflow/core/kernels/mfcc_op.cc' l='90' u='c' c='_ZN10tensorflow6MfccOp7ComputeEPNS_15OpKernelContextE'/>

@@ -1,4 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/random_op.h' l='39' type='void tensorflow::functor::FillPhiloxRandom&lt;Eigen::ThreadPoolDevice, type-parameter-0-0&gt;::operator()(tensorflow::OpKernelContext * ctx, const CPUDevice &amp; d, random::PhiloxRandom gen, typename Distribution::ResultElementType * data, int64 size, Distribution dist)'/>
-<def f='tensorflow/tensorflow/core/kernels/random_op.cc' l='153' ll='176' type='void tensorflow::functor::FillPhiloxRandom&lt;Eigen::ThreadPoolDevice, type-parameter-0-0&gt;::operator()(tensorflow::OpKernelContext * context, const CPUDevice &amp; , random::PhiloxRandom gen, typename Distribution::ResultElementType * data, int64 size, Distribution dist)'/>
-<doc f='tensorflow/tensorflow/core/kernels/random_op.cc' l='151'>// Partial specialization for CPU to fill the entire region with randoms
-// It splits the work into several tasks and run them in parallel</doc>

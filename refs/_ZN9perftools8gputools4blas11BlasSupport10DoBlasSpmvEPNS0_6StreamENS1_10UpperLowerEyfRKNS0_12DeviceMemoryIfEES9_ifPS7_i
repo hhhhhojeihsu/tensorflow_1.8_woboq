@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='693' type='bool perftools::gputools::blas::BlasSupport::DoBlasSpmv(perftools::gputools::Stream * stream, blas::UpperLower uplo, uint64 n, float alpha, const DeviceMemory&lt;float&gt; &amp; ap, const DeviceMemory&lt;float&gt; &amp; x, int incx, float beta, DeviceMemory&lt;float&gt; * y, int incy)'/>
-<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='687'>// Computes a matrix-vector product using a symmetric packed matrix.
-  //
-  //     y &lt;- alpha * a * x + beta * y,
-  //
-  // alpha and beta are scalars; a is an n-by-n symmetric matrix, supplied in
-  // packed form; x and y are n-element vectors.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='3108' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasSpmvENS0_4blas10UpperLowerEyfRKNS0_12DeviceMemoryIfEES7_ifPS5_i'/>

@@ -1,5 +1,0 @@
-<def f='tensorflow/tensorflow/core/kernels/quantization_utils.h' l='239' ll='280' type='void tensorflow::RequantizeManyInNewRangeReference(const qint32 * input, int64 count, float min_input, float max_input, float min_output, float max_output, quint8 * output)'/>
-<use f='tensorflow/tensorflow/core/kernels/quantization_utils.h' l='644' u='c' c='_ZN10tensorflow24RequantizeManyInNewRangeEPKT_xffffPT0_'/>
-<doc f='tensorflow/tensorflow/core/kernels/quantization_utils.h' l='236'>// Because converting 32-bit accumulated results down to eight bit is a common
-// case, we have a specialized code path to handle it as efficiently as
-// possible using only fixed-point math for the inner loop.</doc>

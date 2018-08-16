@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.h' l='29' type='tensorflow::Status tensorflow::TF_TensorToPyArray(Safe_TF_TensorPtr tensor, PyObject ** out_ndarray)'/>
-<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='131' u='c' c='_ZN10tensorflow21TF_Run_wrapper_helperEP20TF_DeprecatedSessionPKcPK9TF_BufferP7_objectRKNS_3gtl13InlinedVectorIS3_Li8EEESD_P9TF_StatusPNSA_IS8_Li8EEEPS4_'/>
-<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='414' u='c' c='_ZN10tensorflow28TF_SessionRun_wrapper_helperEP10TF_SessionPKcPK9TF_BufferRKSt6vectorI9TF_OutputSaIS8_EERKS7_IP7_objectSaISE_EESC_RKS7_IP12TF_Operatio9798407'/>
-<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='655' u='c' c='_ZN10tensorflow30TF_TryEvaluateConstant_wrapperEP8TF_Graph9TF_OutputP9TF_Status'/>
-<def f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='319' ll='373' type='tensorflow::Status tensorflow::TF_TensorToPyArray(Safe_TF_TensorPtr tensor, PyObject ** out_ndarray)'/>
-<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='446' u='c' c='_ZN10tensorflow15TensorToNdarrayERKNS_6TensorEPP7_object'/>
-<doc f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='317'>// Converts the given TF_Tensor to a numpy ndarray.
-// If the returned status is OK, the caller becomes the owner of *out_array.</doc>

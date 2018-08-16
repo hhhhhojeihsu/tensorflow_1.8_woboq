@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/util.h' l='203' type='tensorflow::Status xla::AddStatus(tensorflow::Status prior, tensorflow::StringPiece context)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/util.h' l='200'>// Adds some context information to the error message in a
-// Status.  This is useful as Statuses are
-// propagated upwards.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1480' u='c' c='_ZN3xla18ComputationBuilder17BuildAndNoteErrorEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='168' u='c' c='_ZN3xla10XlaBuilder17BuildAndNoteErrorEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='156' u='c' c='_ZN3xla15TransferManager24TransferBufferFromDeviceEPN9perftools8gputools14StreamExecutorERKNS2_16DeviceMemoryBaseExPv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='175' u='c' c='_ZN3xla15TransferManager22TransferBufferToDeviceEPN9perftools8gputools14StreamExecutorExPKvPNS2_16DeviceMemoryBaseE'/>
-<def f='tensorflow/tensorflow/compiler/xla/util.cc' l='57' ll='61' type='tensorflow::Status xla::AddStatus(tensorflow::Status prior, tensorflow::StringPiece context)'/>

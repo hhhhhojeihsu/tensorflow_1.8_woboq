@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='433' type='TfLiteStatus tflite::Interpreter::GetExecutionPlan(TfLiteIntArray ** execution_plan)'/>
-<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='430'>// WARNING: This is an experimental interface that is subject to change.
-  // Gets an TfLiteIntArray* representing the execution plan. The caller owns
-  // this memory and must free it with TfLiteIntArrayFree().</doc>
-<def f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='271' ll='280' type='TfLiteStatus tflite::Interpreter::GetExecutionPlan(TfLiteIntArray ** execution_plan)'/>
-<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='287' u='c' c='_ZN6tflite11Interpreter16GetExecutionPlanEP13TfLiteContextPP14TfLiteIntArray'/>
-<doc f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='268'>// Gets an TfLiteIntArray* representing the execution plan. The interpreter owns
-// this memory and it is only guaranteed to exist during the invocation of the
-// delegate prepare.</doc>

@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='444' ll='450' type='void tflite::Interpreter::EnsureTensorsVectorCapacity()'/>
-<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='440'>// Ensures that `tensors_` has at least `kTensorsCapacityHeadroom` extra
-  // capacity. Calling this function may invalidate existing pointers to
-  // tensors. After calling this function, adding `kTensorsCapacityHeadroom`
-  // more tensors won&apos;t invalidate the pointer to existing tensors.</doc>
-<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='468' u='c' c='_ZN6tflite11Interpreter20PrepareOpsStartingAtEiPi'/>
-<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='563' u='c' c='_ZN6tflite11Interpreter6InvokeEv'/>

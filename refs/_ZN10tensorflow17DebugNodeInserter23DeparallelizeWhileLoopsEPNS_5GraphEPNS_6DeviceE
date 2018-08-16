@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/debug/debug_graph_utils.h' l='82' type='static void tensorflow::DebugNodeInserter::DeparallelizeWhileLoops(tensorflow::Graph * graph, tensorflow::Device * device)'/>
-<def f='tensorflow/tensorflow/core/debug/debug_graph_utils.cc' l='223' ll='244' type='static void tensorflow::DebugNodeInserter::DeparallelizeWhileLoops(tensorflow::Graph * graph, tensorflow::Device * device)'/>
-<doc f='tensorflow/tensorflow/core/debug/debug_graph_utils.h' l='78'>// Set the parallel_iterations attribute of TensorFlow while loops
-  // (specifically the nodes for which IsEnter() returns true) to 1 to prevent
-  // any node from being executed multiple times concurrently and
-  // generating temporally-overlapping debug Tensor dumps.</doc>
-<use f='tensorflow/tensorflow/core/debug/debugger_state_impl.cc' l='49' u='c' c='_ZN10tensorflow19DebugGraphDecorator13DecorateGraphEPNS_5GraphEPNS_6DeviceE'/>

@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/lite/context.h' l='392' type='TfLiteStatus (*)(TfLiteContext *, TfLiteDelegate *)'/>
-<offset>64</offset>
-<doc f='tensorflow/tensorflow/contrib/lite/context.h' l='387'>// Invoked by ModifyGraphWithDelegate. This prepare is called, giving the
-  // delegate a view of the current graph through TfLiteContext*. It typically
-  // will look at the nodes and call ReplaceSubgraphsWithDelegateKernels()
-  // to ask the TensorFlow lite runtime to create macro-nodes to represent
-  // delegated subgraphs of the original graph.</doc>
-<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='804' u='r' c='_ZN6tflite11Interpreter23ModifyGraphWithDelegateEP15_TfLiteDelegateb'/>

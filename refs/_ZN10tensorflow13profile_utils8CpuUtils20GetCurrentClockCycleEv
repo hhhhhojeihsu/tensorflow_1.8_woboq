@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/core/platform/profile_utils/cpu_utils.h' l='54' ll='95' type='static uint64 tensorflow::profile_utils::CpuUtils::GetCurrentClockCycle()'/>
-<doc f='tensorflow/tensorflow/core/platform/profile_utils/cpu_utils.h' l='49'>// Return current clock cycle. This function is designed to
-  // minimize the overhead to get clock and maximize the accuracy of
-  // time for profile.
-  // This returns unsigned int because there is no guarantee that rdtsc
-  // is less than 2 ^ 61.</doc>
-<use f='tensorflow/tensorflow/core/platform/profile_utils/clock_cycle_profiler.h' l='67' u='c' c='_ZN10tensorflow18ClockCycleProfiler28GetCurrentClockCycleInternalEv'/>

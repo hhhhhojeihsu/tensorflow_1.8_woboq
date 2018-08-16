@@ -1,9 +1,0 @@
-<def f='tensorflow/tensorflow/core/util/tensor_format.h' l='411' ll='430' type='tensorflow::TensorShape tensorflow::ShapeFromFormat(tensorflow::TensorFormat format, int64 N, gtl::ArraySlice&lt;int64&gt; spatial, int64 C)'/>
-<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='459' u='c' c='_ZN10tensorflow15ShapeFromFormatENS_12TensorFormatExxxx'/>
-<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='483' u='c' c='_ZN10tensorflow15ShapeFromFormatENS_12TensorFormatERKNS_11TensorShapeES0_'/>
-<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='490' u='c' c='_ZN10tensorflow15ShapeFromFormatENS_12TensorFormatERKNS_11TensorShapeES0_'/>
-<doc f='tensorflow/tensorflow/core/util/tensor_format.h' l='407'>// Return a tensor shape for the given format. Works for both 2D and 3D
-// operations. If format is FORMAT_NCHW_VECT_C, the output TensorShape has rank
-// spatial.size()+3 (N,C,spatial,InnerC); otherwise, it has rank
-// spatial.size()+2 (e.g. N,C,spatial or N,spatial,C).</doc>
-<use f='tensorflow/tensorflow/core/kernels/pooling_ops_3d.cc' l='96' u='c' c='_ZN10tensorflow16Pool3dParameters20forward_output_shapeEv'/>

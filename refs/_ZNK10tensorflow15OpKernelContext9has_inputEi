@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='685' type='bool tensorflow::OpKernelContext::has_input(int index) const'/>
-<def f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1387' ll='1391' type='bool tensorflow::OpKernelContext::has_input(int index) const'/>
-<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='681'>// Return true if there is input at the given index. An operator has no
-  // input at index if its tensor is null. This is primarily used by the
-  // merge operator.
-  // TODO(mrry): Convert this to return Status.</doc>
-<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1386'>// no input if tensor == nullptr.</doc>
-<use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='253' u='c' c='_ZN10tensorflow19XlaCompilationCache11CompileImplERKNS_11XlaCompiler7OptionsERKNS_12NameAttrListERKSt3mapIiNS_6TensorESt4lessIiESaISt4pairIKiS9_EEERKS262968'/>
-<use f='tensorflow/tensorflow/core/kernels/control_flow_ops.cc' l='218' u='c' c='_ZN10tensorflow7MergeOp7ComputeEPNS_15OpKernelContextE'/>

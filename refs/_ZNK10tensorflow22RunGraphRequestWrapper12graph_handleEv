@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='251' type='const string &amp; tensorflow::RunGraphRequestWrapper::graph_handle() const'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='249'>// REQUIRED: graph_handle must be returned by a RegisterGraph call
-  // to the same WorkerService.</doc>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='289' c='_ZNK10tensorflow23InMemoryRunGraphRequest12graph_handleEv'/>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='406' c='_ZNK10tensorflow27MutableProtoRunGraphRequest12graph_handleEv'/>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='517' c='_ZNK10tensorflow20ProtoRunGraphRequest12graph_handleEv'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='176' u='c' c='_ZN10tensorflow6Worker10DoRunGraphEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='210' u='c' c='_ZN10tensorflow6Worker17DoPartialRunGraphEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>

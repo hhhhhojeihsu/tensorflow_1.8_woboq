@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/op.h' l='134' type='bool tensorflow::OpRegistry::MustCallDeferred() const'/>
-<doc f='tensorflow/tensorflow/core/framework/op.h' l='131'>// Ensures that all the functions in deferred_ get called, their OpDef&apos;s
-  // registered, and returns with deferred_ empty.  Returns true the first
-  // time it is called. Prints a fatal log if any op registration fails.</doc>
-<use f='tensorflow/tensorflow/core/framework/op.cc' l='70' u='c' c='_ZNK10tensorflow10OpRegistry6LookUpERKSsPPKNS_18OpRegistrationDataE'/>
-<use f='tensorflow/tensorflow/core/framework/op.cc' l='108' u='c' c='_ZN10tensorflow10OpRegistry16GetRegisteredOpsEPSt6vectorINS_5OpDefESaIS2_EE'/>
-<use f='tensorflow/tensorflow/core/framework/op.cc' l='117' u='c' c='_ZN10tensorflow10OpRegistry21GetOpRegistrationDataEPSt6vectorINS_18OpRegistrationDataESaIS2_EE'/>
-<use f='tensorflow/tensorflow/core/framework/op.cc' l='135' u='c' c='_ZNK10tensorflow10OpRegistry6ExportEbPNS_6OpListE'/>
-<def f='tensorflow/tensorflow/core/framework/op.cc' l='177' ll='185' type='bool tensorflow::OpRegistry::MustCallDeferred() const'/>

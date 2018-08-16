@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='366' type='TfLiteStatus tflite::Interpreter::PrepareOpsStartingAt(int first_execution_plan_index, int * last_execution_plan_index_prepared)'/>
-<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='362'>// Call OpPrepare() for all ops starting at &apos;first_node&apos;. Stop when a
-  // dynamic tensors is found or all ops have been prepared. Fill
-  // &apos;last_node_prepared&apos; with the id of the op containing dynamic tensors, or
-  // the last in the graph.</doc>
-<def f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='460' ll='483' type='TfLiteStatus tflite::Interpreter::PrepareOpsStartingAt(int first_execution_plan_index, int * last_execution_plan_index_prepared)'/>
-<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='494' u='c' c='_ZN6tflite11Interpreter20PrepareOpsAndTensorsEv'/>
-<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='777' u='c' c='_ZN6tflite11Interpreter23ModifyGraphWithDelegateEP15_TfLiteDelegateb'/>
-<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='777' u='c' c='_ZN6tflite11Interpreter23ModifyGraphWithDelegateEP15_TfLiteDelegateb'/>

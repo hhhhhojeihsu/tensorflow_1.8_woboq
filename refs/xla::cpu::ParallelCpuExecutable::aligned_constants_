@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.h' l='130' type='const std::unordered_map&lt;const HloInstruction *, std::unique_ptr&lt;unsigned char []&gt; &gt;'/>
-<offset>1344</offset>
-<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.h' l='125'>// Map from HLO Constant instructions to a pointer to their literal data.
-  // The data stored in the protocol buffer might be insufficiently aligned,
-  // we create a sufficiently aligned copy and store it in this map.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='71' u='w' c='_ZN3xla3cpu21ParallelCpuExecutableC1ESt10unique_ptrINS0_12SimpleOrcJITESt14default_deleteIS3_EES2_IKNS_16BufferAssignmentES4_IS8_EES2_IKNS_9HloModuleE398240'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_cpu_executable.cc' l='423' u='r' c='_ZN3xla3cpu21ParallelCpuExecutable23ExecuteComputeFunctionsEPKNS_27ServiceExecutableRunOptionsEN10tensorflow3gtl10ArraySliceIPKNS_12ShapedBufferEEENS714477719'/>

@@ -1,9 +1,0 @@
-<def f='tensorflow/tensorflow/core/kernels/debug_ops.h' l='160' ll='176' type='bool tensorflow::BaseDebugOp::ApplyGrpcGating(tensorflow::OpKernelContext * context)'/>
-<use f='tensorflow/tensorflow/core/kernels/debug_ops.h' l='212' u='c' c='_ZN10tensorflow15DebugIdentityOp7ComputeEPNS_15OpKernelContextE'/>
-<use f='tensorflow/tensorflow/core/kernels/debug_ops.h' l='229' u='c' c='_ZN10tensorflow15DebugNanCountOp7ComputeEPNS_15OpKernelContextE'/>
-<use f='tensorflow/tensorflow/core/kernels/debug_ops.h' l='272' u='c' c='_ZN10tensorflow21DebugNumericSummaryOp7ComputeEPNS_15OpKernelContextE'/>
-<doc f='tensorflow/tensorflow/core/kernels/debug_ops.h' l='155'>// Apply gRPC gating (if gated_grpc_ attribute is true).
-  //
-  // Returns false if and only if all grpc:// debug URLs of the debug op are
-  // disabled currently (i.e., gated off), in which case the debug op will emit
-  // an empty (size {0}) tensor of undefined data type.</doc>

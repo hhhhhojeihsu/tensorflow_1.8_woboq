@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/queue_interface.h' l='43' type='void tensorflow::QueueInterface::TryEnqueue(const Tuple &amp; tuple, tensorflow::OpKernelContext * ctx, DoneCallback callback)'/>
-<doc f='tensorflow/tensorflow/core/framework/queue_interface.h' l='40'>// Stashes a function object for future execution, that will eventually
-  // enqueue the tuple of tensors into the queue, and returns immediately. The
-  // function object is guaranteed to call &apos;callback&apos;.</doc>
-<ovr f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='50' c='_ZN10tensorflow9FIFOQueue10TryEnqueueERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
-<ovr f='tensorflow/tensorflow/core/kernels/priority_queue.cc' l='71' c='_ZN10tensorflow13PriorityQueue10TryEnqueueERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
-<use f='tensorflow/tensorflow/core/kernels/queue_ops.cc' l='106' u='c' c='_ZN10tensorflow9EnqueueOp12ComputeAsyncEPNS_15OpKernelContextEPNS_14QueueInterfaceESt8functionIFvvEE'/>
-<ovr f='tensorflow/tensorflow/core/kernels/random_shuffle_queue_op.cc' l='127' c='_ZN10tensorflow18RandomShuffleQueue10TryEnqueueERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>

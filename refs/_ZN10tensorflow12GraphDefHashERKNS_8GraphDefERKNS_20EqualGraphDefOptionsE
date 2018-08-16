@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/util/equal_graph_def.h' l='49' type='uint64 tensorflow::GraphDefHash(const tensorflow::GraphDef &amp; gdef, const tensorflow::EqualGraphDefOptions &amp; options = {})'/>
-<doc f='tensorflow/tensorflow/core/util/equal_graph_def.h' l='42'>// Returns a hash of `gdef` that is consistent with EqualGraphDef. In other
-// words, if two graph defs compare equal according to EqualGraphDef,
-// GraphDefHash will return the same value for both of them when called
-// with the same `options` that was used in the call to EqualGraphDef.
-// Similarly to protobuf deterministic serialization, hash value is
-// guaranteed to be stable only for a given binary. In particular, one should
-// probably not persist the returned value.</doc>
-<def f='tensorflow/tensorflow/core/util/equal_graph_def.cc' l='39' ll='41' type='uint64 tensorflow::GraphDefHash(const tensorflow::GraphDef &amp; gdef, const tensorflow::EqualGraphDefOptions &amp; options = {})'/>

@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='122' type='static Sampler&lt;NumLabels&gt; * tensorflow::monitoring::Sampler::New(const MetricDef&lt;MetricKind::kCumulative, tensorflow::HistogramProto, NumLabels&gt; &amp; metric_def, std::unique_ptr&lt;Buckets&gt; buckets)'/>
-<def f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='183' ll='189' type='static Sampler&lt;NumLabels&gt; * tensorflow::monitoring::Sampler::New(const MetricDef&lt;MetricKind::kCumulative, tensorflow::HistogramProto, NumLabels&gt; &amp; metric_def, std::unique_ptr&lt;Buckets&gt; buckets)'/>
-<doc f='tensorflow/tensorflow/core/lib/monitoring/sampler.h' l='117'>// Creates the metric based on the metric-definition arguments and buckets.
-  //
-  // Example;
-  // auto* sampler_with_label = Sampler&lt;1&gt;::New({&quot;/tensorflow/sampler&quot;,
-  //   &quot;Tensorflow sampler&quot;, &quot;MyLabelName&quot;}, {10.0, 20.0, 30.0});</doc>

@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='119' type='void xla::HeapSimulator::HeapSimulator(std::unique_ptr&lt;HeapAlgorithm&gt; algorithm, const LogicalBuffer::SizeFunction &amp; size_fn, const xla::HeapSimulator::Options &amp; options, const SequentialHloOrdering::HloModuleSequence * module_sequence)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='116'>// If &apos;module_sequence&apos; is non-null, it is used to find kCall and kWhile
-  // sub-computations, and the heap simulation for those sub-computations will
-  // be run recursively. I.e. the simulation is run over the whole module.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='36' u='c' c='_ZN3xla13HeapSimulator3RunESt10unique_ptrINS_13HeapAlgorithmESt14default_deleteIS2_EERKNS_9HloModuleERKN10tensorflow3gtl7FlatMapIPKNS_14HloComputation11042075'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='51' u='c' c='_ZN3xla13HeapSimulator3RunESt10unique_ptrINS_13HeapAlgorithmESt14default_deleteIS2_EERKNS_14HloComputationERKSt6vectorIPKNS_14HloInstructionESaISC_EER10335569'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='286' ll='296' type='void xla::HeapSimulator::HeapSimulator(std::unique_ptr&lt;HeapAlgorithm&gt; algorithm, const LogicalBuffer::SizeFunction &amp; size_fn, const xla::HeapSimulator::Options &amp; options, const SequentialHloOrdering::HloModuleSequence * module_sequence)'/>

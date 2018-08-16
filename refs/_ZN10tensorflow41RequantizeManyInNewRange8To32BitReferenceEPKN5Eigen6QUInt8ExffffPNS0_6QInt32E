@@ -1,5 +1,0 @@
-<def f='tensorflow/tensorflow/core/kernels/quantization_utils.h' l='285' ll='306' type='void tensorflow::RequantizeManyInNewRange8To32BitReference(const quint8 * input, int64 count, float min_input, float max_input, float min_output, float max_output, qint32 * output)'/>
-<use f='tensorflow/tensorflow/core/kernels/quantization_utils.h' l='652' u='c' c='_ZN10tensorflow24RequantizeManyInNewRangeEPKT_xffffPT0_'/>
-<doc f='tensorflow/tensorflow/core/kernels/quantization_utils.h' l='282'>// Another common case is converting eight bit inputs up to thirty two bits, so
-// we have specialized fixed-point code to accelerate that. There is also a NEON
-// version for ARM devices below.</doc>

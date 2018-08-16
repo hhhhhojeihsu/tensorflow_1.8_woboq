@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/core/kernels/transpose_functor.h' l='130' ll='143' type='bool tensorflow::internal::NonSingletonDimensionsAlign(const tensorflow::TensorShape &amp; input_shape, const std::vector&lt;int32&gt; &amp; permutation)'/>
-<doc f='tensorflow/tensorflow/core/kernels/transpose_functor.h' l='124'>// If all non-singleton dimensions remain in ascending order, the shuffled
-// singletons can be transposed by a reshape, saving a memory allocation &amp; copy.
-// |permutation| must be a permutation of {0, .., input_shape.dims() - 1}.
-// That is, for all i, 0 &lt;= perm[i] &lt; input_shape.dims().
-// In practice, this is checked in TransposeOp::Compute prior to calling this
-// function, and the function sits here to facilitate unit testing.</doc>
-<use f='tensorflow/tensorflow/core/kernels/transpose_op.cc' l='189' u='c' c='_ZN10tensorflow11TransposeOp7ComputeEPNS_15OpKernelContextE'/>

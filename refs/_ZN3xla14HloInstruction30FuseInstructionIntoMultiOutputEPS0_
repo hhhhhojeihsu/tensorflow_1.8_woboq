@@ -1,9 +1,0 @@
-<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='992' ll='995' type='xla::HloInstruction * xla::HloInstruction::FuseInstructionIntoMultiOutput(xla::HloInstruction * instruction_to_fuse)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='985'>// Fuses the given instruction in this fusion instruction and generate
-  // multioutput fusion instruction. A clone of the instruction_to_fuse will
-  // be part of the output of fusion instructions. The users of
-  // instruction_to_fuse will be redirected to this fusion instructions.
-  // instruction_to_fuse will be removed from its parent computation.
-  //
-  // Precondition: this-&gt;opcode() == HloOpcode::kFusion</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='929' u='c' c='_ZN3xla14HloInstruction37MergeFusionInstructionIntoMultiOutputEPS0_'/>

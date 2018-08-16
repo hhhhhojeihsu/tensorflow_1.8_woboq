@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='744' type='xla::ComputationDataHandle xla::ComputationBuilder::BatchNormTraining(const xla::ComputationDataHandle &amp; operand, const xla::ComputationDataHandle &amp; scale, const xla::ComputationDataHandle &amp; offset, float epsilon, int64 feature_index)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='739'>// Normalizes operand across spatial and batch dimensions for each feature.
-  //
-  // Returns a tuple (normalized, batch_mean, batch_var) where `normalized`
-  // is the normalized result and batch_mean and batch_var are the mean and
-  // variance, respectively, across batch for the operand.</doc>
-<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/batch_norm_op.cc' l='65' u='c' c='_ZN10tensorflow12_GLOBAL__N_116FusedBatchNormOp7CompileEPNS_18XlaOpKernelContextE'/>
-<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1340' ll='1352' type='xla::ComputationDataHandle xla::ComputationBuilder::BatchNormTraining(const xla::ComputationDataHandle &amp; operand, const xla::ComputationDataHandle &amp; scale, const xla::ComputationDataHandle &amp; offset, float epsilon, int64 feature_index)'/>

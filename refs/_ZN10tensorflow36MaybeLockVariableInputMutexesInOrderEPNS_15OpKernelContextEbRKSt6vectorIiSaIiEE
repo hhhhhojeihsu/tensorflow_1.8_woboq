@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/training_op_helpers.h' l='28' type='std::vector&lt;mutex_lock&gt; tensorflow::MaybeLockVariableInputMutexesInOrder(tensorflow::OpKernelContext * ctx, bool do_lock, const std::vector&lt;int&gt; &amp; input_ids)'/>
-<def f='tensorflow/tensorflow/core/kernels/training_op_helpers.cc' l='40' ll='66' type='std::vector&lt;mutex_lock&gt; tensorflow::MaybeLockVariableInputMutexesInOrder(tensorflow::OpKernelContext * ctx, bool do_lock, const std::vector&lt;int&gt; &amp; input_ids)'/>
-<doc f='tensorflow/tensorflow/core/kernels/training_op_helpers.cc' l='34'>// MaybeLockVariableInputMutexesInOrder is a helper function to acquire mutexes
-// in address order to mitigate deadlock.  Returns a vector of acquired mutexes.
-// Safe to pass duplicates - will only lock each distinct mutex once.  If
-// do_lock is false, returns immediately.  Note that this silently doesn&apos;t lock
-// mutexes for invalid variable references; in all usages this is followed by
-// GetInputTensor which will signal a failure.</doc>

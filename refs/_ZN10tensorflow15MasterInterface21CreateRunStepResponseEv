@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/core/distributed_runtime/master_interface.h' l='77' ll='79' type='tensorflow::MutableRunStepResponseWrapper * tensorflow::MasterInterface::CreateRunStepResponse()'/>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/local_master.cc' l='114' c='_ZN10tensorflow11LocalMaster21CreateRunStepResponseEv'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/master_interface.h' l='72'>// Returns a response object for use in calls to
-  // `RunStep()`. Ownership is transferred to the caller.
-  //
-  // The message returned from this method must only be used in a
-  // `RunStep()` call on the same `MasterInterface` instance.</doc>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='186' u='c' c='_ZN10tensorflow11GrpcSession9RunHelperERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataERKSs'/>

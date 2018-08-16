@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='72' type='void perftools::gputools::internal::TemporaryMemoryManager::ForceDeallocateAll()'/>
-<doc f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='66'>// Forces deallocation of all managed temporary memory regions.
-  //
-  // Called, for example, when the Stream owning this temporary memory manager
-  // is destroyed.
-  //
-  // Note: These calls to Deallocate will likely force synchronization.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='261' u='c' c='_ZN9perftools8gputools6StreamD1Ev'/>
-<def f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.cc' l='28' ll='35' type='void perftools::gputools::internal::TemporaryMemoryManager::ForceDeallocateAll()'/>

@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='751' type='bool perftools::gputools::blas::BlasSupport::DoBlasSyr(perftools::gputools::Stream * stream, blas::UpperLower uplo, uint64 n, float alpha, const DeviceMemory&lt;float&gt; &amp; x, int incx, DeviceMemory&lt;float&gt; * a, int lda)'/>
-<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='745'>// Performs a rank-1 update of a symmetric matrix.
-  //
-  //     a &lt;- alpha * x * x&apos; + a,
-  //
-  // alpha is a scalar; x is an n-element vector; a is an n-by-n symmetric
-  // matrix.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='3212' u='a' c='_ZN9perftools8gputools6Stream11ThenBlasSyrENS0_4blas10UpperLowerEyfRKNS0_12DeviceMemoryIfEEiPS5_i'/>

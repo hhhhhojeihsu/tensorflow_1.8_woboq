@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.h' l='121' type='tensorflow::Status tensorflow::graph_transforms::SortByExecutionOrder(const tensorflow::GraphDef &amp; input_graph_def, tensorflow::GraphDef * output_graph_def)'/>
-<doc f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.h' l='118'>// For a lot of replacement and matching operations it&apos;s useful to have the
-// nodes processed in a controlled order, so this does a topological sort to
-// ensure that nodes always appear in the GraphDef.node list after their inputs.</doc>
-<use f='tensorflow/tensorflow/tools/graph_transforms/sort_by_execution_order.cc' l='36' u='c' c='_ZN10tensorflow16graph_transforms37SortByExecutionOrderWithUnusedContextERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
-<def f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='182' ll='255' type='tensorflow::Status tensorflow::graph_transforms::SortByExecutionOrder(const tensorflow::GraphDef &amp; input_graph_def, tensorflow::GraphDef * output_graph_def)'/>
-<use f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='278' u='c' c='_ZN10tensorflow16graph_transforms12GraphMatcherC1ERKNS_8GraphDefE'/>

@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/core/grappler/costs/graph_properties.h' l='102' type='static tensorflow::Status tensorflow::grappler::GraphProperties::UpdateEnter(tensorflow::grappler::SymbolicShapeRefiner * shape_refiner, const tensorflow::Node * node, bool relax, tensorflow::grappler::TopoQueue * new_shapes)'/>
-<doc f='tensorflow/tensorflow/core/grappler/costs/graph_properties.h' l='101'>// Process the Enter node, and enqueue its fanout in new_shapes if needed.</doc>
-<def f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='759' ll='782' type='static tensorflow::Status tensorflow::grappler::GraphProperties::UpdateEnter(tensorflow::grappler::SymbolicShapeRefiner * shape_refiner, const tensorflow::Node * node, bool relax, tensorflow::grappler::TopoQueue * new_shapes)'/>
-<use f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='791' u='c' c='_ZNK10tensorflow8grappler15GraphProperties12UpdateShapesEPNS0_20SymbolicShapeRefinerEbRKSt13unordered_mapISsSt13unordered_setIiSt4hashIiESt8equal_toIi2360630'/>
-<doc f='tensorflow/tensorflow/core/grappler/costs/graph_properties.cc' l='757'>// Manually propagate the input shape for Enter nodes and update any Merge node
-// outputs.</doc>

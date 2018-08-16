@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='320' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateRecv(const xla::Shape &amp; shape, int64 channel_id)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='317'>// Creates an asynchronous receive instruction with the given channel id,
-  // which allocates resources to receive data of the given shape from a unique
-  // send instruction in another computation that has the same channel id.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='450' ll='459' type='static std::unique_ptr&lt;HloInstruction&gt; xla::HloInstruction::CreateRecv(const xla::Shape &amp; shape, int64 channel_id)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1452' u='c' c='_ZNK3xla14HloInstruction20CloneWithNewOperandsERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_9HloModuleE'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='450'>/* static */</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='3237' u='c' c='_ZN3xla12_GLOBAL__N_118ComputationLowerer5VisitERKNS_21ComputationDataHandleEPSt13unordered_mapIxPNS_14HloInstructionESt4hashIxESt8equal_toIxESaISt4pairIKxS7_EEE'/>

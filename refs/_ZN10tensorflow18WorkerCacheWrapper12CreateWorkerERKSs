@@ -1,9 +1,0 @@
-<inh f='tensorflow/tensorflow/core/distributed_runtime/worker_cache.h' l='47' c='_ZN10tensorflow20WorkerCacheInterface12CreateWorkerERKSs'/>
-<def f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_wrapper.h' l='43' ll='45' type='tensorflow::WorkerInterface * tensorflow::WorkerCacheWrapper::CreateWorker(const string &amp; target)'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_wrapper.h' l='36'>// If &quot;target&quot; names a remote task for which an RPC channel exists
-  // or can be constructed, returns a pointer to a WorkerInterface object
-  // wrapping that channel. The returned value must be destroyed by
-  // calling `this-&gt;ReleaseWorker(target, ret)`
-  // TODO(mrry): rename this to GetOrCreateWorker() or something that
-  // makes it more obvious that this method returns a potentially
-  // shared object.</doc>

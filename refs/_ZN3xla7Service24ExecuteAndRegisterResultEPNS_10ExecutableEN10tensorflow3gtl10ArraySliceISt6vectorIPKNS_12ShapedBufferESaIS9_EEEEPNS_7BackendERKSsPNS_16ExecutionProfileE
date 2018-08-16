@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='369' type='StatusOr&lt;xla::GlobalDataHandle&gt; xla::Service::ExecuteAndRegisterResult(xla::Executable * executable, const tensorflow::gtl::ArraySlice&lt;std::vector&lt;const ShapedBuffer *&gt; &gt; arguments, xla::Backend * backend, const string &amp; result_tag, xla::ExecutionProfile * profile)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='365'>// Runs the given executable with the given arguments and register the result
-  // in the allocation tracker. The handle of the result from the tracker is
-  // returned. If the parameter &quot;profile&quot; is not null, it points to an
-  // ExecutionProfile object which will be filled in with profile data.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='671' ll='728' type='StatusOr&lt;xla::GlobalDataHandle&gt; xla::Service::ExecuteAndRegisterResult(xla::Executable * executable, const tensorflow::gtl::ArraySlice&lt;std::vector&lt;const ShapedBuffer *&gt; &gt; arguments, xla::Backend * backend, const string &amp; result_tag, xla::ExecutionProfile * profile)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1112' u='c' c='_ZN3xla7Service7ExecuteEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1190' u='c' c='_ZN3xla7Service12ExecuteGraphEPKNS_19ExecuteGraphRequestEPNS_15ExecuteResponseE'/>

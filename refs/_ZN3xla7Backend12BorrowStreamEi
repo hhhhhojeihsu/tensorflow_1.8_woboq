@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='119' type='StatusOr&lt;StreamPtr&gt; xla::Backend::BorrowStream(int device_ordinal)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='127' u='c' c='_ZN3xla7Backend14StreamBorrowerEv'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='116'>// Borrows a stream for use by the caller, either by grabbing it from an
-  // internal pool, or by constructing/initializating it, and returns the result
-  // to the caller.</doc>
-<use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='216' u='c' c='_ZN10tensorflow9XlaDevice9GetStreamEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='39' u='c' c='_ZN3xla12_GLOBAL__N_121BorrowStreamForDeviceEiPNS_7BackendE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='103' ll='106' type='StatusOr&lt;Backend::StreamPtr&gt; xla::Backend::BorrowStream(int device_ordinal)'/>

@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='280' type='static xla::Literal xla::Literal::MoveIntoTuple(tensorflow::gtl::MutableArraySlice&lt;Literal&gt; elements)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='276'>// This operation is the inverse of DecomposeTuple. The given elements are
-  // moved into the tuple elements of a new tuple-shaped Literal which is
-  // returned. Upon return, each of the Literals in &apos;elements&apos; is set to a nil
-  // shape (empty tuple).</doc>
-<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='302' ll='315' type='static xla::Literal xla::Literal::MoveIntoTuple(tensorflow::gtl::MutableArraySlice&lt;Literal&gt; elements)'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1584' u='c' c='_ZNK3xla7Literal14ConvertToShapeERKNS_5ShapeEb'/>
-<doc f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='302'>/* static */</doc>

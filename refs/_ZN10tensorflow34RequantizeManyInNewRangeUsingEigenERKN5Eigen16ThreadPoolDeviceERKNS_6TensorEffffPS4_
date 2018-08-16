@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/core/kernels/quantization_utils.h' l='669' ll='679' type='void tensorflow::RequantizeManyInNewRangeUsingEigen(const Eigen::ThreadPoolDevice &amp; device, const tensorflow::Tensor &amp; input, float min_input, float max_input, float min_output, float max_output, tensorflow::Tensor * output)'/>
-<def f='tensorflow/tensorflow/core/kernels/quantization_utils.h' l='686' ll='724' type='void tensorflow::RequantizeManyInNewRangeUsingEigen(const Eigen::ThreadPoolDevice &amp; device, const tensorflow::Tensor &amp; input, float min_input, float max_input, float min_output, float max_output, tensorflow::Tensor * output)'/>
-<doc f='tensorflow/tensorflow/core/kernels/quantization_utils.h' l='681'>// See RequantizeManyInNewRange() for a non-eigen reference implementation.
-//
-// Because converting 32-bit accumulated results down to eight bit is a common
-// case, we have a specialized code path to handle it as efficiently as
-// possible using only fixed-point math for the inner loop.</doc>

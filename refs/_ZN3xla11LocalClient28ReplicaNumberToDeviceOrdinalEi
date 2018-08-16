@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='167' type='StatusOr&lt;int&gt; xla::LocalClient::ReplicaNumberToDeviceOrdinal(int replica_number)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/client/local_client.h' l='162'>// Returns the device ordinal that corresponds to the given replica number.
-  //
-  // This returns an error if there is not a one-to-one correspondence of
-  // replicas to device ordinals, but is useful as a short term mechanism for
-  // the &quot;easy&quot; case where a single replica is a single device.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='329' ll='331' type='StatusOr&lt;int&gt; xla::LocalClient::ReplicaNumberToDeviceOrdinal(int replica_number)'/>

@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='100' type='bool perftools::gputools::internal::TemporaryMemoryManager::HasAllocated(const perftools::gputools::DeviceMemoryBase &amp; device_memory, uint64 generation) const'/>
-<doc f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='95'>// Returns whether the manager has a live allocation record for the given
-  // device memory pointer with the given generation counter.
-  //
-  // Note: this is a polling call -- there is no guarantee that the region is
-  // still allocated once the call has completed.</doc>
-<use f='tensorflow/tensorflow/stream_executor/temporary_device_memory.cc' l='54' u='c' c='_ZNK9perftools8gputools25TemporaryDeviceMemoryBase11IsAllocatedEv'/>
-<def f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.cc' l='83' ll='91' type='bool perftools::gputools::internal::TemporaryMemoryManager::HasAllocated(const perftools::gputools::DeviceMemoryBase &amp; device_memory, uint64 generation) const'/>

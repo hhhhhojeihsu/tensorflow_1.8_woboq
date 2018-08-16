@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='331' type='xla::SessionComputation xla::UserComputation::CloneSessionComputation(VersionedComputationHandle::Version version) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/user_computation.h' l='327'>// Returns a copy of the internal session state for this computation -- this
-  // is useful for serializing the guts of a user computation, though references
-  // to other handles (e.g. referred-to computations) must be handled with care
-  // in the serialization / de-serialization process.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.cc' l='104' u='c' c='_ZN3xla18ComputationTracker19SnapshotComputationERKNS_17ComputationHandleE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/computation_tracker.cc' l='107' u='c' c='_ZN3xla18ComputationTracker19SnapshotComputationERKNS_17ComputationHandleE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='2326' ll='2342' type='xla::SessionComputation xla::UserComputation::CloneSessionComputation(VersionedComputationHandle::Version version) const'/>

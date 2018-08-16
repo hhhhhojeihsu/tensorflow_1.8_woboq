@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/temporary_device_memory.h' l='75' type='void perftools::gputools::TemporaryDeviceMemoryBase::Finalize()'/>
-<doc f='tensorflow/tensorflow/stream_executor/temporary_device_memory.h' l='68'>// &quot;Finalizes&quot; this temporary memory, making it acceptable to release at the
-  // next stream synchronization point -- the device memory can be reclaimed at
-  // any time after the temporary memory is marked as finalized (e.g. if a
-  // separate thread is calls Stream::BlockHostUntilDone). This may only be
-  // called once -- see the precondition below.
-  //
-  // Precondition: !IsFinalized()</doc>
-<def f='tensorflow/tensorflow/stream_executor/temporary_device_memory.cc' l='41' ll='46' type='void perftools::gputools::TemporaryDeviceMemoryBase::Finalize()'/>

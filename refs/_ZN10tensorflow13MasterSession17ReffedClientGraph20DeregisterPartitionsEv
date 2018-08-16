@@ -1,7 +1,0 @@
-<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='91' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraphD1Ev'/>
-<dec f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='296' type='void tensorflow::MasterSession::ReffedClientGraph::DeregisterPartitions()'/>
-<def f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='996' ll='1025' type='void tensorflow::MasterSession::ReffedClientGraph::DeregisterPartitions()'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='294'>// Deregisters the partitions on the workers.  Called in the
-  // destructor and does not wait for the rpc completion.</doc>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='994'>// Asynchronously deregisters subgraphs on the workers, without waiting for the
-// result.</doc>

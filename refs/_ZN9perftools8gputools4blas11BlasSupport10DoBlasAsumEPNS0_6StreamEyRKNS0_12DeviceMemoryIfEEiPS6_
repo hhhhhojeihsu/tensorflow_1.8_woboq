@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='180' type='bool perftools::gputools::blas::BlasSupport::DoBlasAsum(perftools::gputools::Stream * stream, uint64 elem_count, const DeviceMemory&lt;float&gt; &amp; x, int incx, DeviceMemory&lt;float&gt; * result)'/>
-<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='176'>// Computes the sum of magnitudes of the vector elements.
-  // result &lt;- |Re x(1)| + |Im x(1)| + |Re  x(2)| + |Im  x(2)|+ ... + |Re  x(n)|
-  // + |Im x(n)|.
-  // Note that Im x(i) = 0 for real types float/double.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='2019' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasAsumEyRKNS0_12DeviceMemoryIfEEiPS3_'/>

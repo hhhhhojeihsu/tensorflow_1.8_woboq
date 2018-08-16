@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/leaf_model_operators.h' l='41' type='float tensorflow::tensorforest::LeafModelOperator::GetOutputValue(const decision_trees::Leaf &amp; leaf, int32 o) const'/>
-<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/model_ops.cc' l='245' u='c' c='_ZN10tensorflow12tensorforest19TreePredictionsV4Op16set_output_valueEiiPNS0_20DecisionTreeResourceEPN5Eigen9TensorMapINS4_6TensorIfLi2ELi1ElEELi16ENS4_11MakePointerEEE'/>
-<doc f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/leaf_model_operators.h' l='38'>// Returns the value of the requested output, which should be
-  // in [0, num_outputs_).  For classification, it&apos;s the class count (weighted
-  // number of instances seen).  For regression, it&apos;s e.g. the average value.</doc>
-<ovr f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/leaf_model_operators.cc' l='49' c='_ZNK10tensorflow12tensorforest36DenseClassificationLeafModelOperator14GetOutputValueERKNS_14decision_trees4LeafEi'/>
-<ovr f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/leaf_model_operators.cc' l='79' c='_ZNK10tensorflow12tensorforest37SparseClassificationLeafModelOperator14GetOutputValueERKNS_14decision_trees4LeafEi'/>
-<ovr f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/leaf_model_operators.cc' l='113' c='_ZNK10tensorflow12tensorforest44SparseOrDenseClassificationLeafModelOperator14GetOutputValueERKNS_14decision_trees4LeafEi'/>
-<ovr f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/leaf_model_operators.cc' l='141' c='_ZNK10tensorflow12tensorforest27RegressionLeafModelOperator14GetOutputValueERKNS_14decision_trees4LeafEi'/>

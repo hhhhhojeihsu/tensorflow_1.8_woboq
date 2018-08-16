@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='360' type='std::unique_ptr&lt;Layout&gt; xla::LayoutAssignment::ChooseOutputLayoutFromOperandLayout(const xla::Layout &amp; operand_layout, const xla::HloInstruction * user, int64 operand_no)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='356'>// Given the layout of `user`&apos;s `operand_no`-th operand, chooses a layout of
-  // `user` that minimizes its cost on that operand.  Returns null if it can&apos;t
-  // decide the best layout.
-  // Precondition: `user` and the operand are array-shaped.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='985' ll='1055' type='std::unique_ptr&lt;Layout&gt; xla::LayoutAssignment::ChooseOutputLayoutFromOperandLayout(const xla::Layout &amp; operand_layout, const xla::HloInstruction * user, int64 operand_no)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1193' u='c' c='_ZN3xla16LayoutAssignment26PropagateOperandConstraintERKNS_23OperandLayoutConstraintEPNS_17LayoutConstraintsE'/>

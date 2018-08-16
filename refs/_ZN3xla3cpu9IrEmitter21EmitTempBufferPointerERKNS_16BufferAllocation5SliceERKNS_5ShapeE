@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='221' type='llvm::Value * xla::cpu::IrEmitter::EmitTempBufferPointer(const BufferAllocation::Slice &amp; slice, const xla::Shape &amp; target_shape)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='218'>// Emits code that computes the address of the given temporary buffer to the
-  // function. target_shape is the shape of this temporary buffer.
-  // The returned Value&apos;s type is a pointer to element_type.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='360' u='c' c='_ZN3xla3cpu9IrEmitter12HandleInfeedEPNS_14HloInstructionE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2717' ll='2768' type='llvm::Value * xla::cpu::IrEmitter::EmitTempBufferPointer(const BufferAllocation::Slice &amp; slice, const xla::Shape &amp; target_shape)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2842' u='c' c='_ZN3xla3cpu9IrEmitter22EmitTargetAddressForOpEPKNS_14HloInstructionE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='2873' u='c' c='_ZN3xla3cpu9IrEmitter21EmitTargetElementLoopEPNS_14HloInstructionEN10tensorflow11StringPieceERKSt8functionIFNS_8StatusOrIPN4llvm5ValueEEERKNS_7llvm_ir7IrArray5IndexEEE'/>

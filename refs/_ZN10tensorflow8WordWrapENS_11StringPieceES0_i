@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/op_gen_lib.h' l='38' type='string tensorflow::WordWrap(tensorflow::StringPiece prefix, tensorflow::StringPiece str, int width)'/>
-<doc f='tensorflow/tensorflow/core/framework/op_gen_lib.h' l='34'>// Wrap prefix + str to be at most width characters, indenting every line
-// after the first by prefix.size() spaces.  Intended use case is something
-// like prefix = &quot;  Foo(&quot; and str is a list of arguments (terminated by a &quot;)&quot;).
-// TODO(josh11b): Option to wrap on &quot;, &quot; instead of &quot; &quot; when possible.</doc>
-<def f='tensorflow/tensorflow/core/framework/op_gen_lib.cc' l='28' ll='65' type='string tensorflow::WordWrap(tensorflow::StringPiece prefix, tensorflow::StringPiece str, int width)'/>
-<use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='751' u='c' c='_ZN10tensorflow22python_op_gen_internal11GenPythonOp16AddOutputGlobalsEv'/>
-<use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='760' u='c' c='_ZN10tensorflow22python_op_gen_internal11GenPythonOp16AddOutputGlobalsEv'/>
-<use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='797' u='c' c='_ZN10tensorflow22python_op_gen_internal11GenPythonOp15AddBodyNoReturnERKSs'/>

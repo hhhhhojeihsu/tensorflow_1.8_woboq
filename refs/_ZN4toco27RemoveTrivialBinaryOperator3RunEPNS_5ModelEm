@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='110' type='bool toco::RemoveTrivialBinaryOperator::Run(toco::Model * model, std::size_t op_index)'/>
-<inh f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/graph_transformations.h' l='30' c='_ZN4toco19GraphTransformation3RunEPNS_5ModelEm'/>
-<def f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/remove_trivial_binary.cc' l='49' ll='111' type='bool toco::RemoveTrivialBinaryOperator::Run(toco::Model * model, std::size_t op_index)'/>
-<doc f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/remove_trivial_binary.cc' l='43'>// A binary operator is called trivial when exactly one of its operands is
-// a constant and is such that the binary operation is equivalent to
-// the identity operation on its other input.
-// For example, an Add operator is trivial if
-// one of its operands is constant 0, a Mul operator is trivial
-// if one of its operands is constant 1, etc.</doc>

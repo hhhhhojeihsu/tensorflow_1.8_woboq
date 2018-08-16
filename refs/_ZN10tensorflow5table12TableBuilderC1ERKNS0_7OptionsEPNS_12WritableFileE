@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/lib/io/table_builder.h' l='43' type='void tensorflow::table::TableBuilder::TableBuilder(const tensorflow::table::Options &amp; options, tensorflow::WritableFile * file)'/>
-<doc f='tensorflow/tensorflow/core/lib/io/table_builder.h' l='40'>// Create a builder that will store the contents of the table it is
-  // building in *file.  Does not close the file.  It is up to the
-  // caller to close the file after calling Finish().</doc>
-<def f='tensorflow/tensorflow/core/lib/io/table_builder.cc' l='110' ll='111' type='void tensorflow::table::TableBuilder::TableBuilder(const tensorflow::table::Options &amp; options, tensorflow::WritableFile * file)'/>
-<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='495' u='c' c='_ZN10tensorflow12BundleWriter6FinishEv'/>
-<use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='672' u='c' c='_ZN10tensorflow12MergeBundlesEPNS_3EnvENS_3gtl10ArraySliceISsEENS_11StringPieceE'/>
-<use f='tensorflow/tensorflow/core/util/tensor_slice_writer.cc' l='41' u='c' c='_ZN10tensorflow10checkpoint12_GLOBAL__N_112TableBuilderC1ERKSsPNS_12WritableFileE'/>

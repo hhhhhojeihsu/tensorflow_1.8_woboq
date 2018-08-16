@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.h' l='40' type='static void tensorflow::GPUUtil::SetProtoFromGPU(const tensorflow::Tensor &amp; tensor, tensorflow::Device * dev, const tensorflow::DeviceContext * device_context, tensorflow::TensorProto * proto, bool is_dead, StatusCallback done)'/>
-<def f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='117' ll='187' type='static void tensorflow::GPUUtil::SetProtoFromGPU(const tensorflow::Tensor &amp; tensor, tensorflow::Device * dev, const tensorflow::DeviceContext * device_context, tensorflow::TensorProto * proto, bool is_dead, StatusCallback done)'/>
-<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.cc' l='116'>/*static*/</doc>
-<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_util.h' l='34'>// &quot;tensor&quot; is GPU-local.  &quot;dev&quot; is the hosting GPU.
-  // &quot;device_context&quot; should be the context of the GPU &quot;_Send&quot; op
-  // which provides the Tensor.
-  // Sets all necessary fields of &quot;proto&quot; by transferring value
-  // bytes from GPU to CPU RAM. &quot;is_dead&quot; indicates that the
-  // tensor is dead with an uninit value.</doc>

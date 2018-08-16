@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.h' l='37' type='tensorflow::Status tensorflow::AddPlaceholdersForFeeds(const tf2xla::Config &amp; config, const tensorflow::OpRegistryInterface * op_registry, std::unordered_map&lt;string, string&gt; * feed_remapping, tensorflow::GraphDef * graph_def)'/>
-<doc f='tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.h' l='32'>// Modifies &lt;graph_def&gt; to include placeholders for each fed tensor, and
-// update references to the fed tensors to refer to the placeholders.
-// The existing nodes referenced by the feeds are not removed or modified
-// (except where their input edges are modified by the replacement of other
-// feeds).</doc>
-<def f='tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.cc' l='97' ll='192' type='tensorflow::Status tensorflow::AddPlaceholdersForFeeds(const tf2xla::Config &amp; config, const tensorflow::OpRegistryInterface * op_registry, std::unordered_map&lt;string, string&gt; * feed_remapping, tensorflow::GraphDef * graph_def)'/>

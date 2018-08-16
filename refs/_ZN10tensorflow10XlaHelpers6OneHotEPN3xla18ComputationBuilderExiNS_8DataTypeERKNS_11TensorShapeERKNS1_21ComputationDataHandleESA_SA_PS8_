@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.h' l='104' type='static tensorflow::Status tensorflow::XlaHelpers::OneHot(xla::ComputationBuilder * builder, int64 depth, int axis, tensorflow::DataType index_type, const tensorflow::TensorShape &amp; indices_shape, const xla::ComputationDataHandle &amp; indices, const xla::ComputationDataHandle &amp; on_value, const xla::ComputationDataHandle &amp; off_value, xla::ComputationDataHandle * one_hot)'/>
-<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.h' l='99'>// Converts `indices` into a one-hot representation. `depth` is the size
-  // of the new axis to add. `axis` is the position at which to add the new
-  // axis. `indices_shape` is the shape of `indices`. `on_value` and
-  // `off_value` represent the values to use for the on and off positions,
-  // respectively.</doc>
-<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/one_hot_op.cc' l='67' u='c' c='_ZN10tensorflow12_GLOBAL__N_18OneHotOp7CompileEPNS_18XlaOpKernelContextE'/>
-<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/softmax_op.cc' l='199' u='c' c='_ZN10tensorflow12_GLOBAL__N_129SparseSoftmaxXentWithLogitsOp7CompileEPNS_18XlaOpKernelContextE'/>
-<def f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='230' ll='278' type='static tensorflow::Status tensorflow::XlaHelpers::OneHot(xla::ComputationBuilder * builder, int64 depth, int axis, tensorflow::DataType index_type, const tensorflow::TensorShape &amp; indices_shape, const xla::ComputationDataHandle &amp; indices, const xla::ComputationDataHandle &amp; on_value, const xla::ComputationDataHandle &amp; off_value, xla::ComputationDataHandle * one_hot)'/>

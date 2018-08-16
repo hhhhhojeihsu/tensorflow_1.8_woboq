@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/shape_inference.h' l='506' type='tensorflow::Status tensorflow::shape_inference::InferenceContext::MakeDimForScalarInputWithNegativeIndexing(int idx, int input_rank, tensorflow::shape_inference::DimensionHandle * out)'/>
-<doc f='tensorflow/tensorflow/core/framework/shape_inference.h' l='501'>// Returns a new dimension whose value is given by a scalar input tensor.
-  // This allows for a negative input dimension given the rank of a separate
-  // tensor.  This rank can be negative if unknown.
-  // The input tensor must be in host memory, since it is dereferenced to get
-  // the value.</doc>
-<def f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='938' ll='965' type='tensorflow::Status tensorflow::shape_inference::InferenceContext::MakeDimForScalarInputWithNegativeIndexing(int idx, int input_rank, tensorflow::shape_inference::DimensionHandle * out)'/>
-<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='498' u='c'/>
-<use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='534' u='c'/>

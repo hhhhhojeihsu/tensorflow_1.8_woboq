@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/core/public/session.h' l='229' ll='232' type='tensorflow::Status tensorflow::Session::ReleaseCallable(CallableHandle handle)'/>
-<doc f='tensorflow/tensorflow/core/public/session.h' l='226'>/// \brief Releases resources associated with the given `handle` in this
-  /// session.
-  /// NOTE: This API is still experimental and may change.</doc>
-<ovr f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1728' c='_ZN10tensorflow13DirectSession15ReleaseCallableEx'/>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='439' c='_ZN10tensorflow11GrpcSession15ReleaseCallableEx'/>
-<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='300' u='c' c='_ZN10tensorflow35TF_DeprecatedSessionReleaseCallableEP20TF_DeprecatedSessionlP9TF_Status'/>
-<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='305' u='c' c='_ZN10tensorflow25TF_SessionReleaseCallableEP10TF_SessionlP9TF_Status'/>

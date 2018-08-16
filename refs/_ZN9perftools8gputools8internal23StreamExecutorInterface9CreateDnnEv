@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='310' type='dnn::DnnSupport * perftools::gputools::internal::StreamExecutorInterface::CreateDnn()'/>
-<doc f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='305'>// Creates a new DnnSupport object, ownership is transferred to the caller.
-  // If SupportsDnn() is false, this will always return null.
-  //
-  // If SupportsDnn() is true, this may return null, for example, if the DNN
-  // initialization fails.</doc>
-<ovr f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.h' l='178' c='_ZN9perftools8gputools4host12HostExecutor9CreateDnnEv'/>
-<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='401' u='c' c='_ZN9perftools8gputools14StreamExecutor5AsDnnEv'/>

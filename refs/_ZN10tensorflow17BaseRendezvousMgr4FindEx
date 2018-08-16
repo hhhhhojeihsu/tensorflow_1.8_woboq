@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.h' l='72' type='tensorflow::RemoteRendezvous * tensorflow::BaseRendezvousMgr::Find(int64 step_id)'/>
-<inh f='tensorflow/tensorflow/core/distributed_runtime/rendezvous_mgr_interface.h' l='74' c='_ZN10tensorflow22RendezvousMgrInterface4FindEx'/>
-<def f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='53' ll='55' type='tensorflow::RemoteRendezvous * tensorflow::BaseRendezvousMgr::Find(int64 step_id)'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.h' l='66'>// Returns Rendezvous supporting send and recv among workers in the
-  // &quot;step_id&quot;.  The caller takes ownership of one reference on the
-  // returned Rendezvous instance.
-  //
-  // Note: the caller must guarantee to eventually call Initialize on the
-  // returned RemoteRendezvous</doc>

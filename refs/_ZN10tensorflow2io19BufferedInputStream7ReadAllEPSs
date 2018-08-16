@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.h' l='82' type='tensorflow::Status tensorflow::io::BufferedInputStream::ReadAll(string * result)'/>
-<doc f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.h' l='78'>// Reads the entire contents of the file into *result.
-  //
-  // Note: the amount of memory used by this function call is unbounded, so only
-  // use in ops that expect that behavior.</doc>
-<use f='tensorflow/tensorflow/core/kernels/whole_file_read_ops.cc' l='41' u='c' c='_ZN10tensorflowL14ReadEntireFileEPNS_3EnvERKSsPSs'/>
-<def f='tensorflow/tensorflow/core/lib/io/buffered_inputstream.cc' l='170' ll='187' type='tensorflow::Status tensorflow::io::BufferedInputStream::ReadAll(string * result)'/>

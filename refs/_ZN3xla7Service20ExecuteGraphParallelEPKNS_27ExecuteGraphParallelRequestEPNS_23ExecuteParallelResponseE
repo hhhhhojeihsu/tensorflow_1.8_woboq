@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/service.h' l='134' type='tensorflow::Status xla::Service::ExecuteGraphParallel(const xla::ExecuteGraphParallelRequest * arg, xla::ExecuteParallelResponse * result)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/service.h' l='129'>// Executes one or more computations in parallel with the provided global data
-  // passed as immutable arguments. Returns global data output for each
-  // computation.
-  //
-  // TODO(b/74197823): This is a part of a NOT YET ready refactor.</doc>
-<inh f='tensorflow/tensorflow/compiler/xla/service_interface.h' l='63' c='_ZN3xla16ServiceInterface20ExecuteGraphParallelEPKNS_27ExecuteGraphParallelRequestEPNS_23ExecuteParallelResponseE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='889' ll='988' type='tensorflow::Status xla::Service::ExecuteGraphParallel(const xla::ExecuteGraphParallelRequest * arg, xla::ExecuteParallelResponse * result)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1028' u='c' c='_ZN3xla7Service13ExecuteOneToNEPKNS_19ExecuteGraphRequestEPNS_15ExecuteResponseE'/>

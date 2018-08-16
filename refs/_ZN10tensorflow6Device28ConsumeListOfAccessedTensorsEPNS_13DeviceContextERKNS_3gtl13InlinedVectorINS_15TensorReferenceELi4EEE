@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/core/common_runtime/device.h' l='95' ll='100' type='void tensorflow::Device::ConsumeListOfAccessedTensors(tensorflow::DeviceContext * context, const TensorReferenceVector &amp; tensors)'/>
-<doc f='tensorflow/tensorflow/core/common_runtime/device.h' l='92'>// Takes ownership of the references in tensors. If necessary, a
-  // device may override this method to keep a reference to the
-  // accessed tensors until the async computation has completed.</doc>
-<ovr f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='102' c='_ZN10tensorflow13RenamedDevice28ConsumeListOfAccessedTensorsEPNS_13DeviceContextERKNS_3gtl13InlinedVectorINS_15TensorReferenceELi4EEE'/>
-<use f='tensorflow/tensorflow/core/common_runtime/renamed_device.h' l='104' u='c' c='_ZN10tensorflow13RenamedDevice28ConsumeListOfAccessedTensorsEPNS_13DeviceContextERKNS_3gtl13InlinedVectorINS_15TensorReferenceELi4EEE'/>
-<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='1663' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ExecutorState7ProcessENS1_10TaggedNodeEx'/>
-<use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='1710' u='c' c='_ZN10tensorflow12_GLOBAL__N_113ExecutorState7ProcessENS1_10TaggedNodeEx'/>

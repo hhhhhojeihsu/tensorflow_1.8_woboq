@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/graph_def_util.h' l='61' type='tensorflow::Status tensorflow::AddDefaultAttrsToGraphDef(tensorflow::GraphDef * graph_def, const tensorflow::OpRegistryInterface &amp; op_registry, int node_offset, bool skip_unknown_ops)'/>
-<doc f='tensorflow/tensorflow/core/framework/graph_def_util.h' l='59'>// Same as above, except for the fact that it skips nodes that aren&apos;t found in
-// op_registry if skip_unknown_ops is true.</doc>
-<use f='tensorflow/tensorflow/core/framework/graph_def_util.cc' l='57' u='c' c='_ZN10tensorflow25AddDefaultAttrsToGraphDefEPNS_8GraphDefERKNS_19OpRegistryInterfaceEi'/>
-<def f='tensorflow/tensorflow/core/framework/graph_def_util.cc' l='60' ll='82' type='tensorflow::Status tensorflow::AddDefaultAttrsToGraphDef(tensorflow::GraphDef * graph_def, const tensorflow::OpRegistryInterface &amp; op_registry, int node_offset, bool skip_unknown_ops)'/>
-<use f='tensorflow/tensorflow/core/grappler/grappler_item_builder.cc' l='140' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_113OptimizeGraphERKNS_8GraphDefEPS2_RKNS0_10ItemConfigE'/>
-<use f='tensorflow/tensorflow/core/grappler/grappler_item_builder.cc' l='568' u='c' c='_ZN10tensorflow8grappler28GrapplerItemFromMetaGraphDefERKSsRKNS_12MetaGraphDefERKNS0_10ItemConfigE'/>
-<use f='tensorflow/tensorflow/core/grappler/optimizers/function_optimizer.cc' l='331' u='c' c='_ZN10tensorflow8grappler12_GLOBAL__N_122InlineSymbolicGradientERKNS_7NodeDefEPNS1_19SymbolicGradientEnvEPNS_8GraphDefE'/>

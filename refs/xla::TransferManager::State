@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='183' ll='186'/>
-<size>16</size>
-<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='180'>// State kept for each kind of TransferManager.  Registration functions
-  // set up creation_function, and then we use that to lazily create
-  // &quot;manager&quot; the first time GetForPlatform is invoked for a particular id.</doc>
-<mbr r='xla::TransferManager::State::manager' o='0' t='std::unique_ptr&lt;TransferManager&gt;'/>
-<mbr r='xla::TransferManager::State::creation_function' o='64' t='TransferManagerCreationFunction'/>

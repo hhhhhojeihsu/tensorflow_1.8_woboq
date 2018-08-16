@@ -1,9 +1,0 @@
-<inh f='tensorflow/tensorflow/core/kernels/loss.h' l='29' c='_ZNK10tensorflow15DualLossUpdater18ComputeUpdatedDualEiddddd'/>
-<def f='tensorflow/tensorflow/core/kernels/squared-loss.h' l='32' ll='40' type='double tensorflow::SquaredLossUpdater::ComputeUpdatedDual(const int num_loss_partitions, const double label, const double example_weight, const double current_dual, const double wx, const double weighted_example_norm) const'/>
-<doc f='tensorflow/tensorflow/core/kernels/squared-loss.h' l='25'>// Closed form solution that decreases the dual squared loss.
-  // See page 23 of http://arxiv.org/pdf/1309.2375v2.pdf for the derivation of
-  // the update rule when the example weights are equal to 1.0.
-  // Note: There is a typo in the formula in the paper: the denominator should
-  // be 1 + ||x_i||^2/(\lambda n) (without the 2 multiplier).
-  //
-  // The CoCoA+ modification is detailed in readme.md.</doc>

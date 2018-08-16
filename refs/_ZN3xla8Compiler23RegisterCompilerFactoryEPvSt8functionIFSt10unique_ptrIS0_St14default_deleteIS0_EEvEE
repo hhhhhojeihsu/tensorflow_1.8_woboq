@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/compiler.h' l='174' type='static void xla::Compiler::RegisterCompilerFactory(perftools::gputools::Platform::Id platform_id, CompilerFactory compiler_factory)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/compiler.h' l='170'>// Registers the compiler singleton for the platform. This is assumed to
-  // be a singleton, so no ownership is transferred.
-  //
-  // Precondition: a platform kind must not be registered more than once.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/compiler.cc' l='49' ll='57' type='static void xla::Compiler::RegisterCompilerFactory(se::Platform::Id platform_id, std::function&lt;std::unique_ptr&lt;Compiler&gt; ()&gt; compiler_factory)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/compiler.cc' l='49'>/* static */</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.cc' l='941' u='c' c='_ZL10InitModulev'/>

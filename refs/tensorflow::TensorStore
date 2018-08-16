@@ -1,9 +1,0 @@
-<def f='tensorflow/tensorflow/core/framework/session_state.h' l='58' ll='89'/>
-<size>72</size>
-<doc f='tensorflow/tensorflow/core/framework/session_state.h' l='56'>// The tensor store remembers the tensors we choose to keep for the
-// current run call. It is available to every op kernel.</doc>
-<fun r='_ZN10tensorflow11TensorStore9AddTensorERKSsRKNS0_12TensorAndKeyE'/>
-<fun r='_ZN10tensorflow11TensorStore11SaveTensorsERKSt6vectorISsSaISsEEPNS_12SessionStateE'/>
-<fun r='_ZN10tensorflow11TensorStore5emptyEv'/>
-<mbr r='tensorflow::TensorStore::lock_' o='0' t='tensorflow::mutex'/>
-<mbr r='tensorflow::TensorStore::tensors_' o='128' t='std::unordered_map&lt;string, TensorAndKey&gt;'/>

@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/core/distributed_runtime/worker_interface.h' l='92' ll='94' type='tensorflow::MutableRunGraphResponseWrapper * tensorflow::WorkerInterface::CreateRunGraphResponse()'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/worker_interface.h' l='87'>// Returns a response object for use in calls to
-  // `RunGraphAsync()`. Ownership is transferred to the caller.
-  //
-  // The message returned from this method must only be used in a
-  // `RunGraph()` call on the same `WorkerInterface` instance.</doc>
-<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='584' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph19RunPartitionsHelperERKSt13unordered_mapINS_11StringPieceEmNS_4hashIS3_EESt8equal_toIS3_ESaISt4pairI10272309'/>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='129' c='_ZN10tensorflow6Worker22CreateRunGraphResponseEv'/>

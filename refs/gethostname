@@ -1,7 +1,0 @@
-<dec f='include/unistd.h' l='882' type='int gethostname(char * __name, size_t __len)'/>
-<def f='include/x86_64-linux-gnu/bits/unistd.h' l='343' ll='355' macro='1' type='int gethostname(char * __buf, size_t __buflen)'/>
-<doc f='include/unistd.h' l='879'>/* Put the name of the current host in no more than LEN bytes of NAME.
-   The result is null-terminated if LEN is large enough for the full
-   name and the terminator.  */</doc>
-<use f='tensorflow/tensorflow/core/platform/posix/port.cc' l='53' u='c' c='_ZN10tensorflow4port8HostnameEv'/>
-<use f='tensorflow/tensorflow/stream_executor/lib/process_state.cc' l='34' u='c' c='_ZN9perftools8gputools4port8HostnameEv'/>

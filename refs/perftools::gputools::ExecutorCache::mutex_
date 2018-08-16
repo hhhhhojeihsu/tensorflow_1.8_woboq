@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/executor_cache.h' l='73' type='tensorflow::mutex'/>
-<use f='tensorflow/tensorflow/stream_executor/executor_cache.h' l='74'/>
-<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='36' u='a' c='_ZN9perftools8gputools13ExecutorCache11GetOrCreateERKNS0_20StreamExecutorConfigERKSt8functionIFNS0_4port8StatusOrISt10unique_ptrINS0_14StreamExecutorE10549996'/>
-<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='70' u='a' c='_ZN9perftools8gputools13ExecutorCache3GetERKNS0_20StreamExecutorConfigE'/>
-<use f='tensorflow/tensorflow/stream_executor/executor_cache.cc' l='98' u='a' c='_ZN9perftools8gputools13ExecutorCache19DestroyAllExecutorsEv'/>
-<offset>0</offset>
-<doc f='tensorflow/tensorflow/stream_executor/executor_cache.h' l='70'>// Maps ordinal number to a list of cached executors for that ordinal.
-  // We key off of ordinal (instead of just looking up all fields in the
-  // StreamExecutorConfig) for a slight improvement in lookup time.</doc>

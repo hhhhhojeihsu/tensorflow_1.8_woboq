@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_liveness.h' l='105' type='tensorflow::gtl::FlatSet&lt;const LogicalBuffer *&gt;'/>
-<offset>128</offset>
-<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_liveness.h' l='102'>// Set of LogicalBuffers which are aliased in the output of other
-  // instructions. For example, a LogicalBuffer which is inserted into a tuple
-  // is considered to be aliased and will be in this set.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/buffer_liveness.cc' l='61' u='m' c='_ZN3xla14BufferLiveness7AnalyzeEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/buffer_liveness.cc' l='84' c='_ZNK3xla14BufferLiveness8ToStringEv'/>

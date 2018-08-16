@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/node_def_util.h' l='240' type='const string &amp; tensorflow::GetNodeAttrString(const tensorflow::AttrSlice &amp; attrs, tensorflow::StringPiece attr_name)'/>
-<doc f='tensorflow/tensorflow/core/framework/node_def_util.h' l='236'>// Look up the attr with name attr_name and return a reference to its value.
-// If no attr with attr_name is found in node_def, or the attr does not have
-// a matching type, a reference to an empty string is returned.
-// REQUIRES: Must not use the returned value beyond the lifetime of node_def.</doc>
-<def f='tensorflow/tensorflow/core/framework/node_def_util.cc' l='253' ll='263' type='const string &amp; tensorflow::GetNodeAttrString(const tensorflow::AttrSlice &amp; attrs, tensorflow::StringPiece attr_name)'/>
-<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='1038' u='c' c='_ZN10tensorflow12_GLOBAL__N_122FindKernelRegistrationERKNS_10DeviceTypeERKNS_7NodeDefEPPKNS_18KernelRegistrationEPb'/>

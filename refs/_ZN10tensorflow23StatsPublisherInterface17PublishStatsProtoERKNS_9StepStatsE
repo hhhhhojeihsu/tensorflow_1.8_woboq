@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/core/common_runtime/stats_publisher_interface.h' l='35' type='void tensorflow::StatsPublisherInterface::PublishStatsProto(const tensorflow::StepStats &amp; step_stats)'/>
-<ovr f='tensorflow/tensorflow/core/common_runtime/stats_publisher_interface.cc' l='29' c='_ZN10tensorflow12_GLOBAL__N_118NoOpStatsPublisher17PublishStatsProtoERKNS_9StepStatsE'/>
-<doc f='tensorflow/tensorflow/core/common_runtime/stats_publisher_interface.h' l='32'>// PublishStatsProto publishes step_stats.
-  // When PublishStatsProto is called multiple times, only the step_stats
-  // corresponding to the latest call will be published.</doc>
-<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='885' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph12ProcessStatsExPNS0_12PerStepStateEPNS_14ProfileHandlerERKNS_10RunOptionsEPNS_11RunMetadataE'/>

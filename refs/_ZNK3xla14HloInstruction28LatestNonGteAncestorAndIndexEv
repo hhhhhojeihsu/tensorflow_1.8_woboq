@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='717' type='std::pair&lt;const HloInstruction *, ShapeIndex&gt; xla::HloInstruction::LatestNonGteAncestorAndIndex() const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='722' u='c' c='_ZN3xla14HloInstruction28LatestNonGteAncestorAndIndexEv'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='714'>// Returns the first non-GetTupleElement ancestor instruction of &apos;hlo&apos;.
-  // If the first non-GTE ancestor is tuple-shaped, populates &apos;index&apos; with the
-  // (possibly nested) tuple indices used on the path from ancestor to &apos;hlo&apos;.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.cc' l='1581' ll='1594' type='std::pair&lt;const HloInstruction *, ShapeIndex&gt; xla::HloInstruction::LatestNonGteAncestorAndIndex() const'/>

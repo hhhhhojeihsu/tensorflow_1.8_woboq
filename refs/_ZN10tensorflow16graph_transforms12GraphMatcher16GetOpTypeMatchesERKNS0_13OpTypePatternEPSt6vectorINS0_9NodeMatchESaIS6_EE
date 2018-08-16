@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.h' l='170' type='tensorflow::Status tensorflow::graph_transforms::GraphMatcher::GetOpTypeMatches(const tensorflow::graph_transforms::OpTypePattern &amp; pattern, std::vector&lt;NodeMatch&gt; * matches)'/>
-<doc f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.h' l='166'>// Sorts the input nodes into execution order, and then skips any previously
-  // matches so that no node appears in more than one match. The NodeDef
-  // pointers contained in the results are owned by the GraphMatcher object, and
-  // so will be invalid after its lifetime.</doc>
-<def f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='282' ll='297' type='tensorflow::Status tensorflow::graph_transforms::GraphMatcher::GetOpTypeMatches(const tensorflow::graph_transforms::OpTypePattern &amp; pattern, std::vector&lt;NodeMatch&gt; * matches)'/>
-<use f='tensorflow/tensorflow/tools/graph_transforms/transform_utils.cc' l='363' u='c' c='_ZN10tensorflow16graph_transforms22ReplaceMatchingOpTypesERKNS_8GraphDefERKNS0_13OpTypePatternERKSt8functionIFNS_6StatusERKNS0_9NodeMatchERKSt3setISsS9794469'/>

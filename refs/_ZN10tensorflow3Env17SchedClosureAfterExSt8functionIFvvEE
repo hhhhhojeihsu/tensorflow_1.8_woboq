@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/platform/env.h' l='262' type='void tensorflow::Env::SchedClosureAfter(int64 micros, std::function&lt;void ()&gt; closure)'/>
-<ovr f='tensorflow/tensorflow/core/platform/env.h' l='345' c='_ZN10tensorflow10EnvWrapper17SchedClosureAfterExSt8functionIFvvEE'/>
-<use f='tensorflow/tensorflow/core/platform/env.h' l='346' u='c' c='_ZN10tensorflow10EnvWrapper17SchedClosureAfterExSt8functionIFvvEE'/>
-<doc f='tensorflow/tensorflow/core/platform/env.h' l='258'>// \brief Schedules the given closure on a thread-pool after the given number
-  // of microseconds.
-  //
-  // NOTE(mrry): This closure must not block.</doc>
-<use f='tensorflow/tensorflow/core/common_runtime/process_util.cc' l='99' u='c' c='_ZN10tensorflow28SchedNonBlockingClosureAfterExSt8functionIFvvEE'/>
-<ovr f='tensorflow/tensorflow/core/platform/posix/env.cc' l='97' c='_ZN10tensorflow12_GLOBAL__N_18PosixEnv17SchedClosureAfterExSt8functionIFvvEE'/>

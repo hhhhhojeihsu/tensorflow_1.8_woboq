@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='736' type='StatusOr&lt;bool&gt; xla::ComputationBuilder::IsConstant(const xla::ComputationDataHandle &amp; operand, int64 num_parameters = 0)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='731'>// Returns true if &apos;operand&apos; is a compile-time constant. A compile-time
-  // constant does not depend on parameters with index greater than or equal to
-  // `num_parameters`, or on stateful operators such as `RngNormal` or `Infeed`.
-  // Unlike `ComputeConstant`, `IsConstant` tests whether a computation is a
-  // compile-time constant without evaluating the computation.</doc>
-<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/retval_op.cc' l='51' u='c' c='_ZN10tensorflow12_GLOBAL__N_18RetvalOp7CompileEPNS_18XlaOpKernelContextE'/>
-<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='121' u='c' c='_ZN10tensorflow18XlaOpKernelContext21ConstantInputReshapedEiNS_3gtl10ArraySliceIxEEPN3xla7LiteralE'/>
-<def f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='1127' ll='1145' type='StatusOr&lt;bool&gt; xla::ComputationBuilder::IsConstant(const xla::ComputationDataHandle &amp; operand, int64 num_parameters = 0)'/>

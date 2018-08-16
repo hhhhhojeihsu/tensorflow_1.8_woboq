@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.h' l='68' type='void tensorflow::GrpcChannelCache::ListWorkers(std::vector&lt;string&gt; * workers)'/>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='160' c='_ZN10tensorflow12_GLOBAL__N_121MultiGrpcChannelCache11ListWorkersEPSt6vectorISsSaISsEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='162' u='c' c='_ZN10tensorflow12_GLOBAL__N_121MultiGrpcChannelCache11ListWorkersEPSt6vectorISsSaISsEE'/>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='219' c='_ZN10tensorflow12_GLOBAL__N_122SparseGrpcChannelCache11ListWorkersEPSt6vectorISsSaISsEE'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.h' l='64'>// Populates *workers with names of all workers which this object
-  // was created to handle.  Worker names are in the format
-  //  /job:&lt;job identifier&gt;/task:&lt;task id&gt;
-  // e.g. /job:mnist/task:2</doc>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_cache.cc' l='55' u='c' c='_ZNK10tensorflow12_GLOBAL__N_115GrpcWorkerCache11ListWorkersEPSt6vectorISsSaISsEE'/>

@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='270' ll='274'/>
-<size>1</size>
-<doc f='tensorflow/tensorflow/core/common_runtime/pending_counts.h' l='267'>// Most counts are small, so we pack a pending count and a dead
-  // count into 3 bits each, use 1 bit to indicate that the node has
-  // started computing.</doc>
-<mbr r='tensorflow::PendingCounts::PackedCounts::pending' o='0' t='uint8'/>
-<mbr r='tensorflow::PendingCounts::PackedCounts::dead_count' o='3' t='uint8'/>
-<mbr r='tensorflow::PendingCounts::PackedCounts::has_started' o='6' t='uint8'/>

@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.h' l='85' type='tensorflow::Status tensorflow::XlaResource::SetTypeAndShape(tensorflow::DataType type, const tensorflow::TensorShape &amp; shape)'/>
-<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.h' l='83'>// Sets the type and shape of the resource. The type and shape of a resource
-  // must not change once the variable has been initialized.</doc>
-<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/stack_ops.cc' l='80' u='c' c='_ZN10tensorflow12_GLOBAL__N_120MaybeInitializeStackEPN3xla18ComputationBuilderEPNS_11XlaResourceENS_8DataTypeERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='70' u='c' c='_ZN10tensorflow12_GLOBAL__N_126MaybeInitializeTensorArrayEPN3xla18ComputationBuilderEPNS_11XlaResourceENS_8DataTypeERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='160' u='c' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>
-<use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='430' u='c' c='_ZN10tensorflow18XlaOpKernelContext14AssignVariableEiNS_8DataTypeEN3xla21ComputationDataHandleE'/>
-<def f='tensorflow/tensorflow/compiler/tf2xla/xla_resource.cc' l='52' ll='74' type='tensorflow::Status tensorflow::XlaResource::SetTypeAndShape(tensorflow::DataType type, const tensorflow::TensorShape &amp; shape)'/>

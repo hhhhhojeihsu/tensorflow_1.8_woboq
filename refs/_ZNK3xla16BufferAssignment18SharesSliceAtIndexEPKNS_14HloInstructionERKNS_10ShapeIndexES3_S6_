@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='365' type='bool xla::BufferAssignment::SharesSliceAtIndex(const xla::HloInstruction * hlo_a, const xla::ShapeIndex &amp; shape_index_a, const xla::HloInstruction * hlo_b, const xla::ShapeIndex &amp; shape_index_b) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='374' u='c' c='_ZNK3xla16BufferAssignment19SharesTopLevelSliceEPKNS_14HloInstructionES3_'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='548' ll='553' type='bool xla::BufferAssignment::SharesSliceAtIndex(const xla::HloInstruction * hlo_a, const xla::ShapeIndex &amp; shape_index_a, const xla::HloInstruction * hlo_b, const xla::ShapeIndex &amp; shape_index_b) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='361'>// Returns true if &apos;hlo_a{shape_index_a}&apos; and &apos;hlo_b{shape_index_b}&apos;
-  // share the same BufferAllocation::Slice.
-  // Returns false otherwise.
-  // REQUIRES: BufferAssignment assigned allocations to both instructions.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/ops.h' l='60' u='c' c='_ZN3xla7llvm_ir37CanEmitFusedDynamicUpdateSliceInPlaceEPNS_14HloInstructionERKNS_16BufferAssignmentE'/>

@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='411' type='void xla::XlaBuilder::Outfeed(const xla::XlaOp &amp; operand, const xla::Shape &amp; shape_with_layout, const string &amp; outfeed_config)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='405'>// Enqueues an outfeed instruction onto the computation. This instruction
-  // generates outgoing data transfers for the given data.
-  //
-  // shape_with_layout communicates the laid out shape that we want to outfeed
-  // -- if !ShapeUtil::Compatible(GetShape(operand), shape_with_layout) an error
-  // will occur.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='795' ll='819' type='void xla::XlaBuilder::Outfeed(const xla::XlaOp &amp; operand, const xla::Shape &amp; shape_with_layout, const string &amp; outfeed_config)'/>

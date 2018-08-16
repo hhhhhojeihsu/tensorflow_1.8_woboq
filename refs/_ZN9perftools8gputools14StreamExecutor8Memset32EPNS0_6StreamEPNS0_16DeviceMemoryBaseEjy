@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='286' type='bool perftools::gputools::StreamExecutor::Memset32(perftools::gputools::Stream * stream, perftools::gputools::DeviceMemoryBase * location, uint32 pattern, uint64 size)'/>
-<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='282'>// Enqueues an operation onto stream to set 32-bit patterns starting at
-  // location, for byte count given by size. size must be 32-bit quantified
-  // (i.e. evently divisible by 4). Returns whether the operation was
-  // successfully enqueued onto the stream.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='4773' u='c' c='_ZN9perftools8gputools6Stream12ThenMemset32EPNS0_16DeviceMemoryBaseEjy'/>
-<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='642' ll='647' type='bool perftools::gputools::StreamExecutor::Memset32(perftools::gputools::Stream * stream, perftools::gputools::DeviceMemoryBase * location, uint32 pattern, uint64 size)'/>

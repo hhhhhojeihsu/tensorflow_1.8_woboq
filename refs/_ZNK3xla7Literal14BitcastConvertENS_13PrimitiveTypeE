@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='346' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::Literal::BitcastConvert(xla::PrimitiveType primitive_dest_type) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='342'>// Converts this literal to another primitive type using a bitcast
-  // conversion. The to and from primitive types must have the same bit
-  // width. Returns an error if the conversion is not possible. This literal
-  // must be array-shaped.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='1547' ll='1560' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::Literal::BitcastConvert(xla::PrimitiveType primitive_dest_type) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='406' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor20HandleBitcastConvertEPNS_14HloInstructionE'/>

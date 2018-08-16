@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/op_kernel.h' l='84' type='void tensorflow::OpKernel::OpKernel(tensorflow::OpKernelConstruction * context, std::unique_ptr&lt;const NodeDef&gt; node_def)'/>
-<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='80'>// Specialized constructor that enables the descendant to provide a different
-  // `NodeDef` value. For example, this constructor can be used to provide a
-  // stripped-down `NodeDef` that does not contain the full set of attrs (such
-  // as tensor values) if the descendant stores them in a different form.</doc>
-<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='84' u='c' c='_ZN10tensorflow8OpKernelC1EPNS_20OpKernelConstructionE'/>
-<def f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='87' ll='112' type='void tensorflow::OpKernel::OpKernel(tensorflow::OpKernelConstruction * context, std::unique_ptr&lt;const NodeDef&gt; node_def)'/>
-<use f='tensorflow/tensorflow/core/kernels/constant_op.cc' l='70' u='c' c='_ZN10tensorflow10ConstantOpC1EPNS_20OpKernelConstructionE'/>

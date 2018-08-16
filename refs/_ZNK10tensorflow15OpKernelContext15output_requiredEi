@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/core/framework/op_kernel.h' l='785' ll='787' type='bool tensorflow::OpKernelContext::output_required(int index) const'/>
-<use f='tensorflow/tensorflow/core/framework/op_kernel.h' l='1496' u='c' c='_ZNK10tensorflow12OpOutputList8requiredEi'/>
-<doc f='tensorflow/tensorflow/core/framework/op_kernel.h' l='779'>// If output_required(index) returns true, the OpKernel&apos;s Compute() method
-  // should call allocate_output(index, ...), set_output(index, ...),
-  // set_output_ref(index, ...), or set the status to a non-ok value.
-  // If it returns false, it may output, but is not required to do so.
-  // TODO(mrry): Convert this to return Status, and implement a string
-  // name version.</doc>

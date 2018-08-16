@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='205' ll='264' type='std::unordered_map&lt;const NodeDef *, int&gt; tensorflow::grappler::GetMaxDownstreamComponents(const std::unordered_set&lt;const NodeDef *&gt; &amp; recomputed_source_nodes, const std::unordered_set&lt;NodeDef *&gt; &amp; target_nodes, const tensorflow::grappler::NodeMap &amp; node_map, const std::unordered_map&lt;const NodeDef *, int&gt; &amp; components)'/>
-<use f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='376' u='c' c='_ZN10tensorflow8grappler17RecomputeSubgraphERKSt13unordered_setIPKNS_7NodeDefESt4hashIS4_ESt8equal_toIS4_ESaIS4_EERKS1_IPS2_S5_ISD_ES7_ISD_ESaISD_EERK6407162'/>
-<doc f='tensorflow/tensorflow/core/grappler/optimizers/memory_optimizer.cc' l='200'>// Computes the maximum topological numbers of (1) target node components
-// (gradient nodes being fed by the recomputation), and (2) child recompute node
-// components for each recomputed node. We will not attach any control
-// dependencies to a recomputation unless they have component numbers greater
-// than this value (to prevent cycles).</doc>

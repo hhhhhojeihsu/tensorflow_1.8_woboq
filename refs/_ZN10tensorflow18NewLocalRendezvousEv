@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/rendezvous.h' l='130' type='tensorflow::Rendezvous * tensorflow::NewLocalRendezvous()'/>
-<doc f='tensorflow/tensorflow/core/framework/rendezvous.h' l='127'>// Returns a Rendezvous instance that is limited to use only by
-// producers and consumers in the local process.  The caller assumes
-// ownership of one Ref() on the returned object.</doc>
-<use f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.cc' l='35' u='c' c='_ZN10tensorflow22IntraProcessRendezvousC1EPKNS_9DeviceMgrE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='136' u='c' c='_ZN10tensorflow20BaseRemoteRendezvousC1EPKNS_9WorkerEnvEx'/>
-<def f='tensorflow/tensorflow/core/framework/rendezvous.cc' l='307' type='tensorflow::Rendezvous * tensorflow::NewLocalRendezvous()'/>

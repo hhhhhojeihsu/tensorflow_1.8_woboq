@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/contrib/lite/kernels/internal/types.h' l='72' ll='96' type='size_t tflite::ReducedOutputOffset(const int num_dims, const int * dims, const int * index, const int num_axis, const int * axis)'/>
-<doc f='tensorflow/tensorflow/contrib/lite/kernels/internal/types.h' l='66'>// Gets offset of index if reducing on axis. When reducing, the flattened offset
-// will not change, if the input index changes on the given axis. For example,
-// if you have a 3D tensor and you are reducing to 2D by eliminating axis 0,
-// then index (0, 1, 2) and index (1, 1, 2) will map to the same flattened
-// offset.
-// TODO(kanlig): uses Dims to represent dimensions.</doc>

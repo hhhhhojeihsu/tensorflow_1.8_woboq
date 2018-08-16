@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='258' type='bool xla::CallGraph::DominatesHelper(const xla::HloComputation * a, const xla::HloComputation * b, tensorflow::gtl::FlatSet&lt;const HloComputation *&gt; * visited) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/call_graph.h' l='255'>// Recursive helper for computing whether &apos;a&apos; dominates &apos;b&apos; in the call
-  // graph. &apos;b_ancestor&apos; is the currently visited node (which starts at &apos;b&apos;),
-  // and &apos;visited&apos; is the set of computations which have been visited.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='137' ll='160' type='bool xla::CallGraph::DominatesHelper(const xla::HloComputation * a, const xla::HloComputation * b, tensorflow::gtl::FlatSet&lt;const HloComputation *&gt; * visited) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='155' u='c' c='_ZNK3xla9CallGraph15DominatesHelperEPKNS_14HloComputationES3_PN10tensorflow3gtl7FlatSetIS3_NS4_4hashIS3_EESt8equal_toIS3_EEE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/call_graph.cc' l='165' u='c' c='_ZNK3xla9CallGraph9DominatesEPKNS_14HloComputationES3_'/>

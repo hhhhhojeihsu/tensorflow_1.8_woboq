@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='306' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::Literal::Reshape(tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='302'>// Creates a new literal by reshaping this literal to have the given
-  // dimensions. The total number of elements must not change; The
-  // implementation currently only supports monotonic dim0-major layouts.
-  // This literal must be an array.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='761' ll='787' type='StatusOr&lt;std::unique_ptr&lt;Literal&gt; &gt; xla::Literal::Reshape(tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2361' u='c' c='_ZN3xla12HloEvaluator13HandleReshapeEPNS_14HloInstructionE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='2803' u='c' c='_ZN3xlaL21ReshapedGatherIndicesExRKNS_7LiteralEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>

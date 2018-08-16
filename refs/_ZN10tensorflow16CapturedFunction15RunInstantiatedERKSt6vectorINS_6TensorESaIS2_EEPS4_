@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/data/captured_function.h' l='79' type='tensorflow::Status tensorflow::CapturedFunction::RunInstantiated(const std::vector&lt;Tensor&gt; &amp; args, std::vector&lt;Tensor&gt; * rets)'/>
-<def f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='269' ll='313' type='tensorflow::Status tensorflow::CapturedFunction::RunInstantiated(const std::vector&lt;Tensor&gt; &amp; args, std::vector&lt;Tensor&gt; * rets)'/>
-<doc f='tensorflow/tensorflow/core/kernels/data/captured_function.h' l='74'>// Synchronously runs the captured function on the given `args`, and stores
-  // the results in `*rets`. Prefer to use `Run()` or `RunAsync()` when
-  // possible.
-  //
-  // REQUIRES: `this-&gt;Instantiate()` must have been called before this method.</doc>
-<use f='tensorflow/tensorflow/core/kernels/data/generator_dataset_op.cc' l='127' u='c' c='_ZN10tensorflow12_GLOBAL__N_118GeneratorDatasetOp7Dataset8IteratorD1Ev'/>
-<use f='tensorflow/tensorflow/core/kernels/data/generator_dataset_op.cc' l='169' u='c' c='_ZN10tensorflow12_GLOBAL__N_118GeneratorDatasetOp7Dataset8Iterator15GetNextInternalEPNS_15IteratorContextEPSt6vectorINS_6TensorESaIS7_EEPb'/>

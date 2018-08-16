@@ -1,8 +1,0 @@
-<dec f='include/python3.5m/unicodeobject.h' l='1755' type='PyObject * PyUnicode_DecodeLocaleAndSize(const char * str, Py_ssize_t len, const char * errors)'/>
-<doc f='include/python3.5m/unicodeobject.h' l='1747'>/* Decode a string from the current locale encoding. The decoder is strict if
-   *surrogateescape* is equal to zero, otherwise it uses the &apos;surrogateescape&apos;
-   error handler (PEP 383) to escape undecodable bytes. If a byte sequence can
-   be decoded as a surrogate character and *surrogateescape* is not equal to
-   zero, the byte sequence is escaped using the &apos;surrogateescape&apos; error handler
-   instead of being decoded. *str* must end with a null character but cannot
-   contain embedded null characters. */</doc>

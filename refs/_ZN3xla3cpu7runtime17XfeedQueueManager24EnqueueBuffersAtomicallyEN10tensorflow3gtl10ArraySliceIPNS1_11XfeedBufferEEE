@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.h' l='66' type='void xla::cpu::runtime::XfeedQueueManager::EnqueueBuffersAtomically(tensorflow::gtl::ArraySlice&lt;XfeedBuffer *&gt; buffers)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.h' l='62'>// Adds a sequence of buffers to the queue atomically. buffer-&gt;Done will be
-  // called when the buffer will no longer be accessed by the XfeedManager,
-  // either as a result of a call to Reset or because the runtime has dequeued
-  // and used the buffer.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='132' u='c' c='_ZN3xla18CpuTransferManager23TransferLiteralToInfeedEPN9perftools8gputools14StreamExecutorERKNS_7LiteralE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='145' u='c' c='_ZN3xla18CpuTransferManager22TransferBufferToInfeedEPN9perftools8gputools14StreamExecutorExPKv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='288' u='c' c='_ZN3xla18CpuTransferManager34TransferBuffersFromOutfeedInternalEPN9perftools8gputools14StreamExecutorEN10tensorflow3gtl10ArraySliceISt4pairIPvxEEEb'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.cc' l='39' ll='55' type='void xla::cpu::runtime::XfeedQueueManager::EnqueueBuffersAtomically(tensorflow::gtl::ArraySlice&lt;XfeedBuffer *&gt; buffers)'/>

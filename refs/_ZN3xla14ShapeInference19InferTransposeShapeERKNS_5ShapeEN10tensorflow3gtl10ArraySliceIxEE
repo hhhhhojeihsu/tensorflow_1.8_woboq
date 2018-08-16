@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='222' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferTransposeShape(const xla::Shape &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions)'/>
-<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='972' u='c' c='_ZN3xla10XlaBuilder9TransposeERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='220'>// Infers the shape produced by a transpose operation from the element type of
-  // its operand and its dimensions field.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='78' u='c' c='_ZN3xla16MakeTransposeHloEPNS_14HloInstructionEN10tensorflow3gtl10ArraySliceIxEE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='215' u='c' c='_ZN3xla13ShapeVerifier15HandleTransposeEPNS_14HloInstructionE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2345' ll='2362' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferTransposeShape(const xla::Shape &amp; operand, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='2345'>/* static */</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='899' u='c' c='_ZN3xla15UserComputation23AddTransposeInstructionERKNS_16TransposeRequestE'/>

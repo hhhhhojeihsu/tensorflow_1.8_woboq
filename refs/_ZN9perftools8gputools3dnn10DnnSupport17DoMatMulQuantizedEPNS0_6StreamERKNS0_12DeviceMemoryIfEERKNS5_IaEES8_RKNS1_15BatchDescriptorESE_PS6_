@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/dnn.h' l='1466' type='bool perftools::gputools::dnn::DnnSupport::DoMatMulQuantized(perftools::gputools::Stream * stream, const DeviceMemory&lt;float&gt; &amp; input_data, const DeviceMemory&lt;int8&gt; &amp; quantized_weights, const DeviceMemory&lt;float&gt; &amp; weight_scales, const dnn::BatchDescriptor &amp; input_dimensions, const dnn::BatchDescriptor &amp; output_dimensions, DeviceMemory&lt;float&gt; * output_data)'/>
-<doc f='tensorflow/tensorflow/stream_executor/dnn.h' l='1462'>// Version of DoMatMul that uses pre-quantized 8 bit weights.
-  // weight_scales specifies the scaling of each column of weights:
-  // original float weight[row * num_columns + column] =
-  //     quantized_weight[row * nnum_columns + column] * weight_scales[column].</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='1316' u='c' c='_ZN9perftools8gputools6Stream19ThenMatMulQuantizedERKNS0_12DeviceMemoryIfEERKNS2_IaEES5_RKNS0_3dnn15BatchDescriptorESC_PS3_'/>

@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/python/eager/pywrap_tfe.h' l='76' type='PyObject * TFE_Py_RegisterBackwardFunctionGetter(PyObject * e)'/>
-<doc f='tensorflow/tensorflow/python/eager/pywrap_tfe.h' l='69'>// Registers e as the backward_function_getter.
-// The registered function creates a backward function (a function that can
-// return the gradient of the inputs an op given the gradient of it&apos;s outputs).
-// The registered function will be passed the following arguments:
-//    op_name, attrs, num_inputs, op_inputs, op_outputs
-//
-// This function is not thread-safe.</doc>
-<def f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='658' ll='673' type='PyObject * TFE_Py_RegisterBackwardFunctionGetter(PyObject * e)'/>

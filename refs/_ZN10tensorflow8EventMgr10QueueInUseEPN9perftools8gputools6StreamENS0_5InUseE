@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.h' l='135' type='void tensorflow::EventMgr::QueueInUse(perftools::gputools::Stream * stream, tensorflow::EventMgr::InUse in_use)'/>
-<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.h' l='141' u='c' c='_ZN10tensorflow8EventMgr12QueueTensorsEPN9perftools8gputools6StreamEPNS_3gtl13InlinedVectorINS_15TensorReferenceELi4EEE'/>
-<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.h' l='146' u='c' c='_ZN10tensorflow8EventMgr11QueueBufferEPN9perftools8gputools6StreamENS0_6BufRecE'/>
-<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.h' l='151' u='c' c='_ZN10tensorflow8EventMgr9QueueFuncEPN9perftools8gputools6StreamESt8functionIFvvEE'/>
-<def f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.cc' l='155' ll='172' type='void tensorflow::EventMgr::QueueInUse(gpu::Stream * stream, tensorflow::EventMgr::InUse iu)'/>
-<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_event_mgr.h' l='132'>// Stream-enqueue an unused Event and save with it a collection of
-  // Tensors and/or a BufRec to be deleted only after the Event
-  // records.</doc>

@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.h' l='69' type='static tensorflow::Status tensorflow::PaddingFIFOQueue::CopyElementToLargerSlice(const tensorflow::Tensor &amp; element, tensorflow::Tensor * parent, int index)'/>
-<use f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.cc' l='207' u='c' c='_ZN10tensorflow16PaddingFIFOQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
-<def f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.cc' l='356' ll='383' type='static tensorflow::Status tensorflow::PaddingFIFOQueue::CopyElementToLargerSlice(const tensorflow::Tensor &amp; element, tensorflow::Tensor * parent, int index)'/>
-<doc f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.h' l='65'>// Copies element into the index^th slice (in the first dimension)
-  // of parent.  Allows for the parent&apos;s slice to have a larger size
-  // than the element, and copies the element into the upper left hand
-  // corner of the slice.</doc>

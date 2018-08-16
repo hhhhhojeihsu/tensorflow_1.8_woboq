@@ -1,9 +1,0 @@
-<def f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1509' type='void toco::Shape::Shape()'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1627' u='c' c='_ZN4toco5Array13mutable_shapeEv'/>
-<doc f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1503'>// For Shape, we stick to half-way encapsulation for now:
-  // we hide the raw dims_ member, but expose it raw by accessors
-  // because from some brainstorming, it&apos;s not at all easy to
-  // anticipate which flavor of more hermetic encapsulation would
-  // actually buy us future-proof-ness without being needlessly
-  // cumbersome.</doc>
-<use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='118' u='c' c='_ZN4toco12_GLOBAL__N_116ExportFloatArrayENS_9AxesOrderERKNS_5ShapeEPKfS1_PN10tensorflow11TensorProtoENS0_18LegacyScalarPolicyE'/>

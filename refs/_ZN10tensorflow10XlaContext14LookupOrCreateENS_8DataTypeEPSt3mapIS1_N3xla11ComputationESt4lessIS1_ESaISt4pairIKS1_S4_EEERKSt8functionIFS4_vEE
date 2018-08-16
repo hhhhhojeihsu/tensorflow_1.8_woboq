@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_context.h' l='154' type='const xla::Computation * tensorflow::XlaContext::LookupOrCreate(tensorflow::DataType type, ComputationMap * out, const std::function&lt;xla::Computation ()&gt; &amp; create)'/>
-<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_context.h' l='151'>// Finds the value for the given type in out map if it already
-  // exists or makes a new value with create function and keeps it the
-  // map. The returned value != nullptr and is owned by the map.</doc>
-<use f='tensorflow/tensorflow/compiler/tf2xla/xla_context.cc' l='127' u='c' c='_ZN10tensorflow10XlaContext14GetOrCreateMaxENS_8DataTypeE'/>
-<use f='tensorflow/tensorflow/compiler/tf2xla/xla_context.cc' l='141' u='c' c='_ZN10tensorflow10XlaContext14GetOrCreateMinENS_8DataTypeE'/>
-<use f='tensorflow/tensorflow/compiler/tf2xla/xla_context.cc' l='155' u='c' c='_ZN10tensorflow10XlaContext14GetOrCreateAddENS_8DataTypeE'/>
-<use f='tensorflow/tensorflow/compiler/tf2xla/xla_context.cc' l='169' u='c' c='_ZN10tensorflow10XlaContext14GetOrCreateMulENS_8DataTypeE'/>
-<def f='tensorflow/tensorflow/compiler/tf2xla/xla_context.cc' l='182' ll='200' type='const xla::Computation * tensorflow::XlaContext::LookupOrCreate(tensorflow::DataType type, ComputationMap * out, const std::function&lt;xla::Computation ()&gt; &amp; create)'/>

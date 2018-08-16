@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/common_runtime/optimization_registry.h' l='58' type='std::unordered_map&lt;string, std::unique_ptr&lt;Graph&gt; &gt; *'/>
-<offset>384</offset>
-<doc f='tensorflow/tensorflow/core/common_runtime/optimization_registry.h' l='55'>// Graphs for each partition, if running post-partitioning. Optimization
-  // passes may alter the graphs, but must not add or remove partitions.
-  // Null for pre-partitioning passes.</doc>
-<use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1462' u='w' c='_ZN10tensorflow13DirectSession12CreateGraphsERKNS_17BuildGraphOptionsEPSt13unordered_mapISsSt10unique_ptrINS_5GraphESt14default_deleteIS6_EESt4hashISs10698560'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='186' u='w' c='_ZN10tensorflow8GraphMgr8InitItemERKSsRKNS_8GraphDefERKNS_12GraphOptionsERKNS_12DebugOptionsEPNS_33DistributedFunctionLibraryRuntimeEPNS0_4ItemE'/>

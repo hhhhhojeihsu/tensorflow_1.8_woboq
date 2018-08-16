@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/lib/strings/str_util.h' l='62' type='bool tensorflow::str_util::ConsumeLeadingDigits(tensorflow::StringPiece * s, uint64 * val)'/>
-<doc f='tensorflow/tensorflow/core/lib/strings/str_util.h' l='58'>// Consume a leading positive integer value.  If any digits were
-// found, store the value of the leading unsigned number in &quot;*val&quot;,
-// advance &quot;*s&quot; past the consumed number, and return true.  If
-// overflow occurred, returns false.  Otherwise, returns false.</doc>
-<def f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='393' ll='416' type='bool tensorflow::str_util::ConsumeLeadingDigits(tensorflow::StringPiece * s, uint64 * val)'/>
-<use f='tensorflow/tensorflow/core/util/device_name_utils.cc' l='80' u='c' c='_ZN10tensorflowL13ConsumeNumberEPNS_11StringPieceEPi'/>

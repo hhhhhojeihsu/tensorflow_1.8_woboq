@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='80' type='StatusOr&lt;std::vector&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; &gt; xla::Executable::ExecuteOnStreams(tensorflow::gtl::ArraySlice&lt;const ServiceExecutableRunOptions&gt; run_options, tensorflow::gtl::ArraySlice&lt;tensorflow::gtl::ArraySlice&lt;const ShapedBuffer *&gt; &gt; arguments)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='76'>// Same as ExecuteOnStream(), but runs this executable on multiple
-  // streams. arguments[i] contains the arguments to the execution on
-  // run_options[i]-&gt;stream() and the returned value is at index i of the
-  // returned vector.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='32' ll='59' type='StatusOr&lt;std::vector&lt;std::unique_ptr&lt;ShapedBuffer&gt; &gt; &gt; xla::Executable::ExecuteOnStreams(ArraySlice&lt;const xla::ServiceExecutableRunOptions&gt; run_options, ArraySlice&lt;ArraySlice&lt;const xla::ShapedBuffer *&gt; &gt; arguments)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='723' u='c' c='_ZN3xla7Service24ExecuteAndRegisterResultEPNS_10ExecutableEN10tensorflow3gtl10ArraySliceISt6vectorIPKNS_12ShapedBufferESaIS9_EEEEPNS_7BackendERKSsPNS_16ExecutionProfileE'/>

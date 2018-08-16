@@ -1,5 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/dilation_ops.h' l='41' type='void tensorflow::functor::DilationBackpropInput::operator()(const Device &amp; d, typename TTypes&lt;T, 4&gt;::ConstTensor input, typename TTypes&lt;T, 3&gt;::ConstTensor filter, typename TTypes&lt;T, 4&gt;::ConstTensor out_backprop, int stride_rows, int stride_cols, int rate_rows, int rate_cols, int pad_top, int pad_left, typename TTypes&lt;T, 4&gt;::Tensor in_backprop)'/>
-<doc f='tensorflow/tensorflow/core/kernels/dilation_ops.h' l='37'>// We assume that the tensor sizes are correct.
-  // To avoid storing the argmax values during forward computation, we recompute
-  // the argmax during backward computation, which is the reason why we provide
-  // filter as argument to the backward computation routine.</doc>

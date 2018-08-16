@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='236' type='tensorflow::Status tensorflow::BundleReader::LookupTensorSlices(tensorflow::StringPiece key, std::vector&lt;TensorSlice&gt; * slices)'/>
-<doc f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.h' l='229'>// Looks up the slices of the tensor keyed by &quot;key&quot;.  On OK, &quot;slices&quot;
-  // is non-empty if and only if the tensor is a partitioned tensor.
-  //
-  // Warning - there is no guaranteed ordering for the returned slices, so
-  // a slice with a larger start index in some dimension could come before
-  // another slice with a smaller start index in the same dimension.
-  // REQUIRES: status().ok()</doc>
-<def f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='893' ll='903' type='tensorflow::Status tensorflow::BundleReader::LookupTensorSlices(tensorflow::StringPiece key, std::vector&lt;TensorSlice&gt; * slices)'/>

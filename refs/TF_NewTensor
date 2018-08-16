@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/c/c_api.h' l='233' type='TF_Tensor * TF_NewTensor(TF_DataType , const int64_t * dims, int num_dims, void * data, size_t len, void (*)(void *, size_t, void *) deallocator, void * deallocator_arg)'/>
-<use f='tensorflow/tensorflow/c/c_api.cc' l='185' u='c' c='TF_AllocateTensor'/>
-<def f='tensorflow/tensorflow/c/c_api.cc' l='189' ll='228' type='TF_Tensor * TF_NewTensor(TF_DataType dtype, const int64_t * dims, int num_dims, void * data, size_t len, void (*)(void *, size_t, void *) deallocator, void * deallocator_arg)'/>
-<use f='tensorflow/tensorflow/c/c_api.cc' l='531' u='c' c='_ZN10tensorflowL11EmptyTensorE11TF_DataTypeRKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/c/c_api.cc' l='617' u='c' c='_ZN10tensorflow19TF_TensorFromTensorERKNS_6TensorEP9TF_Status'/>
-<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='402' u='c' c='_ZN10tensorflow18PyArrayToTF_TensorEP7_objectPSt10unique_ptrI9TF_TensorNS_6detail15TFTensorDeleterEE'/>
-<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='408' u='c' c='_ZN10tensorflow18PyArrayToTF_TensorEP7_objectPSt10unique_ptrI9TF_TensorNS_6detail15TFTensorDeleterEE'/>
-<use f='tensorflow/tensorflow/python/lib/core/ndarray_tensor.cc' l='416' u='c' c='_ZN10tensorflow18PyArrayToTF_TensorEP7_objectPSt10unique_ptrI9TF_TensorNS_6detail15TFTensorDeleterEE'/>

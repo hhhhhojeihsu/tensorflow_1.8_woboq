@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/distributed_runtime/master_session.h' l='105' type='tensorflow::Status tensorflow::MasterSession::Close()'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/master_session.h' l='101'>// Close this session and delete &quot;*this&quot;. Returns OK if all known
-  // states are cleanup successfully.
-  //
-  // Close() may block the caller thread for a long time.</doc>
-<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='429' u='c' c='_ZN10tensorflow6Master13CreateSessionEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='518' u='c' c='_ZN10tensorflow6Master12CloseSessionEPKNS_19CloseSessionRequestEPNS_20CloseSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='607' u='c' c='_ZN10tensorflow6Master5ResetEPKNS_12ResetRequestEPNS_13ResetResponseESt8functionIFvRKNS_6StatusEEE'/>
-<def f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1921' ll='1945' type='tensorflow::Status tensorflow::MasterSession::Close()'/>

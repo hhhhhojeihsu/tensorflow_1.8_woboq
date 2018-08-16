@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='199' ll='201' type='void xla::BufferAllocation::AddHeapTrace(const xla::HeapSimulatorTrace &amp; heap_trace)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='681' u='c' c='_ZN3xla16BufferAssignment22CombineTempAllocationsEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='1251' u='c' c='_ZN3xla14BufferAssigner30AssignBuffersFromHeapSimulatorERKNS_13HeapSimulator6ResultEPNS_16BufferAssignmentEN10tensorflow3gtl7IntTypeINS_13LogicalBuffer10Color_tag_ExEE'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='195'>// Add a heap trace which was used to assign slices to logical buffers in this
-  // allocation. A single BufferAllocation may include multiple heap traces
-  // in the case of the temporary block where there is a heap trace per
-  // computation.</doc>

@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='124' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferConvolveShape(const xla::Shape &amp; lhs, const xla::Shape &amp; rhs, const xla::Window &amp; window, const xla::ConvolutionDimensionNumbers &amp; dimension_numbers)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='122'>// Infers the shape produced by applying the given convolutional
-  // filter (rhs) to lhs in the way specified by the fields on window.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='66' u='c' c='_ZN3xla15MakeConvolveHloEPNS_14HloInstructionES1_RKNS_6WindowERKNS_27ConvolutionDimensionNumbersE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_evaluator.cc' l='1007' u='c' c='_ZN3xla12HloEvaluator12TypedVisitor17HandleConvolutionEPNS_14HloInstructionE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='78' u='c' c='_ZN3xla13ShapeVerifier17HandleConvolutionEPNS_14HloInstructionE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1613' ll='1764' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferConvolveShape(const xla::Shape &amp; lhs, const xla::Shape &amp; rhs, const xla::Window &amp; window, const xla::ConvolutionDimensionNumbers &amp; dnums)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='1613'>/* static */</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='1128' u='c' c='_ZN3xla15UserComputation22AddConvolveInstructionERKNS_15ConvolveRequestE'/>

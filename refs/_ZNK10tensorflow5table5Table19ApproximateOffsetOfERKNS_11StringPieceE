@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/lib/io/table.h' l='63' type='uint64 tensorflow::table::Table::ApproximateOffsetOf(const tensorflow::StringPiece &amp; key) const'/>
-<doc f='tensorflow/tensorflow/core/lib/io/table.h' l='57'>// Given a key, return an approximate byte offset in the file where
-  // the data for that key begins (or would begin if the key were
-  // present in the file).  The returned value is in terms of file
-  // bytes, and so includes effects like compression of the underlying data.
-  // E.g., the approximate offset of the last key in the table will
-  // be close to the file length.</doc>
-<def f='tensorflow/tensorflow/core/lib/io/table.cc' l='152' ll='176' type='uint64 tensorflow::table::Table::ApproximateOffsetOf(const tensorflow::StringPiece &amp; key) const'/>

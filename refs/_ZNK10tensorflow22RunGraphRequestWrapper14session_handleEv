@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='247' type='const string &amp; tensorflow::RunGraphRequestWrapper::session_handle() const'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.h' l='245'>// The session handle used to register the graph. If empty, a single global
-  // namespace is used.</doc>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='281' c='_ZNK10tensorflow23InMemoryRunGraphRequest14session_handleEv'/>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='398' c='_ZNK10tensorflow27MutableProtoRunGraphRequest14session_handleEv'/>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='513' c='_ZNK10tensorflow20ProtoRunGraphRequest14session_handleEv'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='139' u='c' c='_ZN10tensorflow6Worker10DoRunGraphEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='213' u='c' c='_ZN10tensorflow6Worker17DoPartialRunGraphEPNS_11CallOptionsEPNS_22RunGraphRequestWrapperEPNS_30MutableRunGraphResponseWrapperESt8functionIFvRKNS_6StatusEEE'/>

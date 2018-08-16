@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='189' type='void perftools::gputools::StreamExecutor::GetMemAllocs(std::map&lt;void *, AllocRecord&gt; * records_out)'/>
-<doc f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='183'>// Retrieves a mapping of active opaque device memory pointer to a string
-  // representation of the [allocating thread&apos;s] stack at the time the pointer
-  // was allocated. Useful for tracking device memory leaks.
-  //
-  // Note: this will only be populated if --check_device_leaks flag is
-  // activated.</doc>
-<def f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='235' ll='238' type='void perftools::gputools::StreamExecutor::GetMemAllocs(std::map&lt;void *, AllocRecord&gt; * records_out)'/>

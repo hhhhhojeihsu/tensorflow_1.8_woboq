@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/cwise_ops_common.h' l='59' type='void tensorflow::BinaryOpShared::BinaryOpState::BinaryOpState(tensorflow::OpKernelContext * ctx)'/>
-<use f='tensorflow/tensorflow/core/kernels/cwise_ops_common.h' l='93' u='c' c='_ZN10tensorflow8BinaryOp7ComputeEPNS_15OpKernelContextE'/>
-<doc f='tensorflow/tensorflow/core/kernels/cwise_ops_common.h' l='53'>// Sets up bcast with the shape of in0 and in1, ensures that the bcast
-    // is valid, and if so, set out, either by allocating a new buffer using
-    // ctx-&gt;output(...) or by creating an alias for an owned input buffer for
-    // in-place computation.
-    // Caller must check ctx-&gt;status() upon return for non-ok status.
-    // If ctx-&gt;status().ok() is true, then out is guaranteed to be allocated.</doc>
-<def f='tensorflow/tensorflow/core/kernels/cwise_ops_common.cc' l='55' ll='73' type='void tensorflow::BinaryOpShared::BinaryOpState::BinaryOpState(tensorflow::OpKernelContext * ctx)'/>

@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/common_runtime/rendezvous_util.h' l='41' type='void tensorflow::RecvOutputsFromRendezvousAsync(tensorflow::Rendezvous * rendezvous, tensorflow::DeviceContext * device_context, const std::vector&lt;AllocatorAttributes&gt; &amp; alloc_attrs, const std::vector&lt;string&gt; &amp; keys, std::vector&lt;Tensor&gt; * received_tensors, const StatusCallback &amp; done)'/>
-<use f='tensorflow/tensorflow/core/common_runtime/process_function_library_runtime.cc' l='123' u='c' c='_ZN10tensorflow29ProcessFunctionLibraryRuntime19ReceiveTensorsAsyncERKSsS2_S2_xxPNS_13DeviceContextERKSt6vectorINS_19AllocatorAttributesESaIS6_EEPNS_112131834'/>
-<doc f='tensorflow/tensorflow/core/common_runtime/rendezvous_util.h' l='37'>// Uses `rendezvous` to obtain tensors. `device_context` should be the
-// DeviceContext associated with the receiving device. `alloc_attrs` contains
-// information as how to store the received tensors. Should be {} or match the
-// length of `keys`.</doc>
-<def f='tensorflow/tensorflow/core/common_runtime/rendezvous_util.cc' l='53' ll='131' type='void tensorflow::RecvOutputsFromRendezvousAsync(tensorflow::Rendezvous * rendezvous, tensorflow::DeviceContext * device_context, const std::vector&lt;AllocatorAttributes&gt; &amp; alloc_attrs, const std::vector&lt;string&gt; &amp; keys, std::vector&lt;Tensor&gt; * received_tensors, const StatusCallback &amp; done)'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='370' u='c' c='_ZN10tensorflow8GraphMgr16RecvOutputsAsyncExPSt3mapISsNS_6TensorESt4lessISsESaISt4pairIKSsS2_EEESt8functionIFvRKNS_6StatusEEE'/>

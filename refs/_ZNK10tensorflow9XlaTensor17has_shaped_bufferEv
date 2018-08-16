@@ -1,9 +1,0 @@
-<def f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='59' type='bool tensorflow::XlaTensor::has_shaped_buffer() const'/>
-<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='63' u='c' c='_ZNK10tensorflow9XlaTensor13shaped_bufferEv'/>
-<doc f='tensorflow/tensorflow/compiler/jit/xla_tensor.h' l='55'>// Some Tensors can have complex on-device shapes, including tuple shapes. To
-  // manage the memory for these tensors a ShapedBuffer may be required.
-
-  // Return true if this TensorInfo contains a ShapedBuffer.</doc>
-<use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='101' u='c' c='_ZNK10tensorflow18XlaTransferManager21CopyCPUTensorToDeviceEPKNS_6TensorEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
-<use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='142' u='c' c='_ZN10tensorflow27XlaComputationLaunchContext14PopulateInputsEPNS_15OpKernelContextEPKNS_11XlaCompiler17CompilationResultERKSt3mapIiNS_14OptionalTensor4150569'/>
-<use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='38' u='c' c='_ZN10tensorflow9XlaTensor22DeviceMemoryFromTensorERKNS_6TensorE'/>

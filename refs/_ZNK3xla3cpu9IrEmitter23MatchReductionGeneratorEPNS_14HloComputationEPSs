@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='367' type='ReductionGenerator xla::cpu::IrEmitter::MatchReductionGenerator(xla::HloComputation * function, string * failure_reason) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.h' l='363'>// Tries to match the reduction function &quot;function&quot; to a known reduction
-  // pattern.  Returns a non-null ReductionGenerator on a successful match,
-  // which can be used to generate the LLVM IR corresponding to said reduction.
-  // On failure, this stores a reason string into &quot;failure_reason&quot;.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1326' ll='1430' type='IrEmitter::ReductionGenerator xla::cpu::IrEmitter::MatchReductionGenerator(xla::HloComputation * function, string * failure_reason) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='1600' u='c' c='_ZN3xla3cpu9IrEmitter20EmitVectorizedReduceEPNS_14HloInstructionES3_S3_N10tensorflow3gtl10ArraySliceIxEEPNS_14HloComputationEPSs'/>

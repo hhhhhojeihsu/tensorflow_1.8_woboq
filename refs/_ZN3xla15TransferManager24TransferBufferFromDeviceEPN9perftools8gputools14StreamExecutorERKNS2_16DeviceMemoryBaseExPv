@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='154' type='tensorflow::Status xla::TransferManager::TransferBufferFromDevice(perftools::gputools::StreamExecutor * executor, const perftools::gputools::DeviceMemoryBase &amp; source, int64 size, void * destination)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='150'>// Transfer a memory block of the given size from the device source into the
-  // &apos;destination&apos; buffer.
-  //
-  // size is the size to transfer to destination in bytes.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='80' u='c' c='_ZN3xla22GenericTransferManager25TransferLiteralFromDeviceEPN9perftools8gputools14StreamExecutorERKNS_12ShapedBufferE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.cc' l='145' ll='162' type='tensorflow::Status xla::TransferManager::TransferBufferFromDevice(se::StreamExecutor * executor, const se::DeviceMemoryBase &amp; source, int64 size, void * destination)'/>

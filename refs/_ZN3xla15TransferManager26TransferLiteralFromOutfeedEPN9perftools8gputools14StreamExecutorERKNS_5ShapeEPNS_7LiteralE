@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='90' type='tensorflow::Status xla::TransferManager::TransferLiteralFromOutfeed(perftools::gputools::StreamExecutor * executor, const xla::Shape &amp; literal_shape, xla::Literal * literal)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/transfer_manager.h' l='88'>// Transfers the given literal from the Outfeed interface of the device,
-  // using the given executor.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/client/local_client.cc' l='324' u='c' c='_ZN3xla11LocalClient24TransferFromOutfeedLocalERKNS_5ShapeEi'/>
-<ovr f='tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.cc' l='152' c='_ZN3xla22GenericTransferManager26TransferLiteralFromOutfeedEPN9perftools8gputools14StreamExecutorERKNS_5ShapeEPNS_7LiteralE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1435' u='c' c='_ZN3xla7Service19TransferFromOutfeedEPKNS_26TransferFromOutfeedRequestEPNS_27TransferFromOutfeedResponseE'/>

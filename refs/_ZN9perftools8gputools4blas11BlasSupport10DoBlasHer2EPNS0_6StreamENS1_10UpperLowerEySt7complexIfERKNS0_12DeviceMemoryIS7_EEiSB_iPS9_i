@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='610' type='bool perftools::gputools::blas::BlasSupport::DoBlasHer2(perftools::gputools::Stream * stream, blas::UpperLower uplo, uint64 n, std::complex&lt;float&gt; alpha, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; x, int incx, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; y, int incy, DeviceMemory&lt;std::complex&lt;float&gt; &gt; * a, int lda)'/>
-<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='604'>// Performs a rank-2 update of a Hermitian matrix.
-  //
-  //     a &lt;- alpha * x * conj(x&apos;) + conj(alpha) * y * conj(x&apos;) + a,
-  //
-  // alpha is a scalar; x and y are n-element vectors; a is an n-by-n Hermitian
-  // matrix.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='2954' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasHer2ENS0_4blas10UpperLowerEySt7complexIfERKNS0_12DeviceMemoryIS5_EEiS9_iPS7_i'/>

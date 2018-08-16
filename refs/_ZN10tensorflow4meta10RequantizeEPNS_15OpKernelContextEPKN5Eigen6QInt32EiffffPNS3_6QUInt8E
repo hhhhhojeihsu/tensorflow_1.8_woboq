@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/meta_support.h' l='79' type='void tensorflow::meta::Requantize(tensorflow::OpKernelContext * context, const qint32 * input, int count, float input_min, float input_max, float output_min, float output_max, quint8 * output)'/>
-<doc f='tensorflow/tensorflow/core/kernels/meta_support.h' l='75'>// Take an array of numbers from the range [input_min, input_max] quantized
-// uniformly to int32 values, recover their float values, and then quantize
-// them back uniformly to the range [output_min, output_max] as uint8.
-// Saturate the uint8 values.</doc>
-<def f='tensorflow/tensorflow/core/kernels/meta_support.cc' l='256' ll='290' type='void tensorflow::meta::Requantize(tensorflow::OpKernelContext * tf_context, const qint32 * input, int count, float input_min, float input_max, float output_min, float output_max, quint8 * output)'/>
-<use f='tensorflow/tensorflow/core/kernels/quantize_down_and_shrink_range.cc' l='86' u='c' c='_ZN10tensorflow28QuantizeDownAndShrinkRangeOp7ComputeEPNS_15OpKernelContextE'/>
-<use f='tensorflow/tensorflow/core/kernels/requantize.cc' l='80' u='c' c='_ZN10tensorflow12RequantizeOp7ComputeEPNS_15OpKernelContextE'/>

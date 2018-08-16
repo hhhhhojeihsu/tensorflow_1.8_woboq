@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/util/equal_graph_def.h' l='39' type='bool tensorflow::EqualGraphDef(const tensorflow::GraphDef &amp; actual, const tensorflow::GraphDef &amp; expected, string * diff, const tensorflow::EqualGraphDefOptions &amp; options = {})'/>
-<doc f='tensorflow/tensorflow/core/util/equal_graph_def.h' l='34'>// Determines if actual and expected are equal, ignoring versions and ordering
-// of nodes, attrs, and control inputs.  If the GraphDefs are different and
-// diff != nullptr, *diff is set to an explanation of the difference.  Note that
-// we use node names to match up nodes between the graphs, and so the naming of
-// nodes must be consistent.</doc>
-<def f='tensorflow/tensorflow/core/util/equal_graph_def.cc' l='32' ll='37' type='bool tensorflow::EqualGraphDef(const tensorflow::GraphDef &amp; actual, const tensorflow::GraphDef &amp; expected, string * diff, const tensorflow::EqualGraphDefOptions &amp; options = {})'/>
-<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='454' u='c' c='_ZN10tensorflow20EqualGraphDefWrapperERKSsS1_'/>

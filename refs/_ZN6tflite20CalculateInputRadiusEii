@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.h' l='205' type='int tflite::CalculateInputRadius(int input_integer_bits, int input_left_shift)'/>
-<def f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.cc' l='81' ll='89' type='int tflite::CalculateInputRadius(int input_integer_bits, int input_left_shift)'/>
-<doc f='tensorflow/tensorflow/contrib/lite/kernels/internal/quantization_util.h' l='200'>// Calculate the largest input that will result in a within-bounds intermediate
-// result within MultiplyByQuantizedMultiplierGreaterThanOne.  In other words,
-// it must not overflow before we reduce the value by multiplication by the
-// input multiplier.  The negative radius is used as the minimum difference in
-// Softmax.</doc>

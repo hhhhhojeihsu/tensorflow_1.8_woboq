@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/cc/framework/scope.h' l='214' type='static tensorflow::Scope tensorflow::Scope::DisabledShapeInferenceScope()'/>
-<doc f='tensorflow/tensorflow/cc/framework/scope.h' l='210'>// Creates a new root scope that causes all DoShapeInference() calls to return
-  // Status::OK() (on the returned scope and any subscopes). Used for testing.
-  // TODO(skyewm): fix tests that still require this and eventually remove, or
-  // at least remove from public API</doc>
-<def f='tensorflow/tensorflow/cc/framework/scope.cc' l='70' ll='76' type='static tensorflow::Scope tensorflow::Scope::DisabledShapeInferenceScope()'/>

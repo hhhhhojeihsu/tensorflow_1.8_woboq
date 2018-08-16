@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='116' type='tensorflow::Status xla::HloComputation::RemoveInstructionAndUnusedOperands(xla::HloInstruction * instruction)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='113'>// Remove an instruction from the computation and also transitively any
-  // operand that has no users post removing an instruction. The instruction
-  // must have no users. Instruction is deallocated with this call.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='188' ll='215' type='tensorflow::Status xla::HloComputation::RemoveInstructionAndUnusedOperands(xla::HloInstruction * instruction)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='579' u='c' c='_ZN3xla14HloComputation18ReplaceInstructionEPNS_14HloInstructionES2_'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_dce.cc' l='68' u='c' c='_ZN3xla6HloDCE3RunEPNS_9HloModuleE'/>

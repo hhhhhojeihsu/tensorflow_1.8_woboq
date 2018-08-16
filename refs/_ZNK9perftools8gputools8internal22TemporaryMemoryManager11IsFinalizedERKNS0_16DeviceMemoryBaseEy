@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='92' type='bool perftools::gputools::internal::TemporaryMemoryManager::IsFinalized(const perftools::gputools::DeviceMemoryBase &amp; device_memory, uint64 allocation_generation) const'/>
-<doc f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.h' l='87'>// Returns whether the provided device_memory is finalized.
-  //
-  // In the vacuous case where the device memory doesn&apos;t appear in the temporary
-  // memory records, it is either not a temporary at all, or has already been
-  // deallocated, and thus returns true.</doc>
-<use f='tensorflow/tensorflow/stream_executor/temporary_device_memory.cc' l='49' u='c' c='_ZNK9perftools8gputools25TemporaryDeviceMemoryBase11IsFinalizedEv'/>
-<def f='tensorflow/tensorflow/stream_executor/temporary_memory_manager.cc' l='67' ll='81' type='bool perftools::gputools::internal::TemporaryMemoryManager::IsFinalized(const perftools::gputools::DeviceMemoryBase &amp; device_memory, uint64 allocation_generation) const'/>

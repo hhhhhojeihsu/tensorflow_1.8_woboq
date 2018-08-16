@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='193' ll='252' type='tensorflow::Status tensorflow::graph_transforms::MergeDuplicateNodes(const tensorflow::GraphDef &amp; input_graph_def, const tensorflow::graph_transforms::TransformFuncContext &amp; context, tensorflow::GraphDef * output_graph_def)'/>
-<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='934' u='c' c='_ZN10tensorflow16graph_transforms13QuantizeNodesERKNS_8GraphDefERKNS0_20TransformFuncContextEPS1_'/>
-<use f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='950' u='r'/>
-<doc f='tensorflow/tensorflow/tools/graph_transforms/quantize_nodes.cc' l='188'>// Analyzes all the nodes in the graph to figure out which ones are duplicates
-// apart from their names. This commonly includes identical Const nodes, but can
-// also be simple operations that are repeated on multiple outputs of a
-// particular node. The complexity is managed using a hash function that avoids
-// the need for any O(n^2) algorithms when identifying duplicates.</doc>

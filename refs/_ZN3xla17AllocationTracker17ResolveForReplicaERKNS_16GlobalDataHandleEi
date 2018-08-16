@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.h' l='73' type='StatusOr&lt;const xla::ShapedBuffer *&gt; xla::AllocationTracker::ResolveForReplica(const xla::GlobalDataHandle &amp; data, int replica_id)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.h' l='70'>// Resolves a handle from an XLA client and replica id to a shaped buffer, or
-  // provide an error status to say whether it was not found (or found, but
-  // found deallocated).</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/allocation_tracker.cc' l='172' ll='184' type='StatusOr&lt;const xla::ShapedBuffer *&gt; xla::AllocationTracker::ResolveForReplica(const xla::GlobalDataHandle &amp; data, int replica_id)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1039' u='c' c='_ZN3xla7Service20PickParallelResponseERKNS_23ExecuteParallelResponseEPNS_15ExecuteResponseE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1119' u='c' c='_ZN3xla7Service7ExecuteEPKNS_14ExecuteRequestEPNS_15ExecuteResponseE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1297' u='c' c='_ZN3xla7Service16TransferToClientEPKNS_23TransferToClientRequestEPNS_24TransferToClientResponseE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1558' u='c' c='_ZN3xla7Service8GetShapeEPKNS_15GetShapeRequestEPNS_16GetShapeResponseE'/>

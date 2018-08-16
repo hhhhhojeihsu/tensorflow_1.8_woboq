@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='278' type='tensorflow::Status xla::HloComputation::AcceptWithOperandOrder(DfsHloVisitor * visitor, const HloInstruction::CompareFunction &amp; operand_order) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='275'>// Same as Accept() above, but the order of operand and control predecessor
-  // visitation is determined by the given operand order; if compare(A, B) ==
-  // true, A is visited before B.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.cc' l='661' ll='675' type='tensorflow::Status xla::HloComputation::AcceptWithOperandOrder(DfsHloVisitor * visitor, const HloInstruction::CompareFunction &amp; operand_order) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_scheduling.cc' l='411' u='c' c='_ZN3xla18DFSMemorySchedulerERKNS_14HloComputationERKNS_21TuplePointsToAnalysisERKSt8functionIFxRKNS_13LogicalBufferEEE'/>

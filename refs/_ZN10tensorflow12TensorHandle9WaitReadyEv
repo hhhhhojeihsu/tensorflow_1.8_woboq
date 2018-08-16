@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.h' l='107' type='tensorflow::Status tensorflow::TensorHandle::WaitReady()'/>
-<doc f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.h' l='104'>// If the contents of the Tensor pointed to by this handle is yet to be
-  // computed by a EagerNode, this function will block till that compuatation is
-  // done and the handle is &quot;ready&quot;.</doc>
-<def f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='53' ll='62' type='tensorflow::Status tensorflow::TensorHandle::WaitReady()'/>
-<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='65' u='c' c='_ZN10tensorflow12TensorHandle6TensorEPPKNS_6TensorE'/>
-<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='72' u='c' c='_ZN10tensorflow12TensorHandle6DeviceEPPNS_6DeviceE'/>
-<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='79' u='c' c='_ZN10tensorflow12TensorHandle8OpDeviceEPPNS_6DeviceE'/>
-<use f='tensorflow/tensorflow/core/common_runtime/eager/tensor_handle.cc' l='88' u='c' c='_ZN10tensorflow12TensorHandle15TensorAndDeviceEPPKNS_6TensorEPPNS_6DeviceES7_'/>

@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/lib/io/record_writer.h' l='73' type='tensorflow::Status tensorflow::io::RecordWriter::Close()'/>
-<doc f='tensorflow/tensorflow/core/lib/io/record_writer.h' l='69'>// Writes all output to the file. Does *not* close the WritableFile.
-  //
-  // After calling Close(), any further calls to `WriteRecord()` or `Flush()`
-  // are invalid.</doc>
-<use f='tensorflow/tensorflow/core/lib/io/record_writer.cc' l='84' u='c' c='_ZN10tensorflow2io12RecordWriterD1Ev'/>
-<def f='tensorflow/tensorflow/core/lib/io/record_writer.cc' l='113' ll='123' type='tensorflow::Status tensorflow::io::RecordWriter::Close()'/>
-<use f='tensorflow/tensorflow/python/lib/io/py_record_writer.cc' l='67' u='c' c='_ZN10tensorflow2io14PyRecordWriter5CloseEP9TF_Status'/>

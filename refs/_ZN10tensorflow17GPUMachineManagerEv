@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_init.h' l='37' type='perftools::gputools::Platform * tensorflow::GPUMachineManager()'/>
-<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_id_utils.h' l='39' u='c' c='_ZN10tensorflow9GpuIdUtil20ExecutorForCudaGpuIdENS_3gtl7IntTypeINS_14CudaGpuId_tag_EiEE'/>
-<use f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_id_utils.h' l='49' u='c' c='_ZN10tensorflow9GpuIdUtil17CheckValidTfGpuIdENS_3gtl7IntTypeINS_12TfGpuId_tag_EiEE'/>
-<doc f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_init.h' l='33'>// Returns the GPU machine manager singleton, creating it and
-// initializing the GPUs on the machine if needed the first time it is
-// called.  Must only be called when there is a valid GPU environment
-// in the process (e.g., ValidateGPUMachineManager() returns OK).</doc>
-<def f='tensorflow/tensorflow/core/common_runtime/gpu/gpu_init.cc' l='42' ll='50' type='gpu::Platform * tensorflow::GPUMachineManager()'/>

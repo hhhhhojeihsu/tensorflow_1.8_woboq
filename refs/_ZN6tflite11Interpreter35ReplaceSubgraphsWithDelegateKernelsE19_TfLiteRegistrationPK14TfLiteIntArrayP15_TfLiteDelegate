@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='415' type='TfLiteStatus tflite::Interpreter::ReplaceSubgraphsWithDelegateKernels(TfLiteRegistration registration, const TfLiteIntArray * nodes_to_replace, TfLiteDelegate * delegate)'/>
-<doc f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='411'>// Update the execution graph to replace some of the nodes with stub
-  // nodes. Specifically any node index that has `nodes[index]==1` will be
-  // slated for replacement with a delegate kernel specified by registration.
-  // WARNING: This is an experimental interface that is subject to change.</doc>
-<use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='137' u='c' c='_ZN6tflite11Interpreter35ReplaceSubgraphsWithDelegateKernelsEP13TfLiteContext19_TfLiteRegistrationPK14TfLiteIntArrayP15_TfLiteDelegate'/>
-<def f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='214' ll='266' type='TfLiteStatus tflite::Interpreter::ReplaceSubgraphsWithDelegateKernels(TfLiteRegistration registration, const TfLiteIntArray * nodes_to_replace, TfLiteDelegate * delegate)'/>

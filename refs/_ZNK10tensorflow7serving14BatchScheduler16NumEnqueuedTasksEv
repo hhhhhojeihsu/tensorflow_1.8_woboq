@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/batching_util/batch_scheduler.h' l='166' type='size_t tensorflow::serving::BatchScheduler::NumEnqueuedTasks() const'/>
-<doc f='tensorflow/tensorflow/core/kernels/batching_util/batch_scheduler.h' l='161'>// Returns the number of tasks that have been scheduled (i.e. accepted by
-  // Schedule()), but have yet to be handed to a thread for execution as part of
-  // a batch. Note that this returns the number of tasks, not the aggregate task
-  // size (so if there is one task of size 3 and one task of size 5, this method
-  // returns 2 rather than 8).</doc>

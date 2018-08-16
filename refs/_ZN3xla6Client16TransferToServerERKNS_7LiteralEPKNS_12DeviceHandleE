@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/client/client.h' l='154' type='StatusOr&lt;std::unique_ptr&lt;GlobalData&gt; &gt; xla::Client::TransferToServer(const xla::Literal &amp; literal, const xla::DeviceHandle * device_handle = nullptr)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/client/client.h' l='147'>// Transfer the given literal to the server. This allocates memory on the
-  // device and copies the literal&apos;s contents over. Returns a global data handle
-  // that can be used to refer to this value from the client.
-  //
-  // If device_handle is not nullptr, data is transferred to the associated
-  // device (and its replicas if replication is enabled). Otherwise, data is
-  // transferred to the default device (and its replicas).</doc>
-<def f='tensorflow/tensorflow/compiler/xla/client/client.cc' l='66' ll='92' type='StatusOr&lt;std::unique_ptr&lt;GlobalData&gt; &gt; xla::Client::TransferToServer(const xla::Literal &amp; literal, const xla::DeviceHandle * device_handle = nullptr)'/>

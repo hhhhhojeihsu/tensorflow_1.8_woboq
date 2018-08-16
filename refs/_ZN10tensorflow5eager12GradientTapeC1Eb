@@ -1,6 +1,0 @@
-<def f='tensorflow/tensorflow/c/eager/tape.h' l='126' type='void tensorflow::eager::GradientTape::GradientTape&lt;Gradient, BackwardFunction&gt;(bool persistent)'/>
-<use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='777' u='c' c='_ZN12GradientTapeC1Eb'/>
-<doc f='tensorflow/tensorflow/c/eager/tape.h' l='122'>// If `persistent` is true, GradientTape will not eagerly delete backward
-  // functions (and hence the tensors they keep alive). Instead, everything
-  // is deleted in ~GradientTape. Persistent GradientTapes are useful when
-  // users want to compute multiple gradients over the same tape.</doc>

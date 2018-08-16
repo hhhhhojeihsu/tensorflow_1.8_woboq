@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/core/util/tensor_format.h' l='436' ll='454' type='tensorflow::TensorShape tensorflow::ShapeFromFilterTensorFormat(tensorflow::FilterTensorFormat format, gtl::ArraySlice&lt;int64&gt; spatial, int64 I, int64 O)'/>
-<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='466' u='c' c='_ZN10tensorflow27ShapeFromFilterTensorFormatENS_18FilterTensorFormatExxxx'/>
-<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='511' u='c' c='_ZN10tensorflow21ShapeFromFilterFormatENS_18FilterTensorFormatERKNS_11TensorShapeES0_'/>
-<use f='tensorflow/tensorflow/core/util/tensor_format.h' l='519' u='c' c='_ZN10tensorflow21ShapeFromFilterFormatENS_18FilterTensorFormatERKNS_11TensorShapeES0_'/>
-<doc f='tensorflow/tensorflow/core/util/tensor_format.h' l='432'>// Return a tensor shape of the specified &apos;format&apos;, and dimensions.
-// Works for both 2D and 3D operations. If &apos;format&apos; is OIHW_VECT_I,
-// the output TensorShape has spatial.size() + 3 dimensions, otherwise
-// it has spatial.size() + 2 dimensions.</doc>

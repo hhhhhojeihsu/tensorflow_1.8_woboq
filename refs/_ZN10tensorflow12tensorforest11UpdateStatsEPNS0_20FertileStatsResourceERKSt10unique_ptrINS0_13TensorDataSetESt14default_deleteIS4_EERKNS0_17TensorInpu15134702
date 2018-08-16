@@ -1,6 +1,0 @@
-<def f='tensorflow/tensorflow/contrib/tensor_forest/kernels/stats_ops.cc' l='148' ll='195' type='void tensorflow::tensorforest::UpdateStats(tensorflow::tensorforest::FertileStatsResource * fertile_stats_resource, const std::unique_ptr&lt;TensorDataSet&gt; &amp; data, const tensorflow::tensorforest::TensorInputTarget &amp; target, int num_targets, const tensorflow::Tensor &amp; leaf_ids_tensor, std::unordered_map&lt;int32, std::unique_ptr&lt;mutex&gt; &gt; * locks, tensorflow::mutex * set_lock, int32 start, int32 end, std::unordered_set&lt;int32&gt; * ready_to_split)'/>
-<use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/stats_ops.cc' l='314' u='c' c='_ZN10tensorflow12tensorforest14ProcessInputOp7ComputeEPNS_15OpKernelContextE'/>
-<doc f='tensorflow/tensorflow/contrib/tensor_forest/kernels/stats_ops.cc' l='144'>// Try to update a leaf&apos;s stats by acquiring its lock.  If it can&apos;t be
-// acquired, put it in a waiting queue to come back to later and try the next
-// one.  Once all leaf_ids have been visited, cycle through the waiting ids
-// until they&apos;re gone.</doc>

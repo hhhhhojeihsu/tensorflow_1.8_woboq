@@ -1,7 +1,0 @@
-<use f='tensorflow/tensorflow/core/framework/dataset.h' l='185' u='c' c='_ZNK10tensorflow22GraphDefBuilderWrapper25EnsureFunctionIsStatelessEPNS_15OpKernelContextERKSs'/>
-<def f='tensorflow/tensorflow/core/framework/dataset.h' l='203' ll='209' type='bool tensorflow::GraphDefBuilderWrapper::IsOpWhitelisted(const tensorflow::OpDef * op_def) const'/>
-<doc f='tensorflow/tensorflow/core/framework/dataset.h' l='198'>// Returns whether an op has been whitelisted for use inside map_fns.
-  // Uses a heuristic to whitelist source dataset ops which have been
-  // marked stateful due to b/65524810.
-  // Also looks up the `op_def-&gt;name` in the global
-  // `WhitelistedStatefulOpRegistry`.</doc>

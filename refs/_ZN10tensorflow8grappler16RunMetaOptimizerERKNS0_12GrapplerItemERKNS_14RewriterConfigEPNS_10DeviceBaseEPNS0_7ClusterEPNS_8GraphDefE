@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/core/grappler/optimizers/meta_optimizer.h' l='60' type='tensorflow::Status tensorflow::grappler::RunMetaOptimizer(const tensorflow::grappler::GrapplerItem &amp; item, const tensorflow::RewriterConfig &amp; cfg, tensorflow::DeviceBase * cpu_device, tensorflow::grappler::Cluster * cluster, tensorflow::GraphDef * optimized_graph)'/>
-<use f='tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc' l='494' u='c' c='_ZN10tensorflow19GraphExecutionState13OptimizeGraphERKNS_17BuildGraphOptionsEPSt10unique_ptrINS_5GraphESt14default_deleteIS5_EE'/>
-<doc f='tensorflow/tensorflow/core/grappler/optimizers/meta_optimizer.h' l='54'>// Run the meta optimizer.
-//
-// If &lt;cpu_device&gt; is non-null, it is the device to be used for executing ops
-// during constant folding; if NULL, a new device is created for doing constant
-// folding. For performance, it is recommended to pass in an existing cpu_device
-// when possible.</doc>
-<def f='tensorflow/tensorflow/core/grappler/optimizers/meta_optimizer.cc' l='266' ll='271' type='tensorflow::Status tensorflow::grappler::RunMetaOptimizer(const tensorflow::grappler::GrapplerItem &amp; item, const tensorflow::RewriterConfig &amp; cfg, tensorflow::DeviceBase * cpu_device, tensorflow::grappler::Cluster * cluster, tensorflow::GraphDef * optimized_graph)'/>

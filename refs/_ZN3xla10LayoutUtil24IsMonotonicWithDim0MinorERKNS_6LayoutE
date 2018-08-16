@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='88' type='static bool xla::LayoutUtil::IsMonotonicWithDim0Minor(const xla::Layout &amp; layout)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/layout_util.h' l='84'>// Returns whether the layout is monotonic and dim 0 is minor in the layout.
-  // * R0 and R1: this is always trivially true.
-  // * R2+: equivalent to column-major. Dimension 0 is the minor, dimension 1 is
-  //        more major, and so on until dimension N-1 which is the major.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='253' ll='257' type='static bool xla::LayoutUtil::IsMonotonicWithDim0Minor(const xla::Layout &amp; layout)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='253'>/* static */</doc>

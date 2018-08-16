@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.h' l='53' type='void tensorflow::IntraProcessRendezvous::RecvAsync(const tensorflow::Rendezvous::ParsedKey &amp; key, const Rendezvous::Args &amp; args, DoneCallback done)'/>
-<doc f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.h' l='49'>// This method is called only by the RecvOp.  It tests to see
-  // whether the value will be produced by a local or remote device
-  // and handles accordingly.  In the local case it forwards to
-  // local_, in the remote case it initiates an RPC request.</doc>
-<inh f='tensorflow/tensorflow/core/framework/rendezvous.h' l='108' c='_ZN10tensorflow10Rendezvous9RecvAsyncERKNS0_9ParsedKeyERKNS0_4ArgsESt8functionIFvRKNS_6StatusES6_S6_RKNS_6TensorEbEE'/>
-<def f='tensorflow/tensorflow/core/common_runtime/rendezvous_mgr.cc' l='116' ll='145' type='void tensorflow::IntraProcessRendezvous::RecvAsync(const tensorflow::Rendezvous::ParsedKey &amp; parsed, const Rendezvous::Args &amp; recv_args, DoneCallback done)'/>

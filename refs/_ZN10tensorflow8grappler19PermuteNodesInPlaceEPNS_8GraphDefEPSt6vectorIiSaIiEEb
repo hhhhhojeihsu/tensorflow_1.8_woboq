@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/grappler/utils.h' l='175' type='void tensorflow::grappler::PermuteNodesInPlace(tensorflow::GraphDef * graph, std::vector&lt;int&gt; * permutation, bool invert_permutation)'/>
-<doc f='tensorflow/tensorflow/core/grappler/utils.h' l='174'>// Permute the nodes of graph in place according to the permutation.</doc>
-<def f='tensorflow/tensorflow/core/grappler/utils.cc' l='342' ll='359' type='void tensorflow::grappler::PermuteNodesInPlace(tensorflow::GraphDef * graph, std::vector&lt;int&gt; * permutation, bool invert_permutation)'/>
-<doc f='tensorflow/tensorflow/core/grappler/utils.cc' l='339'>// Every permutation is a product of one or more cycles. Iterate over the cycles
-// in the permutation, and convert each of those into a product of
-// transpositions (swaps): https://en.wikipedia.org/wiki/Cyclic_permutation</doc>
-<use f='tensorflow/tensorflow/core/grappler/utils/topological_sort.cc' l='70' u='c' c='_ZN10tensorflow8grappler15TopologicalSortEPNS_8GraphDefE'/>

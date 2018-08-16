@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.h' l='133' type='void xla::HeapSimulator::ShareBuffer(const xla::LogicalBuffer * buffer, const xla::LogicalBuffer * shared, const xla::HloInstruction * instruction)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='210' u='c' c='_ZN3xla13HeapSimulator14RunComputationERKNS_14HloComputationERKSt6vectorIPKNS_14HloInstructionESaIS7_EERKNS_21TuplePointsToAnalysisE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='365' ll='401' type='void xla::HeapSimulator::ShareBuffer(const xla::LogicalBuffer * buffer, const xla::LogicalBuffer * shared, const xla::HloInstruction * instruction)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/heap_simulator.cc' l='361'>// ShareBuffer associates buffers with their SharedGroup in shared_buffers_.
-// The &apos;buffer&apos; must be a non-allocated, non-freed buffer, just like in calls to
-// Alloc.  The &apos;shared&apos; buffer must be a previously allocated or shared buffer.
-// Both &apos;buffer&apos; and &apos;shared&apos; will be associated with the same SharedGroup.</doc>

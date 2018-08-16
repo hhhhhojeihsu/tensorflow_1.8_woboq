@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/util.h' l='219' type='tensorflow::Status xla::InvalidArgumentV(const char * format, __va_list_tag * args)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/util.h' l='218'>// Passed-varargs variant of the InvalidArgument factory above.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/source_map_util.cc' l='60' u='c' c='_ZN3xla15source_map_util24InvalidParameterArgumentEPNS_10ExecutableEiPKcz'/>
-<def f='tensorflow/tensorflow/compiler/xla/util.cc' l='72' ll='76' type='tensorflow::Status xla::InvalidArgumentV(const char * format, __va_list_tag * args)'/>
-<use f='tensorflow/tensorflow/compiler/xla/util.cc' l='81' u='c' c='_ZN3xla15InvalidArgumentEPKcz'/>
-<doc f='tensorflow/tensorflow/compiler/xla/util.cc' l='69'>// Implementation note: we can&apos;t common these out (without using macros) because
-// they all need to va_start/va_end their varargs in their frame.</doc>

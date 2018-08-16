@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='115' type='llvm::Value * xla::cpu::VectorSupportLibrary::FCmpEQMask(llvm::Value * lhs, llvm::Value * rhs)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='108'>// These compare instructions return a floating point typed mask instead of an
-  // i1.  For instance, on a vector typed input, lanes where the predicate is
-  // true get a float with all ones and other lanes get a float with all zeros.
-  // This is slightly odd from the perspective of LLVM&apos;s type system, but it
-  // makes kernel IR generation code written using VectorSupportLibrary (its
-  // raison d&apos;etre) less cluttered.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/llvm_ir_runtime.cc' l='233' u='c' c='_ZN3xla3cpu7runtime12_GLOBAL__N_124EmitVectorF32LogIfNeededEPN4llvm6ModuleENS3_9StringRefEib'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='118' ll='122' type='llvm::Value * xla::cpu::VectorSupportLibrary::FCmpEQMask(llvm::Value * lhs, llvm::Value * rhs)'/>

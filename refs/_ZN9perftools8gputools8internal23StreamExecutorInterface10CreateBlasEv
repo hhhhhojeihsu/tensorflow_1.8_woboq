@@ -1,8 +1,0 @@
-<def f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='274' type='blas::BlasSupport * perftools::gputools::internal::StreamExecutorInterface::CreateBlas()'/>
-<doc f='tensorflow/tensorflow/stream_executor/stream_executor_internal.h' l='269'>// Creates a new BlasSupport object, ownership is transferred to the caller.
-  // If SupportsBlas() is false, this will always return null.
-  //
-  // If SupportsBlas() is true, this may return null, for example, if the BLAS
-  // initialization fails.</doc>
-<ovr f='tensorflow/tensorflow/stream_executor/host/host_gpu_executor.cc' l='212' c='_ZN9perftools8gputools4host12HostExecutor10CreateBlasEv'/>
-<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='411' u='c' c='_ZN9perftools8gputools14StreamExecutor6AsBlasEv'/>

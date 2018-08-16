@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='148' type='tensorflow::thread::ThreadPool * xla::Backend::inter_op_thread_pool() const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='146'>// For the host platform, returns the threadpool to use when scheduling
-  // parallel operators. For other platforms, returns NULL.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='162' ll='164' type='tensorflow::thread::ThreadPool * xla::Backend::inter_op_thread_pool() const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='586' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='700' u='c' c='_ZN3xla7Service24ExecuteAndRegisterResultEPNS_10ExecutableEN10tensorflow3gtl10ArraySliceISt6vectorIPKNS_12ShapedBufferESaIS9_EEEEPNS_7BackendERKSsPNS_16ExecutionProfileE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='705' u='c' c='_ZN3xla7Service24ExecuteAndRegisterResultEPNS_10ExecutableEN10tensorflow3gtl10ArraySliceISt6vectorIPKNS_12ShapedBufferESaIS9_EEEEPNS_7BackendERKSsPNS_16ExecutionProfileE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1252' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>

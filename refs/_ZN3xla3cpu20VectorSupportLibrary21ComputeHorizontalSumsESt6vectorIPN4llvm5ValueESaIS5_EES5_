@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='210' type='std::vector&lt;llvm::Value *&gt; xla::cpu::VectorSupportLibrary::ComputeHorizontalSums(std::vector&lt;llvm::Value *&gt; vectors, llvm::Value * init_values = nullptr)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='445' u='c' c='_ZN3xla3cpu12_GLOBAL__N_134RowMajorMatrixVectorProductEmitter17EmitOuterLoopBodyEPN4llvm5ValueEx'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='449' u='c' c='_ZN3xla3cpu12_GLOBAL__N_134RowMajorMatrixVectorProductEmitter17EmitOuterLoopBodyEPN4llvm5ValueEx'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc' l='452' u='c' c='_ZN3xla3cpu12_GLOBAL__N_134RowMajorMatrixVectorProductEmitter17EmitOuterLoopBodyEPN4llvm5ValueEx'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h' l='206'>// Compute the horizontal sum of each vector in `vectors`.  The i&apos;th element
-  // in the result vector is the (scalar) horizontal sum of the i&apos;th vector in
-  // `vectors`.  If `init_values` is not nullptr then the value in the i&apos;th lane
-  // in `init_values` is added to the i&apos;th horizontal sum.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.cc' l='349' ll='368' type='std::vector&lt;llvm::Value *&gt; xla::cpu::VectorSupportLibrary::ComputeHorizontalSums(std::vector&lt;llvm::Value *&gt; vectors, llvm::Value * init_values = nullptr)'/>

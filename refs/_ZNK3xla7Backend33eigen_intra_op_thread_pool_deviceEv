@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='152' type='const Eigen::ThreadPoolDevice * xla::Backend::eigen_intra_op_thread_pool_device() const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='150'>// For the host platform, returns the configured eigen threadpool device to be
-  // used for scheduling work. For other platforms, returns NULL.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/backend.cc' l='166' ll='172' type='const Eigen::ThreadPoolDevice * xla::Backend::eigen_intra_op_thread_pool_device() const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='588' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='702' u='c' c='_ZN3xla7Service24ExecuteAndRegisterResultEPNS_10ExecutableEN10tensorflow3gtl10ArraySliceISt6vectorIPKNS_12ShapedBufferESaIS9_EEEEPNS_7BackendERKSsPNS_16ExecutionProfileE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1254' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>

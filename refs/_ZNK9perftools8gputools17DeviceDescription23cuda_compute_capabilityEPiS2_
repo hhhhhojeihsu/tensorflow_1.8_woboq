@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/device_description.h' l='161' type='bool perftools::gputools::DeviceDescription::cuda_compute_capability(int * major, int * minor) const'/>
-<doc f='tensorflow/tensorflow/stream_executor/device_description.h' l='158'>// Returns the CUDA compute capability if we&apos;re running on the CUDA platform.
-  // If a CUDA compute capability is not available, the major version will be
-  // zero, and the return value will be false.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/platform_util.cc' l='190' u='c' c='_ZN3xlaL17IsDeviceSupportedEPN9perftools8gputools14StreamExecutorE'/>
-<def f='tensorflow/tensorflow/stream_executor/device_description.cc' l='115' ll='119' type='bool perftools::gputools::DeviceDescription::cuda_compute_capability(int * major, int * minor) const'/>
-<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='303' u='c' c='_ZN9perftools8gputools14StreamExecutor21GetConvolveAlgorithmsEbPSt6vectorINS0_3dnn13AlgorithmDescESaIS4_EE'/>
-<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='325' u='c' c='_ZN9perftools8gputools14StreamExecutor33GetConvolveBackwardDataAlgorithmsEbPSt6vectorINS0_3dnn13AlgorithmDescESaIS4_EE'/>
-<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.cc' l='338' u='c' c='_ZN9perftools8gputools14StreamExecutor35GetConvolveBackwardFilterAlgorithmsEbPSt6vectorINS0_3dnn13AlgorithmDescESaIS4_EE'/>

@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/computation_placer.h' l='56' type='static StatusOr&lt;std::unique_ptr&lt;DeviceAssignment&gt; &gt; xla::DeviceAssignment::Deserialize(const xla::DeviceAssignmentProto &amp; proto)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/computation_placer.h' l='53'>// Return a std::unique_ptr&lt;DeviceAssignment&gt; instead of a DeviceAssignment
-  // directly because one of the supported TF platforms (mac) does not compile
-  // due to a StatusOr of an incomplete type (DeviceAssignment).</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/computation_placer.cc' l='52' ll='74' type='static StatusOr&lt;std::unique_ptr&lt;DeviceAssignment&gt; &gt; xla::DeviceAssignment::Deserialize(const xla::DeviceAssignmentProto &amp; proto)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/computation_placer.cc' l='52'>/* static */</doc>

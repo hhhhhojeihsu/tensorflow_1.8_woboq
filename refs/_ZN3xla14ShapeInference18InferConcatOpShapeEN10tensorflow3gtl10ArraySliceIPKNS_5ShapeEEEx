@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='227' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferConcatOpShape(tensorflow::gtl::ArraySlice&lt;const Shape *&gt; arg_shapes, int64 dimension)'/>
-<use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='541' u='c' c='_ZN3xla10XlaBuilder11ConcatInDimEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEEx'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='225'>// Helper that infers the shape produced by performing a concatenate operation
-  // with the given operand shapes.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_creation_utils.cc' l='159' u='c' c='_ZN3xla13MakeConcatHloEN10tensorflow3gtl10ArraySliceIPNS_14HloInstructionEEEx'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_verifier.cc' l='47' u='c' c='_ZN3xla13ShapeVerifier17HandleConcatenateEPNS_14HloInstructionE'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='395' ll='454' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferConcatOpShape(tensorflow::gtl::ArraySlice&lt;const Shape *&gt; arg_shapes, const int64 dimension)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='395'>/* static */</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/user_computation.cc' l='1023' u='c' c='_ZN3xla15UserComputation25AddConcatenateInstructionERKNS_18ConcatenateRequestE'/>

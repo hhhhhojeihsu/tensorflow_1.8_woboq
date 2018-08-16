@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='305' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferInDimBroadcastShape(xla::BinaryOperation operation, const xla::Shape &amp; smaller_shape, const xla::Shape &amp; larger_shape, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_dimensions)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.h' l='300'>// Helper for inferring shapes of binary operations using &quot;InDim&quot;
-  // broadcasting. This is the broadcasting used in the *InDim binary operations
-  // (for example ComputationBuilder::AddInDim). smaller_shape must be a
-  // lower-rank shape than larger_shape. Returns the shape that the
-  // smaller_shape is broadcast to.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='789' ll='889' type='static StatusOr&lt;xla::Shape&gt; xla::ShapeInference::InferInDimBroadcastShape(xla::BinaryOperation operation, const xla::Shape &amp; smaller_shape, const xla::Shape &amp; larger_shape, tensorflow::gtl::ArraySlice&lt;int64&gt; broadcast_dimensions)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='938' u='c' c='_ZN3xla14ShapeInference29InferElementwiseBinaryOpShapeENS_15BinaryOperationERKNS_5ShapeES4_N10tensorflow3gtl10ArraySliceIxEE'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='789'>/* static */</doc>

@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/contrib/tensor_forest/hybrid/core/ops/utils.h' l='39' type='void tensorflow::tensorforest::GetFeatureSet(int32 tree_num, int32 node_num, int32 random_seed, int32 num_features, int32 num_features_to_pick, std::vector&lt;int32&gt; * features)'/>
-<doc f='tensorflow/tensorflow/contrib/tensor_forest/hybrid/core/ops/utils.h' l='34'>// Returns a random set of num_features_to_pick features in the
-// range [0, num_features).  Must return the same set of
-// features for subsequent calls with the same tree_num, node_num, and
-// random_seed.  This allows us to calculate feature sets between calls to ops
-// without having to store their values.</doc>
-<use f='tensorflow/tensorflow/contrib/tensor_forest/hybrid/core/ops/k_feature_gradient_op.cc' l='153' u='c' c='_ZN10tensorflow16KFeatureGradient7ComputeEPNS_15OpKernelContextE'/>
-<use f='tensorflow/tensorflow/contrib/tensor_forest/hybrid/core/ops/k_feature_routing_function_op.cc' l='140' u='c' c='_ZN10tensorflow23KFeatureRoutingFunction7ComputeEPNS_15OpKernelContextE'/>
-<def f='tensorflow/tensorflow/contrib/tensor_forest/hybrid/core/ops/utils.cc' l='60' ll='72' type='void tensorflow::tensorforest::GetFeatureSet(int32 tree_num, int32 node_num, int32 random_seed, int32 num_features, int32 num_features_to_pick, std::vector&lt;int32&gt; * features)'/>

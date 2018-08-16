@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/core/public/session.h' l='205' ll='209' type='tensorflow::Status tensorflow::Session::MakeCallable(const tensorflow::CallableOptions &amp; callable_options, CallableHandle * out_handle)'/>
-<doc f='tensorflow/tensorflow/core/public/session.h' l='202'>/// \brief Creates a `handle` for invoking the subgraph defined by
-  /// `callable_options`.
-  /// NOTE: This API is still experimental and may change.</doc>
-<ovr f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1595' c='_ZN10tensorflow13DirectSession12MakeCallableERKNS_15CallableOptionsEPx'/>
-<ovr f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='400' c='_ZN10tensorflow11GrpcSession12MakeCallableERKNS_15CallableOptionsEPx'/>
-<use f='tensorflow/tensorflow/python/client/tf_session_helper.cc' l='172' u='c' c='_ZN10tensorflow12_GLOBAL__N_118MakeCallableHelperEPNS_7SessionEPK9TF_BufferPlP9TF_Status'/>

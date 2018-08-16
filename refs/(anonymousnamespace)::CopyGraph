@@ -1,9 +1,0 @@
-<def f='tensorflow/tensorflow/c/c_api.cc' l='2186' ll='2224' type='tensorflow::Status (anonymous namespace)::CopyGraph(tensorflow::Graph * src_graph, tensorflow::Graph * dst_graph, tensorflow::ShapeRefiner * dst_refiner, const TF_Output * src_inputs, const std::vector&lt;tensorflow::Output&gt; &amp; dst_inputs, const string &amp; prefix, const std::vector&lt;tensorflow::Operation&gt; &amp; control_deps, const TF_Output * nodes_to_return, int nreturn_nodes, std::vector&lt;tensorflow::Output&gt; * return_nodes)'/>
-<use f='tensorflow/tensorflow/c/c_api.cc' l='2349' u='c' c='(anonymousnamespace)::TF_FinishWhileHelper'/>
-<use f='tensorflow/tensorflow/c/c_api.cc' l='2366' u='c' c='(anonymousnamespace)::TF_FinishWhileHelper'/>
-<doc f='tensorflow/tensorflow/c/c_api.cc' l='2180'>// Copies `src_graph` into `dst_graph`. Any node in `src_graph` with input
-// `src_inputs[i]` will have that input replaced with `dst_inputs[i]`.  `prefix`
-// will be prepended to copied node names. `control_deps` are nodes in
-// `dst_graph` that the copied `src_graph` nodes will have control dependencies
-// on. `return_nodes` are nodes in `src_graph`, and the new corresponding nodes
-// in `dst_graph` will be returned. `return_nodes` must be non-null.</doc>

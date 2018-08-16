@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='173' type='xla::BufferAllocation::Slice xla::BufferAllocation::GetSlice(const xla::LogicalBuffer &amp; buffer) const'/>
-<def f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='240' ll='244' type='BufferAllocation::Slice xla::BufferAllocation::GetSlice(const xla::LogicalBuffer &amp; buffer) const'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='477' u='c' c='_ZNK3xla16BufferAssignment12GetAllSlicesEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc' l='522' u='c' c='_ZNK3xla16BufferAssignment14GetUniqueSliceEPKNS_14HloInstructionERKNS_10ShapeIndexE'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/buffer_assignment.h' l='170'>// GetSlice returns the Slice of contiguous memory that holds the value
-  // described by the given &apos;buffer&apos;.
-  // REQUIRES: &apos;buffer&apos; must be assigned to this allocation.</doc>
-<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/alias_analysis.cc' l='174' u='c' c='_ZN3xla7llvm_ir13AliasAnalysis27GetNoaliasMetadataForBufferERKNS_16BufferAllocation5SliceEPN4llvm6MDNodeERKNS_16BufferAssignmentERKNS_14HloInstructionE'/>

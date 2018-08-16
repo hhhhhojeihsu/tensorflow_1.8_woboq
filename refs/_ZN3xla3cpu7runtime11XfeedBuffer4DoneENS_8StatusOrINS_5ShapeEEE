@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.h' l='47' type='void xla::cpu::runtime::XfeedBuffer::Done(StatusOr&lt;xla::Shape&gt; shape)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.h' l='44'>// The &apos;shape&apos; parameter reflects what shape the embedded program was
-  // expecting / producing with respect to this XfeedBuffer. E.g. this will
-  // contain information about the layout of an outfed buffer.</doc>
-<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='53' c='_ZN3xla12_GLOBAL__N_115CpuInfeedBuffer4DoneENS_8StatusOrINS_5ShapeEEE'/>
-<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='75' c='_ZN3xla12_GLOBAL__N_116CpuOutfeedBuffer4DoneENS_8StatusOrINS_5ShapeEEE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc' l='117' u='c' c='_ZN3xla18CpuTransferManager23TransferLiteralToInfeedEPN9perftools8gputools14StreamExecutorERKNS_7LiteralE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.cc' l='34' u='c' c='_ZN3xla3cpu7runtime17XfeedQueueManager5ResetEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/cpu/xfeed_manager.cc' l='79' u='c' c='_ZN3xla3cpu7runtime17XfeedQueueManager20ReleaseCurrentBufferEiPvNS_8StatusOrINS_5ShapeEEE'/>

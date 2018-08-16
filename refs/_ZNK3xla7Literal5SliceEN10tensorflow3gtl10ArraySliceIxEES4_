@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='325' type='std::unique_ptr&lt;Literal&gt; xla::Literal::Slice(tensorflow::gtl::ArraySlice&lt;int64&gt; start_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; limit_indices) const'/>
-<doc f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='319'>// Creates a sub-array from this literal by extracting the indices
-  // [start_index, limit_index) of each dimension. The result literal has the
-  // same rank and layout as for the given literal. The number of indices in
-  // start_indices and limit_indices must be the rank of the literal, and the
-  // indices follow the order of the dimensions.
-  // This literal must be an array.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='828' ll='894' type='std::unique_ptr&lt;Literal&gt; xla::Literal::Slice(tensorflow::gtl::ArraySlice&lt;int64&gt; start_indices, tensorflow::gtl::ArraySlice&lt;int64&gt; limit_indices) const'/>

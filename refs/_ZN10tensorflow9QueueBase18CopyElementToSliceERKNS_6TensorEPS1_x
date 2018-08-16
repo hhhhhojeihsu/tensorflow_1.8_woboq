@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/queue_base.h' l='85' type='static tensorflow::Status tensorflow::QueueBase::CopyElementToSlice(const tensorflow::Tensor &amp; element, tensorflow::Tensor * parent, int64 index)'/>
-<doc f='tensorflow/tensorflow/core/kernels/queue_base.h' l='81'>// Copies element into the index^th slice (in the first dimension) of parent.
-  // NOTE(mrry): This method is deprecated. Use
-  // `tensorflow::batch_util::CopySliceToElement()` defined in
-  // &quot;./batch_util.h&quot; instead.</doc>
-<def f='tensorflow/tensorflow/core/kernels/queue_base.cc' l='343' ll='346' type='static tensorflow::Status tensorflow::QueueBase::CopyElementToSlice(const tensorflow::Tensor &amp; element, tensorflow::Tensor * parent, int64 index)'/>
-<doc f='tensorflow/tensorflow/core/kernels/queue_base.cc' l='342'>/* static */</doc>

@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/op_def_util.h' l='34' type='tensorflow::Status tensorflow::CheckOpDeprecation(const tensorflow::OpDef &amp; op_def, int graph_def_version)'/>
-<doc f='tensorflow/tensorflow/core/framework/op_def_util.h' l='32'>// Check if an op is deprecated at the given GraphDef version.  If the op is
-// deprecated at a future version, a warning will be logged.</doc>
-<def f='tensorflow/tensorflow/core/framework/op_def_util.cc' l='328' ll='353' type='tensorflow::Status tensorflow::CheckOpDeprecation(const tensorflow::OpDef &amp; op_def, int graph_def_version)'/>
-<use f='tensorflow/tensorflow/core/framework/op_kernel.cc' l='105' u='c' c='_ZN10tensorflow8OpKernelC1EPNS_20OpKernelConstructionESt10unique_ptrIKNS_7NodeDefESt14default_deleteIS5_EE'/>
-<use f='tensorflow/tensorflow/core/graph/graph_constructor.cc' l='661' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GraphConstructor22ModifyNodeDefForImportEPNS_7NodeDefE'/>
-<use f='tensorflow/tensorflow/core/graph/node_builder.cc' l='113' u='c' c='_ZNK10tensorflow11NodeBuilder8FinalizeEPNS_5GraphEPPNS_4NodeE'/>
-<use f='tensorflow/tensorflow/core/graph/validate.cc' l='38' u='c' c='_ZN10tensorflow5graph16ValidateGraphDefERKNS_8GraphDefERKNS_19OpRegistryInterfaceE'/>

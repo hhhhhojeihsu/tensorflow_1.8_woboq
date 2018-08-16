@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/core/framework/reader_interface.h' l='51' type='void tensorflow::ReaderInterface::Read(tensorflow::QueueInterface * queue, string * key, string * value, tensorflow::OpKernelContext * context)'/>
-<ovr f='tensorflow/tensorflow/core/framework/reader_base.cc' l='153' c='_ZN10tensorflow10ReaderBase4ReadEPNS_14QueueInterfaceEPSsS3_PNS_15OpKernelContextE'/>
-<doc f='tensorflow/tensorflow/core/framework/reader_interface.h' l='46'>// Read a single record into *key / *value.  May get more work from
-  // *queue if the current work is complete.  Sets the status on
-  // *context with an OutOfRange Status if the current work is
-  // complete and the queue is done (closed and empty).
-  // This method may block.</doc>
-<use f='tensorflow/tensorflow/core/kernels/reader_ops.cc' l='95' u='c' c='_ZN10tensorflow12ReaderReadOp17ComputeWithReaderEPNS_15OpKernelContextEPNS_15ReaderInterfaceE'/>

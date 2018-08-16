@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='272' type='static void tensorflow::MasterSession::ReffedClientGraph::TrackFeedsAndFetches(tensorflow::MasterSession::ReffedClientGraph::Part * part, const tensorflow::GraphDef &amp; graph_def, const tensorflow::PartitionOptions &amp; popts)'/>
-<def f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='346' ll='382' type='static void tensorflow::MasterSession::ReffedClientGraph::TrackFeedsAndFetches(tensorflow::MasterSession::ReffedClientGraph::Part * part, const tensorflow::GraphDef &amp; graph_def, const tensorflow::PartitionOptions &amp; popts)'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='409' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20DoRegisterPartitionsERKNS_16PartitionOptionsESt13unordered_mapISsNS_8GraphDefESt4hashISsESt8equal_t1729424'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='269'>// Send/Recv nodes that are the result of client-added
-  // feeds and fetches must be tracked so that the tensors
-  // can be added to the local rendezvous.</doc>

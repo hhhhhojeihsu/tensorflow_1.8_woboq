@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='173' type='void tensorflow::serving::SharedBatchScheduler::ThreadLogic()'/>
-<def f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='448' ll='500' type='void tensorflow::serving::SharedBatchScheduler::ThreadLogic()'/>
-<doc f='tensorflow/tensorflow/core/kernels/batching_util/shared_batch_scheduler.h' l='169'>// The code executed in &apos;batch_threads_&apos;. Obtains a batch to process from the
-  // queue pointed to by &apos;next_queue_to_schedule_&apos;, and processes it. If that
-  // queue declines to provide a batch to process, moves onto the next queue. If
-  // no queues provide a batch to process, just sleeps briefly and exits.</doc>

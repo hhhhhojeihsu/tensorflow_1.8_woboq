@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/fft.h' l='176' type='void perftools::gputools::fft::FftSupport::UpdatePlanWithScratchAllocator(perftools::gputools::Stream * stream, perftools::gputools::fft::Plan * plan, perftools::gputools::ScratchAllocator * scratch_allocator)'/>
-<doc f='tensorflow/tensorflow/stream_executor/fft.h' l='170'>// Updates the plan&apos;s work area with space allocated by a new scratch
-  // allocator. This facilitates plan reuse with scratch allocators.
-  //
-  // This requires that the plan was originally created using a scratch
-  // allocator, as otherwise scratch space will have been allocated internally
-  // by cuFFT.</doc>

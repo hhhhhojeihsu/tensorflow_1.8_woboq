@@ -1,7 +1,0 @@
-<def f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='376' ll='378' type='tensorflow::Status xla::LayoutAssignment::AddBackendConstraints(xla::LayoutConstraints * constraints)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.h' l='372'>// This method can be overridden to add backend-specific constraints to the
-  // layout of the instructions of a computation. This method is called after
-  // all mandatory constraints have been added via AddMandatoryConstraints
-  // and before propagating constraints.</doc>
-<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_layout_assignment.cc' l='96' c='_ZN3xla3cpu19CpuLayoutAssignment21AddBackendConstraintsEPNS_17LayoutConstraintsE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/layout_assignment.cc' l='1484' u='c' c='_ZN3xla16LayoutAssignment16RunOnComputationERKNS_17ComputationLayoutERKNS_21TuplePointsToAnalysisEPNS_14HloComputationEPNS_24ChannelLayoutConstraintsE'/>

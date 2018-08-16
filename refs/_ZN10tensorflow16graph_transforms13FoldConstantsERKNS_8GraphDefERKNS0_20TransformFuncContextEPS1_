@@ -1,9 +1,0 @@
-<dec f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.h' l='30' type='tensorflow::Status tensorflow::graph_transforms::FoldConstants(const tensorflow::GraphDef &amp; input_graph_def, const tensorflow::graph_transforms::TransformFuncContext &amp; context, tensorflow::GraphDef * output_graph_def)'/>
-<doc f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.h' l='26'>// Finds sub-graphs that evaluate to constant expressions, and replaces them
-// with Const nodes, to simplify the graph. The inputs and outputs arguments are
-// the names of all the nodes that data is fed into, or read out of, when the
-// graph is actually run.</doc>
-<def f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='188' ll='303' type='tensorflow::Status tensorflow::graph_transforms::FoldConstants(const tensorflow::GraphDef &amp; input_graph_def, const tensorflow::graph_transforms::TransformFuncContext &amp; context, tensorflow::GraphDef * output_graph_def)'/>
-<use f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='305' u='r'/>
-<doc f='tensorflow/tensorflow/tools/graph_transforms/fold_constants_lib.cc' l='186'>// Converts any sub-graphs that can be resolved into constant expressions into
-// single Const ops.</doc>

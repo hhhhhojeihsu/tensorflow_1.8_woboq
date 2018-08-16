@@ -1,6 +1,0 @@
-<def f='tensorflow/tensorflow/compiler/xla/util.h' l='55' type='const int'/>
-<use f='tensorflow/tensorflow/compiler/xla/util.h' l='56' u='r'/>
-<doc f='tensorflow/tensorflow/compiler/xla/util.h' l='51'>// Ranks greater than 8 are very rare, so use InlinedVector&lt;int64, 8&gt; to store
-// the bounds and indices. And for the rare cases of ranks greater than 8,
-// the InlinedVector will just behave like an std::vector&lt;&gt; and allocate the
-// memory to store its values.</doc>

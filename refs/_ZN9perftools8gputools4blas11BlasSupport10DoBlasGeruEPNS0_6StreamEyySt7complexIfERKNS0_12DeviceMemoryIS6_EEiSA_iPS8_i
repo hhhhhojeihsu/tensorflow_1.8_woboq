@@ -1,8 +1,0 @@
-<dec f='tensorflow/tensorflow/stream_executor/blas.h' l='540' type='bool perftools::gputools::blas::BlasSupport::DoBlasGeru(perftools::gputools::Stream * stream, uint64 m, uint64 n, std::complex&lt;float&gt; alpha, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; x, int incx, const DeviceMemory&lt;std::complex&lt;float&gt; &gt; &amp; y, int incy, DeviceMemory&lt;std::complex&lt;float&gt; &gt; * a, int lda)'/>
-<doc f='tensorflow/tensorflow/stream_executor/blas.h' l='534'>// Performs a rank-1 update (unconjugated) of a general matrix.
-  //
-  //     a &lt;- alpha * x * y&apos; + a,
-  //
-  // alpha is a scalar; x is an m-element vector; y is an n-element vector; a is
-  // an m-by-n general matrix.</doc>
-<use f='tensorflow/tensorflow/stream_executor/stream.cc' l='2815' u='a' c='_ZN9perftools8gputools6Stream12ThenBlasGeruEyySt7complexIfERKNS0_12DeviceMemoryIS3_EEiS7_iPS5_i'/>

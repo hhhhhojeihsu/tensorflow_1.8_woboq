@@ -1,7 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/jit/xla_launch_util.h' l='77' type='void tensorflow::XlaComputationLaunchContext::XlaComputationLaunchContext(int64 num_resource_args, xla::LocalClient * client, xla::DeviceMemoryAllocator * xla_allocator, bool allocate_xla_tensors)'/>
-<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='175' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
-<doc f='tensorflow/tensorflow/compiler/jit/xla_launch_util.h' l='74'>// Create a new launch context. &apos;allocate_xla_tensors&apos; is true if allocated
-  // output tensors and variables are always XlaTensors. If false they are
-  // assumed to be &quot;normal&quot; device pointers.</doc>
-<use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='56' u='c' c='_ZN10tensorflow20XlaCompileOnDemandOp3RunEPNS_15OpKernelContextERKNS_9XlaDevice8MetadataEPKNS_11XlaCompiler17CompilationResultEPN3xla15LocalExecutableE'/>
-<def f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='110' ll='116' type='void tensorflow::XlaComputationLaunchContext::XlaComputationLaunchContext(int64 num_resource_args, xla::LocalClient * client, xla::DeviceMemoryAllocator * xla_allocator, bool allocate_xla_tensors)'/>

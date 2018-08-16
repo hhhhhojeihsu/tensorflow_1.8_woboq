@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='771' type='tensorflow::Status xla::XlaBuilder::SetReturnValue(const xla::XlaOp &amp; operand)'/>
-<doc f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='767'>// Modifies the computation being built so that executions of it will return
-  // the value associated with operand, rather than the last expression enqueued
-  // on the XlaBuilder. Any subsequent operations added to the XlaBuilder will
-  // not have any effect unless SetReturnValue is called again.</doc>
-<def f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1271' ll='1273' type='tensorflow::Status xla::XlaBuilder::SetReturnValue(const xla::XlaOp &amp; operand)'/>
