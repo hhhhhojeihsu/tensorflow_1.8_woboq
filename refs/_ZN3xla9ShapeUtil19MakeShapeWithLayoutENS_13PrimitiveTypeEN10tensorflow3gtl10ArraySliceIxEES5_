@@ -1,8 +1,8 @@
 <dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='338' type='static xla::Shape xla::ShapeUtil::MakeShapeWithLayout(xla::PrimitiveType element_type, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions, tensorflow::gtl::ArraySlice&lt;int64&gt; minor_to_major)'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='947' u='c' c='_ZN3xla7Literal18CreateR2WithLayoutESt16initializer_listIS1_IT_EERKNS_6LayoutE'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1051' u='c' c='_ZN3xla7Literal25CreateFromArrayWithLayoutERKNS_5ArrayIT_EERKNS_6LayoutE'/>
 <doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='336'>// Constructs a new shape with the given minor_to_major order in its Layout.
   // Returns a value shape such that shape.has_layout().</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='947' u='c' c='_ZN3xla7Literal18CreateR2WithLayoutESt16initializer_listIS1_IT_EERKNS_6LayoutE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1051' u='c' c='_ZN3xla7Literal25CreateFromArrayWithLayoutERKNS_5ArrayIT_EERKNS_6LayoutE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/shape_util.cc' l='56' u='c' c='_ZN10tensorflow21TensorShapeToXLAShapeENS_8DataTypeERKNS_11TensorShapeEPN3xla5ShapeE'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='843' u='c' c='_ZNK3xla7Literal5SliceEN10tensorflow3gtl10ArraySliceIxEES4_'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='1475' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor60TryToSinkReshapeOrBroadcastAfterOpWithUniqueNonScalarOperandEPNS_14HloInstructionE'/>

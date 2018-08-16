@@ -50,6 +50,10 @@
 <use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='293' u='c' c='_ZN10tensorflow14LoadSavedModelERKNS_14SessionOptionsERKNS_10RunOptionsERKSsRKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPNS_16SavedModelBundleE'/>
 <use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='292' u='c' c='_ZN10tensorflow14LoadSavedModelERKNS_14SessionOptionsERKNS_10RunOptionsERKSsRKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPNS_16SavedModelBundleE'/>
 <use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='292' u='c' c='_ZN10tensorflow14LoadSavedModelERKNS_14SessionOptionsERKNS_10RunOptionsERKSsRKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEEPNS_16SavedModelBundleE'/>
+<use f='tensorflow/tensorflow/core/lib/gtl/optional.h' l='625' u='c' c='_ZNKR10tensorflow3gtl8optional5valueEv'/>
+<use f='tensorflow/tensorflow/core/lib/gtl/optional.h' l='629' u='c' c='_ZNR10tensorflow3gtl8optional5valueEv'/>
+<use f='tensorflow/tensorflow/core/lib/gtl/optional.h' l='633' u='c' c='_ZNO10tensorflow3gtl8optional5valueEv'/>
+<use f='tensorflow/tensorflow/core/lib/gtl/optional.h' l='637' u='c' c='_ZNKO10tensorflow3gtl8optional5valueEv'/>
 <use f='tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.cc' l='60' u='c' c='_ZN10tensorflowL24ReplaceNodeWithXlaLaunchEPNS_5GraphEPNS_4NodeE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2039' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator38GetShapeInfoForOutsideCompilationSendsEPNS_5GraphEPNS_25FunctionLibraryDefinitionE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2047' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator38GetShapeInfoForOutsideCompilationSendsEPNS_5GraphEPNS_25FunctionLibraryDefinitionE'/>
@@ -68,10 +72,6 @@
 <use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='116' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ParallelCheckOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='125' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ParallelCheckOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='124' u='c' c='_ZN10tensorflow12_GLOBAL__N_115ParallelCheckOp7ComputeEPNS_15OpKernelContextE'/>
-<use f='tensorflow/tensorflow/core/lib/gtl/optional.h' l='625' u='c' c='_ZNKR10tensorflow3gtl8optional5valueEv'/>
-<use f='tensorflow/tensorflow/core/lib/gtl/optional.h' l='629' u='c' c='_ZNR10tensorflow3gtl8optional5valueEv'/>
-<use f='tensorflow/tensorflow/core/lib/gtl/optional.h' l='633' u='c' c='_ZNO10tensorflow3gtl8optional5valueEv'/>
-<use f='tensorflow/tensorflow/core/lib/gtl/optional.h' l='637' u='c' c='_ZNKO10tensorflow3gtl8optional5valueEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='367' u='c' c='_ZN3xla17ShapeTreeIteratorppEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='851' u='c' c='_ZNK3xla7Literal5Piece4dataEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='865' u='c' c='_ZN3xla7Literal5Piece4dataEv'/>
@@ -2180,6 +2180,7 @@
 <use f='tensorflow/tensorflow/core/platform/posix/subprocess.cc' l='357' u='c' c='_ZN10tensorflow10SubProcess11CommunicateEPKSsPSsS3_'/>
 <use f='tensorflow/tensorflow/core/platform/posix/subprocess.cc' l='365' u='c' c='_ZN10tensorflow10SubProcess11CommunicateEPKSsPSsS3_'/>
 <use f='tensorflow/tensorflow/core/platform/posix/subprocess.cc' l='412' u='c' c='_ZN10tensorflow10SubProcess11CommunicateEPKSsPSsS3_'/>
+<use f='tensorflow/tensorflow/core/platform/posix/test.cc' l='42' u='c' c='_ZN10tensorflow7testing17TensorFlowSrcRootEv'/>
 <use f='tensorflow/tensorflow/core/platform/profile_utils/clock_cycle_profiler.h' l='33' u='c' c='_ZN10tensorflow18ClockCycleProfiler5StartEv'/>
 <use f='tensorflow/tensorflow/core/platform/profile_utils/clock_cycle_profiler.h' l='39' u='c' c='_ZN10tensorflow18ClockCycleProfiler4StopEv'/>
 <use f='tensorflow/tensorflow/core/platform/profile_utils/clock_cycle_profiler.h' l='71' u='c' c='_ZN10tensorflow18ClockCycleProfiler28GetCurrentClockCycleInternalEv'/>
@@ -2188,6 +2189,7 @@
 <use f='tensorflow/tensorflow/core/platform/profile_utils/clock_cycle_profiler.cc' l='33' u='c' c='_ZN10tensorflow18ClockCycleProfiler14DumpStatisticsERKSs'/>
 <use f='tensorflow/tensorflow/core/platform/profile_utils/clock_cycle_profiler.cc' l='29' u='c' c='_ZN10tensorflow18ClockCycleProfiler14DumpStatisticsERKSs'/>
 <use f='tensorflow/tensorflow/core/platform/profile_utils/cpu_utils.cc' l='82' u='c' c='_ZN10tensorflow13profile_utils8CpuUtils28GetCycleCounterFrequencyImplEv'/>
+<use f='tensorflow/tensorflow/core/platform/test_main.cc' l='35' u='c' c='main'/>
 <use f='tensorflow/tensorflow/core/platform/tracing.cc' l='52' u='c' c='_ZN10tensorflow4port7Tracing14ParseEventMaskEPKcRKSs'/>
 <use f='tensorflow/tensorflow/core/platform/variant_coding.cc' l='61' u='c' c='_ZN10tensorflow4port17DecodeVariantListERKSsPNS_7VariantEx'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_tensor.h' l='77' u='c' c='_ZN10tensorflow6tfprof12TFProfTensor8AddValueERKT_PNS0_17TFProfTensorProtoE'/>

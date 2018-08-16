@@ -1,0 +1,6 @@
+<dec f='tensorflow/tensorflow/compiler/aot/runtime.h' l='34' type='size_t tensorflow::tfcompile::runtime::aligned_buffer_bytes(const intptr_t * sizes, size_t n)'/>
+<def f='tensorflow/tensorflow/compiler/aot/runtime.cc' l='64' ll='72' type='size_t tensorflow::tfcompile::runtime::aligned_buffer_bytes(const intptr_t * sizes, size_t n)'/>
+<use f='tensorflow/tensorflow/compiler/aot/runtime.cc' l='76' u='c' c='_ZN10tensorflow9tfcompile7runtime23MallocContiguousBuffersEPKlmPPvb'/>
+<doc f='tensorflow/tensorflow/compiler/aot/runtime.h' l='31'>// aligned_buffer_bytes returns the sum of each size in `sizes`, skipping -1
+// values.  There are `n` entries in `sizes`.  Each buffer is aligned to kAlign
+// byte boundaries.</doc>

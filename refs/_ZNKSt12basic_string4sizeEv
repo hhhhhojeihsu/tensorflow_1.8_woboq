@@ -29,6 +29,11 @@
       ///  null-termination.</doc>
 <use f='tensorflow/tensorflow/c/c_api_function.cc' l='82' u='c' c='_ZN10tensorflow12_GLOBAL__N_115NodeNameMapping9NormalizeESs'/>
 <use f='tensorflow/tensorflow/core/platform/protobuf_internal.h' l='60' u='c' c='_ZN10tensorflow8ParseAnyERKN6google8protobuf3AnyEPT_RKSs'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='85' u='c' c='_ZNSt18__moneypunct_cache8_M_cacheERKSt6locale'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='310' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='315' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='323' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='394' u='c' c='_ZNKSt9money_get6do_getET0_S0_bRSt8ios_baseRSt12_Ios_IostateRSbIT_St11char_traitsIS5_ESaIS5_EE'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='69' u='c' c='_ZNK10tensorflow12_GLOBAL__N_115NodeNameMapping15NormalizeHelperESs'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/dump_graph.cc' l='40' u='c' c='_ZN10tensorflow10dump_graph12_GLOBAL__N_114MakeUniquePathESs'/>
 <use f='tensorflow/tensorflow/compiler/xla/legacy_flags/debug_options_parsers.h' l='43' u='c' c='_ZN3xla12legacy_flags4impl31parse_xla_backend_extra_optionsEPT_Ss'/>
@@ -85,11 +90,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_util.cc' l='126' u='c' c='_ZN4toco15LogDumpGraphDefEiRKSsRKN10tensorflow8GraphDefE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_util.cc' l='141' u='c' c='_ZN4toco15LogDumpGraphDefEiRKSsRKN10tensorflow8GraphDefE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_util.cc' l='142' u='c' c='_ZN4toco15LogDumpGraphDefEiRKSsRKN10tensorflow8GraphDefE'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='85' u='c' c='_ZNSt18__moneypunct_cache8_M_cacheERKSt6locale'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='310' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='315' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='323' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='394' u='c' c='_ZNKSt9money_get6do_getET0_S0_bRSt8ios_baseRSt12_Ios_IostateRSbIT_St11char_traitsIS5_ESaIS5_EE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tflite/import.cc' l='177' u='c' c='_ZN4toco6tflite6ImportERKNS_10ModelFlagsERKSs'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco_port.cc' l='24' u='c' c='_ZN4toco4port12CopyToBufferERKSsPc'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco_port.cc' l='199' u='c' c='_ZN4toco4port4file11SetContentsERKSsS3_RKNS1_7OptionsE'/>
@@ -238,6 +238,9 @@
 <use f='tensorflow/tensorflow/core/lib/wav/wav_io.cc' l='115' u='c' c='_ZN10tensorflow3wav10ExpectTextERKSsS2_Pi'/>
 <use f='tensorflow/tensorflow/core/lib/wav/wav_io.cc' l='129' u='c' c='_ZN10tensorflow3wav10ReadStringERKSsiPSsPi'/>
 <use f='tensorflow/tensorflow/core/lib/wav/wav_io.cc' l='271' u='c' c='_ZN10tensorflow3wav28DecodeLin16WaveAsFloatVectorERKSsPSt6vectorIfSaIfEEPjPtS7_'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='130' u='c' c='_ZN10tensorflow7testing9Benchmark3RunEPKc'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='141' u='c' c='_ZN10tensorflow7testing9Benchmark3RunEPKc'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='150' u='c' c='_ZN10tensorflow7testing9Benchmark3RunEPKc'/>
 <use f='tensorflow/tensorflow/core/platform/posix/env.cc' l='162' u='c' c='_ZN10tensorflow12_GLOBAL__N_18PosixEnv23GetLocalTempDirectoriesEPSt6vectorISsSaISsEE'/>
 <use f='tensorflow/tensorflow/core/platform/posix/subprocess.cc' l='434' u='c' c='_ZN10tensorflow10SubProcess11CommunicateEPKSsPSsS3_'/>
 <use f='tensorflow/tensorflow/core/platform/posix/subprocess.cc' l='440' u='c' c='_ZN10tensorflow10SubProcess11CommunicateEPKSsPSsS3_'/>

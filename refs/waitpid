@@ -1,6 +1,4 @@
 <dec f='include/x86_64-linux-gnu/sys/wait.h' l='125' type='__pid_t waitpid(__pid_t __pid, int * __stat_loc, int __options)'/>
-<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='341' u='c' c='_ZN10tensorflow6ffmpeg13ReadAudioFileERKSsS2_iiS2_PSt6vectorIfSaIfEE'/>
-<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='396' u='c' c='_ZN10tensorflow6ffmpeg13ReadVideoFileERKSsPSt6vectorIhSaIhEEPjS7_S7_'/>
 <doc f='include/x86_64-linux-gnu/sys/wait.h' l='110'>/* Wait for a child matching PID to die.
    If PID is greater than 0, match any process whose process ID is PID.
    If PID is (pid_t) -1, match any process.
@@ -16,4 +14,6 @@
 
    This function is a cancellation point and therefore not marked with
    __THROW.  */</doc>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='341' u='c' c='_ZN10tensorflow6ffmpeg13ReadAudioFileERKSsS2_iiS2_PSt6vectorIfSaIfEE'/>
+<use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='396' u='c' c='_ZN10tensorflow6ffmpeg13ReadVideoFileERKSsPSt6vectorIhSaIhEEPjS7_S7_'/>
 <use f='tensorflow/tensorflow/core/platform/posix/subprocess.cc' l='301' u='c' c='_ZN10tensorflow10SubProcess12WaitInternalEPi'/>

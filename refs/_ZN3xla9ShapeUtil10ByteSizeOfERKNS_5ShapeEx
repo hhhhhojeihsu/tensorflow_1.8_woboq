@@ -1,5 +1,4 @@
 <dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='170' type='static int64 xla::ShapeUtil::ByteSizeOf(const xla::Shape &amp; shape, int64 pointer_size = -1)'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='741' u='c' c='_ZNK3xla7Literal5Piece10size_bytesEv'/>
 <doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='163'>// Returns the number of bytes required for an allocation of shape.  The
   // |pointer_size| parameter is used for calculating the size of tuple
   // shapes. This includes only the size of the top-level buffer. For example, a
@@ -7,6 +6,7 @@
   // this method only returns the size of the pointer array.
   // Precondition: (!ShapeUtil::IsTuple(shape) || pointer_size &gt; 0) &amp;&amp;
   //               !ShapeUtil::IsOpaque(shape)</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='741' u='c' c='_ZNK3xla7Literal5Piece10size_bytesEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='821' u='c' c='_ZNK3xla7Literal9TransposeEN10tensorflow3gtl10ArraySliceIxEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='822' u='c' c='_ZNK3xla7Literal9TransposeEN10tensorflow3gtl10ArraySliceIxEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/algebraic_simplifier.cc' l='334' u='c' c='_ZN3xla26AlgebraicSimplifierVisitor18ReplaceWithBitcastEPNS_14HloInstructionE'/>

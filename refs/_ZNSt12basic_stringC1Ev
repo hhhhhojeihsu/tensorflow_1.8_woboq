@@ -39,6 +39,11 @@
 <use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='56' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117NextIterationNameERKNS_5ScopeEi'/>
 <use f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.h' l='334' u='c' c='_ZN10tensorflow10monitoring15MetricCollector12CollectValueERKSt5arrayISsXT1_EERKT0_'/>
 <use f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.h' l='334' u='c' c='_ZN10tensorflow10monitoring15MetricCollector12CollectValueERKSt5arrayISsXT1_EERKT0_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='127' u='c' c='_ZNK10tensorflow22XlaCompiledCpuFunction9error_msgEv'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='160' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='173' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='373' u='c' c='_ZNKSt9money_get6do_getET0_S0_bRSt8ios_baseRSt12_Ios_IostateRe'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='391' u='c' c='_ZNKSt9money_get6do_getET0_S0_bRSt8ios_baseRSt12_Ios_IostateRSbIT_St11char_traitsIS5_ESaIS5_EE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1045' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph20BuildParallelCheckOpERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEEPNS_5GraphE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1045' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph20BuildParallelCheckOpERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S7_EEEPNS_5GraphE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1295' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator17CopySubgraphNodesEPSt13unordered_mapIPKNS_4NodeEPS3_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEE'/>
@@ -179,10 +184,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc' l='48' u='c' c='_ZN4toco11TocoConvertEP7_objectS1_S1_'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/python/toco_python_api.cc' l='77' u='c' c='_ZN4toco11TocoConvertEP7_objectS1_S1_'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_util.cc' l='49' u='c' c='_ZN4toco15LogDumpGraphDefEiRKSsRKN10tensorflow8GraphDefE'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='160' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='173' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='373' u='c' c='_ZNKSt9money_get6do_getET0_S0_bRSt8ios_baseRSt12_Ios_IostateRe'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='391' u='c' c='_ZNKSt9money_get6do_getET0_S0_bRSt8ios_baseRSt12_Ios_IostateRSbIT_St11char_traitsIS5_ESaIS5_EE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='49' u='c' c='_ZN4toco6tflite12_GLOBAL__N_114GetOperatorKeyERKNS_8OperatorE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco.cc' l='100' u='c' c='_ZN4toco12_GLOBAL__N_18ToolMainERKNS_15ParsedTocoFlagsERKNS_16ParsedModelFlagsE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco.cc' l='108' u='c' c='_ZN4toco12_GLOBAL__N_18ToolMainERKNS_15ParsedTocoFlagsERKNS_16ParsedModelFlagsE'/>
@@ -521,6 +522,8 @@
 <use f='tensorflow/tensorflow/core/ops/cudnn_rnn_ops.cc' l='84' u='c'/>
 <use f='tensorflow/tensorflow/core/ops/cudnn_rnn_ops.cc' l='86' u='c'/>
 <use f='tensorflow/tensorflow/core/platform/cpu_feature_guard.cc' l='99' u='c' c='_ZN10tensorflow4port26InfoAboutUnusedCPUFeaturesEv'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='32' u='c'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='126' u='c' c='_ZN10tensorflow7testing9Benchmark3RunEPKc'/>
 <use f='tensorflow/tensorflow/core/platform/env.cc' l='485' u='c' c='_ZN10tensorflow16WriteBinaryProtoEPNS_3EnvERKSsRKN6google8protobuf11MessageLiteE'/>
 <use f='tensorflow/tensorflow/core/platform/env.cc' l='515' u='c' c='_ZN10tensorflow14WriteTextProtoEPNS_3EnvERKSsRKN6google8protobuf7MessageE'/>
 <use f='tensorflow/tensorflow/core/platform/posix/load_library.cc' l='44' u='c' c='_ZN10tensorflow8internal21FormatLibraryFileNameERKSsS2_'/>

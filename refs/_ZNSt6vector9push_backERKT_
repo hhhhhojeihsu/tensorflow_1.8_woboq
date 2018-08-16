@@ -29,13 +29,13 @@
 <use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='228' u='c' c='_ZN10tensorflow12_GLOBAL__N_116GetAssetFileDefsERKNS_12MetaGraphDefEPSt6vectorINS_12AssetFileDefESaIS5_EE'/>
 <use f='tensorflow/tensorflow/cc/tools/freeze_saved_model.cc' l='121' u='c' c='_ZN10tensorflow12_GLOBAL__N_126GetVariableNameToTensorMapEPNS_7SessionERKSt13unordered_mapISsPNS_7NodeDefESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_E11648775'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='38' u='c' c='_ZN10tensorflow11QueueRunner16AddErrorCallbackERKSt8functionIFvNS_6StatusEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='66' u='c' c='_ZN3xla10ShapeIndex9push_backEx'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='89' u='c' c='_ZN10tensorflow12_GLOBAL__N_123MarkGuaranteedConstantsERKNS_5GraphERKSt6vectorISt4pairIPKNS_4NodeEPS6_ESaISA_EE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='705' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph9RecordArgEPKNS_4EdgeERKSt13unordered_mapIPKNS_4NodeEPS7_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS16493397'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1258' u='c' c='_ZNK10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph34GetOutsideCompilationSubgraphNamesEPSt6vectorISsSaISsEE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1933' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator28MakePrunedGraphCopyAndInlineERKNS_5GraphERKSt6vectorIPNS_4NodeESaIS7_EEPSt10unique_ptrIS2_St14default_del3709695'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1972' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator35MakeGraphForOutsideCompilationSendsERKNS_5GraphEPSt10unique_ptrIS2_St14default_deleteIS2_EEPNS_12ShapeRef3453052'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='179' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
-<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='66' u='c' c='_ZN3xla10ShapeIndex9push_backEx'/>
 <use f='tensorflow/tensorflow/compiler/xla/sparse_index_array.h' l='133' u='c' c='_ZN3xla16SparseIndexArray14SortWithValuesEN10tensorflow3gtl17MutableArraySliceIT_EE'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.h' l='78' u='c' c='_ZN3xla11HloSharding5TupleERKNS_9ShapeTreeIS0_EE'/>
 <use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='356' u='c' c='_ZN10tensorflow12_GLOBAL__N_125FindCompilationCandidatesERKNS_5GraphEPNS_25FunctionLibraryDefinitionEPNS_3EnvERKSt8functionIFbPKNS_4NodeERKNS_10Device15558984'/>
@@ -910,6 +910,9 @@
 <use f='tensorflow/tensorflow/core/lib/random/distribution_sampler.cc' l='71' u='c' c='_ZN10tensorflow6random19DistributionSamplerC1ERKNS_3gtl10ArraySliceIfEE'/>
 <use f='tensorflow/tensorflow/core/ops/array_ops.cc' l='795' u='c'/>
 <use f='tensorflow/tensorflow/core/ops/nn_ops.cc' l='365' u='c' c='_ZN10tensorflow12_GLOBAL__N_127CommonFusedConvCalculationsEPNS_15shape_inference16InferenceContextEb'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='74' u='c' c='_ZN10tensorflow7testing12_GLOBAL__N_18AddRangeEPSt6vectorIiSaIiEEiii'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='80' u='c' c='_ZN10tensorflow7testing12_GLOBAL__N_18AddRangeEPSt6vectorIiSaIiEEiii'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='85' u='c' c='_ZN10tensorflow7testing12_GLOBAL__N_18AddRangeEPSt6vectorIiSaIiEEiii'/>
 <use f='tensorflow/tensorflow/core/platform/env.cc' l='85' u='c' c='_ZN10tensorflow22FileSystemRegistryImpl30GetRegisteredFileSystemSchemesEPSt6vectorISsSaISsEE'/>
 <use f='tensorflow/tensorflow/core/platform/env.cc' l='169' u='c' c='_ZN10tensorflow3Env10FilesExistERKSt6vectorISsSaISsEEPS1_INS_6StatusESaIS6_EE'/>
 <use f='tensorflow/tensorflow/core/platform/env.cc' l='202' u='c' c='_ZN10tensorflow3Env10FilesExistERKSt6vectorISsSaISsEEPS1_INS_6StatusESaIS6_EE'/>

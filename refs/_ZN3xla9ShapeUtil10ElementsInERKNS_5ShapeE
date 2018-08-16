@@ -1,16 +1,16 @@
 <dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='158' type='static int64 xla::ShapeUtil::ElementsIn(const xla::Shape &amp; shape)'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='653' u='c' c='_ZNK3xla7Literal13element_countERKNS_10ShapeIndexE'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='744' u='c' c='_ZNK3xla7Literal5Piece13element_countEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='857' u='c' c='_ZNK3xla7Literal5Piece4dataEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='870' u='c' c='_ZN3xla7Literal5Piece4dataEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1211' u='c' c='_ZN3xla7Literal10PopulateR1EN10tensorflow3gtl10ArraySliceIT_EE'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1377' u='c' c='_ZNK3xla7Literal9ReplicateEx'/>
 <doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='152'>// Returns the number of elements are contained within the provided shape;
   // e.g. for rank 0 (scalars) the result is always 1. Note that sparse shapes
   // may not actually be able to store this number of elements. See
   // LayoutUtil::MaxSparseElements(shape) to obtain the maximum number of
   // elements that can be stored in a sparse shape.
   // Precondition: !IsTuple(shape)</doc>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='653' u='c' c='_ZNK3xla7Literal13element_countERKNS_10ShapeIndexE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='744' u='c' c='_ZNK3xla7Literal5Piece13element_countEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='857' u='c' c='_ZNK3xla7Literal5Piece4dataEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='870' u='c' c='_ZN3xla7Literal5Piece4dataEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1211' u='c' c='_ZN3xla7Literal10PopulateR1EN10tensorflow3gtl10ArraySliceIT_EE'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1377' u='c' c='_ZNK3xla7Literal9ReplicateEx'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/literal_util.cc' l='46' u='c' c='_ZN10tensorflow23CopyLiteralToHostTensorERKN3xla7LiteralEPNS_6TensorE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='163' u='c' c='_ZN10tensorflow10XlaHelpers14ReshapeLiteralERKN3xla7LiteralENS_3gtl10ArraySliceIxEEPS2_'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_helpers.cc' l='164' u='c' c='_ZN10tensorflow10XlaHelpers14ReshapeLiteralERKN3xla7LiteralENS_3gtl10ArraySliceIxEEPS2_'/>

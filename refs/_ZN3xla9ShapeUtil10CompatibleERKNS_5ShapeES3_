@@ -1,10 +1,14 @@
 <dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='250' type='static bool xla::ShapeUtil::Compatible(const xla::Shape &amp; lhs, const xla::Shape &amp; rhs)'/>
-<use f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='625' u='c' c='_ZN3xla9ShapeTree15CopySubtreeFromERKNS_9ShapeTreeIT_EERKNS_10ShapeIndexES9_'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.h' l='180' u='c' c='_ZNK3xla11HloShardingeqERKS0_'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='594' u='r' c='_ZNK3xla14HloInstruction9IdenticalERKS0_RKSt8functionIFbPS1_S4_EERKS3_IFbPKNS_14HloComputationESB_EEb'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='455' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_131TFCompileTest_ProgramShape_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='456' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_131TFCompileTest_ProgramShape_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='463' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_131TFCompileTest_ProgramShape_Test8TestBodyEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='466' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_131TFCompileTest_ProgramShape_Test8TestBodyEv'/>
 <doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='247'>// Returns true if the rank, dimension sizes, and element type are
   // identical. Layout is ignored. Tuple elements are compared recursively for
   // compatibility.</doc>
+<use f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='625' u='c' c='_ZN3xla9ShapeTree15CopySubtreeFromERKNS_9ShapeTreeIT_EERKNS_10ShapeIndexES9_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.h' l='180' u='c' c='_ZNK3xla11HloShardingeqERKS0_'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='594' u='r' c='_ZNK3xla14HloInstruction9IdenticalERKS0_RKSt8functionIFbPS1_S4_EERKS3_IFbPKNS_14HloComputationESB_EEb'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='139' u='c' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='148' u='c' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='215' u='c' c='_ZN10tensorflow10XlaWhileOp7CompileEPNS_18XlaOpKernelContextE'/>

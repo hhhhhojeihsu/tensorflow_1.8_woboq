@@ -569,6 +569,35 @@ _ZN10tensorflow3ops13AsNodeOutListERKNS_5ScopeERKNS_9InputListE|tensorflow::ops:
 _ZN10tensorflow3ops5ConstERKNS_5ScopeERKNS_5Input11InitializerE|tensorflow::ops::Const
 _ZN10tensorflow3ops14ConstFromProtoERKNS_5ScopeERKNS_11TensorProtoE|tensorflow::ops::ConstFromProto
 _ZN10tensorflow3ops14BuildWhileLoopERKNS_5ScopeERKSt6vectorINS_6OutputESaIS5_EERKSt8functionIFNS_6StatusES3_S9_PS5_EERKSA_IFSB_S3_S9_PS7_EERKSsSH_bSC_|tensorflow::ops::BuildWhileLoop
+_ZNKSt8messages4openERKSsRKSt6locale|std::messages::open
+_ZNSt15wbuffer_convertaSERKSt15wbuffer_convertIT_T0_T1_E|std::wbuffer_convert::operator=
+_ZNSt15wstring_convertaSERKSt15wstring_convertIT_T0_T1_T2_E|std::wstring_convert::operator=
+_ZN10tensorflow22XlaCompiledCpuFunctionaSERKS0_|tensorflow::XlaCompiledCpuFunction::operator=
+_ZN10tensorflow3gtl17internal_optional13optional_data6assignEOT_|tensorflow::gtl::internal_optional::optional_data::assign
+_ZN10tensorflow3gtl17internal_optional13optional_data9constructEDpOT_|tensorflow::gtl::internal_optional::optional_data::construct
+_ZN10tensorflow3gtl17internal_optional13optional_dataaSERKNS1_13optional_dataIT_EE|tensorflow::gtl::internal_optional::optional_data::operator=
+_ZN10tensorflow3gtl17internal_optional13optional_data7pointerEv|tensorflow::gtl::internal_optional::optional_data::pointer
+_ZN10tensorflow3gtl17internal_optional23optional_data_dtor_base8destructEv|tensorflow::gtl::internal_optional::optional_data_dtor_base::destruct
+_ZN10tensorflow3gtlneERKNS0_8optionalIT_EES5_|tensorflow::gtl::operator!=
+_ZN10tensorflow3gtleqERKNS0_8optionalIT_EES5_|tensorflow::gtl::operator==
+_ZN10tensorflow3gtl8optional7emplaceEDpOT_|tensorflow::gtl::optional::emplace
+_ZNK10tensorflow3gtl8optional9has_valueEv|tensorflow::gtl::optional::has_value
+_ZNK10tensorflow3gtl8optionalcvbEv|tensorflow::gtl::optional::operator bool
+_ZNKR10tensorflow3gtl8optionaldeEv|tensorflow::gtl::optional::operator*
+_ZN10tensorflow3gtl8optionalaSENS0_9nullopt_tE|tensorflow::gtl::optional::operator=
+_ZNK10tensorflow3gtl8optional9referenceEv|tensorflow::gtl::optional::reference
+_ZN10tensorflow3gtl8optional5resetEv|tensorflow::gtl::optional::reset
+_ZN10tensorflow3gtl8optional4swapERNS0_8optionalIT_EE|tensorflow::gtl::optional::swap
+_ZNKR10tensorflow3gtl8optional5valueEv|tensorflow::gtl::optional::value
+_ZNKR10tensorflow3gtl8optional8value_orEOT_|tensorflow::gtl::optional::value_or
+_ZNK3xla10ShapeIndexneERKS0_|xla::ShapeIndex::operator!=
+_ZNK3xla10ShapeIndexeqERKS0_|xla::ShapeIndex::operator==
+_ZNK3xla10ShapeIndexixEm|xla::ShapeIndex::operator[]
+_ZN3xla8StatusOraSERKN10tensorflow6StatusE|xla::StatusOr::operator=
+_ZN3xla17internal_statusor12StatusOrDataaSERKNS0_12StatusOrDataIT_EE|xla::internal_statusor::StatusOrData::operator=
+_ZN3xla13status_macros15MakeErrorStream25MakeErrorStreamWithOutputcvN10tensorflow6StatusEEv|xla::status_macros::MakeErrorStream::MakeErrorStreamWithOutput::operator Status
+_ZNK3xla13status_macros22StatusAdaptorForMacroscvbEv|xla::status_macros::StatusAdaptorForMacros::operator bool
+_ZN3xla13status_macros22StatusAdaptorForMacrosaSERKS1_|xla::status_macros::StatusAdaptorForMacros::operator=
 _ZN10tensorflow25optimization_registration28OptimizationPassRegistrationC1ENS_24OptimizationPassRegistry8GroupingEiSt10unique_ptrINS_21GraphOptimizati2587351|tensorflow::optimization_registration::OptimizationPassRegistration::OptimizationPassRegistration
 _ZNK10tensorflow15GraphDefBuilder7Options9HaveErrorEv|tensorflow::GraphDefBuilder::Options::HaveError
 _ZNK10tensorflow15GraphDefBuilder7Options14StatusToStringEv|tensorflow::GraphDefBuilder::Options::StatusToString
@@ -583,11 +612,6 @@ _ZNK10tensorflow3gtl7FlatSet14const_iteratoreqERKS2_|tensorflow::gtl::FlatSet::c
 _ZNK10tensorflow3gtl7FlatSetneERKNS0_7FlatSetIT_T0_T1_EE|tensorflow::gtl::FlatSet::operator!=
 _ZN10tensorflow3gtl7FlatSetaSERKNS0_7FlatSetIT_T0_T1_EE|tensorflow::gtl::FlatSet::operator=
 _ZNK10tensorflow3gtl7FlatSeteqERKNS0_7FlatSetIT_T0_T1_EE|tensorflow::gtl::FlatSet::operator==
-_ZN3xla8StatusOraSERKN10tensorflow6StatusE|xla::StatusOr::operator=
-_ZN3xla17internal_statusor12StatusOrDataaSERKNS0_12StatusOrDataIT_EE|xla::internal_statusor::StatusOrData::operator=
-_ZN3xla13status_macros15MakeErrorStream25MakeErrorStreamWithOutputcvN10tensorflow6StatusEEv|xla::status_macros::MakeErrorStream::MakeErrorStreamWithOutput::operator Status
-_ZNK3xla13status_macros22StatusAdaptorForMacroscvbEv|xla::status_macros::StatusAdaptorForMacros::operator bool
-_ZN3xla13status_macros22StatusAdaptorForMacrosaSERKS1_|xla::status_macros::StatusAdaptorForMacros::operator=
 _ZN9perftools8gputools16DeviceMemoryBase6opaqueEv|perftools::gputools::DeviceMemoryBase::opaque
 _ZNK9perftools8gputools16DeviceMemoryBaseneEDn|perftools::gputools::DeviceMemoryBase::operator!=
 _ZNK9perftools8gputools16DeviceMemoryBaseeqEDn|perftools::gputools::DeviceMemoryBase::operator==
@@ -616,23 +640,6 @@ _ZN10tensorflow3VaraSERKS0_|tensorflow::Var::operator=
 _ZNK10tensorflow11XlaCompiler7optionsEv|tensorflow::XlaCompiler::options
 _ZN10tensorflow11XlaResourceaSERKS0_|tensorflow::XlaResource::operator=
 _ZN10tensorflow4core6BitmapaSERKS1_|tensorflow::core::Bitmap::operator=
-_ZN10tensorflow3gtl17internal_optional13optional_data6assignEOT_|tensorflow::gtl::internal_optional::optional_data::assign
-_ZN10tensorflow3gtl17internal_optional13optional_data9constructEDpOT_|tensorflow::gtl::internal_optional::optional_data::construct
-_ZN10tensorflow3gtl17internal_optional13optional_dataaSERKNS1_13optional_dataIT_EE|tensorflow::gtl::internal_optional::optional_data::operator=
-_ZN10tensorflow3gtl17internal_optional13optional_data7pointerEv|tensorflow::gtl::internal_optional::optional_data::pointer
-_ZN10tensorflow3gtl17internal_optional23optional_data_dtor_base8destructEv|tensorflow::gtl::internal_optional::optional_data_dtor_base::destruct
-_ZN10tensorflow3gtlneERKNS0_8optionalIT_EES5_|tensorflow::gtl::operator!=
-_ZN10tensorflow3gtleqERKNS0_8optionalIT_EES5_|tensorflow::gtl::operator==
-_ZN10tensorflow3gtl8optional7emplaceEDpOT_|tensorflow::gtl::optional::emplace
-_ZNK10tensorflow3gtl8optional9has_valueEv|tensorflow::gtl::optional::has_value
-_ZNK10tensorflow3gtl8optionalcvbEv|tensorflow::gtl::optional::operator bool
-_ZNKR10tensorflow3gtl8optionaldeEv|tensorflow::gtl::optional::operator*
-_ZN10tensorflow3gtl8optionalaSENS0_9nullopt_tE|tensorflow::gtl::optional::operator=
-_ZNK10tensorflow3gtl8optional9referenceEv|tensorflow::gtl::optional::reference
-_ZN10tensorflow3gtl8optional5resetEv|tensorflow::gtl::optional::reset
-_ZN10tensorflow3gtl8optional4swapERNS0_8optionalIT_EE|tensorflow::gtl::optional::swap
-_ZNKR10tensorflow3gtl8optional5valueEv|tensorflow::gtl::optional::value
-_ZNKR10tensorflow3gtl8optional8value_orEOT_|tensorflow::gtl::optional::value_or
 _ZN3xla21AotCompilationOptionsaSERKS0_|xla::AotCompilationOptions::operator=
 _ZN3xla20AotCompilationResultaSERKS0_|xla::AotCompilationResult::operator=
 _ZNK3xla5ArrayneERKNS_5ArrayIT_EE|xla::Array::operator!=
@@ -656,9 +663,6 @@ _ZN3xla11LocalClientaSERKS0_|xla::LocalClient::operator=
 _ZN3xla12LocalServiceaSERKS0_|xla::LocalService::operator=
 _ZN3xla4Pool7DeleterclEPT_|xla::Pool::Deleter::operator()
 _ZN3xla18ScopedShapedBufferaSERKS0_|xla::ScopedShapedBuffer::operator=
-_ZNK3xla10ShapeIndexneERKS0_|xla::ShapeIndex::operator!=
-_ZNK3xla10ShapeIndexeqERKS0_|xla::ShapeIndex::operator==
-_ZNK3xla10ShapeIndexixEm|xla::ShapeIndex::operator[]
 _ZNK3xla9ShapeTreeneERKNS_9ShapeTreeIT_EE|xla::ShapeTree::operator!=
 _ZN3xla9ShapeTreeaSERKNS_9ShapeTreeIT_EE|xla::ShapeTree::operator=
 _ZNK3xla9ShapeTreeeqERKNS_9ShapeTreeIT_EE|xla::ShapeTree::operator==
@@ -909,9 +913,6 @@ _ZNSt14basic_ifstream4openEPKcSt13_Ios_Openmode|std::basic_ifstream::open
 _ZNSt14basic_ifstreamaSERKSt14basic_ifstreamIT_T0_E|std::basic_ifstream::operator=
 _ZNSt14basic_ofstream4openEPKcSt13_Ios_Openmode|std::basic_ofstream::open
 _ZNSt14basic_ofstreamaSERKSt14basic_ofstreamIT_T0_E|std::basic_ofstream::operator=
-_ZNKSt8messages4openERKSsRKSt6locale|std::messages::open
-_ZNSt15wbuffer_convertaSERKSt15wbuffer_convertIT_T0_T1_E|std::wbuffer_convert::operator=
-_ZNSt15wstring_convertaSERKSt15wstring_convertIT_T0_T1_T2_E|std::wstring_convert::operator=
 _ZN4toco6tflite7Options7BuiltinEN6tflite14BuiltinOptionsEN11flatbuffers6OffsetIvEE|toco::tflite::Options::Builtin
 _ZN4toco6tflite7Options6CustomEN11flatbuffers6OffsetINS2_6VectorIhEEEE|toco::tflite::Options::Custom
 _ZNK4toco6tflite7details11OperatorKey4HashclERKS2_|toco::tflite::details::OperatorKey::Hash::operator()

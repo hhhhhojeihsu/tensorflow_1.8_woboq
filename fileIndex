@@ -190,6 +190,22 @@ tensorflow/tensorflow/cc/training/queue_runner.cc
 tensorflow/tensorflow/cc/training/queue_runner.h
 tensorflow/tensorflow/core/lib/core/blocking_counter.h
 tensorflow/tensorflow/core/kernels/ops_util.h
+tensorflow/tensorflow/compiler/aot/runtime.cc
+tensorflow/tensorflow/compiler/aot/runtime.h
+tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc
+tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h
+tensorflow/tensorflow/compiler/xla/executable_run_options.h
+tensorflow/tensorflow/compiler/xla/shape_util.h
+tensorflow/tensorflow/compiler/xla/layout_util.h
+tensorflow/tensorflow/compiler/xla/types.h
+tensorflow/third_party/eigen3/Eigen/Core
+tensorflow/tensorflow/compiler/xla/primitive_util.h
+tensorflow/tensorflow/compiler/xla/status_macros.h
+tensorflow/tensorflow/compiler/xla/statusor.h
+tensorflow/tensorflow/compiler/xla/status.h
+tensorflow/tensorflow/compiler/xla/statusor_internals.h
+tensorflow/tensorflow/core/lib/gtl/optional.h
+tensorflow/tensorflow/core/platform/test.h
 tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.cc
 tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.h
 tensorflow/tensorflow/core/common_runtime/optimization_registry.h
@@ -205,12 +221,6 @@ tensorflow/tensorflow/compiler/jit/legacy_flags/encapsulate_subgraphs_pass_flags
 tensorflow/tensorflow/core/util/command_line_flags.h
 tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.h
 tensorflow/tensorflow/compiler/tf2xla/const_analysis.h
-tensorflow/tensorflow/compiler/xla/status_macros.h
-tensorflow/tensorflow/compiler/xla/statusor.h
-tensorflow/tensorflow/compiler/xla/status.h
-tensorflow/tensorflow/compiler/xla/statusor_internals.h
-tensorflow/tensorflow/compiler/xla/types.h
-tensorflow/third_party/eigen3/Eigen/Core
 tensorflow/tensorflow/core/graph/graph_def_builder.h
 tensorflow/tensorflow/core/lib/gtl/flatset.h
 tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc
@@ -241,11 +251,7 @@ tensorflow/tensorflow/compiler/xla/client/global_data.h
 tensorflow/tensorflow/compiler/xla/client/xla_client/xla_computation.h
 tensorflow/tensorflow/compiler/xla/literal_util.h
 tensorflow/tensorflow/compiler/xla/index_util.h
-tensorflow/tensorflow/compiler/xla/layout_util.h
-tensorflow/tensorflow/compiler/xla/primitive_util.h
 tensorflow/tensorflow/compiler/xla/shape_tree.h
-tensorflow/tensorflow/compiler/xla/shape_util.h
-tensorflow/tensorflow/core/lib/gtl/optional.h
 tensorflow/tensorflow/compiler/xla/sparse_index_array.h
 tensorflow/tensorflow/compiler/xla/util.h
 tensorflow/tensorflow/core/lib/math/math_util.h
@@ -306,7 +312,6 @@ tensorflow/tensorflow/stream_executor/shared_memory_config.h
 tensorflow/tensorflow/stream_executor/stream_executor_internal.h
 tensorflow/tensorflow/stream_executor/plugin_registry.h
 tensorflow/tensorflow/stream_executor/timer.h
-tensorflow/tensorflow/compiler/xla/executable_run_options.h
 tensorflow/tensorflow/compiler/xla/service/compiler.h
 tensorflow/tensorflow/compiler/xla/service/executable.h
 tensorflow/tensorflow/compiler/xla/legacy_flags/debug_options_flags.h
@@ -455,6 +460,9 @@ tensorflow/tensorflow/compiler/tf2xla/kernels/image_ops.cc
 tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc
 tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops.cc
 tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops.h
+tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_kernel_argmax_float_1d.cc
+tensorflow/tensorflow/compiler/xla/service/cpu/custom_call_target_registry.h
+tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_kernel_argmax_float_2d.cc
 tensorflow/tensorflow/compiler/tf2xla/kernels/l2loss_op.cc
 tensorflow/tensorflow/compiler/tf2xla/kernels/lrn_ops.cc
 tensorflow/tensorflow/compiler/tf2xla/kernels/matmul_op.cc
@@ -533,6 +541,7 @@ tensorflow/tensorflow/compiler/tf2xla/str_util.h
 tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.cc
 tensorflow/tensorflow/compiler/tf2xla/type_util.cc
 tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.cc
+tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.cc
 tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc
 tensorflow/tensorflow/compiler/tf2xla/xla_context.cc
 tensorflow/tensorflow/compiler/tf2xla/xla_cpu_backend.cc
@@ -679,7 +688,6 @@ tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.cc
 tensorflow/tensorflow/compiler/xla/service/cpu/cpu_transfer_manager.h
 tensorflow/tensorflow/compiler/xla/service/generic_transfer_manager.h
 tensorflow/tensorflow/compiler/xla/service/cpu/custom_call_target_registry.cc
-tensorflow/tensorflow/compiler/xla/service/cpu/custom_call_target_registry.h
 tensorflow/tensorflow/compiler/xla/service/cpu/disassembler.cc
 tensorflow/tensorflow/compiler/xla/service/cpu/dot_op_emitter.cc
 tensorflow/tensorflow/compiler/xla/service/cpu/vector_support_library.h
@@ -2425,6 +2433,9 @@ tensorflow/tensorflow/core/platform/default/device_tracer.cc
 tensorflow/tensorflow/core/platform/default/logging.cc
 tensorflow/tensorflow/core/platform/default/mutex.cc
 tensorflow/tensorflow/core/platform/default/protobuf.cc
+tensorflow/tensorflow/core/platform/default/test_benchmark.cc
+tensorflow/tensorflow/core/platform/test_benchmark.h
+tensorflow/tensorflow/core/util/reporter.h
 tensorflow/tensorflow/core/platform/default/tracing.cc
 tensorflow/tensorflow/core/platform/denormal.cc
 tensorflow/tensorflow/core/platform/env.cc
@@ -2446,6 +2457,7 @@ tensorflow/tensorflow/core/platform/posix/posix_file_system.cc
 tensorflow/tensorflow/core/platform/posix/subprocess.cc
 tensorflow/tensorflow/core/platform/subprocess.h
 tensorflow/tensorflow/core/platform/posix/subprocess.h
+tensorflow/tensorflow/core/platform/posix/test.cc
 tensorflow/tensorflow/core/platform/posix/tracing.cc
 tensorflow/tensorflow/core/platform/profile_utils/android_armv7a_cpu_utils_helper.cc
 tensorflow/tensorflow/core/platform/profile_utils/android_armv7a_cpu_utils_helper.h
@@ -2456,6 +2468,9 @@ tensorflow/tensorflow/core/platform/protobuf_util.cc
 tensorflow/tensorflow/core/platform/setround.cc
 tensorflow/tensorflow/core/platform/stacktrace_handler.cc
 tensorflow/tensorflow/core/platform/tensor_coding.cc
+tensorflow/tensorflow/core/platform/test.cc
+tensorflow/tensorflow/core/platform/test_main.cc
+tensorflow/tensorflow/core/platform/stacktrace_handler.h
 tensorflow/tensorflow/core/platform/tracing.cc
 tensorflow/tensorflow/core/platform/variant_coding.cc
 tensorflow/tensorflow/core/profiler/internal/advisor/internal_checker_runner_dummy.cc
@@ -2519,6 +2534,7 @@ tensorflow/tensorflow/core/util/proto/descriptor_pool_registry.cc
 tensorflow/tensorflow/core/util/proto/descriptor_pool_registry.h
 tensorflow/tensorflow/core/util/proto/descriptors.cc
 tensorflow/tensorflow/core/util/proto/local_descriptor_pool_registration.cc
+tensorflow/tensorflow/core/util/reporter.cc
 tensorflow/tensorflow/core/util/rpc/rpc_factory.cc
 tensorflow/tensorflow/core/util/rpc/rpc_factory_registry.cc
 tensorflow/tensorflow/core/util/saved_tensor_slice_util.cc

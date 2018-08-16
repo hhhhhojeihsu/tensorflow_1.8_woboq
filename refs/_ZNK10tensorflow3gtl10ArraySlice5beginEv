@@ -1,12 +1,12 @@
 <def f='tensorflow/tensorflow/core/lib/gtl/array_slice.h' l='183' type='const_iterator tensorflow::gtl::ArraySlice::begin() const'/>
 <use f='tensorflow/tensorflow/cc/framework/ops.h' l='273' u='c' c='_ZN10tensorflow9InputListC1ERKNS_3gtl10ArraySliceINS_5InputEEE'/>
 <use f='tensorflow/tensorflow/cc/framework/scope.cc' l='367' u='c' c='_ZNK10tensorflow5Scope23WithControlDependenciesERKNS_3gtl10ArraySliceINS_9OperationEEE'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='666' u='c' c='_ZN3xla9ShapeUtil20ForEachIndexInternalERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_S7_RKT_b'/>
 <use f='tensorflow/tensorflow/compiler/xla/array.h' l='106' u='c' c='_ZN3xla5ArrayC1EN10tensorflow3gtl10ArraySliceIxEET_'/>
 <use f='tensorflow/tensorflow/compiler/xla/array.h' l='447' u='c' c='_ZNK3xla5Array5SliceEN10tensorflow3gtl10ArraySliceIxEES4_'/>
 <use f='tensorflow/tensorflow/compiler/xla/array.h' l='447' u='c' c='_ZNK3xla5Array5SliceEN10tensorflow3gtl10ArraySliceIxEES4_'/>
 <use f='tensorflow/tensorflow/compiler/xla/array.h' l='470' u='c' c='_ZN3xla5Array11UpdateSliceERKNS_5ArrayIT_EEN10tensorflow3gtl10ArraySliceIxEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/array.h' l='489' u='c' c='_ZN3xla5Array7ReshapeEN10tensorflow3gtl10ArraySliceIxEE'/>
-<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='666' u='c' c='_ZN3xla9ShapeUtil20ForEachIndexInternalERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_S7_RKT_b'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1314' u='c' c='_ZN3xla7Literal16PopulateInternalERKT0_b'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_sharding.h' l='89' u='c' c='_ZN3xla11HloSharding5TupleERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIS0_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/batchtospace_op.cc' l='72' u='c' c='_ZN10tensorflow12_GLOBAL__N_112BatchToSpaceEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS_3gtl10ArraySliceIxEERKNS3_7LiteralE'/>

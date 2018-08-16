@@ -27,6 +27,7 @@
 <use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='58' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117NextIterationNameERKNS_5ScopeEi'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='133' u='c' c='_ZN10tensorflow11QueueRunner4StopEPNS_7SessionE'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='189' u='c' c='_ZN10tensorflow11QueueRunner3RunEPNS_7SessionERKSs'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='276' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='670' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph13MakeNodeImageEPKNS_5GraphEPNS_4NodeE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='671' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph13MakeNodeImageEPKNS_5GraphEPNS_4NodeE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1289' u='c' c='_ZN10tensorflow12_GLOBAL__N_112IsInSubgraphERKSsS2_'/>
@@ -45,6 +46,7 @@
 <use f='tensorflow/tensorflow/compiler/tf2xla/sharding_util.cc' l='103' u='c' c='_ZN10tensorflow35SetShardingDeviceAssignmentFromNodeERKNS_4NodeEPS0_'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.cc' l='42' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ValidateTensorIdERKNS_6tf2xla8TensorIdE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.cc' l='53' u='c' c='_ZN10tensorflow12_GLOBAL__N_119CheckNameDuplicatesERKSsS2_PSt3setISsSt4lessISsESaISsEE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.cc' l='73' u='c' c='_ZN10tensorflow12_GLOBAL__N_115LookupNameIndexERKSsPPKc'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='1353' u='c' c='_ZN3xla10XlaBuilder14AddInstructionEONS_19HloInstructionProtoENS_9HloOpcodeEN10tensorflow3gtl10ArraySliceINS_5XlaOpEEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/metric_table_report.cc' l='153' u='c' c='_ZN3xla17MetricTableReport19AppendCategoryTableEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/metric_table_report.cc' l='203' u='c' c='_ZN3xla17MetricTableReport16AppendEntryTableEv'/>
@@ -117,7 +119,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/args.h' l='133' u='c' c='_ZN4toco3ArgINS_13StringMapListEE5parseESs'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/model_cmdline_flags.cc' l='446' u='c' c='_ZN4toco20ParseModelFlagsOrDieEPiPPc'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_util.cc' l='120' u='c' c='_ZN4toco15LogDumpGraphDefEiRKSsRKN10tensorflow8GraphDefE'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='276' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='178' u='c' c='_ZN4toco6tflite19ExportOperatorCodesERKNS_5ModelERKSt3mapINS_12OperatorTypeESt10unique_ptrINS0_12BaseOperatorESt14default_deleteIS7_EESt4lessIS5_ESaIS7482138'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='206' u='c' c='_ZN4toco6tflite19ExportOperatorCodesERKNS_5ModelERKSt3mapINS_12OperatorTypeESt10unique_ptrINS0_12BaseOperatorESt14default_deleteIS7_EESt4lessIS5_ESaIS7482138'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco.cc' l='141' u='c' c='main'/>
@@ -390,6 +391,7 @@
 <use f='tensorflow/tensorflow/core/util/equal_graph_def.cc' l='263' u='c' c='_ZN10tensorflow11NodeDefHashERKNS_7NodeDefERKNS_20EqualGraphDefOptionsE'/>
 <use f='tensorflow/tensorflow/core/util/events_writer.cc' l='52' u='c' c='_ZN10tensorflow12EventsWriter12InitIfNeededEv'/>
 <use f='tensorflow/tensorflow/core/util/events_writer.cc' l='95' u='c' c='_ZN10tensorflow12EventsWriter8FileNameEv'/>
+<use f='tensorflow/tensorflow/core/util/reporter.cc' l='63' u='c' c='_ZN10tensorflow12TestReporter10InitializeEv'/>
 <use f='tensorflow/tensorflow/core/util/saved_tensor_slice_util.cc' l='92' u='c' c='_ZN10tensorflow10checkpoint18ParseShapeAndSliceERKSsPNS_11TensorShapeEPNS_11TensorSliceES4_'/>
 <use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1410' u='c' c='_ZN12_GLOBAL__N_113CheckInputsOkEP7_objectiRKN10tensorflow5OpDefE'/>
 <use f='tensorflow/tensorflow/python/eager/pywrap_tfe_src.cc' l='1411' u='c' c='_ZN12_GLOBAL__N_113CheckInputsOkEP7_objectiRKN10tensorflow5OpDefE'/>

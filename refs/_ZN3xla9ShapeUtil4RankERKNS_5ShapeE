@@ -1,6 +1,8 @@
 <dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='266' type='static int64 xla::ShapeUtil::Rank(const xla::Shape &amp; shape)'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='281' u='c' c='_ZN3xla9ShapeUtil8IsScalarERKNS_5ShapeE'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='659' u='c' c='_ZN3xla9ShapeUtil20ForEachIndexInternalERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_S7_RKT_b'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='264'>// Returns the rank (number of dimensions) of the given shape.
+  // Precondition: !IsTuple(shape)</doc>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1174' u='c' c='_ZN3xla7Literal19AppendSparseElementEN10tensorflow3gtl10ArraySliceIxEET_RKNS_10ShapeIndexE'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1201' u='c' c='_ZNK3xla7Literal8EachCellESt8functionIFvN10tensorflow3gtl10ArraySliceIxEET_EE'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1210' u='c' c='_ZN3xla7Literal10PopulateR1EN10tensorflow3gtl10ArraySliceIT_EE'/>
@@ -8,8 +10,6 @@
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1249' u='c' c='_ZN3xla7Literal17PopulateFromArrayERKNS_5ArrayIT_EE'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1277' u='c' c='_ZN3xla7Literal14PopulateSparseENS_16SparseIndexArrayEN10tensorflow3gtl10ArraySliceIT_EEb'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1299' u='c' c='_ZN3xla7Literal16PopulateInternalERKT0_b'/>
-<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='264'>// Returns the rank (number of dimensions) of the given shape.
-  // Precondition: !IsTuple(shape)</doc>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/batchtospace_op.cc' l='42' u='c' c='_ZN10tensorflow12_GLOBAL__N_112BatchToSpaceEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS_3gtl10ArraySliceIxEERKNS3_7LiteralE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/mirror_pad_op.cc' l='32' u='c' c='_ZN10tensorflow12_GLOBAL__N_111MirrorPadOp11DoMirrorPadERKN3xla21ComputationDataHandleERKNS2_5ShapeERKNS2_7LiteralEPNS2_18ComputationBuilderE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/spacetobatch_op.cc' l='42' u='c' c='_ZN10tensorflow12_GLOBAL__N_112SpaceToBatchEPNS_18XlaOpKernelContextERKN3xla21ComputationDataHandleENS_8DataTypeERKNS_11TensorShapeENS_3gtl10ArraySliceIxEERKNS3_7LiteralE'/>

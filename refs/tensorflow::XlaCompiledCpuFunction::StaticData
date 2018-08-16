@@ -1,0 +1,16 @@
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='59' ll='89'/>
+<size>88</size>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='56'>// StaticData represents the state necessary to run an XLA-compiled
+  // function. For JIT this is backed by data in XlaJitCompiledCpuFunction; for
+  // AOT this is backed by data compiled into the object file.</doc>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::raw_function' o='0' t='RawFunction'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::arg_sizes' o='64' t='const intptr_t *'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::num_args' o='128' t='size_t'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::temp_sizes' o='192' t='const intptr_t *'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::num_temps' o='256' t='size_t'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::result_index' o='320' t='size_t'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::arg_names' o='384' t='const char **'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::result_names' o='448' t='const char **'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::program_shape' o='512' t='const xla::ProgramShape *'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::hlo_profile_printer_data' o='576' t='const xla::HloProfilePrinterData *'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::StaticData::profile_counters_size' o='640' t='int64'/>

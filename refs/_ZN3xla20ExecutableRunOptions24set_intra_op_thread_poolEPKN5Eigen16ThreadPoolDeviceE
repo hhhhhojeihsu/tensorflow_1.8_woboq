@@ -1,7 +1,8 @@
 <dec f='tensorflow/tensorflow/compiler/xla/executable_run_options.h' l='75' type='xla::ExecutableRunOptions &amp; xla::ExecutableRunOptions::set_intra_op_thread_pool(const Eigen::ThreadPoolDevice * intra_op_thread_pool)'/>
-<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='184' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='111' u='c' c='_ZN10tensorflow22XlaCompiledCpuFunction15set_thread_poolEPKN5Eigen16ThreadPoolDeviceE'/>
 <doc f='tensorflow/tensorflow/compiler/xla/executable_run_options.h' l='73'>// Sets the thread pool device on which to run Eigen subcomputations.
   // Does not take ownership.</doc>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='184' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='69' u='c' c='_ZN10tensorflow20XlaCompileOnDemandOp3RunEPNS_15OpKernelContextERKNS_9XlaDevice8MetadataEPKNS_11XlaCompiler17CompilationResultEPN3xla15LocalExecutableE'/>
 <def f='tensorflow/tensorflow/compiler/xla/executable_run_options.cc' l='59' ll='63' type='xla::ExecutableRunOptions &amp; xla::ExecutableRunOptions::set_intra_op_thread_pool(const Eigen::ThreadPoolDevice * intra_op_thread_pool)'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='587' u='c' c='_ZN3xla7Service32ExecuteParallelAndRegisterResultEN10tensorflow3gtl10ArraySliceIPNS_10ExecutableEEENS3_ISt6vectorIS7_IPKNS_12ShapedBufferESaISA_EESaIS14271253'/>

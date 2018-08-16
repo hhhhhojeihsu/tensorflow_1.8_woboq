@@ -37,9 +37,10 @@ _ZNK10tensorflow9DeviceSet13client_deviceEv|tensorflow::DeviceSet::client_device
 _ZN10tensorflow12EagerContext15ClearAsyncErrorEv|tensorflow::EagerContext::ClearAsyncError
 _ZNK10tensorflow5Scope15ClearColocationEv|tensorflow::Scope::ClearColocation
 _ZN10tensorflow11QueueRunner19ClearErrorCallbacksEv|tensorflow::QueueRunner::ClearErrorCallbacks
+_ZNKSt8messages5closeEi|std::messages::close
+_ZN3xla17internal_statusor12StatusOrData5ClearEv|xla::internal_statusor::StatusOrData::Clear
 _ZN10tensorflow3gtl7FlatSet5clearEv|tensorflow::gtl::FlatSet::clear
 _ZN10tensorflow3gtl7FlatSet15clear_no_resizeEv|tensorflow::gtl::FlatSet::clear_no_resize
-_ZN3xla17internal_statusor12StatusOrData5ClearEv|xla::internal_statusor::StatusOrData::Clear
 _ZNK9perftools8gputools17DeviceDescription14clock_rate_ghzEv|perftools::gputools::DeviceDescription::clock_rate_ghz
 _ZNK10tensorflow19XlaCompilationCache6clientEv|tensorflow::XlaCompilationCache::client
 _ZNK10tensorflow11XlaCompiler6clientEv|tensorflow::XlaCompiler::client
@@ -127,7 +128,6 @@ _ZNSt13basic_filebuf5closeEv|std::basic_filebuf::close
 _ZNSt13basic_fstream5closeEv|std::basic_fstream::close
 _ZNSt14basic_ifstream5closeEv|std::basic_ifstream::close
 _ZNSt14basic_ofstream5closeEv|std::basic_ofstream::close
-_ZNKSt8messages5closeEi|std::messages::close
 _ZN4toco10CloneArrayEPNS_5ModelERKSsS3_|toco::CloneArray
 _ZN10tensorflow12tensorforest19ClassificationStats13AddSplitStatsEPKNS0_11InputTargetEi|tensorflow::tensorforest::ClassificationStats::AddSplitStats
 _ZN10tensorflow12tensorforest19ClassificationStats29ClassificationAddRightExampleEixf|tensorflow::tensorforest::ClassificationStats::ClassificationAddRightExample
@@ -292,6 +292,7 @@ _ZN10tensorflow18ClockCycleProfiler5StartEv|tensorflow::ClockCycleProfiler::Star
 _ZN10tensorflow18ClockCycleProfiler4StopEv|tensorflow::ClockCycleProfiler::Stop
 _ZN10tensorflow12EventsWriter5CloseEv|tensorflow::EventsWriter::Close
 _ZN10tensorflow17PresizedCuckooMap5ClearEy|tensorflow::PresizedCuckooMap::Clear
+_ZN10tensorflow12TestReporter5CloseEv|tensorflow::TestReporter::Close
 _ZN10tensorflow16FileOutputBuffer5CloseEv|tensorflow::FileOutputBuffer::Close
 _ZN10tensorflow13MovingAverage5ClearEv|tensorflow::MovingAverage::Clear
 _ZN10tensorflow16ClearDecrefCacheEv|tensorflow::ClearDecrefCache
