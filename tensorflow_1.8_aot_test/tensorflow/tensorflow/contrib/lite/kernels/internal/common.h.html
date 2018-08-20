@@ -52,7 +52,7 @@
 <tr><th id="39">39</th><td><u>#pragma GCC diagnostic ignored "-Wnarrowing"</u></td></tr>
 <tr><th id="40">40</th><td><u>#pragma GCC diagnostic ignored "-Wsequence-point"</u></td></tr>
 <tr><th id="41">41</th><td></td></tr>
-<tr><th id="42">42</th><td><u>#include "NEON_2_SSE.h"</u></td></tr>
+<tr><th id="42">42</th><td><u>#include <span class='error' title="&apos;NEON_2_SSE.h&apos; file not found">"NEON_2_SSE.h"</span></u></td></tr>
 <tr><th id="43">43</th><td></td></tr>
 <tr><th id="44">44</th><td><u>#pragma GCC diagnostic pop</u></td></tr>
 <tr><th id="45">45</th><td><u>#<span data-ppcond="30">endif</span></u></td></tr>
@@ -102,28 +102,28 @@
 <tr><th id="89">89</th><td></td></tr>
 <tr><th id="90">90</th><td><b>inline</b> <a class="typedef" href="compatibility.h.html#int32" title='int32' data-type='std::int32_t' data-ref="int32">int32</a> <dfn class="decl def" id="_ZN6tflite43MultiplyByQuantizedMultiplierSmallerThanOneEiii" title='tflite::MultiplyByQuantizedMultiplierSmallerThanOne' data-ref="_ZN6tflite43MultiplyByQuantizedMultiplierSmallerThanOneEiii">MultiplyByQuantizedMultiplierSmallerThanOne</dfn>(</td></tr>
 <tr><th id="91">91</th><td>    <a class="typedef" href="compatibility.h.html#int32" title='int32' data-type='std::int32_t' data-ref="int32">int32</a> <dfn class="local col0 decl" id="10x" title='x' data-type='int32' data-ref="10x">x</dfn>, <a class="typedef" href="compatibility.h.html#int32" title='int32' data-type='std::int32_t' data-ref="int32">int32</a> <dfn class="local col1 decl" id="11quantized_multiplier" title='quantized_multiplier' data-type='int32' data-ref="11quantized_multiplier">quantized_multiplier</dfn>, <em>int</em> <dfn class="local col2 decl" id="12right_shift" title='right_shift' data-type='int' data-ref="12right_shift">right_shift</dfn>) {</td></tr>
-<tr><th id="92">92</th><td>  <b>using</b> <span class="namespace">gemmlowp::</span>RoundingDivideByPOT;</td></tr>
-<tr><th id="93">93</th><td>  <b>using</b> <span class="namespace">gemmlowp::</span>SaturatingRoundingDoublingHighMul;</td></tr>
-<tr><th id="94">94</th><td>  <b>return</b> <span class='ref' title='gemmlowp::RoundingDivideByPOT' data-ref="_ZN8gemmlowp19RoundingDivideByPOTET_i">RoundingDivideByPOT</span>(</td></tr>
-<tr><th id="95">95</th><td>      <span class='ref' title='gemmlowp::SaturatingRoundingDoublingHighMul' data-ref="_ZN8gemmlowp33SaturatingRoundingDoublingHighMulET_S0_">SaturatingRoundingDoublingHighMul</span>(<a class="local col0 ref" href="#10x" title='x' data-ref="10x">x</a>, <a class="local col1 ref" href="#11quantized_multiplier" title='quantized_multiplier' data-ref="11quantized_multiplier">quantized_multiplier</a>), <a class="local col2 ref" href="#12right_shift" title='right_shift' data-ref="12right_shift">right_shift</a>);</td></tr>
+<tr><th id="92">92</th><td>  <b>using</b> <span class='error' title="use of undeclared identifier &apos;gemmlowp&apos;">gemmlowp</span>::RoundingDivideByPOT;</td></tr>
+<tr><th id="93">93</th><td>  <b>using</b> <span class='error' title="use of undeclared identifier &apos;gemmlowp&apos;">gemmlowp</span>::SaturatingRoundingDoublingHighMul;</td></tr>
+<tr><th id="94">94</th><td>  <b>return</b> RoundingDivideByPOT(</td></tr>
+<tr><th id="95">95</th><td>      <span class='error' title="use of undeclared identifier &apos;SaturatingRoundingDoublingHighMul&apos;">SaturatingRoundingDoublingHighMul</span>(x, quantized_multiplier), right_shift);</td></tr>
 <tr><th id="96">96</th><td>}</td></tr>
 <tr><th id="97">97</th><td></td></tr>
 <tr><th id="98">98</th><td><b>inline</b> <a class="typedef" href="compatibility.h.html#int32" title='int32' data-type='std::int32_t' data-ref="int32">int32</a> <dfn class="decl def" id="_ZN6tflite43MultiplyByQuantizedMultiplierGreaterThanOneEiii" title='tflite::MultiplyByQuantizedMultiplierGreaterThanOne' data-ref="_ZN6tflite43MultiplyByQuantizedMultiplierGreaterThanOneEiii">MultiplyByQuantizedMultiplierGreaterThanOne</dfn>(</td></tr>
 <tr><th id="99">99</th><td>    <a class="typedef" href="compatibility.h.html#int32" title='int32' data-type='std::int32_t' data-ref="int32">int32</a> <dfn class="local col3 decl" id="13x" title='x' data-type='int32' data-ref="13x">x</dfn>, <a class="typedef" href="compatibility.h.html#int32" title='int32' data-type='std::int32_t' data-ref="int32">int32</a> <dfn class="local col4 decl" id="14quantized_multiplier" title='quantized_multiplier' data-type='int32' data-ref="14quantized_multiplier">quantized_multiplier</dfn>, <em>int</em> <dfn class="local col5 decl" id="15left_shift" title='left_shift' data-type='int' data-ref="15left_shift">left_shift</dfn>) {</td></tr>
-<tr><th id="100">100</th><td>  <b>using</b> <span class="namespace">gemmlowp::</span>SaturatingRoundingDoublingHighMul;</td></tr>
-<tr><th id="101">101</th><td>  <b>return</b> <span class='ref' title='gemmlowp::SaturatingRoundingDoublingHighMul' data-ref="_ZN8gemmlowp33SaturatingRoundingDoublingHighMulET_S0_">SaturatingRoundingDoublingHighMul</span>(<a class="local col3 ref" href="#13x" title='x' data-ref="13x">x</a> * (<var>1</var> &lt;&lt; <a class="local col5 ref" href="#15left_shift" title='left_shift' data-ref="15left_shift">left_shift</a>),</td></tr>
-<tr><th id="102">102</th><td>                                           <a class="local col4 ref" href="#14quantized_multiplier" title='quantized_multiplier' data-ref="14quantized_multiplier">quantized_multiplier</a>);</td></tr>
+<tr><th id="100">100</th><td>  <b>using</b> <span class='error' title="use of undeclared identifier &apos;gemmlowp&apos;">gemmlowp</span>::SaturatingRoundingDoublingHighMul;</td></tr>
+<tr><th id="101">101</th><td>  <b>return</b> <span class='error' title="use of undeclared identifier &apos;SaturatingRoundingDoublingHighMul&apos;">SaturatingRoundingDoublingHighMul</span>(x * (<var>1</var> &lt;&lt; left_shift),</td></tr>
+<tr><th id="102">102</th><td>                                           quantized_multiplier);</td></tr>
 <tr><th id="103">103</th><td>}</td></tr>
 <tr><th id="104">104</th><td></td></tr>
 <tr><th id="105">105</th><td><b>inline</b> <a class="typedef" href="compatibility.h.html#int32" title='int32' data-type='std::int32_t' data-ref="int32">int32</a> <dfn class="decl def" id="_ZN6tflite29MultiplyByQuantizedMultiplierEiii" title='tflite::MultiplyByQuantizedMultiplier' data-ref="_ZN6tflite29MultiplyByQuantizedMultiplierEiii">MultiplyByQuantizedMultiplier</dfn>(<a class="typedef" href="compatibility.h.html#int32" title='int32' data-type='std::int32_t' data-ref="int32">int32</a> <dfn class="local col6 decl" id="16x" title='x' data-type='int32' data-ref="16x">x</dfn>, <a class="typedef" href="compatibility.h.html#int32" title='int32' data-type='std::int32_t' data-ref="int32">int32</a> <dfn class="local col7 decl" id="17quantized_multiplier" title='quantized_multiplier' data-type='int32' data-ref="17quantized_multiplier">quantized_multiplier</dfn>,</td></tr>
 <tr><th id="106">106</th><td>                                           <em>int</em> <dfn class="local col8 decl" id="18shift" title='shift' data-type='int' data-ref="18shift">shift</dfn>) {</td></tr>
-<tr><th id="107">107</th><td>  <b>using</b> <span class="namespace">gemmlowp::</span>RoundingDivideByPOT;</td></tr>
-<tr><th id="108">108</th><td>  <b>using</b> <span class="namespace">gemmlowp::</span>SaturatingRoundingDoublingHighMul;</td></tr>
+<tr><th id="107">107</th><td>  <b>using</b> <span class='error' title="use of undeclared identifier &apos;gemmlowp&apos;">gemmlowp</span>::RoundingDivideByPOT;</td></tr>
+<tr><th id="108">108</th><td>  <b>using</b> <span class='error' title="use of undeclared identifier &apos;gemmlowp&apos;">gemmlowp</span>::SaturatingRoundingDoublingHighMul;</td></tr>
 <tr><th id="109">109</th><td>  <em>int</em> <dfn class="local col9 decl" id="19left_shift" title='left_shift' data-type='int' data-ref="19left_shift">left_shift</dfn> = <a class="local col8 ref" href="#18shift" title='shift' data-ref="18shift">shift</a> &gt; <var>0</var> ? <a class="local col8 ref" href="#18shift" title='shift' data-ref="18shift">shift</a> : <var>0</var>;</td></tr>
 <tr><th id="110">110</th><td>  <em>int</em> <dfn class="local col0 decl" id="20right_shift" title='right_shift' data-type='int' data-ref="20right_shift">right_shift</dfn> = <a class="local col8 ref" href="#18shift" title='shift' data-ref="18shift">shift</a> &gt; <var>0</var> ? <var>0</var> : -<a class="local col8 ref" href="#18shift" title='shift' data-ref="18shift">shift</a>;</td></tr>
-<tr><th id="111">111</th><td>  <b>return</b> <span class='ref' title='gemmlowp::RoundingDivideByPOT' data-ref="_ZN8gemmlowp19RoundingDivideByPOTET_i">RoundingDivideByPOT</span>(<span class='ref' title='gemmlowp::SaturatingRoundingDoublingHighMul' data-ref="_ZN8gemmlowp33SaturatingRoundingDoublingHighMulET_S0_">SaturatingRoundingDoublingHighMul</span>(</td></tr>
-<tr><th id="112">112</th><td>                                 <a class="local col6 ref" href="#16x" title='x' data-ref="16x">x</a> * (<var>1</var> &lt;&lt; <a class="local col9 ref" href="#19left_shift" title='left_shift' data-ref="19left_shift">left_shift</a>), <a class="local col7 ref" href="#17quantized_multiplier" title='quantized_multiplier' data-ref="17quantized_multiplier">quantized_multiplier</a>),</td></tr>
-<tr><th id="113">113</th><td>                             <a class="local col0 ref" href="#20right_shift" title='right_shift' data-ref="20right_shift">right_shift</a>);</td></tr>
+<tr><th id="111">111</th><td>  <b>return</b> RoundingDivideByPOT(<span class='error' title="use of undeclared identifier &apos;SaturatingRoundingDoublingHighMul&apos;">SaturatingRoundingDoublingHighMul</span>(</td></tr>
+<tr><th id="112">112</th><td>                                 x * (<var>1</var> &lt;&lt; left_shift), quantized_multiplier),</td></tr>
+<tr><th id="113">113</th><td>                             right_shift);</td></tr>
 <tr><th id="114">114</th><td>}</td></tr>
 <tr><th id="115">115</th><td></td></tr>
 <tr><th id="116">116</th><td>}  <i>// namespace tflite</i></td></tr>
@@ -131,6 +131,6 @@
 <tr><th id="118">118</th><td><u>#<span data-ppcond="15">endif</span>  // TENSORFLOW_CONTRIB_LITE_KERNELS_INTERNAL_COMMON_H_</u></td></tr>
 <tr><th id="119">119</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='../../toco/allocate_transient_arrays.cc.html'>tensorflow/tensorflow/contrib/lite/toco/allocate_transient_arrays.cc</a><br/>Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='../../toco/allocate_transient_arrays.cc.html'>tensorflow/tensorflow/contrib/lite/toco/allocate_transient_arrays.cc</a><br/>Generated on <em>2018-Aug-20</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

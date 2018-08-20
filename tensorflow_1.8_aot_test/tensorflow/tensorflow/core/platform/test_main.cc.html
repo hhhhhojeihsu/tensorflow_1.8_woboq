@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>test_main.cc source code [tensorflow/tensorflow/core/platform/test_main.cc] - Woboq Code Browser</title>
-<meta name="woboq:interestingDefinitions" content="main "/>
 <link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
 <link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
 <script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
@@ -45,23 +44,23 @@
 <tr><th id="31">31</th><td><u>#include <a href="test.h.html">"tensorflow/core/platform/test.h"</a></u></td></tr>
 <tr><th id="32">32</th><td><u>#include <a href="test_benchmark.h.html">"tensorflow/core/platform/test_benchmark.h"</a></u></td></tr>
 <tr><th id="33">33</th><td></td></tr>
-<tr><th id="34">34</th><td><span class="macro" title="__attribute__((visibility (&quot;default&quot;)))" data-ref="_M/GTEST_API_">GTEST_API_</span> <em>int</em> <dfn class="decl def" id="main" title='main' data-ref="main">main</dfn>(<em>int</em> <dfn class="local col1 decl" id="1argc" title='argc' data-type='int' data-ref="1argc">argc</dfn>, <em>char</em>** <dfn class="local col2 decl" id="2argv" title='argv' data-type='char **' data-ref="2argv">argv</dfn>) {</td></tr>
-<tr><th id="35">35</th><td>  <span class="namespace">std::</span><a class="ref" href="../../../../include/c++/5/iostream.html#std::cout" title='std::cout' data-ref="std::cout">cout</a> <a class="ref" href="../../../../include/c++/5/ostream.html#_ZStlsRSt13basic_ostreamIcT_EPKc" title='std::operator&lt;&lt;' data-ref="_ZStlsRSt13basic_ostreamIcT_EPKc">&lt;&lt;</a> <q>"Running main() from test_main.cc\n"</q>;</td></tr>
+<tr><th id="34">34</th><td><span class='error' title="unknown type name &apos;GTEST_API_&apos;">GTEST_API_</span> <span class='error' title="expected unqualified-id"><em>int</em></span> main(<em>int</em> argc, <em>char</em>** argv) {</td></tr>
+<tr><th id="35">35</th><td>  std::cout &lt;&lt; <q>"Running main() from test_main.cc\n"</q>;</td></tr>
 <tr><th id="36">36</th><td></td></tr>
-<tr><th id="37">37</th><td>  <span class="namespace">tensorflow::testing::</span><a class="ref" href="stacktrace_handler.h.html#_ZN10tensorflow7testing24InstallStacktraceHandlerEv" title='tensorflow::testing::InstallStacktraceHandler' data-ref="_ZN10tensorflow7testing24InstallStacktraceHandlerEv">InstallStacktraceHandler</a>();</td></tr>
-<tr><th id="38">38</th><td>  <span class="namespace">testing::</span><span class='ref' title='testing::InitGoogleTest' data-ref="_ZN7testing14InitGoogleTestEPiPPc">InitGoogleTest</span>(&amp;<a class="local col1 ref" href="#1argc" title='argc' data-ref="1argc">argc</a>, <a class="local col2 ref" href="#2argv" title='argv' data-ref="2argv">argv</a>);</td></tr>
-<tr><th id="39">39</th><td>  <b>for</b> (<em>int</em> <dfn class="local col3 decl" id="3i" title='i' data-type='int' data-ref="3i">i</dfn> = <var>1</var>; <a class="local col3 ref" href="#3i" title='i' data-ref="3i">i</a> &lt; <a class="local col1 ref" href="#1argc" title='argc' data-ref="1argc">argc</a>; <a class="local col3 ref" href="#3i" title='i' data-ref="3i">i</a>++) {</td></tr>
-<tr><th id="40">40</th><td>    <b>if</b> (<span class="namespace">tensorflow::</span><a class="type" href="../lib/core/stringpiece.h.html#tensorflow::StringPiece" title='tensorflow::StringPiece' data-ref="tensorflow::StringPiece">StringPiece</a><a class="ref" href="../lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc">(</a><a class="local col2 ref" href="#2argv" title='argv' data-ref="2argv">argv</a>[<a class="local col3 ref" href="#3i" title='i' data-ref="3i">i</a>]).<a class="ref" href="../lib/core/stringpiece.h.html#_ZNK10tensorflow11StringPiece11starts_withES0_" title='tensorflow::StringPiece::starts_with' data-ref="_ZNK10tensorflow11StringPiece11starts_withES0_">starts_with</a>(<a class="ref fake" href="../lib/core/stringpiece.h.html#_ZN10tensorflow11StringPieceC1EPKc" title='tensorflow::StringPiece::StringPiece' data-ref="_ZN10tensorflow11StringPieceC1EPKc"></a><q>"--benchmarks="</q>)) {</td></tr>
-<tr><th id="41">41</th><td>      <em>const</em> <em>char</em>* <dfn class="local col4 decl" id="4pattern" title='pattern' data-type='const char *' data-ref="4pattern">pattern</dfn> = <a class="local col2 ref" href="#2argv" title='argv' data-ref="2argv">argv</a>[<a class="local col3 ref" href="#3i" title='i' data-ref="3i">i</a>] + <a class="ref" href="../../../../include/string.h.html#strlen" title='strlen' data-ref="strlen">strlen</a>(<q>"--benchmarks="</q>);</td></tr>
-<tr><th id="42">42</th><td>      <span class="namespace">tensorflow::testing::</span><a class="type" href="test_benchmark.h.html#tensorflow::testing::Benchmark" title='tensorflow::testing::Benchmark' data-ref="tensorflow::testing::Benchmark">Benchmark</a>::<a class="ref" href="test_benchmark.h.html#_ZN10tensorflow7testing9Benchmark3RunEPKc" title='tensorflow::testing::Benchmark::Run' data-ref="_ZN10tensorflow7testing9Benchmark3RunEPKc">Run</a>(<a class="local col4 ref" href="#4pattern" title='pattern' data-ref="4pattern">pattern</a>);</td></tr>
+<tr><th id="37">37</th><td>  tensorflow::testing::InstallStacktraceHandler();</td></tr>
+<tr><th id="38">38</th><td>  testing::InitGoogleTest(&amp;argc, argv);</td></tr>
+<tr><th id="39">39</th><td>  <b>for</b> (<em>int</em> i = <var>1</var>; i &lt; argc; i++) {</td></tr>
+<tr><th id="40">40</th><td>    <b>if</b> (tensorflow::StringPiece(argv[i]).starts_with(<q>"--benchmarks="</q>)) {</td></tr>
+<tr><th id="41">41</th><td>      <em>const</em> <em>char</em>* pattern = argv[i] + strlen(<q>"--benchmarks="</q>);</td></tr>
+<tr><th id="42">42</th><td>      tensorflow::testing::Benchmark::Run(pattern);</td></tr>
 <tr><th id="43">43</th><td>      <b>return</b> <var>0</var>;</td></tr>
 <tr><th id="44">44</th><td>    }</td></tr>
 <tr><th id="45">45</th><td>  }</td></tr>
-<tr><th id="46">46</th><td>  <b>return</b> <span class='ref' title='RUN_ALL_TESTS' data-ref="_Z13RUN_ALL_TESTSv">RUN_ALL_TESTS</span>();</td></tr>
+<tr><th id="46">46</th><td>  <b>return</b> RUN_ALL_TESTS();</td></tr>
 <tr><th id="47">47</th><td>}</td></tr>
 <tr><th id="48">48</th><td><u>#<span data-ppcond="23">endif</span></u></td></tr>
 <tr><th id="49">49</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated on <em>2018-Aug-16</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated on <em>2018-Aug-20</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

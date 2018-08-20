@@ -20,8 +20,10 @@
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='48' u='c' c='_ZN10tensorflow11QueueRunner4InitERKNS_14QueueRunnerDefE'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/dfs_hlo_visitor.h' l='337' u='c' c='_ZN3xla17DfsHloVisitorBase14DFSVisitStates5ResetEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1186' u='c' c='_ZN3xla14HloInstruction23ClearCalledComputationsEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='571' u='c' c='_ZN10tensorflow9tfcompile13ParseCppClassERKSsPSsPSt6vectorISsSaISsEE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='92' u='c' c='_ZN10tensorflow12_GLOBAL__N_19PoolingOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='104' u='c' c='_ZN10tensorflow12_GLOBAL__N_19PoolingOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='223' u='c' c='_ZN10tensorflow12_GLOBAL__N_115CollectArgNodesERKNS_5GraphEPSt6vectorIPNS_4NodeESaIS6_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='447' u='c' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='796' u='c' c='_ZNK10tensorflow11XlaCompiler21GetDeviceToHostShapesERKSsPSt6vectorINS_11TensorShapeESaIS4_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='268' u='c' c='_ZN10tensorflow18XlaOpKernelContext9InputListENS_11StringPieceEPSt6vectorIN3xla21ComputationDataHandleESaIS4_EEPS2_INS_11TensorShapeESaIS8_EE'/>
@@ -68,7 +70,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/import_tensorflow.cc' l='158' u='c' c='_ZN4toco12_GLOBAL__N_111ImportShapeERKN6google8protobuf16RepeatedPtrFieldIN10tensorflow20TensorShapeProto_DimEEEPNS_5ShapeE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/args.h' l='94' u='c' c='_ZN4toco3ArgINS_7IntListEE5parseESs'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/args.h' l='130' u='c' c='_ZN4toco3ArgINS_13StringMapListEE5parseESs'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/import.cc' l='71' u='c' c='_ZN4toco6tflite13ImportTensorsERKN6tflite5ModelEPNS_5ModelE'/>
 <use f='tensorflow/tensorflow/contrib/rnn/kernels/lstm_ops.cc' l='759' u='c' c='_ZN10tensorflow12_GLOBAL__N_111SliceHelper14FinishTimeStepEv'/>
 <use f='tensorflow/tensorflow/contrib/tensor_forest/hybrid/core/ops/k_feature_gradient_op.cc' l='149' u='c' c='_ZN10tensorflow16KFeatureGradient7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/contrib/tensor_forest/hybrid/core/ops/k_feature_routing_function_op.cc' l='139' u='c' c='_ZN10tensorflow23KFeatureRoutingFunction7ComputeEPNS_15OpKernelContextE'/>
@@ -104,7 +105,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='273' u='c' c='_ZN10tensorflow12DeviceFinder9WhenFoundEiRKNS_6StatusEPSt6vectorIPNS_6DeviceESaIS6_EE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='877' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph12ProcessStatsExPNS0_12PerStepStateEPNS_14ProfileHandlerERKNS_10RunOptionsEPNS_11RunMetadataE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='368' u='c' c='_ZN10tensorflow11GrpcSession11ListDevicesEPSt6vectorINS_16DeviceAttributesESaIS2_EE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.cc' l='30' u='c' c='_ZN10tensorflow20GrpcByteBufferSource4InitERKN4grpc10ByteBufferE'/>
 <use f='tensorflow/tensorflow/core/framework/collective.cc' l='38' u='c' c='_ZN10tensorflow18CollInstanceParamsaSERKS0_'/>
 <use f='tensorflow/tensorflow/core/framework/collective.cc' l='44' u='c' c='_ZN10tensorflow18CollInstanceParamsaSERKS0_'/>
 <use f='tensorflow/tensorflow/core/framework/function.cc' l='148' u='c' c='_ZN10tensorflow12_GLOBAL__N_127FunctionInstantiationHelperC1ESt8functionIFNS_6StatusERKSsPPKNS_5OpDefEEEPNS_19InstantiationResultE'/>

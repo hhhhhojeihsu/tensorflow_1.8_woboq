@@ -1,7 +1,14 @@
 <dec f='tensorflow/tensorflow/compiler/xla/statusor.h' l='169' type='const tensorflow::Status &amp; xla::StatusOr::status() const'/>
 <def f='tensorflow/tensorflow/compiler/xla/statusor.h' l='266' ll='269' type='const tensorflow::Status &amp; xla::StatusOr::status() const'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='553' macro='1' u='c'/>
 <doc f='tensorflow/tensorflow/compiler/xla/statusor.h' l='167'>// Returns a reference to our status. If this contains a T, then
   // returns Status::OK().</doc>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='56' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_110CompileXlaEPN3xla17CompileOnlyClientERKNS2_11ComputationERKNS2_3cpu24CpuAotCompilationOptionsEPNS0_13CompileResultE'/>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='73' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_110CompileXlaEPN3xla17CompileOnlyClientERKNS2_11ComputationERKNS2_3cpu24CpuAotCompilationOptionsEPNS0_13CompileResultE'/>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='101' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='123' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='137' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='147' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='82' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp21BuildCompilationCacheEPNS_15OpKernelContextEPPNS_19XlaCompilationCacheE'/>
 <use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='190' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='204' u='c' c='_ZN10tensorflow19XlaCompilationCache15BuildExecutableERKNS_11XlaCompiler7OptionsERKNS1_17CompilationResultEPSt10unique_ptrIN3xla15LocalExecutableESt14default_deleteISA_EE'/>

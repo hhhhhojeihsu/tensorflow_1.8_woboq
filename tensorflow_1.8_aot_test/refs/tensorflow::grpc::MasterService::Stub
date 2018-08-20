@@ -1,25 +1,25 @@
 <inh f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service_impl.h' l='58' c='tensorflow::grpc::MasterService::StubInterface'/>
 <def f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service_impl.h' l='92' ll='138'/>
-<size>264</size>
-<fun r='_ZN10tensorflow4grpc13MasterService4StubC1ERKSt10shared_ptrIN4grpc16ChannelInterfaceEE'/>
-<fun r='_ZN10tensorflow4grpc13MasterService4Stub13CreateSessionEPN4grpc13ClientContextERKNS_20CreateSessionRequestEPNS_21CreateSessionResponseE'/>
-<fun r='_ZN10tensorflow4grpc13MasterService4Stub13ExtendSessionEPN4grpc13ClientContextERKNS_20ExtendSessionRequestEPNS_21ExtendSessionResponseE'/>
-<fun r='_ZN10tensorflow4grpc13MasterService4Stub15PartialRunSetupEPN4grpc13ClientContextERKNS_22PartialRunSetupRequestEPNS_23PartialRunSetupResponseE'/>
-<fun r='_ZN10tensorflow4grpc13MasterService4Stub7RunStepEPN4grpc13ClientContextERKNS_14RunStepRequestEPNS_15RunStepResponseE'/>
-<fun r='_ZN10tensorflow4grpc13MasterService4Stub12CloseSessionEPN4grpc13ClientContextERKNS_19CloseSessionRequestEPNS_20CloseSessionResponseE'/>
-<fun r='_ZN10tensorflow4grpc13MasterService4Stub11ListDevicesEPN4grpc13ClientContextERKNS_18ListDevicesRequestEPNS_19ListDevicesResponseE'/>
-<fun r='_ZN10tensorflow4grpc13MasterService4Stub5ResetEPN4grpc13ClientContextERKNS_12ResetRequestEPNS_13ResetResponseE'/>
-<fun r='_ZN10tensorflow4grpc13MasterService4Stub12MakeCallableEPN4grpc13ClientContextERKNS_19MakeCallableRequestEPNS_20MakeCallableResponseE'/>
-<fun r='_ZN10tensorflow4grpc13MasterService4Stub11RunCallableEPN4grpc13ClientContextERKNS_18RunCallableRequestEPNS_19RunCallableResponseE'/>
-<fun r='_ZN10tensorflow4grpc13MasterService4Stub15ReleaseCallableEPN4grpc13ClientContextERKNS_22ReleaseCallableRequestEPNS_23ReleaseCallableResponseE'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::channel_' o='64' t='std::shared_ptr&lt; ::grpc::ChannelInterface&gt;'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_CreateSession_' o='192' t='const ::grpc::internal::RpcMethod'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_ExtendSession_' o='384' t='const ::grpc::internal::RpcMethod'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_PartialRunSetup_' o='576' t='const ::grpc::internal::RpcMethod'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_RunStep_' o='768' t='const ::grpc::internal::RpcMethod'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_CloseSession_' o='960' t='const ::grpc::internal::RpcMethod'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_ListDevices_' o='1152' t='const ::grpc::internal::RpcMethod'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_Reset_' o='1344' t='const ::grpc::internal::RpcMethod'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_MakeCallable_' o='1536' t='const ::grpc::internal::RpcMethod'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_RunCallable_' o='1728' t='const ::grpc::internal::RpcMethod'/>
-<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_ReleaseCallable_' o='1920' t='const ::grpc::internal::RpcMethod'/>
+<size>1</size>
+<fun r='_ZN10tensorflow4grpc13MasterService4StubC1ERKi'/>
+<fun r='_ZN10tensorflow4grpc13MasterService4Stub13CreateSessionEPiRKNS_20CreateSessionRequestEPNS_21CreateSessionResponseE'/>
+<fun r='_ZN10tensorflow4grpc13MasterService4Stub13ExtendSessionEPiRKNS_20ExtendSessionRequestEPNS_21ExtendSessionResponseE'/>
+<fun r='_ZN10tensorflow4grpc13MasterService4Stub15PartialRunSetupEPiRKNS_22PartialRunSetupRequestEPNS_23PartialRunSetupResponseE'/>
+<fun r='_ZN10tensorflow4grpc13MasterService4Stub7RunStepEPiRKNS_14RunStepRequestEPNS_15RunStepResponseE'/>
+<fun r='_ZN10tensorflow4grpc13MasterService4Stub12CloseSessionEPiRKNS_19CloseSessionRequestEPNS_20CloseSessionResponseE'/>
+<fun r='_ZN10tensorflow4grpc13MasterService4Stub11ListDevicesEPiRKNS_18ListDevicesRequestEPNS_19ListDevicesResponseE'/>
+<fun r='_ZN10tensorflow4grpc13MasterService4Stub5ResetEPiRKNS_12ResetRequestEPNS_13ResetResponseE'/>
+<fun r='_ZN10tensorflow4grpc13MasterService4Stub12MakeCallableEPiRKNS_19MakeCallableRequestEPNS_20MakeCallableResponseE'/>
+<fun r='_ZN10tensorflow4grpc13MasterService4Stub11RunCallableEPiRKNS_18RunCallableRequestEPNS_19RunCallableResponseE'/>
+<fun r='_ZN10tensorflow4grpc13MasterService4Stub15ReleaseCallableEPiRKNS_22ReleaseCallableRequestEPNS_23ReleaseCallableResponseE'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::channel_' t='int'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_CreateSession_' t='const int'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_ExtendSession_' t='const int'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_PartialRunSetup_' t='const int'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_RunStep_' t='const int'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_CloseSession_' t='const int'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_ListDevices_' t='const int'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_Reset_' t='const int'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_MakeCallable_' t='const int'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_RunCallable_' t='const int'/>
+<mbr r='tensorflow::grpc::MasterService::Stub::rpcmethod_ReleaseCallable_' t='const int'/>

@@ -13,6 +13,7 @@
        *
        *  Insertion requires logarithmic time.
        */</doc>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='76' u='c' c='_ZN10tensorflow9tfcompile4MainERKNS0_9MainFlagsE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='71' u='c' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='122' u='c' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/while_op.cc' l='67' u='c' c='_ZN10tensorflow12_GLOBAL__N_134MakeXlaCompilerArgumentsFromInputsEPNS_18XlaOpKernelContextEPSt6vectorINS_11XlaCompiler8ArgumentESaIS5_EEPbS9_'/>
@@ -37,7 +38,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='361' u='c' c='_ZN4toco12DumpGraphvizERKNS_5ModelEPSs'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_util.cc' l='47' u='c' c='_ZN4toco15LogDumpGraphDefEiRKSsRKN10tensorflow8GraphDefE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='66' u='c' c='_ZN4toco6tflite7details14LoadTensorsMapERKNS_5ModelEPSt13unordered_mapISsiSt4hashISsESt8equal_toISsESaISt4pairIKSsiEEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='212' u='c' c='_ZN4toco6tflite19ExportOperatorCodesERKNS_5ModelERKSt3mapINS_12OperatorTypeESt10unique_ptrINS0_12BaseOperatorESt14default_deleteIS7_EESt4lessIS5_ESaIS7482138'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco_tooling.cc' l='41' u='c' c='_ZN4toco12_GLOBAL__N_126CheckUnsupportedOperationsERKNS_5ModelE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='891' u='c' c='_ZN4toco19FixOperatorOrderingEPNS_5ModelE'/>
 <use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/grow_stats.cc' l='243' u='c' c='_ZN10tensorflow12tensorforest19ClassificationStats10CheckPruneEv'/>
@@ -88,7 +88,6 @@
 <use f='tensorflow/tensorflow/core/kernels/linalg_ops_common.cc' l='177' u='c' c='_ZN10tensorflow15LinearAlgebraOp14PrepareOutputsEPNS_15OpKernelContextERKNS_3gtl13InlinedVectorINS_11TensorShapeELi4EEERKS5_PNS4_IPNS_6TensorELi4EEEPS6_'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='343' u='c' c='_ZN10tensorflow6tfprof11TFGraphNodeC1EPKNS_7NodeDefExPKSt3mapISsSt10unique_ptrIS1_St14default_deleteIS1_EESt4lessISsESaISt4pairIKSsS9_EEE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_node.h' l='351' u='c' c='_ZN10tensorflow6tfprof11TFGraphNode9AddOpTypeERKSs'/>
-<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_timeline.h' l='147' u='c' c='_ZN10tensorflow6tfprof8Timeline12EmitTreeNodeEPKT_xxxPSt3setIxSt4lessIxESaIxEE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_code.cc' l='417' u='c' c='_ZN10tensorflow6tfprof6TFCode7AddNodeEPNS0_11TFGraphNodeE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_graph.cc' l='55' u='c' c='_ZN10tensorflow6tfprof7TFGraph5BuildEv'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_graph.cc' l='126' u='c' c='_ZN10tensorflow6tfprof7TFGraph10SearchRootERKSt6vectorIPNS0_9GraphNodeESaIS4_EERKS2_ISsSaISsEEPSt3setISsSt4lessISsES9_E'/>

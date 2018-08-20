@@ -21,6 +21,7 @@
 <use f='tensorflow/tensorflow/c/tf_status_helper.cc' l='22' u='c' c='_ZN10tensorflow25Set_TF_Status_from_StatusEP9TF_StatusRKNS_6StatusE'/>
 <use f='tensorflow/tensorflow/cc/training/coordinator.cc' l='100' u='c' c='_ZN10tensorflow11Coordinator12ReportStatusERKNS_6StatusE'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.h' l='103' u='c' c='_ZNK10tensorflow11QueueRunner13IsQueueClosedENS_6StatusE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='143' u='c' c='main'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1265' u='c' c='_ZNK10tensorflow12_GLOBAL__N_112Encapsulator19GetFunctionNameAttrEPKNS_4NodeEPSsS5_'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1274' u='c' c='_ZNK10tensorflow12_GLOBAL__N_112Encapsulator19GetFunctionNameAttrEPKNS_4NodeEPSsS5_'/>
 <use f='tensorflow/tensorflow/core/util/stream_executor_util.h' l='46' u='c' c='_ZN10tensorflow18StreamExecutorUtil13ConvertStatusERKNS_6StatusE'/>
@@ -52,8 +53,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='790' u='c' c='_ZNK10tensorflow23InMemoryRunStepResponse11status_codeEv'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='848' u='c' c='_ZN10tensorflow25OwnedProtoRunStepResponse10set_statusERKNS_6StatusE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='900' u='c' c='_ZN10tensorflow28NonOwnedProtoRunStepResponse10set_statusERKNS_6StatusE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='70' u='c' c='_ZN10tensorflow12ToGrpcStatusERKNS_6StatusE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='72' u='c' c='_ZN10tensorflow12ToGrpcStatusERKNS_6StatusE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='206' u='c' c='_ZN10tensorflow17GrpcMasterService14RunStepHandlerEPNS_4CallIS0_NS_4grpc13MasterService12AsyncServiceENS_14RunStepRequestENS_15RunStepResponseEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_rpc_factory.cc' l='54' u='c' c='_ZN10tensorflow12_GLOBAL__N_18GrpcCall4DoneERKNS_6StatusE'/>
 <use f='tensorflow/tensorflow/core/framework/shape_inference.cc' l='1144' u='c' c='_ZN10tensorflow15shape_inference16InferenceContext13AttachContextERKNS_6StatusE'/>

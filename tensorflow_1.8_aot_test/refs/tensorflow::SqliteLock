@@ -1,5 +1,5 @@
 <def f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='383' ll='404'/>
-<size>16</size>
+<size>1</size>
 <doc f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='380'>/// \brief Reentrant SQLite connection object lock
 ///
 /// This is a no-op if SQLITE_OPEN_NOMUTEX was used.</doc>
@@ -7,6 +7,6 @@
 <fun r='_ZN10tensorflow10SqliteLockC1ERNS_6SqliteESt13try_to_lock_t'/>
 <fun r='_ZN10tensorflow10SqliteLockD1Ev'/>
 <fun r='_ZNK10tensorflow10SqliteLockcvbEv'/>
-<mbr r='tensorflow::SqliteLock::mutex_' o='0' t='sqlite3_mutex *const'/>
-<mbr r='tensorflow::SqliteLock::is_locked_' o='64' t='bool'/>
+<mbr r='tensorflow::SqliteLock::mutex_' t='int *const'/>
+<mbr r='tensorflow::SqliteLock::is_locked_' t='bool'/>
 <fun r='_ZN10tensorflow10SqliteLockC1ERKS0_'/>

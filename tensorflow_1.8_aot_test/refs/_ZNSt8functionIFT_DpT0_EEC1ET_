@@ -10,15 +10,15 @@
 <use f='tensorflow/tensorflow/cc/framework/while_gradients.cc' l='160' u='c' c='_ZN10tensorflow12_GLOBAL__N_120AddWhileGradientLoopEPNS_12WhileContextERKSt6vectorINS_6OutputESaIS4_EERKS4_RKNS_5ScopeEPS6_'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='100' u='c' c='_ZN10tensorflow11QueueRunner5StartEPNS_7SessionEi'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='103' u='c' c='_ZN10tensorflow11QueueRunner5StartEPNS_7SessionEi'/>
-<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='92' u='c' c='_ZN10tensorflow12_GLOBAL__N_123MarkGuaranteedConstantsERKNS_5GraphERKSt6vectorISt4pairIPKNS_4NodeEPS6_ESaISA_EE'/>
-<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1905' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator28MakePrunedGraphCopyAndInlineERKNS_5GraphERKSt6vectorIPNS_4NodeESaIS7_EEPSt10unique_ptrIS2_St14default_del3709695'/>
-<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1946' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator28MakePrunedGraphCopyAndInlineERKNS_5GraphERKSt6vectorIPNS_4NodeESaIS7_EEPSt10unique_ptrIS2_St14default_del3709695'/>
-<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2221' u='c' c='_ZN10tensorflow24EncapsulateSubgraphsPass3RunERKNS_28GraphOptimizationPassOptionsE'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='578' u='c' c='_ZNK3xla14HloInstruction9IdenticalERKS0_RKSt8functionIFbPS1_S4_EERKS3_IFbPKNS_14HloComputationESB_EEb'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='580' u='c' c='_ZNK3xla14HloInstruction9IdenticalERKS0_RKSt8functionIFbPS1_S4_EERKS3_IFbPKNS_14HloComputationESB_EEb'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='610' u='c' c='_ZNK3xla14HloInstruction9IdenticalERKS0_RKSt8functionIFbPS1_S4_EERKS3_IFbPKNS_14HloComputationESB_EEb'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/compiler.h' l='191' u='c' c='_ZN3xla8Compiler23BufferSizeBytesFunctionEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='127' u='c' c='_ZN3xla7Backend14StreamBorrowerEv'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='92' u='c' c='_ZN10tensorflow12_GLOBAL__N_123MarkGuaranteedConstantsERKNS_5GraphERKSt6vectorISt4pairIPKNS_4NodeEPS6_ESaISA_EE'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1905' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator28MakePrunedGraphCopyAndInlineERKNS_5GraphERKSt6vectorIPNS_4NodeESaIS7_EEPSt10unique_ptrIS2_St14default_del3709695'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1946' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator28MakePrunedGraphCopyAndInlineERKNS_5GraphERKSt6vectorIPNS_4NodeESaIS7_EEPSt10unique_ptrIS2_St14default_del3709695'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2221' u='c' c='_ZN10tensorflow24EncapsulateSubgraphsPass3RunERKNS_28GraphOptimizationPassOptionsE'/>
 <use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='109' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='538' u='c' c='_ZN10tensorflow22MarkForCompilationPass3RunERKNS_28GraphOptimizationPassOptionsE'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='129' u='c' c='_ZN10tensorflow20XlaCompileOnDemandOp7CompileEPNS_15OpKernelContextERKNS_9XlaDevice8MetadataEPPKNS_11XlaCompiler17CompilationResultEPPN3xla15LocalExecutableE'/>
@@ -390,7 +390,7 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1651' u='c' c='_ZN10tensorflow13MasterSession12DoPartialRunEPNS_11CallOptionsERKNS_21RunStepRequestWrapperEPNS_29MutableRunStepResponseWrapperE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1752' u='c' c='_ZN10tensorflow13MasterSession14PostRunCleanupEPNS0_17ReffedClientGraphEyRKNS_10RunOptionsEPNS0_12PerStepStateERKSt10unique_ptrINS_14ProfileHandlerESt10696490'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/remote_device.cc' l='115' u='c' c='_ZN10tensorflow16NewRemoteDevicesEPNS_3EnvEPNS_20WorkerCacheInterfaceERKSsSt8functionIFvRKNS_6StatusEPSt6vectorIPNS_6DeviceESaISC_EEEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='77' u='c' c='_ZN10tensorflow32ConvertToChannelCreationFunctionERKSt8functionIFNS_6StatusESsPSt10shared_ptrIN4grpc7ChannelEEEE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='77' u='c' c='_ZN10tensorflow32ConvertToChannelCreationFunctionERKSt8functionIFNS_6StatusESsPiEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='156' u='c' c='_ZN10tensorflow17GrpcMasterService20CreateSessionHandlerEPNS_4CallIS0_NS_4grpc13MasterService12AsyncServiceENS_20CreateSessionRequestENS_21CreateSessionResponseEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='167' u='c' c='_ZN10tensorflow17GrpcMasterService20ExtendSessionHandlerEPNS_4CallIS0_NS_4grpc13MasterService12AsyncServiceENS_20ExtendSessionRequestENS_21ExtendSessionResponseEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='177' u='c' c='_ZN10tensorflow17GrpcMasterService22PartialRunSetupHandlerEPNS_4CallIS0_NS_4grpc13MasterService12AsyncServiceENS_22PartialRunSetupRequestENS_23PartialRunSetupResponseEEE'/>
@@ -404,15 +404,8 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='266' u='c' c='_ZN10tensorflow17GrpcMasterService18RunCallableHandlerEPNS_4CallIS0_NS_4grpc13MasterService12AsyncServiceENS_18RunCallableRequestENS_19RunCallableResponseEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='279' u='c' c='_ZN10tensorflow17GrpcMasterService22ReleaseCallableHandlerEPNS_4CallIS0_NS_4grpc13MasterService12AsyncServiceENS_22ReleaseCallableRequestENS_23ReleaseCallableResponseEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_rpc_factory.cc' l='83' u='c' c='_ZN10tensorflow14GrpcRPCFactoryC1EPNS_20OpKernelConstructionEbx'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_rpc_factory.cc' l='170' u='c' c='_ZN10tensorflow14GrpcRPCFactory4CallEPNS_15OpKernelContextExRKNS_6TensorES5_S5_bPS3_S6_S6_St8functionIFvvEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_rpc_factory.cc' l='179' u='c' c='_ZN10tensorflow14GrpcRPCFactory4CallEPNS_15OpKernelContextExRKNS_6TensorES5_S5_bPS3_S6_S6_St8functionIFvvEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_rpc_factory_registration.cc' l='31' u='c'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='211' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='249' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr2250748'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='327' u='c' c='_ZN10tensorflow10GrpcServer5StartEv'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='330' u='c' c='_ZN10tensorflow10GrpcServer5StartEv'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='391' u='c' c='_ZNK10tensorflow10GrpcServer26GetChannelCreationFunctionEv'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='404' u='c' c='_ZN10tensorflow10GrpcServer6CreateERKNS_9ServerDefEPNS_3EnvEPSt10unique_ptrINS_15ServerInterfaceESt14default_deleteIS7_EE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.cc' l='392' u='c' c='_ZN10tensorflow10GrpcWorker19GrpcRecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPN4grpc10ByteBufferESt8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.cc' l='395' u='c' c='_ZN10tensorflow10GrpcWorker19GrpcRecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPN4grpc10ByteBufferESt8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.cc' l='249' u='c' c='_ZN10tensorflow12_GLOBAL__N_119RpcRemoteRendezvous19RecvFromRemoteAsyncERKNS_10Rendezvous9ParsedKeyERKNS2_4ArgsESt8functionIFvRKNS_6StatusES8_S8_RKNS_6TensorEbEE'/>
@@ -655,7 +648,6 @@
 <use f='tensorflow/tensorflow/core/kernels/data/captured_function.cc' l='335' u='c' c='_ZN10tensorflow16CapturedFunction8RunAsyncEPNS_15IteratorContextEOSt6vectorINS_6TensorESaIS4_EEPS6_St8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/kernels/dense_update_functor.cc' l='46' u='c' c='_ZN10tensorflow7functor11DenseUpdateIN5Eigen16ThreadPoolDeviceESsLNS_15DenseUpdateTypeE2EEclERKS3_NS2_9TensorMapINS2_6TensorISsLi1ELi1ElEELi16ENS2_11M12290496'/>
 <use f='tensorflow/tensorflow/core/kernels/dense_update_functor.cc' l='67' u='c' c='_ZN10tensorflow7functor11DenseUpdateIN5Eigen16ThreadPoolDeviceESsLNS_15DenseUpdateTypeE2EEclERKS3_NS2_9TensorMapINS2_6TensorISsLi1ELi1ElEELi16ENS2_11M12290496'/>
-<use f='tensorflow/tensorflow/core/kernels/quantization_utils.h' l='918' u='c' c='_ZN10tensorflow29TensorflowGemmlowpWorkersPool7ExecuteERKSt6vectorIPN8gemmlowp4TaskESaIS4_EE'/>
 <use f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='58' u='c' c='_ZN10tensorflow9FIFOQueue10TryEnqueueERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
 <use f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='116' u='c' c='_ZN10tensorflow9FIFOQueue14TryEnqueueManyERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
 <use f='tensorflow/tensorflow/core/kernels/fifo_queue.cc' l='162' u='c' c='_ZN10tensorflow9FIFOQueue10TryDequeueEPNS_15OpKernelContextESt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
@@ -673,7 +665,6 @@
 <use f='tensorflow/tensorflow/core/kernels/list_kernels.cc' l='96' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/list_kernels.cc' l='512' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/list_kernels.cc' l='517' u='c'/>
-<use f='tensorflow/tensorflow/core/kernels/lmdb_reader_op.cc' l='122' u='c' c='_ZN10tensorflow12LMDBReaderOpC1EPNS_20OpKernelConstructionE'/>
 <use f='tensorflow/tensorflow/core/kernels/padding_fifo_queue.cc' l='95' u='c' c='_ZN10tensorflow16PaddingFIFOQueue14TryDequeueManyEiPNS_15OpKernelContextEbSt8functionIFvRKSt6vectorINS_6TensorESaIS5_EEEE'/>
 <use f='tensorflow/tensorflow/core/kernels/priority_queue.cc' l='79' u='c' c='_ZN10tensorflow13PriorityQueue10TryEnqueueERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>
 <use f='tensorflow/tensorflow/core/kernels/priority_queue.cc' l='144' u='c' c='_ZN10tensorflow13PriorityQueue14TryEnqueueManyERKSt6vectorINS_6TensorESaIS2_EEPNS_15OpKernelContextESt8functionIFvvEE'/>

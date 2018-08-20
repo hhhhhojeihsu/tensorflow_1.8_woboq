@@ -1,15 +1,15 @@
 <dec f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='324' type='static xla::Shape xla::ShapeUtil::MakeShape(xla::PrimitiveType element_type, tensorflow::gtl::ArraySlice&lt;int64&gt; dimensions)'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='332' u='c' c='_ZN3xla9ShapeUtil17MakeShapeWithTypeEN10tensorflow3gtl10ArraySliceIxEE'/>
-<use f='tensorflow/tensorflow/compiler/aot/tests/tfcompile_test.cc' l='444' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_131TFCompileTest_ProgramShape_Test8TestBodyEv'/>
-<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='322'>// Constructs a new shape with the given element type and sequence of
-  // dimensions.</doc>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='927' u='c' c='_ZN3xla7Literal8CreateR0ET_'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='937' u='c' c='_ZN3xla7Literal8CreateR1EN10tensorflow3gtl10ArraySliceIT_EE'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1376' u='c' c='_ZNK3xla7Literal9ReplicateEx'/>
+<doc f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='322'>// Constructs a new shape with the given element type and sequence of
+  // dimensions.</doc>
 <use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='965' u='c' c='_ZN3xla18ComputationBuilder10ConstantR1ExT_'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='904' u='c' c='_ZN3xla10XlaBuilder10ConstantR1ExT_'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/categorical_op.cc' l='67' u='c' c='_ZN10tensorflow12_GLOBAL__N_113CategoricalOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/diag_op.cc' l='76' u='c' c='_ZN10tensorflow12_GLOBAL__N_114CreateDiagonalERKN3xla21ComputationDataHandleExNS_3gtl10ArraySliceIxEEPNS_18XlaOpKernelContextEPNS1_18ComputationBuilderE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='90' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ArgMaxCustomCallOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='636' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MaxPoolGradGradOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/random_ops.cc' l='131' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TruncatedNormalOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reduction_ops_common.cc' l='109' u='c' c='_ZN10tensorflow14XlaReductionOp7CompileEPNS_18XlaOpKernelContextE'/>

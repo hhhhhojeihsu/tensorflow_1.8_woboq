@@ -11,6 +11,7 @@
 <doc f='tensorflow/tensorflow/core/lib/core/stringpiece.h' l='57'>// Return the length (in bytes) of the referenced data</doc>
 <use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='122' u='c' c='_ZN10tensorflow10checkpoint16CheckpointReader14BuildV2VarMapsEv'/>
 <use f='tensorflow/tensorflow/c/checkpoint_reader.cc' l='143' u='c' c='_ZN10tensorflow10checkpoint16CheckpointReader14BuildV2VarMapsEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='604' u='c' c='_ZN10tensorflow9tfcompile16ValidateCppIdentENS_11StringPieceES1_'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='89' u='c' c='_ZNK10tensorflow19XlaCompilationCache9Signature4HashclERKS1_'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_tensor.cc' l='43' u='c' c='_ZN10tensorflow9XlaTensor22DeviceMemoryFromTensorERKNS_6TensorE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/str_util.cc' l='27' u='c' c='_ZN10tensorflow8str_utilL10ReplaceAllEPSsNS_11StringPieceES2_'/>
@@ -31,13 +32,9 @@
 <use f='tensorflow/tensorflow/compiler/xla/util.cc' l='279' u='c' c='_ZN3xla8LogLinesEiN10tensorflow11StringPieceEPKci'/>
 <use f='tensorflow/tensorflow/compiler/xla/util.cc' l='283' u='c' c='_ZN3xla8LogLinesEiN10tensorflow11StringPieceEPKci'/>
 <use f='tensorflow/tensorflow/contrib/data/kernels/unique_dataset_op.cc' l='162' u='c' c='_ZNK10tensorflow12_GLOBAL__N_115UniqueDatasetOp7Dataset8Iterator10TensorHashclERKNS_6TensorE'/>
-<use f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='232' u='c' c='_ZN10tensorflow15SqliteStatement8BindTextEiRKNS_11StringPieceE'/>
 <use f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='235' u='c' c='_ZN10tensorflow15SqliteStatement8BindTextEiRKNS_11StringPieceE'/>
-<use f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='241' u='c' c='_ZN10tensorflow15SqliteStatement14BindTextUnsafeEiRKNS_11StringPieceE'/>
 <use f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='244' u='c' c='_ZN10tensorflow15SqliteStatement14BindTextUnsafeEiRKNS_11StringPieceE'/>
-<use f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='255' u='c' c='_ZN10tensorflow15SqliteStatement8BindBlobEiRKNS_11StringPieceE'/>
 <use f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='258' u='c' c='_ZN10tensorflow15SqliteStatement8BindBlobEiRKNS_11StringPieceE'/>
-<use f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='264' u='c' c='_ZN10tensorflow15SqliteStatement14BindBlobUnsafeEiRKNS_11StringPieceE'/>
 <use f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='267' u='c' c='_ZN10tensorflow15SqliteStatement14BindBlobUnsafeEiRKNS_11StringPieceE'/>
 <use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='288' u='c' c='_ZN10tensorflow12_GLOBAL__N_111GraphWriter14SaveNodeInputsEv'/>
 <use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='292' u='c' c='_ZN10tensorflow12_GLOBAL__N_111GraphWriter14SaveNodeInputsEv'/>
@@ -52,8 +49,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.cc' l='180' u='c' c='_ZN10tensorflow4grpc24EncodeTensorToByteBufferEbRKNS_6TensorEPN4grpc10ByteBufferE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.cc' l='196' u='c' c='_ZN10tensorflow4grpc24EncodeTensorToByteBufferEbRKNS_6TensorEPN4grpc10ByteBufferE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.cc' l='204' u='c' c='_ZN10tensorflow4grpc24EncodeTensorToByteBufferEbRKNS_6TensorEPN4grpc10ByteBufferE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.cc' l='210' u='c' c='_ZN10tensorflow4grpc24EncodeTensorToByteBufferEbRKNS_6TensorEPN4grpc10ByteBufferE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.cc' l='221' u='c' c='_ZN10tensorflow4grpc24EncodeTensorToByteBufferEbRKNS_6TensorEPN4grpc10ByteBufferE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.cc' l='70' u='c' c='_ZN10tensorflow12_GLOBAL__N_117RpcRecvTensorCall4InitEPNS_15WorkerInterfaceExNS_11StringPieceENS_19AllocatorAttributesEPNS_6DeviceERKNS_10Rendezvous4A1719062'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/tensor_coding.cc' l='200' u='c' c='_ZN10tensorflow14TensorResponse21ParseTensorSubmessageEPN6google8protobuf2io16CodedInputStreamEPNS_11TensorProtoE'/>
 <use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='278' u='c' c='_ZN10tensorflow14ParseAttrValueENS_11StringPieceES0_PNS_9AttrValueE'/>
@@ -132,7 +127,6 @@
 <use f='tensorflow/tensorflow/core/lib/core/coding.cc' l='156' u='c' c='_ZN10tensorflow4core11GetVarint32EPNS_11StringPieceEPj'/>
 <use f='tensorflow/tensorflow/core/lib/core/coding.cc' l='185' u='c' c='_ZN10tensorflow4core11GetVarint64EPNS_11StringPieceEPy'/>
 <use f='tensorflow/tensorflow/core/lib/core/stringpiece.cc' l='24' u='c' c='_ZN10tensorflowlsERSoNS_11StringPieceE'/>
-<use f='tensorflow/tensorflow/core/lib/db/sqlite.cc' l='165' u='c' c='_ZN10tensorflow6Sqlite7PrepareERKNS_11StringPieceEPNS_15SqliteStatementE'/>
 <use f='tensorflow/tensorflow/core/lib/db/sqlite.cc' l='170' u='c' c='_ZN10tensorflow6Sqlite7PrepareERKNS_11StringPieceEPNS_15SqliteStatementE'/>
 <use f='tensorflow/tensorflow/core/lib/io/block.cc' l='36' u='c' c='_ZN10tensorflow5table5BlockC1ERKNS0_13BlockContentsE'/>
 <use f='tensorflow/tensorflow/core/lib/io/block.cc' l='107' u='c' c='_ZNK10tensorflow5table5Block4Iter15NextEntryOffsetEv'/>

@@ -25,6 +25,10 @@
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='670' u='c' c='_ZN3xla9ShapeUtil20ForEachIndexInternalERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIxEES7_S7_RKT_b'/>
 <use f='tensorflow/tensorflow/stream_executor/lib/env.h' l='32' u='c' c='_ZN9perftools8gputools4port10FileExistsERKSs'/>
 <use f='tensorflow/tensorflow/stream_executor/lib/env.h' l='36' u='c' c='_ZN9perftools8gputools4port10FileExistsERKN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='108' u='c' c='_ZN10tensorflow9tfcompile12CompileGraphERKNS_8GraphDefERKNS_6tf2xla6ConfigERKNS0_9MainFlagsEPNS0_13CompileResultE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='59' u='c' c='_ZN10tensorflow9tfcompile13ReadProtoFileERKSsPN6google8protobuf7MessageE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='61' u='c' c='_ZN10tensorflow9tfcompile13ReadProtoFileERKSsPN6google8protobuf7MessageE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='92' u='c' c='_ZN10tensorflow9tfcompile4MainERKNS0_9MainFlagsE'/>
 <use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='186' u='c' c='_ZN10tensorflow16XlaLocalLaunchOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='566' u='c' c='_ZN10tensorflow22MarkForCompilationPass7RunImplERKNS_28GraphOptimizationPassOptionsERKSt8functionIFbPKNS_4NodeERKNS_10DeviceTypeEEE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/dump_graph.cc' l='66' u='c' c='_ZN10tensorflow10dump_graph18DumpGraphDefToFileERKSsRKNS_8GraphDefE'/>
@@ -85,8 +89,7 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1850' u='c' c='_ZN10tensorflow13MasterSession13DoRunCallableEPNS_11CallOptionsEPNS0_17ReffedClientGraphERKNS_18RunCallableRequestEPNS_19RunCallableResponseE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_remote_worker.cc' l='119' u='c' c='_ZN10tensorflow16GrpcRemoteWorker15RecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPNS_14TensorResponseESt8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_remote_worker.cc' l='129' u='c' c='_ZN10tensorflow16GrpcRemoteWorker15RecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPNS_14TensorResponseESt8functionIFvRKNS_6StatusEEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='402' u='c' c='_ZN10tensorflow10GrpcServer6CreateERKNS_9ServerDefEPNS_3EnvEPSt10unique_ptrINS_15ServerInterfaceESt14default_deleteIS7_EE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='419' u='c' c='_ZN10tensorflow12_GLOBAL__N_117GrpcServerFactory9NewServerERKNS_9ServerDefEPSt10unique_ptrINS_15ServerInterfaceESt14default_deleteIS6_EE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='419' u='c' c='_ZN10tensorflow12_GLOBAL__N_112_GLOBAL__N_117GrpcServerFactory9NewServerERKNS_9ServerDefEPSt10unique_ptrINS_15ServerInterfaceESt14default_deleteIS7_EE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.cc' l='143' u='c' c='_ZN10tensorflow4grpc24EncodeTensorToByteBufferEbRKNS_6TensorEPN4grpc10ByteBufferE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_cache.cc' l='93' u='c' c='_ZN10tensorflow12_GLOBAL__N_115GrpcWorkerCache21GrpcWorkerCacheThreadC1Ev'/>
 <use f='tensorflow/tensorflow/core/framework/load_library.cc' l='50' u='c' c='_ZN10tensorflow11LoadLibraryEPKcPPvPPKvPm'/>
@@ -137,7 +140,6 @@
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_show_multi.cc' l='41' u='c' c='_ZN10tensorflow6tfprof11TFMultiShow4ShowERKSsRKNS0_7OptionsE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_stats.cc' l='81' u='c' c='_ZN10tensorflow6tfprof7TFStatsC1ERKSsSt10unique_ptrINS_10checkpoint16CheckpointReaderESt14default_deleteIS6_EE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_stats.cc' l='348' u='c' c='_ZN10tensorflow6tfprof7TFStats12WriteProfileERKSs'/>
-<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_timeline.cc' l='326' u='c' c='_ZN10tensorflow6tfprof8Timeline14OutputTimelineEv'/>
 <use f='tensorflow/tensorflow/core/util/events_writer.cc' l='35' u='c' c='_ZN10tensorflow12EventsWriterC1ERKSs'/>
 <use f='tensorflow/tensorflow/core/util/reporter.cc' l='68' u='c' c='_ZN10tensorflow12TestReporter10InitializeEv'/>
 <use f='tensorflow/tensorflow/core/util/tensor_bundle/tensor_bundle.cc' l='479' u='c' c='_ZN10tensorflow12BundleWriter6FinishEv'/>

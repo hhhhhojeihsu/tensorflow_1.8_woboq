@@ -37,18 +37,18 @@
 <tr><th id="24">24</th><td></td></tr>
 <tr><th id="25">25</th><td><i>/* Store up to SIZE return address of the current program state in</i></td></tr>
 <tr><th id="26">26</th><td><i>   ARRAY and return the exact number of values stored.  */</i></td></tr>
-<tr><th id="27">27</th><td><b>extern</b> <em>int</em> <dfn class="decl" id="backtrace" title='backtrace' data-ref="backtrace">backtrace</dfn> (<em>void</em> **<dfn class="local col1 decl" id="991__array" title='__array' data-type='void **' data-ref="991__array">__array</dfn>, <em>int</em> <dfn class="local col2 decl" id="992__size" title='__size' data-type='int' data-ref="992__size">__size</dfn>) <a class="macro" href="x86_64-linux-gnu/sys/cdefs.h.html#285" title="__attribute__ ((__nonnull__ (1)))" data-ref="_M/__nonnull">__nonnull</a> ((<var>1</var>));</td></tr>
+<tr><th id="27">27</th><td><b>extern</b> <em>int</em> <dfn class="decl" id="backtrace" title='backtrace' data-ref="backtrace">backtrace</dfn> (<em>void</em> **<dfn class="local col9 decl" id="29__array" title='__array' data-type='void **' data-ref="29__array">__array</dfn>, <em>int</em> <dfn class="local col0 decl" id="30__size" title='__size' data-type='int' data-ref="30__size">__size</dfn>) <a class="macro" href="x86_64-linux-gnu/sys/cdefs.h.html#285" title="__attribute__ ((__nonnull__ (1)))" data-ref="_M/__nonnull">__nonnull</a> ((<var>1</var>));</td></tr>
 <tr><th id="28">28</th><td></td></tr>
 <tr><th id="29">29</th><td></td></tr>
 <tr><th id="30">30</th><td><i>/* Return names of functions from the backtrace list in ARRAY in a newly</i></td></tr>
 <tr><th id="31">31</th><td><i>   malloc()ed memory block.  */</i></td></tr>
-<tr><th id="32">32</th><td><b>extern</b> <em>char</em> **<dfn class="decl" id="backtrace_symbols" title='backtrace_symbols' data-ref="backtrace_symbols">backtrace_symbols</dfn> (<em>void</em> *<em>const</em> *<dfn class="local col3 decl" id="993__array" title='__array' data-type='void *const *' data-ref="993__array">__array</dfn>, <em>int</em> <dfn class="local col4 decl" id="994__size" title='__size' data-type='int' data-ref="994__size">__size</dfn>)</td></tr>
+<tr><th id="32">32</th><td><b>extern</b> <em>char</em> **<dfn class="decl" id="backtrace_symbols" title='backtrace_symbols' data-ref="backtrace_symbols">backtrace_symbols</dfn> (<em>void</em> *<em>const</em> *<dfn class="local col1 decl" id="31__array" title='__array' data-type='void *const *' data-ref="31__array">__array</dfn>, <em>int</em> <dfn class="local col2 decl" id="32__size" title='__size' data-type='int' data-ref="32__size">__size</dfn>)</td></tr>
 <tr><th id="33">33</th><td>     <a class="macro" href="x86_64-linux-gnu/sys/cdefs.h.html#60" title="throw ()" data-ref="_M/__THROW">__THROW</a> <a class="macro" href="x86_64-linux-gnu/sys/cdefs.h.html#285" title="__attribute__ ((__nonnull__ (1)))" data-ref="_M/__nonnull">__nonnull</a> ((<var>1</var>));</td></tr>
 <tr><th id="34">34</th><td></td></tr>
 <tr><th id="35">35</th><td></td></tr>
 <tr><th id="36">36</th><td><i>/* This function is similar to backtrace_symbols() but it writes the result</i></td></tr>
 <tr><th id="37">37</th><td><i>   immediately to a file.  */</i></td></tr>
-<tr><th id="38">38</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="backtrace_symbols_fd" title='backtrace_symbols_fd' data-ref="backtrace_symbols_fd">backtrace_symbols_fd</dfn> (<em>void</em> *<em>const</em> *<dfn class="local col5 decl" id="995__array" title='__array' data-type='void *const *' data-ref="995__array">__array</dfn>, <em>int</em> <dfn class="local col6 decl" id="996__size" title='__size' data-type='int' data-ref="996__size">__size</dfn>, <em>int</em> <dfn class="local col7 decl" id="997__fd" title='__fd' data-type='int' data-ref="997__fd">__fd</dfn>)</td></tr>
+<tr><th id="38">38</th><td><b>extern</b> <em>void</em> <dfn class="decl" id="backtrace_symbols_fd" title='backtrace_symbols_fd' data-ref="backtrace_symbols_fd">backtrace_symbols_fd</dfn> (<em>void</em> *<em>const</em> *<dfn class="local col3 decl" id="33__array" title='__array' data-type='void *const *' data-ref="33__array">__array</dfn>, <em>int</em> <dfn class="local col4 decl" id="34__size" title='__size' data-type='int' data-ref="34__size">__size</dfn>, <em>int</em> <dfn class="local col5 decl" id="35__fd" title='__fd' data-type='int' data-ref="35__fd">__fd</dfn>)</td></tr>
 <tr><th id="39">39</th><td>     <a class="macro" href="x86_64-linux-gnu/sys/cdefs.h.html#60" title="throw ()" data-ref="_M/__THROW">__THROW</a> <a class="macro" href="x86_64-linux-gnu/sys/cdefs.h.html#285" title="__attribute__ ((__nonnull__ (1)))" data-ref="_M/__nonnull">__nonnull</a> ((<var>1</var>));</td></tr>
 <tr><th id="40">40</th><td></td></tr>
 <tr><th id="41">41</th><td><a class="macro" href="x86_64-linux-gnu/sys/cdefs.h.html#99" title="}" data-ref="_M/__END_DECLS">__END_DECLS</a></td></tr>
@@ -56,6 +56,6 @@
 <tr><th id="43">43</th><td><u>#<span data-ppcond="18">endif</span> /* execinfo.h  */</u></td></tr>
 <tr><th id="44">44</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='../tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-16</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='../tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-20</em> from project include<br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

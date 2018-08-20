@@ -4,6 +4,7 @@
 <use f='tensorflow/tensorflow/cc/framework/scope.cc' l='121' u='c' c='_ZN10tensorflow5Scope4ImplC1ERKS0_NS1_4Tags11ControlDepsESt6vectorINS_9OperationESaIS7_EEb'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='49' u='c' c='_ZN10tensorflow11QueueRunner4InitERKNS_14QueueRunnerDefE'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='70' u='c' c='_ZN3xla10ShapeIndex10push_frontEx'/>
+<use f='tensorflow/tensorflow/compiler/aot/flags.cc' l='76' u='c' c='_ZN10tensorflow9tfcompile15AppendMainFlagsEPSt6vectorINS_4FlagESaIS2_EEPNS0_9MainFlagsE'/>
 <use f='tensorflow/tensorflow/compiler/jit/legacy_flags/encapsulate_subgraphs_pass_flags.cc' l='51' u='c' c='_ZN10tensorflow12legacy_flags35AppendEncapsulateSubgraphsPassFlagsEPSt6vectorINS_4FlagESaIS2_EE'/>
 <use f='tensorflow/tensorflow/compiler/jit/legacy_flags/mark_for_compilation_pass_flags.cc' l='74' u='c' c='_ZN10tensorflow12legacy_flags33AppendMarkForCompilationPassFlagsEPSt6vectorINS_4FlagESaIS2_EE'/>
 <use f='tensorflow/tensorflow/compiler/jit/legacy_flags/parallel_check_op_flags.cc' l='56' u='c' c='_ZN10tensorflow12legacy_flags26AppendParallelCheckOpFlagsEPSt6vectorINS_4FlagESaIS2_EE'/>
@@ -171,8 +172,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/unroll_batch_matmul.cc' l='146' u='c' c='_ZN4toco17UnrollBatchMatMul3RunEPNS_5ModelEm'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/unroll_batch_matmul.cc' l='157' u='c' c='_ZN4toco17UnrollBatchMatMul3RunEPNS_5ModelEm'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/unroll_batch_matmul.cc' l='168' u='c' c='_ZN4toco17UnrollBatchMatMul3RunEPNS_5ModelEm'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/operator.cc' l='477' u='c' c='_ZNK4toco6tflite7Reshape11ReadOptionsERKN6tflite14ReshapeOptionsEPNS_25TensorFlowReshapeOperatorE'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/operator.cc' l='603' u='c' c='_ZNK4toco6tflite7Squeeze11ReadOptionsERKN6tflite14SqueezeOptionsEPNS_15SqueezeOperatorE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='168' u='c' c='_ZN4toco25DeleteOpAndArraysIfUnusedEPNS_5ModelEPNS_8OperatorE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='538' u='c' c='_ZN4toco11ExtendShapeEPNS_5ShapeEi'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='549' u='c' c='_ZN4toco13UnextendShapeEPNS_5ShapeEi'/>

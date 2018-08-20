@@ -27,7 +27,14 @@
 <use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='58' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_117NextIterationNameERKNS_5ScopeEi'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='133' u='c' c='_ZN10tensorflow11QueueRunner4StopEPNS_7SessionE'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='189' u='c' c='_ZN10tensorflow11QueueRunner3RunEPNS_7SessionERKSs'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='276' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='184' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_113GenArgMethodsERKNS_6tf2xla6ConfigERKN3xla12ProgramShapeERKNS0_13CompileResultEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='225' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_116GenResultMethodsERKNS_6tf2xla6ConfigERKN3xla12ProgramShapeEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='269' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_125ValidateFeedFetchCppNamesERKNS_6tf2xla6ConfigE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='274' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_125ValidateFeedFetchCppNamesERKNS_6tf2xla6ConfigE'/>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='100' u='c' c='_ZN10tensorflow9tfcompile12CompileGraphERKNS_8GraphDefERKNS_6tf2xla6ConfigERKNS0_9MainFlagsEPNS0_13CompileResultE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='68' u='c' c='_ZN10tensorflow9tfcompile4MainERKNS0_9MainFlagsE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='83' u='c' c='_ZN10tensorflow9tfcompile4MainERKNS0_9MainFlagsE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='100' u='c' c='_ZN10tensorflow9tfcompile4MainERKNS0_9MainFlagsE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='670' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph13MakeNodeImageEPKNS_5GraphEPNS_4NodeE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='671' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph13MakeNodeImageEPKNS_5GraphEPNS_4NodeE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1289' u='c' c='_ZN10tensorflow12_GLOBAL__N_112IsInSubgraphERKSsS2_'/>
@@ -108,10 +115,6 @@
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.cc' l='580' u='c' c='_ZN3xla12_GLOBAL__N_124ParseShapeStringInternalEPN10tensorflow11StringPieceE'/>
 <use f='tensorflow/tensorflow/compiler/xla/status_macros.cc' l='149' u='c' c='_ZN3xla13status_macros15MakeErrorStream4Impl9GetStatusEv'/>
 <use f='tensorflow/tensorflow/contrib/ffmpeg/default/ffmpeg_lib.cc' l='64' u='c' c='_ZN10tensorflow6ffmpeg12_GLOBAL__N_122FfmpegAudioCommandLineERKSsS3_S3_iiS3_'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='4708' u='c' c='_ZN6tflite12CreateTensorERN11flatbuffers17FlatBufferBuilderEPKNS_7TensorTEPKSt8functionIFmPvEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5844' u='c' c='_ZN6tflite18CreateOperatorCodeERN11flatbuffers17FlatBufferBuilderEPKNS_13OperatorCodeTEPKSt8functionIFmPvEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5923' u='c' c='_ZN6tflite14CreateSubGraphERN11flatbuffers17FlatBufferBuilderEPKNS_9SubGraphTEPKSt8functionIFmPvEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5986' u='c' c='_ZN6tflite11CreateModelERN11flatbuffers17FlatBufferBuilderEPKNS_6ModelTEPKSt8functionIFmPvEE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='268' u='c' c='_ZN4toco12_GLOBAL__N_115OperatorsToDumpERKNS_5ModelE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='269' u='c' c='_ZN4toco12_GLOBAL__N_115OperatorsToDumpERKNS_5ModelE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1977' u='c' c='_ZN4toco24ExportTensorFlowGraphDefERKNS_5ModelEPSs'/>
@@ -119,8 +122,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/args.h' l='133' u='c' c='_ZN4toco3ArgINS_13StringMapListEE5parseESs'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/model_cmdline_flags.cc' l='446' u='c' c='_ZN4toco20ParseModelFlagsOrDieEPiPPc'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_util.cc' l='120' u='c' c='_ZN4toco15LogDumpGraphDefEiRKSsRKN10tensorflow8GraphDefE'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='178' u='c' c='_ZN4toco6tflite19ExportOperatorCodesERKNS_5ModelERKSt3mapINS_12OperatorTypeESt10unique_ptrINS0_12BaseOperatorESt14default_deleteIS7_EESt4lessIS5_ESaIS7482138'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='206' u='c' c='_ZN4toco6tflite19ExportOperatorCodesERKNS_5ModelERKSt3mapINS_12OperatorTypeESt10unique_ptrINS0_12BaseOperatorESt14default_deleteIS7_EESt4lessIS5_ESaIS7482138'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco.cc' l='141' u='c' c='main'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco_port.cc' l='214' u='c' c='_ZN4toco4port4file8JoinPathERKSsS3_'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco_port.cc' l='216' u='c' c='_ZN4toco4port4file8JoinPathERKSsS3_'/>
@@ -151,8 +152,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1481' u='c' c='_ZN10tensorflow13MasterSession3RunEPNS_11CallOptionsERKNS_21RunStepRequestWrapperEPNS_29MutableRunStepResponseWrapperE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='172' u='c' c='_ZN10tensorflow12_GLOBAL__N_121MultiGrpcChannelCache13TranslateTaskERKSs'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='253' u='c' c='_ZN10tensorflow12_GLOBAL__N_122SparseGrpcChannelCache15FindChannelOnceERKSs'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='266' u='c' c='_ZN10tensorflow10GrpcServer16ParseChannelSpecERKNS_25WorkerCacheFactoryOptionsEPNS_15GrpcChannelSpecE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='285' u='c' c='_ZN10tensorflow10GrpcServer18WorkerCacheFactoryERKNS_25WorkerCacheFactoryOptionsEPPNS_20WorkerCacheInterfaceE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='77' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ReEncodeConstsEPNS_8GraphDefE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='96' u='c' c='_ZN10tensorflow11GrpcSession6HandleEPSs'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='107' u='c' c='_ZN10tensorflow11GrpcSession10CreateImplEPNS_11CallOptionsERKNS_8GraphDefE'/>
@@ -357,6 +356,7 @@
 <use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='105' u='c' c='_ZN10tensorflow2io12RecordReader15ReadChecksummedEymPNS_11StringPieceEPSs'/>
 <use f='tensorflow/tensorflow/core/lib/io/record_reader.cc' l='129' u='c' c='_ZN10tensorflow2io12RecordReader15ReadChecksummedEymPNS_11StringPieceEPSs'/>
 <use f='tensorflow/tensorflow/core/lib/io/zlib_inputstream.cc' l='113' u='c' c='_ZN10tensorflow2io15ZlibInputStream14ReadFromStreamEv'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='276' u='c' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
 <use f='tensorflow/tensorflow/core/lib/strings/proto_text_util.h' l='94' u='c' c='_ZN10tensorflow7strings15ProtoTextOutput22AppendStringIfNotEmptyEPKcRKSs'/>
 <use f='tensorflow/tensorflow/core/ops/io_ops.cc' l='111' u='c'/>
 <use f='tensorflow/tensorflow/core/ops/io_ops.cc' l='226' u='c'/>

@@ -30,6 +30,16 @@
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='47' u='c' c='_ZN10tensorflow11QueueRunner4InitERKNS_14QueueRunnerDefE'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='61' u='c' c='_ZN10tensorflow11QueueRunner4InitERKNS_14QueueRunnerDefE'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='62' u='c' c='_ZN10tensorflow11QueueRunner4InitERKNS_14QueueRunnerDefE'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='251' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder17set_device_vendorERKSs'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='254' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder20set_platform_versionERKSs'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='257' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder18set_driver_versionERKSs'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='260' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder19set_runtime_versionERKSs'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='263' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder14set_pci_bus_idERKSs'/>
+<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='265' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder8set_nameERKSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='851' u='c' c='_ZN3xla14HloInstruction17set_infeed_configERKSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='584' u='c' c='_ZN10tensorflow9tfcompile13ParseCppClassERKSsPSsPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='78' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_110CompileXlaEPN3xla17CompileOnlyClientERKNS2_11ComputationERKNS2_3cpu24CpuAotCompilationOptionsEPNS0_13CompileResultE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='99' u='c' c='_ZN10tensorflow9tfcompile4MainERKNS0_9MainFlagsE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='671' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph13MakeNodeImageEPKNS_5GraphEPNS_4NodeE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='834' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph15AddHostComputesERKSsRKSt13unordered_mapIPKNS_4NodeEPS6_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='937' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph16BuildFunctionDefERKSsRKSt8functionIFNS_6StatusEPSt10unique_ptrINS_5GraphESt14default_deleteIS8_E8596228'/>
@@ -40,13 +50,6 @@
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='214' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='250' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='269' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
-<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='251' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder17set_device_vendorERKSs'/>
-<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='254' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder20set_platform_versionERKSs'/>
-<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='257' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder18set_driver_versionERKSs'/>
-<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='260' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder19set_runtime_versionERKSs'/>
-<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='263' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder14set_pci_bus_idERKSs'/>
-<use f='tensorflow/tensorflow/stream_executor/device_description.h' l='265' u='c' c='_ZN9perftools8gputools8internal24DeviceDescriptionBuilder8set_nameERKSs'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='851' u='c' c='_ZN3xla14HloInstruction17set_infeed_configERKSs'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='160' u='c' c='_ZN10tensorflow12_GLOBAL__N_114BuildArgumentsERKSt3mapIiNS_6TensorESt4lessIiESaISt4pairIKiS2_EEERKS1_IiNS_14OptionalTensorES4_SaIS5_IS6_SC_EEEPNS_15Op9165003'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='34' u='c' c='_ZN10tensorflow12_GLOBAL__N_112GetVariablesEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='49' u='c' c='_ZN10tensorflow25SnapshotResourceVariablesEPNS_15OpKernelContextEi'/>
@@ -288,7 +291,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='124' u='c' c='_ZN4toco11SvdfCluster11CreateNodesEv'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='128' u='c' c='_ZN4toco11SvdfCluster11CreateNodesEv'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='53' u='c' c='_ZN4toco6tflite12_GLOBAL__N_114GetOperatorKeyERKNS_8OperatorE'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/export.cc' l='207' u='c' c='_ZN4toco6tflite19ExportOperatorCodesERKNS_5ModelERKSt3mapINS_12OperatorTypeESt10unique_ptrINS0_12BaseOperatorESt14default_deleteIS7_EESt4lessIS5_ESaIS7482138'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco_saved_model.cc' l='40' u='c' c='_ZN4toco12_GLOBAL__N_114LoadSavedModelERKNS_15ParsedTocoFlagsE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='904' u='c' c='_ZN4toco19FixOperatorOrderingEPNS_5ModelE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='947' u='c' c='_ZN4toco19FixOperatorOrderingEPNS_5ModelE'/>
@@ -325,7 +327,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='294' u='c' c='_ZN10tensorflow23InMemoryRunGraphRequest16set_graph_handleERKSs'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='91' u='c' c='_ZN10tensorflow15GrpcChannelSpec15AddHostPortsJobERKSsRKSt6vectorISsSaISsEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_rpc_factory.cc' l='55' u='c' c='_ZN10tensorflow12_GLOBAL__N_18GrpcCall4DoneERKNS_6StatusE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='275' u='c' c='_ZN10tensorflow10GrpcServer16ParseChannelSpecERKNS_25WorkerCacheFactoryOptionsEPNS_15GrpcChannelSpecE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='99' u='c' c='_ZN10tensorflow11GrpcSession6HandleEPSs'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='312' u='c' c='_ZN10tensorflow11GrpcSession9PRunSetupERKSt6vectorISsSaISsEES5_S5_PSs'/>
 <use f='tensorflow/tensorflow/core/example/example_parser_configuration.cc' l='100' u='c' c='_ZN10tensorflow33ExtractExampleParserConfigurationERKNS_8GraphDefERKSsPNS_7SessionEPSt6vectorINS_15FixedLenFeatureESaIS8_EEPS7_INS_13VarLenFeatureESaISC_EE'/>

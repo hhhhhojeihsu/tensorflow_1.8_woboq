@@ -24,6 +24,7 @@
 <use f='tensorflow/tensorflow/compiler/jit/jit_compilation_pass_registration.cc' l='34' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='341' u='c' c='_ZN10tensorflow12_GLOBAL__N_125FindCompilationCandidatesERKNS_5GraphEPNS_25FunctionLibraryDefinitionEPNS_3EnvERKSt8functionIFbPKNS_4NodeERKNS_10Device15558984'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/graph_compiler.cc' l='111' u='c' c='_ZN10tensorflow13GraphCompiler7CompileEv'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='320' u='c' c='_ZN10tensorflow12_GLOBAL__N_19InitGraphERKNS_8GraphDefERKNS_6tf2xla6ConfigEPSt10unique_ptrINS_5GraphESt14default_deleteIS9_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.cc' l='84' u='c' c='_ZN10tensorflow20XlaCompilationDeviceC1ERKNS_14SessionOptionsENS_10DeviceTypeE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='159' u='c' c='_ZN10tensorflow11XlaCompiler8GetGraphEPKNS_12FunctionBodyE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='609' u='c' c='_ZN10tensorflow11XlaCompiler15CompileSingleOpERKNS0_14CompileOptionsERKSsPNS_15OpKernelContextERKSt6vectorINS0_8ArgumentESaIS9_EEPNS0_17CompilationResultE'/>
@@ -47,13 +48,6 @@
 <use f='tensorflow/tensorflow/contrib/data/kernels/ignore_errors_dataset_op.cc' l='49' u='c' c='_ZNK10tensorflow12_GLOBAL__N_121IgnoreErrorsDatasetOp7Dataset12MakeIteratorERKSs'/>
 <use f='tensorflow/tensorflow/contrib/data/kernels/threadpool_dataset_op.cc' l='132' u='c' c='_ZNK10tensorflow12_GLOBAL__N_119ThreadPoolDatasetOp7Dataset12MakeIteratorERKSs'/>
 <use f='tensorflow/tensorflow/contrib/data/kernels/unique_dataset_op.cc' l='61' u='c' c='_ZNK10tensorflow12_GLOBAL__N_115UniqueDatasetOp7Dataset12MakeIteratorERKSs'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='4694' u='c' c='_ZNK6tflite6Tensor8UnPackToEPNS_7TensorTEPKSt8functionIFvPPvmEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5904' u='c' c='_ZNK6tflite8SubGraph8UnPackToEPNS_9SubGraphTEPKSt8functionIFvPPvmEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5907' u='c' c='_ZNK6tflite8SubGraph8UnPackToEPNS_9SubGraphTEPKSt8functionIFvPPvmEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5969' u='c' c='_ZNK6tflite5Model8UnPackToEPNS_6ModelTEPKSt8functionIFvPPvmEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5970' u='c' c='_ZNK6tflite5Model8UnPackToEPNS_6ModelTEPKSt8functionIFvPPvmEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5972' u='c' c='_ZNK6tflite5Model8UnPackToEPNS_6ModelTEPKSt8functionIFvPPvmEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='6895' u='c' c='_ZN6tflite11UnPackModelEPKvPKSt8functionIFvPPvmEE'/>
 <use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='488' u='c' c='_ZN6tflite11Interpreter20PrepareOpsAndTensorsEv'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='340' u='c' c='_ZN4toco7Padding23GetOrCreateFixedPaddingEv'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/model.h' l='1562' u='c' c='_ZN4toco5Array16GetOrCreateAllocEv'/>
@@ -66,8 +60,7 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='103' u='c' c='_ZN4toco11SvdfCluster11CreateNodesEv'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='159' u='c' c='_ZN4toco11SvdfCluster15CreateConstNodeERKSs'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='271' u='c' c='_ZNK4toco18SvdfClusterFactory13CreateClusterERKN10tensorflow7NodeDefERKNS1_8GraphDefE'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/operator.cc' l='690' u='c' c='_ZNK4toco6tflite21TensorFlowUnsupported11DeserializeEPKvPKN11flatbuffers6VectorIhEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/operator.cc' l='736' u='c' c='_ZNK4toco6tflite21TensorFlowUnsupported12WriteOptionsERKNS_29TensorFlowUnsupportedOperatorE'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/operator.cc' l='690' u='c' c='_ZNK4toco6tflite21TensorFlowUnsupported11DeserializeEPKvPKi'/>
 <use f='tensorflow/tensorflow/contrib/tensor_forest/hybrid/core/ops/stochastic_hard_routing_function_op.cc' l='100' u='c' c='_ZN10tensorflow29StochasticHardRoutingFunctionC1EPNS_20OpKernelConstructionE'/>
 <use f='tensorflow/tensorflow/contrib/tensor_forest/hybrid/core/ops/stochastic_hard_routing_function_op.cc' l='102' u='c' c='_ZN10tensorflow29StochasticHardRoutingFunctionC1EPNS_20OpKernelConstructionE'/>
 <use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/v4/input_data.h' l='60' u='c' c='_ZN10tensorflow12tensorforest13TensorDataSetC1ERKNS0_20TensorForestDataSpecEi'/>
@@ -153,12 +146,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='326' u='c' c='_ZN10tensorflow6Master13CreateSessionEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/master.cc' l='374' u='c' c='_ZN10tensorflow6Master13CreateSessionEPKNS_20CreateSessionRequestEPNS_21CreateSessionResponseESt8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1459' u='c' c='_ZN10tensorflow13MasterSession15PartialRunSetupEPKNS_22PartialRunSetupRequestEPNS_23PartialRunSetupResponseE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service_impl.cc' l='47' u='c' c='_ZN10tensorflow4grpc13MasterService7NewStubERKSt10shared_ptrIN4grpc16ChannelInterfaceEERKNS3_11StubOptionsE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='184' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='210' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='297' u='c' c='_ZN10tensorflow10GrpcServer18WorkerCacheFactoryERKNS_25WorkerCacheFactoryOptionsEPPNS_20WorkerCacheInterfaceE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='395' u='c' c='_ZN10tensorflow10GrpcServer12CreateMasterEPNS_9MasterEnvE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='401' u='c' c='_ZN10tensorflow10GrpcServer6CreateERKNS_9ServerDefEPNS_3EnvEPSt10unique_ptrINS_15ServerInterfaceESt14default_deleteIS7_EE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='46' u='c' c='_ZN10tensorflow11GrpcSession6CreateERKNS_14SessionOptionsEPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='183' u='c' c='_ZN10tensorflow11GrpcSession9RunHelperERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataERKSs'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='185' u='c' c='_ZN10tensorflow11GrpcSession9RunHelperERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataERKSs'/>
@@ -251,7 +238,6 @@
 <use f='tensorflow/tensorflow/core/kernels/data/skip_dataset_op.cc' l='53' u='c' c='_ZNK10tensorflow12_GLOBAL__N_113SkipDatasetOp7Dataset12MakeIteratorERKSs'/>
 <use f='tensorflow/tensorflow/core/kernels/data/skip_dataset_op.cc' l='59' u='c' c='_ZNK10tensorflow12_GLOBAL__N_113SkipDatasetOp7Dataset12MakeIteratorERKSs'/>
 <use f='tensorflow/tensorflow/core/kernels/data/slide_dataset_op.cc' l='69' u='c' c='_ZNK10tensorflow12_GLOBAL__N_114SlideDatasetOp7Dataset12MakeIteratorERKSs'/>
-<use f='tensorflow/tensorflow/core/kernels/data/sql/driver_manager.cc' l='25' u='c' c='_ZN10tensorflow3sql13DriverManager21CreateQueryConnectionERKSs'/>
 <use f='tensorflow/tensorflow/core/kernels/data/sql_dataset_ops.cc' l='91' u='c' c='_ZNK10tensorflow12_GLOBAL__N_112SqlDatasetOp7Dataset12MakeIteratorERKSs'/>
 <use f='tensorflow/tensorflow/core/kernels/data/stats_aggregator_ops.cc' l='70' u='c' c='_ZN10tensorflow12_GLOBAL__N_123StatsAggregatorHandleOp14CreateResourceEPPNS_23StatsAggregatorResourceE'/>
 <use f='tensorflow/tensorflow/core/kernels/data/stats_dataset_ops.cc' l='61' u='c' c='_ZNK10tensorflow12_GLOBAL__N_121LatencyStatsDatasetOp7Dataset12MakeIteratorERKSs'/>

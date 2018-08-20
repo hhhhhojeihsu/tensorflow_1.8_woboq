@@ -13,12 +13,17 @@
 <use f='tensorflow/tensorflow/cc/framework/scope.cc' l='350' u='c' c='_ZNK10tensorflow5Scope11NewSubScopeERKSs'/>
 <use f='tensorflow/tensorflow/cc/framework/scope.cc' l='417' u='c' c='_ZNK10tensorflow5Scope20GetCompositeOpScopesERKSs'/>
 <use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='68' u='c' c='_ZN10tensorflow12_GLOBAL__N_115GetTagsAsStringERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='126' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_119AddRewritesForShapeEiRKN3xla5ShapeEPSt6vectorISt4pairISsSsESaIS8_EE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='127' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_119AddRewritesForShapeEiRKN3xla5ShapeEPSt6vectorISt4pairISsSsESaIS8_EE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='316' u='c' c='_ZN10tensorflow9tfcompile14GenerateHeaderERKNS0_11CodegenOptsERKNS_6tf2xla6ConfigERKNS0_13CompileResultERKNS0_14MetadataResultEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='322' u='c' c='_ZN10tensorflow9tfcompile14GenerateHeaderERKNS0_11CodegenOptsERKNS_6tf2xla6ConfigERKNS0_13CompileResultERKNS0_14MetadataResultEPSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='138' u='c' c='_ZNK3xla7Backend11device_nameEi'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='144' u='c' c='_ZN10tensorflow9tfcompile28CreateEmbeddedProtocolBufferENS_11StringPieceES1_S1_PKN6google8protobuf11MessageLiteE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='819' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph15AddHostComputesERKSsRKSt13unordered_mapIPKNS_4NodeEPS6_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEE'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='88' u='c' c='_ZN10tensorflow12_GLOBAL__N_115NodeNameMapping14UniquifyHelperESs'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='158' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='198' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='214' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='138' u='c' c='_ZNK3xla7Backend11device_nameEi'/>
 <use f='tensorflow/tensorflow/core/kernels/variable_ops.h' l='44' u='c' c='_ZN10tensorflow3Var11DebugStringEv'/>
 <use f='tensorflow/tensorflow/core/platform/tracing.h' l='256' u='c' c='_ZN10tensorflow4port7Tracing16ScopedAnnotationC1ENS_11StringPieceES3_'/>
 <use f='tensorflow/tensorflow/core/platform/tracing.h' l='276' u='c' c='_ZN10tensorflow4port7Tracing7TraceMeC1ENS_11StringPieceES3_b'/>
@@ -277,7 +282,6 @@
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_tensor.h' l='109' u='c' c='_ZN10tensorflow6tfprof12TFProfTensor11BuildOutputExiRKSt6vectorIT_SaIS3_EEPNS0_17TFProfTensorProtoE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_tensor.h' l='136' u='c' c='_ZN10tensorflow6tfprof12TFProfTensor11BuildOutputExiRKSt6vectorIT_SaIS3_EEPNS0_17TFProfTensorProtoE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_code.cc' l='119' u='c' c='_ZN10tensorflow6tfprof12_GLOBAL__N_113FunctionTable8GetIndexERKSsS4_y'/>
-<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_timeline.cc' l='116' u='c' c='_ZN10tensorflow6tfprof20ChromeTraceFormatter11EmitCounterERKSsS3_xxS3_xRKSt3mapIxSt6vectorISsSaISsEESt4lessIxESaISt4pairIKxS7_EEE'/>
 <use f='tensorflow/tensorflow/core/profiler/tfprof_options.cc' l='31' u='c' c='_ZN10tensorflow6tfprof12_GLOBAL__N_113KeyValueToStrERKSt3mapISsSsSt4lessISsESaISt4pairIKSsSsEEE'/>
 <use f='tensorflow/tensorflow/core/util/device_name_utils.cc' l='360' u='c' c='_ZN10tensorflow12_GLOBAL__N_115LegacyLocalNameENS_11StringPieceEi'/>
 <use f='tensorflow/tensorflow/core/util/equal_graph_def.cc' l='55' u='c' c='_ZN10tensorflow20EqualRepeatedNodeDefERKN6google8protobuf16RepeatedPtrFieldINS_7NodeDefEEES6_PSsRKNS_20EqualGraphDefOptionsE'/>

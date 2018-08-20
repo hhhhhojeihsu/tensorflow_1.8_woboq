@@ -7,6 +7,7 @@
 <use f='tensorflow/tensorflow/cc/framework/gradients.cc' l='154' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SymbolicGradientBuilder17BackpropAlongEdgeERKNS_6OutputES4_'/>
 <use f='tensorflow/tensorflow/cc/framework/gradients.cc' l='345' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SymbolicGradientBuilder12SumGradientsERKNS_6OutputEPS2_'/>
 <use f='tensorflow/tensorflow/cc/framework/gradients.cc' l='528' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SymbolicGradientBuilder12AddGradientsEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='197' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_116GenResultMethodsERKNS_6tf2xla6ConfigERKN3xla12ProgramShapeEPSs'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1940' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator28MakePrunedGraphCopyAndInlineERKNS_5GraphERKSt6vectorIPNS_4NodeESaIS7_EEPSt10unique_ptrIS2_St14default_del3709695'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2183' u='c' c='_ZN10tensorflow24EncapsulateSubgraphsPass3RunERKNS_28GraphOptimizationPassOptionsE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2193' u='c' c='_ZN10tensorflow24EncapsulateSubgraphsPass3RunERKNS_28GraphOptimizationPassOptionsE'/>
@@ -147,9 +148,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='1236' u='c' c='_ZN10tensorflow13MasterSession20CreateWorkerSessionsERKNS_25WorkerCacheFactoryOptionsE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_state.h' l='74' u='c' c='_ZN10tensorflow8RPCState11OnCompletedEb'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_state.h' l='77' u='c' c='_ZN10tensorflow8RPCState11OnCompletedEb'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='135' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='161' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='308' u='c' c='_ZN10tensorflow10GrpcServer18WorkerCacheFactoryERKNS_25WorkerCacheFactoryOptionsEPPNS_20WorkerCacheInterfaceE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='236' u='c' c='_ZN10tensorflow11GrpcSession9RunHelperERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataERKSs'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='431' u='c' c='_ZN10tensorflow11GrpcSession11RunCallableExRKSt6vectorINS_6TensorESaIS2_EEPS4_PNS_11RunMetadataE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.cc' l='433' u='c' c='_ZN10tensorflow10GrpcWorker19GrpcRecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPN4grpc10ByteBufferESt8functionIFvRKNS_6StatusEEE'/>

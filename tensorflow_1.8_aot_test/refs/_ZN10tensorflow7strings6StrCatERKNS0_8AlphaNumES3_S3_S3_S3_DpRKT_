@@ -7,11 +7,11 @@
 <use f='tensorflow/tensorflow/c/eager/c_api.cc' l='324' u='c' c='TFE_OpSetAttrShape'/>
 <use f='tensorflow/tensorflow/c/eager/c_api.cc' l='396' u='c' c='TFE_OpSetAttrShapeList'/>
 <use f='tensorflow/tensorflow/c/eager/c_api.cc' l='690' u='c' c='_ZN12_GLOBAL__N_112OpToFunctionEP6TFE_OpPSt6vectorI11TF_DataTypeSaIS3_EES6_PN10tensorflow3gtl7FlatMapIiiNS7_4hashIiEESt8equal_toIiEEEP9TF_Status'/>
+<use f='tensorflow/tensorflow/stream_executor/launch_dim.h' l='61' u='c' c='_ZNK9perftools8gputools9ThreadDim8ToStringEv'/>
+<use f='tensorflow/tensorflow/stream_executor/launch_dim.h' l='73' u='c' c='_ZNK9perftools8gputools8BlockDim8ToStringEv'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1142' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph17AddRecvAtHostNodeERKSsS4_S4_S4_PNS2_26OutsideCompilationSubgraphEPNS_5GraphE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1197' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph19AddSendFromHostNodeERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS9970351'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='212' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
-<use f='tensorflow/tensorflow/stream_executor/launch_dim.h' l='61' u='c' c='_ZNK9perftools8gputools9ThreadDim8ToStringEv'/>
-<use f='tensorflow/tensorflow/stream_executor/launch_dim.h' l='73' u='c' c='_ZNK9perftools8gputools8BlockDim8ToStringEv'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_device.cc' l='128' u='c' c='_ZN10tensorflow9XlaDevice6CreateERKSsS2_iS2_RKNS_14SessionOptionsES2_RKNS_13XlaOpRegistry18DeviceRegistrationEbPSt10unique_ptrIS0_St14default_deleteIS0_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='589' u='c' c='_ZNK10tensorflow12_GLOBAL__N_117FunctionalizeCond11CondArgNode8ToStringEv'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='614' u='c' c='_ZNK10tensorflow12_GLOBAL__N_117FunctionalizeCond13SwitchCluster8ToStringEv'/>
@@ -75,8 +75,6 @@
 <use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='715' u='c' c='_ZN10tensorflow16DebugGrpcChannel29ReceiveAndProcessEventRepliesEm'/>
 <use f='tensorflow/tensorflow/core/debug/debug_node_key.cc' l='33' u='c' c='_ZN10tensorflow12DebugNodeKeyC1ERKSsS2_iS2_'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='215' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph10DetailTextERKNS_4NodeERKNS_13NodeExecStatsE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='122' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='300' u='c' c='_ZN10tensorflow10GrpcServer18WorkerCacheFactoryERKNS_25WorkerCacheFactoryOptionsEPPNS_20WorkerCacheInterfaceE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/worker_cache_logger.cc' l='109' u='c' c='_ZN10tensorflow17WorkerCacheLogger18RecordDataTransferExxxRKSsS2_S2_xS2_S2_'/>
 <use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='46' u='c' c='_ZN10tensorflow12_GLOBAL__N_115SummarizeStringERKSs'/>
 <use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='291' u='c' c='_ZN10tensorflow14ParseAttrValueENS_11StringPieceES0_PNS_9AttrValueE'/>

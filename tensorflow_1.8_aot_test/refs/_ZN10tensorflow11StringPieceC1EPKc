@@ -107,6 +107,21 @@
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='109' u='c' c='_ZN10tensorflow11QueueRunner5StartEPNS_7SessionEi'/>
 <use f='tensorflow/tensorflow/cc/training/queue_runner.cc' l='210' u='c' c='_ZNK10tensorflow11QueueRunner15ExportCostGraphEPNS_12CostGraphDefE'/>
 <use f='tensorflow/tensorflow/compiler/xla/statusor.h' l='209' u='c' c='_ZN3xla8StatusOrC1Ev'/>
+<use f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='93' u='c' c='_ZN9perftools8gputools4port8StatusOrC1Ev'/>
+<use f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='229' u='c' c='_ZN9perftools8gputools4port8StatusOrC1ERKN10tensorflow6StatusE'/>
+<use f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='246' u='c' c='_ZN9perftools8gputools4port8StatusOr17CheckValueNotNullERKT_'/>
+<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='892' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport10GetVersionEv'/>
+<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='2018' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport19createRnnDescriptorEiiiNS1_12RnnInputModeENS1_16RnnDirectionModeENS1_7RnnModeENS1_8DataTypeERKNS1_15AlgorithmC14912073'/>
+<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='2033' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport33createRnnSequenceTensorDescriptorEiiiNS1_8DataTypeE'/>
+<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='2042' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport30createRnnStateTensorDescriptorEiiiNS1_8DataTypeE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/name_uniquer.h' l='40' u='c' c='_ZN3xla11NameUniquer13GetUniqueNameEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/service_executable_run_options.h' l='58' u='c' c='_ZNK3xla27ServiceExecutableRunOptions12BorrowStreamEi'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='149' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_115RewriteWithNameERKSsSsRKSt6vectorISt4pairISsSsESaIS6_EE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='270' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_125ValidateFeedFetchCppNamesERKNS_6tf2xla6ConfigE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='275' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_125ValidateFeedFetchCppNamesERKNS_6tf2xla6ConfigE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='557' u='c' c='_ZN10tensorflow9tfcompile16GenerateMetadataERKNS0_11CodegenOptsERKNS0_13CompileResultEPNS0_14MetadataResultE'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='92' u='c' c='_ZN3xla7llvm_ir6IrNameEPKNS_14HloInstructionEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='58' u='c' c='_ZN10tensorflow9tfcompile13ReadProtoFileERKSsPN6google8protobuf7MessageE'/>
 <use f='tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.cc' l='45' u='c' c='_ZN10tensorflowL15BuildLaunchNodeERKSsS1_RKN6google8protobuf3MapISsNS_9AttrValueEEES1_RKNS_3gtl13InlinedVectorINS_8DataTypeELi4EEEiSE_SE_PNS_5GraphEPPNS_4NodeE'/>
 <use f='tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.cc' l='46' u='c' c='_ZN10tensorflowL15BuildLaunchNodeERKSsS1_RKN6google8protobuf3MapISsNS_9AttrValueEEES1_RKNS_3gtl13InlinedVectorINS_8DataTypeELi4EEEiSE_SE_PNS_5GraphEPPNS_4NodeE'/>
 <use f='tensorflow/tensorflow/compiler/jit/build_xla_launch_ops_pass.cc' l='47' u='c' c='_ZN10tensorflowL15BuildLaunchNodeERKSsS1_RKN6google8protobuf3MapISsNS_9AttrValueEEES1_RKNS_3gtl13InlinedVectorINS_8DataTypeELi4EEEiSE_SE_PNS_5GraphEPPNS_4NodeE'/>
@@ -157,15 +172,6 @@
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='146' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='233' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
 <use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='140' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='93' u='c' c='_ZN9perftools8gputools4port8StatusOrC1Ev'/>
-<use f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='229' u='c' c='_ZN9perftools8gputools4port8StatusOrC1ERKN10tensorflow6StatusE'/>
-<use f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='246' u='c' c='_ZN9perftools8gputools4port8StatusOr17CheckValueNotNullERKT_'/>
-<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='892' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport10GetVersionEv'/>
-<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='2018' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport19createRnnDescriptorEiiiNS1_12RnnInputModeENS1_16RnnDirectionModeENS1_7RnnModeENS1_8DataTypeERKNS1_15AlgorithmC14912073'/>
-<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='2033' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport33createRnnSequenceTensorDescriptorEiiiNS1_8DataTypeE'/>
-<use f='tensorflow/tensorflow/stream_executor/dnn.h' l='2042' u='c' c='_ZN9perftools8gputools3dnn10DnnSupport30createRnnStateTensorDescriptorEiiiNS1_8DataTypeE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/name_uniquer.h' l='40' u='c' c='_ZN3xla11NameUniquer13GetUniqueNameEN10tensorflow11StringPieceE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/service_executable_run_options.h' l='58' u='c' c='_ZNK3xla27ServiceExecutableRunOptions12BorrowStreamEi'/>
 <use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='47' u='c' c='_ZN10tensorflow16XlaLocalLaunchOpC1EPNS_20OpKernelConstructionE'/>
 <use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='50' u='c' c='_ZN10tensorflow16XlaLocalLaunchOpC1EPNS_20OpKernelConstructionE'/>
 <use f='tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc' l='52' u='c' c='_ZN10tensorflow16XlaLocalLaunchOpC1EPNS_20OpKernelConstructionE'/>
@@ -437,6 +443,10 @@
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops.cc' l='85' u='c'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops.cc' l='96' u='c'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops.cc' l='96' u='c'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='116' u='c'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='117' u='c'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='118' u='c'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='119' u='c'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/l2loss_op.cc' l='51' u='c'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/lrn_ops.cc' l='28' u='c' c='_ZN10tensorflow12_GLOBAL__N_15LRNOpC1EPNS_20OpKernelConstructionE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/lrn_ops.cc' l='31' u='c' c='_ZN10tensorflow12_GLOBAL__N_15LRNOpC1EPNS_20OpKernelConstructionE'/>
@@ -808,6 +818,22 @@
 <use f='tensorflow/tensorflow/compiler/tf2xla/sharding_util.cc' l='37' u='c' c='_ZN10tensorflow12_GLOBAL__N_122GetShardingFromNodeDefERKNS_7NodeDefE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/sharding_util.cc' l='70' u='c' c='_ZN10tensorflow23ParseShardingFromDeviceERKSsiNS_3gtl8optionalIN3xla10OpShardingEEE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/sharding_util.cc' l='107' u='c' c='_ZN10tensorflow35SetShardingDeviceAssignmentFromNodeERKNS_4NodeEPS0_'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='91' u='c' c='_ZN10tensorflow12_GLOBAL__N_111AddArgNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8protobu3804776'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='92' u='c' c='_ZN10tensorflow12_GLOBAL__N_111AddArgNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8protobu3804776'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='93' u='c' c='_ZN10tensorflow12_GLOBAL__N_111AddArgNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8protobu3804776'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='94' u='c' c='_ZN10tensorflow12_GLOBAL__N_111AddArgNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8protobu3804776'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='95' u='c' c='_ZN10tensorflow12_GLOBAL__N_111AddArgNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8protobu3804776'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='96' u='c' c='_ZN10tensorflow12_GLOBAL__N_111AddArgNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8protobu3804776'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='138' u='c' c='_ZN10tensorflow12_GLOBAL__N_114AddRetvalNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8prot5639472'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='140' u='c' c='_ZN10tensorflow12_GLOBAL__N_114AddRetvalNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8prot5639472'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='141' u='c' c='_ZN10tensorflow12_GLOBAL__N_114AddRetvalNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8prot5639472'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='142' u='c' c='_ZN10tensorflow12_GLOBAL__N_114AddRetvalNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8prot5639472'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='182' u='c' c='_ZN10tensorflow12_GLOBAL__N_120RewriteAndPruneGraphEPNS_5GraphERKNS_6tf2xla6ConfigERKSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIKSsSsEEE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='189' u='c' c='_ZN10tensorflow12_GLOBAL__N_120RewriteAndPruneGraphEPNS_5GraphERKNS_6tf2xla6ConfigERKSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIKSsSsEEE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='213' u='c' c='_ZN10tensorflow12_GLOBAL__N_115CollectArgNodesERKNS_5GraphEPSt6vectorIPNS_4NodeESaIS6_EE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='243' u='c' c='_ZN10tensorflow12_GLOBAL__N_113CreateXlaArgsERKNS_5GraphEPSt6vectorINS_11XlaCompiler8ArgumentESaIS6_EE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='244' u='c' c='_ZN10tensorflow12_GLOBAL__N_113CreateXlaArgsERKNS_5GraphEPSt6vectorINS_11XlaCompiler8ArgumentESaIS6_EE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='245' u='c' c='_ZN10tensorflow12_GLOBAL__N_113CreateXlaArgsERKNS_5GraphEPSt6vectorINS_11XlaCompiler8ArgumentESaIS6_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='203' u='c' c='_ZN10tensorflow11XlaCompiler15CompileFunctionERKNS0_14CompileOptionsERKNS_12NameAttrListESt6vectorINS0_8ArgumentESaIS8_EEPNS0_17CompilationResultE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='210' u='c' c='_ZN10tensorflow11XlaCompiler15CompileFunctionERKNS0_14CompileOptionsERKNS_12NameAttrListESt6vectorINS0_8ArgumentESaIS8_EEPNS0_17CompilationResultE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='508' u='c' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>
@@ -827,7 +853,6 @@
 <use f='tensorflow/tensorflow/compiler/xla/service/copy_insertion.h' l='49' u='c' c='_ZNK3xla13CopyInsertion4nameEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_dce.h' l='39' u='c' c='_ZNK3xla6HloDCE4nameEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/tuple_simplifier.h' l='32' u='c' c='_ZNK3xla15TupleSimplifier4nameEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='92' u='c' c='_ZN3xla7llvm_ir6IrNameEPKNS_14HloInstructionEN10tensorflow11StringPieceE'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/cpu/conv_canonicalization.h' l='37' u='c' c='_ZNK3xla3cpu20ConvCanonicalization4nameEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_copy_insertion.h' l='35' u='c' c='_ZNK3xla16CpuCopyInsertion4nameEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_hlo_support_checker.h' l='32' u='c' c='_ZNK3xla20CpuHloSupportChecker4nameEv'/>
@@ -2940,9 +2965,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='365' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20TrackFeedsAndFetchesEPNS1_4PartERKNS_8GraphDefERKNS_16PartitionOptionsE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='368' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph20TrackFeedsAndFetchesEPNS1_4PartERKNS_8GraphDefERKNS_16PartitionOptionsE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='899' u='c' c='_ZN10tensorflow13MasterSession17ReffedClientGraph18ProcessDeviceStatsEPNS_14ProfileHandlerERKNS_15DeviceStepStatsEb'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='185' u='c' c='_ZN10tensorflow17GrpcMasterService14RunStepHandlerEPNS_4CallIS0_NS_4grpc13MasterService12AsyncServiceENS_14RunStepRequestENS_15RunStepResponseEEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='258' u='c' c='_ZN10tensorflow17GrpcMasterService18RunCallableHandlerEPNS_4CallIS0_NS_4grpc13MasterService12AsyncServiceENS_18RunCallableRequestENS_19RunCallableResponseEEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_remote_master.cc' l='70' u='c' c='_ZN10tensorflow16GrpcRemoteMaster7RunStepEPNS_11CallOptionsEPNS_21RunStepRequestWrapperEPNS_29MutableRunStepResponseWrapperE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='452' u='c' c='_ZN10tensorflow18GrpcSessionFactory14AcceptsOptionsERKNS_14SessionOptionsE'/>
 <use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='150' u='c' c='_ZN10tensorflow16AttrValueHasTypeERKNS_9AttrValueENS_11StringPieceE'/>
 <use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='167' u='c' c='_ZN10tensorflow16AttrValueHasTypeERKNS_9AttrValueENS_11StringPieceE'/>
@@ -15039,8 +15061,6 @@
 <use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='220' u='c' c='_ZN10tensorflow15PosixFileSystem11GetChildrenERKSsPSt6vectorISsSaISsEE'/>
 <use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='221' u='c' c='_ZN10tensorflow15PosixFileSystem11GetChildrenERKSsPSt6vectorISsSaISsEE'/>
 <use f='tensorflow/tensorflow/core/platform/posix/posix_file_system.cc' l='221' u='c' c='_ZN10tensorflow15PosixFileSystem11GetChildrenERKSsPSt6vectorISsSaISsEE'/>
-<use f='tensorflow/tensorflow/core/platform/test_main.cc' l='40' u='c' c='main'/>
-<use f='tensorflow/tensorflow/core/platform/test_main.cc' l='40' u='c' c='main'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_tensor.h' l='66' u='c' c='_ZN10tensorflow6tfprof12TFProfTensor8AddValueERKT_PNS0_17TFProfTensorProtoE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_tensor.h' l='101' u='c' c='_ZN10tensorflow6tfprof12TFProfTensor11BuildOutputExiRKSt6vectorIT_SaIS3_EEPNS0_17TFProfTensorProtoE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_tensor.h' l='129' u='c' c='_ZN10tensorflow6tfprof12TFProfTensor11BuildOutputExiRKSt6vectorIT_SaIS3_EEPNS0_17TFProfTensorProtoE'/>

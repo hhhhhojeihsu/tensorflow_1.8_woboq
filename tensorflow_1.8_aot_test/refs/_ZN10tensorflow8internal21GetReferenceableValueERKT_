@@ -1,7 +1,6 @@
 <def f='tensorflow/tensorflow/core/platform/default/logging.h' l='105' ll='107' type='const T &amp; tensorflow::internal::GetReferenceableValue(const T &amp; t)'/>
 <use f='tensorflow/tensorflow/core/platform/protobuf_internal.h' l='56' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='81' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='81' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/stream_executor/stream.h' l='197' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_tree.h' l='367' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='849' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='863' macro='1' u='c'/>
@@ -9,7 +8,6 @@
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1224' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1247' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1352' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/stream_executor/stream.h' l='197' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='694' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='694' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='916' macro='1' u='c'/>
@@ -48,6 +46,8 @@
 <use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer.h' l='114' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer.h' l='120' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/logical_buffer.h' l='120' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='81' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='81' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='357' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/layout_util.cc' l='357' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.cc' l='706' macro='1' u='c'/>
@@ -651,10 +651,6 @@
 <use f='tensorflow/tensorflow/core/common_runtime/scoped_allocator.cc' l='119' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='153' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='153' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='112' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='112' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='205' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='205' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_cache.cc' l='72' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_cache.cc' l='72' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.cc' l='95' macro='1' u='c'/>
@@ -717,8 +713,6 @@
 <use f='tensorflow/tensorflow/core/kernels/inplace_ops.cc' l='332' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/inplace_ops.cc' l='407' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/inplace_ops.cc' l='407' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/core/kernels/lmdb_reader_op.cc' l='93' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/core/kernels/lmdb_reader_op.cc' l='93' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/transpose_functor.h' l='172' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/transpose_functor.h' l='172' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='339' macro='1' u='c'/>

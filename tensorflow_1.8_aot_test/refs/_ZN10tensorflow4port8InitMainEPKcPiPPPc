@@ -1,7 +1,8 @@
-<def f='tensorflow/tensorflow/core/platform/posix/port.cc' l='49' type='void tensorflow::port::InitMain(const char * usage, int * argc, char *** argv)'/>
 <dec f='tensorflow/tensorflow/core/platform/init_main.h' l='26' type='void tensorflow::port::InitMain(const char * usage, int * argc, char *** argv)'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='138' u='c' c='main'/>
 <doc f='tensorflow/tensorflow/core/platform/init_main.h' l='22'>// Platform-specific initialization routine that may be invoked by a
 // main() program that uses TensorFlow.
 //
 // Default implementation does nothing.</doc>
+<def f='tensorflow/tensorflow/core/platform/posix/port.cc' l='49' type='void tensorflow::port::InitMain(const char * usage, int * argc, char *** argv)'/>
 <use f='tensorflow/tensorflow/tools/graph_transforms/transform_graph.cc' l='159' u='c' c='_ZN10tensorflow16graph_transforms27ParseFlagsAndTransformGraphEiPPcb'/>

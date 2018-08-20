@@ -158,7 +158,6 @@
 <use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='186' u='c' c='_ZN10tensorflow3ops14BuildWhileLoopERKNS_5ScopeERKSt6vectorINS_6OutputESaIS5_EERKSt8functionIFNS_6StatusES3_S9_PS5_EERKSA_IFSB_S3_S9_PS7_EERKSsSH_bSC_'/>
 <use f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.h' l='336' u='c' c='_ZN10tensorflow10monitoring15MetricCollector12CollectValueERKSt5arrayISsXT1_EERKT0_'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='82' u='c' c='_ZNK3xla10ShapeIndexixEm'/>
-<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2134' u='c' c='_ZN10tensorflowL17RenumberArgumentsEPNS_5GraphERKSt6vectorIiSaIiEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/computation_layout.h' l='42' u='c' c='_ZNK3xla17ComputationLayout16parameter_layoutEx'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/computation_layout.h' l='63' u='c' c='_ZNK3xla17ComputationLayout15parameter_shapeEx'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1002' u='c' c='_ZNK3xla14HloInstruction12slice_startsEx'/>
@@ -170,8 +169,10 @@
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_reachability.h' l='130' u='c' c='_ZNK3xla18HloReachabilityMap12GetBitVectorEPKNS_14HloInstructionE'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='135' u='c' c='_ZNK3xla14HloComputation21parameter_instructionEx'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_execution_profile.h' l='105' ll='106' u='c' c='_ZNK3xla19HloExecutionProfile21total_cycles_executedERKNS_14HloComputationE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='321' u='c' c='_ZN10tensorflow9tfcompile14GenerateHeaderERKNS0_11CodegenOptsERKNS_6tf2xla6ConfigERKNS0_13CompileResultERKNS0_14MetadataResultEPSs'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='113' u='c' c='_ZNK3xla7Backend23default_stream_executorEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/backend.h' l='133' u='c' c='_ZNK3xla7Backend24device_ordinal_supportedEi'/>
+<use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2134' u='c' c='_ZN10tensorflowL17RenumberArgumentsEPNS_5GraphERKSt6vectorIiSaIiEE'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='70' u='c' c='_ZNK10tensorflow19XlaCompilationCache9SignatureeqERKS1_'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='70' u='c' c='_ZNK10tensorflow19XlaCompilationCache9SignatureeqERKS1_'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='194' u='c' c='_ZN10tensorflow19XlaCompilationCache15BuildExecutableERKNS_11XlaCompiler7OptionsERKNS1_17CompilationResultEPSt10unique_ptrIN3xla15LocalExecutableESt14default_deleteISA_EE'/>
@@ -329,11 +330,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='173' u='c' c='_ZNK6tflite11Interpreter12GetInputNameEi'/>
 <use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='182' u='c' c='_ZNK6tflite11Interpreter13GetOutputNameEi'/>
 <use f='tensorflow/tensorflow/contrib/lite/interpreter.h' l='214' u='c' c='_ZNK6tflite11Interpreter21node_and_registrationEi'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5919' u='c' c='_ZN6tflite14CreateSubGraphERN11flatbuffers17FlatBufferBuilderEPKNS_9SubGraphTEPKSt8functionIFmPvEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5922' u='c' c='_ZN6tflite14CreateSubGraphERN11flatbuffers17FlatBufferBuilderEPKNS_9SubGraphTEPKSt8functionIFmPvEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5984' u='c' c='_ZN6tflite11CreateModelERN11flatbuffers17FlatBufferBuilderEPKNS_6ModelTEPKSt8functionIFmPvEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5985' u='c' c='_ZN6tflite11CreateModelERN11flatbuffers17FlatBufferBuilderEPKNS_6ModelTEPKSt8functionIFmPvEE'/>
-<use f='tensorflow/tensorflow/contrib/lite/schema/schema_generated.h' l='5987' u='c' c='_ZN6tflite11CreateModelERN11flatbuffers17FlatBufferBuilderEPKNS_6ModelTEPKSt8functionIFmPvEE'/>
 <use f='tensorflow/tensorflow/contrib/lite/interpreter.cc' l='73' u='c' c='_ZNK6tflite15InterpreterInfo4nodeEm'/>
 <use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='404' u='c' c='_ZN6tflite13NNAPIDelegate6InvokeEPNS_11InterpreterE'/>
 <use f='tensorflow/tensorflow/contrib/lite/nnapi_delegate.cc' l='413' u='c' c='_ZN6tflite13NNAPIDelegate6InvokeEPNS_11InterpreterE'/>
@@ -969,7 +965,6 @@
 <use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='355' u='c' c='_ZN10tensorflow7DebugIO20PublishDebugMetadataExxxRKSt6vectorISsSaISsEES5_S5_RKSt13unordered_setISsSt4hashISsESt8equal_toISsES2_E'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/graph_mgr.cc' l='375' u='c' c='_ZN10tensorflow8GraphMgr16RecvOutputsAsyncExPSt3mapISsNS_6TensorESt4lessISsESaISt4pairIKSsS2_EEESt8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='91' u='c' c='_ZN10tensorflow15GrpcChannelSpec15AddHostPortsJobERKSsRKSt6vectorISsSaISsEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='151' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='210' u='c' c='_ZN10tensorflow11GrpcSession9RunHelperERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataERKSs'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_session.cc' l='248' u='c' c='_ZN10tensorflow11GrpcSession9RunHelperERKNS_10RunOptionsERKSt6vectorISt4pairISsNS_6TensorEESaIS7_EERKS4_ISsSaISsEESF_PS4_IS6_SaIS6_EEPNS_11RunMetadataERKSs'/>
 <use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='309' u='c' c='_ZN10tensorflow15shape_inference19MakeShapeFromFormatENS_12TensorFormatENS0_19DimensionOrConstantERKSt6vectorIS2_SaIS2_EES2_PNS0_11ShapeHandleEPNS0_16InferenceContextE'/>

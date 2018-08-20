@@ -1,0 +1,9 @@
+<def f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='42' ll='45' type='bool tensorflow::IsStreamRemovedError(const int &amp; s)'/>
+<doc f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='34'>// Identify if the given grpc::Status corresponds to an HTTP stream removed
+// error (see chttp2_transport.cc).
+//
+// When auto-reconnecting to a remote TensorFlow worker after it restarts, gRPC
+// can return an UNKNOWN error code with a &quot;Stream removed&quot; error message.
+// This should not be treated as an unrecoverable error.
+//
+// N.B. This is dependent on the error message from grpc remaining consistent.</doc>

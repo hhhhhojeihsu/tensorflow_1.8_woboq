@@ -1,0 +1,10 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.h' l='33' type='tensorflow::Status tensorflow::ConvertGraphDefToXla(const tensorflow::GraphDef &amp; graph_def, const tf2xla::Config &amp; config, xla::Client * client, xla::Computation * computation)'/>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='99' u='c' c='_ZN10tensorflow9tfcompile12CompileGraphERKNS_8GraphDefERKNS_6tf2xla6ConfigERKNS0_9MainFlagsEPNS0_13CompileResultE'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.h' l='26'>// Converts a tensorflow::GraphDef into an xla::Computation.  The given `config`
+// specifies the portion of the graph to convert, via feeds and fetches. Each
+// feed is a positional input argument for the generated computation, while each
+// fetch is a positional output argument.
+//
+// The computation is built in the context of the given `client`, which may
+// subsequently be used to compile or execute the computation.</doc>
+<def f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='349' ll='356' type='tensorflow::Status tensorflow::ConvertGraphDefToXla(const tensorflow::GraphDef &amp; graph_def, const tf2xla::Config &amp; config, xla::Client * client, xla::Computation * computation)'/>
