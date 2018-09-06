@@ -4,6 +4,7 @@
   // Amortized complexity: O(1)
   // Worst-case complexity: O(size())</doc>
 <use f='tensorflow/tensorflow/c/eager/c_api.cc' l='268' u='c' c='TFE_OpAddInput'/>
+<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1373' u='c' c='_ZNK3xla7Literal9ReplicateEx'/>
 <use f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.cc' l='135' u='c' c='_ZN10tensorflow11GraphCycles10RemoveNodeEi'/>
 <use f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.cc' l='202' u='c' c='_ZN10tensorflowL10ForwardDFSEPNS_11GraphCycles3RepEii'/>
 <use f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.cc' l='210' u='c' c='_ZN10tensorflowL10ForwardDFSEPNS_11GraphCycles3RepEii'/>
@@ -15,7 +16,6 @@
 <use f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.cc' l='304' u='c' c='_ZNK10tensorflow11GraphCycles8FindPathEiiiPi'/>
 <use f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.cc' l='326' u='c' c='_ZNK10tensorflow11GraphCycles8FindPathEiiiPi'/>
 <use f='tensorflow/tensorflow/compiler/jit/graphcycles/graphcycles.cc' l='376' u='c' c='_ZN10tensorflow11GraphCycles12ContractEdgeEii'/>
-<use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1373' u='c' c='_ZNK3xla7Literal9ReplicateEx'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='243' u='c' c='_ZN10tensorflow12_GLOBAL__N_113BuildLoopBodyERKNS_5GraphEPNS0_5FrameEPNS_3gtl13InlinedVectorINS_8DataTypeELi4EEEPSt10unique_ptrIS1_St14default_deleteIS1_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1212' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond18BuildAndAddXlaIfOpERKSt6vectorINS1_11CondArgNodeESaIS3_EERKNS1_13SwitchClusterERKS2_IPNS_4NodeESaISC_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1224' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond18BuildAndAddXlaIfOpERKSt6vectorINS1_11CondArgNodeESaIS3_EERKNS1_13SwitchClusterERKS2_IPNS_4NodeESaISC_EE'/>

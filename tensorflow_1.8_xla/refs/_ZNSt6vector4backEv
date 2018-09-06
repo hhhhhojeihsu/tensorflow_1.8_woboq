@@ -7,11 +7,12 @@
        */</doc>
 <use f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.h' l='329' u='c' c='_ZN10tensorflow10monitoring15MetricCollector12CollectValueERKSt5arrayISsXT1_EERKT0_'/>
 <use f='tensorflow/tensorflow/core/lib/monitoring/collection_registry.h' l='335' u='c' c='_ZN10tensorflow10monitoring15MetricCollector12CollectValueERKSt5arrayISsXT1_EERKT0_'/>
-<use f='tensorflow/tensorflow/core/graph/graph_def_builder.h' l='132' u='c' c='_ZN10tensorflow15GraphDefBuilder7Options12WithAttrImplENS_11StringPieceEOT_'/>
+<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='80' u='c' c='_ZN3xla10ShapeIndex4backEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/array.h' l='499' u='c' c='_ZNK3xla5Array8ToStringEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/array.h' l='515' u='c' c='_ZNK3xla5Array8ToStringEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='80' u='c' c='_ZN3xla10ShapeIndex4backEv'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='76' u='c' c='_ZN3xla14HloComputation7Builder14AddInstructionESt10unique_ptrINS_14HloInstructionESt14default_deleteIS3_EE'/>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='77' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_110CompileXlaEPN3xla17CompileOnlyClientERKNS2_11ComputationERKNS2_3cpu24CpuAotCompilationOptionsEPNS0_13CompileResultE'/>
+<use f='tensorflow/tensorflow/core/graph/graph_def_builder.h' l='132' u='c' c='_ZN10tensorflow15GraphDefBuilder7Options12WithAttrImplENS_11StringPieceEOT_'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='129' u='c' c='_ZN10tensorflow12_GLOBAL__N_112CopySubgraphERKNS_5GraphEPKNS0_5FrameESt6vectorIPNS_4NodeESaIS9_EERKS7_IbSaIbEEPSB_PS1_'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1043' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond29DetermineBranchMapAndFrontierERKNS1_13SwitchClusterE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/cross_op.cc' l='59' u='c' c='_ZN10tensorflow12_GLOBAL__N_17CrossOp7CompileEPNS_18XlaOpKernelContextE'/>
@@ -63,7 +64,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/string_util.cc' l='51' u='c' c='_ZN6tflite13DynamicBuffer15AddJoinedStringERKSt6vectorINS_9StringRefESaIS2_EEc'/>
 <use f='tensorflow/tensorflow/contrib/lite/string_util.cc' l='64' u='c' c='_ZN6tflite13DynamicBuffer15AddJoinedStringERKSt6vectorINS_9StringRefESaIS2_EEc'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/dump_graphviz.cc' l='281' u='c' c='_ZN4toco12_GLOBAL__N_115OperatorsToDumpERKNS_5ModelE'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/import.cc' l='123' u='c' c='_ZN4toco6tflite15ImportOperatorsERKN6tflite5ModelERKSt3mapISsSt10unique_ptrINS0_12BaseOperatorESt14default_deleteIS7_EESt4lessISsESaISt4pairIKSsSA_EEE13084515'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='915' u='c' c='_ZN4toco19FixOperatorOrderingEPNS_5ModelE'/>
 <use f='tensorflow/tensorflow/contrib/tensorboard/db/summary_db_writer.cc' l='262' u='c' c='_ZN10tensorflow12_GLOBAL__N_111GraphWriter15MapNameToNodeIdEv'/>
 <use f='tensorflow/tensorflow/core/common_runtime/direct_session.cc' l='1047' u='c' c='_ZN10tensorflow13DirectSession10CheckFetchERKSt6vectorISt4pairISsNS_6TensorEESaIS4_EERKS1_ISsSaISsEEPKNS0_16ExecutorsAndKeysEPKNS0_8RunStateE'/>

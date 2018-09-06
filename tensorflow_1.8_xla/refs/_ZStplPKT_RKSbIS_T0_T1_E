@@ -3,6 +3,10 @@
 <use f='tensorflow/tensorflow/cc/framework/grad_op_registry.cc' l='36' u='c' c='_ZNK10tensorflow3ops14GradOpRegistry6LookupERKSsPPFNS_6StatusERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaISC_EEPSE_E'/>
 <use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='61' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ReadSavedModelERKSsPNS_10SavedModelE'/>
 <use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='240' u='c' c='_ZN10tensorflow12_GLOBAL__N_122LoadSavedModelInternalERKNS_14SessionOptionsERKNS_10RunOptionsERKSsRKSt13unordered_setISsSt4hashISsESt8equal_toISsESaIS11107313'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='185' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_113GenArgMethodsERKNS_6tf2xla6ConfigERKN3xla12ProgramShapeERKNS0_13CompileResultEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='226' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_116GenResultMethodsERKNS_6tf2xla6ConfigERKN3xla12ProgramShapeEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='577' u='c' c='_ZN10tensorflow9tfcompile13ParseCppClassERKSsPSsPSt6vectorISsSaISsEE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='583' u='c' c='_ZN10tensorflow9tfcompile13ParseCppClassERKSsPSsPSt6vectorISsSaISsEE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_context.cc' l='130' u='c' c='_ZN10tensorflow10XlaContext14GetOrCreateMaxENS_8DataTypeE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_context.cc' l='144' u='c' c='_ZN10tensorflow10XlaContext14GetOrCreateMinENS_8DataTypeE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_context.cc' l='158' u='c' c='_ZN10tensorflow10XlaContext14GetOrCreateAddENS_8DataTypeE'/>
@@ -14,7 +18,6 @@
 <use f='tensorflow/tensorflow/compiler/xla/service/service.cc' l='1269' u='c' c='_ZN3xla7Service12ExecuteAsyncEPKNS_19ExecuteAsyncRequestEPNS_20ExecuteAsyncResponseE'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/shape_inference.cc' l='683' u='c' c='_ZN3xla14ShapeInference15InferDotOpShapeERKNS_5ShapeES3_RKNS_19DotDimensionNumbersE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1048' u='c' c='_ZN4toco16CheckModelCountsERKNS_5ModelE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_channel.cc' l='70' u='c' c='_ZN10tensorflow22NewHostPortGrpcChannelERKSsPSt10shared_ptrIN4grpc7ChannelEE'/>
 <use f='tensorflow/tensorflow/core/grappler/costs/utils.cc' l='246' u='c' c='_ZN10tensorflow8grappler16GetOpDescriptionERKNS_6OpInfoE'/>
 <use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='579' u='c' c='_ZN10tensorflow8grappler16VirtualScheduler14CreateSendRecvEPKNS_7NodeDefES4_RKSs'/>
 <use f='tensorflow/tensorflow/core/grappler/costs/virtual_scheduler.cc' l='591' u='c' c='_ZN10tensorflow8grappler16VirtualScheduler14CreateSendRecvEPKNS_7NodeDefES4_RKSs'/>

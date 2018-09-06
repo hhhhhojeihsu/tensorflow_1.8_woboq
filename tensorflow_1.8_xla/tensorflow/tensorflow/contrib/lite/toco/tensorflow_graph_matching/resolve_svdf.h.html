@@ -36,9 +36,9 @@
 <tr><th id="22">22</th><td><u>#include <a href="cluster.h.html">"tensorflow/contrib/lite/toco/tensorflow_graph_matching/cluster.h"</a></u></td></tr>
 <tr><th id="23">23</th><td><u>#include <a href="cluster_utils.h.html">"tensorflow/contrib/lite/toco/tensorflow_graph_matching/cluster_utils.h"</a></u></td></tr>
 <tr><th id="24">24</th><td><u>#include <a href="../tooling_util.h.html">"tensorflow/contrib/lite/toco/tooling_util.h"</a></u></td></tr>
-<tr><th id="25">25</th><td><u>#include "tensorflow/core/framework/attr_value.pb.h"</u></td></tr>
-<tr><th id="26">26</th><td><u>#include "tensorflow/core/framework/graph.pb.h"</u></td></tr>
-<tr><th id="27">27</th><td><u>#include "tensorflow/core/framework/node_def.pb.h"</u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../../../../core/framework/attr_value.pb.h.html">"tensorflow/core/framework/attr_value.pb.h"</a></u></td></tr>
+<tr><th id="26">26</th><td><u>#include <a href="../../../../core/framework/graph.pb.h.html">"tensorflow/core/framework/graph.pb.h"</a></u></td></tr>
+<tr><th id="27">27</th><td><u>#include <a href="../../../../core/framework/node_def.pb.h.html">"tensorflow/core/framework/node_def.pb.h"</a></u></td></tr>
 <tr><th id="28">28</th><td></td></tr>
 <tr><th id="29">29</th><td><b>namespace</b> <span class="namespace">toco</span> {</td></tr>
 <tr><th id="30">30</th><td></td></tr>
@@ -66,9 +66,9 @@
 <tr><th id="52">52</th><td><i>  // only one Const node holding all the arrays contents. It transposes it if</i></td></tr>
 <tr><th id="53">53</th><td><i>  // needed.</i></td></tr>
 <tr><th id="54">54</th><td>  <em>void</em> <dfn class="decl" id="_ZN4toco11SvdfCluster20MaybeMergeConstNodesERKSt6vectorIPKN10tensorflow7NodeDefESaIS5_EEbRKSt10unique_ptrIS3_St14default_deleteIS3_EE" title='toco::SvdfCluster::MaybeMergeConstNodes' data-ref="_ZN4toco11SvdfCluster20MaybeMergeConstNodesERKSt6vectorIPKN10tensorflow7NodeDefESaIS5_EEbRKSt10unique_ptrIS3_St14default_deleteIS3_EE">MaybeMergeConstNodes</dfn>(</td></tr>
-<tr><th id="55">55</th><td>      <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<em>const</em> <span class="namespace">tensorflow::</span><span class='type' title='tensorflow::NodeDef' data-ref="tensorflow::NodeDef">NodeDef</span>*&gt;&amp; <dfn class="local col0 decl" id="20const_node_parts" title='const_node_parts' data-type='const std::vector&lt;const tensorflow::NodeDef *&gt; &amp;' data-ref="20const_node_parts">const_node_parts</dfn>,</td></tr>
+<tr><th id="55">55</th><td>      <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<em>const</em> <span class="namespace">tensorflow::</span><a class="type" href="../../../../core/framework/node_def.pb.h.html#tensorflow::NodeDef" title='tensorflow::NodeDef' data-ref="tensorflow::NodeDef">NodeDef</a>*&gt;&amp; <dfn class="local col0 decl" id="20const_node_parts" title='const_node_parts' data-type='const std::vector&lt;const tensorflow::NodeDef *&gt; &amp;' data-ref="20const_node_parts">const_node_parts</dfn>,</td></tr>
 <tr><th id="56">56</th><td>      <em>bool</em> <dfn class="local col1 decl" id="21transpose_tensor_value" title='transpose_tensor_value' data-type='bool' data-ref="21transpose_tensor_value">transpose_tensor_value</dfn>,</td></tr>
-<tr><th id="57">57</th><td>      <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">tensorflow::</span><span class='type' title='tensorflow::NodeDef' data-ref="tensorflow::NodeDef">NodeDef</span>&gt;&amp; <dfn class="local col2 decl" id="22merged_node" title='merged_node' data-type='const std::unique_ptr&lt;tensorflow::NodeDef&gt; &amp;' data-ref="22merged_node">merged_node</dfn>);</td></tr>
+<tr><th id="57">57</th><td>      <em>const</em> <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<span class="namespace">tensorflow::</span><a class="type" href="../../../../core/framework/node_def.pb.h.html#tensorflow::NodeDef" title='tensorflow::NodeDef' data-ref="tensorflow::NodeDef">NodeDef</a>&gt;&amp; <dfn class="local col2 decl" id="22merged_node" title='merged_node' data-type='const std::unique_ptr&lt;tensorflow::NodeDef&gt; &amp;' data-ref="22merged_node">merged_node</dfn>);</td></tr>
 <tr><th id="58">58</th><td></td></tr>
 <tr><th id="59">59</th><td>  <i>// Infer the value of Svdf filter rank, by looking up a reshape operator which</i></td></tr>
 <tr><th id="60">60</th><td><i>  // is used for 'output' which reshapes output from [num_filters, batch, 1]</i></td></tr>
@@ -87,8 +87,8 @@
 <tr><th id="73">73</th><td><i>  // "SVDF_weights_time" pattern in their names (and optionally "SVDF_bias")</i></td></tr>
 <tr><th id="74">74</th><td><i>  // and it creates an SVDF Op from them.</i></td></tr>
 <tr><th id="75">75</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="cluster.h.html#toco::Cluster" title='toco::Cluster' data-ref="toco::Cluster">Cluster</a>&gt; <dfn class="virtual decl" id="_ZNK4toco18SvdfClusterFactory13CreateClusterERKN10tensorflow7NodeDefERKNS1_8GraphDefE" title='toco::SvdfClusterFactory::CreateCluster' data-ref="_ZNK4toco18SvdfClusterFactory13CreateClusterERKN10tensorflow7NodeDefERKNS1_8GraphDefE">CreateCluster</dfn>(</td></tr>
-<tr><th id="76">76</th><td>      <em>const</em> <span class="namespace">tensorflow::</span><span class='type' title='tensorflow::NodeDef' data-ref="tensorflow::NodeDef">NodeDef</span>&amp; <dfn class="local col3 decl" id="23node" title='node' data-type='const tensorflow::NodeDef &amp;' data-ref="23node">node</dfn>,</td></tr>
-<tr><th id="77">77</th><td>      <em>const</em> <span class="namespace">tensorflow::</span><span class='type' title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</span>&amp; <dfn class="local col4 decl" id="24graph_def" title='graph_def' data-type='const tensorflow::GraphDef &amp;' data-ref="24graph_def">graph_def</dfn>) <em>const</em>;</td></tr>
+<tr><th id="76">76</th><td>      <em>const</em> <span class="namespace">tensorflow::</span><a class="type" href="../../../../core/framework/node_def.pb.h.html#tensorflow::NodeDef" title='tensorflow::NodeDef' data-ref="tensorflow::NodeDef">NodeDef</a>&amp; <dfn class="local col3 decl" id="23node" title='node' data-type='const tensorflow::NodeDef &amp;' data-ref="23node">node</dfn>,</td></tr>
+<tr><th id="77">77</th><td>      <em>const</em> <span class="namespace">tensorflow::</span><a class="type" href="../../../../core/framework/graph.pb.h.html#tensorflow::GraphDef" title='tensorflow::GraphDef' data-ref="tensorflow::GraphDef">GraphDef</a>&amp; <dfn class="local col4 decl" id="24graph_def" title='graph_def' data-type='const tensorflow::GraphDef &amp;' data-ref="24graph_def">graph_def</dfn>) <em>const</em>;</td></tr>
 <tr><th id="78">78</th><td>};</td></tr>
 <tr><th id="79">79</th><td></td></tr>
 <tr><th id="80">80</th><td>}  <i>// end namespace toco</i></td></tr>
@@ -96,6 +96,6 @@
 <tr><th id="82">82</th><td><u>#<span data-ppcond="15">endif</span>  // TENSORFLOW_CONTRIB_LITE_TOCO_TENSORFLOW_GRAPH_MATCHING_RESOLVE_SVDF_H</u></td></tr>
 <tr><th id="83">83</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='../import_tensorflow.cc.html'>tensorflow/tensorflow/contrib/lite/toco/import_tensorflow.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='../import_tensorflow.cc.html'>tensorflow/tensorflow/contrib/lite/toco/import_tensorflow.cc</a><br/>Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

@@ -14,6 +14,9 @@
 <use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='70' u='c' c='_ZN10tensorflow12_GLOBAL__N_115GetTagsAsStringERKSt13unordered_setISsSt4hashISsESt8equal_toISsESaISsEE'/>
 <use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='144' u='c' c='_ZN10tensorflow12_GLOBAL__N_19RunMainOpERKNS_10RunOptionsERKSsRKNS_12MetaGraphDefERKSt6vectorINS_12AssetFileDefESaISA_EEPNS_7SessionE'/>
 <use f='tensorflow/tensorflow/cc/saved_model/loader.cc' l='201' u='c' c='_ZN10tensorflow12_GLOBAL__N_115RunLegacyInitOpERKNS_10RunOptionsERKSsRKNS_12MetaGraphDefERKSt6vectorINS_12AssetFileDefESaISA_EEPNS_7SessionE'/>
+<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='692' u='c' c='_ZN9perftools8gputools14StreamExecutor9GetSymbolERKSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='125' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_119AddRewritesForShapeEiRKN3xla5ShapeEPSt6vectorISt4pairISsSsESaIS8_EE'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='47' u='c' c='_ZN10tensorflow9tfcompileL38CreateModuleWithEmbeddedProtocolBufferEPN4llvm11LLVMContextEPNS1_13TargetMachineERKN6google8protobuf11MessageLiteENS_11StringPieceEPSsPx'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='878' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph18MakeSequencingNodeERKSsPNS_5GraphE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='948' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph16BuildFunctionDefERKSsRKSt8functionIFNS_6StatusEPSt10unique_ptrINS_5GraphESt14default_deleteIS8_E8596228'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='950' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph16BuildFunctionDefERKSsRKSt8functionIFNS_6StatusEPSt10unique_ptrINS_5GraphESt14default_deleteIS8_E8596228'/>
@@ -24,7 +27,6 @@
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='138' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='203' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
 <use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='242' u='c' c='_ZN10tensorflow18GraphToFunctionDefERKNS_5GraphERKSsPNS_11FunctionDefE'/>
-<use f='tensorflow/tensorflow/stream_executor/stream_executor_pimpl.h' l='692' u='c' c='_ZN9perftools8gputools14StreamExecutor9GetSymbolERKSs'/>
 <use f='tensorflow/tensorflow/compiler/jit/mark_for_compilation_pass.cc' l='786' u='c' c='_ZN10tensorflow22MarkForCompilationPass7RunImplERKNS_28GraphOptimizationPassOptionsERKSt8functionIFbPKNS_4NodeERKNS_10DeviceTypeEEE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='171' u='c' c='_ZN10tensorflow12_GLOBAL__N_112BuildArgNodeEPNS_5GraphENS_8DataTypeEi'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='181' u='c' c='_ZN10tensorflow12_GLOBAL__N_115BuildRetvalNodeEPNS_5GraphENS_8DataTypeEi'/>
@@ -37,6 +39,9 @@
 <use f='tensorflow/tensorflow/compiler/tf2xla/lib/triangular_solve.cc' l='109' u='c' c='_ZN10tensorflow15TriangularSolveEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleES3_bbbbx'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/lib/while_loop.cc' l='49' u='c' c='_ZN10tensorflow12XlaWhileLoopERKSt8functionIFN3xla8StatusOrINS1_21ComputationDataHandleEEENS_3gtl10ArraySliceIS3_EEPNS1_18ComputationBuilderEEERKS0_IF16437192'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/lib/while_loop.cc' l='62' u='c' c='_ZN10tensorflow12XlaWhileLoopERKSt8functionIFN3xla8StatusOrINS1_21ComputationDataHandleEEENS_3gtl10ArraySliceIS3_EEPNS1_18ComputationBuilderEEERKS0_IF16437192'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='91' u='c' c='_ZN10tensorflow12_GLOBAL__N_111AddArgNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8protobu3804776'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='138' u='c' c='_ZN10tensorflow12_GLOBAL__N_114AddRetvalNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8prot5639472'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='258' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ConvertGraphToXlaESt10unique_ptrINS_5GraphESt14default_deleteIS2_EEPN3xla6ClientEPNS6_11ComputationE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compilation_device.cc' l='83' u='c' c='_ZN10tensorflow20XlaCompilationDeviceC1ERKNS_14SessionOptionsENS_10DeviceTypeE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='218' u='c' c='_ZN10tensorflow11XlaCompiler15CompileFunctionERKNS0_14CompileOptionsERKNS_12NameAttrListESt6vectorINS0_8ArgumentESaIS8_EEPNS0_17CompilationResultE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_compiler.cc' l='567' u='c' c='_ZN10tensorflow11XlaCompiler14BuildArgumentsERKNS_5GraphERKSt6vectorINS0_8ArgumentESaIS5_EEbPN3xla18ComputationBuilderEPNS_10XlaContextEPS4_IiSaIiEEPS5407289'/>
@@ -157,10 +162,6 @@
 <use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='652' u='c' c='_ZN10tensorflow11DebugFileIO18RecursiveCreateDirEPNS_3EnvERKSs'/>
 <use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='669' u='c' c='_ZN10tensorflow11DebugFileIO18RecursiveCreateDirEPNS_3EnvERKSs'/>
 <use f='tensorflow/tensorflow/core/debug/debug_io_utils.cc' l='676' u='c' c='_ZN10tensorflow16DebugGrpcChannelC1ERKSs'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service_impl.h' l='97' u='c' c='_ZN4grpc19SerializationTraitsIN10tensorflow14TensorResponseEvE11DeserializeEP16grpc_byte_bufferPS2_i'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='180' u='c' c='_ZN10tensorflow10GrpcServer4InitESt8functionIFvPKNS_9WorkerEnvEPN4grpc13ServerBuilderEEERKS1_IFPNS_22RendezvousMgrInterfaceES4_EERKS1_IFSt10unique_ptr5840994'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='273' u='c' c='_ZN10tensorflow10GrpcServer16ParseChannelSpecERKNS_25WorkerCacheFactoryOptionsEPNS_15GrpcChannelSpecE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='380' u='c' c='_ZNK10tensorflow10GrpcServer6targetEv'/>
 <use f='tensorflow/tensorflow/core/example/example_parser_configuration.cc' l='136' u='c' c='_ZN10tensorflow33ExtractExampleParserConfigurationERKNS_8GraphDefERKSsPNS_7SessionEPSt6vectorINS_15FixedLenFeatureESaIS8_EEPS7_INS_13VarLenFeatureESaISC_EE'/>
 <use f='tensorflow/tensorflow/core/example/example_parser_configuration.cc' l='143' u='c' c='_ZN10tensorflow33ExtractExampleParserConfigurationERKNS_8GraphDefERKSsPNS_7SessionEPSt6vectorINS_15FixedLenFeatureESaIS8_EEPS7_INS_13VarLenFeatureESaISC_EE'/>
 <use f='tensorflow/tensorflow/core/example/example_parser_configuration.cc' l='147' u='c' c='_ZN10tensorflow33ExtractExampleParserConfigurationERKNS_8GraphDefERKSsPNS_7SessionEPSt6vectorINS_15FixedLenFeatureESaIS8_EEPS7_INS_13VarLenFeatureESaISC_EE'/>
@@ -404,7 +405,7 @@
 <use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='176' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
 <use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='176' u='c' c='_ZN10tensorflow16ConcatGradHelperERKNS_9AttrSliceEPNS_11FunctionDefEb'/>
 <use f='tensorflow/tensorflow/core/ops/array_grad.cc' l='253' u='c' c='_ZN10tensorflow15ArrayToListGradERKNS_9AttrSliceEPNS_11FunctionDefE'/>
-<use f='tensorflow/tensorflow/core/profiler/internal/tfprof_timeline.h' l='146' u='c' c='_ZN10tensorflow6tfprof8Timeline12EmitTreeNodeEPKT_xxxPSt3setIxSt4lessIxESaIxEE'/>
+<use f='tensorflow/tensorflow/core/platform/posix/test.cc' l='38' u='c' c='_ZN10tensorflow7testing17TensorFlowSrcRootEv'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_code.cc' l='41' u='c' c='_ZN10tensorflow6tfprof12_GLOBAL__N_114GetTraceStringERKNS0_9CallStack5TraceE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_tensor.cc' l='25' u='c' c='_ZN10tensorflow6tfprof12TFProfTensor7DisplayEPSsPNS0_17TFProfTensorProtoE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_timeline.cc' l='32' u='c' c='_ZN10tensorflow6tfprof12_GLOBAL__N_114GetTimeDevNameERKSs'/>
@@ -414,6 +415,7 @@
 <use f='tensorflow/tensorflow/core/util/equal_graph_def.cc' l='154' u='c' c='_ZN10tensorflow12EqualNodeDefERKNS_7NodeDefES2_PSsRKNS_20EqualGraphDefOptionsE'/>
 <use f='tensorflow/tensorflow/core/util/equal_graph_def.cc' l='155' u='c' c='_ZN10tensorflow12EqualNodeDefERKNS_7NodeDefES2_PSsRKNS_20EqualGraphDefOptionsE'/>
 <use f='tensorflow/tensorflow/core/util/events_writer.cc' l='87' u='c' c='_ZN10tensorflow12EventsWriter12InitIfNeededEv'/>
+<use f='tensorflow/tensorflow/core/util/reporter.cc' l='66' u='c' c='_ZN10tensorflow12TestReporter10InitializeEv'/>
 <use f='tensorflow/tensorflow/core/util/tensor_slice_reader.cc' l='88' u='c' c='_ZN10tensorflow10checkpoint26OpenTableTensorSliceReaderERKSsPPNS0_17TensorSliceReader5TableE'/>
 <use f='tensorflow/tensorflow/python/eager/pywrap_tensor.cc' l='37' u='c' c='_ZN12_GLOBAL__N_110GetContextEP7_object'/>
 <use f='tensorflow/tensorflow/python/eager/pywrap_tensor.cc' l='226' u='c' c='EagerTensor_init'/>

@@ -1,3 +1,5 @@
+<dec f='tensorflow/tensorflow/core/framework/graph.pb.h' l='70' type='void tensorflow::GraphDef::GraphDef()'/>
+<use f='tensorflow/tensorflow/core/framework/graph.pb.h' l='81' u='c' c='_ZN10tensorflow8GraphDefC1EOS0_'/>
 <use f='tensorflow/tensorflow/c/c_api.cc' l='364' u='c' c='TF_ExtendGraph'/>
 <use f='tensorflow/tensorflow/c/c_api.cc' l='740' u='c' c='_ZN10tensorflow24ExtendSessionGraphHelperEP10TF_SessionP9TF_Status'/>
 <use f='tensorflow/tensorflow/c/c_api.cc' l='1937' u='c' c='TF_GraphToGraphDef'/>
@@ -5,8 +7,10 @@
 <use f='tensorflow/tensorflow/c/c_api.cc' l='2140' u='c' c='TF_GraphImportGraphDefWithReturnOutputs'/>
 <use f='tensorflow/tensorflow/c/c_api.cc' l='2195' u='c' c='(anonymousnamespace)::CopyGraph'/>
 <use f='tensorflow/tensorflow/cc/framework/scope.cc' l='263' u='c' c='_ZNK10tensorflow5Scope7ToGraphEPNS_5GraphE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='86' u='c' c='_ZN10tensorflow9tfcompile4MainERKNS0_9MainFlagsE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='2045' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator38GetShapeInfoForOutsideCompilationSendsEPNS_5GraphEPNS_25FunctionLibraryDefinitionE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/dump_graph.cc' l='77' u='c' c='_ZN10tensorflow10dump_graph15DumpGraphToFileERKSsRKNS_5GraphEPKNS_25FunctionLibraryDefinitionE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='333' u='c' c='_ZN10tensorflow12_GLOBAL__N_19InitGraphERKNS_8GraphDefERKNS_6tf2xla6ConfigEPSt10unique_ptrINS_5GraphESt14default_deleteIS9_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla_util.cc' l='142' u='c' c='_ZN10tensorflow23AddPlaceholdersForFeedsERKNS_6tf2xla6ConfigEPKNS_19OpRegistryInterfaceEPSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIKSsSsEEEPNS_8GraphDefE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/export_tensorflow.cc' l='1978' u='c' c='_ZN4toco24ExportTensorFlowGraphDefERKNS_5ModelEPSs'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/import_tensorflow.cc' l='2229' u='c' c='_ZN4toco24ImportTensorFlowGraphDefERKNS_10ModelFlagsERKNS_21TensorFlowImportFlagsERKSs'/>

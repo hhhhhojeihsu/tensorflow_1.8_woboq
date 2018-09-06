@@ -43,7 +43,7 @@
 <tr><th id="30">30</th><td><u>#include <a href="hlo_opcode.h.html">"tensorflow/compiler/xla/service/hlo_opcode.h"</a></u></td></tr>
 <tr><th id="31">31</th><td><u>#include <a href="../shape_util.h.html">"tensorflow/compiler/xla/shape_util.h"</a></u></td></tr>
 <tr><th id="32">32</th><td><u>#include <a href="../types.h.html">"tensorflow/compiler/xla/types.h"</a></u></td></tr>
-<tr><th id="33">33</th><td><u>#include "tensorflow/compiler/xla/xla_data.pb.h"</u></td></tr>
+<tr><th id="33">33</th><td><u>#include <a href="../xla_data.pb.h.html">"tensorflow/compiler/xla/xla_data.pb.h"</a></u></td></tr>
 <tr><th id="34">34</th><td><u>#include <a href="../../../core/lib/core/errors.h.html">"tensorflow/core/lib/core/errors.h"</a></u></td></tr>
 <tr><th id="35">35</th><td><u>#include <a href="../../../core/lib/gtl/inlined_vector.h.html">"tensorflow/core/lib/gtl/inlined_vector.h"</a></u></td></tr>
 <tr><th id="36">36</th><td></td></tr>
@@ -72,7 +72,7 @@
 <tr><th id="59">59</th><td>    <a class="ref" href="../iterator_util.h.html#_ZN3xla18UnwrappingIteratorppEv" title='xla::UnwrappingIterator::operator++' data-ref="_ZN3xla18UnwrappingIteratorppEv">++</a><a class="local col5 ref" href="#5inst_it" title='inst_it' data-ref="5inst_it">inst_it</a>;</td></tr>
 <tr><th id="60">60</th><td></td></tr>
 <tr><th id="61">61</th><td>    <b>if</b> (<a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction6opcodeEv" title='xla::HloInstruction::opcode' data-ref="_ZNK3xla14HloInstruction6opcodeEv">opcode</a>() == <a class="type" href="hlo_opcode.h.html#xla::HloOpcode" title='xla::HloOpcode' data-ref="xla::HloOpcode">HloOpcode</a>::<a class="enum" href="hlo_opcode.h.html#135" title='xla::HloOpcode::kConstant' data-ref="xla::HloOpcode::kConstant">kConstant</a>) {</td></tr>
-<tr><th id="62">62</th><td>      <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span> <dfn class="local col7 decl" id="7shape" title='shape' data-type='xla::Shape' data-ref="7shape">shape</dfn> = <span class='ref fake' title='xla::Shape::Shape' data-ref="_ZN3xla5ShapeC1ERKS0_"></span><a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction5shapeEv" title='xla::HloInstruction::shape' data-ref="_ZNK3xla14HloInstruction5shapeEv">shape</a>();</td></tr>
+<tr><th id="62">62</th><td>      <a class="type" href="../xla_data.pb.h.html#xla::Shape" title='xla::Shape' data-ref="xla::Shape">Shape</a> <dfn class="local col7 decl" id="7shape" title='shape' data-type='xla::Shape' data-ref="7shape">shape</dfn> = <a class="ref fake" href="../xla_data.pb.h.html#_ZN3xla5ShapeC1ERKS0_" title='xla::Shape::Shape' data-ref="_ZN3xla5ShapeC1ERKS0_"></a><a class="local col6 ref" href="#6instruction" title='instruction' data-ref="6instruction">instruction</a>-&gt;<a class="ref" href="hlo_instruction.h.html#_ZNK3xla14HloInstruction5shapeEv" title='xla::HloInstruction::shape' data-ref="_ZNK3xla14HloInstruction5shapeEv">shape</a>();</td></tr>
 <tr><th id="63">63</th><td>      <b>if</b> (!<a class="local col2 ref" href="#2is_layout_sensitive" title='is_layout_sensitive' data-ref="2is_layout_sensitive">is_layout_sensitive</a>) {</td></tr>
 <tr><th id="64">64</th><td>        <a class="type" href="../layout_util.h.html#xla::LayoutUtil" title='xla::LayoutUtil' data-ref="xla::LayoutUtil">LayoutUtil</a>::<a class="ref" href="../layout_util.h.html#_ZN3xla10LayoutUtil11ClearLayoutEPNS_5ShapeE" title='xla::LayoutUtil::ClearLayout' data-ref="_ZN3xla10LayoutUtil11ClearLayoutEPNS_5ShapeE">ClearLayout</a>(&amp;<a class="local col7 ref" href="#7shape" title='shape' data-ref="7shape">shape</a>);</td></tr>
 <tr><th id="65">65</th><td>      }</td></tr>
@@ -160,6 +160,6 @@
 <tr><th id="147">147</th><td>}  <i>// namespace xla</i></td></tr>
 <tr><th id="148">148</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

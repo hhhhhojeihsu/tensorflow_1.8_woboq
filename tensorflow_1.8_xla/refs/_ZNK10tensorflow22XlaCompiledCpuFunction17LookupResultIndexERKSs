@@ -1,0 +1,8 @@
+<dec f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='204' type='int tensorflow::XlaCompiledCpuFunction::LookupResultIndex(const string &amp; name) const'/>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='198'>// Returns the 0-based index for the result with the given `name`.
+  // Returns -1 if the name wasn&apos;t found, or data isn&apos;t available.
+  //
+  // The index remains constant for every instance of XlaCompiledCpuFunction
+  // generated from the same static data, and might not be cheap to determine.
+  // Recommended usage is to capture this in a variable for re-use.</doc>
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.cc' l='90' ll='92' type='int tensorflow::XlaCompiledCpuFunction::LookupResultIndex(const string &amp; name) const'/>

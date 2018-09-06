@@ -16,6 +16,8 @@
 <use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='242' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119AvgPool3DGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
 <use f='tensorflow/tensorflow/cc/gradients/nn_grad.cc' l='242' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_119AvgPool3DGradHelperERKNS_5ScopeERKNS_9OperationERKSt6vectorINS_6OutputESaIS9_EEPSB_'/>
 <use f='tensorflow/tensorflow/cc/ops/while_loop.cc' l='80' u='c' c='_ZN10tensorflow3ops12_GLOBAL__N_111CreateMergeERKNS_5ScopeEiRKNS_6OutputEPS5_'/>
+<use f='tensorflow/tensorflow/compiler/xla/sparse_index_array.h' l='99' u='c' c='_ZNK3xla16SparseIndexArray4dataEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1134' u='c' c='_ZNK3xla14HloInstruction20gather_window_boundsEv'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='91' u='c' c='_ZN10tensorflow12_GLOBAL__N_123MarkGuaranteedConstantsERKNS_5GraphERKSt6vectorISt4pairIPKNS_4NodeEPS6_ESaISA_EE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='822' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph15AddHostComputesERKSsRKSt13unordered_mapIPKNS_4NodeEPS6_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEE'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='823' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph15AddHostComputesERKSsRKSt13unordered_mapIPKNS_4NodeEPS6_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEE'/>
@@ -27,8 +29,6 @@
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1201' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph19AddSendFromHostNodeERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS9970351'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1209' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator8Subgraph19AddSendFromHostNodeERKSt13unordered_mapIPKNS_4NodeEPS4_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS9970351'/>
 <use f='tensorflow/tensorflow/compiler/jit/encapsulate_subgraphs_pass.cc' l='1903' u='c' c='_ZN10tensorflow12_GLOBAL__N_112Encapsulator28MakePrunedGraphCopyAndInlineERKNS_5GraphERKSt6vectorIPNS_4NodeESaIS7_EEPSt10unique_ptrIS2_St14default_del3709695'/>
-<use f='tensorflow/tensorflow/compiler/xla/sparse_index_array.h' l='99' u='c' c='_ZNK3xla16SparseIndexArray4dataEv'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1134' u='c' c='_ZNK3xla14HloInstruction20gather_window_boundsEv'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compilation_cache.cc' l='202' u='c' c='_ZN10tensorflow19XlaCompilationCache15BuildExecutableERKNS_11XlaCompiler7OptionsERKNS1_17CompilationResultEPSt10unique_ptrIN3xla15LocalExecutableESt14default_deleteISA_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='511' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeLoopEPNS_5GraphEPNS0_5FrameEPNS_25FunctionLibraryDefinitionE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1236' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond18BuildAndAddXlaIfOpERKSt6vectorINS1_11CondArgNodeESaIS3_EERKNS1_13SwitchClusterERKS2_IPNS_4NodeESaISC_EE'/>
@@ -151,6 +151,8 @@
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='214' u='c' c='_ZN10tensorflow12_GLOBAL__N_139ResizeUsingDilationAndConvolutionGradOpEPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleEiSt6vectorIxSaIxEES9_x'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='227' u='c' c='_ZN10tensorflow12_GLOBAL__N_139ResizeUsingDilationAndConvolutionGradOpEPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleEiSt6vectorIxSaIxEES9_x'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='231' u='c' c='_ZN10tensorflow12_GLOBAL__N_139ResizeUsingDilationAndConvolutionGradOpEPN3xla18ComputationBuilderERKNS1_21ComputationDataHandleEiSt6vectorIxSaIxEES9_x'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='97' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ArgMaxCustomCallOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='100' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ArgMaxCustomCallOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/l2loss_op.cc' l='44' u='c' c='_ZN10tensorflow12_GLOBAL__N_18L2LossOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_set_diag_op.cc' l='81' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pack_op.cc' l='83' u='c' c='_ZN10tensorflow12_GLOBAL__N_16PackOp7CompileEPNS_18XlaOpKernelContextE'/>

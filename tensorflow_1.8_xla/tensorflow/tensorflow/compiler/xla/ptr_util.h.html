@@ -43,22 +43,22 @@
 <tr><th id="30">30</th><td><b>namespace</b> <span class="namespace">xla</span> {</td></tr>
 <tr><th id="31">31</th><td></td></tr>
 <tr><th id="32">32</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
-<tr><th id="33">33</th><td><span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;T&gt; <dfn class="decl def" id="_ZN3xla10WrapUniqueEPT_" title='xla::WrapUnique' data-ref="_ZN3xla10WrapUniqueEPT_">WrapUnique</dfn>(T* <dfn class="local col5 decl" id="125ptr" title='ptr' data-type='T *' data-ref="125ptr">ptr</dfn>) {</td></tr>
-<tr><th id="34">34</th><td>  <b>return</b> <span class="namespace">tensorflow::</span>WrapUnique&lt;T&gt;(<a class="local col5 ref" href="#125ptr" title='ptr' data-ref="125ptr">ptr</a>);</td></tr>
+<tr><th id="33">33</th><td><span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;T&gt; <dfn class="decl def" id="_ZN3xla10WrapUniqueEPT_" title='xla::WrapUnique' data-ref="_ZN3xla10WrapUniqueEPT_">WrapUnique</dfn>(T* <dfn class="local col5 decl" id="12125ptr" title='ptr' data-type='T *' data-ref="12125ptr">ptr</dfn>) {</td></tr>
+<tr><th id="34">34</th><td>  <b>return</b> <span class="namespace">tensorflow::</span>WrapUnique&lt;T&gt;(<a class="local col5 ref" href="#12125ptr" title='ptr' data-ref="12125ptr">ptr</a>);</td></tr>
 <tr><th id="35">35</th><td>}</td></tr>
 <tr><th id="36">36</th><td></td></tr>
 <tr><th id="37">37</th><td><b>template</b> &lt;<b>typename</b> T, <b>typename</b>... Args&gt;</td></tr>
 <tr><th id="38">38</th><td><b>typename</b> <span class="namespace">tensorflow::helper::</span><a class="type" href="../../core/util/ptr_util.h.html#tensorflow::helper::MakeUniqueResult" title='tensorflow::helper::MakeUniqueResult' data-ref="tensorflow::helper::MakeUniqueResult">MakeUniqueResult</a>&lt;T&gt;::scalar <dfn class="decl def" id="_ZN3xla10MakeUniqueEDpOT0_" title='xla::MakeUnique' data-ref="_ZN3xla10MakeUniqueEDpOT0_">MakeUnique</dfn>(</td></tr>
-<tr><th id="39">39</th><td>    Args&amp;&amp;... <dfn class="local col6 decl" id="126args" title='args' data-type='Args &amp;&amp;...' data-ref="126args">args</dfn>) {</td></tr>
-<tr><th id="40">40</th><td>  <b>return</b> <span class="namespace">tensorflow::</span>MakeUnique&lt;T, Args...&gt;(<span class="namespace">std::</span>forward&lt;Args&gt;(<a class="local col6 ref" href="#126args" title='args' data-ref="126args">args</a>)...);</td></tr>
+<tr><th id="39">39</th><td>    Args&amp;&amp;... <dfn class="local col6 decl" id="12126args" title='args' data-type='Args &amp;&amp;...' data-ref="12126args">args</dfn>) {</td></tr>
+<tr><th id="40">40</th><td>  <b>return</b> <span class="namespace">tensorflow::</span>MakeUnique&lt;T, Args...&gt;(<span class="namespace">std::</span>forward&lt;Args&gt;(<a class="local col6 ref" href="#12126args" title='args' data-ref="12126args">args</a>)...);</td></tr>
 <tr><th id="41">41</th><td>}</td></tr>
 <tr><th id="42">42</th><td></td></tr>
 <tr><th id="43">43</th><td><i>// Overload for array of unknown bound.</i></td></tr>
 <tr><th id="44">44</th><td><i>// The allocation of arrays needs to use the array form of new,</i></td></tr>
 <tr><th id="45">45</th><td><i>// and cannot take element constructor arguments.</i></td></tr>
 <tr><th id="46">46</th><td><b>template</b> &lt;<b>typename</b> T&gt;</td></tr>
-<tr><th id="47">47</th><td><b>typename</b> <span class="namespace">tensorflow::helper::</span><a class="type" href="../../core/util/ptr_util.h.html#tensorflow::helper::MakeUniqueResult" title='tensorflow::helper::MakeUniqueResult' data-ref="tensorflow::helper::MakeUniqueResult">MakeUniqueResult</a>&lt;T&gt;::array <dfn class="decl def" id="_ZN3xla10MakeUniqueEm" title='xla::MakeUnique' data-ref="_ZN3xla10MakeUniqueEm">MakeUnique</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col7 decl" id="127n" title='n' data-type='size_t' data-ref="127n">n</dfn>) {</td></tr>
-<tr><th id="48">48</th><td>  <b>return</b> <span class="namespace">tensorflow::</span>MakeUnique&lt;T&gt;(<a class="local col7 ref" href="#127n" title='n' data-ref="127n">n</a>);</td></tr>
+<tr><th id="47">47</th><td><b>typename</b> <span class="namespace">tensorflow::helper::</span><a class="type" href="../../core/util/ptr_util.h.html#tensorflow::helper::MakeUniqueResult" title='tensorflow::helper::MakeUniqueResult' data-ref="tensorflow::helper::MakeUniqueResult">MakeUniqueResult</a>&lt;T&gt;::array <dfn class="decl def" id="_ZN3xla10MakeUniqueEm" title='xla::MakeUnique' data-ref="_ZN3xla10MakeUniqueEm">MakeUnique</dfn>(<span class='typedef' title='size_t' data-type='unsigned long' data-ref="size_t">size_t</span> <dfn class="local col7 decl" id="12127n" title='n' data-type='size_t' data-ref="12127n">n</dfn>) {</td></tr>
+<tr><th id="48">48</th><td>  <b>return</b> <span class="namespace">tensorflow::</span>MakeUnique&lt;T&gt;(<a class="local col7 ref" href="#12127n" title='n' data-ref="12127n">n</a>);</td></tr>
 <tr><th id="49">49</th><td>}</td></tr>
 <tr><th id="50">50</th><td></td></tr>
 <tr><th id="51">51</th><td>}  <i>// namespace xla</i></td></tr>
@@ -66,6 +66,6 @@
 <tr><th id="53">53</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_COMPILER_XLA_PTR_UTIL_H_</u></td></tr>
 <tr><th id="54">54</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='../jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='../aot/codegen.cc.html'>tensorflow/tensorflow/compiler/aot/codegen.cc</a><br/>Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

@@ -1,0 +1,38 @@
+<def f='tensorflow/tensorflow/core/util/reporter.h' l='52' ll='100'/>
+<size>168</size>
+<doc f='tensorflow/tensorflow/core/util/reporter.h' l='32'>// The TestReporter writes test / benchmark output to binary Protobuf files when
+// the environment variable &quot;TEST_REPORT_FILE_PREFIX&quot; is defined.
+//
+// If this environment variable is not defined, no logging is performed.
+//
+// The intended use is via the following lines:
+//
+//  TestReporter reporter(test_name);
+//  TF_CHECK_OK(reporter.Initialize()));
+//  TF_CHECK_OK(reporter.Benchmark(iters, cpu_time, wall_time, throughput));
+//  TF_CHECK_OK(reporter.SetProperty(&quot;some_string_property&quot;, &quot;some_value&quot;);
+//  TF_CHECK_OK(reporter.SetProperty(&quot;some_double_property&quot;, double_value);
+//  TF_CHECK_OK(reporter.Close());
+//
+// For example, if the environment variable
+//   TEST_REPORT_FILE_PREFIX=&quot;/tmp/run_&quot;
+// is set, and test_name is &quot;BM_Foo/1/2&quot;, then a BenchmarkEntries pb
+// with a single entry is written to file:
+//   /tmp/run_BM_Foo__1__2
+//</doc>
+<smbr r='tensorflow::TestReporter::kTestReporterEnv' t='const char *const'/>
+<fun r='_ZN10tensorflow12TestReporterC1ERKSs'/>
+<fun r='_ZN10tensorflow12TestReporterC1ERKSsS2_'/>
+<fun r='_ZN10tensorflow12TestReporter10InitializeEv'/>
+<fun r='_ZN10tensorflow12TestReporter5CloseEv'/>
+<fun r='_ZN10tensorflow12TestReporter9BenchmarkExddd'/>
+<fun r='_ZN10tensorflow12TestReporter11SetPropertyERKSsd'/>
+<fun r='_ZN10tensorflow12TestReporter11SetPropertyERKSsS2_'/>
+<fun r='_ZN10tensorflow12TestReporterD1Ev'/>
+<fun r='_ZN10tensorflow12TestReporter9GetLogEnvEv'/>
+<mbr r='tensorflow::TestReporter::closed_' o='0' t='bool'/>
+<mbr r='tensorflow::TestReporter::fname_' o='64' t='string'/>
+<mbr r='tensorflow::TestReporter::test_name_' o='128' t='string'/>
+<mbr r='tensorflow::TestReporter::log_file_' o='192' t='std::unique_ptr&lt;WritableFile&gt;'/>
+<mbr r='tensorflow::TestReporter::benchmark_entry_' o='256' t='tensorflow::BenchmarkEntry'/>
+<fun r='_ZN10tensorflow12TestReporterC1ERKS0_'/>

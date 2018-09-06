@@ -1,11 +1,12 @@
 <dec f='tensorflow/tensorflow/core/lib/strings/proto_serialization.h' l='28' type='bool tensorflow::SerializeToStringDeterministic(const protobuf::MessageLite &amp; msg, string * result)'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='159' u='c' c='_ZN3xla10Executable15DumpToDirectoryERKSsSsRKNS_13SessionModuleE'/>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='106' u='c' c='_ZN10tensorflow9tfcompile12CompileGraphERKNS_8GraphDefERKNS_6tf2xla6ConfigERKNS0_9MainFlagsEPNS0_13CompileResultE'/>
 <doc f='tensorflow/tensorflow/core/lib/strings/proto_serialization.h' l='22'>// Wrapper around protocol buffer serialization that requests deterministic
 // serialization, in particular for Map fields, which serialize in a random
 // order by default. Returns true on success.
 // Serialization is guaranteed to be deterministic for a given binary only.
 // See the following for more details:
 // https://github.com/google/protobuf/blob/a1bb147e96b6f74db6cdf3c3fcb00492472dbbfa/src/google/protobuf/io/coded_stream.h#L834</doc>
+<use f='tensorflow/tensorflow/compiler/xla/service/executable.cc' l='159' u='c' c='_ZN3xla10Executable15DumpToDirectoryERKSsSsRKNS_13SessionModuleE'/>
 <use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='436' u='c' c='_ZN10tensorflow18AreAttrValuesEqualERKNS_9AttrValueES2_'/>
 <use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='437' u='c' c='_ZN10tensorflow18AreAttrValuesEqualERKNS_9AttrValueES2_'/>
 <use f='tensorflow/tensorflow/core/framework/attr_value_util.cc' l='464' u='c' c='_ZN10tensorflow18AreAttrValuesEqualERKNS_9AttrValueES2_'/>

@@ -1,5 +1,5 @@
 <def f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='142' ll='378'/>
-<size>32</size>
+<size>1</size>
 <doc f='tensorflow/tensorflow/core/lib/db/sqlite.h' l='135'>/// \brief SQLite prepared statement.
 ///
 /// Instances can only be shared between threads if caller serializes
@@ -40,12 +40,11 @@
 <fun r='_ZNK10tensorflow15SqliteStatement10ColumnSizeEi'/>
 <fun r='_ZN10tensorflow15SqliteStatementC1EOS0_'/>
 <fun r='_ZN10tensorflow15SqliteStatementaSEOS0_'/>
-<fun r='_ZN10tensorflow15SqliteStatementC1EPNS_6SqliteEP12sqlite3_stmt'/>
 <fun r='_ZN10tensorflow15SqliteStatement6UpdateEii'/>
 <fun r='_ZN10tensorflow15SqliteStatement17GetParameterIndexEPKc'/>
-<mbr r='tensorflow::SqliteStatement::db_' o='0' t='tensorflow::Sqlite *'/>
-<mbr r='tensorflow::SqliteStatement::stmt_' o='64' t='sqlite3_stmt *'/>
-<mbr r='tensorflow::SqliteStatement::bind_error_' o='128' t='int'/>
-<mbr r='tensorflow::SqliteStatement::bind_error_parameter_' o='160' t='int'/>
-<mbr r='tensorflow::SqliteStatement::size_' o='192' t='uint64'/>
+<mbr r='tensorflow::SqliteStatement::db_' t='tensorflow::Sqlite *'/>
+<mbr r='tensorflow::SqliteStatement::stmt_' t='int *'/>
+<mbr r='tensorflow::SqliteStatement::bind_error_' t='int'/>
+<mbr r='tensorflow::SqliteStatement::bind_error_parameter_' t='int'/>
+<mbr r='tensorflow::SqliteStatement::size_' t='uint64'/>
 <fun r='_ZN10tensorflow15SqliteStatementC1ERKS0_'/>

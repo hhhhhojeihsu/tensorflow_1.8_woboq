@@ -6,6 +6,9 @@
 <use f='tensorflow/tensorflow/core/common_runtime/eager/execute_node.h' l='71' u='c' c='_ZN10tensorflow11ExecuteNode3RunEv'/>
 <use f='tensorflow/tensorflow/c/eager/c_api.cc' l='539' u='c' c='_ZN12_GLOBAL__N_129ValidateInputTypeAndPlacementEPN10tensorflow12EagerContextEPNS0_6DeviceEP6TFE_OpPKNS0_8OpKernelEPNS0_11RunMetadataE'/>
 <use f='tensorflow/tensorflow/c/tf_status_helper.cc' l='23' u='c' c='_ZN10tensorflow25Set_TF_Status_from_StatusEP9TF_StatusRKNS_6StatusE'/>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='56' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_110CompileXlaEPN3xla17CompileOnlyClientERKNS2_11ComputationERKNS2_3cpu24CpuAotCompilationOptionsEPNS0_13CompileResultE'/>
+<use f='tensorflow/tensorflow/compiler/aot/compile.cc' l='73' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_110CompileXlaEPN3xla17CompileOnlyClientERKNS2_11ComputationERKNS2_3cpu24CpuAotCompilationOptionsEPNS0_13CompileResultE'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='144' u='c' c='main'/>
 <use f='tensorflow/tensorflow/core/util/stream_executor_util.h' l='47' u='c' c='_ZN10tensorflow18StreamExecutorUtil13ConvertStatusERKNS_6StatusE'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='123' u='c' c='_ZNK10tensorflow18XlaTransferManager21CopyCPUTensorToDeviceEPKNS_6TensorEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='164' u='c' c='_ZN10tensorflow18XlaTransferManager21CopyDeviceTensorToCPUEPKNS_6TensorENS_11StringPieceEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
@@ -53,7 +56,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/message_wrappers.cc' l='901' u='c' c='_ZN10tensorflow28NonOwnedProtoRunStepResponse10set_statusERKNS_6StatusE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='65' u='c' c='_ZN10tensorflow12ToGrpcStatusERKNS_6StatusE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='68' u='c' c='_ZN10tensorflow12ToGrpcStatusERKNS_6StatusE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='73' u='c' c='_ZN10tensorflow12ToGrpcStatusERKNS_6StatusE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='207' u='c' c='_ZN10tensorflow17GrpcMasterService14RunStepHandlerEPNS_4CallIS0_NS_4grpc13MasterService12AsyncServiceENS_14RunStepRequestENS_15RunStepResponseEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_rpc_factory.cc' l='55' u='c' c='_ZN10tensorflow12_GLOBAL__N_18GrpcCall4DoneERKNS_6StatusE'/>
 <use f='tensorflow/tensorflow/core/framework/common_shape_fns.cc' l='1367' u='c' c='_ZN10tensorflow15shape_inference20ScatterNdUpdateShapeEPNS0_16InferenceContextE'/>

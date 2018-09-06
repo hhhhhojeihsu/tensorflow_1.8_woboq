@@ -34,9 +34,9 @@
 <tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/unordered_map.html">&lt;unordered_map&gt;</a></u></td></tr>
 <tr><th id="21">21</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
 <tr><th id="22">22</th><td></td></tr>
-<tr><th id="23">23</th><td><u>#include "tensorflow/core/example/example.pb.h"</u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="../example/example.pb.h.html">"tensorflow/core/example/example.pb.h"</a></u></td></tr>
 <tr><th id="24">24</th><td><u>#include <a href="../framework/allocator.h.html">"tensorflow/core/framework/allocator.h"</a></u></td></tr>
-<tr><th id="25">25</th><td><u>#include "tensorflow/core/framework/graph.pb.h"</u></td></tr>
+<tr><th id="25">25</th><td><u>#include <a href="../framework/graph.pb.h.html">"tensorflow/core/framework/graph.pb.h"</a></u></td></tr>
 <tr><th id="26">26</th><td><u>#include <a href="../framework/op_kernel.h.html">"tensorflow/core/framework/op_kernel.h"</a></u></td></tr>
 <tr><th id="27">27</th><td><u>#include <a href="../framework/partial_tensor_shape.h.html">"tensorflow/core/framework/partial_tensor_shape.h"</a></u></td></tr>
 <tr><th id="28">28</th><td><u>#include <a href="../framework/tensor.h.html">"tensorflow/core/framework/tensor.h"</a></u></td></tr>
@@ -56,7 +56,7 @@
 <tr><th id="42">42</th><td><b>struct</b> <dfn class="type def" id="tensorflow::example::FastParseExampleConfig" title='tensorflow::example::FastParseExampleConfig' data-ref="tensorflow::example::FastParseExampleConfig">FastParseExampleConfig</dfn> {</td></tr>
 <tr><th id="43">43</th><td>  <b>struct</b> <dfn class="type def" id="tensorflow::example::FastParseExampleConfig::Dense" title='tensorflow::example::FastParseExampleConfig::Dense' data-ref="tensorflow::example::FastParseExampleConfig::Dense">Dense</dfn> {</td></tr>
 <tr><th id="44">44</th><td>    <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="tensorflow::example::FastParseExampleConfig::Dense::feature_name" title='tensorflow::example::FastParseExampleConfig::Dense::feature_name' data-ref="tensorflow::example::FastParseExampleConfig::Dense::feature_name">feature_name</dfn>;</td></tr>
-<tr><th id="45">45</th><td>    <span class='type' title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</span> <dfn class="decl" id="tensorflow::example::FastParseExampleConfig::Dense::dtype" title='tensorflow::example::FastParseExampleConfig::Dense::dtype' data-ref="tensorflow::example::FastParseExampleConfig::Dense::dtype">dtype</dfn>;</td></tr>
+<tr><th id="45">45</th><td>    <a class="type" href="../framework/types.pb.h.html#tensorflow::DataType" title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</a> <dfn class="decl" id="tensorflow::example::FastParseExampleConfig::Dense::dtype" title='tensorflow::example::FastParseExampleConfig::Dense::dtype' data-ref="tensorflow::example::FastParseExampleConfig::Dense::dtype">dtype</dfn>;</td></tr>
 <tr><th id="46">46</th><td>    <i>// These 2 fields correspond exactly to dense_shapes and dense_defaults in</i></td></tr>
 <tr><th id="47">47</th><td><i>    // ParseExample op.</i></td></tr>
 <tr><th id="48">48</th><td><i>    // Documentation is available in: tensorflow/core/ops/parsing_ops.cc</i></td></tr>
@@ -68,7 +68,7 @@
 <tr><th id="54">54</th><td></td></tr>
 <tr><th id="55">55</th><td>  <b>struct</b> <dfn class="type def" id="tensorflow::example::FastParseExampleConfig::Sparse" title='tensorflow::example::FastParseExampleConfig::Sparse' data-ref="tensorflow::example::FastParseExampleConfig::Sparse">Sparse</dfn> {</td></tr>
 <tr><th id="56">56</th><td>    <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="tensorflow::example::FastParseExampleConfig::Sparse::feature_name" title='tensorflow::example::FastParseExampleConfig::Sparse::feature_name' data-ref="tensorflow::example::FastParseExampleConfig::Sparse::feature_name">feature_name</dfn>;</td></tr>
-<tr><th id="57">57</th><td>    <span class='type' title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</span> <dfn class="decl" id="tensorflow::example::FastParseExampleConfig::Sparse::dtype" title='tensorflow::example::FastParseExampleConfig::Sparse::dtype' data-ref="tensorflow::example::FastParseExampleConfig::Sparse::dtype">dtype</dfn>;</td></tr>
+<tr><th id="57">57</th><td>    <a class="type" href="../framework/types.pb.h.html#tensorflow::DataType" title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</a> <dfn class="decl" id="tensorflow::example::FastParseExampleConfig::Sparse::dtype" title='tensorflow::example::FastParseExampleConfig::Sparse::dtype' data-ref="tensorflow::example::FastParseExampleConfig::Sparse::dtype">dtype</dfn>;</td></tr>
 <tr><th id="58">58</th><td>  };</td></tr>
 <tr><th id="59">59</th><td></td></tr>
 <tr><th id="60">60</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="#tensorflow::example::FastParseExampleConfig::Dense" title='tensorflow::example::FastParseExampleConfig::Dense' data-ref="tensorflow::example::FastParseExampleConfig::Dense">Dense</a>&gt; <dfn class="decl" id="tensorflow::example::FastParseExampleConfig::dense" title='tensorflow::example::FastParseExampleConfig::dense' data-ref="tensorflow::example::FastParseExampleConfig::dense">dense</dfn>;</td></tr>
@@ -103,7 +103,7 @@
 <tr><th id="89">89</th><td><i>// It uses the same specialized parser as FastParseExample which is efficient.</i></td></tr>
 <tr><th id="90">90</th><td><i>// But then constructs Example which is relatively slow.</i></td></tr>
 <tr><th id="91">91</th><td><i>// It is exported here as a convenient API to test parser part separately.</i></td></tr>
-<tr><th id="92">92</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow7example13TestFastParseERKSsPNS_7ExampleE" title='tensorflow::example::TestFastParse' data-ref="_ZN10tensorflow7example13TestFastParseERKSsPNS_7ExampleE">TestFastParse</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col9 decl" id="9serialized" title='serialized' data-type='const string &amp;' data-ref="9serialized">serialized</dfn>, <span class='type' title='tensorflow::Example' data-ref="tensorflow::Example">Example</span>* <dfn class="local col0 decl" id="10example" title='example' data-type='tensorflow::Example *' data-ref="10example">example</dfn>);</td></tr>
+<tr><th id="92">92</th><td><em>bool</em> <dfn class="decl" id="_ZN10tensorflow7example13TestFastParseERKSsPNS_7ExampleE" title='tensorflow::example::TestFastParse' data-ref="_ZN10tensorflow7example13TestFastParseERKSsPNS_7ExampleE">TestFastParse</dfn>(<em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col9 decl" id="9serialized" title='serialized' data-type='const string &amp;' data-ref="9serialized">serialized</dfn>, <a class="type" href="../example/example.pb.h.html#tensorflow::Example" title='tensorflow::Example' data-ref="tensorflow::Example">Example</a>* <dfn class="local col0 decl" id="10example" title='example' data-type='tensorflow::Example *' data-ref="10example">example</dfn>);</td></tr>
 <tr><th id="93">93</th><td></td></tr>
 <tr><th id="94">94</th><td>}  <i>// namespace example</i></td></tr>
 <tr><th id="95">95</th><td>}  <i>// namespace tensorflow</i></td></tr>
@@ -111,6 +111,6 @@
 <tr><th id="97">97</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CORE_UTIL_EXAMPLE_PROTO_FAST_PARSING_H_</u></td></tr>
 <tr><th id="98">98</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='../kernels/example_parsing_ops.cc.html'>tensorflow/tensorflow/core/kernels/example_parsing_ops.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='../kernels/example_parsing_ops.cc.html'>tensorflow/tensorflow/core/kernels/example_parsing_ops.cc</a><br/>Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

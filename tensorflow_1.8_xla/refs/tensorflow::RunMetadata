@@ -1,0 +1,91 @@
+<def f='tensorflow/tensorflow/core/protobuf/config.pb.h' l='1829' ll='1976'/>
+<size>64</size>
+<doc f='tensorflow/tensorflow/core/protobuf/config.pb.h' l='1827'>// -------------------------------------------------------------------</doc>
+<doc f='tensorflow/tensorflow/core/protobuf/config.pb.h' l='1829'>/* @@protoc_insertion_point(class_definition:tensorflow.RunMetadata) */</doc>
+<fun r='_ZN10tensorflow11RunMetadataC1Ev'/>
+<fun r='_ZN10tensorflow11RunMetadataD1Ev'/>
+<fun r='_ZN10tensorflow11RunMetadataC1ERKS0_'/>
+<fun r='_ZN10tensorflow11RunMetadataaSERKS0_'/>
+<fun r='_ZN10tensorflow11RunMetadataC1EOS0_'/>
+<fun r='_ZN10tensorflow11RunMetadataaSEOS0_'/>
+<fun r='_ZNK10tensorflow11RunMetadata8GetArenaEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata20GetMaybeArenaPointerEv'/>
+<fun r='_ZN10tensorflow11RunMetadata10descriptorEv'/>
+<fun r='_ZN10tensorflow11RunMetadata16default_instanceEv'/>
+<fun r='_ZN10tensorflow11RunMetadata21InitAsDefaultInstanceEv'/>
+<fun r='_ZN10tensorflow11RunMetadata25internal_default_instanceEv'/>
+<smbr r='tensorflow::RunMetadata::kIndexInFileMessages' t='const int'/>
+<fun r='_ZN10tensorflow11RunMetadata15UnsafeArenaSwapEPS0_'/>
+<fun r='_ZN10tensorflow11RunMetadata4SwapEPS0_'/>
+<fun r='_ZNK10tensorflow11RunMetadata3NewEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata3NewEPN6google8protobuf5ArenaE'/>
+<fun r='_ZN10tensorflow11RunMetadata8CopyFromERKN6google8protobuf7MessageE'/>
+<fun r='_ZN10tensorflow11RunMetadata9MergeFromERKN6google8protobuf7MessageE'/>
+<fun r='_ZN10tensorflow11RunMetadata8CopyFromERKS0_'/>
+<fun r='_ZN10tensorflow11RunMetadata9MergeFromERKS0_'/>
+<fun r='_ZN10tensorflow11RunMetadata5ClearEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata13IsInitializedEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata12ByteSizeLongEv'/>
+<fun r='_ZN10tensorflow11RunMetadata27MergePartialFromCodedStreamEPN6google8protobuf2io16CodedInputStreamE'/>
+<fun r='_ZNK10tensorflow11RunMetadata24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE'/>
+<fun r='_ZNK10tensorflow11RunMetadata39InternalSerializeWithCachedSizesToArrayEbPh'/>
+<fun r='_ZNK10tensorflow11RunMetadata13GetCachedSizeEv'/>
+<fun r='_ZN10tensorflow11RunMetadata10SharedCtorEv'/>
+<fun r='_ZN10tensorflow11RunMetadata10SharedDtorEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata13SetCachedSizeEi'/>
+<fun r='_ZN10tensorflow11RunMetadata12InternalSwapEPS0_'/>
+<fun r='_ZN10tensorflow11RunMetadataC1EPN6google8protobuf5ArenaE'/>
+<fun r='_ZN10tensorflow11RunMetadata9ArenaDtorEPv'/>
+<fun r='_ZN10tensorflow11RunMetadata17RegisterArenaDtorEPN6google8protobuf5ArenaE'/>
+<fun r='_ZNK10tensorflow11RunMetadata17GetArenaNoVirtualEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata13MaybeArenaPtrEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata11GetMetadataEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata21partition_graphs_sizeEv'/>
+<fun r='_ZN10tensorflow11RunMetadata22clear_partition_graphsEv'/>
+<smbr r='tensorflow::RunMetadata::kPartitionGraphsFieldNumber' t='const int'/>
+<fun r='_ZN10tensorflow11RunMetadata24mutable_partition_graphsEi'/>
+<fun r='_ZN10tensorflow11RunMetadata24mutable_partition_graphsEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata16partition_graphsEi'/>
+<fun r='_ZN10tensorflow11RunMetadata20add_partition_graphsEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata16partition_graphsEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata14has_step_statsEv'/>
+<fun r='_ZN10tensorflow11RunMetadata16clear_step_statsEv'/>
+<smbr r='tensorflow::RunMetadata::kStepStatsFieldNumber' t='const int'/>
+<fun r='_ZNK10tensorflow11RunMetadata10step_statsEv'/>
+<fun r='_ZN10tensorflow11RunMetadata18release_step_statsEv'/>
+<fun r='_ZN10tensorflow11RunMetadata18mutable_step_statsEv'/>
+<fun r='_ZN10tensorflow11RunMetadata24set_allocated_step_statsEPNS_9StepStatsE'/>
+<fun r='_ZN10tensorflow11RunMetadata37unsafe_arena_set_allocated_step_statsEPNS_9StepStatsE'/>
+<fun r='_ZN10tensorflow11RunMetadata31unsafe_arena_release_step_statsEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata14has_cost_graphEv'/>
+<fun r='_ZN10tensorflow11RunMetadata16clear_cost_graphEv'/>
+<smbr r='tensorflow::RunMetadata::kCostGraphFieldNumber' t='const int'/>
+<fun r='_ZNK10tensorflow11RunMetadata10cost_graphEv'/>
+<fun r='_ZN10tensorflow11RunMetadata18release_cost_graphEv'/>
+<fun r='_ZN10tensorflow11RunMetadata18mutable_cost_graphEv'/>
+<fun r='_ZN10tensorflow11RunMetadata24set_allocated_cost_graphEPNS_12CostGraphDefE'/>
+<fun r='_ZN10tensorflow11RunMetadata37unsafe_arena_set_allocated_cost_graphEPNS_12CostGraphDefE'/>
+<fun r='_ZN10tensorflow11RunMetadata31unsafe_arena_release_cost_graphEv'/>
+<mbr r='tensorflow::RunMetadata::_internal_metadata_' o='64' t='::google::protobuf::internal::InternalMetadataWithArena'/>
+<mbr r='tensorflow::RunMetadata::partition_graphs_' o='128' t='::google::protobuf::RepeatedPtrField&lt; ::tensorflow::GraphDef&gt;'/>
+<mbr r='tensorflow::RunMetadata::step_stats_' o='320' t='::tensorflow::StepStats *'/>
+<mbr r='tensorflow::RunMetadata::cost_graph_' o='384' t='::tensorflow::CostGraphDef *'/>
+<mbr r='tensorflow::RunMetadata::_cached_size_' o='448' t='int'/>
+<fun r='_ZNK10tensorflow11RunMetadata14has_step_statsEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata10step_statsEv'/>
+<fun r='_ZN10tensorflow11RunMetadata18release_step_statsEv'/>
+<fun r='_ZN10tensorflow11RunMetadata31unsafe_arena_release_step_statsEv'/>
+<fun r='_ZN10tensorflow11RunMetadata18mutable_step_statsEv'/>
+<fun r='_ZN10tensorflow11RunMetadata24set_allocated_step_statsEPNS_9StepStatsE'/>
+<fun r='_ZNK10tensorflow11RunMetadata14has_cost_graphEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata10cost_graphEv'/>
+<fun r='_ZN10tensorflow11RunMetadata18release_cost_graphEv'/>
+<fun r='_ZN10tensorflow11RunMetadata31unsafe_arena_release_cost_graphEv'/>
+<fun r='_ZN10tensorflow11RunMetadata18mutable_cost_graphEv'/>
+<fun r='_ZN10tensorflow11RunMetadata24set_allocated_cost_graphEPNS_12CostGraphDefE'/>
+<fun r='_ZNK10tensorflow11RunMetadata21partition_graphs_sizeEv'/>
+<fun r='_ZN10tensorflow11RunMetadata24mutable_partition_graphsEi'/>
+<fun r='_ZN10tensorflow11RunMetadata24mutable_partition_graphsEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata16partition_graphsEi'/>
+<fun r='_ZN10tensorflow11RunMetadata20add_partition_graphsEv'/>
+<fun r='_ZNK10tensorflow11RunMetadata16partition_graphsEv'/>

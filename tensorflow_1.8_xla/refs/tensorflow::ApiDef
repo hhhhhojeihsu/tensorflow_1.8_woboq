@@ -1,0 +1,279 @@
+<def f='tensorflow/tensorflow/core/framework/api_def.pb.h' l='639' ll='983'/>
+<size>184</size>
+<doc f='tensorflow/tensorflow/core/framework/api_def.pb.h' l='637'>// -------------------------------------------------------------------</doc>
+<doc f='tensorflow/tensorflow/core/framework/api_def.pb.h' l='639'>/* @@protoc_insertion_point(class_definition:tensorflow.ApiDef) */</doc>
+<fun r='_ZN10tensorflow6ApiDefC1Ev'/>
+<fun r='_ZN10tensorflow6ApiDefD1Ev'/>
+<fun r='_ZN10tensorflow6ApiDefC1ERKS0_'/>
+<fun r='_ZN10tensorflow6ApiDefaSERKS0_'/>
+<fun r='_ZN10tensorflow6ApiDefC1EOS0_'/>
+<fun r='_ZN10tensorflow6ApiDefaSEOS0_'/>
+<fun r='_ZNK10tensorflow6ApiDef8GetArenaEv'/>
+<fun r='_ZNK10tensorflow6ApiDef20GetMaybeArenaPointerEv'/>
+<fun r='_ZN10tensorflow6ApiDef10descriptorEv'/>
+<fun r='_ZN10tensorflow6ApiDef16default_instanceEv'/>
+<fun r='_ZN10tensorflow6ApiDef21InitAsDefaultInstanceEv'/>
+<fun r='_ZN10tensorflow6ApiDef25internal_default_instanceEv'/>
+<smbr r='tensorflow::ApiDef::kIndexInFileMessages' t='const int'/>
+<fun r='_ZN10tensorflow6ApiDef15UnsafeArenaSwapEPS0_'/>
+<fun r='_ZN10tensorflow6ApiDef4SwapEPS0_'/>
+<fun r='_ZNK10tensorflow6ApiDef3NewEv'/>
+<fun r='_ZNK10tensorflow6ApiDef3NewEPN6google8protobuf5ArenaE'/>
+<fun r='_ZN10tensorflow6ApiDef8CopyFromERKN6google8protobuf7MessageE'/>
+<fun r='_ZN10tensorflow6ApiDef9MergeFromERKN6google8protobuf7MessageE'/>
+<fun r='_ZN10tensorflow6ApiDef8CopyFromERKS0_'/>
+<fun r='_ZN10tensorflow6ApiDef9MergeFromERKS0_'/>
+<fun r='_ZN10tensorflow6ApiDef5ClearEv'/>
+<fun r='_ZNK10tensorflow6ApiDef13IsInitializedEv'/>
+<fun r='_ZNK10tensorflow6ApiDef12ByteSizeLongEv'/>
+<fun r='_ZN10tensorflow6ApiDef27MergePartialFromCodedStreamEPN6google8protobuf2io16CodedInputStreamE'/>
+<fun r='_ZNK10tensorflow6ApiDef24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE'/>
+<fun r='_ZNK10tensorflow6ApiDef39InternalSerializeWithCachedSizesToArrayEbPh'/>
+<fun r='_ZNK10tensorflow6ApiDef13GetCachedSizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef10SharedCtorEv'/>
+<fun r='_ZN10tensorflow6ApiDef10SharedDtorEv'/>
+<fun r='_ZNK10tensorflow6ApiDef13SetCachedSizeEi'/>
+<fun r='_ZN10tensorflow6ApiDef12InternalSwapEPS0_'/>
+<fun r='_ZN10tensorflow6ApiDefC1EPN6google8protobuf5ArenaE'/>
+<fun r='_ZN10tensorflow6ApiDef9ArenaDtorEPv'/>
+<fun r='_ZN10tensorflow6ApiDef17RegisterArenaDtorEPN6google8protobuf5ArenaE'/>
+<fun r='_ZNK10tensorflow6ApiDef17GetArenaNoVirtualEv'/>
+<fun r='_ZNK10tensorflow6ApiDef13MaybeArenaPtrEv'/>
+<fun r='_ZNK10tensorflow6ApiDef11GetMetadataEv'/>
+<smbr r='tensorflow::ApiDef::DEFAULT_VISIBILITY' t='const Visibility'/>
+<smbr r='tensorflow::ApiDef::VISIBLE' t='const Visibility'/>
+<smbr r='tensorflow::ApiDef::SKIP' t='const Visibility'/>
+<smbr r='tensorflow::ApiDef::HIDDEN' t='const Visibility'/>
+<fun r='_ZN10tensorflow6ApiDef18Visibility_IsValidEi'/>
+<smbr r='tensorflow::ApiDef::Visibility_MIN' t='const Visibility'/>
+<smbr r='tensorflow::ApiDef::Visibility_MAX' t='const Visibility'/>
+<smbr r='tensorflow::ApiDef::Visibility_ARRAYSIZE' t='const int'/>
+<fun r='_ZN10tensorflow6ApiDef21Visibility_descriptorEv'/>
+<fun r='_ZN10tensorflow6ApiDef15Visibility_NameENS_17ApiDef_VisibilityE'/>
+<fun r='_ZN10tensorflow6ApiDef16Visibility_ParseERKSsPNS_17ApiDef_VisibilityE'/>
+<fun r='_ZNK10tensorflow6ApiDef13endpoint_sizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef14clear_endpointEv'/>
+<smbr r='tensorflow::ApiDef::kEndpointFieldNumber' t='const int'/>
+<fun r='_ZN10tensorflow6ApiDef16mutable_endpointEi'/>
+<fun r='_ZN10tensorflow6ApiDef16mutable_endpointEv'/>
+<fun r='_ZNK10tensorflow6ApiDef8endpointEi'/>
+<fun r='_ZN10tensorflow6ApiDef12add_endpointEv'/>
+<fun r='_ZNK10tensorflow6ApiDef8endpointEv'/>
+<fun r='_ZNK10tensorflow6ApiDef11in_arg_sizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef12clear_in_argEv'/>
+<smbr r='tensorflow::ApiDef::kInArgFieldNumber' t='const int'/>
+<fun r='_ZN10tensorflow6ApiDef14mutable_in_argEi'/>
+<fun r='_ZN10tensorflow6ApiDef14mutable_in_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef6in_argEi'/>
+<fun r='_ZN10tensorflow6ApiDef10add_in_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef6in_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef12out_arg_sizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef13clear_out_argEv'/>
+<smbr r='tensorflow::ApiDef::kOutArgFieldNumber' t='const int'/>
+<fun r='_ZN10tensorflow6ApiDef15mutable_out_argEi'/>
+<fun r='_ZN10tensorflow6ApiDef15mutable_out_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef7out_argEi'/>
+<fun r='_ZN10tensorflow6ApiDef11add_out_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef7out_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef9attr_sizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef10clear_attrEv'/>
+<smbr r='tensorflow::ApiDef::kAttrFieldNumber' t='const int'/>
+<fun r='_ZN10tensorflow6ApiDef12mutable_attrEi'/>
+<fun r='_ZN10tensorflow6ApiDef12mutable_attrEv'/>
+<fun r='_ZNK10tensorflow6ApiDef4attrEi'/>
+<fun r='_ZN10tensorflow6ApiDef8add_attrEv'/>
+<fun r='_ZNK10tensorflow6ApiDef4attrEv'/>
+<fun r='_ZNK10tensorflow6ApiDef14arg_order_sizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef15clear_arg_orderEv'/>
+<smbr r='tensorflow::ApiDef::kArgOrderFieldNumber' t='const int'/>
+<fun r='_ZNK10tensorflow6ApiDef9arg_orderEi'/>
+<fun r='_ZN10tensorflow6ApiDef17mutable_arg_orderEi'/>
+<fun r='_ZN10tensorflow6ApiDef13set_arg_orderEiRKSs'/>
+<fun r='_ZN10tensorflow6ApiDef13set_arg_orderEiOSs'/>
+<fun r='_ZN10tensorflow6ApiDef13set_arg_orderEiPKc'/>
+<fun r='_ZN10tensorflow6ApiDef13set_arg_orderEiPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef13add_arg_orderEv'/>
+<fun r='_ZN10tensorflow6ApiDef13add_arg_orderERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef13add_arg_orderEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef13add_arg_orderEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef13add_arg_orderEPKcm'/>
+<fun r='_ZNK10tensorflow6ApiDef9arg_orderEv'/>
+<fun r='_ZN10tensorflow6ApiDef17mutable_arg_orderEv'/>
+<fun r='_ZN10tensorflow6ApiDef19clear_graph_op_nameEv'/>
+<smbr r='tensorflow::ApiDef::kGraphOpNameFieldNumber' t='const int'/>
+<fun r='_ZNK10tensorflow6ApiDef13graph_op_nameEv'/>
+<fun r='_ZN10tensorflow6ApiDef17set_graph_op_nameERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef17set_graph_op_nameEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef17set_graph_op_nameEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef17set_graph_op_nameEPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef21mutable_graph_op_nameEv'/>
+<fun r='_ZN10tensorflow6ApiDef21release_graph_op_nameEv'/>
+<fun r='_ZN10tensorflow6ApiDef27set_allocated_graph_op_nameEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef34unsafe_arena_release_graph_op_nameEv'/>
+<fun r='_ZN10tensorflow6ApiDef40unsafe_arena_set_allocated_graph_op_nameEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef13clear_summaryEv'/>
+<smbr r='tensorflow::ApiDef::kSummaryFieldNumber' t='const int'/>
+<fun r='_ZNK10tensorflow6ApiDef7summaryEv'/>
+<fun r='_ZN10tensorflow6ApiDef11set_summaryERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef11set_summaryEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef11set_summaryEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef11set_summaryEPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef15mutable_summaryEv'/>
+<fun r='_ZN10tensorflow6ApiDef15release_summaryEv'/>
+<fun r='_ZN10tensorflow6ApiDef21set_allocated_summaryEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef28unsafe_arena_release_summaryEv'/>
+<fun r='_ZN10tensorflow6ApiDef34unsafe_arena_set_allocated_summaryEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef17clear_descriptionEv'/>
+<smbr r='tensorflow::ApiDef::kDescriptionFieldNumber' t='const int'/>
+<fun r='_ZNK10tensorflow6ApiDef11descriptionEv'/>
+<fun r='_ZN10tensorflow6ApiDef15set_descriptionERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef15set_descriptionEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef15set_descriptionEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef15set_descriptionEPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef19mutable_descriptionEv'/>
+<fun r='_ZN10tensorflow6ApiDef19release_descriptionEv'/>
+<fun r='_ZN10tensorflow6ApiDef25set_allocated_descriptionEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef32unsafe_arena_release_descriptionEv'/>
+<fun r='_ZN10tensorflow6ApiDef38unsafe_arena_set_allocated_descriptionEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef24clear_description_prefixEv'/>
+<smbr r='tensorflow::ApiDef::kDescriptionPrefixFieldNumber' t='const int'/>
+<fun r='_ZNK10tensorflow6ApiDef18description_prefixEv'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_prefixERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_prefixEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_prefixEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_prefixEPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef26mutable_description_prefixEv'/>
+<fun r='_ZN10tensorflow6ApiDef26release_description_prefixEv'/>
+<fun r='_ZN10tensorflow6ApiDef32set_allocated_description_prefixEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef39unsafe_arena_release_description_prefixEv'/>
+<fun r='_ZN10tensorflow6ApiDef45unsafe_arena_set_allocated_description_prefixEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef24clear_description_suffixEv'/>
+<smbr r='tensorflow::ApiDef::kDescriptionSuffixFieldNumber' t='const int'/>
+<fun r='_ZNK10tensorflow6ApiDef18description_suffixEv'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_suffixERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_suffixEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_suffixEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_suffixEPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef26mutable_description_suffixEv'/>
+<fun r='_ZN10tensorflow6ApiDef26release_description_suffixEv'/>
+<fun r='_ZN10tensorflow6ApiDef32set_allocated_description_suffixEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef39unsafe_arena_release_description_suffixEv'/>
+<fun r='_ZN10tensorflow6ApiDef45unsafe_arena_set_allocated_description_suffixEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef16clear_visibilityEv'/>
+<smbr r='tensorflow::ApiDef::kVisibilityFieldNumber' t='const int'/>
+<fun r='_ZNK10tensorflow6ApiDef10visibilityEv'/>
+<fun r='_ZN10tensorflow6ApiDef14set_visibilityENS_17ApiDef_VisibilityE'/>
+<mbr r='tensorflow::ApiDef::_internal_metadata_' o='64' t='::google::protobuf::internal::InternalMetadataWithArena'/>
+<mbr r='tensorflow::ApiDef::endpoint_' o='128' t='::google::protobuf::RepeatedPtrField&lt; ::tensorflow::ApiDef_Endpoint&gt;'/>
+<mbr r='tensorflow::ApiDef::in_arg_' o='320' t='::google::protobuf::RepeatedPtrField&lt; ::tensorflow::ApiDef_Arg&gt;'/>
+<mbr r='tensorflow::ApiDef::out_arg_' o='512' t='::google::protobuf::RepeatedPtrField&lt; ::tensorflow::ApiDef_Arg&gt;'/>
+<mbr r='tensorflow::ApiDef::attr_' o='704' t='::google::protobuf::RepeatedPtrField&lt; ::tensorflow::ApiDef_Attr&gt;'/>
+<mbr r='tensorflow::ApiDef::arg_order_' o='896' t='::google::protobuf::RepeatedPtrField&lt; ::std::string&gt;'/>
+<mbr r='tensorflow::ApiDef::graph_op_name_' o='1088' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='tensorflow::ApiDef::summary_' o='1152' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='tensorflow::ApiDef::description_' o='1216' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='tensorflow::ApiDef::description_prefix_' o='1280' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='tensorflow::ApiDef::description_suffix_' o='1344' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='tensorflow::ApiDef::visibility_' o='1408' t='int'/>
+<mbr r='tensorflow::ApiDef::_cached_size_' o='1440' t='int'/>
+<fun r='_ZN10tensorflow6ApiDef19clear_graph_op_nameEv'/>
+<fun r='_ZNK10tensorflow6ApiDef13graph_op_nameEv'/>
+<fun r='_ZN10tensorflow6ApiDef17set_graph_op_nameERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef17set_graph_op_nameEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef17set_graph_op_nameEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef17set_graph_op_nameEPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef21mutable_graph_op_nameEv'/>
+<fun r='_ZN10tensorflow6ApiDef21release_graph_op_nameEv'/>
+<fun r='_ZN10tensorflow6ApiDef27set_allocated_graph_op_nameEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef34unsafe_arena_release_graph_op_nameEv'/>
+<fun r='_ZN10tensorflow6ApiDef40unsafe_arena_set_allocated_graph_op_nameEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef16clear_visibilityEv'/>
+<fun r='_ZNK10tensorflow6ApiDef10visibilityEv'/>
+<fun r='_ZN10tensorflow6ApiDef14set_visibilityENS_17ApiDef_VisibilityE'/>
+<fun r='_ZNK10tensorflow6ApiDef13endpoint_sizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef14clear_endpointEv'/>
+<fun r='_ZN10tensorflow6ApiDef16mutable_endpointEi'/>
+<fun r='_ZN10tensorflow6ApiDef16mutable_endpointEv'/>
+<fun r='_ZNK10tensorflow6ApiDef8endpointEi'/>
+<fun r='_ZN10tensorflow6ApiDef12add_endpointEv'/>
+<fun r='_ZNK10tensorflow6ApiDef8endpointEv'/>
+<fun r='_ZNK10tensorflow6ApiDef11in_arg_sizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef12clear_in_argEv'/>
+<fun r='_ZN10tensorflow6ApiDef14mutable_in_argEi'/>
+<fun r='_ZN10tensorflow6ApiDef14mutable_in_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef6in_argEi'/>
+<fun r='_ZN10tensorflow6ApiDef10add_in_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef6in_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef12out_arg_sizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef13clear_out_argEv'/>
+<fun r='_ZN10tensorflow6ApiDef15mutable_out_argEi'/>
+<fun r='_ZN10tensorflow6ApiDef15mutable_out_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef7out_argEi'/>
+<fun r='_ZN10tensorflow6ApiDef11add_out_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef7out_argEv'/>
+<fun r='_ZNK10tensorflow6ApiDef14arg_order_sizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef15clear_arg_orderEv'/>
+<fun r='_ZNK10tensorflow6ApiDef9arg_orderEi'/>
+<fun r='_ZN10tensorflow6ApiDef17mutable_arg_orderEi'/>
+<fun r='_ZN10tensorflow6ApiDef13set_arg_orderEiRKSs'/>
+<fun r='_ZN10tensorflow6ApiDef13set_arg_orderEiOSs'/>
+<fun r='_ZN10tensorflow6ApiDef13set_arg_orderEiPKc'/>
+<fun r='_ZN10tensorflow6ApiDef13set_arg_orderEiPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef13add_arg_orderEv'/>
+<fun r='_ZN10tensorflow6ApiDef13add_arg_orderERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef13add_arg_orderEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef13add_arg_orderEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef13add_arg_orderEPKcm'/>
+<fun r='_ZNK10tensorflow6ApiDef9arg_orderEv'/>
+<fun r='_ZN10tensorflow6ApiDef17mutable_arg_orderEv'/>
+<fun r='_ZNK10tensorflow6ApiDef9attr_sizeEv'/>
+<fun r='_ZN10tensorflow6ApiDef10clear_attrEv'/>
+<fun r='_ZN10tensorflow6ApiDef12mutable_attrEi'/>
+<fun r='_ZN10tensorflow6ApiDef12mutable_attrEv'/>
+<fun r='_ZNK10tensorflow6ApiDef4attrEi'/>
+<fun r='_ZN10tensorflow6ApiDef8add_attrEv'/>
+<fun r='_ZNK10tensorflow6ApiDef4attrEv'/>
+<fun r='_ZN10tensorflow6ApiDef13clear_summaryEv'/>
+<fun r='_ZNK10tensorflow6ApiDef7summaryEv'/>
+<fun r='_ZN10tensorflow6ApiDef11set_summaryERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef11set_summaryEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef11set_summaryEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef11set_summaryEPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef15mutable_summaryEv'/>
+<fun r='_ZN10tensorflow6ApiDef15release_summaryEv'/>
+<fun r='_ZN10tensorflow6ApiDef21set_allocated_summaryEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef28unsafe_arena_release_summaryEv'/>
+<fun r='_ZN10tensorflow6ApiDef34unsafe_arena_set_allocated_summaryEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef17clear_descriptionEv'/>
+<fun r='_ZNK10tensorflow6ApiDef11descriptionEv'/>
+<fun r='_ZN10tensorflow6ApiDef15set_descriptionERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef15set_descriptionEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef15set_descriptionEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef15set_descriptionEPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef19mutable_descriptionEv'/>
+<fun r='_ZN10tensorflow6ApiDef19release_descriptionEv'/>
+<fun r='_ZN10tensorflow6ApiDef25set_allocated_descriptionEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef32unsafe_arena_release_descriptionEv'/>
+<fun r='_ZN10tensorflow6ApiDef38unsafe_arena_set_allocated_descriptionEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef24clear_description_prefixEv'/>
+<fun r='_ZNK10tensorflow6ApiDef18description_prefixEv'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_prefixERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_prefixEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_prefixEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_prefixEPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef26mutable_description_prefixEv'/>
+<fun r='_ZN10tensorflow6ApiDef26release_description_prefixEv'/>
+<fun r='_ZN10tensorflow6ApiDef32set_allocated_description_prefixEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef39unsafe_arena_release_description_prefixEv'/>
+<fun r='_ZN10tensorflow6ApiDef45unsafe_arena_set_allocated_description_prefixEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef24clear_description_suffixEv'/>
+<fun r='_ZNK10tensorflow6ApiDef18description_suffixEv'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_suffixERKSs'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_suffixEOSs'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_suffixEPKc'/>
+<fun r='_ZN10tensorflow6ApiDef22set_description_suffixEPKcm'/>
+<fun r='_ZN10tensorflow6ApiDef26mutable_description_suffixEv'/>
+<fun r='_ZN10tensorflow6ApiDef26release_description_suffixEv'/>
+<fun r='_ZN10tensorflow6ApiDef32set_allocated_description_suffixEPSs'/>
+<fun r='_ZN10tensorflow6ApiDef39unsafe_arena_release_description_suffixEv'/>
+<fun r='_ZN10tensorflow6ApiDef45unsafe_arena_set_allocated_description_suffixEPSs'/>

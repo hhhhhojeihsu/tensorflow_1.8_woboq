@@ -28,7 +28,7 @@
 <tr><th id="15">15</th><td></td></tr>
 <tr><th id="16">16</th><td><u>#include <a href="grpc_worker_service_impl.h.html">"tensorflow/core/distributed_runtime/rpc/grpc_worker_service_impl.h"</a></u></td></tr>
 <tr><th id="17">17</th><td></td></tr>
-<tr><th id="18">18</th><td><u>#include "grpc++/impl/codegen/async_stream.h"</u></td></tr>
+<tr><th id="18">18</th><td><u>#include <span class='error' title="&apos;grpc++/impl/codegen/async_stream.h&apos; file not found">"grpc++/impl/codegen/async_stream.h"</span></u></td></tr>
 <tr><th id="19">19</th><td><u>#include "grpc++/impl/codegen/async_unary_call.h"</u></td></tr>
 <tr><th id="20">20</th><td><u>#include "grpc++/impl/codegen/channel_interface.h"</u></td></tr>
 <tr><th id="21">21</th><td><u>#include "grpc++/impl/codegen/client_unary_call.h"</u></td></tr>
@@ -73,10 +73,10 @@
 <tr><th id="60">60</th><td></td></tr>
 <tr><th id="61">61</th><td><a class="type" href="grpc_worker_service_impl.h.html#tensorflow::grpc::WorkerService" title='tensorflow::grpc::WorkerService' data-ref="tensorflow::grpc::WorkerService">WorkerService</a>::<a class="type" href="grpc_worker_service_impl.h.html#tensorflow::grpc::WorkerService::AsyncService" title='tensorflow::grpc::WorkerService::AsyncService' data-ref="tensorflow::grpc::WorkerService::AsyncService">AsyncService</a>::<dfn class="decl def" id="_ZN10tensorflow4grpc13WorkerService12AsyncServiceC1Ev" title='tensorflow::grpc::WorkerService::AsyncService::AsyncService' data-ref="_ZN10tensorflow4grpc13WorkerService12AsyncServiceC1Ev">AsyncService</dfn>() {</td></tr>
 <tr><th id="62">62</th><td>  <b>for</b> (<em>int</em> <dfn class="local col2 decl" id="2i" title='i' data-type='int' data-ref="2i">i</dfn> = <var>0</var>; <a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a> &lt; <a class="ref" href="grpc_worker_service_impl.h.html#tensorflow::kGrpcNumWorkerMethods" title='tensorflow::kGrpcNumWorkerMethods' data-ref="tensorflow::kGrpcNumWorkerMethods">kGrpcNumWorkerMethods</a>; ++<a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a>) {</td></tr>
-<tr><th id="63">63</th><td>    <span class='member' title='grpc::Service::AddMethod' data-ref="_ZN4grpc7Service9AddMethodEPNS_8internal16RpcServiceMethodE">AddMethod</span>(<b>new</b> <span class="namespace">::grpc::internal::</span><span class='type' title='grpc::internal::RpcServiceMethod' data-ref="grpc::internal::RpcServiceMethod">RpcServiceMethod</span><span class='ref' title='grpc::internal::RpcServiceMethod::RpcServiceMethod' data-ref="_ZN4grpc8internal16RpcServiceMethodC1EPKcNS0_9RpcMethod7RpcTypeEPNS0_13MethodHandlerE">(</span></td></tr>
-<tr><th id="64">64</th><td>        <a class="ref" href="#_ZN10tensorflow20GrpcWorkerMethodNameENS_16GrpcWorkerMethodE" title='tensorflow::GrpcWorkerMethodName' data-ref="_ZN10tensorflow20GrpcWorkerMethodNameENS_16GrpcWorkerMethodE">GrpcWorkerMethodName</a>(<b>static_cast</b>&lt;<a class="type" href="grpc_worker_service_impl.h.html#tensorflow::GrpcWorkerMethod" title='tensorflow::GrpcWorkerMethod' data-ref="tensorflow::GrpcWorkerMethod">GrpcWorkerMethod</a>&gt;(<a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a>)),</td></tr>
-<tr><th id="65">65</th><td>        <span class="namespace">::grpc::internal::</span><span class='type' title='grpc::internal::RpcMethod' data-ref="grpc::internal::RpcMethod">RpcMethod</span>::<span class='enum' title='grpc::internal::RpcMethod::RpcType::NORMAL_RPC' data-ref="grpc::internal::RpcMethod::RpcType::NORMAL_RPC">NORMAL_RPC</span>, <b>nullptr</b>));</td></tr>
-<tr><th id="66">66</th><td>    <span class="namespace">::grpc::</span><span class='type' title='grpc::Service' data-ref="grpc::Service">Service</span>::<span class='member' title='grpc::Service::MarkMethodAsync' data-ref="_ZN4grpc7Service15MarkMethodAsyncEi">MarkMethodAsync</span>(<a class="local col2 ref" href="#2i" title='i' data-ref="2i">i</a>);</td></tr>
+<tr><th id="63">63</th><td>    AddMethod(<b>new</b> <span class='error' title="no member named &apos;internal&apos; in namespace &apos;grpc&apos;; did you mean simply &apos;internal&apos;?">::</span>grpc::internal::<span class='error' title="no type named &apos;RpcServiceMethod&apos; in namespace &apos;tensorflow::internal&apos;">RpcServiceMethod</span>(</td></tr>
+<tr><th id="64">64</th><td>        GrpcWorkerMethodName(<b>static_cast</b>&lt;GrpcWorkerMethod&gt;(i)),</td></tr>
+<tr><th id="65">65</th><td>        ::grpc::internal::RpcMethod::NORMAL_RPC, <b>nullptr</b>));</td></tr>
+<tr><th id="66">66</th><td>    ::grpc::<span class='error' title="no member named &apos;Service&apos; in namespace &apos;grpc&apos;">Service</span>::MarkMethodAsync(<dfn class="local col3 decl" id="3i" title='i' data-type='int' data-ref="3i">i</dfn>);</td></tr>
 <tr><th id="67">67</th><td>  }</td></tr>
 <tr><th id="68">68</th><td>}</td></tr>
 <tr><th id="69">69</th><td></td></tr>
@@ -87,6 +87,6 @@
 <tr><th id="74">74</th><td>}  <i>// namespace tensorflow</i></td></tr>
 <tr><th id="75">75</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

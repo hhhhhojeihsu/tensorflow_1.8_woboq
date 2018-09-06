@@ -1,0 +1,9 @@
+<dec f='tensorflow/tensorflow/compiler/aot/codegen.h' l='76' type='tensorflow::Status tensorflow::tfcompile::GenerateHeader(const tensorflow::tfcompile::CodegenOpts &amp; opts, const tf2xla::Config &amp; config, const tensorflow::tfcompile::CompileResult &amp; compile_result, const tensorflow::tfcompile::MetadataResult &amp; metadata_result, string * header)'/>
+<def f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='283' ll='524' type='tensorflow::Status tensorflow::tfcompile::GenerateHeader(const tensorflow::tfcompile::CodegenOpts &amp; opts, const tf2xla::Config &amp; config, const tensorflow::tfcompile::CompileResult &amp; compile_result, const tensorflow::tfcompile::MetadataResult &amp; metadata_result, string * header)'/>
+<doc f='tensorflow/tensorflow/compiler/aot/codegen.h' l='70'>// GenerateHeader uses the meta-information from compile_result to generate a
+// C++ header giving access to the function in the generated object file.  The
+// header includes API usage documentation.
+//
+// metadata_result is an instance of MetadataResult obtained by a previous
+// invocation to GenerateMetadata.</doc>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='112' u='c' c='_ZN10tensorflow9tfcompile4MainERKNS0_9MainFlagsE'/>

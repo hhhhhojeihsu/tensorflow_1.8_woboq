@@ -46,25 +46,25 @@
 <tr><th id="33">33</th><td><i>// exists, or NULL otherwise.</i></td></tr>
 <tr><th id="34">34</th><td><b>template</b> &lt;<b>class</b> Collection&gt;</td></tr>
 <tr><th id="35">35</th><td><em>const</em> <b>typename</b> Collection::value_type::second_type* <dfn class="decl def" id="_ZN10tensorflow3gtl10FindOrNullERKT_RKNS1_10value_type10first_typeE" title='tensorflow::gtl::FindOrNull' data-ref="_ZN10tensorflow3gtl10FindOrNullERKT_RKNS1_10value_type10first_typeE">FindOrNull</dfn>(</td></tr>
-<tr><th id="36">36</th><td>    <em>const</em> Collection&amp; <dfn class="local col1 decl" id="141collection" title='collection' data-type='const Collection &amp;' data-ref="141collection">collection</dfn>,</td></tr>
-<tr><th id="37">37</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col2 decl" id="142key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="142key">key</dfn>) {</td></tr>
-<tr><th id="38">38</th><td>  <b>typename</b> Collection::const_iterator <dfn class="local col3 decl" id="143it" title='it' data-type='typename Collection::const_iterator' data-ref="143it">it</dfn> = <a class="local col1 ref" href="#141collection" title='collection' data-ref="141collection">collection</a>.find(<a class="local col2 ref" href="#142key" title='key' data-ref="142key">key</a>);</td></tr>
-<tr><th id="39">39</th><td>  <b>if</b> (<a class="local col3 ref" href="#143it" title='it' data-ref="143it">it</a> == <a class="local col1 ref" href="#141collection" title='collection' data-ref="141collection">collection</a>.end()) {</td></tr>
+<tr><th id="36">36</th><td>    <em>const</em> Collection&amp; <dfn class="local col9 decl" id="279collection" title='collection' data-type='const Collection &amp;' data-ref="279collection">collection</dfn>,</td></tr>
+<tr><th id="37">37</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col0 decl" id="280key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="280key">key</dfn>) {</td></tr>
+<tr><th id="38">38</th><td>  <b>typename</b> Collection::const_iterator <dfn class="local col1 decl" id="281it" title='it' data-type='typename Collection::const_iterator' data-ref="281it">it</dfn> = <a class="local col9 ref" href="#279collection" title='collection' data-ref="279collection">collection</a>.find(<a class="local col0 ref" href="#280key" title='key' data-ref="280key">key</a>);</td></tr>
+<tr><th id="39">39</th><td>  <b>if</b> (<a class="local col1 ref" href="#281it" title='it' data-ref="281it">it</a> == <a class="local col9 ref" href="#279collection" title='collection' data-ref="279collection">collection</a>.end()) {</td></tr>
 <tr><th id="40">40</th><td>    <b>return</b> <var>0</var>;</td></tr>
 <tr><th id="41">41</th><td>  }</td></tr>
-<tr><th id="42">42</th><td>  <b>return</b> &amp;<a class="local col3 ref" href="#143it" title='it' data-ref="143it">it</a>-&gt;second;</td></tr>
+<tr><th id="42">42</th><td>  <b>return</b> &amp;<a class="local col1 ref" href="#281it" title='it' data-ref="281it">it</a>-&gt;second;</td></tr>
 <tr><th id="43">43</th><td>}</td></tr>
 <tr><th id="44">44</th><td></td></tr>
 <tr><th id="45">45</th><td><i>// Same as above but returns a pointer to the non-const value.</i></td></tr>
 <tr><th id="46">46</th><td><b>template</b> &lt;<b>class</b> Collection&gt;</td></tr>
 <tr><th id="47">47</th><td><b>typename</b> Collection::value_type::second_type* <dfn class="decl def" id="_ZN10tensorflow3gtl10FindOrNullERT_RKNS1_10value_type10first_typeE" title='tensorflow::gtl::FindOrNull' data-ref="_ZN10tensorflow3gtl10FindOrNullERT_RKNS1_10value_type10first_typeE">FindOrNull</dfn>(</td></tr>
-<tr><th id="48">48</th><td>    Collection&amp; <dfn class="local col4 decl" id="144collection" title='collection' data-type='Collection &amp;' data-ref="144collection">collection</dfn>,  <i>// NOLINT</i></td></tr>
-<tr><th id="49">49</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col5 decl" id="145key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="145key">key</dfn>) {</td></tr>
-<tr><th id="50">50</th><td>  <b>typename</b> Collection::iterator <dfn class="local col6 decl" id="146it" title='it' data-type='typename Collection::iterator' data-ref="146it">it</dfn> = <a class="local col4 ref" href="#144collection" title='collection' data-ref="144collection">collection</a>.find(<a class="local col5 ref" href="#145key" title='key' data-ref="145key">key</a>);</td></tr>
-<tr><th id="51">51</th><td>  <b>if</b> (<a class="local col6 ref" href="#146it" title='it' data-ref="146it">it</a> == <a class="local col4 ref" href="#144collection" title='collection' data-ref="144collection">collection</a>.end()) {</td></tr>
+<tr><th id="48">48</th><td>    Collection&amp; <dfn class="local col2 decl" id="282collection" title='collection' data-type='Collection &amp;' data-ref="282collection">collection</dfn>,  <i>// NOLINT</i></td></tr>
+<tr><th id="49">49</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col3 decl" id="283key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="283key">key</dfn>) {</td></tr>
+<tr><th id="50">50</th><td>  <b>typename</b> Collection::iterator <dfn class="local col4 decl" id="284it" title='it' data-type='typename Collection::iterator' data-ref="284it">it</dfn> = <a class="local col2 ref" href="#282collection" title='collection' data-ref="282collection">collection</a>.find(<a class="local col3 ref" href="#283key" title='key' data-ref="283key">key</a>);</td></tr>
+<tr><th id="51">51</th><td>  <b>if</b> (<a class="local col4 ref" href="#284it" title='it' data-ref="284it">it</a> == <a class="local col2 ref" href="#282collection" title='collection' data-ref="282collection">collection</a>.end()) {</td></tr>
 <tr><th id="52">52</th><td>    <b>return</b> <var>0</var>;</td></tr>
 <tr><th id="53">53</th><td>  }</td></tr>
-<tr><th id="54">54</th><td>  <b>return</b> &amp;<a class="local col6 ref" href="#146it" title='it' data-ref="146it">it</a>-&gt;second;</td></tr>
+<tr><th id="54">54</th><td>  <b>return</b> &amp;<a class="local col4 ref" href="#284it" title='it' data-ref="284it">it</a>-&gt;second;</td></tr>
 <tr><th id="55">55</th><td>}</td></tr>
 <tr><th id="56">56</th><td></td></tr>
 <tr><th id="57">57</th><td><i>// Returns the pointer value associated with the given key. If none is found,</i></td></tr>
@@ -75,13 +75,13 @@
 <tr><th id="62">62</th><td><i>// to a NULL value.</i></td></tr>
 <tr><th id="63">63</th><td><b>template</b> &lt;<b>class</b> Collection&gt;</td></tr>
 <tr><th id="64">64</th><td><b>typename</b> Collection::value_type::second_type <dfn class="decl def" id="_ZN10tensorflow3gtl13FindPtrOrNullERKT_RKNS1_10value_type10first_typeE" title='tensorflow::gtl::FindPtrOrNull' data-ref="_ZN10tensorflow3gtl13FindPtrOrNullERKT_RKNS1_10value_type10first_typeE">FindPtrOrNull</dfn>(</td></tr>
-<tr><th id="65">65</th><td>    <em>const</em> Collection&amp; <dfn class="local col7 decl" id="147collection" title='collection' data-type='const Collection &amp;' data-ref="147collection">collection</dfn>,</td></tr>
-<tr><th id="66">66</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col8 decl" id="148key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="148key">key</dfn>) {</td></tr>
-<tr><th id="67">67</th><td>  <b>typename</b> Collection::const_iterator <dfn class="local col9 decl" id="149it" title='it' data-type='typename Collection::const_iterator' data-ref="149it">it</dfn> = <a class="local col7 ref" href="#147collection" title='collection' data-ref="147collection">collection</a>.find(<a class="local col8 ref" href="#148key" title='key' data-ref="148key">key</a>);</td></tr>
-<tr><th id="68">68</th><td>  <b>if</b> (<a class="local col9 ref" href="#149it" title='it' data-ref="149it">it</a> == <a class="local col7 ref" href="#147collection" title='collection' data-ref="147collection">collection</a>.end()) {</td></tr>
+<tr><th id="65">65</th><td>    <em>const</em> Collection&amp; <dfn class="local col5 decl" id="285collection" title='collection' data-type='const Collection &amp;' data-ref="285collection">collection</dfn>,</td></tr>
+<tr><th id="66">66</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col6 decl" id="286key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="286key">key</dfn>) {</td></tr>
+<tr><th id="67">67</th><td>  <b>typename</b> Collection::const_iterator <dfn class="local col7 decl" id="287it" title='it' data-type='typename Collection::const_iterator' data-ref="287it">it</dfn> = <a class="local col5 ref" href="#285collection" title='collection' data-ref="285collection">collection</a>.find(<a class="local col6 ref" href="#286key" title='key' data-ref="286key">key</a>);</td></tr>
+<tr><th id="68">68</th><td>  <b>if</b> (<a class="local col7 ref" href="#287it" title='it' data-ref="287it">it</a> == <a class="local col5 ref" href="#285collection" title='collection' data-ref="285collection">collection</a>.end()) {</td></tr>
 <tr><th id="69">69</th><td>    <b>return</b> <b>typename</b> Collection::value_type::second_type();</td></tr>
 <tr><th id="70">70</th><td>  }</td></tr>
-<tr><th id="71">71</th><td>  <b>return</b> <a class="local col9 ref" href="#149it" title='it' data-ref="149it">it</a>-&gt;second;</td></tr>
+<tr><th id="71">71</th><td>  <b>return</b> <a class="local col7 ref" href="#287it" title='it' data-ref="287it">it</a>-&gt;second;</td></tr>
 <tr><th id="72">72</th><td>}</td></tr>
 <tr><th id="73">73</th><td></td></tr>
 <tr><th id="74">74</th><td><i>// Returns a const reference to the value associated with the given key if it</i></td></tr>
@@ -95,26 +95,26 @@
 <tr><th id="82">82</th><td><i>// or store it in a string (not string&amp;).</i></td></tr>
 <tr><th id="83">83</th><td><b>template</b> &lt;<b>class</b> Collection&gt;</td></tr>
 <tr><th id="84">84</th><td><em>const</em> <b>typename</b> Collection::value_type::second_type&amp; <dfn class="decl def" id="_ZN10tensorflow3gtl15FindWithDefaultERKT_RKNS1_10value_type10first_typeERKNS1_10value_type11second_typeE" title='tensorflow::gtl::FindWithDefault' data-ref="_ZN10tensorflow3gtl15FindWithDefaultERKT_RKNS1_10value_type10first_typeERKNS1_10value_type11second_typeE">FindWithDefault</dfn>(</td></tr>
-<tr><th id="85">85</th><td>    <em>const</em> Collection&amp; <dfn class="local col0 decl" id="150collection" title='collection' data-type='const Collection &amp;' data-ref="150collection">collection</dfn>,</td></tr>
-<tr><th id="86">86</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col1 decl" id="151key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="151key">key</dfn>,</td></tr>
-<tr><th id="87">87</th><td>    <em>const</em> <b>typename</b> Collection::value_type::second_type&amp; <dfn class="local col2 decl" id="152value" title='value' data-type='const typename Collection::value_type::second_type &amp;' data-ref="152value">value</dfn>) {</td></tr>
-<tr><th id="88">88</th><td>  <b>typename</b> Collection::const_iterator <dfn class="local col3 decl" id="153it" title='it' data-type='typename Collection::const_iterator' data-ref="153it">it</dfn> = <a class="local col0 ref" href="#150collection" title='collection' data-ref="150collection">collection</a>.find(<a class="local col1 ref" href="#151key" title='key' data-ref="151key">key</a>);</td></tr>
-<tr><th id="89">89</th><td>  <b>if</b> (<a class="local col3 ref" href="#153it" title='it' data-ref="153it">it</a> == <a class="local col0 ref" href="#150collection" title='collection' data-ref="150collection">collection</a>.end()) {</td></tr>
-<tr><th id="90">90</th><td>    <b>return</b> <a class="local col2 ref" href="#152value" title='value' data-ref="152value">value</a>;</td></tr>
+<tr><th id="85">85</th><td>    <em>const</em> Collection&amp; <dfn class="local col8 decl" id="288collection" title='collection' data-type='const Collection &amp;' data-ref="288collection">collection</dfn>,</td></tr>
+<tr><th id="86">86</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col9 decl" id="289key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="289key">key</dfn>,</td></tr>
+<tr><th id="87">87</th><td>    <em>const</em> <b>typename</b> Collection::value_type::second_type&amp; <dfn class="local col0 decl" id="290value" title='value' data-type='const typename Collection::value_type::second_type &amp;' data-ref="290value">value</dfn>) {</td></tr>
+<tr><th id="88">88</th><td>  <b>typename</b> Collection::const_iterator <dfn class="local col1 decl" id="291it" title='it' data-type='typename Collection::const_iterator' data-ref="291it">it</dfn> = <a class="local col8 ref" href="#288collection" title='collection' data-ref="288collection">collection</a>.find(<a class="local col9 ref" href="#289key" title='key' data-ref="289key">key</a>);</td></tr>
+<tr><th id="89">89</th><td>  <b>if</b> (<a class="local col1 ref" href="#291it" title='it' data-ref="291it">it</a> == <a class="local col8 ref" href="#288collection" title='collection' data-ref="288collection">collection</a>.end()) {</td></tr>
+<tr><th id="90">90</th><td>    <b>return</b> <a class="local col0 ref" href="#290value" title='value' data-ref="290value">value</a>;</td></tr>
 <tr><th id="91">91</th><td>  }</td></tr>
-<tr><th id="92">92</th><td>  <b>return</b> <a class="local col3 ref" href="#153it" title='it' data-ref="153it">it</a>-&gt;second;</td></tr>
+<tr><th id="92">92</th><td>  <b>return</b> <a class="local col1 ref" href="#291it" title='it' data-ref="291it">it</a>-&gt;second;</td></tr>
 <tr><th id="93">93</th><td>}</td></tr>
 <tr><th id="94">94</th><td></td></tr>
 <tr><th id="95">95</th><td><i>// Inserts the given key-value pair into the collection. Returns true if and</i></td></tr>
 <tr><th id="96">96</th><td><i>// only if the key from the given pair didn't previously exist. Otherwise, the</i></td></tr>
 <tr><th id="97">97</th><td><i>// value in the map is replaced with the value from the given pair.</i></td></tr>
 <tr><th id="98">98</th><td><b>template</b> &lt;<b>class</b> Collection&gt;</td></tr>
-<tr><th id="99">99</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow3gtl14InsertOrUpdateEPT_RKNS1_10value_typeE" title='tensorflow::gtl::InsertOrUpdate' data-ref="_ZN10tensorflow3gtl14InsertOrUpdateEPT_RKNS1_10value_typeE">InsertOrUpdate</dfn>(Collection* <em>const</em> <dfn class="local col4 decl" id="154collection" title='collection' data-type='Collection *const' data-ref="154collection">collection</dfn>,</td></tr>
-<tr><th id="100">100</th><td>                    <em>const</em> <b>typename</b> Collection::value_type&amp; <dfn class="local col5 decl" id="155vt" title='vt' data-type='const typename Collection::value_type &amp;' data-ref="155vt">vt</dfn>) {</td></tr>
-<tr><th id="101">101</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<b>typename</b> Collection::iterator, <em>bool</em>&gt; <dfn class="local col6 decl" id="156ret" title='ret' data-type='std::pair&lt;typename Collection::iterator, bool&gt;' data-ref="156ret">ret</dfn> = <a class="local col4 ref" href="#154collection" title='collection' data-ref="154collection">collection</a>-&gt;insert(<a class="local col5 ref" href="#155vt" title='vt' data-ref="155vt">vt</a>);</td></tr>
-<tr><th id="102">102</th><td>  <b>if</b> (!<a class="local col6 ref" href="#156ret" title='ret' data-ref="156ret">ret</a>.second) {</td></tr>
+<tr><th id="99">99</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow3gtl14InsertOrUpdateEPT_RKNS1_10value_typeE" title='tensorflow::gtl::InsertOrUpdate' data-ref="_ZN10tensorflow3gtl14InsertOrUpdateEPT_RKNS1_10value_typeE">InsertOrUpdate</dfn>(Collection* <em>const</em> <dfn class="local col2 decl" id="292collection" title='collection' data-type='Collection *const' data-ref="292collection">collection</dfn>,</td></tr>
+<tr><th id="100">100</th><td>                    <em>const</em> <b>typename</b> Collection::value_type&amp; <dfn class="local col3 decl" id="293vt" title='vt' data-type='const typename Collection::value_type &amp;' data-ref="293vt">vt</dfn>) {</td></tr>
+<tr><th id="101">101</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../../include/c++/5/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<b>typename</b> Collection::iterator, <em>bool</em>&gt; <dfn class="local col4 decl" id="294ret" title='ret' data-type='std::pair&lt;typename Collection::iterator, bool&gt;' data-ref="294ret">ret</dfn> = <a class="local col2 ref" href="#292collection" title='collection' data-ref="292collection">collection</a>-&gt;insert(<a class="local col3 ref" href="#293vt" title='vt' data-ref="293vt">vt</a>);</td></tr>
+<tr><th id="102">102</th><td>  <b>if</b> (!<a class="local col4 ref" href="#294ret" title='ret' data-ref="294ret">ret</a>.second) {</td></tr>
 <tr><th id="103">103</th><td>    <i>// update</i></td></tr>
-<tr><th id="104">104</th><td>    <a class="local col6 ref" href="#156ret" title='ret' data-ref="156ret">ret</a>.first-&gt;second = <a class="local col5 ref" href="#155vt" title='vt' data-ref="155vt">vt</a>.second;</td></tr>
+<tr><th id="104">104</th><td>    <a class="local col4 ref" href="#294ret" title='ret' data-ref="294ret">ret</a>.first-&gt;second = <a class="local col3 ref" href="#293vt" title='vt' data-ref="293vt">vt</a>.second;</td></tr>
 <tr><th id="105">105</th><td>    <b>return</b> <b>false</b>;</td></tr>
 <tr><th id="106">106</th><td>  }</td></tr>
 <tr><th id="107">107</th><td>  <b>return</b> <b>true</b>;</td></tr>
@@ -122,11 +122,11 @@
 <tr><th id="109">109</th><td></td></tr>
 <tr><th id="110">110</th><td><i>// Same as above, except that the key and value are passed separately.</i></td></tr>
 <tr><th id="111">111</th><td><b>template</b> &lt;<b>class</b> Collection&gt;</td></tr>
-<tr><th id="112">112</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow3gtl14InsertOrUpdateEPT_RKNS1_10value_type10first_typeERKNS1_10value_type11second_typeE" title='tensorflow::gtl::InsertOrUpdate' data-ref="_ZN10tensorflow3gtl14InsertOrUpdateEPT_RKNS1_10value_type10first_typeERKNS1_10value_type11second_typeE">InsertOrUpdate</dfn>(Collection* <em>const</em> <dfn class="local col7 decl" id="157collection" title='collection' data-type='Collection *const' data-ref="157collection">collection</dfn>,</td></tr>
-<tr><th id="113">113</th><td>                    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col8 decl" id="158key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="158key">key</dfn>,</td></tr>
-<tr><th id="114">114</th><td>                    <em>const</em> <b>typename</b> Collection::value_type::second_type&amp; <dfn class="local col9 decl" id="159value" title='value' data-type='const typename Collection::value_type::second_type &amp;' data-ref="159value">value</dfn>) {</td></tr>
-<tr><th id="115">115</th><td>  <b>return</b> InsertOrUpdate(<a class="local col7 ref" href="#157collection" title='collection' data-ref="157collection">collection</a>,</td></tr>
-<tr><th id="116">116</th><td>                        <b>typename</b> Collection::value_type(<a class="local col8 ref" href="#158key" title='key' data-ref="158key">key</a>, <a class="local col9 ref" href="#159value" title='value' data-ref="159value">value</a>));</td></tr>
+<tr><th id="112">112</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow3gtl14InsertOrUpdateEPT_RKNS1_10value_type10first_typeERKNS1_10value_type11second_typeE" title='tensorflow::gtl::InsertOrUpdate' data-ref="_ZN10tensorflow3gtl14InsertOrUpdateEPT_RKNS1_10value_type10first_typeERKNS1_10value_type11second_typeE">InsertOrUpdate</dfn>(Collection* <em>const</em> <dfn class="local col5 decl" id="295collection" title='collection' data-type='Collection *const' data-ref="295collection">collection</dfn>,</td></tr>
+<tr><th id="113">113</th><td>                    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col6 decl" id="296key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="296key">key</dfn>,</td></tr>
+<tr><th id="114">114</th><td>                    <em>const</em> <b>typename</b> Collection::value_type::second_type&amp; <dfn class="local col7 decl" id="297value" title='value' data-type='const typename Collection::value_type::second_type &amp;' data-ref="297value">value</dfn>) {</td></tr>
+<tr><th id="115">115</th><td>  <b>return</b> InsertOrUpdate(<a class="local col5 ref" href="#295collection" title='collection' data-ref="295collection">collection</a>,</td></tr>
+<tr><th id="116">116</th><td>                        <b>typename</b> Collection::value_type(<a class="local col6 ref" href="#296key" title='key' data-ref="296key">key</a>, <a class="local col7 ref" href="#297value" title='value' data-ref="297value">value</a>));</td></tr>
 <tr><th id="117">117</th><td>}</td></tr>
 <tr><th id="118">118</th><td></td></tr>
 <tr><th id="119">119</th><td><i>// Inserts the given key and value into the given collection if and only if the</i></td></tr>
@@ -134,19 +134,19 @@
 <tr><th id="121">121</th><td><i>// existed in the collection, the value is not changed. Returns true if the</i></td></tr>
 <tr><th id="122">122</th><td><i>// key-value pair was inserted; returns false if the key was already present.</i></td></tr>
 <tr><th id="123">123</th><td><b>template</b> &lt;<b>class</b> Collection&gt;</td></tr>
-<tr><th id="124">124</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow3gtl18InsertIfNotPresentEPT_RKNS1_10value_typeE" title='tensorflow::gtl::InsertIfNotPresent' data-ref="_ZN10tensorflow3gtl18InsertIfNotPresentEPT_RKNS1_10value_typeE">InsertIfNotPresent</dfn>(Collection* <em>const</em> <dfn class="local col0 decl" id="160collection" title='collection' data-type='Collection *const' data-ref="160collection">collection</dfn>,</td></tr>
-<tr><th id="125">125</th><td>                        <em>const</em> <b>typename</b> Collection::value_type&amp; <dfn class="local col1 decl" id="161vt" title='vt' data-type='const typename Collection::value_type &amp;' data-ref="161vt">vt</dfn>) {</td></tr>
-<tr><th id="126">126</th><td>  <b>return</b> <a class="local col0 ref" href="#160collection" title='collection' data-ref="160collection">collection</a>-&gt;insert(<a class="local col1 ref" href="#161vt" title='vt' data-ref="161vt">vt</a>).second;</td></tr>
+<tr><th id="124">124</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow3gtl18InsertIfNotPresentEPT_RKNS1_10value_typeE" title='tensorflow::gtl::InsertIfNotPresent' data-ref="_ZN10tensorflow3gtl18InsertIfNotPresentEPT_RKNS1_10value_typeE">InsertIfNotPresent</dfn>(Collection* <em>const</em> <dfn class="local col8 decl" id="298collection" title='collection' data-type='Collection *const' data-ref="298collection">collection</dfn>,</td></tr>
+<tr><th id="125">125</th><td>                        <em>const</em> <b>typename</b> Collection::value_type&amp; <dfn class="local col9 decl" id="299vt" title='vt' data-type='const typename Collection::value_type &amp;' data-ref="299vt">vt</dfn>) {</td></tr>
+<tr><th id="126">126</th><td>  <b>return</b> <a class="local col8 ref" href="#298collection" title='collection' data-ref="298collection">collection</a>-&gt;insert(<a class="local col9 ref" href="#299vt" title='vt' data-ref="299vt">vt</a>).second;</td></tr>
 <tr><th id="127">127</th><td>}</td></tr>
 <tr><th id="128">128</th><td></td></tr>
 <tr><th id="129">129</th><td><i>// Same as above except the key and value are passed separately.</i></td></tr>
 <tr><th id="130">130</th><td><b>template</b> &lt;<b>class</b> Collection&gt;</td></tr>
 <tr><th id="131">131</th><td><em>bool</em> <dfn class="decl def" id="_ZN10tensorflow3gtl18InsertIfNotPresentEPT_RKNS1_10value_type10first_typeERKNS1_10value_type11second_typeE" title='tensorflow::gtl::InsertIfNotPresent' data-ref="_ZN10tensorflow3gtl18InsertIfNotPresentEPT_RKNS1_10value_type10first_typeERKNS1_10value_type11second_typeE">InsertIfNotPresent</dfn>(</td></tr>
-<tr><th id="132">132</th><td>    Collection* <em>const</em> <dfn class="local col2 decl" id="162collection" title='collection' data-type='Collection *const' data-ref="162collection">collection</dfn>,</td></tr>
-<tr><th id="133">133</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col3 decl" id="163key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="163key">key</dfn>,</td></tr>
-<tr><th id="134">134</th><td>    <em>const</em> <b>typename</b> Collection::value_type::second_type&amp; <dfn class="local col4 decl" id="164value" title='value' data-type='const typename Collection::value_type::second_type &amp;' data-ref="164value">value</dfn>) {</td></tr>
-<tr><th id="135">135</th><td>  <b>return</b> InsertIfNotPresent(<a class="local col2 ref" href="#162collection" title='collection' data-ref="162collection">collection</a>,</td></tr>
-<tr><th id="136">136</th><td>                            <b>typename</b> Collection::value_type(<a class="local col3 ref" href="#163key" title='key' data-ref="163key">key</a>, <a class="local col4 ref" href="#164value" title='value' data-ref="164value">value</a>));</td></tr>
+<tr><th id="132">132</th><td>    Collection* <em>const</em> <dfn class="local col0 decl" id="300collection" title='collection' data-type='Collection *const' data-ref="300collection">collection</dfn>,</td></tr>
+<tr><th id="133">133</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col1 decl" id="301key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="301key">key</dfn>,</td></tr>
+<tr><th id="134">134</th><td>    <em>const</em> <b>typename</b> Collection::value_type::second_type&amp; <dfn class="local col2 decl" id="302value" title='value' data-type='const typename Collection::value_type::second_type &amp;' data-ref="302value">value</dfn>) {</td></tr>
+<tr><th id="135">135</th><td>  <b>return</b> InsertIfNotPresent(<a class="local col0 ref" href="#300collection" title='collection' data-ref="300collection">collection</a>,</td></tr>
+<tr><th id="136">136</th><td>                            <b>typename</b> Collection::value_type(<a class="local col1 ref" href="#301key" title='key' data-ref="301key">key</a>, <a class="local col2 ref" href="#302value" title='value' data-ref="302value">value</a>));</td></tr>
 <tr><th id="137">137</th><td>}</td></tr>
 <tr><th id="138">138</th><td></td></tr>
 <tr><th id="139">139</th><td><i>// Looks up a given key and value pair in a collection and inserts the key-value</i></td></tr>
@@ -154,18 +154,18 @@
 <tr><th id="141">141</th><td><i>// with the key.</i></td></tr>
 <tr><th id="142">142</th><td><b>template</b> &lt;<b>class</b> Collection&gt;</td></tr>
 <tr><th id="143">143</th><td><b>typename</b> Collection::value_type::second_type&amp; <dfn class="decl def" id="_ZN10tensorflow3gtl14LookupOrInsertEPT_RKNS1_10value_typeE" title='tensorflow::gtl::LookupOrInsert' data-ref="_ZN10tensorflow3gtl14LookupOrInsertEPT_RKNS1_10value_typeE">LookupOrInsert</dfn>(</td></tr>
-<tr><th id="144">144</th><td>    Collection* <em>const</em> <dfn class="local col5 decl" id="165collection" title='collection' data-type='Collection *const' data-ref="165collection">collection</dfn>, <em>const</em> <b>typename</b> Collection::value_type&amp; <dfn class="local col6 decl" id="166vt" title='vt' data-type='const typename Collection::value_type &amp;' data-ref="166vt">vt</dfn>) {</td></tr>
-<tr><th id="145">145</th><td>  <b>return</b> <a class="local col5 ref" href="#165collection" title='collection' data-ref="165collection">collection</a>-&gt;insert(<a class="local col6 ref" href="#166vt" title='vt' data-ref="166vt">vt</a>).first-&gt;second;</td></tr>
+<tr><th id="144">144</th><td>    Collection* <em>const</em> <dfn class="local col3 decl" id="303collection" title='collection' data-type='Collection *const' data-ref="303collection">collection</dfn>, <em>const</em> <b>typename</b> Collection::value_type&amp; <dfn class="local col4 decl" id="304vt" title='vt' data-type='const typename Collection::value_type &amp;' data-ref="304vt">vt</dfn>) {</td></tr>
+<tr><th id="145">145</th><td>  <b>return</b> <a class="local col3 ref" href="#303collection" title='collection' data-ref="303collection">collection</a>-&gt;insert(<a class="local col4 ref" href="#304vt" title='vt' data-ref="304vt">vt</a>).first-&gt;second;</td></tr>
 <tr><th id="146">146</th><td>}</td></tr>
 <tr><th id="147">147</th><td></td></tr>
 <tr><th id="148">148</th><td><i>// Same as above except the key-value are passed separately.</i></td></tr>
 <tr><th id="149">149</th><td><b>template</b> &lt;<b>class</b> Collection&gt;</td></tr>
 <tr><th id="150">150</th><td><b>typename</b> Collection::value_type::second_type&amp; <dfn class="decl def" id="_ZN10tensorflow3gtl14LookupOrInsertEPT_RKNS1_10value_type10first_typeERKNS1_10value_type11second_typeE" title='tensorflow::gtl::LookupOrInsert' data-ref="_ZN10tensorflow3gtl14LookupOrInsertEPT_RKNS1_10value_type10first_typeERKNS1_10value_type11second_typeE">LookupOrInsert</dfn>(</td></tr>
-<tr><th id="151">151</th><td>    Collection* <em>const</em> <dfn class="local col7 decl" id="167collection" title='collection' data-type='Collection *const' data-ref="167collection">collection</dfn>,</td></tr>
-<tr><th id="152">152</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col8 decl" id="168key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="168key">key</dfn>,</td></tr>
-<tr><th id="153">153</th><td>    <em>const</em> <b>typename</b> Collection::value_type::second_type&amp; <dfn class="local col9 decl" id="169value" title='value' data-type='const typename Collection::value_type::second_type &amp;' data-ref="169value">value</dfn>) {</td></tr>
-<tr><th id="154">154</th><td>  <b>return</b> LookupOrInsert(<a class="local col7 ref" href="#167collection" title='collection' data-ref="167collection">collection</a>,</td></tr>
-<tr><th id="155">155</th><td>                        <b>typename</b> Collection::value_type(<a class="local col8 ref" href="#168key" title='key' data-ref="168key">key</a>, <a class="local col9 ref" href="#169value" title='value' data-ref="169value">value</a>));</td></tr>
+<tr><th id="151">151</th><td>    Collection* <em>const</em> <dfn class="local col5 decl" id="305collection" title='collection' data-type='Collection *const' data-ref="305collection">collection</dfn>,</td></tr>
+<tr><th id="152">152</th><td>    <em>const</em> <b>typename</b> Collection::value_type::first_type&amp; <dfn class="local col6 decl" id="306key" title='key' data-type='const typename Collection::value_type::first_type &amp;' data-ref="306key">key</dfn>,</td></tr>
+<tr><th id="153">153</th><td>    <em>const</em> <b>typename</b> Collection::value_type::second_type&amp; <dfn class="local col7 decl" id="307value" title='value' data-type='const typename Collection::value_type::second_type &amp;' data-ref="307value">value</dfn>) {</td></tr>
+<tr><th id="154">154</th><td>  <b>return</b> LookupOrInsert(<a class="local col5 ref" href="#305collection" title='collection' data-ref="305collection">collection</a>,</td></tr>
+<tr><th id="155">155</th><td>                        <b>typename</b> Collection::value_type(<a class="local col6 ref" href="#306key" title='key' data-ref="306key">key</a>, <a class="local col7 ref" href="#307value" title='value' data-ref="307value">value</a>));</td></tr>
 <tr><th id="156">156</th><td>}</td></tr>
 <tr><th id="157">157</th><td></td></tr>
 <tr><th id="158">158</th><td>}  <i>// namespace gtl</i></td></tr>
@@ -174,6 +174,6 @@
 <tr><th id="161">161</th><td><u>#<span data-ppcond="20">endif</span>  // TENSORFLOW_LIB_GTL_MAP_UTIL_H_</u></td></tr>
 <tr><th id="162">162</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='../../../c/checkpoint_reader.cc.html'>tensorflow/tensorflow/c/checkpoint_reader.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='../../../c/checkpoint_reader.cc.html'>tensorflow/tensorflow/c/checkpoint_reader.cc</a><br/>Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

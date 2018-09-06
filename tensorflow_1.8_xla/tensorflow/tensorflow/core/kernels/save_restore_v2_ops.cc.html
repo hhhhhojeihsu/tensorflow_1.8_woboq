@@ -35,7 +35,7 @@
 <tr><th id="21">21</th><td><u>#include <a href="../framework/op_kernel.h.html">"tensorflow/core/framework/op_kernel.h"</a></u></td></tr>
 <tr><th id="22">22</th><td><u>#include <a href="../framework/tensor.h.html">"tensorflow/core/framework/tensor.h"</a></u></td></tr>
 <tr><th id="23">23</th><td><u>#include <a href="../framework/types.h.html">"tensorflow/core/framework/types.h"</a></u></td></tr>
-<tr><th id="24">24</th><td><u>#include "tensorflow/core/framework/types.pb.h"</u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="../framework/types.pb.h.html">"tensorflow/core/framework/types.pb.h"</a></u></td></tr>
 <tr><th id="25">25</th><td><u>#include <a href="bounds_check.h.html">"tensorflow/core/kernels/bounds_check.h"</a></u></td></tr>
 <tr><th id="26">26</th><td><u>#include <a href="save_restore_tensor.h.html">"tensorflow/core/kernels/save_restore_tensor.h"</a></u></td></tr>
 <tr><th id="27">27</th><td><u>#include <a href="../lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
@@ -200,7 +200,7 @@
 <tr><th id="186">186</th><td></td></tr>
 <tr><th id="187">187</th><td> <b>private</b>:</td></tr>
 <tr><th id="188">188</th><td>  <i  data-doc="tensorflow::RestoreV2::dtypes_">// Expected dtypes of the to-restore tensors.</i></td></tr>
-<tr><th id="189">189</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class='type' title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</span>&gt; <dfn class="tu decl" id="tensorflow::RestoreV2::dtypes_" title='tensorflow::RestoreV2::dtypes_' data-type='std::vector&lt;DataType&gt;' data-ref="tensorflow::RestoreV2::dtypes_">dtypes_</dfn>;</td></tr>
+<tr><th id="189">189</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<a class="type" href="../framework/types.pb.h.html#tensorflow::DataType" title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</a>&gt; <dfn class="tu decl" id="tensorflow::RestoreV2::dtypes_" title='tensorflow::RestoreV2::dtypes_' data-type='std::vector&lt;DataType&gt;' data-ref="tensorflow::RestoreV2::dtypes_">dtypes_</dfn>;</td></tr>
 <tr><th id="190">190</th><td>};</td></tr>
 <tr><th id="191">191</th><td><a class="macro" href="../framework/op_kernel.h.html#1254" title="constexpr bool should_register_2__flag = true; static ::tensorflow::kernel_factory::OpKernelRegistrar registrar__body__2__object( should_register_2__flag ? ::tensorflow::register_kernel::Name(&quot;RestoreV2&quot;).Device(DEVICE_CPU).Build() : nullptr, &quot;RestoreV2&quot;, [](::tensorflow::OpKernelConstruction* context) -&gt; ::tensorflow::OpKernel* { return new RestoreV2(context); });" data-ref="_M/REGISTER_KERNEL_BUILDER">REGISTER_KERNEL_BUILDER</a>(<a class="type" href="../framework/op_kernel.h.html#tensorflow::register_kernel::Name" title='tensorflow::register_kernel::Name' data-ref="tensorflow::register_kernel::Name">Name</a><a class="ref" href="../framework/op_kernel.h.html#_ZN10tensorflow15register_kernel4NameC1EPKc" title='tensorflow::register_kernel::Name::Name' data-ref="_ZN10tensorflow15register_kernel4NameC1EPKc">(</a><q>"RestoreV2"</q>).<a class="ref" href="../framework/kernel_def_builder.h.html#_ZN10tensorflow16KernelDefBuilder6DeviceEPKc" title='tensorflow::KernelDefBuilder::Device' data-ref="_ZN10tensorflow16KernelDefBuilder6DeviceEPKc">Device</a>(<a class="ref" href="../framework/types.h.html#tensorflow::DEVICE_CPU" title='tensorflow::DEVICE_CPU' data-ref="tensorflow::DEVICE_CPU">DEVICE_CPU</a>), <a class="type" href="#tensorflow::RestoreV2" title='tensorflow::RestoreV2' data-ref="tensorflow::RestoreV2">RestoreV2</a>);</td></tr>
 <tr><th id="192">192</th><td></td></tr>
@@ -256,6 +256,6 @@
 <tr><th id="242">242</th><td>}  <i>// namespace tensorflow</i></td></tr>
 <tr><th id="243">243</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

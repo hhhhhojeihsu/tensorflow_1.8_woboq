@@ -30,8 +30,8 @@
 <tr><th id="16">16</th><td><u>#<span data-ppcond="16">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_CORE_GRAPPLER_COSTS_OP_CONTEXT_H_">TENSORFLOW_CORE_GRAPPLER_COSTS_OP_CONTEXT_H_</span></u></td></tr>
 <tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_CORE_GRAPPLER_COSTS_OP_CONTEXT_H_" data-ref="_M/TENSORFLOW_CORE_GRAPPLER_COSTS_OP_CONTEXT_H_">TENSORFLOW_CORE_GRAPPLER_COSTS_OP_CONTEXT_H_</dfn></u></td></tr>
 <tr><th id="18">18</th><td></td></tr>
-<tr><th id="19">19</th><td><u>#include "tensorflow/core/framework/function.pb.h"</u></td></tr>
-<tr><th id="20">20</th><td><u>#include "tensorflow/core/grappler/costs/op_performance_data.pb.h"</u></td></tr>
+<tr><th id="19">19</th><td><u>#include <a href="../../framework/function.pb.h.html">"tensorflow/core/framework/function.pb.h"</a></u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="op_performance_data.pb.h.html">"tensorflow/core/grappler/costs/op_performance_data.pb.h"</a></u></td></tr>
 <tr><th id="21">21</th><td></td></tr>
 <tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
 <tr><th id="23">23</th><td><b>namespace</b> <span class="namespace">grappler</span> {</td></tr>
@@ -41,8 +41,8 @@
 <tr><th id="27">27</th><td><b>struct</b> <dfn class="type def" id="tensorflow::grappler::OpContext" title='tensorflow::grappler::OpContext' data-ref="tensorflow::grappler::OpContext">OpContext</dfn> {</td></tr>
 <tr><th id="28">28</th><td>  <a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="tensorflow::grappler::OpContext::name" title='tensorflow::grappler::OpContext::name' data-ref="tensorflow::grappler::OpContext::name">name</dfn>;</td></tr>
 <tr><th id="29">29</th><td>  <a class="typedef" href="../../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="tensorflow::grappler::OpContext::device_name" title='tensorflow::grappler::OpContext::device_name' data-ref="tensorflow::grappler::OpContext::device_name">device_name</dfn>;</td></tr>
-<tr><th id="30">30</th><td>  <span class='type' title='tensorflow::OpInfo' data-ref="tensorflow::OpInfo">OpInfo</span> <dfn class="decl" id="tensorflow::grappler::OpContext::op_info" title='tensorflow::grappler::OpContext::op_info' data-ref="tensorflow::grappler::OpContext::op_info">op_info</dfn>;</td></tr>
-<tr><th id="31">31</th><td>  <em>const</em> <span class='type' title='tensorflow::FunctionDefLibrary' data-ref="tensorflow::FunctionDefLibrary">FunctionDefLibrary</span>* <dfn class="decl" id="tensorflow::grappler::OpContext::function_library" title='tensorflow::grappler::OpContext::function_library' data-ref="tensorflow::grappler::OpContext::function_library">function_library</dfn>;  <i>// Not owned.</i></td></tr>
+<tr><th id="30">30</th><td>  <a class="type" href="op_performance_data.pb.h.html#tensorflow::OpInfo" title='tensorflow::OpInfo' data-ref="tensorflow::OpInfo">OpInfo</a> <dfn class="decl" id="tensorflow::grappler::OpContext::op_info" title='tensorflow::grappler::OpContext::op_info' data-ref="tensorflow::grappler::OpContext::op_info">op_info</dfn>;</td></tr>
+<tr><th id="31">31</th><td>  <em>const</em> <a class="type" href="../../framework/function.pb.h.html#tensorflow::FunctionDefLibrary" title='tensorflow::FunctionDefLibrary' data-ref="tensorflow::FunctionDefLibrary">FunctionDefLibrary</a>* <dfn class="decl" id="tensorflow::grappler::OpContext::function_library" title='tensorflow::grappler::OpContext::function_library' data-ref="tensorflow::grappler::OpContext::function_library">function_library</dfn>;  <i>// Not owned.</i></td></tr>
 <tr><th id="32">32</th><td></td></tr>
 <tr><th id="33">33</th><td>  <dfn class="decl def" id="_ZN10tensorflow8grappler9OpContextC1Ev" title='tensorflow::grappler::OpContext::OpContext' data-ref="_ZN10tensorflow8grappler9OpContextC1Ev">OpContext</dfn>() { <a class="member" href="#tensorflow::grappler::OpContext::function_library" title='tensorflow::grappler::OpContext::function_library' data-ref="tensorflow::grappler::OpContext::function_library">function_library</a> = <b>nullptr</b>; }</td></tr>
 <tr><th id="34">34</th><td>};</td></tr>
@@ -53,6 +53,6 @@
 <tr><th id="39">39</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_CORE_GRAPPLER_COSTS_OP_CONTEXT_H_</u></td></tr>
 <tr><th id="40">40</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='../../common_runtime/graph_execution_state.cc.html'>tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='../../common_runtime/graph_execution_state.cc.html'>tensorflow/tensorflow/core/common_runtime/graph_execution_state.cc</a><br/>Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

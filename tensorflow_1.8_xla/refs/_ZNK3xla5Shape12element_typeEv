@@ -1,3 +1,5 @@
+<dec f='tensorflow/tensorflow/compiler/xla/xla_data.pb.h' l='1361' type='::xla::PrimitiveType xla::Shape::element_type() const'/>
+<def f='tensorflow/tensorflow/compiler/xla/xla_data.pb.h' l='11911' ll='11914' type='::xla::PrimitiveType xla::Shape::element_type() const'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='219' u='c' c='_ZN3xla9ShapeUtil15SameElementTypeERKNS_5ShapeES3_'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='219' u='c' c='_ZN3xla9ShapeUtil15SameElementTypeERKNS_5ShapeES3_'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='238' u='c' c='_ZN3xla9ShapeUtil26HigherPrecisionElementTypeERKNS_5ShapeES3_'/>
@@ -17,6 +19,8 @@
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1301' u='c' c='_ZN3xla7Literal16PopulateInternalERKT0_b'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1352' u='c' c='_ZN3xla7Literal17PopulateWithValueET_'/>
 <use f='tensorflow/tensorflow/compiler/xla/literal_util.h' l='1376' u='c' c='_ZNK3xla7Literal9ReplicateEx'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='116' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_119AddRewritesForShapeEiRKN3xla5ShapeEPSt6vectorISt4pairISsSsESaIS8_EE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='194' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_116GenResultMethodsERKNS_6tf2xla6ConfigERKN3xla12ProgramShapeEPSs'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/binary_ops.cc' l='182' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ApproximateEqualOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/random_ops.cc' l='131' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TruncatedNormalOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reverse_sequence_op.cc' l='75' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ReverseSequenceOp7CompileEPNS_18XlaOpKernelContextE'/>

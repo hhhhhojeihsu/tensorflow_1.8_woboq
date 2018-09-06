@@ -1,4 +1,7 @@
 <dec f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='54' type='llvm::StringRef xla::llvm_ir::AsStringRef(tensorflow::StringPiece str)'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='55' u='c' c='_ZN10tensorflow9tfcompileL38CreateModuleWithEmbeddedProtocolBufferEPN4llvm11LLVMContextEPNS1_13TargetMachineERKN6google8protobuf11MessageLiteENS_11StringPieceEPSsPx'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='60' u='c' c='_ZN10tensorflow9tfcompileL38CreateModuleWithEmbeddedProtocolBufferEPN4llvm11LLVMContextEPNS1_13TargetMachineERKN6google8protobuf11MessageLiteENS_11StringPieceEPSsPx'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='106' u='c' c='_ZN10tensorflow9tfcompileL26GetTargetMachineFromTripleENS_11StringPieceE'/>
 <doc f='tensorflow/tensorflow/compiler/xla/service/llvm_ir/llvm_util.h' l='50'>// Convert a tensorflow::StringPiece to a llvm::StringRef. Note: both
 // tensorflow::StringPiece and llvm::StringRef are non-owning pointers into a
 // string in memory. This method is used to feed strings to LLVM

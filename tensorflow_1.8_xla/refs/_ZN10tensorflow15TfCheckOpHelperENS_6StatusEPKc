@@ -1,10 +1,11 @@
 <def f='tensorflow/tensorflow/core/lib/core/status.h' l='124' ll='128' type='tensorflow::string * tensorflow::TfCheckOpHelper(::tensorflow::Status v, const char * msg)'/>
 <use f='tensorflow/tensorflow/c/c_api.cc' l='961' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/common_runtime/copy_tensor.h' l='58' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='156' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='206' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='212' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/stream_executor/lib/statusor.h' l='218' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='148' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/compiler/jit/graph_to_functiondef.cc' l='156' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_compile_on_demand_op.cc' l='87' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_launch_util.cc' l='205' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='866' macro='1' u='c'/>
@@ -135,8 +136,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='363' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='365' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_session.cc' l='367' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='76' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='77' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/framework/function.cc' l='213' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/framework/function.cc' l='572' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/framework/function.cc' l='574' macro='1' u='c'/>

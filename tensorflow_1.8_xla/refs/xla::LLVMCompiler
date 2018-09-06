@@ -1,5 +1,6 @@
 <inh f='tensorflow/tensorflow/compiler/xla/service/compiler.h' l='107' c='xla::Compiler'/>
 <def f='tensorflow/tensorflow/compiler/xla/service/llvm_compiler.h' l='33' ll='81'/>
+<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.h' l='107' c='xla::cpu::CpuCompiler'/>
 <size>72</size>
 <doc f='tensorflow/tensorflow/compiler/xla/service/llvm_compiler.h' l='24'>// Interface for an LLVM-based compiler. This provides the ability to register
 // hooks to inspect the LLVM IR during compilation, both before and after
@@ -18,4 +19,3 @@
 <fun r='_ZN3xla12LLVMCompiler7CompileESt6vectorISt10unique_ptrINS_9HloModuleESt14default_deleteIS3_EESaIS6_EES1_IS1_IPN9perftools8gputools14StreamExecutorESaI14102789'/>
 <mbr r='xla::LLVMCompiler::user_pre_optimization_hook_' o='64' t='ModuleHook'/>
 <mbr r='xla::LLVMCompiler::user_post_optimization_hook_' o='320' t='ModuleHook'/>
-<ovr f='tensorflow/tensorflow/compiler/xla/service/cpu/cpu_compiler.h' l='107' c='xla::cpu::CpuCompiler'/>

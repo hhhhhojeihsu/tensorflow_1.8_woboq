@@ -1,6 +1,5 @@
 <dec f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.h' l='38' type='void tensorflow::GrpcWorker::GrpcRecvTensorAsync(tensorflow::CallOptions * opts, const tensorflow::RecvTensorRequest * request, ::grpc::ByteBuffer * response, StatusCallback done)'/>
 <doc f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.h' l='37'>// Specialized version of RecvTensor for gRPC, which avoids a copy.</doc>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.cc' l='287' u='c' c='_ZN10tensorflow12_GLOBAL__N_117GrpcWorkerService23GrpcWorkerServiceThread20RecvTensorHandlerRawEPNS_4CallIS2_NS_4grpc13WorkerService12AsyncServiceENS_4982553'/>
 <def f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.cc' l='363' ll='445' type='void tensorflow::GrpcWorker::GrpcRecvTensorAsync(tensorflow::CallOptions * opts, const tensorflow::RecvTensorRequest * request, ::grpc::ByteBuffer * response, StatusCallback done)'/>
 <doc f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_service.cc' l='360'>// GrpcRecvTensorAsync: unlike the other Worker methods, which use protocol
 // buffers for a response object, to avoid extra protocol buffer serialization

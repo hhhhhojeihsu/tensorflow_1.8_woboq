@@ -13,8 +13,6 @@
 <use f='tensorflow/tensorflow/core/util/tensor_format.h' l='422' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/util/tensor_format.h' l='447' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/c/c_api.cc' l='528' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='81' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='85' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='659' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='660' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='661' macro='1' u='c'/>
@@ -50,6 +48,8 @@
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='1133' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/hlo_computation.h' l='339' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/executable.h' l='53' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='81' macro='1' u='c'/>
+<use f='tensorflow/tensorflow/compiler/jit/kernels/parallel_check_op.cc' l='85' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='78' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='51' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/sharding_builder.cc' l='53' macro='1' u='c'/>
@@ -445,10 +445,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='195' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='207' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='208' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/import.cc' l='83' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/import.cc' l='84' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/import.cc' l='90' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/contrib/lite/toco/tflite/import.cc' l='91' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/toco_cmdline_flags.cc' l='241' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='844' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='1255' macro='1' u='c'/>
@@ -469,7 +465,6 @@
 <use f='tensorflow/tensorflow/core/common_runtime/executor.cc' l='596' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1519' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1526' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='112' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_tensor_coding.cc' l='230' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_worker_cache.cc' l='72' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.cc' l='95' macro='1' u='c'/>
@@ -520,7 +515,6 @@
 <use f='tensorflow/tensorflow/core/kernels/inplace_ops.cc' l='48' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/inplace_ops.cc' l='332' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/inplace_ops.cc' l='407' macro='1' u='c'/>
-<use f='tensorflow/tensorflow/core/kernels/lmdb_reader_op.cc' l='93' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/range_sampler.cc' l='100' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/range_sampler.cc' l='115' macro='1' u='c'/>
 <use f='tensorflow/tensorflow/core/kernels/range_sampler.cc' l='130' macro='1' u='c'/>

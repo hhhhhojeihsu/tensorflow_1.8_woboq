@@ -1,14 +1,14 @@
 <def f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='98' ll='113'/>
-<size>56</size>
+<size>1</size>
 <doc f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='97'>// A ZeroCopyInputStream that reads from a grpc::ByteBuffer.</doc>
 <fun r='_ZN10tensorflow20GrpcByteBufferSourceC1Ev'/>
-<fun r='_ZN10tensorflow20GrpcByteBufferSource4InitERKN4grpc10ByteBufferE'/>
+<fun r='_ZN10tensorflow20GrpcByteBufferSource4InitERKi'/>
 <fun r='_ZN10tensorflow20GrpcByteBufferSource4NextEPPKvPi'/>
 <fun r='_ZN10tensorflow20GrpcByteBufferSource6BackUpEi'/>
 <fun r='_ZN10tensorflow20GrpcByteBufferSource4SkipEi'/>
 <fun r='_ZNK10tensorflow20GrpcByteBufferSource9ByteCountEv'/>
-<mbr r='tensorflow::GrpcByteBufferSource::slices_' o='64' t='std::vector&lt; ::grpc::Slice&gt;'/>
-<mbr r='tensorflow::GrpcByteBufferSource::cur_' o='256' t='int'/>
-<mbr r='tensorflow::GrpcByteBufferSource::left_' o='288' t='int'/>
-<mbr r='tensorflow::GrpcByteBufferSource::ptr_' o='320' t='const char *'/>
-<mbr r='tensorflow::GrpcByteBufferSource::byte_count_' o='384' t='::grpc::protobuf::int64'/>
+<mbr r='tensorflow::GrpcByteBufferSource::slices_' t='int'/>
+<mbr r='tensorflow::GrpcByteBufferSource::cur_' t='int'/>
+<mbr r='tensorflow::GrpcByteBufferSource::left_' t='int'/>
+<mbr r='tensorflow::GrpcByteBufferSource::ptr_' t='const char *'/>
+<mbr r='tensorflow::GrpcByteBufferSource::byte_count_' t='int'/>

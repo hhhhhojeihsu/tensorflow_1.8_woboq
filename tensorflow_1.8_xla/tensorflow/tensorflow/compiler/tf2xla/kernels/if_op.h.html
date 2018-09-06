@@ -31,7 +31,7 @@
 <tr><th id="17">17</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_COMPILER_TF2XLA_KERNELS_IF_OP_H_" data-ref="_M/TENSORFLOW_COMPILER_TF2XLA_KERNELS_IF_OP_H_">TENSORFLOW_COMPILER_TF2XLA_KERNELS_IF_OP_H_</dfn></u></td></tr>
 <tr><th id="18">18</th><td></td></tr>
 <tr><th id="19">19</th><td><u>#include <a href="../xla_op_kernel.h.html">"tensorflow/compiler/tf2xla/xla_op_kernel.h"</a></u></td></tr>
-<tr><th id="20">20</th><td><u>#include "tensorflow/core/framework/attr_value.pb.h"</u></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../core/framework/attr_value.pb.h.html">"tensorflow/core/framework/attr_value.pb.h"</a></u></td></tr>
 <tr><th id="21">21</th><td></td></tr>
 <tr><th id="22">22</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
 <tr><th id="23">23</th><td></td></tr>
@@ -61,9 +61,9 @@
 <tr><th id="47">47</th><td> <b>private</b>:</td></tr>
 <tr><th id="48">48</th><td>  <a class="macro" href="../../../core/platform/macros.h.html#91" title="XlaIfOp(const XlaIfOp&amp;) = delete; void operator=(const XlaIfOp&amp;) = delete" data-ref="_M/TF_DISALLOW_COPY_AND_ASSIGN">TF_DISALLOW_COPY_AND_ASSIGN</a>(<dfn class="decl def" id="_ZN10tensorflow7XlaIfOpC1ERKS0_" title='tensorflow::XlaIfOp::XlaIfOp' data-ref="_ZN10tensorflow7XlaIfOpC1ERKS0_"><a class="type" href="#tensorflow::XlaIfOp" title='tensorflow::XlaIfOp' data-ref="tensorflow::XlaIfOp"><a class="type" href="#tensorflow::XlaIfOp" title='tensorflow::XlaIfOp' data-ref="tensorflow::XlaIfOp">XlaIfOp</a></a></dfn>);</td></tr>
 <tr><th id="49">49</th><td></td></tr>
-<tr><th id="50">50</th><td>  <span class='type' title='tensorflow::NameAttrList' data-ref="tensorflow::NameAttrList">NameAttrList</span> <dfn class="decl" id="tensorflow::XlaIfOp::then_branch_" title='tensorflow::XlaIfOp::then_branch_' data-ref="tensorflow::XlaIfOp::then_branch_">then_branch_</dfn>;</td></tr>
-<tr><th id="51">51</th><td>  <span class='type' title='tensorflow::NameAttrList' data-ref="tensorflow::NameAttrList">NameAttrList</span> <dfn class="decl" id="tensorflow::XlaIfOp::else_branch_" title='tensorflow::XlaIfOp::else_branch_' data-ref="tensorflow::XlaIfOp::else_branch_">else_branch_</dfn>;</td></tr>
-<tr><th id="52">52</th><td>  <span class='type' title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</span> <dfn class="decl" id="tensorflow::XlaIfOp::cond_type_" title='tensorflow::XlaIfOp::cond_type_' data-ref="tensorflow::XlaIfOp::cond_type_">cond_type_</dfn>;</td></tr>
+<tr><th id="50">50</th><td>  <a class="type" href="../../../core/framework/attr_value.pb.h.html#tensorflow::NameAttrList" title='tensorflow::NameAttrList' data-ref="tensorflow::NameAttrList">NameAttrList</a> <dfn class="decl" id="tensorflow::XlaIfOp::then_branch_" title='tensorflow::XlaIfOp::then_branch_' data-ref="tensorflow::XlaIfOp::then_branch_">then_branch_</dfn>;</td></tr>
+<tr><th id="51">51</th><td>  <a class="type" href="../../../core/framework/attr_value.pb.h.html#tensorflow::NameAttrList" title='tensorflow::NameAttrList' data-ref="tensorflow::NameAttrList">NameAttrList</a> <dfn class="decl" id="tensorflow::XlaIfOp::else_branch_" title='tensorflow::XlaIfOp::else_branch_' data-ref="tensorflow::XlaIfOp::else_branch_">else_branch_</dfn>;</td></tr>
+<tr><th id="52">52</th><td>  <a class="type" href="../../../core/framework/types.pb.h.html#tensorflow::DataType" title='tensorflow::DataType' data-ref="tensorflow::DataType">DataType</a> <dfn class="decl" id="tensorflow::XlaIfOp::cond_type_" title='tensorflow::XlaIfOp::cond_type_' data-ref="tensorflow::XlaIfOp::cond_type_">cond_type_</dfn>;</td></tr>
 <tr><th id="53">53</th><td>  <a class="typedef" href="../../../core/framework/types.h.html#tensorflow::DataTypeVector" title='tensorflow::DataTypeVector' data-type='gtl::InlinedVector&lt;DataType, 4&gt;' data-ref="tensorflow::DataTypeVector">DataTypeVector</a> <dfn class="decl" id="tensorflow::XlaIfOp::input_types_" title='tensorflow::XlaIfOp::input_types_' data-ref="tensorflow::XlaIfOp::input_types_">input_types_</dfn>;</td></tr>
 <tr><th id="54">54</th><td>  <a class="typedef" href="../../../core/framework/types.h.html#tensorflow::DataTypeVector" title='tensorflow::DataTypeVector' data-type='gtl::InlinedVector&lt;DataType, 4&gt;' data-ref="tensorflow::DataTypeVector">DataTypeVector</a> <dfn class="decl" id="tensorflow::XlaIfOp::output_types_" title='tensorflow::XlaIfOp::output_types_' data-ref="tensorflow::XlaIfOp::output_types_">output_types_</dfn>;</td></tr>
 <tr><th id="55">55</th><td>};</td></tr>
@@ -73,6 +73,6 @@
 <tr><th id="59">59</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_COMPILER_TF2XLA_KERNELS_IF_OP_H_</u></td></tr>
 <tr><th id="60">60</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='if_op.cc.html'>tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='if_op.cc.html'>tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc</a><br/>Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

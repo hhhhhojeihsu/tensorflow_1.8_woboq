@@ -1,6 +1,7 @@
 <def f='tensorflow/tensorflow/core/lib/gtl/array_slice.h' l='127' type='void tensorflow::gtl::ArraySlice::ArraySlice&lt;T&gt;()'/>
 <use f='tensorflow/tensorflow/core/framework/function.h' l='101' u='c' c='_ZN10tensorflow17FunctionDefHelper11FunctionRefERKSs'/>
 <use f='tensorflow/tensorflow/compiler/xla/shape_util.h' l='320' u='c' c='_ZN3xla9ShapeUtil7MakeNilEv'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='248' u='c' c='_ZN3xla14HloInstruction9CreateMapERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_14HloComputationES8_'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='305' u='c' c='_ZN3xla18ComputationBuilder2EqERKNS_21ComputationDataHandleES3_N10tensorflow3gtl10ArraySliceIxEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='310' u='c' c='_ZN3xla18ComputationBuilder2NeERKNS_21ComputationDataHandleES3_N10tensorflow3gtl10ArraySliceIxEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='315' u='c' c='_ZN3xla18ComputationBuilder2GeERKNS_21ComputationDataHandleES3_N10tensorflow3gtl10ArraySliceIxEE'/>
@@ -25,7 +26,6 @@
 <use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='629' u='c' c='_ZN3xla18ComputationBuilder3PowERKNS_21ComputationDataHandleES3_N10tensorflow3gtl10ArraySliceIxEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='684' u='c' c='_ZN3xla18ComputationBuilder3MapEN10tensorflow3gtl10ArraySliceINS_21ComputationDataHandleEEERKNS_11ComputationENS3_IxEES5_'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.h' l='813' u='c' c='_ZN3xla18ComputationBuilder15ComputeConstantERKNS_21ComputationDataHandleEPKNS_6LayoutEN10tensorflow3gtl10ArraySliceINS_7LiteralEEE'/>
-<use f='tensorflow/tensorflow/compiler/xla/service/hlo_instruction.h' l='248' u='c' c='_ZN3xla14HloInstruction9CreateMapERKNS_5ShapeEN10tensorflow3gtl10ArraySliceIPS0_EEPNS_14HloComputationES8_'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='309' u='c' c='_ZN3xla10XlaBuilder2EqERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='313' u='c' c='_ZN3xla10XlaBuilder2NeERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.h' l='317' u='c' c='_ZN3xla10XlaBuilder2GeERKNS_5XlaOpES3_N10tensorflow3gtl10ArraySliceIxEE'/>
@@ -55,6 +55,7 @@
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/concat_op.cc' l='169' u='c' c='_ZN10tensorflow12_GLOBAL__N_114ConcatOffsetOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/diag_op.cc' l='113' u='c' c='_ZN10tensorflow12_GLOBAL__N_16DiagOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/fill_op.cc' l='62' u='c' c='_ZN10tensorflow12_GLOBAL__N_16FillOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='52' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ArgMaxCustomCallOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/pooling_ops.cc' l='636' u='c' c='_ZN10tensorflow12_GLOBAL__N_117MaxPoolGradGradOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/random_ops.cc' l='131' u='c' c='_ZN10tensorflow12_GLOBAL__N_117TruncatedNormalOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/reduction_ops_common.cc' l='109' u='c' c='_ZN10tensorflow14XlaReductionOp7CompileEPNS_18XlaOpKernelContextE'/>

@@ -1,0 +1,563 @@
+<def f='tensorflow/tensorflow/compiler/xla/service/hlo.pb.h' l='319' ll='884'/>
+<size>400</size>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo.pb.h' l='317'>// -------------------------------------------------------------------</doc>
+<doc f='tensorflow/tensorflow/compiler/xla/service/hlo.pb.h' l='319'>/* @@protoc_insertion_point(class_definition:xla.HloInstructionProto) */</doc>
+<fun r='_ZN3xla19HloInstructionProtoC1Ev'/>
+<fun r='_ZN3xla19HloInstructionProtoD1Ev'/>
+<fun r='_ZN3xla19HloInstructionProtoC1ERKS0_'/>
+<fun r='_ZN3xla19HloInstructionProtoaSERKS0_'/>
+<fun r='_ZN3xla19HloInstructionProtoC1EOS0_'/>
+<fun r='_ZN3xla19HloInstructionProtoaSEOS0_'/>
+<fun r='_ZNK3xla19HloInstructionProto8GetArenaEv'/>
+<fun r='_ZNK3xla19HloInstructionProto20GetMaybeArenaPointerEv'/>
+<fun r='_ZN3xla19HloInstructionProto10descriptorEv'/>
+<fun r='_ZN3xla19HloInstructionProto16default_instanceEv'/>
+<fun r='_ZN3xla19HloInstructionProto21InitAsDefaultInstanceEv'/>
+<fun r='_ZN3xla19HloInstructionProto25internal_default_instanceEv'/>
+<smbr r='xla::HloInstructionProto::kIndexInFileMessages' t='const int'/>
+<fun r='_ZN3xla19HloInstructionProto15UnsafeArenaSwapEPS0_'/>
+<fun r='_ZN3xla19HloInstructionProto4SwapEPS0_'/>
+<fun r='_ZNK3xla19HloInstructionProto3NewEv'/>
+<fun r='_ZNK3xla19HloInstructionProto3NewEPN6google8protobuf5ArenaE'/>
+<fun r='_ZN3xla19HloInstructionProto8CopyFromERKN6google8protobuf7MessageE'/>
+<fun r='_ZN3xla19HloInstructionProto9MergeFromERKN6google8protobuf7MessageE'/>
+<fun r='_ZN3xla19HloInstructionProto8CopyFromERKS0_'/>
+<fun r='_ZN3xla19HloInstructionProto9MergeFromERKS0_'/>
+<fun r='_ZN3xla19HloInstructionProto5ClearEv'/>
+<fun r='_ZNK3xla19HloInstructionProto13IsInitializedEv'/>
+<fun r='_ZNK3xla19HloInstructionProto12ByteSizeLongEv'/>
+<fun r='_ZN3xla19HloInstructionProto27MergePartialFromCodedStreamEPN6google8protobuf2io16CodedInputStreamE'/>
+<fun r='_ZNK3xla19HloInstructionProto24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE'/>
+<fun r='_ZNK3xla19HloInstructionProto39InternalSerializeWithCachedSizesToArrayEbPh'/>
+<fun r='_ZNK3xla19HloInstructionProto13GetCachedSizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto10SharedCtorEv'/>
+<fun r='_ZN3xla19HloInstructionProto10SharedDtorEv'/>
+<fun r='_ZNK3xla19HloInstructionProto13SetCachedSizeEi'/>
+<fun r='_ZN3xla19HloInstructionProto12InternalSwapEPS0_'/>
+<fun r='_ZN3xla19HloInstructionProtoC1EPN6google8protobuf5ArenaE'/>
+<fun r='_ZN3xla19HloInstructionProto9ArenaDtorEPv'/>
+<fun r='_ZN3xla19HloInstructionProto17RegisterArenaDtorEPN6google8protobuf5ArenaE'/>
+<fun r='_ZNK3xla19HloInstructionProto17GetArenaNoVirtualEv'/>
+<fun r='_ZNK3xla19HloInstructionProto13MaybeArenaPtrEv'/>
+<fun r='_ZNK3xla19HloInstructionProto11GetMetadataEv'/>
+<fun r='_ZNK3xla19HloInstructionProto15dimensions_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto16clear_dimensionsEv'/>
+<smbr r='xla::HloInstructionProto::kDimensionsFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto10dimensionsEi'/>
+<fun r='_ZN3xla19HloInstructionProto14set_dimensionsEil'/>
+<fun r='_ZN3xla19HloInstructionProto14add_dimensionsEl'/>
+<fun r='_ZNK3xla19HloInstructionProto10dimensionsEv'/>
+<fun r='_ZN3xla19HloInstructionProto18mutable_dimensionsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto21slice_dimensions_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto22clear_slice_dimensionsEv'/>
+<smbr r='xla::HloInstructionProto::kSliceDimensionsFieldNumber' t='const int'/>
+<fun r='_ZN3xla19HloInstructionProto24mutable_slice_dimensionsEi'/>
+<fun r='_ZN3xla19HloInstructionProto24mutable_slice_dimensionsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto16slice_dimensionsEi'/>
+<fun r='_ZN3xla19HloInstructionProto20add_slice_dimensionsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto16slice_dimensionsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto24dynamic_slice_sizes_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto25clear_dynamic_slice_sizesEv'/>
+<smbr r='xla::HloInstructionProto::kDynamicSliceSizesFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto19dynamic_slice_sizesEi'/>
+<fun r='_ZN3xla19HloInstructionProto23set_dynamic_slice_sizesEil'/>
+<fun r='_ZN3xla19HloInstructionProto23add_dynamic_slice_sizesEl'/>
+<fun r='_ZNK3xla19HloInstructionProto19dynamic_slice_sizesEv'/>
+<fun r='_ZN3xla19HloInstructionProto27mutable_dynamic_slice_sizesEv'/>
+<fun r='_ZNK3xla19HloInstructionProto15fft_length_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto16clear_fft_lengthEv'/>
+<smbr r='xla::HloInstructionProto::kFftLengthFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto10fft_lengthEi'/>
+<fun r='_ZN3xla19HloInstructionProto14set_fft_lengthEil'/>
+<fun r='_ZN3xla19HloInstructionProto14add_fft_lengthEl'/>
+<fun r='_ZNK3xla19HloInstructionProto10fft_lengthEv'/>
+<fun r='_ZN3xla19HloInstructionProto18mutable_fft_lengthEv'/>
+<fun r='_ZNK3xla19HloInstructionProto25gather_window_bounds_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto26clear_gather_window_boundsEv'/>
+<smbr r='xla::HloInstructionProto::kGatherWindowBoundsFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto20gather_window_boundsEi'/>
+<fun r='_ZN3xla19HloInstructionProto24set_gather_window_boundsEil'/>
+<fun r='_ZN3xla19HloInstructionProto24add_gather_window_boundsEl'/>
+<fun r='_ZNK3xla19HloInstructionProto20gather_window_boundsEv'/>
+<fun r='_ZN3xla19HloInstructionProto28mutable_gather_window_boundsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto16operand_ids_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto17clear_operand_idsEv'/>
+<smbr r='xla::HloInstructionProto::kOperandIdsFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto11operand_idsEi'/>
+<fun r='_ZN3xla19HloInstructionProto15set_operand_idsEil'/>
+<fun r='_ZN3xla19HloInstructionProto15add_operand_idsEl'/>
+<fun r='_ZNK3xla19HloInstructionProto11operand_idsEv'/>
+<fun r='_ZN3xla19HloInstructionProto19mutable_operand_idsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto28control_predecessor_ids_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto29clear_control_predecessor_idsEv'/>
+<smbr r='xla::HloInstructionProto::kControlPredecessorIdsFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto23control_predecessor_idsEi'/>
+<fun r='_ZN3xla19HloInstructionProto27set_control_predecessor_idsEil'/>
+<fun r='_ZN3xla19HloInstructionProto27add_control_predecessor_idsEl'/>
+<fun r='_ZNK3xla19HloInstructionProto23control_predecessor_idsEv'/>
+<fun r='_ZN3xla19HloInstructionProto31mutable_control_predecessor_idsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto27called_computation_ids_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto28clear_called_computation_idsEv'/>
+<smbr r='xla::HloInstructionProto::kCalledComputationIdsFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto22called_computation_idsEi'/>
+<fun r='_ZN3xla19HloInstructionProto26set_called_computation_idsEil'/>
+<fun r='_ZN3xla19HloInstructionProto26add_called_computation_idsEl'/>
+<fun r='_ZNK3xla19HloInstructionProto22called_computation_idsEv'/>
+<fun r='_ZN3xla19HloInstructionProto30mutable_called_computation_idsEv'/>
+<fun r='_ZN3xla19HloInstructionProto10clear_nameEv'/>
+<smbr r='xla::HloInstructionProto::kNameFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto4nameEv'/>
+<fun r='_ZN3xla19HloInstructionProto8set_nameERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto8set_nameEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto8set_nameEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto8set_nameEPKcm'/>
+<fun r='_ZN3xla19HloInstructionProto12mutable_nameEv'/>
+<fun r='_ZN3xla19HloInstructionProto12release_nameEv'/>
+<fun r='_ZN3xla19HloInstructionProto18set_allocated_nameEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto25unsafe_arena_release_nameEv'/>
+<fun r='_ZN3xla19HloInstructionProto31unsafe_arena_set_allocated_nameEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto12clear_opcodeEv'/>
+<smbr r='xla::HloInstructionProto::kOpcodeFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto6opcodeEv'/>
+<fun r='_ZN3xla19HloInstructionProto10set_opcodeERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto10set_opcodeEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto10set_opcodeEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto10set_opcodeEPKcm'/>
+<fun r='_ZN3xla19HloInstructionProto14mutable_opcodeEv'/>
+<fun r='_ZN3xla19HloInstructionProto14release_opcodeEv'/>
+<fun r='_ZN3xla19HloInstructionProto20set_allocated_opcodeEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto27unsafe_arena_release_opcodeEv'/>
+<fun r='_ZN3xla19HloInstructionProto33unsafe_arena_set_allocated_opcodeEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto17clear_fusion_kindEv'/>
+<smbr r='xla::HloInstructionProto::kFusionKindFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto11fusion_kindEv'/>
+<fun r='_ZN3xla19HloInstructionProto15set_fusion_kindERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto15set_fusion_kindEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto15set_fusion_kindEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto15set_fusion_kindEPKcm'/>
+<fun r='_ZN3xla19HloInstructionProto19mutable_fusion_kindEv'/>
+<fun r='_ZN3xla19HloInstructionProto19release_fusion_kindEv'/>
+<fun r='_ZN3xla19HloInstructionProto25set_allocated_fusion_kindEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto32unsafe_arena_release_fusion_kindEv'/>
+<fun r='_ZN3xla19HloInstructionProto38unsafe_arena_set_allocated_fusion_kindEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto20clear_outfeed_configEv'/>
+<smbr r='xla::HloInstructionProto::kOutfeedConfigFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto14outfeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto18set_outfeed_configERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto18set_outfeed_configEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto18set_outfeed_configEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto18set_outfeed_configEPKvm'/>
+<fun r='_ZN3xla19HloInstructionProto22mutable_outfeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto22release_outfeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto28set_allocated_outfeed_configEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto35unsafe_arena_release_outfeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto41unsafe_arena_set_allocated_outfeed_configEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto19clear_infeed_configEv'/>
+<smbr r='xla::HloInstructionProto::kInfeedConfigFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto13infeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto17set_infeed_configERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto17set_infeed_configEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto17set_infeed_configEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto17set_infeed_configEPKvm'/>
+<fun r='_ZN3xla19HloInstructionProto21mutable_infeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto21release_infeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto27set_allocated_infeed_configEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto34unsafe_arena_release_infeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto40unsafe_arena_set_allocated_infeed_configEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto24clear_custom_call_targetEv'/>
+<smbr r='xla::HloInstructionProto::kCustomCallTargetFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto18custom_call_targetEv'/>
+<fun r='_ZN3xla19HloInstructionProto22set_custom_call_targetERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto22set_custom_call_targetEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto22set_custom_call_targetEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto22set_custom_call_targetEPKcm'/>
+<fun r='_ZN3xla19HloInstructionProto26mutable_custom_call_targetEv'/>
+<fun r='_ZN3xla19HloInstructionProto26release_custom_call_targetEv'/>
+<fun r='_ZN3xla19HloInstructionProto32set_allocated_custom_call_targetEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto39unsafe_arena_release_custom_call_targetEv'/>
+<fun r='_ZN3xla19HloInstructionProto45unsafe_arena_set_allocated_custom_call_targetEPSs'/>
+<fun r='_ZNK3xla19HloInstructionProto9has_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto11clear_shapeEv'/>
+<smbr r='xla::HloInstructionProto::kShapeFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto5shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto13release_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto13mutable_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto19set_allocated_shapeEPNS_5ShapeE'/>
+<fun r='_ZN3xla19HloInstructionProto32unsafe_arena_set_allocated_shapeEPNS_5ShapeE'/>
+<fun r='_ZN3xla19HloInstructionProto26unsafe_arena_release_shapeEv'/>
+<fun r='_ZNK3xla19HloInstructionProto12has_metadataEv'/>
+<fun r='_ZN3xla19HloInstructionProto14clear_metadataEv'/>
+<smbr r='xla::HloInstructionProto::kMetadataFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto8metadataEv'/>
+<fun r='_ZN3xla19HloInstructionProto16release_metadataEv'/>
+<fun r='_ZN3xla19HloInstructionProto16mutable_metadataEv'/>
+<fun r='_ZN3xla19HloInstructionProto22set_allocated_metadataEPNS_10OpMetadataE'/>
+<fun r='_ZN3xla19HloInstructionProto35unsafe_arena_set_allocated_metadataEPNS_10OpMetadataE'/>
+<fun r='_ZN3xla19HloInstructionProto29unsafe_arena_release_metadataEv'/>
+<fun r='_ZNK3xla19HloInstructionProto11has_literalEv'/>
+<fun r='_ZN3xla19HloInstructionProto13clear_literalEv'/>
+<smbr r='xla::HloInstructionProto::kLiteralFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto7literalEv'/>
+<fun r='_ZN3xla19HloInstructionProto15release_literalEv'/>
+<fun r='_ZN3xla19HloInstructionProto15mutable_literalEv'/>
+<fun r='_ZN3xla19HloInstructionProto21set_allocated_literalEPNS_12LiteralProtoE'/>
+<fun r='_ZN3xla19HloInstructionProto34unsafe_arena_set_allocated_literalEPNS_12LiteralProtoE'/>
+<fun r='_ZN3xla19HloInstructionProto28unsafe_arena_release_literalEv'/>
+<fun r='_ZNK3xla19HloInstructionProto10has_windowEv'/>
+<fun r='_ZN3xla19HloInstructionProto12clear_windowEv'/>
+<smbr r='xla::HloInstructionProto::kWindowFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto6windowEv'/>
+<fun r='_ZN3xla19HloInstructionProto14release_windowEv'/>
+<fun r='_ZN3xla19HloInstructionProto14mutable_windowEv'/>
+<fun r='_ZN3xla19HloInstructionProto20set_allocated_windowEPNS_6WindowE'/>
+<fun r='_ZN3xla19HloInstructionProto33unsafe_arena_set_allocated_windowEPNS_6WindowE'/>
+<fun r='_ZN3xla19HloInstructionProto27unsafe_arena_release_windowEv'/>
+<fun r='_ZNK3xla19HloInstructionProto33has_convolution_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto35clear_convolution_dimension_numbersEv'/>
+<smbr r='xla::HloInstructionProto::kConvolutionDimensionNumbersFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto29convolution_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto37release_convolution_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto37mutable_convolution_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto43set_allocated_convolution_dimension_numbersEPNS_27ConvolutionDimensionNumbersE'/>
+<fun r='_ZN3xla19HloInstructionProto56unsafe_arena_set_allocated_convolution_dimension_numbersEPNS_27ConvolutionDimensionNumbersE'/>
+<fun r='_ZN3xla19HloInstructionProto50unsafe_arena_release_convolution_dimension_numbersEv'/>
+<fun r='_ZNK3xla19HloInstructionProto18has_padding_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto20clear_padding_configEv'/>
+<smbr r='xla::HloInstructionProto::kPaddingConfigFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto14padding_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto22release_padding_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto22mutable_padding_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto28set_allocated_padding_configEPNS_13PaddingConfigE'/>
+<fun r='_ZN3xla19HloInstructionProto41unsafe_arena_set_allocated_padding_configEPNS_13PaddingConfigE'/>
+<fun r='_ZN3xla19HloInstructionProto35unsafe_arena_release_padding_configEv'/>
+<fun r='_ZNK3xla19HloInstructionProto17has_outfeed_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto19clear_outfeed_shapeEv'/>
+<smbr r='xla::HloInstructionProto::kOutfeedShapeFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto13outfeed_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto21release_outfeed_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto21mutable_outfeed_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto27set_allocated_outfeed_shapeEPNS_5ShapeE'/>
+<fun r='_ZN3xla19HloInstructionProto40unsafe_arena_set_allocated_outfeed_shapeEPNS_5ShapeE'/>
+<fun r='_ZN3xla19HloInstructionProto34unsafe_arena_release_outfeed_shapeEv'/>
+<fun r='_ZNK3xla19HloInstructionProto25has_dot_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto27clear_dot_dimension_numbersEv'/>
+<smbr r='xla::HloInstructionProto::kDotDimensionNumbersFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto21dot_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto29release_dot_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto29mutable_dot_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto35set_allocated_dot_dimension_numbersEPNS_19DotDimensionNumbersE'/>
+<fun r='_ZN3xla19HloInstructionProto48unsafe_arena_set_allocated_dot_dimension_numbersEPNS_19DotDimensionNumbersE'/>
+<fun r='_ZN3xla19HloInstructionProto42unsafe_arena_release_dot_dimension_numbersEv'/>
+<fun r='_ZNK3xla19HloInstructionProto28has_gather_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto30clear_gather_dimension_numbersEv'/>
+<smbr r='xla::HloInstructionProto::kGatherDimensionNumbersFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto24gather_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto32release_gather_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto32mutable_gather_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto38set_allocated_gather_dimension_numbersEPNS_22GatherDimensionNumbersE'/>
+<fun r='_ZN3xla19HloInstructionProto51unsafe_arena_set_allocated_gather_dimension_numbersEPNS_22GatherDimensionNumbersE'/>
+<fun r='_ZN3xla19HloInstructionProto45unsafe_arena_release_gather_dimension_numbersEv'/>
+<fun r='_ZNK3xla19HloInstructionProto12has_shardingEv'/>
+<fun r='_ZN3xla19HloInstructionProto14clear_shardingEv'/>
+<smbr r='xla::HloInstructionProto::kShardingFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto8shardingEv'/>
+<fun r='_ZN3xla19HloInstructionProto16release_shardingEv'/>
+<fun r='_ZN3xla19HloInstructionProto16mutable_shardingEv'/>
+<fun r='_ZN3xla19HloInstructionProto22set_allocated_shardingEPNS_10OpShardingE'/>
+<fun r='_ZN3xla19HloInstructionProto35unsafe_arena_set_allocated_shardingEPNS_10OpShardingE'/>
+<fun r='_ZN3xla19HloInstructionProto29unsafe_arena_release_shardingEv'/>
+<fun r='_ZN3xla19HloInstructionProto22clear_parameter_numberEv'/>
+<smbr r='xla::HloInstructionProto::kParameterNumberFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto16parameter_numberEv'/>
+<fun r='_ZN3xla19HloInstructionProto20set_parameter_numberEl'/>
+<fun r='_ZN3xla19HloInstructionProto17clear_tuple_indexEv'/>
+<smbr r='xla::HloInstructionProto::kTupleIndexFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto11tuple_indexEv'/>
+<fun r='_ZN3xla19HloInstructionProto15set_tuple_indexEl'/>
+<fun r='_ZN3xla19HloInstructionProto19clear_exponent_bitsEv'/>
+<smbr r='xla::HloInstructionProto::kExponentBitsFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto13exponent_bitsEv'/>
+<fun r='_ZN3xla19HloInstructionProto17set_exponent_bitsEi'/>
+<fun r='_ZN3xla19HloInstructionProto19clear_mantissa_bitsEv'/>
+<smbr r='xla::HloInstructionProto::kMantissaBitsFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto13mantissa_bitsEv'/>
+<fun r='_ZN3xla19HloInstructionProto17set_mantissa_bitsEi'/>
+<fun r='_ZN3xla19HloInstructionProto18clear_distributionEv'/>
+<smbr r='xla::HloInstructionProto::kDistributionFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto12distributionEv'/>
+<fun r='_ZN3xla19HloInstructionProto16set_distributionENS_18RandomDistributionE'/>
+<fun r='_ZN3xla19HloInstructionProto13clear_epsilonEv'/>
+<smbr r='xla::HloInstructionProto::kEpsilonFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto7epsilonEv'/>
+<fun r='_ZN3xla19HloInstructionProto11set_epsilonEf'/>
+<fun r='_ZN3xla19HloInstructionProto19clear_feature_indexEv'/>
+<smbr r='xla::HloInstructionProto::kFeatureIndexFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto13feature_indexEv'/>
+<fun r='_ZN3xla19HloInstructionProto17set_feature_indexEl'/>
+<fun r='_ZN3xla19HloInstructionProto16clear_channel_idEv'/>
+<smbr r='xla::HloInstructionProto::kChannelIdFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto10channel_idEv'/>
+<fun r='_ZN3xla19HloInstructionProto14set_channel_idEl'/>
+<fun r='_ZN3xla19HloInstructionProto8clear_idEv'/>
+<smbr r='xla::HloInstructionProto::kIdFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto2idEv'/>
+<fun r='_ZN3xla19HloInstructionProto6set_idEl'/>
+<fun r='_ZN3xla19HloInstructionProto14clear_fft_typeEv'/>
+<smbr r='xla::HloInstructionProto::kFftTypeFieldNumber' t='const int'/>
+<fun r='_ZNK3xla19HloInstructionProto8fft_typeEv'/>
+<fun r='_ZN3xla19HloInstructionProto12set_fft_typeENS_7FftTypeE'/>
+<mbr r='xla::HloInstructionProto::_internal_metadata_' o='64' t='::google::protobuf::internal::InternalMetadataWithArena'/>
+<mbr r='xla::HloInstructionProto::dimensions_' o='128' t='::google::protobuf::RepeatedField&lt; ::google::protobuf::int64&gt;'/>
+<mbr r='xla::HloInstructionProto::_dimensions_cached_byte_size_' o='256' t='int'/>
+<mbr r='xla::HloInstructionProto::slice_dimensions_' o='320' t='::google::protobuf::RepeatedPtrField&lt; ::xla::HloInstructionProto_SliceDimensions&gt;'/>
+<mbr r='xla::HloInstructionProto::dynamic_slice_sizes_' o='512' t='::google::protobuf::RepeatedField&lt; ::google::protobuf::int64&gt;'/>
+<mbr r='xla::HloInstructionProto::_dynamic_slice_sizes_cached_byte_size_' o='640' t='int'/>
+<mbr r='xla::HloInstructionProto::fft_length_' o='704' t='::google::protobuf::RepeatedField&lt; ::google::protobuf::int64&gt;'/>
+<mbr r='xla::HloInstructionProto::_fft_length_cached_byte_size_' o='832' t='int'/>
+<mbr r='xla::HloInstructionProto::gather_window_bounds_' o='896' t='::google::protobuf::RepeatedField&lt; ::google::protobuf::int64&gt;'/>
+<mbr r='xla::HloInstructionProto::_gather_window_bounds_cached_byte_size_' o='1024' t='int'/>
+<mbr r='xla::HloInstructionProto::operand_ids_' o='1088' t='::google::protobuf::RepeatedField&lt; ::google::protobuf::int64&gt;'/>
+<mbr r='xla::HloInstructionProto::_operand_ids_cached_byte_size_' o='1216' t='int'/>
+<mbr r='xla::HloInstructionProto::control_predecessor_ids_' o='1280' t='::google::protobuf::RepeatedField&lt; ::google::protobuf::int64&gt;'/>
+<mbr r='xla::HloInstructionProto::_control_predecessor_ids_cached_byte_size_' o='1408' t='int'/>
+<mbr r='xla::HloInstructionProto::called_computation_ids_' o='1472' t='::google::protobuf::RepeatedField&lt; ::google::protobuf::int64&gt;'/>
+<mbr r='xla::HloInstructionProto::_called_computation_ids_cached_byte_size_' o='1600' t='int'/>
+<mbr r='xla::HloInstructionProto::name_' o='1664' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::HloInstructionProto::opcode_' o='1728' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::HloInstructionProto::fusion_kind_' o='1792' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::HloInstructionProto::outfeed_config_' o='1856' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::HloInstructionProto::infeed_config_' o='1920' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::HloInstructionProto::custom_call_target_' o='1984' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::HloInstructionProto::shape_' o='2048' t='::xla::Shape *'/>
+<mbr r='xla::HloInstructionProto::metadata_' o='2112' t='::xla::OpMetadata *'/>
+<mbr r='xla::HloInstructionProto::literal_' o='2176' t='::xla::LiteralProto *'/>
+<mbr r='xla::HloInstructionProto::window_' o='2240' t='::xla::Window *'/>
+<mbr r='xla::HloInstructionProto::convolution_dimension_numbers_' o='2304' t='::xla::ConvolutionDimensionNumbers *'/>
+<mbr r='xla::HloInstructionProto::padding_config_' o='2368' t='::xla::PaddingConfig *'/>
+<mbr r='xla::HloInstructionProto::outfeed_shape_' o='2432' t='::xla::Shape *'/>
+<mbr r='xla::HloInstructionProto::dot_dimension_numbers_' o='2496' t='::xla::DotDimensionNumbers *'/>
+<mbr r='xla::HloInstructionProto::gather_dimension_numbers_' o='2560' t='::xla::GatherDimensionNumbers *'/>
+<mbr r='xla::HloInstructionProto::sharding_' o='2624' t='::xla::OpSharding *'/>
+<mbr r='xla::HloInstructionProto::parameter_number_' o='2688' t='::google::protobuf::int64'/>
+<mbr r='xla::HloInstructionProto::tuple_index_' o='2752' t='::google::protobuf::int64'/>
+<mbr r='xla::HloInstructionProto::exponent_bits_' o='2816' t='::google::protobuf::int32'/>
+<mbr r='xla::HloInstructionProto::mantissa_bits_' o='2848' t='::google::protobuf::int32'/>
+<mbr r='xla::HloInstructionProto::distribution_' o='2880' t='int'/>
+<mbr r='xla::HloInstructionProto::epsilon_' o='2912' t='float'/>
+<mbr r='xla::HloInstructionProto::feature_index_' o='2944' t='::google::protobuf::int64'/>
+<mbr r='xla::HloInstructionProto::channel_id_' o='3008' t='::google::protobuf::int64'/>
+<mbr r='xla::HloInstructionProto::id_' o='3072' t='::google::protobuf::int64'/>
+<mbr r='xla::HloInstructionProto::fft_type_' o='3136' t='int'/>
+<mbr r='xla::HloInstructionProto::_cached_size_' o='3168' t='int'/>
+<fun r='_ZN3xla19HloInstructionProto10clear_nameEv'/>
+<fun r='_ZNK3xla19HloInstructionProto4nameEv'/>
+<fun r='_ZN3xla19HloInstructionProto8set_nameERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto8set_nameEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto8set_nameEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto8set_nameEPKcm'/>
+<fun r='_ZN3xla19HloInstructionProto12mutable_nameEv'/>
+<fun r='_ZN3xla19HloInstructionProto12release_nameEv'/>
+<fun r='_ZN3xla19HloInstructionProto18set_allocated_nameEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto25unsafe_arena_release_nameEv'/>
+<fun r='_ZN3xla19HloInstructionProto31unsafe_arena_set_allocated_nameEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto12clear_opcodeEv'/>
+<fun r='_ZNK3xla19HloInstructionProto6opcodeEv'/>
+<fun r='_ZN3xla19HloInstructionProto10set_opcodeERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto10set_opcodeEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto10set_opcodeEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto10set_opcodeEPKcm'/>
+<fun r='_ZN3xla19HloInstructionProto14mutable_opcodeEv'/>
+<fun r='_ZN3xla19HloInstructionProto14release_opcodeEv'/>
+<fun r='_ZN3xla19HloInstructionProto20set_allocated_opcodeEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto27unsafe_arena_release_opcodeEv'/>
+<fun r='_ZN3xla19HloInstructionProto33unsafe_arena_set_allocated_opcodeEPSs'/>
+<fun r='_ZNK3xla19HloInstructionProto9has_shapeEv'/>
+<fun r='_ZNK3xla19HloInstructionProto5shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto13release_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto26unsafe_arena_release_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto13mutable_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto19set_allocated_shapeEPNS_5ShapeE'/>
+<fun r='_ZNK3xla19HloInstructionProto12has_metadataEv'/>
+<fun r='_ZNK3xla19HloInstructionProto8metadataEv'/>
+<fun r='_ZN3xla19HloInstructionProto16release_metadataEv'/>
+<fun r='_ZN3xla19HloInstructionProto29unsafe_arena_release_metadataEv'/>
+<fun r='_ZN3xla19HloInstructionProto16mutable_metadataEv'/>
+<fun r='_ZN3xla19HloInstructionProto22set_allocated_metadataEPNS_10OpMetadataE'/>
+<fun r='_ZNK3xla19HloInstructionProto11has_literalEv'/>
+<fun r='_ZNK3xla19HloInstructionProto7literalEv'/>
+<fun r='_ZN3xla19HloInstructionProto15release_literalEv'/>
+<fun r='_ZN3xla19HloInstructionProto28unsafe_arena_release_literalEv'/>
+<fun r='_ZN3xla19HloInstructionProto15mutable_literalEv'/>
+<fun r='_ZN3xla19HloInstructionProto21set_allocated_literalEPNS_12LiteralProtoE'/>
+<fun r='_ZN3xla19HloInstructionProto22clear_parameter_numberEv'/>
+<fun r='_ZNK3xla19HloInstructionProto16parameter_numberEv'/>
+<fun r='_ZN3xla19HloInstructionProto20set_parameter_numberEl'/>
+<fun r='_ZN3xla19HloInstructionProto17clear_fusion_kindEv'/>
+<fun r='_ZNK3xla19HloInstructionProto11fusion_kindEv'/>
+<fun r='_ZN3xla19HloInstructionProto15set_fusion_kindERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto15set_fusion_kindEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto15set_fusion_kindEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto15set_fusion_kindEPKcm'/>
+<fun r='_ZN3xla19HloInstructionProto19mutable_fusion_kindEv'/>
+<fun r='_ZN3xla19HloInstructionProto19release_fusion_kindEv'/>
+<fun r='_ZN3xla19HloInstructionProto25set_allocated_fusion_kindEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto32unsafe_arena_release_fusion_kindEv'/>
+<fun r='_ZN3xla19HloInstructionProto38unsafe_arena_set_allocated_fusion_kindEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto17clear_tuple_indexEv'/>
+<fun r='_ZNK3xla19HloInstructionProto11tuple_indexEv'/>
+<fun r='_ZN3xla19HloInstructionProto15set_tuple_indexEl'/>
+<fun r='_ZNK3xla19HloInstructionProto15dimensions_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto16clear_dimensionsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto10dimensionsEi'/>
+<fun r='_ZN3xla19HloInstructionProto14set_dimensionsEil'/>
+<fun r='_ZN3xla19HloInstructionProto14add_dimensionsEl'/>
+<fun r='_ZNK3xla19HloInstructionProto10dimensionsEv'/>
+<fun r='_ZN3xla19HloInstructionProto18mutable_dimensionsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto10has_windowEv'/>
+<fun r='_ZNK3xla19HloInstructionProto6windowEv'/>
+<fun r='_ZN3xla19HloInstructionProto14release_windowEv'/>
+<fun r='_ZN3xla19HloInstructionProto27unsafe_arena_release_windowEv'/>
+<fun r='_ZN3xla19HloInstructionProto14mutable_windowEv'/>
+<fun r='_ZN3xla19HloInstructionProto20set_allocated_windowEPNS_6WindowE'/>
+<fun r='_ZNK3xla19HloInstructionProto33has_convolution_dimension_numbersEv'/>
+<fun r='_ZNK3xla19HloInstructionProto29convolution_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto37release_convolution_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto50unsafe_arena_release_convolution_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto37mutable_convolution_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto43set_allocated_convolution_dimension_numbersEPNS_27ConvolutionDimensionNumbersE'/>
+<fun r='_ZNK3xla19HloInstructionProto21slice_dimensions_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto22clear_slice_dimensionsEv'/>
+<fun r='_ZN3xla19HloInstructionProto24mutable_slice_dimensionsEi'/>
+<fun r='_ZN3xla19HloInstructionProto24mutable_slice_dimensionsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto16slice_dimensionsEi'/>
+<fun r='_ZN3xla19HloInstructionProto20add_slice_dimensionsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto16slice_dimensionsEv'/>
+<fun r='_ZN3xla19HloInstructionProto19clear_exponent_bitsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto13exponent_bitsEv'/>
+<fun r='_ZN3xla19HloInstructionProto17set_exponent_bitsEi'/>
+<fun r='_ZN3xla19HloInstructionProto19clear_mantissa_bitsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto13mantissa_bitsEv'/>
+<fun r='_ZN3xla19HloInstructionProto17set_mantissa_bitsEi'/>
+<fun r='_ZNK3xla19HloInstructionProto24dynamic_slice_sizes_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto25clear_dynamic_slice_sizesEv'/>
+<fun r='_ZNK3xla19HloInstructionProto19dynamic_slice_sizesEi'/>
+<fun r='_ZN3xla19HloInstructionProto23set_dynamic_slice_sizesEil'/>
+<fun r='_ZN3xla19HloInstructionProto23add_dynamic_slice_sizesEl'/>
+<fun r='_ZNK3xla19HloInstructionProto19dynamic_slice_sizesEv'/>
+<fun r='_ZN3xla19HloInstructionProto27mutable_dynamic_slice_sizesEv'/>
+<fun r='_ZNK3xla19HloInstructionProto18has_padding_configEv'/>
+<fun r='_ZNK3xla19HloInstructionProto14padding_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto22release_padding_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto35unsafe_arena_release_padding_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto22mutable_padding_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto28set_allocated_padding_configEPNS_13PaddingConfigE'/>
+<fun r='_ZN3xla19HloInstructionProto20clear_outfeed_configEv'/>
+<fun r='_ZNK3xla19HloInstructionProto14outfeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto18set_outfeed_configERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto18set_outfeed_configEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto18set_outfeed_configEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto18set_outfeed_configEPKvm'/>
+<fun r='_ZN3xla19HloInstructionProto22mutable_outfeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto22release_outfeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto28set_allocated_outfeed_configEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto35unsafe_arena_release_outfeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto41unsafe_arena_set_allocated_outfeed_configEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto18clear_distributionEv'/>
+<fun r='_ZNK3xla19HloInstructionProto12distributionEv'/>
+<fun r='_ZN3xla19HloInstructionProto16set_distributionENS_18RandomDistributionE'/>
+<fun r='_ZN3xla19HloInstructionProto13clear_epsilonEv'/>
+<fun r='_ZNK3xla19HloInstructionProto7epsilonEv'/>
+<fun r='_ZN3xla19HloInstructionProto11set_epsilonEf'/>
+<fun r='_ZN3xla19HloInstructionProto19clear_feature_indexEv'/>
+<fun r='_ZNK3xla19HloInstructionProto13feature_indexEv'/>
+<fun r='_ZN3xla19HloInstructionProto17set_feature_indexEl'/>
+<fun r='_ZN3xla19HloInstructionProto16clear_channel_idEv'/>
+<fun r='_ZNK3xla19HloInstructionProto10channel_idEv'/>
+<fun r='_ZN3xla19HloInstructionProto14set_channel_idEl'/>
+<fun r='_ZN3xla19HloInstructionProto19clear_infeed_configEv'/>
+<fun r='_ZNK3xla19HloInstructionProto13infeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto17set_infeed_configERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto17set_infeed_configEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto17set_infeed_configEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto17set_infeed_configEPKvm'/>
+<fun r='_ZN3xla19HloInstructionProto21mutable_infeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto21release_infeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto27set_allocated_infeed_configEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto34unsafe_arena_release_infeed_configEv'/>
+<fun r='_ZN3xla19HloInstructionProto40unsafe_arena_set_allocated_infeed_configEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto24clear_custom_call_targetEv'/>
+<fun r='_ZNK3xla19HloInstructionProto18custom_call_targetEv'/>
+<fun r='_ZN3xla19HloInstructionProto22set_custom_call_targetERKSs'/>
+<fun r='_ZN3xla19HloInstructionProto22set_custom_call_targetEOSs'/>
+<fun r='_ZN3xla19HloInstructionProto22set_custom_call_targetEPKc'/>
+<fun r='_ZN3xla19HloInstructionProto22set_custom_call_targetEPKcm'/>
+<fun r='_ZN3xla19HloInstructionProto26mutable_custom_call_targetEv'/>
+<fun r='_ZN3xla19HloInstructionProto26release_custom_call_targetEv'/>
+<fun r='_ZN3xla19HloInstructionProto32set_allocated_custom_call_targetEPSs'/>
+<fun r='_ZN3xla19HloInstructionProto39unsafe_arena_release_custom_call_targetEv'/>
+<fun r='_ZN3xla19HloInstructionProto45unsafe_arena_set_allocated_custom_call_targetEPSs'/>
+<fun r='_ZNK3xla19HloInstructionProto17has_outfeed_shapeEv'/>
+<fun r='_ZNK3xla19HloInstructionProto13outfeed_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto21release_outfeed_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto34unsafe_arena_release_outfeed_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto21mutable_outfeed_shapeEv'/>
+<fun r='_ZN3xla19HloInstructionProto27set_allocated_outfeed_shapeEPNS_5ShapeE'/>
+<fun r='_ZNK3xla19HloInstructionProto25has_dot_dimension_numbersEv'/>
+<fun r='_ZNK3xla19HloInstructionProto21dot_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto29release_dot_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto42unsafe_arena_release_dot_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto29mutable_dot_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto35set_allocated_dot_dimension_numbersEPNS_19DotDimensionNumbersE'/>
+<fun r='_ZN3xla19HloInstructionProto14clear_fft_typeEv'/>
+<fun r='_ZNK3xla19HloInstructionProto8fft_typeEv'/>
+<fun r='_ZN3xla19HloInstructionProto12set_fft_typeENS_7FftTypeE'/>
+<fun r='_ZNK3xla19HloInstructionProto15fft_length_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto16clear_fft_lengthEv'/>
+<fun r='_ZNK3xla19HloInstructionProto10fft_lengthEi'/>
+<fun r='_ZN3xla19HloInstructionProto14set_fft_lengthEil'/>
+<fun r='_ZN3xla19HloInstructionProto14add_fft_lengthEl'/>
+<fun r='_ZNK3xla19HloInstructionProto10fft_lengthEv'/>
+<fun r='_ZN3xla19HloInstructionProto18mutable_fft_lengthEv'/>
+<fun r='_ZNK3xla19HloInstructionProto28has_gather_dimension_numbersEv'/>
+<fun r='_ZNK3xla19HloInstructionProto24gather_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto32release_gather_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto45unsafe_arena_release_gather_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto32mutable_gather_dimension_numbersEv'/>
+<fun r='_ZN3xla19HloInstructionProto38set_allocated_gather_dimension_numbersEPNS_22GatherDimensionNumbersE'/>
+<fun r='_ZNK3xla19HloInstructionProto25gather_window_bounds_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto26clear_gather_window_boundsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto20gather_window_boundsEi'/>
+<fun r='_ZN3xla19HloInstructionProto24set_gather_window_boundsEil'/>
+<fun r='_ZN3xla19HloInstructionProto24add_gather_window_boundsEl'/>
+<fun r='_ZNK3xla19HloInstructionProto20gather_window_boundsEv'/>
+<fun r='_ZN3xla19HloInstructionProto28mutable_gather_window_boundsEv'/>
+<fun r='_ZN3xla19HloInstructionProto8clear_idEv'/>
+<fun r='_ZNK3xla19HloInstructionProto2idEv'/>
+<fun r='_ZN3xla19HloInstructionProto6set_idEl'/>
+<fun r='_ZNK3xla19HloInstructionProto16operand_ids_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto17clear_operand_idsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto11operand_idsEi'/>
+<fun r='_ZN3xla19HloInstructionProto15set_operand_idsEil'/>
+<fun r='_ZN3xla19HloInstructionProto15add_operand_idsEl'/>
+<fun r='_ZNK3xla19HloInstructionProto11operand_idsEv'/>
+<fun r='_ZN3xla19HloInstructionProto19mutable_operand_idsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto28control_predecessor_ids_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto29clear_control_predecessor_idsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto23control_predecessor_idsEi'/>
+<fun r='_ZN3xla19HloInstructionProto27set_control_predecessor_idsEil'/>
+<fun r='_ZN3xla19HloInstructionProto27add_control_predecessor_idsEl'/>
+<fun r='_ZNK3xla19HloInstructionProto23control_predecessor_idsEv'/>
+<fun r='_ZN3xla19HloInstructionProto31mutable_control_predecessor_idsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto27called_computation_ids_sizeEv'/>
+<fun r='_ZN3xla19HloInstructionProto28clear_called_computation_idsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto22called_computation_idsEi'/>
+<fun r='_ZN3xla19HloInstructionProto26set_called_computation_idsEil'/>
+<fun r='_ZN3xla19HloInstructionProto26add_called_computation_idsEl'/>
+<fun r='_ZNK3xla19HloInstructionProto22called_computation_idsEv'/>
+<fun r='_ZN3xla19HloInstructionProto30mutable_called_computation_idsEv'/>
+<fun r='_ZNK3xla19HloInstructionProto12has_shardingEv'/>
+<fun r='_ZNK3xla19HloInstructionProto8shardingEv'/>
+<fun r='_ZN3xla19HloInstructionProto16release_shardingEv'/>
+<fun r='_ZN3xla19HloInstructionProto29unsafe_arena_release_shardingEv'/>
+<fun r='_ZN3xla19HloInstructionProto16mutable_shardingEv'/>
+<fun r='_ZN3xla19HloInstructionProto22set_allocated_shardingEPNS_10OpShardingE'/>

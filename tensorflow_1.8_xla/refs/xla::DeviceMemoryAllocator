@@ -1,6 +1,5 @@
 <def f='tensorflow/tensorflow/compiler/xla/service/device_memory_allocator.h' l='32' ll='60'/>
 <ovr f='tensorflow/tensorflow/compiler/xla/service/device_memory_allocator.h' l='64' c='xla::StreamExecutorMemoryAllocator'/>
-<ovr f='tensorflow/tensorflow/compiler/jit/xla_launch_util.h' l='47' c='tensorflow::XlaAllocator'/>
 <size>16</size>
 <doc f='tensorflow/tensorflow/compiler/xla/service/device_memory_allocator.h' l='29'>// Interface for device memory allocators used within the XLA service. An
 // allocator is responsible for allocating memory on all devices of a particular
@@ -12,3 +11,4 @@
 <fun r='_ZNK3xla21DeviceMemoryAllocator8platformEv'/>
 <fun r='_ZNK3xla21DeviceMemoryAllocator30AllowsAsynchronousDeallocationEv'/>
 <mbr r='xla::DeviceMemoryAllocator::platform_' o='64' t='const perftools::gputools::Platform *'/>
+<ovr f='tensorflow/tensorflow/compiler/jit/xla_launch_util.h' l='47' c='tensorflow::XlaAllocator'/>

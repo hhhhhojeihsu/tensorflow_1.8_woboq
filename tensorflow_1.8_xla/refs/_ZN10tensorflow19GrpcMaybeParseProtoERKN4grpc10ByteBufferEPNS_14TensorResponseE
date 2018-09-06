@@ -1,6 +1,0 @@
-<dec f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='89' type='bool tensorflow::GrpcMaybeParseProto(const ::grpc::ByteBuffer &amp; src, tensorflow::TensorResponse * dst)'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.h' l='88'>// Specialization for TensorResponse</doc>
-<def f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.cc' l='108' ll='122' type='bool tensorflow::GrpcMaybeParseProto(const ::grpc::ByteBuffer &amp; src, tensorflow::TensorResponse * dst)'/>
-<doc f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_util.cc' l='105'>// Overload of GrpcParseProto so we can decode a TensorResponse without
-// extra copying.  This overload is used by the RPCState class in
-// grpc_state.h.</doc>

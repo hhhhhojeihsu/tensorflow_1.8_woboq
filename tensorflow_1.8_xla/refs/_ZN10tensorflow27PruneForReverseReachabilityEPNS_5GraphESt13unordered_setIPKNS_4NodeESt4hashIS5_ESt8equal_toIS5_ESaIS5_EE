@@ -2,6 +2,7 @@
 <doc f='tensorflow/tensorflow/core/graph/algorithm.h' l='96'>// Prune nodes in &quot;g&quot; that are not in some path from the source node
 // to any node in &apos;nodes&apos;. Returns true if changes were made to the graph.
 // Does not fix up source and sink edges.</doc>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='167' u='c' c='_ZN10tensorflow12_GLOBAL__N_120RewriteAndPruneGraphEPNS_5GraphERKNS_6tf2xla6ConfigERKSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIKSsSsEEE'/>
 <use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='621' u='c' c='_ZN10tensorflow12_GLOBAL__N_117PruneFunctionBodyEPNS_5GraphE'/>
 <use f='tensorflow/tensorflow/core/common_runtime/function.cc' l='1012' u='c' c='_ZN10tensorflow15RemoveDeadNodesEPNS_5GraphE'/>
 <def f='tensorflow/tensorflow/core/graph/algorithm.cc' l='175' ll='212' type='bool tensorflow::PruneForReverseReachability(tensorflow::Graph * g, std::unordered_set&lt;const Node *&gt; visited)'/>

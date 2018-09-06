@@ -97,15 +97,15 @@
 <tr><th id="84">84</th><td><i>// -- mec 2005-10-17</i></td></tr>
 <tr><th id="85">85</th><td></td></tr>
 <tr><th id="86">86</th><td><b>template</b> &lt;<b>class</b> Dest, <b>class</b> Source&gt;</td></tr>
-<tr><th id="87">87</th><td><b>inline</b> Dest <dfn class="decl def" id="_ZN9perftools8gputools4port8bit_castERKT0_" title='perftools::gputools::port::bit_cast' data-ref="_ZN9perftools8gputools4port8bit_castERKT0_">bit_cast</dfn>(<em>const</em> Source&amp; <dfn class="local col4 decl" id="1744source" title='source' data-type='const Source &amp;' data-ref="1744source">source</dfn>) {</td></tr>
+<tr><th id="87">87</th><td><b>inline</b> Dest <dfn class="decl def" id="_ZN9perftools8gputools4port8bit_castERKT0_" title='perftools::gputools::port::bit_cast' data-ref="_ZN9perftools8gputools4port8bit_castERKT0_">bit_cast</dfn>(<em>const</em> Source&amp; <dfn class="local col4 decl" id="6544source" title='source' data-type='const Source &amp;' data-ref="6544source">source</dfn>) {</td></tr>
 <tr><th id="88">88</th><td>  <i>// Compile time assertion: sizeof(Dest) == sizeof(Source)</i></td></tr>
 <tr><th id="89">89</th><td><i>  // A compile error here means your Dest and Source have different sizes.</i></td></tr>
 <tr><th id="90">90</th><td>  <b>static_assert</b>(<b>sizeof</b>(Dest) == <b>sizeof</b>(Source),</td></tr>
 <tr><th id="91">91</th><td>                <q>"src and dst types must have equal sizes"</q>);</td></tr>
 <tr><th id="92">92</th><td></td></tr>
-<tr><th id="93">93</th><td>  Dest <dfn class="local col5 decl" id="1745dest" title='dest' data-type='Dest' data-ref="1745dest">dest</dfn>;</td></tr>
-<tr><th id="94">94</th><td>  memcpy(&amp;<a class="local col5 ref" href="#1745dest" title='dest' data-ref="1745dest">dest</a>, &amp;<a class="local col4 ref" href="#1744source" title='source' data-ref="1744source">source</a>, <b>sizeof</b>(<a class="local col5 ref" href="#1745dest" title='dest' data-ref="1745dest">dest</a>));</td></tr>
-<tr><th id="95">95</th><td>  <b>return</b> <a class="local col5 ref" href="#1745dest" title='dest' data-ref="1745dest">dest</a>;</td></tr>
+<tr><th id="93">93</th><td>  Dest <dfn class="local col5 decl" id="6545dest" title='dest' data-type='Dest' data-ref="6545dest">dest</dfn>;</td></tr>
+<tr><th id="94">94</th><td>  memcpy(&amp;<a class="local col5 ref" href="#6545dest" title='dest' data-ref="6545dest">dest</a>, &amp;<a class="local col4 ref" href="#6544source" title='source' data-ref="6544source">source</a>, <b>sizeof</b>(<a class="local col5 ref" href="#6545dest" title='dest' data-ref="6545dest">dest</a>));</td></tr>
+<tr><th id="95">95</th><td>  <b>return</b> <a class="local col5 ref" href="#6545dest" title='dest' data-ref="6545dest">dest</a>;</td></tr>
 <tr><th id="96">96</th><td>}</td></tr>
 <tr><th id="97">97</th><td></td></tr>
 <tr><th id="98">98</th><td>}  <i>// namespace port</i></td></tr>
@@ -115,6 +115,6 @@
 <tr><th id="102">102</th><td><u>#<span data-ppcond="18">endif</span>  // TENSORFLOW_STREAM_EXECUTOR_LIB_CASTS_H_</u></td></tr>
 <tr><th id="103">103</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='../../compiler/jit/kernels/xla_launch_op.cc.html'>tensorflow/tensorflow/compiler/jit/kernels/xla_launch_op.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='../../compiler/aot/codegen.cc.html'>tensorflow/tensorflow/compiler/aot/codegen.cc</a><br/>Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

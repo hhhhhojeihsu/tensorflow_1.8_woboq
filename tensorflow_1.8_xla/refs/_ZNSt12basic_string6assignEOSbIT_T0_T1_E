@@ -1,4 +1,19 @@
 <def f='include/c++/5/bits/basic_string.h' l='3494' ll='3499' type='basic_string&lt;_CharT, _Traits, _Alloc&gt; &amp; std::basic_string::assign(basic_string&lt;_CharT, _Traits, _Alloc&gt; &amp;&amp; __str)'/>
+<use f='tensorflow/tensorflow/core/framework/tensor.pb.h' l='905' u='c' c='_ZN10tensorflow11TensorProto14set_string_valEiOSs'/>
+<use f='tensorflow/tensorflow/core/framework/attr_value.pb.h' l='806' u='c' c='_ZN10tensorflow19AttrValue_ListValue5set_sEiOSs'/>
+<use f='tensorflow/tensorflow/core/framework/node_def.pb.h' l='502' u='c' c='_ZN10tensorflow7NodeDef9set_inputEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/meta_graph.pb.h' l='2450' u='c' c='_ZN10tensorflow24MetaGraphDef_MetaInfoDef8set_tagsEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/meta_graph.pb.h' l='2935' u='c' c='_ZN10tensorflow22CollectionDef_NodeList9set_valueEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/meta_graph.pb.h' l='3008' u='c' c='_ZN10tensorflow23CollectionDef_BytesList9set_valueEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/debug.pb.h' l='852' u='c' c='_ZN10tensorflow16DebugTensorWatch13set_debug_opsEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/debug.pb.h' l='921' u='c' c='_ZN10tensorflow16DebugTensorWatch14set_debug_urlsEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/debug.pb.h' l='1234' u='c' c='_ZN10tensorflow18DebuggedSourceFile9set_linesEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/rewriter_config.pb.h' l='944' u='c' c='_ZN10tensorflow14RewriterConfig14set_optimizersEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/config.pb.h' l='3268' u='c' c='_ZN10tensorflow11ConfigProto18set_device_filtersEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/config.pb.h' l='4066' u='c' c='_ZN10tensorflow15CallableOptions8set_feedEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/config.pb.h' l='4135' u='c' c='_ZN10tensorflow15CallableOptions9set_fetchEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/config.pb.h' l='4204' u='c' c='_ZN10tensorflow15CallableOptions10set_targetEiOSs'/>
+<use f='tensorflow/tensorflow/core/framework/api_def.pb.h' l='1927' u='c' c='_ZN10tensorflow6ApiDef13set_arg_orderEiOSs'/>
 <doc f='include/c++/5/bits/basic_string.h' l='3485'>/**
        *  @brief  Set value to contents of another string.
        *  @param  __str  Source string to use.
@@ -8,3 +23,39 @@
        *  @a __str is a valid, but unspecified string.
        */
       // PR 58265, this should be noexcept.</doc>
+<use f='tensorflow/tensorflow/core/protobuf/queue_runner.pb.h' l='390' u='c' c='_ZN10tensorflow14QueueRunnerDef19set_enqueue_op_nameEiOSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/xla_data.pb.h' l='12161' u='c' c='_ZN3xla12ProgramShape19set_parameter_namesEiOSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/service/hlo.pb.h' l='4987' u='c' c='_ZN3xla38HloOrderingProto_SequentialComputation21set_instruction_namesEiOSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/xla.pb.h' l='7280' u='c' c='_ZN3xla25HloReducePrecisionOptions31set_opname_substrings_to_suffixEiOSs'/>
+<use f='tensorflow/tensorflow/compiler/xla/xla.pb.h' l='7768' u='c' c='_ZN3xla12DebugOptions26set_xla_disable_hlo_passesEiOSs'/>
+<use f='tensorflow/tensorflow/core/framework/kernel_def.pb.h' l='788' u='c' c='_ZN10tensorflow9KernelDef19set_host_memory_argEiOSs'/>
+<use f='tensorflow/tensorflow/contrib/lite/toco/model_flags.pb.h' l='2041' u='c' c='_ZN4toco10ModelFlags17set_output_arraysEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_log.pb.h' l='2621' u='c' c='_ZN10tensorflow6tfprof10OpLogEntry9set_typesEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_log.pb.h' l='3155' u='c' c='_ZN10tensorflow6tfprof11ProfileNode12set_op_typesEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_log.pb.h' l='3571' u='c' c='_ZN10tensorflow6tfprof11ExecProfile11set_devicesEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/master.pb.h' l='3706' u='c' c='_ZN10tensorflow14RunStepRequest9set_fetchEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/master.pb.h' l='3775' u='c' c='_ZN10tensorflow14RunStepRequest10set_targetEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/master.pb.h' l='4244' u='c' c='_ZN10tensorflow22PartialRunSetupRequest8set_feedEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/master.pb.h' l='4313' u='c' c='_ZN10tensorflow22PartialRunSetupRequest9set_fetchEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/master.pb.h' l='4382' u='c' c='_ZN10tensorflow22PartialRunSetupRequest10set_targetEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/master.pb.h' l='4617' u='c' c='_ZN10tensorflow12ResetRequest13set_containerEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/master.pb.h' l='4686' u='c' c='_ZN10tensorflow12ResetRequest18set_device_filtersEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/worker.pb.h' l='4548' u='c' c='_ZN10tensorflow17CleanupAllRequest13set_containerEiOSs'/>
+<use f='tensorflow/tensorflow/core/protobuf/worker.pb.h' l='4938' u='c' c='_ZN10tensorflow15RunGraphRequest12set_recv_keyEiOSs'/>
+<use f='tensorflow/tensorflow/core/example/feature.pb.h' l='1129' u='c' c='_ZN10tensorflow9BytesList9set_valueEiOSs'/>
+<use f='tensorflow/tensorflow/core/framework/iterator.pb.h' l='329' u='c' c='_ZN10tensorflow21IteratorStateMetadata8set_keysEiOSs'/>
+<use f='tensorflow/tensorflow/core/framework/remote_fused_graph_execute_info.pb.h' l='673' u='c' c='_ZN10tensorflow27RemoteFusedGraphExecuteInfo25set_graph_input_node_nameEiOSs'/>
+<use f='tensorflow/tensorflow/core/framework/remote_fused_graph_execute_info.pb.h' l='742' u='c' c='_ZN10tensorflow27RemoteFusedGraphExecuteInfo26set_graph_output_node_nameEiOSs'/>
+<use f='tensorflow/tensorflow/core/util/test_log.pb.h' l='3147' u='c' c='_ZN10tensorflow18BuildConfiguration12set_cc_flagsEiOSs'/>
+<use f='tensorflow/tensorflow/core/util/test_log.pb.h' l='3216' u='c' c='_ZN10tensorflow18BuildConfiguration8set_optsEiOSs'/>
+<use f='tensorflow/tensorflow/core/util/test_log.pb.h' l='5115' u='c' c='_ZN10tensorflow16RunConfiguration12set_argumentEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_options.pb.h' l='988' u='c' c='_ZN10tensorflow6tfprof12OptionsProto24set_account_type_regexesEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_options.pb.h' l='1057' u='c' c='_ZN10tensorflow6tfprof12OptionsProto22set_start_name_regexesEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_options.pb.h' l='1126' u='c' c='_ZN10tensorflow6tfprof12OptionsProto21set_trim_name_regexesEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_options.pb.h' l='1195' u='c' c='_ZN10tensorflow6tfprof12OptionsProto21set_show_name_regexesEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_options.pb.h' l='1264' u='c' c='_ZN10tensorflow6tfprof12OptionsProto21set_hide_name_regexesEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_options.pb.h' l='1347' u='c' c='_ZN10tensorflow6tfprof12OptionsProto10set_selectEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_output.pb.h' l='1244' u='c' c='_ZN10tensorflow6tfprof17TFProfTensorProto13set_value_strEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_output.pb.h' l='1563' u='c' c='_ZN10tensorflow6tfprof14GraphNodeProto11set_devicesEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/tfprof_output.pb.h' l='2233' u='c' c='_ZN10tensorflow6tfprof19AdviceProto_Checker11set_reportsEiOSs'/>
+<use f='tensorflow/tensorflow/core/profiler/profile.pb.h' l='1452' u='c' c='_ZN10tensorflow6tfprof5pprof7Profile16set_string_tableEiOSs'/>

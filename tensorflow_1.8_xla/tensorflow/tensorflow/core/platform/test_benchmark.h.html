@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>test_benchmark.h source code [tensorflow/tensorflow/core/platform/test_benchmark.h] - Woboq Code Browser</title>
+<meta name="woboq:interestingDefinitions" content="tensorflow::testing::Benchmark "/>
+<link rel="stylesheet" href="https://code.woboq.org/data/qtcreator.css" title="QtCreator"/>
+<link rel="alternate stylesheet" href="https://code.woboq.org/data/kdevelop.css" title="KDevelop"/>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.woboq.org/data/jquery/jquery-ui.min.js"></script>
+<script>var file = 'tensorflow/tensorflow/core/platform/test_benchmark.h'; var root_path = '../../../..'; var data_path = 'https://code.woboq.org/data';</script>
+<script src='https://code.woboq.org/data/codebrowser.js'></script>
+</head>
+<body><div id='header'><h1 id='breadcrumb'><span>Browse the source code of </span><a href='../../..'>tensorflow</a>/<a href='../..'>tensorflow</a>/<a href='..'>core</a>/<a href='./'>platform</a>/<a href='test_benchmark.h.html'>test_benchmark.h</a></h1></div>
+<hr/><div id='content'><table class="code">
+<tr><th id="1">1</th><td><i>/* Copyright 2015 The TensorFlow Authors. All Rights Reserved.</i></td></tr>
+<tr><th id="2">2</th><td><i></i></td></tr>
+<tr><th id="3">3</th><td><i>Licensed under the Apache License, Version 2.0 (the "License");</i></td></tr>
+<tr><th id="4">4</th><td><i>you may not use this file except in compliance with the License.</i></td></tr>
+<tr><th id="5">5</th><td><i>You may obtain a copy of the License at</i></td></tr>
+<tr><th id="6">6</th><td><i></i></td></tr>
+<tr><th id="7">7</th><td><i>    <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></i></td></tr>
+<tr><th id="8">8</th><td><i></i></td></tr>
+<tr><th id="9">9</th><td><i>Unless required by applicable law or agreed to in writing, software</i></td></tr>
+<tr><th id="10">10</th><td><i>distributed under the License is distributed on an "AS IS" BASIS,</i></td></tr>
+<tr><th id="11">11</th><td><i>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</i></td></tr>
+<tr><th id="12">12</th><td><i>See the License for the specific language governing permissions and</i></td></tr>
+<tr><th id="13">13</th><td><i>limitations under the License.</i></td></tr>
+<tr><th id="14">14</th><td><i>==============================================================================*/</i></td></tr>
+<tr><th id="15">15</th><td><i></i></td></tr>
+<tr><th id="16">16</th><td><i>// Simple benchmarking facility.</i></td></tr>
+<tr><th id="17">17</th><td><u>#<span data-ppcond="17">ifndef</span> <span class="macro" data-ref="_M/TENSORFLOW_PLATFORM_TEST_BENCHMARK_H_">TENSORFLOW_PLATFORM_TEST_BENCHMARK_H_</span></u></td></tr>
+<tr><th id="18">18</th><td><u>#define <dfn class="macro" id="_M/TENSORFLOW_PLATFORM_TEST_BENCHMARK_H_" data-ref="_M/TENSORFLOW_PLATFORM_TEST_BENCHMARK_H_">TENSORFLOW_PLATFORM_TEST_BENCHMARK_H_</dfn></u></td></tr>
+<tr><th id="19">19</th><td></td></tr>
+<tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/utility.html">&lt;utility&gt;</a></u></td></tr>
+<tr><th id="21">21</th><td><u>#include <a href="../../../../include/c++/5/vector.html">&lt;vector&gt;</a></u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="macros.h.html">"tensorflow/core/platform/macros.h"</a></u></td></tr>
+<tr><th id="23">23</th><td><u>#include <a href="platform.h.html">"tensorflow/core/platform/platform.h"</a></u></td></tr>
+<tr><th id="24">24</th><td><u>#include <a href="types.h.html">"tensorflow/core/platform/types.h"</a></u></td></tr>
+<tr><th id="25">25</th><td></td></tr>
+<tr><th id="26">26</th><td><u>#<span data-ppcond="26">if</span> defined(<span class="macro" data-ref="_M/PLATFORM_GOOGLE">PLATFORM_GOOGLE</span>)</u></td></tr>
+<tr><th id="27">27</th><td><u>#include "tensorflow/core/platform/google/build_config/benchmark.h"</u></td></tr>
+<tr><th id="28">28</th><td></td></tr>
+<tr><th id="29">29</th><td><u>#<span data-ppcond="26">else</span></u></td></tr>
+<tr><th id="30">30</th><td><u>#define <dfn class="macro" id="_M/BENCHMARK" data-ref="_M/BENCHMARK">BENCHMARK</dfn>(n)                                            \</u></td></tr>
+<tr><th id="31">31</th><td><u>  static ::tensorflow::testing::Benchmark* TF_BENCHMARK_CONCAT( \</u></td></tr>
+<tr><th id="32">32</th><td><u>      __benchmark_, n, __LINE__) TF_ATTRIBUTE_UNUSED =          \</u></td></tr>
+<tr><th id="33">33</th><td><u>      (new ::tensorflow::testing::Benchmark(#n, (n)))</u></td></tr>
+<tr><th id="34">34</th><td><u>#define <dfn class="macro" id="_M/TF_BENCHMARK_CONCAT" data-ref="_M/TF_BENCHMARK_CONCAT">TF_BENCHMARK_CONCAT</dfn>(a, b, c) TF_BENCHMARK_CONCAT2(a, b, c)</u></td></tr>
+<tr><th id="35">35</th><td><u>#define <dfn class="macro" id="_M/TF_BENCHMARK_CONCAT2" data-ref="_M/TF_BENCHMARK_CONCAT2">TF_BENCHMARK_CONCAT2</dfn>(a, b, c) a##b##c</u></td></tr>
+<tr><th id="36">36</th><td></td></tr>
+<tr><th id="37">37</th><td><u>#<span data-ppcond="26">endif</span>  // PLATFORM_GOOGLE</u></td></tr>
+<tr><th id="38">38</th><td></td></tr>
+<tr><th id="39">39</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
+<tr><th id="40">40</th><td><b>namespace</b> <span class="namespace">testing</span> {</td></tr>
+<tr><th id="41">41</th><td></td></tr>
+<tr><th id="42">42</th><td><u>#<span data-ppcond="42">if</span> defined(<span class="macro" data-ref="_M/PLATFORM_GOOGLE">PLATFORM_GOOGLE</span>)</u></td></tr>
+<tr><th id="43">43</th><td></td></tr>
+<tr><th id="44">44</th><td><b>using</b> ::testing::Benchmark;</td></tr>
+<tr><th id="45">45</th><td></td></tr>
+<tr><th id="46">46</th><td><u>#<span data-ppcond="42">else</span></u></td></tr>
+<tr><th id="47">47</th><td></td></tr>
+<tr><th id="48">48</th><td><b>class</b> <dfn class="type def" id="tensorflow::testing::Benchmark" title='tensorflow::testing::Benchmark' data-ref="tensorflow::testing::Benchmark">Benchmark</dfn> {</td></tr>
+<tr><th id="49">49</th><td> <b>public</b>:</td></tr>
+<tr><th id="50">50</th><td>  <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing9BenchmarkC1EPKcPFviE" title='tensorflow::testing::Benchmark::Benchmark' data-ref="_ZN10tensorflow7testing9BenchmarkC1EPKcPFviE" id="_ZN10tensorflow7testing9BenchmarkC1EPKcPFviE">Benchmark</a>(<em>const</em> <em>char</em>* <dfn class="local col1 decl" id="1name" title='name' data-type='const char *' data-ref="1name">name</dfn>, <em>void</em> (*<dfn class="local col2 decl" id="2fn" title='fn' data-type='void (*)(int)' data-ref="2fn">fn</dfn>)(<em>int</em>));</td></tr>
+<tr><th id="51">51</th><td>  <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing9BenchmarkC1EPKcPFviiE" title='tensorflow::testing::Benchmark::Benchmark' data-ref="_ZN10tensorflow7testing9BenchmarkC1EPKcPFviiE" id="_ZN10tensorflow7testing9BenchmarkC1EPKcPFviiE">Benchmark</a>(<em>const</em> <em>char</em>* <dfn class="local col3 decl" id="3name" title='name' data-type='const char *' data-ref="3name">name</dfn>, <em>void</em> (*<dfn class="local col4 decl" id="4fn" title='fn' data-type='void (*)(int, int)' data-ref="4fn">fn</dfn>)(<em>int</em>, <em>int</em>));</td></tr>
+<tr><th id="52">52</th><td>  <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing9BenchmarkC1EPKcPFviiiE" title='tensorflow::testing::Benchmark::Benchmark' data-ref="_ZN10tensorflow7testing9BenchmarkC1EPKcPFviiiE" id="_ZN10tensorflow7testing9BenchmarkC1EPKcPFviiiE">Benchmark</a>(<em>const</em> <em>char</em>* <dfn class="local col5 decl" id="5name" title='name' data-type='const char *' data-ref="5name">name</dfn>, <em>void</em> (*<dfn class="local col6 decl" id="6fn" title='fn' data-type='void (*)(int, int, int)' data-ref="6fn">fn</dfn>)(<em>int</em>, <em>int</em>, <em>int</em>));</td></tr>
+<tr><th id="53">53</th><td></td></tr>
+<tr><th id="54">54</th><td>  <a class="type" href="#tensorflow::testing::Benchmark" title='tensorflow::testing::Benchmark' data-ref="tensorflow::testing::Benchmark">Benchmark</a>* <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing9Benchmark3ArgEi" title='tensorflow::testing::Benchmark::Arg' data-ref="_ZN10tensorflow7testing9Benchmark3ArgEi" id="_ZN10tensorflow7testing9Benchmark3ArgEi">Arg</a>(<em>int</em> <dfn class="local col7 decl" id="7x" title='x' data-type='int' data-ref="7x">x</dfn>);</td></tr>
+<tr><th id="55">55</th><td>  <a class="type" href="#tensorflow::testing::Benchmark" title='tensorflow::testing::Benchmark' data-ref="tensorflow::testing::Benchmark">Benchmark</a>* <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing9Benchmark7ArgPairEii" title='tensorflow::testing::Benchmark::ArgPair' data-ref="_ZN10tensorflow7testing9Benchmark7ArgPairEii" id="_ZN10tensorflow7testing9Benchmark7ArgPairEii">ArgPair</a>(<em>int</em> <dfn class="local col8 decl" id="8x" title='x' data-type='int' data-ref="8x">x</dfn>, <em>int</em> <dfn class="local col9 decl" id="9y" title='y' data-type='int' data-ref="9y">y</dfn>);</td></tr>
+<tr><th id="56">56</th><td>  <a class="type" href="#tensorflow::testing::Benchmark" title='tensorflow::testing::Benchmark' data-ref="tensorflow::testing::Benchmark">Benchmark</a>* <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing9Benchmark5RangeEii" title='tensorflow::testing::Benchmark::Range' data-ref="_ZN10tensorflow7testing9Benchmark5RangeEii" id="_ZN10tensorflow7testing9Benchmark5RangeEii">Range</a>(<em>int</em> <dfn class="local col0 decl" id="10lo" title='lo' data-type='int' data-ref="10lo">lo</dfn>, <em>int</em> <dfn class="local col1 decl" id="11hi" title='hi' data-type='int' data-ref="11hi">hi</dfn>);</td></tr>
+<tr><th id="57">57</th><td>  <a class="type" href="#tensorflow::testing::Benchmark" title='tensorflow::testing::Benchmark' data-ref="tensorflow::testing::Benchmark">Benchmark</a>* <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing9Benchmark9RangePairEiiii" title='tensorflow::testing::Benchmark::RangePair' data-ref="_ZN10tensorflow7testing9Benchmark9RangePairEiiii" id="_ZN10tensorflow7testing9Benchmark9RangePairEiiii">RangePair</a>(<em>int</em> <dfn class="local col2 decl" id="12lo1" title='lo1' data-type='int' data-ref="12lo1">lo1</dfn>, <em>int</em> <dfn class="local col3 decl" id="13hi1" title='hi1' data-type='int' data-ref="13hi1">hi1</dfn>, <em>int</em> <dfn class="local col4 decl" id="14lo2" title='lo2' data-type='int' data-ref="14lo2">lo2</dfn>, <em>int</em> <dfn class="local col5 decl" id="15hi2" title='hi2' data-type='int' data-ref="15hi2">hi2</dfn>);</td></tr>
+<tr><th id="58">58</th><td>  <em>static</em> <em>void</em> <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing9Benchmark3RunEPKc" title='tensorflow::testing::Benchmark::Run' data-ref="_ZN10tensorflow7testing9Benchmark3RunEPKc" id="_ZN10tensorflow7testing9Benchmark3RunEPKc">Run</a>(<em>const</em> <em>char</em>* <dfn class="local col6 decl" id="16pattern" title='pattern' data-type='const char *' data-ref="16pattern">pattern</dfn>);</td></tr>
+<tr><th id="59">59</th><td></td></tr>
+<tr><th id="60">60</th><td> <b>private</b>:</td></tr>
+<tr><th id="61">61</th><td>  <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a> <dfn class="decl" id="tensorflow::testing::Benchmark::name_" title='tensorflow::testing::Benchmark::name_' data-ref="tensorflow::testing::Benchmark::name_">name_</dfn>;</td></tr>
+<tr><th id="62">62</th><td>  <em>int</em> <dfn class="decl" id="tensorflow::testing::Benchmark::num_args_" title='tensorflow::testing::Benchmark::num_args_' data-ref="tensorflow::testing::Benchmark::num_args_">num_args_</dfn>;</td></tr>
+<tr><th id="63">63</th><td>  <span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_vector.h.html#std::vector" title='std::vector' data-ref="std::vector">vector</a>&lt;<span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/stl_pair.h.html#std::pair" title='std::pair' data-ref="std::pair">pair</a>&lt;<em>int</em>, <em>int</em>&gt; &gt; <dfn class="decl" id="tensorflow::testing::Benchmark::args_" title='tensorflow::testing::Benchmark::args_' data-ref="tensorflow::testing::Benchmark::args_">args_</dfn>;</td></tr>
+<tr><th id="64">64</th><td>  <em>void</em> (*<dfn class="decl" id="tensorflow::testing::Benchmark::fn0_" title='tensorflow::testing::Benchmark::fn0_' data-ref="tensorflow::testing::Benchmark::fn0_">fn0_</dfn>)(<em>int</em>) = <b>nullptr</b>;</td></tr>
+<tr><th id="65">65</th><td>  <em>void</em> (*<dfn class="decl" id="tensorflow::testing::Benchmark::fn1_" title='tensorflow::testing::Benchmark::fn1_' data-ref="tensorflow::testing::Benchmark::fn1_">fn1_</dfn>)(<em>int</em>, <em>int</em>) = <b>nullptr</b>;</td></tr>
+<tr><th id="66">66</th><td>  <em>void</em> (*<dfn class="decl" id="tensorflow::testing::Benchmark::fn2_" title='tensorflow::testing::Benchmark::fn2_' data-ref="tensorflow::testing::Benchmark::fn2_">fn2_</dfn>)(<em>int</em>, <em>int</em>, <em>int</em>) = <b>nullptr</b>;</td></tr>
+<tr><th id="67">67</th><td></td></tr>
+<tr><th id="68">68</th><td>  <em>void</em> <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing9Benchmark8RegisterEv" title='tensorflow::testing::Benchmark::Register' data-ref="_ZN10tensorflow7testing9Benchmark8RegisterEv" id="_ZN10tensorflow7testing9Benchmark8RegisterEv">Register</a>();</td></tr>
+<tr><th id="69">69</th><td>  <em>void</em> <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing9Benchmark3RunEiiPiPd" title='tensorflow::testing::Benchmark::Run' data-ref="_ZN10tensorflow7testing9Benchmark3RunEiiPiPd" id="_ZN10tensorflow7testing9Benchmark3RunEiiPiPd">Run</a>(<em>int</em> <dfn class="local col7 decl" id="17arg1" title='arg1' data-type='int' data-ref="17arg1">arg1</dfn>, <em>int</em> <dfn class="local col8 decl" id="18arg2" title='arg2' data-type='int' data-ref="18arg2">arg2</dfn>, <em>int</em>* <dfn class="local col9 decl" id="19run_count" title='run_count' data-type='int *' data-ref="19run_count">run_count</dfn>, <em>double</em>* <dfn class="local col0 decl" id="20run_seconds" title='run_seconds' data-type='double *' data-ref="20run_seconds">run_seconds</dfn>);</td></tr>
+<tr><th id="70">70</th><td>};</td></tr>
+<tr><th id="71">71</th><td><u>#<span data-ppcond="42">endif</span></u></td></tr>
+<tr><th id="72">72</th><td></td></tr>
+<tr><th id="73">73</th><td><em>void</em> <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing13RunBenchmarksEv" title='tensorflow::testing::RunBenchmarks' data-ref="_ZN10tensorflow7testing13RunBenchmarksEv" id="_ZN10tensorflow7testing13RunBenchmarksEv">RunBenchmarks</a>();</td></tr>
+<tr><th id="74">74</th><td><em>void</em> <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing8SetLabelERKSs" title='tensorflow::testing::SetLabel' data-ref="_ZN10tensorflow7testing8SetLabelERKSs" id="_ZN10tensorflow7testing8SetLabelERKSs">SetLabel</a>(<em>const</em> <span class="namespace">std::</span><a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="21label" title='label' data-type='const std::string &amp;' data-ref="21label">label</dfn>);</td></tr>
+<tr><th id="75">75</th><td><em>void</em> <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing14BytesProcessedEx" title='tensorflow::testing::BytesProcessed' data-ref="_ZN10tensorflow7testing14BytesProcessedEx" id="_ZN10tensorflow7testing14BytesProcessedEx">BytesProcessed</a>(<a class="typedef" href="default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>);</td></tr>
+<tr><th id="76">76</th><td><em>void</em> <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing14ItemsProcessedEx" title='tensorflow::testing::ItemsProcessed' data-ref="_ZN10tensorflow7testing14ItemsProcessedEx" id="_ZN10tensorflow7testing14ItemsProcessedEx">ItemsProcessed</a>(<a class="typedef" href="default/integral_types.h.html#tensorflow::int64" title='tensorflow::int64' data-type='long long' data-ref="tensorflow::int64">int64</a>);</td></tr>
+<tr><th id="77">77</th><td><em>void</em> <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing11StartTimingEv" title='tensorflow::testing::StartTiming' data-ref="_ZN10tensorflow7testing11StartTimingEv" id="_ZN10tensorflow7testing11StartTimingEv">StartTiming</a>();</td></tr>
+<tr><th id="78">78</th><td><em>void</em> <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing10StopTimingEv" title='tensorflow::testing::StopTiming' data-ref="_ZN10tensorflow7testing10StopTimingEv" id="_ZN10tensorflow7testing10StopTimingEv">StopTiming</a>();</td></tr>
+<tr><th id="79">79</th><td><em>void</em> <a class="decl" href="default/test_benchmark.cc.html#_ZN10tensorflow7testing11UseRealTimeEv" title='tensorflow::testing::UseRealTime' data-ref="_ZN10tensorflow7testing11UseRealTimeEv" id="_ZN10tensorflow7testing11UseRealTimeEv">UseRealTime</a>();</td></tr>
+<tr><th id="80">80</th><td></td></tr>
+<tr><th id="81">81</th><td>}  <i>// namespace testing</i></td></tr>
+<tr><th id="82">82</th><td>}  <i>// namespace tensorflow</i></td></tr>
+<tr><th id="83">83</th><td></td></tr>
+<tr><th id="84">84</th><td><u>#<span data-ppcond="17">endif</span>  // TENSORFLOW_PLATFORM_TEST_BENCHMARK_H_</u></td></tr>
+<tr><th id="85">85</th><td></td></tr>
+</table><hr/><p id='footer'>
+Generated while processing <a href='default/test_benchmark.cc.html'>tensorflow/tensorflow/core/platform/default/test_benchmark.cc</a><br/>Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+<br/>Generator usage only permitted with license.</p>
+</div></body></html>

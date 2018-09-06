@@ -39,6 +39,13 @@
 <use f='tensorflow/tensorflow/stream_executor/lib/status.h' l='38' u='c' c='_ZN9perftools8gputools4port18UnimplementedErrorEN10tensorflow11StringPieceE'/>
 <use f='tensorflow/tensorflow/stream_executor/lib/status.h' l='41' u='c' c='_ZN9perftools8gputools4port13InternalErrorEN10tensorflow11StringPieceE'/>
 <use f='tensorflow/tensorflow/stream_executor/lib/status.h' l='44' u='c' c='_ZN9perftools8gputools4port23FailedPreconditionErrorEN10tensorflow11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='590' u='c' c='_ZN10tensorflow9tfcompile16ValidateCppIdentENS_11StringPieceES1_'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='602' u='c' c='_ZN10tensorflow9tfcompile16ValidateCppIdentENS_11StringPieceES1_'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='606' u='c' c='_ZN10tensorflow9tfcompile16ValidateCppIdentENS_11StringPieceES1_'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='106' u='c' c='_ZN10tensorflow9tfcompileL26GetTargetMachineFromTripleENS_11StringPieceE'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='124' u='c' c='_ZN10tensorflow9tfcompile28CreateEmbeddedProtocolBufferENS_11StringPieceES1_S1_PKN6google8protobuf11MessageLiteE'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='135' u='c' c='_ZN10tensorflow9tfcompile28CreateEmbeddedProtocolBufferENS_11StringPieceES1_S1_PKN6google8protobuf11MessageLiteE'/>
+<use f='tensorflow/tensorflow/compiler/aot/embedded_protocol_buffers.cc' l='140' u='c' c='_ZN10tensorflow9tfcompile28CreateEmbeddedProtocolBufferENS_11StringPieceES1_S1_PKN6google8protobuf11MessageLiteE'/>
 <use f='tensorflow/tensorflow/core/platform/tracing.h' l='182' u='c' c='_ZN10tensorflow4port7Tracing6Engine12StartTracingENS_11StringPieceE'/>
 <use f='tensorflow/tensorflow/core/platform/tracing.h' l='247' u='c' c='_ZN10tensorflow4port7Tracing16ScopedAnnotationC1ENS_11StringPieceE'/>
 <use f='tensorflow/tensorflow/core/platform/tracing.h' l='260' u='c' c='_ZN10tensorflow4port7Tracing7TraceMeC1ENS_11StringPieceE'/>
@@ -47,6 +54,7 @@
 <use f='tensorflow/tensorflow/core/platform/tracing.h' l='270' u='c' c='_ZN10tensorflow4port7Tracing7TraceMeC1ENS_11StringPieceES3_'/>
 <use f='tensorflow/tensorflow/compiler/jit/xla_device_context.cc' l='191' u='c' c='_ZN10tensorflow16XlaDeviceContext21CopyDeviceTensorToCPUEPKNS_6TensorENS_11StringPieceEPNS_6DeviceEPS1_St8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/lib/while_loop.cc' l='119' u='c' c='_ZN10tensorflow15XlaForEachIndexExN3xla13PrimitiveTypeERKSt8functionIFNS0_8StatusOrISt6vectorINS0_21ComputationDataHandleESaIS5_EEEES5_NS_3gtl10ArrayS2377571'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='81' u='c' c='_ZN10tensorflow12_GLOBAL__N_111AddArgNodesEPNS_5GraphERKSt13unordered_mapISsPNS_4NodeESt4hashISsESt8equal_toISsESaISt4pairIKSsS5_EEERKN6google8protobu3804776'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='267' u='c' c='_ZN10tensorflow18XlaOpKernelContext9InputListENS_11StringPieceEPSt6vectorIN3xla21ComputationDataHandleESaIS4_EEPS2_INS_11TensorShapeESaIS8_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_kernel.cc' l='280' u='c' c='_ZN10tensorflow18XlaOpKernelContext17ConstantInputListENS_11StringPieceEPSt6vectorIN3xla7LiteralESaIS4_EE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/xla_op_registry.cc' l='318' u='c' c='_ZN10tensorflow24XlaOpRegistrationBuilder4NameENS_11StringPieceE'/>
@@ -141,9 +149,9 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='256' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='262' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc' l='281' u='c' c='_ZN10tensorflow20BaseRemoteRendezvous18SameWorkerRecvDoneERKNS_10Rendezvous9ParsedKeyERKNS1_4ArgsES7_RKNS_6TensorEPS8_St8functionIFvRKNS_6StatusEEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='296' u='c' c='_ZN10tensorflow17GrpcMasterService8TraceRpcENS_11StringPieceERKSt8multimapIN4grpc10string_refES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='296' u='c' c='_ZN10tensorflow17GrpcMasterService8TraceRpcENS_11StringPieceERKSt8multimapIN4grpc10string_refES4_St4lessIS4_ESaISt4pairIKS4_S4_EEE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_remote_master.cc' l='126' u='c' c='_ZN10tensorflow16GrpcRemoteMaster8TraceRpcENS_11StringPieceEPN4grpc13ClientContextE'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='296' u='c' c='_ZN10tensorflow17GrpcMasterService8TraceRpcENS_11StringPieceERKi'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_master_service.cc' l='296' u='c' c='_ZN10tensorflow17GrpcMasterService8TraceRpcENS_11StringPieceERKi'/>
+<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_remote_master.cc' l='126' u='c' c='_ZN10tensorflow16GrpcRemoteMaster8TraceRpcENS_11StringPieceEPi'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.cc' l='217' u='c' c='_ZN10tensorflow12_GLOBAL__N_119RpcRemoteRendezvous19RecvFromRemoteAsyncERKNS_10Rendezvous9ParsedKeyERKNS2_4ArgsESt8functionIFvRKNS_6StatusES8_S8_RKNS_6TensorEbEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.cc' l='219' u='c' c='_ZN10tensorflow12_GLOBAL__N_119RpcRemoteRendezvous19RecvFromRemoteAsyncERKNS_10Rendezvous9ParsedKeyERKNS2_4ArgsESt8functionIFvRKNS_6StatusES8_S8_RKNS_6TensorEbEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/rpc/rpc_rendezvous_mgr.cc' l='230' u='c' c='_ZN10tensorflow12_GLOBAL__N_119RpcRemoteRendezvous19RecvFromRemoteAsyncERKNS_10Rendezvous9ParsedKeyERKNS2_4ArgsESt8functionIFvRKNS_6StatusES8_S8_RKNS_6TensorEbEE'/>

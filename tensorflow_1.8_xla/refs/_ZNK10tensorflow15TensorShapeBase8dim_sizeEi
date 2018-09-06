@@ -71,6 +71,8 @@
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='392' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResizeBilinearGradOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='393' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResizeBilinearGradOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops.cc' l='56' u='c' c='_ZN10tensorflow14XlaArgMinMaxOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='58' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ArgMaxCustomCallOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='67' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ArgMaxCustomCallOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/lrn_ops.cc' l='97' u='c' c='_ZN10tensorflow12_GLOBAL__N_19LRNGradOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/lrn_ops.cc' l='98' u='c' c='_ZN10tensorflow12_GLOBAL__N_19LRNGradOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/lrn_ops.cc' l='99' u='c' c='_ZN10tensorflow12_GLOBAL__N_19LRNGradOp7CompileEPNS_18XlaOpKernelContextE'/>
@@ -517,16 +519,6 @@
 <use f='tensorflow/tensorflow/core/kernels/matrix_diag_op.cc' l='100' u='c' c='_ZN10tensorflow12MatrixDiagOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/core/kernels/matrix_set_diag_op.cc' l='63' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/core/kernels/matrix_set_diag_op.cc' l='64' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7ComputeEPNS_15OpKernelContextE'/>
-<use f='tensorflow/tensorflow/core/kernels/neon/neon_depthwise_conv_op.cc' l='155' u='c' c='_ZN10tensorflow27NeonDepthwiseConv2dNativeOp10ToNeonDimsERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/core/kernels/neon/neon_depthwise_conv_op.cc' l='156' u='c' c='_ZN10tensorflow27NeonDepthwiseConv2dNativeOp10ToNeonDimsERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/core/kernels/neon/neon_depthwise_conv_op.cc' l='157' u='c' c='_ZN10tensorflow27NeonDepthwiseConv2dNativeOp10ToNeonDimsERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/core/kernels/neon/neon_depthwise_conv_op.cc' l='158' u='c' c='_ZN10tensorflow27NeonDepthwiseConv2dNativeOp10ToNeonDimsERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/core/kernels/neon/neon_depthwise_conv_op.cc' l='166' u='c' c='_ZN10tensorflow27NeonDepthwiseConv2dNativeOp16FilterToNeonDimsERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/core/kernels/neon/neon_depthwise_conv_op.cc' l='166' u='c' c='_ZN10tensorflow27NeonDepthwiseConv2dNativeOp16FilterToNeonDimsERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/core/kernels/neon/neon_depthwise_conv_op.cc' l='167' u='c' c='_ZN10tensorflow27NeonDepthwiseConv2dNativeOp16FilterToNeonDimsERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/core/kernels/neon/neon_depthwise_conv_op.cc' l='168' u='c' c='_ZN10tensorflow27NeonDepthwiseConv2dNativeOp16FilterToNeonDimsERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/core/kernels/neon/neon_depthwise_conv_op.cc' l='180' u='c' c='_ZN10tensorflow27NeonDepthwiseConv2dNativeOp12BiasNeonDimsERKNS_11TensorShapeE'/>
-<use f='tensorflow/tensorflow/core/kernels/neon/neon_depthwise_conv_op.cc' l='180' u='c' c='_ZN10tensorflow27NeonDepthwiseConv2dNativeOp12BiasNeonDimsERKNS_11TensorShapeE'/>
 <use f='tensorflow/tensorflow/core/kernels/one_hot_op.cc' l='104' u='c' c='_ZN10tensorflow8OneHotOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/core/kernels/pack_op.cc' l='92' u='c' c='_ZN10tensorflow6PackOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/core/kernels/pack_op.cc' l='97' u='c' c='_ZN10tensorflow6PackOp7ComputeEPNS_15OpKernelContextE'/>

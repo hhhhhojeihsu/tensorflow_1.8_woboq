@@ -1,0 +1,476 @@
+<def f='tensorflow/tensorflow/compiler/xla/xla.pb.h' l='695' ll='1145'/>
+<size>256</size>
+<doc f='tensorflow/tensorflow/compiler/xla/xla.pb.h' l='693'>// -------------------------------------------------------------------</doc>
+<doc f='tensorflow/tensorflow/compiler/xla/xla.pb.h' l='695'>/* @@protoc_insertion_point(class_definition:xla.DebugOptions) */</doc>
+<fun r='_ZN3xla12DebugOptionsC1Ev'/>
+<fun r='_ZN3xla12DebugOptionsD1Ev'/>
+<fun r='_ZN3xla12DebugOptionsC1ERKS0_'/>
+<fun r='_ZN3xla12DebugOptionsaSERKS0_'/>
+<fun r='_ZN3xla12DebugOptionsC1EOS0_'/>
+<fun r='_ZN3xla12DebugOptionsaSEOS0_'/>
+<fun r='_ZN3xla12DebugOptions10descriptorEv'/>
+<fun r='_ZN3xla12DebugOptions16default_instanceEv'/>
+<fun r='_ZN3xla12DebugOptions21InitAsDefaultInstanceEv'/>
+<fun r='_ZN3xla12DebugOptions25internal_default_instanceEv'/>
+<smbr r='xla::DebugOptions::kIndexInFileMessages' t='const int'/>
+<fun r='_ZN3xla12DebugOptions4SwapEPS0_'/>
+<fun r='_ZNK3xla12DebugOptions3NewEv'/>
+<fun r='_ZNK3xla12DebugOptions3NewEPN6google8protobuf5ArenaE'/>
+<fun r='_ZN3xla12DebugOptions8CopyFromERKN6google8protobuf7MessageE'/>
+<fun r='_ZN3xla12DebugOptions9MergeFromERKN6google8protobuf7MessageE'/>
+<fun r='_ZN3xla12DebugOptions8CopyFromERKS0_'/>
+<fun r='_ZN3xla12DebugOptions9MergeFromERKS0_'/>
+<fun r='_ZN3xla12DebugOptions5ClearEv'/>
+<fun r='_ZNK3xla12DebugOptions13IsInitializedEv'/>
+<fun r='_ZNK3xla12DebugOptions12ByteSizeLongEv'/>
+<fun r='_ZN3xla12DebugOptions27MergePartialFromCodedStreamEPN6google8protobuf2io16CodedInputStreamE'/>
+<fun r='_ZNK3xla12DebugOptions24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE'/>
+<fun r='_ZNK3xla12DebugOptions39InternalSerializeWithCachedSizesToArrayEbPh'/>
+<fun r='_ZNK3xla12DebugOptions13GetCachedSizeEv'/>
+<fun r='_ZN3xla12DebugOptions10SharedCtorEv'/>
+<fun r='_ZN3xla12DebugOptions10SharedDtorEv'/>
+<fun r='_ZNK3xla12DebugOptions13SetCachedSizeEi'/>
+<fun r='_ZN3xla12DebugOptions12InternalSwapEPS0_'/>
+<fun r='_ZNK3xla12DebugOptions17GetArenaNoVirtualEv'/>
+<fun r='_ZNK3xla12DebugOptions13MaybeArenaPtrEv'/>
+<fun r='_ZNK3xla12DebugOptions11GetMetadataEv'/>
+<fun r='_ZNK3xla12DebugOptions27xla_disable_hlo_passes_sizeEv'/>
+<fun r='_ZN3xla12DebugOptions28clear_xla_disable_hlo_passesEv'/>
+<smbr r='xla::DebugOptions::kXlaDisableHloPassesFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions22xla_disable_hlo_passesEi'/>
+<fun r='_ZN3xla12DebugOptions30mutable_xla_disable_hlo_passesEi'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_disable_hlo_passesEiRKSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_disable_hlo_passesEiOSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_disable_hlo_passesEiPKc'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_disable_hlo_passesEiPKcm'/>
+<fun r='_ZN3xla12DebugOptions26add_xla_disable_hlo_passesEv'/>
+<fun r='_ZN3xla12DebugOptions26add_xla_disable_hlo_passesERKSs'/>
+<fun r='_ZN3xla12DebugOptions26add_xla_disable_hlo_passesEOSs'/>
+<fun r='_ZN3xla12DebugOptions26add_xla_disable_hlo_passesEPKc'/>
+<fun r='_ZN3xla12DebugOptions26add_xla_disable_hlo_passesEPKcm'/>
+<fun r='_ZNK3xla12DebugOptions22xla_disable_hlo_passesEv'/>
+<fun r='_ZN3xla12DebugOptions30mutable_xla_disable_hlo_passesEv'/>
+<fun r='_ZNK3xla12DebugOptions33hlo_reduce_precision_options_sizeEv'/>
+<fun r='_ZN3xla12DebugOptions34clear_hlo_reduce_precision_optionsEv'/>
+<smbr r='xla::DebugOptions::kHloReducePrecisionOptionsFieldNumber' t='const int'/>
+<fun r='_ZN3xla12DebugOptions36mutable_hlo_reduce_precision_optionsEi'/>
+<fun r='_ZN3xla12DebugOptions36mutable_hlo_reduce_precision_optionsEv'/>
+<fun r='_ZNK3xla12DebugOptions28hlo_reduce_precision_optionsEi'/>
+<fun r='_ZN3xla12DebugOptions32add_hlo_reduce_precision_optionsEv'/>
+<fun r='_ZNK3xla12DebugOptions28hlo_reduce_precision_optionsEv'/>
+<fun r='_ZNK3xla12DebugOptions30xla_backend_extra_options_sizeEv'/>
+<fun r='_ZN3xla12DebugOptions31clear_xla_backend_extra_optionsEv'/>
+<smbr r='xla::DebugOptions::kXlaBackendExtraOptionsFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions25xla_backend_extra_optionsEv'/>
+<fun r='_ZN3xla12DebugOptions33mutable_xla_backend_extra_optionsEv'/>
+<fun r='_ZN3xla12DebugOptions28clear_xla_generate_hlo_graphEv'/>
+<smbr r='xla::DebugOptions::kXlaGenerateHloGraphFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions22xla_generate_hlo_graphEv'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_generate_hlo_graphERKSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_generate_hlo_graphEOSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_generate_hlo_graphEPKc'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_generate_hlo_graphEPKcm'/>
+<fun r='_ZN3xla12DebugOptions30mutable_xla_generate_hlo_graphEv'/>
+<fun r='_ZN3xla12DebugOptions30release_xla_generate_hlo_graphEv'/>
+<fun r='_ZN3xla12DebugOptions36set_allocated_xla_generate_hlo_graphEPSs'/>
+<fun r='_ZN3xla12DebugOptions24clear_xla_hlo_graph_pathEv'/>
+<smbr r='xla::DebugOptions::kXlaHloGraphPathFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions18xla_hlo_graph_pathEv'/>
+<fun r='_ZN3xla12DebugOptions22set_xla_hlo_graph_pathERKSs'/>
+<fun r='_ZN3xla12DebugOptions22set_xla_hlo_graph_pathEOSs'/>
+<fun r='_ZN3xla12DebugOptions22set_xla_hlo_graph_pathEPKc'/>
+<fun r='_ZN3xla12DebugOptions22set_xla_hlo_graph_pathEPKcm'/>
+<fun r='_ZN3xla12DebugOptions26mutable_xla_hlo_graph_pathEv'/>
+<fun r='_ZN3xla12DebugOptions26release_xla_hlo_graph_pathEv'/>
+<fun r='_ZN3xla12DebugOptions32set_allocated_xla_hlo_graph_pathEPSs'/>
+<fun r='_ZN3xla12DebugOptions22clear_xla_log_hlo_textEv'/>
+<smbr r='xla::DebugOptions::kXlaLogHloTextFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions16xla_log_hlo_textEv'/>
+<fun r='_ZN3xla12DebugOptions20set_xla_log_hlo_textERKSs'/>
+<fun r='_ZN3xla12DebugOptions20set_xla_log_hlo_textEOSs'/>
+<fun r='_ZN3xla12DebugOptions20set_xla_log_hlo_textEPKc'/>
+<fun r='_ZN3xla12DebugOptions20set_xla_log_hlo_textEPKcm'/>
+<fun r='_ZN3xla12DebugOptions24mutable_xla_log_hlo_textEv'/>
+<fun r='_ZN3xla12DebugOptions24release_xla_log_hlo_textEv'/>
+<fun r='_ZN3xla12DebugOptions30set_allocated_xla_log_hlo_textEPSs'/>
+<fun r='_ZN3xla12DebugOptions30clear_xla_generate_hlo_text_toEv'/>
+<smbr r='xla::DebugOptions::kXlaGenerateHloTextToFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions24xla_generate_hlo_text_toEv'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_generate_hlo_text_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_generate_hlo_text_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_generate_hlo_text_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_generate_hlo_text_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions32mutable_xla_generate_hlo_text_toEv'/>
+<fun r='_ZN3xla12DebugOptions32release_xla_generate_hlo_text_toEv'/>
+<fun r='_ZN3xla12DebugOptions38set_allocated_xla_generate_hlo_text_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions37clear_xla_dump_optimized_hlo_proto_toEv'/>
+<smbr r='xla::DebugOptions::kXlaDumpOptimizedHloProtoToFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions31xla_dump_optimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions35set_xla_dump_optimized_hlo_proto_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions35set_xla_dump_optimized_hlo_proto_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions35set_xla_dump_optimized_hlo_proto_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions35set_xla_dump_optimized_hlo_proto_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions39mutable_xla_dump_optimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions39release_xla_dump_optimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions45set_allocated_xla_dump_optimized_hlo_proto_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions30clear_xla_dump_computations_toEv'/>
+<smbr r='xla::DebugOptions::kXlaDumpComputationsToFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions24xla_dump_computations_toEv'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_dump_computations_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_dump_computations_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_dump_computations_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_dump_computations_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions32mutable_xla_dump_computations_toEv'/>
+<fun r='_ZN3xla12DebugOptions32release_xla_dump_computations_toEv'/>
+<fun r='_ZN3xla12DebugOptions38set_allocated_xla_dump_computations_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions28clear_xla_dump_executions_toEv'/>
+<smbr r='xla::DebugOptions::kXlaDumpExecutionsToFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions22xla_dump_executions_toEv'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_dump_executions_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_dump_executions_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_dump_executions_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_dump_executions_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions30mutable_xla_dump_executions_toEv'/>
+<fun r='_ZN3xla12DebugOptions30release_xla_dump_executions_toEv'/>
+<fun r='_ZN3xla12DebugOptions36set_allocated_xla_dump_executions_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions20clear_xla_dump_ir_toEv'/>
+<smbr r='xla::DebugOptions::kXlaDumpIrToFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions14xla_dump_ir_toEv'/>
+<fun r='_ZN3xla12DebugOptions18set_xla_dump_ir_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions18set_xla_dump_ir_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions18set_xla_dump_ir_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions18set_xla_dump_ir_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions22mutable_xla_dump_ir_toEv'/>
+<fun r='_ZN3xla12DebugOptions22release_xla_dump_ir_toEv'/>
+<fun r='_ZN3xla12DebugOptions28set_allocated_xla_dump_ir_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions27clear_xla_gpu_cuda_data_dirEv'/>
+<smbr r='xla::DebugOptions::kXlaGpuCudaDataDirFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions21xla_gpu_cuda_data_dirEv'/>
+<fun r='_ZN3xla12DebugOptions25set_xla_gpu_cuda_data_dirERKSs'/>
+<fun r='_ZN3xla12DebugOptions25set_xla_gpu_cuda_data_dirEOSs'/>
+<fun r='_ZN3xla12DebugOptions25set_xla_gpu_cuda_data_dirEPKc'/>
+<fun r='_ZN3xla12DebugOptions25set_xla_gpu_cuda_data_dirEPKcm'/>
+<fun r='_ZN3xla12DebugOptions29mutable_xla_gpu_cuda_data_dirEv'/>
+<fun r='_ZN3xla12DebugOptions29release_xla_gpu_cuda_data_dirEv'/>
+<fun r='_ZN3xla12DebugOptions35set_allocated_xla_gpu_cuda_data_dirEPSs'/>
+<fun r='_ZN3xla12DebugOptions39clear_xla_dump_unoptimized_hlo_proto_toEv'/>
+<smbr r='xla::DebugOptions::kXlaDumpUnoptimizedHloProtoToFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions33xla_dump_unoptimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions37set_xla_dump_unoptimized_hlo_proto_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions37set_xla_dump_unoptimized_hlo_proto_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions37set_xla_dump_unoptimized_hlo_proto_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions37set_xla_dump_unoptimized_hlo_proto_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions41mutable_xla_dump_unoptimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions41release_xla_dump_unoptimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions47set_allocated_xla_dump_unoptimized_hlo_proto_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions36clear_xla_dump_per_pass_hlo_proto_toEv'/>
+<smbr r='xla::DebugOptions::kXlaDumpPerPassHloProtoToFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions30xla_dump_per_pass_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions34set_xla_dump_per_pass_hlo_proto_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions34set_xla_dump_per_pass_hlo_proto_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions34set_xla_dump_per_pass_hlo_proto_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions34set_xla_dump_per_pass_hlo_proto_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions38mutable_xla_dump_per_pass_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions38release_xla_dump_per_pass_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions44set_allocated_xla_dump_per_pass_hlo_proto_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions29clear_xla_hlo_graph_addressesEv'/>
+<smbr r='xla::DebugOptions::kXlaHloGraphAddressesFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions23xla_hlo_graph_addressesEv'/>
+<fun r='_ZN3xla12DebugOptions27set_xla_hlo_graph_addressesEb'/>
+<fun r='_ZN3xla12DebugOptions30clear_xla_hlo_dump_as_graphdefEv'/>
+<smbr r='xla::DebugOptions::kXlaHloDumpAsGraphdefFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions24xla_hlo_dump_as_graphdefEv'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_hlo_dump_as_graphdefEb'/>
+<fun r='_ZN3xla12DebugOptions21clear_xla_hlo_profileEv'/>
+<smbr r='xla::DebugOptions::kXlaHloProfileFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions15xla_hlo_profileEv'/>
+<fun r='_ZN3xla12DebugOptions19set_xla_hlo_profileEb'/>
+<fun r='_ZN3xla12DebugOptions26clear_xla_enable_fast_mathEv'/>
+<smbr r='xla::DebugOptions::kXlaEnableFastMathFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions20xla_enable_fast_mathEv'/>
+<fun r='_ZN3xla12DebugOptions24set_xla_enable_fast_mathEb'/>
+<fun r='_ZN3xla12DebugOptions36clear_xla_backend_optimization_levelEv'/>
+<smbr r='xla::DebugOptions::kXlaBackendOptimizationLevelFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions30xla_backend_optimization_levelEv'/>
+<fun r='_ZN3xla12DebugOptions34set_xla_backend_optimization_levelEi'/>
+<fun r='_ZN3xla12DebugOptions32clear_xla_embed_ir_in_executableEv'/>
+<smbr r='xla::DebugOptions::kXlaEmbedIrInExecutableFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions26xla_embed_ir_in_executableEv'/>
+<fun r='_ZN3xla12DebugOptions30set_xla_embed_ir_in_executableEb'/>
+<fun r='_ZN3xla12DebugOptions42clear_xla_eliminate_hlo_implicit_broadcastEv'/>
+<smbr r='xla::DebugOptions::kXlaEliminateHloImplicitBroadcastFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions36xla_eliminate_hlo_implicit_broadcastEv'/>
+<fun r='_ZN3xla12DebugOptions40set_xla_eliminate_hlo_implicit_broadcastEb'/>
+<fun r='_ZN3xla12DebugOptions32clear_xla_cpu_multi_thread_eigenEv'/>
+<smbr r='xla::DebugOptions::kXlaCpuMultiThreadEigenFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions26xla_cpu_multi_thread_eigenEv'/>
+<fun r='_ZN3xla12DebugOptions30set_xla_cpu_multi_thread_eigenEb'/>
+<fun r='_ZN3xla12DebugOptions17clear_xla_gpu_ftzEv'/>
+<smbr r='xla::DebugOptions::kXlaGpuFtzFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions11xla_gpu_ftzEv'/>
+<fun r='_ZN3xla12DebugOptions15set_xla_gpu_ftzEb'/>
+<fun r='_ZN3xla12DebugOptions37clear_xla_gpu_disable_multi_streamingEv'/>
+<smbr r='xla::DebugOptions::kXlaGpuDisableMultiStreamingFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions31xla_gpu_disable_multi_streamingEv'/>
+<fun r='_ZN3xla12DebugOptions35set_xla_gpu_disable_multi_streamingEb'/>
+<fun r='_ZN3xla12DebugOptions42clear_xla_llvm_enable_alias_scope_metadataEv'/>
+<smbr r='xla::DebugOptions::kXlaLlvmEnableAliasScopeMetadataFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions36xla_llvm_enable_alias_scope_metadataEv'/>
+<fun r='_ZN3xla12DebugOptions40set_xla_llvm_enable_alias_scope_metadataEb'/>
+<fun r='_ZN3xla12DebugOptions38clear_xla_llvm_enable_noalias_metadataEv'/>
+<smbr r='xla::DebugOptions::kXlaLlvmEnableNoaliasMetadataFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions32xla_llvm_enable_noalias_metadataEv'/>
+<fun r='_ZN3xla12DebugOptions36set_xla_llvm_enable_noalias_metadataEb'/>
+<fun r='_ZN3xla12DebugOptions45clear_xla_llvm_enable_invariant_load_metadataEv'/>
+<smbr r='xla::DebugOptions::kXlaLlvmEnableInvariantLoadMetadataFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions39xla_llvm_enable_invariant_load_metadataEv'/>
+<fun r='_ZN3xla12DebugOptions43set_xla_llvm_enable_invariant_load_metadataEb'/>
+<fun r='_ZN3xla12DebugOptions39clear_xla_llvm_disable_expensive_passesEv'/>
+<smbr r='xla::DebugOptions::kXlaLlvmDisableExpensivePassesFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions33xla_llvm_disable_expensive_passesEv'/>
+<fun r='_ZN3xla12DebugOptions37set_xla_llvm_disable_expensive_passesEb'/>
+<fun r='_ZN3xla12DebugOptions33clear_xla_test_all_output_layoutsEv'/>
+<smbr r='xla::DebugOptions::kXlaTestAllOutputLayoutsFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions27xla_test_all_output_layoutsEv'/>
+<fun r='_ZN3xla12DebugOptions31set_xla_test_all_output_layoutsEb'/>
+<fun r='_ZN3xla12DebugOptions32clear_xla_test_all_input_layoutsEv'/>
+<smbr r='xla::DebugOptions::kXlaTestAllInputLayoutsFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions26xla_test_all_input_layoutsEv'/>
+<fun r='_ZN3xla12DebugOptions30set_xla_test_all_input_layoutsEb'/>
+<fun r='_ZN3xla12DebugOptions34clear_xla_hlo_graph_sharding_colorEv'/>
+<smbr r='xla::DebugOptions::kXlaHloGraphShardingColorFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions28xla_hlo_graph_sharding_colorEv'/>
+<fun r='_ZN3xla12DebugOptions32set_xla_hlo_graph_sharding_colorEb'/>
+<fun r='_ZN3xla12DebugOptions35clear_xla_hlo_tfgraph_device_scopesEv'/>
+<smbr r='xla::DebugOptions::kXlaHloTfgraphDeviceScopesFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions29xla_hlo_tfgraph_device_scopesEv'/>
+<fun r='_ZN3xla12DebugOptions33set_xla_hlo_tfgraph_device_scopesEb'/>
+<fun r='_ZN3xla12DebugOptions33clear_xla_gpu_use_cudnn_batchnormEv'/>
+<smbr r='xla::DebugOptions::kXlaGpuUseCudnnBatchnormFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions27xla_gpu_use_cudnn_batchnormEv'/>
+<fun r='_ZN3xla12DebugOptions31set_xla_gpu_use_cudnn_batchnormEb'/>
+<fun r='_ZN3xla12DebugOptions25clear_xla_cpu_use_mkl_dnnEv'/>
+<smbr r='xla::DebugOptions::kXlaCpuUseMklDnnFieldNumber' t='const int'/>
+<fun r='_ZNK3xla12DebugOptions19xla_cpu_use_mkl_dnnEv'/>
+<fun r='_ZN3xla12DebugOptions23set_xla_cpu_use_mkl_dnnEb'/>
+<mbr r='xla::DebugOptions::_internal_metadata_' o='64' t='::google::protobuf::internal::InternalMetadataWithArena'/>
+<mbr r='xla::DebugOptions::xla_disable_hlo_passes_' o='128' t='::google::protobuf::RepeatedPtrField&lt; ::std::string&gt;'/>
+<mbr r='xla::DebugOptions::hlo_reduce_precision_options_' o='320' t='::google::protobuf::RepeatedPtrField&lt; ::xla::HloReducePrecisionOptions&gt;'/>
+<mbr r='xla::DebugOptions::xla_backend_extra_options_' o='512' t='::google::protobuf::internal::MapField&lt;DebugOptions_XlaBackendExtraOptionsEntry_DoNotUse, ::std::string, ::std::string, ::google::protobuf::internal::WireFormatLite::TYPE_STRING, ::google::protobuf::internal::WireFormatLite::TYPE_STRING, 0&gt;'/>
+<mbr r='xla::DebugOptions::xla_generate_hlo_graph_' o='1088' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_hlo_graph_path_' o='1152' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_log_hlo_text_' o='1216' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_generate_hlo_text_to_' o='1280' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_dump_optimized_hlo_proto_to_' o='1344' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_dump_computations_to_' o='1408' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_dump_executions_to_' o='1472' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_dump_ir_to_' o='1536' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_gpu_cuda_data_dir_' o='1600' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_dump_unoptimized_hlo_proto_to_' o='1664' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_dump_per_pass_hlo_proto_to_' o='1728' t='::google::protobuf::internal::ArenaStringPtr'/>
+<mbr r='xla::DebugOptions::xla_hlo_graph_addresses_' o='1792' t='bool'/>
+<mbr r='xla::DebugOptions::xla_hlo_dump_as_graphdef_' o='1800' t='bool'/>
+<mbr r='xla::DebugOptions::xla_hlo_profile_' o='1808' t='bool'/>
+<mbr r='xla::DebugOptions::xla_enable_fast_math_' o='1816' t='bool'/>
+<mbr r='xla::DebugOptions::xla_backend_optimization_level_' o='1824' t='::google::protobuf::int32'/>
+<mbr r='xla::DebugOptions::xla_embed_ir_in_executable_' o='1856' t='bool'/>
+<mbr r='xla::DebugOptions::xla_eliminate_hlo_implicit_broadcast_' o='1864' t='bool'/>
+<mbr r='xla::DebugOptions::xla_cpu_multi_thread_eigen_' o='1872' t='bool'/>
+<mbr r='xla::DebugOptions::xla_gpu_ftz_' o='1880' t='bool'/>
+<mbr r='xla::DebugOptions::xla_gpu_disable_multi_streaming_' o='1888' t='bool'/>
+<mbr r='xla::DebugOptions::xla_llvm_enable_alias_scope_metadata_' o='1896' t='bool'/>
+<mbr r='xla::DebugOptions::xla_llvm_enable_noalias_metadata_' o='1904' t='bool'/>
+<mbr r='xla::DebugOptions::xla_llvm_enable_invariant_load_metadata_' o='1912' t='bool'/>
+<mbr r='xla::DebugOptions::xla_llvm_disable_expensive_passes_' o='1920' t='bool'/>
+<mbr r='xla::DebugOptions::xla_test_all_output_layouts_' o='1928' t='bool'/>
+<mbr r='xla::DebugOptions::xla_test_all_input_layouts_' o='1936' t='bool'/>
+<mbr r='xla::DebugOptions::xla_hlo_graph_sharding_color_' o='1944' t='bool'/>
+<mbr r='xla::DebugOptions::xla_hlo_tfgraph_device_scopes_' o='1952' t='bool'/>
+<mbr r='xla::DebugOptions::xla_gpu_use_cudnn_batchnorm_' o='1960' t='bool'/>
+<mbr r='xla::DebugOptions::xla_cpu_use_mkl_dnn_' o='1968' t='bool'/>
+<mbr r='xla::DebugOptions::_cached_size_' o='1984' t='int'/>
+<fun r='_ZN3xla12DebugOptions28clear_xla_generate_hlo_graphEv'/>
+<fun r='_ZNK3xla12DebugOptions22xla_generate_hlo_graphEv'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_generate_hlo_graphERKSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_generate_hlo_graphEOSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_generate_hlo_graphEPKc'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_generate_hlo_graphEPKcm'/>
+<fun r='_ZN3xla12DebugOptions30mutable_xla_generate_hlo_graphEv'/>
+<fun r='_ZN3xla12DebugOptions30release_xla_generate_hlo_graphEv'/>
+<fun r='_ZN3xla12DebugOptions36set_allocated_xla_generate_hlo_graphEPSs'/>
+<fun r='_ZN3xla12DebugOptions29clear_xla_hlo_graph_addressesEv'/>
+<fun r='_ZNK3xla12DebugOptions23xla_hlo_graph_addressesEv'/>
+<fun r='_ZN3xla12DebugOptions27set_xla_hlo_graph_addressesEb'/>
+<fun r='_ZN3xla12DebugOptions24clear_xla_hlo_graph_pathEv'/>
+<fun r='_ZNK3xla12DebugOptions18xla_hlo_graph_pathEv'/>
+<fun r='_ZN3xla12DebugOptions22set_xla_hlo_graph_pathERKSs'/>
+<fun r='_ZN3xla12DebugOptions22set_xla_hlo_graph_pathEOSs'/>
+<fun r='_ZN3xla12DebugOptions22set_xla_hlo_graph_pathEPKc'/>
+<fun r='_ZN3xla12DebugOptions22set_xla_hlo_graph_pathEPKcm'/>
+<fun r='_ZN3xla12DebugOptions26mutable_xla_hlo_graph_pathEv'/>
+<fun r='_ZN3xla12DebugOptions26release_xla_hlo_graph_pathEv'/>
+<fun r='_ZN3xla12DebugOptions32set_allocated_xla_hlo_graph_pathEPSs'/>
+<fun r='_ZN3xla12DebugOptions30clear_xla_hlo_dump_as_graphdefEv'/>
+<fun r='_ZNK3xla12DebugOptions24xla_hlo_dump_as_graphdefEv'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_hlo_dump_as_graphdefEb'/>
+<fun r='_ZN3xla12DebugOptions22clear_xla_log_hlo_textEv'/>
+<fun r='_ZNK3xla12DebugOptions16xla_log_hlo_textEv'/>
+<fun r='_ZN3xla12DebugOptions20set_xla_log_hlo_textERKSs'/>
+<fun r='_ZN3xla12DebugOptions20set_xla_log_hlo_textEOSs'/>
+<fun r='_ZN3xla12DebugOptions20set_xla_log_hlo_textEPKc'/>
+<fun r='_ZN3xla12DebugOptions20set_xla_log_hlo_textEPKcm'/>
+<fun r='_ZN3xla12DebugOptions24mutable_xla_log_hlo_textEv'/>
+<fun r='_ZN3xla12DebugOptions24release_xla_log_hlo_textEv'/>
+<fun r='_ZN3xla12DebugOptions30set_allocated_xla_log_hlo_textEPSs'/>
+<fun r='_ZN3xla12DebugOptions30clear_xla_generate_hlo_text_toEv'/>
+<fun r='_ZNK3xla12DebugOptions24xla_generate_hlo_text_toEv'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_generate_hlo_text_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_generate_hlo_text_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_generate_hlo_text_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_generate_hlo_text_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions32mutable_xla_generate_hlo_text_toEv'/>
+<fun r='_ZN3xla12DebugOptions32release_xla_generate_hlo_text_toEv'/>
+<fun r='_ZN3xla12DebugOptions38set_allocated_xla_generate_hlo_text_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions37clear_xla_dump_optimized_hlo_proto_toEv'/>
+<fun r='_ZNK3xla12DebugOptions31xla_dump_optimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions35set_xla_dump_optimized_hlo_proto_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions35set_xla_dump_optimized_hlo_proto_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions35set_xla_dump_optimized_hlo_proto_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions35set_xla_dump_optimized_hlo_proto_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions39mutable_xla_dump_optimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions39release_xla_dump_optimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions45set_allocated_xla_dump_optimized_hlo_proto_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions21clear_xla_hlo_profileEv'/>
+<fun r='_ZNK3xla12DebugOptions15xla_hlo_profileEv'/>
+<fun r='_ZN3xla12DebugOptions19set_xla_hlo_profileEb'/>
+<fun r='_ZN3xla12DebugOptions30clear_xla_dump_computations_toEv'/>
+<fun r='_ZNK3xla12DebugOptions24xla_dump_computations_toEv'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_dump_computations_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_dump_computations_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_dump_computations_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions28set_xla_dump_computations_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions32mutable_xla_dump_computations_toEv'/>
+<fun r='_ZN3xla12DebugOptions32release_xla_dump_computations_toEv'/>
+<fun r='_ZN3xla12DebugOptions38set_allocated_xla_dump_computations_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions28clear_xla_dump_executions_toEv'/>
+<fun r='_ZNK3xla12DebugOptions22xla_dump_executions_toEv'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_dump_executions_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_dump_executions_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_dump_executions_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_dump_executions_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions30mutable_xla_dump_executions_toEv'/>
+<fun r='_ZN3xla12DebugOptions30release_xla_dump_executions_toEv'/>
+<fun r='_ZN3xla12DebugOptions36set_allocated_xla_dump_executions_toEPSs'/>
+<fun r='_ZNK3xla12DebugOptions27xla_disable_hlo_passes_sizeEv'/>
+<fun r='_ZN3xla12DebugOptions28clear_xla_disable_hlo_passesEv'/>
+<fun r='_ZNK3xla12DebugOptions22xla_disable_hlo_passesEi'/>
+<fun r='_ZN3xla12DebugOptions30mutable_xla_disable_hlo_passesEi'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_disable_hlo_passesEiRKSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_disable_hlo_passesEiOSs'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_disable_hlo_passesEiPKc'/>
+<fun r='_ZN3xla12DebugOptions26set_xla_disable_hlo_passesEiPKcm'/>
+<fun r='_ZN3xla12DebugOptions26add_xla_disable_hlo_passesEv'/>
+<fun r='_ZN3xla12DebugOptions26add_xla_disable_hlo_passesERKSs'/>
+<fun r='_ZN3xla12DebugOptions26add_xla_disable_hlo_passesEOSs'/>
+<fun r='_ZN3xla12DebugOptions26add_xla_disable_hlo_passesEPKc'/>
+<fun r='_ZN3xla12DebugOptions26add_xla_disable_hlo_passesEPKcm'/>
+<fun r='_ZNK3xla12DebugOptions22xla_disable_hlo_passesEv'/>
+<fun r='_ZN3xla12DebugOptions30mutable_xla_disable_hlo_passesEv'/>
+<fun r='_ZN3xla12DebugOptions36clear_xla_backend_optimization_levelEv'/>
+<fun r='_ZNK3xla12DebugOptions30xla_backend_optimization_levelEv'/>
+<fun r='_ZN3xla12DebugOptions34set_xla_backend_optimization_levelEi'/>
+<fun r='_ZN3xla12DebugOptions26clear_xla_enable_fast_mathEv'/>
+<fun r='_ZNK3xla12DebugOptions20xla_enable_fast_mathEv'/>
+<fun r='_ZN3xla12DebugOptions24set_xla_enable_fast_mathEb'/>
+<fun r='_ZN3xla12DebugOptions32clear_xla_embed_ir_in_executableEv'/>
+<fun r='_ZNK3xla12DebugOptions26xla_embed_ir_in_executableEv'/>
+<fun r='_ZN3xla12DebugOptions30set_xla_embed_ir_in_executableEb'/>
+<fun r='_ZN3xla12DebugOptions20clear_xla_dump_ir_toEv'/>
+<fun r='_ZNK3xla12DebugOptions14xla_dump_ir_toEv'/>
+<fun r='_ZN3xla12DebugOptions18set_xla_dump_ir_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions18set_xla_dump_ir_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions18set_xla_dump_ir_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions18set_xla_dump_ir_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions22mutable_xla_dump_ir_toEv'/>
+<fun r='_ZN3xla12DebugOptions22release_xla_dump_ir_toEv'/>
+<fun r='_ZN3xla12DebugOptions28set_allocated_xla_dump_ir_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions42clear_xla_eliminate_hlo_implicit_broadcastEv'/>
+<fun r='_ZNK3xla12DebugOptions36xla_eliminate_hlo_implicit_broadcastEv'/>
+<fun r='_ZN3xla12DebugOptions40set_xla_eliminate_hlo_implicit_broadcastEb'/>
+<fun r='_ZN3xla12DebugOptions32clear_xla_cpu_multi_thread_eigenEv'/>
+<fun r='_ZNK3xla12DebugOptions26xla_cpu_multi_thread_eigenEv'/>
+<fun r='_ZN3xla12DebugOptions30set_xla_cpu_multi_thread_eigenEb'/>
+<fun r='_ZN3xla12DebugOptions27clear_xla_gpu_cuda_data_dirEv'/>
+<fun r='_ZNK3xla12DebugOptions21xla_gpu_cuda_data_dirEv'/>
+<fun r='_ZN3xla12DebugOptions25set_xla_gpu_cuda_data_dirERKSs'/>
+<fun r='_ZN3xla12DebugOptions25set_xla_gpu_cuda_data_dirEOSs'/>
+<fun r='_ZN3xla12DebugOptions25set_xla_gpu_cuda_data_dirEPKc'/>
+<fun r='_ZN3xla12DebugOptions25set_xla_gpu_cuda_data_dirEPKcm'/>
+<fun r='_ZN3xla12DebugOptions29mutable_xla_gpu_cuda_data_dirEv'/>
+<fun r='_ZN3xla12DebugOptions29release_xla_gpu_cuda_data_dirEv'/>
+<fun r='_ZN3xla12DebugOptions35set_allocated_xla_gpu_cuda_data_dirEPSs'/>
+<fun r='_ZN3xla12DebugOptions17clear_xla_gpu_ftzEv'/>
+<fun r='_ZNK3xla12DebugOptions11xla_gpu_ftzEv'/>
+<fun r='_ZN3xla12DebugOptions15set_xla_gpu_ftzEb'/>
+<fun r='_ZN3xla12DebugOptions37clear_xla_gpu_disable_multi_streamingEv'/>
+<fun r='_ZNK3xla12DebugOptions31xla_gpu_disable_multi_streamingEv'/>
+<fun r='_ZN3xla12DebugOptions35set_xla_gpu_disable_multi_streamingEb'/>
+<fun r='_ZN3xla12DebugOptions42clear_xla_llvm_enable_alias_scope_metadataEv'/>
+<fun r='_ZNK3xla12DebugOptions36xla_llvm_enable_alias_scope_metadataEv'/>
+<fun r='_ZN3xla12DebugOptions40set_xla_llvm_enable_alias_scope_metadataEb'/>
+<fun r='_ZN3xla12DebugOptions38clear_xla_llvm_enable_noalias_metadataEv'/>
+<fun r='_ZNK3xla12DebugOptions32xla_llvm_enable_noalias_metadataEv'/>
+<fun r='_ZN3xla12DebugOptions36set_xla_llvm_enable_noalias_metadataEb'/>
+<fun r='_ZN3xla12DebugOptions45clear_xla_llvm_enable_invariant_load_metadataEv'/>
+<fun r='_ZNK3xla12DebugOptions39xla_llvm_enable_invariant_load_metadataEv'/>
+<fun r='_ZN3xla12DebugOptions43set_xla_llvm_enable_invariant_load_metadataEb'/>
+<fun r='_ZN3xla12DebugOptions39clear_xla_llvm_disable_expensive_passesEv'/>
+<fun r='_ZNK3xla12DebugOptions33xla_llvm_disable_expensive_passesEv'/>
+<fun r='_ZN3xla12DebugOptions37set_xla_llvm_disable_expensive_passesEb'/>
+<fun r='_ZNK3xla12DebugOptions33hlo_reduce_precision_options_sizeEv'/>
+<fun r='_ZN3xla12DebugOptions34clear_hlo_reduce_precision_optionsEv'/>
+<fun r='_ZN3xla12DebugOptions36mutable_hlo_reduce_precision_optionsEi'/>
+<fun r='_ZN3xla12DebugOptions36mutable_hlo_reduce_precision_optionsEv'/>
+<fun r='_ZNK3xla12DebugOptions28hlo_reduce_precision_optionsEi'/>
+<fun r='_ZN3xla12DebugOptions32add_hlo_reduce_precision_optionsEv'/>
+<fun r='_ZNK3xla12DebugOptions28hlo_reduce_precision_optionsEv'/>
+<fun r='_ZN3xla12DebugOptions33clear_xla_test_all_output_layoutsEv'/>
+<fun r='_ZNK3xla12DebugOptions27xla_test_all_output_layoutsEv'/>
+<fun r='_ZN3xla12DebugOptions31set_xla_test_all_output_layoutsEb'/>
+<fun r='_ZN3xla12DebugOptions32clear_xla_test_all_input_layoutsEv'/>
+<fun r='_ZNK3xla12DebugOptions26xla_test_all_input_layoutsEv'/>
+<fun r='_ZN3xla12DebugOptions30set_xla_test_all_input_layoutsEb'/>
+<fun r='_ZN3xla12DebugOptions34clear_xla_hlo_graph_sharding_colorEv'/>
+<fun r='_ZNK3xla12DebugOptions28xla_hlo_graph_sharding_colorEv'/>
+<fun r='_ZN3xla12DebugOptions32set_xla_hlo_graph_sharding_colorEb'/>
+<fun r='_ZN3xla12DebugOptions35clear_xla_hlo_tfgraph_device_scopesEv'/>
+<fun r='_ZNK3xla12DebugOptions29xla_hlo_tfgraph_device_scopesEv'/>
+<fun r='_ZN3xla12DebugOptions33set_xla_hlo_tfgraph_device_scopesEb'/>
+<fun r='_ZN3xla12DebugOptions33clear_xla_gpu_use_cudnn_batchnormEv'/>
+<fun r='_ZNK3xla12DebugOptions27xla_gpu_use_cudnn_batchnormEv'/>
+<fun r='_ZN3xla12DebugOptions31set_xla_gpu_use_cudnn_batchnormEb'/>
+<fun r='_ZN3xla12DebugOptions39clear_xla_dump_unoptimized_hlo_proto_toEv'/>
+<fun r='_ZNK3xla12DebugOptions33xla_dump_unoptimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions37set_xla_dump_unoptimized_hlo_proto_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions37set_xla_dump_unoptimized_hlo_proto_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions37set_xla_dump_unoptimized_hlo_proto_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions37set_xla_dump_unoptimized_hlo_proto_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions41mutable_xla_dump_unoptimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions41release_xla_dump_unoptimized_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions47set_allocated_xla_dump_unoptimized_hlo_proto_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions36clear_xla_dump_per_pass_hlo_proto_toEv'/>
+<fun r='_ZNK3xla12DebugOptions30xla_dump_per_pass_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions34set_xla_dump_per_pass_hlo_proto_toERKSs'/>
+<fun r='_ZN3xla12DebugOptions34set_xla_dump_per_pass_hlo_proto_toEOSs'/>
+<fun r='_ZN3xla12DebugOptions34set_xla_dump_per_pass_hlo_proto_toEPKc'/>
+<fun r='_ZN3xla12DebugOptions34set_xla_dump_per_pass_hlo_proto_toEPKcm'/>
+<fun r='_ZN3xla12DebugOptions38mutable_xla_dump_per_pass_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions38release_xla_dump_per_pass_hlo_proto_toEv'/>
+<fun r='_ZN3xla12DebugOptions44set_allocated_xla_dump_per_pass_hlo_proto_toEPSs'/>
+<fun r='_ZN3xla12DebugOptions25clear_xla_cpu_use_mkl_dnnEv'/>
+<fun r='_ZNK3xla12DebugOptions19xla_cpu_use_mkl_dnnEv'/>
+<fun r='_ZN3xla12DebugOptions23set_xla_cpu_use_mkl_dnnEb'/>
+<fun r='_ZNK3xla12DebugOptions30xla_backend_extra_options_sizeEv'/>
+<fun r='_ZN3xla12DebugOptions31clear_xla_backend_extra_optionsEv'/>
+<fun r='_ZNK3xla12DebugOptions25xla_backend_extra_optionsEv'/>
+<fun r='_ZN3xla12DebugOptions33mutable_xla_backend_extra_optionsEv'/>

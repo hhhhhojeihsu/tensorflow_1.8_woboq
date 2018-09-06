@@ -1,0 +1,51 @@
+<def f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='48' ll='242'/>
+<size>160</size>
+<doc f='tensorflow/tensorflow/compiler/tf2xla/xla_compiled_cpu_function.h' l='34'>// Represents a function compiled by XLA, produced via either JIT or AOT.
+//
+// The Run method invokes the actual computation, with inputs read from arg
+// buffers, and outputs written to result buffers. Each Run call may also use a
+// set of temporary buffers for the computation.
+//
+// By default each instance of this class manages its own arg, result and temp
+// buffers. The AllocMode constructor parameter may be used to modify the buffer
+// allocation strategy.
+//
+// Under the default allocation strategy, this class is thread-compatible:
+// o Calls to non-const methods require exclusive access to the object.
+// o Concurrent calls to const methods are OK, if those calls are made while it
+//   is guaranteed that no thread may call a non-const method.</doc>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunctionC1ERKNS0_10StaticDataENS0_9AllocModeE'/>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunctionD1Ev'/>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunctionC1ERKS0_'/>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunctionaSERKS0_'/>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunction15set_thread_poolEPKN5Eigen16ThreadPoolDeviceE'/>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunction3RunEv'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction9error_msgEv'/>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunction4argsEv'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction4argsEv'/>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunction8arg_dataEm'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction8arg_dataEm'/>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunction12set_arg_dataEmPv'/>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunction7resultsEv'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction7resultsEv'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction16profile_countersEv'/>
+<fun r='_ZN10tensorflow22XlaCompiledCpuFunction11result_dataEm'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction11result_dataEm'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction14HasNameIndicesEv'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction14LookupArgIndexERKSs'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction17LookupResultIndexERKSs'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction12ProgramShapeEv'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction21hlo_profiling_enabledEv'/>
+<fun r='_ZNK10tensorflow22XlaCompiledCpuFunction24hlo_profile_printer_dataEv'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::raw_function_' o='64' t='const RawFunction'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::result_index_' o='128' t='const size_t'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::args_' o='192' t='void **'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::temps_' o='256' t='void **'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::alloc_args_' o='320' t='void *'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::alloc_temps_' o='384' t='void *'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::profile_counters_' o='448' t='int64 *'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::run_options_' o='512' t='xla::ExecutableRunOptions'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::arg_names_' o='1024' t='const char **'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::result_names_' o='1088' t='const char **'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::program_shape_' o='1152' t='const xla::ProgramShape *'/>
+<mbr r='tensorflow::XlaCompiledCpuFunction::hlo_profile_printer_data_' o='1216' t='const xla::HloProfilePrinterData *'/>

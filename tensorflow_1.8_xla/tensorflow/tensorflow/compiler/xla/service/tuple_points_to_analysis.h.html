@@ -45,7 +45,7 @@
 <tr><th id="31">31</th><td><u>#include <a href="../shape_tree.h.html">"tensorflow/compiler/xla/shape_tree.h"</a></u></td></tr>
 <tr><th id="32">32</th><td><u>#include <a href="../statusor.h.html">"tensorflow/compiler/xla/statusor.h"</a></u></td></tr>
 <tr><th id="33">33</th><td><u>#include <a href="../types.h.html">"tensorflow/compiler/xla/types.h"</a></u></td></tr>
-<tr><th id="34">34</th><td><u>#include "tensorflow/compiler/xla/xla_data.pb.h"</u></td></tr>
+<tr><th id="34">34</th><td><u>#include <a href="../xla_data.pb.h.html">"tensorflow/compiler/xla/xla_data.pb.h"</a></u></td></tr>
 <tr><th id="35">35</th><td><u>#include <a href="../../../core/lib/core/status.h.html">"tensorflow/core/lib/core/status.h"</a></u></td></tr>
 <tr><th id="36">36</th><td><u>#include <a href="../../../core/lib/gtl/array_slice.h.html">"tensorflow/core/lib/gtl/array_slice.h"</a></u></td></tr>
 <tr><th id="37">37</th><td><u>#include <a href="../../../core/lib/gtl/compactptrset.h.html">"tensorflow/core/lib/gtl/compactptrset.h"</a></u></td></tr>
@@ -67,7 +67,7 @@
 <tr><th id="53">53</th><td>  <i>// Construct our ShapeTree with a pointer rather than a reference to a Shape</i></td></tr>
 <tr><th id="54">54</th><td><i>  // because this is very hot code, and copying (and then destroying) all these</i></td></tr>
 <tr><th id="55">55</th><td><i>  // Shapes is slow.</i></td></tr>
-<tr><th id="56">56</th><td>  <b>explicit</b> <dfn class="decl def" id="_ZN3xla11PointsToSetC1EPKNS_5ShapeE" title='xla::PointsToSet::PointsToSet' data-ref="_ZN3xla11PointsToSetC1EPKNS_5ShapeE">PointsToSet</dfn>(<em>const</em> <span class='type' title='xla::Shape' data-ref="xla::Shape">Shape</span>* <dfn class="local col9 decl" id="179shape" title='shape' data-type='const xla::Shape *' data-ref="179shape">shape</dfn>) : <a class="member" href="#xla::PointsToSet::tree_" title='xla::PointsToSet::tree_' data-ref="xla::PointsToSet::tree_">tree_</a><a class="ref" href="../shape_tree.h.html#_ZN3xla9ShapeTreeC1EPKNS_5ShapeE" title='xla::ShapeTree::ShapeTree&lt;T&gt;' data-ref="_ZN3xla9ShapeTreeC1EPKNS_5ShapeE">(</a><a class="local col9 ref" href="#179shape" title='shape' data-ref="179shape">shape</a>) {}</td></tr>
+<tr><th id="56">56</th><td>  <b>explicit</b> <dfn class="decl def" id="_ZN3xla11PointsToSetC1EPKNS_5ShapeE" title='xla::PointsToSet::PointsToSet' data-ref="_ZN3xla11PointsToSetC1EPKNS_5ShapeE">PointsToSet</dfn>(<em>const</em> <a class="type" href="../xla_data.pb.h.html#xla::Shape" title='xla::Shape' data-ref="xla::Shape">Shape</a>* <dfn class="local col9 decl" id="179shape" title='shape' data-type='const xla::Shape *' data-ref="179shape">shape</dfn>) : <a class="member" href="#xla::PointsToSet::tree_" title='xla::PointsToSet::tree_' data-ref="xla::PointsToSet::tree_">tree_</a><a class="ref" href="../shape_tree.h.html#_ZN3xla9ShapeTreeC1EPKNS_5ShapeE" title='xla::ShapeTree::ShapeTree&lt;T&gt;' data-ref="_ZN3xla9ShapeTreeC1EPKNS_5ShapeE">(</a><a class="local col9 ref" href="#179shape" title='shape' data-ref="179shape">shape</a>) {}</td></tr>
 <tr><th id="57">57</th><td></td></tr>
 <tr><th id="58">58</th><td>  <i>// Returns true if any points-to sets for any subshape element is not a</i></td></tr>
 <tr><th id="59">59</th><td><i>  // singleton.</i></td></tr>
@@ -345,6 +345,6 @@
 <tr><th id="331">331</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_COMPILER_XLA_SERVICE_TUPLE_POINTS_TO_ANALYSIS_H_</u></td></tr>
 <tr><th id="332">332</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='buffer_assignment.cc.html'>tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='buffer_assignment.cc.html'>tensorflow/tensorflow/compiler/xla/service/buffer_assignment.cc</a><br/>Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

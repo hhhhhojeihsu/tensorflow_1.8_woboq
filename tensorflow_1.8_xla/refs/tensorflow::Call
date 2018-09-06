@@ -2,19 +2,18 @@
 <fun r='_ZN10tensorflow4CallC1EMT_FvPNS_4CallIS1_T0_T1_T2_EEE'/>
 <fun r='_ZN10tensorflow4CallD1Ev'/>
 <fun r='_ZN10tensorflow4Call15RequestReceivedEPT_b'/>
-<fun r='_ZN10tensorflow4Call12SendResponseEN4grpc6StatusE'/>
+<fun r='_ZN10tensorflow4Call12SendResponseEi'/>
 <fun r='_ZN10tensorflow4Call16RequestCancelledEPT_b'/>
 <fun r='_ZN10tensorflow4Call17SetCancelCallbackESt8functionIFvvEE'/>
 <fun r='_ZN10tensorflow4Call19ClearCancelCallbackEv'/>
-<fun r='_ZN10tensorflow4Call14EnqueueRequestEPT0_PN4grpc21ServerCompletionQueueEMS1_FvPNS3_13ServerContextEPT1_PNS3_25ServerAsyncResponseWriterIT2_EEPNS3_15Co7181726'/>
-<fun r='_ZN10tensorflow4Call23EnqueueRequestForMethodEPT0_PN4grpc21ServerCompletionQueueEiMT_FvPNS_4CallIS6_S1_T1_T2_EEEb'/>
+<fun r='_ZN10tensorflow4Call14EnqueueRequestEPT0_PiMS1_FvS3_PT1_iEMT_FvPNS_4CallIS8_S1_S4_T2_EEEb'/>
+<fun r='_ZN10tensorflow4Call23EnqueueRequestForMethodEPT0_PiiMT_FvPNS_4CallIS4_S1_T1_T2_EEEb'/>
 <mbr r='tensorflow::Call::request' t='RequestMessage'/>
 <mbr r='tensorflow::Call::response' t='ResponseMessage'/>
 <fun r='_ZNK10tensorflow4Call15client_metadataEv'/>
 <fun r='_ZN10tensorflow4Call27RegisterCancellationHandlerEv'/>
 <mbr r='tensorflow::Call::handle_request_function_' t='HandleRequestFunction'/>
-<mbr r='tensorflow::Call::ctx_' t='::grpc::ServerContext'/>
-<mbr r='tensorflow::Call::responder_' t='::grpc::ServerAsyncResponseWriter&lt;ResponseMessage&gt;'/>
+<mbr r='tensorflow::Call::ctx_' t='int'/>
 <mbr r='tensorflow::Call::request_received_tag_' t='Tag'/>
 <mbr r='tensorflow::Call::response_sent_tag_' t='Tag'/>
 <mbr r='tensorflow::Call::cancelled_tag_' t='Tag'/>

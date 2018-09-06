@@ -2,10 +2,20 @@
 <def f='tensorflow/tensorflow/core/lib/strings/str_util.h' l='161' ll='169' type='string tensorflow::str_util::Join(const T &amp; s, const char * sep)'/>
 <use f='tensorflow/tensorflow/c/c_api.cc' l='447' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ValidateNoCyclesERKNS_5GraphE'/>
 <use f='tensorflow/tensorflow/compiler/xla/array.h' l='530' u='c' c='_ZNK3xla5Array8ToStringEv'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='132' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_119AddRewritesForShapeEiRKN3xla5ShapeEPSt6vectorISt4pairISsSsESaIS8_EE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='503' u='c' c='_ZN10tensorflow9tfcompile14GenerateHeaderERKNS0_11CodegenOptsERKNS_6tf2xla6ConfigERKNS0_13CompileResultERKNS0_14MetadataResultEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='517' u='c' c='_ZN10tensorflow9tfcompile14GenerateHeaderERKNS0_11CodegenOptsERKNS_6tf2xla6ConfigERKNS0_13CompileResultERKNS0_14MetadataResultEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='519' u='c' c='_ZN10tensorflow9tfcompile14GenerateHeaderERKNS0_11CodegenOptsERKNS_6tf2xla6ConfigERKNS0_13CompileResultERKNS0_14MetadataResultEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='503' u='c' c='_ZN10tensorflow9tfcompile14GenerateHeaderERKNS0_11CodegenOptsERKNS_6tf2xla6ConfigERKNS0_13CompileResultERKNS0_14MetadataResultEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='517' u='c' c='_ZN10tensorflow9tfcompile14GenerateHeaderERKNS0_11CodegenOptsERKNS_6tf2xla6ConfigERKNS0_13CompileResultERKNS0_14MetadataResultEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='519' u='c' c='_ZN10tensorflow9tfcompile14GenerateHeaderERKNS0_11CodegenOptsERKNS_6tf2xla6ConfigERKNS0_13CompileResultERKNS0_14MetadataResultEPSs'/>
+<use f='tensorflow/tensorflow/compiler/aot/tfcompile_main.cc' l='78' u='c' c='_ZN10tensorflow9tfcompile4MainERKNS0_9MainFlagsE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/bcast_ops.cc' l='54' u='c' c='_ZN10tensorflow12_GLOBAL__N_111BCastArgsOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/bcast_ops.cc' l='55' u='c' c='_ZN10tensorflow12_GLOBAL__N_111BCastArgsOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/bcast_ops.cc' l='108' u='c' c='_ZN10tensorflow12_GLOBAL__N_115BCastGradArgsOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/bcast_ops.cc' l='109' u='c' c='_ZN10tensorflow12_GLOBAL__N_115BCastGradArgsOp7CompileEPNS_18XlaOpKernelContextE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='199' u='c' c='_ZN10tensorflow12_GLOBAL__N_120RewriteAndPruneGraphEPNS_5GraphERKNS_6tf2xla6ConfigERKSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIKSsSsEEE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='200' u='c' c='_ZN10tensorflow12_GLOBAL__N_120RewriteAndPruneGraphEPNS_5GraphERKNS_6tf2xla6ConfigERKSt13unordered_mapISsSsSt4hashISsESt8equal_toISsESaISt4pairIKSsSsEEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='417' u='c' c='_ZN3xla18ComputationBuilder8CollapseERKNS_21ComputationDataHandleEN10tensorflow3gtl10ArraySliceIxEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/computation_builder.cc' l='434' u='c' c='_ZN3xla18ComputationBuilder8CollapseERKNS_21ComputationDataHandleEN10tensorflow3gtl10ArraySliceIxEE'/>
 <use f='tensorflow/tensorflow/compiler/xla/client/xla_client/xla_builder.cc' l='619' u='c' c='_ZN3xla10XlaBuilder8CollapseERKNS_5XlaOpEN10tensorflow3gtl10ArraySliceIxEE'/>
@@ -178,6 +188,7 @@
 <use f='tensorflow/tensorflow/core/profiler/tfprof_options.cc' l='207' u='c' c='_ZNK10tensorflow6tfprof7Options8ToStringEv'/>
 <use f='tensorflow/tensorflow/core/profiler/tfprof_options.cc' l='208' u='c' c='_ZNK10tensorflow6tfprof7Options8ToStringEv'/>
 <use f='tensorflow/tensorflow/core/profiler/tfprof_options.cc' l='210' u='c' c='_ZNK10tensorflow6tfprof7Options8ToStringEv'/>
+<use f='tensorflow/tensorflow/core/util/reporter.cc' l='67' u='c' c='_ZN10tensorflow12TestReporter10InitializeEv'/>
 <use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='318' u='c' c='_ZN10tensorflow22python_op_gen_internal10GetReturnsERKNS_5OpDefERKSt6vectorISsSaISsEE'/>
 <use f='tensorflow/tensorflow/python/framework/python_op_gen.cc' l='744' u='c' c='_ZN10tensorflow22python_op_gen_internal11GenPythonOp16AddOutputGlobalsEv'/>
 <use f='tensorflow/tensorflow/stream_executor/dso_loader.cc' l='209' u='c' c='_ZN9perftools8gputools8internal9DsoLoader11FindDsoPathEN10tensorflow11StringPieceES4_'/>

@@ -33,6 +33,7 @@
       // size that the allocator can hold.
       ///  Value returned by various member functions when they fail.</doc>
 <use f='tensorflow/tensorflow/c/eager/c_api.cc' l='64' u='r' c='_ZN12_GLOBAL__N_15IsXLAEPKN10tensorflow6DeviceE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='574' u='r' c='_ZN10tensorflow9tfcompile13ParseCppClassERKSsPSsPSt6vectorISsSaISsEE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/str_util.cc' l='27' u='r' c='_ZN10tensorflow8str_utilL10ReplaceAllEPSsNS_11StringPieceES2_'/>
 <use f='tensorflow/tensorflow/compiler/xla/legacy_flags/debug_options_parsers.h' l='39' u='r' c='_ZN3xla12legacy_flags4impl31parse_xla_backend_extra_optionsEPT_Ss'/>
 <use f='tensorflow/tensorflow/compiler/xla/legacy_flags/parse_flags_from_env.cc' l='76' u='r' c='_ZN3xla12legacy_flagsL11FindFirstOfERKSsPKcm'/>
@@ -46,7 +47,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/cluster_utils.cc' l='20' u='r' c='_ZN4toco11StrContainsERKSsS1_'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='262' u='r' c='_ZNK4toco18SvdfClusterFactory13CreateClusterERKN10tensorflow7NodeDefERKNS1_8GraphDefE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tensorflow_graph_matching/resolve_svdf.cc' l='264' u='r' c='_ZNK4toco18SvdfClusterFactory13CreateClusterERKN10tensorflow7NodeDefERKNS1_8GraphDefE'/>
-<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='313' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='843' u='r' c='_ZN4toco14CheckEachArrayERKNS_5ModelE'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='845' u='r' c='_ZN4toco14CheckEachArrayERKNS_5ModelE'/>
 <use f='tensorflow/tensorflow/core/common_runtime/step_stats_collector.cc' l='206' u='r' c='_ZN10tensorflow18StepStatsCollector14BuildCostModelEPNS_16CostModelManagerERKSt13unordered_mapISsPKNS_5GraphESt4hashISsESt8equal_toISsESaISt4pairIKSsS6_EEE'/>
@@ -82,6 +82,7 @@
 <use f='tensorflow/tensorflow/core/kernels/hexagon/hexagon_control_wrapper.cc' l='42' u='r' c='_ZN10tensorflowL7AddPortERKSs'/>
 <use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='521' u='r' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils18GetTensorShapeTypeERKSt18unordered_multimapISsSt4pairIiS2_INS_8DataTypeENS_11TensorShapeEEESt4hashISsES1446336'/>
 <use f='tensorflow/tensorflow/core/kernels/remote_fused_graph_execute_utils.cc' l='534' u='r' c='_ZN10tensorflow28RemoteFusedGraphExecuteUtils18GetTensorShapeTypeERKSt18unordered_multimapISsSt4pairIiS2_INS_8DataTypeENS_11TensorShapeEEESt4hashISsES12072355'/>
+<use f='include/c++/5/bits/locale_facets_nonio.tcc' l='313' c='_ZNKSt9money_get10_M_extractET0_S0_RSt8ios_baseRSt12_Ios_IostateRSs'/>
 <use f='tensorflow/tensorflow/core/lib/strings/str_util.cc' l='337' u='r' c='_ZN10tensorflow8str_util13StringReplaceENS_11StringPieceES1_S1_b'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/advisor/operation_checker.h' l='42' u='r' c='_ZN10tensorflow6tfprof16OperationChecker5CheckERKNS0_33AdvisorOptionsProto_CheckerOptionEPKNS0_7TFStatsE'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/tfprof_code.cc' l='56' u='r' c='_ZN10tensorflow6tfprof12_GLOBAL__N_110IsGradNodeERKSsPSs'/>

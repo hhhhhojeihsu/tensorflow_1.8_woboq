@@ -36,11 +36,11 @@
 <tr><th id="23">23</th><td></td></tr>
 <tr><th id="24">24</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
 <tr><th id="25">25</th><td></td></tr>
-<tr><th id="26">26</th><td><span class="namespace">error::</span><span class='type' title='tensorflow::error::Code' data-ref="tensorflow::error::Code">Code</span> <dfn class="decl def" id="_ZN10tensorflow11ErrnoToCodeEi" title='tensorflow::ErrnoToCode' data-ref="_ZN10tensorflow11ErrnoToCodeEi">ErrnoToCode</dfn>(<em>int</em> <dfn class="local col3 decl" id="3err_number" title='err_number' data-type='int' data-ref="3err_number">err_number</dfn>) {</td></tr>
-<tr><th id="27">27</th><td>  <span class="namespace">error::</span><span class='type' title='tensorflow::error::Code' data-ref="tensorflow::error::Code">Code</span> <dfn class="local col4 decl" id="4code" title='code' data-type='error::Code' data-ref="4code">code</dfn>;</td></tr>
+<tr><th id="26">26</th><td><span class="namespace">error::</span><a class="type" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code" title='tensorflow::error::Code' data-ref="tensorflow::error::Code">Code</a> <dfn class="decl def" id="_ZN10tensorflow11ErrnoToCodeEi" title='tensorflow::ErrnoToCode' data-ref="_ZN10tensorflow11ErrnoToCodeEi">ErrnoToCode</dfn>(<em>int</em> <dfn class="local col3 decl" id="3err_number" title='err_number' data-type='int' data-ref="3err_number">err_number</dfn>) {</td></tr>
+<tr><th id="27">27</th><td>  <span class="namespace">error::</span><a class="type" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code" title='tensorflow::error::Code' data-ref="tensorflow::error::Code">Code</a> <dfn class="local col4 decl" id="4code" title='code' data-type='error::Code' data-ref="4code">code</dfn>;</td></tr>
 <tr><th id="28">28</th><td>  <b>switch</b> (<a class="local col3 ref" href="#3err_number" title='err_number' data-ref="3err_number">err_number</a>) {</td></tr>
 <tr><th id="29">29</th><td>    <b>case</b> <var>0</var>:</td></tr>
-<tr><th id="30">30</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::OK' data-ref="tensorflow::error::Code::OK">OK</span>;</td></tr>
+<tr><th id="30">30</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::OK" title='tensorflow::error::Code::OK' data-ref="tensorflow::error::Code::OK">OK</a>;</td></tr>
 <tr><th id="31">31</th><td>      <b>break</b>;</td></tr>
 <tr><th id="32">32</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#25" title="22" data-ref="_M/EINVAL">EINVAL</a>:        <i>// Invalid argument</i></td></tr>
 <tr><th id="33">33</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#7" title="36" data-ref="_M/ENAMETOOLONG">ENAMETOOLONG</a>:  <i>// Filename too long</i></td></tr>
@@ -55,27 +55,27 @@
 <tr><th id="42">42</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#28" title="25" data-ref="_M/ENOTTY">ENOTTY</a>:        <i>// Inappropriate I/O control operation</i></td></tr>
 <tr><th id="43">43</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#73" title="91" data-ref="_M/EPROTOTYPE">EPROTOTYPE</a>:    <i>// Protocol wrong type for socket</i></td></tr>
 <tr><th id="44">44</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#32" title="29" data-ref="_M/ESPIPE">ESPIPE</a>:        <i>// Invalid seek</i></td></tr>
-<tr><th id="45">45</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::INVALID_ARGUMENT' data-ref="tensorflow::error::Code::INVALID_ARGUMENT">INVALID_ARGUMENT</span>;</td></tr>
+<tr><th id="45">45</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::INVALID_ARGUMENT" title='tensorflow::error::Code::INVALID_ARGUMENT' data-ref="tensorflow::error::Code::INVALID_ARGUMENT">INVALID_ARGUMENT</a>;</td></tr>
 <tr><th id="46">46</th><td>      <b>break</b>;</td></tr>
 <tr><th id="47">47</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#92" title="110" data-ref="_M/ETIMEDOUT">ETIMEDOUT</a>:  <i>// Connection timed out</i></td></tr>
 <tr><th id="48">48</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#44" title="62" data-ref="_M/ETIME">ETIME</a>:      <i>// Timer expired</i></td></tr>
-<tr><th id="49">49</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::DEADLINE_EXCEEDED' data-ref="tensorflow::error::Code::DEADLINE_EXCEEDED">DEADLINE_EXCEEDED</span>;</td></tr>
+<tr><th id="49">49</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::DEADLINE_EXCEEDED" title='tensorflow::error::Code::DEADLINE_EXCEEDED' data-ref="tensorflow::error::Code::DEADLINE_EXCEEDED">DEADLINE_EXCEEDED</a>;</td></tr>
 <tr><th id="50">50</th><td>      <b>break</b>;</td></tr>
 <tr><th id="51">51</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#22" title="19" data-ref="_M/ENODEV">ENODEV</a>:  <i>// No such device</i></td></tr>
 <tr><th id="52">52</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#5" title="2" data-ref="_M/ENOENT">ENOENT</a>:  <i>// No such file or directory</i></td></tr>
 <tr><th id="53">53</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#9" title="6" data-ref="_M/ENXIO">ENXIO</a>:   <i>// No such device or address</i></td></tr>
 <tr><th id="54">54</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#6" title="3" data-ref="_M/ESRCH">ESRCH</a>:   <i>// No such process</i></td></tr>
-<tr><th id="55">55</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::NOT_FOUND' data-ref="tensorflow::error::Code::NOT_FOUND">NOT_FOUND</span>;</td></tr>
+<tr><th id="55">55</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::NOT_FOUND" title='tensorflow::error::Code::NOT_FOUND' data-ref="tensorflow::error::Code::NOT_FOUND">NOT_FOUND</a>;</td></tr>
 <tr><th id="56">56</th><td>      <b>break</b>;</td></tr>
 <tr><th id="57">57</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#20" title="17" data-ref="_M/EEXIST">EEXIST</a>:         <i>// File exists</i></td></tr>
 <tr><th id="58">58</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#81" title="99" data-ref="_M/EADDRNOTAVAIL">EADDRNOTAVAIL</a>:  <i>// Address not available</i></td></tr>
 <tr><th id="59">59</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#96" title="114" data-ref="_M/EALREADY">EALREADY</a>:       <i>// Connection already in progress</i></td></tr>
-<tr><th id="60">60</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::ALREADY_EXISTS' data-ref="tensorflow::error::Code::ALREADY_EXISTS">ALREADY_EXISTS</span>;</td></tr>
+<tr><th id="60">60</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::ALREADY_EXISTS" title='tensorflow::error::Code::ALREADY_EXISTS' data-ref="tensorflow::error::Code::ALREADY_EXISTS">ALREADY_EXISTS</a>;</td></tr>
 <tr><th id="61">61</th><td>      <b>break</b>;</td></tr>
 <tr><th id="62">62</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#4" title="1" data-ref="_M/EPERM">EPERM</a>:   <i>// Operation not permitted</i></td></tr>
 <tr><th id="63">63</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#16" title="13" data-ref="_M/EACCES">EACCES</a>:  <i>// Permission denied</i></td></tr>
 <tr><th id="64">64</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#33" title="30" data-ref="_M/EROFS">EROFS</a>:   <i>// Read only file system</i></td></tr>
-<tr><th id="65">65</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::PERMISSION_DENIED' data-ref="tensorflow::error::Code::PERMISSION_DENIED">PERMISSION_DENIED</span>;</td></tr>
+<tr><th id="65">65</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::PERMISSION_DENIED" title='tensorflow::error::Code::PERMISSION_DENIED' data-ref="tensorflow::error::Code::PERMISSION_DENIED">PERMISSION_DENIED</a>;</td></tr>
 <tr><th id="66">66</th><td>      <b>break</b>;</td></tr>
 <tr><th id="67">67</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#19" title="39" data-ref="_M/ENOTEMPTY">ENOTEMPTY</a>:   <i>// Directory not empty</i></td></tr>
 <tr><th id="68">68</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#24" title="21" data-ref="_M/EISDIR">EISDIR</a>:      <i>// Is a directory</i></td></tr>
@@ -94,7 +94,7 @@
 <tr><th id="81">81</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#90" title="108" data-ref="_M/ESHUTDOWN">ESHUTDOWN</a>:  <i>// Cannot send after transport endpoint shutdown</i></td></tr>
 <tr><th id="82">82</th><td><u>#<span data-ppcond="80">endif</span></u></td></tr>
 <tr><th id="83">83</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#29" title="26" data-ref="_M/ETXTBSY">ETXTBSY</a>:  <i>// Text file busy</i></td></tr>
-<tr><th id="84">84</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::FAILED_PRECONDITION' data-ref="tensorflow::error::Code::FAILED_PRECONDITION">FAILED_PRECONDITION</span>;</td></tr>
+<tr><th id="84">84</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::FAILED_PRECONDITION" title='tensorflow::error::Code::FAILED_PRECONDITION' data-ref="tensorflow::error::Code::FAILED_PRECONDITION">FAILED_PRECONDITION</a>;</td></tr>
 <tr><th id="85">85</th><td>      <b>break</b>;</td></tr>
 <tr><th id="86">86</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#31" title="28" data-ref="_M/ENOSPC">ENOSPC</a>:  <i>// No space left on device</i></td></tr>
 <tr><th id="87">87</th><td><u>#<span data-ppcond="87">if</span> !defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)</u></td></tr>
@@ -110,12 +110,12 @@
 <tr><th id="97">97</th><td><u>#<span data-ppcond="97">if</span> !defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>) &amp;&amp; !defined(<span class="macro" data-ref="_M/__HAIKU__">__HAIKU__</span>)</u></td></tr>
 <tr><th id="98">98</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#69" title="87" data-ref="_M/EUSERS">EUSERS</a>:  <i>// Too many users</i></td></tr>
 <tr><th id="99">99</th><td><u>#<span data-ppcond="97">endif</span></u></td></tr>
-<tr><th id="100">100</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::RESOURCE_EXHAUSTED' data-ref="tensorflow::error::Code::RESOURCE_EXHAUSTED">RESOURCE_EXHAUSTED</span>;</td></tr>
+<tr><th id="100">100</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::RESOURCE_EXHAUSTED" title='tensorflow::error::Code::RESOURCE_EXHAUSTED' data-ref="tensorflow::error::Code::RESOURCE_EXHAUSTED">RESOURCE_EXHAUSTED</a>;</td></tr>
 <tr><th id="101">101</th><td>      <b>break</b>;</td></tr>
 <tr><th id="102">102</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#30" title="27" data-ref="_M/EFBIG">EFBIG</a>:      <i>// File too large</i></td></tr>
 <tr><th id="103">103</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#57" title="75" data-ref="_M/EOVERFLOW">EOVERFLOW</a>:  <i>// Value too large to be stored in data type</i></td></tr>
 <tr><th id="104">104</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#37" title="34" data-ref="_M/ERANGE">ERANGE</a>:     <i>// Result too large</i></td></tr>
-<tr><th id="105">105</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::OUT_OF_RANGE' data-ref="tensorflow::error::Code::OUT_OF_RANGE">OUT_OF_RANGE</span>;</td></tr>
+<tr><th id="105">105</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::OUT_OF_RANGE" title='tensorflow::error::Code::OUT_OF_RANGE' data-ref="tensorflow::error::Code::OUT_OF_RANGE">OUT_OF_RANGE</a>;</td></tr>
 <tr><th id="106">106</th><td>      <b>break</b>;</td></tr>
 <tr><th id="107">107</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#17" title="38" data-ref="_M/ENOSYS">ENOSYS</a>:        <i>// Function not implemented</i></td></tr>
 <tr><th id="108">108</th><td>    <b>case</b> <a class="macro" href="../../../../../include/x86_64-linux-gnu/bits/errno.h.html#27" title="95" data-ref="_M/ENOTSUP">ENOTSUP</a>:       <i>// Operation not supported</i></td></tr>
@@ -128,7 +128,7 @@
 <tr><th id="115">115</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#76" title="94" data-ref="_M/ESOCKTNOSUPPORT">ESOCKTNOSUPPORT</a>:  <i>// Socket type not supported</i></td></tr>
 <tr><th id="116">116</th><td><u>#<span data-ppcond="114">endif</span></u></td></tr>
 <tr><th id="117">117</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#21" title="18" data-ref="_M/EXDEV">EXDEV</a>:  <i>// Improper link</i></td></tr>
-<tr><th id="118">118</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::UNIMPLEMENTED' data-ref="tensorflow::error::Code::UNIMPLEMENTED">UNIMPLEMENTED</span>;</td></tr>
+<tr><th id="118">118</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::UNIMPLEMENTED" title='tensorflow::error::Code::UNIMPLEMENTED' data-ref="tensorflow::error::Code::UNIMPLEMENTED">UNIMPLEMENTED</a>;</td></tr>
 <tr><th id="119">119</th><td>      <b>break</b>;</td></tr>
 <tr><th id="120">120</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno-base.h.html#14" title="11" data-ref="_M/EAGAIN">EAGAIN</a>:        <i>// Resource temporarily unavailable</i></td></tr>
 <tr><th id="121">121</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#93" title="111" data-ref="_M/ECONNREFUSED">ECONNREFUSED</a>:  <i>// Connection refused</i></td></tr>
@@ -148,16 +148,16 @@
 <tr><th id="135">135</th><td><u>      defined(<span class="macro" data-ref="_M/__HAIKU__">__HAIKU__</span>))</u></td></tr>
 <tr><th id="136">136</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#46" title="64" data-ref="_M/ENONET">ENONET</a>:  <i>// Machine is not on the network</i></td></tr>
 <tr><th id="137">137</th><td><u>#<span data-ppcond="134">endif</span></u></td></tr>
-<tr><th id="138">138</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::UNAVAILABLE' data-ref="tensorflow::error::Code::UNAVAILABLE">UNAVAILABLE</span>;</td></tr>
+<tr><th id="138">138</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::UNAVAILABLE" title='tensorflow::error::Code::UNAVAILABLE' data-ref="tensorflow::error::Code::UNAVAILABLE">UNAVAILABLE</a>;</td></tr>
 <tr><th id="139">139</th><td>      <b>break</b>;</td></tr>
 <tr><th id="140">140</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#6" title="35" data-ref="_M/EDEADLK">EDEADLK</a>:  <i>// Resource deadlock avoided</i></td></tr>
 <tr><th id="141">141</th><td><u>#<span data-ppcond="141">if</span> !defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>)</u></td></tr>
 <tr><th id="142">142</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#98" title="116" data-ref="_M/ESTALE">ESTALE</a>:  <i>// Stale file handle</i></td></tr>
 <tr><th id="143">143</th><td><u>#<span data-ppcond="141">endif</span></u></td></tr>
-<tr><th id="144">144</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::ABORTED' data-ref="tensorflow::error::Code::ABORTED">ABORTED</span>;</td></tr>
+<tr><th id="144">144</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::ABORTED" title='tensorflow::error::Code::ABORTED' data-ref="tensorflow::error::Code::ABORTED">ABORTED</a>;</td></tr>
 <tr><th id="145">145</th><td>      <b>break</b>;</td></tr>
 <tr><th id="146">146</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#108" title="125" data-ref="_M/ECANCELED">ECANCELED</a>:  <i>// Operation cancelled</i></td></tr>
-<tr><th id="147">147</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::CANCELLED' data-ref="tensorflow::error::Code::CANCELLED">CANCELLED</span>;</td></tr>
+<tr><th id="147">147</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::CANCELLED" title='tensorflow::error::Code::CANCELLED' data-ref="tensorflow::error::Code::CANCELLED">CANCELLED</a>;</td></tr>
 <tr><th id="148">148</th><td>      <b>break</b>;</td></tr>
 <tr><th id="149">149</th><td>    <i>// NOTE: If you get any of the following (especially in a</i></td></tr>
 <tr><th id="150">150</th><td><i>    // reproducible way) and can propose a better mapping,</i></td></tr>
@@ -173,10 +173,10 @@
 <tr><th id="160">160</th><td><u>#<span data-ppcond="160">if</span> !defined(<span class="macro" data-ref="_M/_WIN32">_WIN32</span>) &amp;&amp; !defined(<span class="macro" data-ref="_M/__HAIKU__">__HAIKU__</span>)</u></td></tr>
 <tr><th id="161">161</th><td>    <b>case</b> <a class="macro" href="../../../../../include/asm-generic/errno.h.html#48" title="66" data-ref="_M/EREMOTE">EREMOTE</a>:  <i>// Object is remote</i></td></tr>
 <tr><th id="162">162</th><td><u>#<span data-ppcond="160">endif</span></u></td></tr>
-<tr><th id="163">163</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::UNKNOWN' data-ref="tensorflow::error::Code::UNKNOWN">UNKNOWN</span>;</td></tr>
+<tr><th id="163">163</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::UNKNOWN" title='tensorflow::error::Code::UNKNOWN' data-ref="tensorflow::error::Code::UNKNOWN">UNKNOWN</a>;</td></tr>
 <tr><th id="164">164</th><td>      <b>break</b>;</td></tr>
 <tr><th id="165">165</th><td>    <b>default</b>: {</td></tr>
-<tr><th id="166">166</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><span class='enum' title='tensorflow::error::Code::UNKNOWN' data-ref="tensorflow::error::Code::UNKNOWN">UNKNOWN</span>;</td></tr>
+<tr><th id="166">166</th><td>      <a class="local col4 ref" href="#4code" title='code' data-ref="4code">code</a> = <span class="namespace">error::</span><a class="enum" href="../../lib/core/error_codes.pb.h.html#tensorflow::error::Code::UNKNOWN" title='tensorflow::error::Code::UNKNOWN' data-ref="tensorflow::error::Code::UNKNOWN">UNKNOWN</a>;</td></tr>
 <tr><th id="167">167</th><td>      <b>break</b>;</td></tr>
 <tr><th id="168">168</th><td>    }</td></tr>
 <tr><th id="169">169</th><td>  }</td></tr>
@@ -191,6 +191,6 @@
 <tr><th id="178">178</th><td>}  <i>// namespace tensorflow</i></td></tr>
 <tr><th id="179">179</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>

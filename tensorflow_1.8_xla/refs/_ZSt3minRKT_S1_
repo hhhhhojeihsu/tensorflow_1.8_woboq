@@ -20,6 +20,8 @@
 <use f='tensorflow/tensorflow/c/c_api.cc' l='1835' u='c' c='TF_OperationGetAttrTensorShapeProtoList'/>
 <use f='tensorflow/tensorflow/c/c_api.cc' l='1864' u='c' c='TF_OperationGetAttrTensorList'/>
 <use f='tensorflow/tensorflow/c/c_api_function.cc' l='574' u='c' c='TF_GraphGetFunctions'/>
+<use f='include/c++/5/bitset' l='1387' u='c' c='_ZNSt6bitset16_M_copy_from_ptrEPKT_mmmS0_S0_'/>
+<use f='include/c++/5/bitset' l='1387' u='c' c='_ZNSt6bitset16_M_copy_from_ptrEPKT_mmmS0_S0_'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/cwise_ops.cc' l='68' u='c' c='_ZN10tensorflow11XlaBinaryOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/diag_op.cc' l='250' u='c' c='_ZN10tensorflow12_GLOBAL__N_116MatrixDiagPartOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/matrix_set_diag_op.cc' l='43' u='c' c='_ZN10tensorflow15MatrixSetDiagOp7CompileEPNS_18XlaOpKernelContextE'/>
@@ -36,8 +38,6 @@
 <use f='tensorflow/tensorflow/compiler/tf2xla/lib/triangular_solve.cc' l='266' u='c' c='_ZN10tensorflow15TriangularSolveEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleES3_bbbbx'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/lib/triangular_solve.cc' l='316' u='c' c='_ZN10tensorflow15TriangularSolveEPN3xla18ComputationBuilderERKNS0_21ComputationDataHandleES3_bbbbx'/>
 <use f='tensorflow/tensorflow/compiler/xla/metric_table_report.cc' l='162' u='c' c='_ZN3xla17MetricTableReport19AppendCategoryTableEv'/>
-<use f='include/c++/5/bitset' l='1387' u='c' c='_ZNSt6bitset16_M_copy_from_ptrEPKT_mmmS0_S0_'/>
-<use f='include/c++/5/bitset' l='1387' u='c' c='_ZNSt6bitset16_M_copy_from_ptrEPKT_mmmS0_S0_'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/cpu/disassembler.cc' l='121' u='c' c='_ZNK3xla3cpu12Disassembler21DisassembleObjectFileERKN4llvm6object10ObjectFileE'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/cpu/ir_emitter.cc' l='820' u='c' c='_ZN3xla3cpu9IrEmitter9HandleDotEPNS_14HloInstructionE'/>
 <use f='tensorflow/tensorflow/compiler/xla/service/cpu/parallel_task_assignment.cc' l='40' u='c' c='_ZN3xla3cpu15SimpleCostModel20GetParallelTaskCountEPNS_14HloInstructionE'/>
@@ -76,10 +76,6 @@
 <use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_concatenation.cc' l='122' u='c' c='_ZN4toco12_GLOBAL__N_127SetMinMaxForConcatenedArrayERKSt6vectorIPNS_5ArrayESaIS3_EES3_'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_fake_quant.cc' l='65' u='c' c='_ZN4toco24ResolveConstantFakeQuant3RunEPNS_5ModelEm'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/graph_transformations/resolve_constant_unary.cc' l='207' u='c' c='_ZN4toco28ResolveConstantUnaryOperator3RunEPNS_5ModelEm'/>
-<use f='include/c++/5/bits/fstream.tcc' l='396' u='c' c='_ZNSt13basic_filebuf9underflowEv'/>
-<use f='include/c++/5/bits/fstream.tcc' l='742' u='c' c='_ZNSt13basic_filebuf6xsputnEPKT_l'/>
-<use f='include/c++/5/bits/locale_conv.h' l='423' u='c' c='_ZNSt15wbuffer_convert11_M_conv_getEv'/>
-<use f='include/c++/5/bits/locale_conv.h' l='429' u='c' c='_ZNSt15wbuffer_convert11_M_conv_getEv'/>
 <use f='tensorflow/tensorflow/contrib/lite/toco/tooling_util.cc' l='45' u='c' c='_ZN4toco23FindLongestCommonPrefixEN4absl11string_viewES1_'/>
 <use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.cc' l='307' u='c' c='_ZN10tensorflow12tensorforest41BestSplitDominatesClassificationBootstrapERKNS_6TensorES3_ifPNS_6random12SimplePhiloxE'/>
 <use f='tensorflow/tensorflow/contrib/tensor_forest/kernels/tree_utils.cc' l='493' u='c' c='_ZN10tensorflow12tensorforest19getChebyshevEpsilonERKSt6vectorIfSaIfEES5_'/>
@@ -244,7 +240,11 @@
 <use f='tensorflow/tensorflow/core/lib/jpeg/jpeg_mem.cc' l='128' u='c' c='_ZN10tensorflow4jpeg12_GLOBAL__N_113UncompressLowEPKvPNS1_20FewerArgsForCompilerE'/>
 <use f='tensorflow/tensorflow/core/lib/jpeg/jpeg_mem.cc' l='500' u='c' c='_ZN10tensorflow4jpeg10UncompressEPKviRKNS0_15UncompressFlagsEPxSt8functionIFPhiiiEE'/>
 <use f='tensorflow/tensorflow/core/lib/jpeg/jpeg_mem.cc' l='633' u='c' c='_ZN10tensorflow4jpeg12_GLOBAL__N_116CompressInternalEPKhiiRKNS0_13CompressFlagsEPSs'/>
+<use f='include/c++/5/bits/locale_conv.h' l='423' u='c' c='_ZNSt15wbuffer_convert11_M_conv_getEv'/>
+<use f='include/c++/5/bits/locale_conv.h' l='429' u='c' c='_ZNSt15wbuffer_convert11_M_conv_getEv'/>
 <use f='tensorflow/tensorflow/core/lib/wav/wav_io.cc' l='75' u='c' c='_ZN10tensorflow3wav12_GLOBAL__N_118FloatToInt16SampleEf'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='237' u='c' c='_ZN10tensorflow7testing9Benchmark3RunEiiPiPd'/>
+<use f='tensorflow/tensorflow/core/platform/default/test_benchmark.cc' l='240' u='c' c='_ZN10tensorflow7testing9Benchmark3RunEiiPiPd'/>
 <use f='tensorflow/tensorflow/core/platform/file_system_helper.cc' l='45' u='c' c='_ZN10tensorflow8internal12_GLOBAL__N_17ForEachEiiRKSt8functionIFviEE'/>
 <use f='tensorflow/tensorflow/core/platform/posix/env.cc' l='71' u='c' c='_ZN10tensorflow12_GLOBAL__N_18PosixEnv20SleepForMicrosecondsEx'/>
 <use f='tensorflow/tensorflow/core/profiler/internal/advisor/accelerator_utilization_checker.h' l='95' u='c' c='_ZN10tensorflow6tfprof29AcceleratorUtilizationChecker14BuildExecStatsEPKNS0_11TFGraphNodeE'/>

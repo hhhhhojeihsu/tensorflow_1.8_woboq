@@ -9,6 +9,7 @@
 <use f='tensorflow/tensorflow/c/eager/c_api.cc' l='276' u='c' c='TFE_OpGetAttrType'/>
 <use f='tensorflow/tensorflow/c/eager/runtime.cc' l='88' u='c' c='_ZN10tensorflow16AttrTypeMapForOpEPKcPPKSt13unordered_mapISsjSt4hashISsESt8equal_toISsESaISt4pairIKSsjEEE'/>
 <use f='tensorflow/tensorflow/cc/framework/gradients.cc' l='397' u='c' c='_ZN10tensorflow12_GLOBAL__N_123SymbolicGradientBuilder16ProcessWhileLoopEPNS_4NodeERKNS_6OutputE'/>
+<use f='tensorflow/tensorflow/compiler/aot/codegen.cc' l='82' u='c' c='_ZN10tensorflow9tfcompile12_GLOBAL__N_112XLATypeToCppEN3xla13PrimitiveTypeEPSs'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='453' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeLoopEPNS_5GraphEPNS0_5FrameEPNS_25FunctionLibraryDefinitionE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/functionalize_control_flow.cc' l='1322' u='c' c='_ZN10tensorflow12_GLOBAL__N_117FunctionalizeCond14AddOutputEdgesERKSt6vectorIPNS_4NodeESaIS4_EES4_'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/bcast_ops.cc' l='40' u='c' c='_ZN10tensorflow12_GLOBAL__N_111BCastArgsOp7CompileEPNS_18XlaOpKernelContextE'/>
@@ -32,6 +33,7 @@
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/if_op.cc' l='68' u='c' c='_ZN10tensorflow7XlaIfOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='256' u='c' c='_ZN10tensorflow12_GLOBAL__N_116ResizeBilinearOpC1EPNS_20OpKernelConstructionE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/image_resize_ops.cc' l='363' u='c' c='_ZN10tensorflow12_GLOBAL__N_120ResizeBilinearGradOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/kernels/index_ops_cpu.cc' l='104' u='c' c='_ZN10tensorflow12_GLOBAL__N_118ArgMaxCustomCallOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/core/kernels/pooling_ops_common.h' l='105' u='c' c='_ZN10tensorflow12MaxPoolingOpC1EPNS_20OpKernelConstructionE'/>
 <use f='tensorflow/tensorflow/core/kernels/pooling_ops_common.h' l='125' u='c' c='_ZN10tensorflow12MaxPoolingOp7ComputeEPNS_15OpKernelContextE'/>
 <use f='tensorflow/tensorflow/core/kernels/pooling_ops_common.h' l='130' u='c' c='_ZN10tensorflow12MaxPoolingOp7ComputeEPNS_15OpKernelContextE'/>
@@ -43,6 +45,7 @@
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='282' u='c' c='_ZN10tensorflow12_GLOBAL__N_120StridedSliceAssignOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/strided_slice_op.cc' l='295' u='c' c='_ZN10tensorflow12_GLOBAL__N_120StridedSliceAssignOp7CompileEPNS_18XlaOpKernelContextE'/>
 <use f='tensorflow/tensorflow/compiler/tf2xla/kernels/tensor_array_ops.cc' l='146' u='c' c='_ZN10tensorflow12_GLOBAL__N_113TensorArrayOpC1EPNS_20OpKernelConstructionE'/>
+<use f='tensorflow/tensorflow/compiler/tf2xla/tf2xla.cc' l='296' u='c' c='_ZN10tensorflow12_GLOBAL__N_117ConvertGraphToXlaESt10unique_ptrINS_5GraphESt14default_deleteIS2_EEPN3xla6ClientEPNS6_11ComputationE'/>
 <use f='tensorflow/tensorflow/compiler/xla/util.cc' l='92' u='c' c='_ZN3xla13UnimplementedEPKcz'/>
 <use f='tensorflow/tensorflow/core/framework/dataset.h' l='383' u='c' c='_ZN10tensorflow12IteratorBase12SaveInternalEPNS_19IteratorStateWriterE'/>
 <use f='tensorflow/tensorflow/core/framework/dataset.h' l='389' u='c' c='_ZN10tensorflow12IteratorBase15RestoreInternalEPNS_15IteratorContextEPNS_19IteratorStateReaderE'/>
@@ -66,7 +69,6 @@
 <use f='tensorflow/tensorflow/core/distributed_runtime/cluster_function_library_runtime.cc' l='42' u='c' c='_ZN10tensorflow29ClusterFunctionLibraryRuntime22ConstructFunctionGraphERKNS_5OpDefENS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPNS15775531'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/cluster_function_library_runtime.cc' l='88' u='c' c='_ZN10tensorflow29ClusterFunctionLibraryRuntime22ConstructFunctionGraphERKNS_5OpDefENS_9AttrSliceERKNS_22FunctionLibraryRuntime18InstantiateOptionsEPNS15775531'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/master_interface.h' l='46' u='c' c='_ZN10tensorflow15MasterInterface15PartialRunSetupEPNS_11CallOptionsEPKNS_22PartialRunSetupRequestEPNS_23PartialRunSetupResponseE'/>
-<use f='tensorflow/tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc' l='352' u='c' c='_ZN10tensorflow10GrpcServer4StopEv'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='303' u='c' c='_ZN10tensorflow6Worker12LoggingAsyncEPKNS_14LoggingRequestEPNS_15LoggingResponseESt8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='308' u='c' c='_ZN10tensorflow6Worker12TracingAsyncEPKNS_14TracingRequestEPNS_15TracingResponseESt8functionIFvRKNS_6StatusEEE'/>
 <use f='tensorflow/tensorflow/core/distributed_runtime/worker.cc' l='338' u='c' c='_ZN10tensorflow6Worker15RecvTensorAsyncEPNS_11CallOptionsEPKNS_17RecvTensorRequestEPNS_14TensorResponseESt8functionIFvRKNS_6StatusEEE'/>

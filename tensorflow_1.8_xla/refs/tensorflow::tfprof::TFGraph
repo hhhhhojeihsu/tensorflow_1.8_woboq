@@ -1,6 +1,6 @@
 <inh f='tensorflow/tensorflow/core/profiler/internal/tfprof_show.h' l='40' c='tensorflow::tfprof::TFShow'/>
 <def f='tensorflow/tensorflow/core/profiler/internal/tfprof_graph.h' l='43' ll='84'/>
-<size>192</size>
+<size>1</size>
 <doc f='tensorflow/tensorflow/core/profiler/internal/tfprof_graph.h' l='41'>// Organize tensorflow ops in a graph structure, pointing from output ops
 // to input ops.</doc>
 <fun r='_ZN10tensorflow6tfprof7TFGraphC1EPNS_10checkpoint16CheckpointReaderE'/>
@@ -14,8 +14,8 @@
 <fun r='_ZN10tensorflow6tfprof7TFGraph10PrintGraphESt6vectorIPNS0_9GraphNodeESaIS4_EERKNS0_7OptionsEiiPSt3setISsSt4lessISsESaISsEE'/>
 <fun r='_ZN10tensorflow6tfprof7TFGraph7AccountERKSt6vectorIPNS0_9GraphNodeESaIS4_EERKNS0_7OptionsEPSt3setISsSt4lessISsESaISsEE'/>
 <fun r='_ZN10tensorflow6tfprof7TFGraph6FormatESt6vectorIPNS0_9GraphNodeESaIS4_EEPSsPNS0_14GraphNodeProtoE'/>
-<mbr r='tensorflow::tfprof::TFGraph::memory_tracker_' o='128' t='tensorflow::tfprof::MemoryTracker'/>
-<mbr r='tensorflow::tfprof::TFGraph::root_' o='512' t='tensorflow::tfprof::GraphNode *'/>
-<mbr r='tensorflow::tfprof::TFGraph::node_defs_' o='576' t='std::vector&lt;std::unique_ptr&lt;NodeDef&gt; &gt;'/>
-<mbr r='tensorflow::tfprof::TFGraph::parent_nodes_' o='768' t='std::map&lt;string, std::unique_ptr&lt;TFGraphNode&gt; &gt;'/>
-<mbr r='tensorflow::tfprof::TFGraph::nodes_map_' o='1152' t='std::map&lt;string, std::unique_ptr&lt;GraphNode&gt; &gt;'/>
+<mbr r='tensorflow::tfprof::TFGraph::memory_tracker_' t='tensorflow::tfprof::MemoryTracker'/>
+<mbr r='tensorflow::tfprof::TFGraph::root_' t='tensorflow::tfprof::GraphNode *'/>
+<mbr r='tensorflow::tfprof::TFGraph::node_defs_' t='std::vector&lt;std::unique_ptr&lt;NodeDef&gt; &gt;'/>
+<mbr r='tensorflow::tfprof::TFGraph::parent_nodes_' t='std::map&lt;string, std::unique_ptr&lt;TFGraphNode&gt; &gt;'/>
+<mbr r='tensorflow::tfprof::TFGraph::nodes_map_' t='std::map&lt;string, std::unique_ptr&lt;GraphNode&gt; &gt;'/>

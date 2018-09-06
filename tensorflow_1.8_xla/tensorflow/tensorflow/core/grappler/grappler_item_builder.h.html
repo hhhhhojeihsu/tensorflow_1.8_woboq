@@ -33,12 +33,12 @@
 <tr><th id="19">19</th><td><u>#include <a href="../../../../include/c++/5/memory.html">&lt;memory&gt;</a></u></td></tr>
 <tr><th id="20">20</th><td><u>#include <a href="../../../../include/c++/5/set.html">&lt;set&gt;</a></u></td></tr>
 <tr><th id="21">21</th><td><u>#include <a href="../../../../include/c++/5/string.html">&lt;string&gt;</a></u></td></tr>
-<tr><th id="22">22</th><td><u>#include "tensorflow/core/framework/attr_value.pb.h"</u></td></tr>
+<tr><th id="22">22</th><td><u>#include <a href="../framework/attr_value.pb.h.html">"tensorflow/core/framework/attr_value.pb.h"</a></u></td></tr>
 <tr><th id="23">23</th><td><u>#include <a href="grappler_item.h.html">"tensorflow/core/grappler/grappler_item.h"</a></u></td></tr>
 <tr><th id="24">24</th><td></td></tr>
 <tr><th id="25">25</th><td><b>namespace</b> <span class="namespace">tensorflow</span> {</td></tr>
 <tr><th id="26">26</th><td></td></tr>
-<tr><th id="27">27</th><td><b>class</b> <dfn class='type' title='tensorflow::MetaGraphDef' data-ref="tensorflow::MetaGraphDef" id="tensorflow::MetaGraphDef">MetaGraphDef</dfn>;</td></tr>
+<tr><th id="27">27</th><td><b>class</b> <a class="type" href="../protobuf/meta_graph.pb.h.html#tensorflow::MetaGraphDef" title='tensorflow::MetaGraphDef' data-ref="tensorflow::MetaGraphDef" id="tensorflow::MetaGraphDef">MetaGraphDef</a>;</td></tr>
 <tr><th id="28">28</th><td></td></tr>
 <tr><th id="29">29</th><td><b>namespace</b> <span class="namespace">grappler</span> {</td></tr>
 <tr><th id="30">30</th><td></td></tr>
@@ -68,7 +68,7 @@
 <tr><th id="54">54</th><td><i>// Factory method for creating a GrapplerItem from a MetaGraphDef.</i></td></tr>
 <tr><th id="55">55</th><td><i>// Returns nullptr if the given meta_graph cannot be converted.</i></td></tr>
 <tr><th id="56">56</th><td><span class="namespace">std::</span><a class="type" href="../../../../include/c++/5/bits/unique_ptr.h.html#std::unique_ptr" title='std::unique_ptr' data-ref="std::unique_ptr">unique_ptr</a>&lt;<a class="type" href="grappler_item.h.html#tensorflow::grappler::GrapplerItem" title='tensorflow::grappler::GrapplerItem' data-ref="tensorflow::grappler::GrapplerItem">GrapplerItem</a>&gt; <a class="decl" href="grappler_item_builder.cc.html#_ZN10tensorflow8grappler28GrapplerItemFromMetaGraphDefERKSsRKNS_12MetaGraphDefERKNS0_10ItemConfigE" title='tensorflow::grappler::GrapplerItemFromMetaGraphDef' data-ref="_ZN10tensorflow8grappler28GrapplerItemFromMetaGraphDefERKSsRKNS_12MetaGraphDefERKNS0_10ItemConfigE" id="_ZN10tensorflow8grappler28GrapplerItemFromMetaGraphDefERKSsRKNS_12MetaGraphDefERKNS0_10ItemConfigE">GrapplerItemFromMetaGraphDef</a>(</td></tr>
-<tr><th id="57">57</th><td>    <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="1id" title='id' data-type='const string &amp;' data-ref="1id">id</dfn>, <em>const</em> <span class='type' title='tensorflow::MetaGraphDef' data-ref="tensorflow::MetaGraphDef">MetaGraphDef</span>&amp; <dfn class="local col2 decl" id="2meta_graph" title='meta_graph' data-type='const tensorflow::MetaGraphDef &amp;' data-ref="2meta_graph">meta_graph</dfn>, <em>const</em> <a class="type" href="#tensorflow::grappler::ItemConfig" title='tensorflow::grappler::ItemConfig' data-ref="tensorflow::grappler::ItemConfig">ItemConfig</a>&amp; <dfn class="local col3 decl" id="3cfg" title='cfg' data-type='const tensorflow::grappler::ItemConfig &amp;' data-ref="3cfg">cfg</dfn>);</td></tr>
+<tr><th id="57">57</th><td>    <em>const</em> <a class="typedef" href="../../../../include/c++/5/bits/stringfwd.h.html#std::string" title='std::string' data-type='basic_string&lt;char&gt;' data-ref="std::string">string</a>&amp; <dfn class="local col1 decl" id="1id" title='id' data-type='const string &amp;' data-ref="1id">id</dfn>, <em>const</em> <a class="type" href="../protobuf/meta_graph.pb.h.html#tensorflow::MetaGraphDef" title='tensorflow::MetaGraphDef' data-ref="tensorflow::MetaGraphDef">MetaGraphDef</a>&amp; <dfn class="local col2 decl" id="2meta_graph" title='meta_graph' data-type='const tensorflow::MetaGraphDef &amp;' data-ref="2meta_graph">meta_graph</dfn>, <em>const</em> <a class="type" href="#tensorflow::grappler::ItemConfig" title='tensorflow::grappler::ItemConfig' data-ref="tensorflow::grappler::ItemConfig">ItemConfig</a>&amp; <dfn class="local col3 decl" id="3cfg" title='cfg' data-type='const tensorflow::grappler::ItemConfig &amp;' data-ref="3cfg">cfg</dfn>);</td></tr>
 <tr><th id="58">58</th><td></td></tr>
 <tr><th id="59">59</th><td>}  <i>// end namespace grappler</i></td></tr>
 <tr><th id="60">60</th><td>}  <i>// end namespace tensorflow</i></td></tr>
@@ -76,6 +76,6 @@
 <tr><th id="62">62</th><td><u>#<span data-ppcond="16">endif</span>  // TENSORFLOW_GRAPPLER_GRAPPLER_ITEM_BUILDER_H_</u></td></tr>
 <tr><th id="63">63</th><td></td></tr>
 </table><hr/><p id='footer'>
-Generated while processing <a href='grappler_item_builder.cc.html'>tensorflow/tensorflow/core/grappler/grappler_item_builder.cc</a><br/>Generated on <em>2018-Aug-09</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
+Generated while processing <a href='grappler_item_builder.cc.html'>tensorflow/tensorflow/core/grappler/grappler_item_builder.cc</a><br/>Generated on <em>2018-Sep-06</em> from project tensorflow revision <em>v1.8</em><br />Powered by <a href='https://woboq.com'><img alt='Woboq' src='https://code.woboq.org/woboq-16.png' width='41' height='16' /></a> <a href='https://code.woboq.org'>Code Browser</a> 2.1
 <br/>Generator usage only permitted with license.</p>
 </div></body></html>
